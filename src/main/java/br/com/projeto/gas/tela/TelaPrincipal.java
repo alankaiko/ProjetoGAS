@@ -1,26 +1,35 @@
 package br.com.projeto.gas.tela;
 
 import java.awt.BorderLayout;
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
 import java.awt.Color;
-import javax.swing.JMenuBar;
-import javax.swing.JMenu;
-import java.awt.Panel;
-import java.awt.Label;
+import java.awt.Dimension;
+import java.awt.EventQueue;
 import java.awt.FlowLayout;
 import java.awt.Font;
-import javax.swing.JMenuItem;
+import java.awt.Label;
+import java.awt.Panel;
 import java.awt.SystemColor;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.text.DecimalFormat;
+import java.util.Calendar;
+
+import javax.swing.BorderFactory;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JPanel;
+import javax.swing.border.Border;
 
 public class TelaPrincipal extends JFrame {
+	JPanel painelPrincipal;  
+    JLabel horas, data, usuarioLogado;
+	String diaSemana[] = {"Domingo", "Segunda-feira", "Terça-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira", "Sábado"};              
+	String meses[] = {"Janeiro", "fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"}; 
 
-	/**
-	 * Launch the application.
-	 */
+
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -36,9 +45,8 @@ public class TelaPrincipal extends JFrame {
 		});
 	}
 
-	/**
-	 * Create the frame.
-	 */
+
+
 	public TelaPrincipal() {
 		setBackground(Color.WHITE);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -127,7 +135,7 @@ public class TelaPrincipal extends JFrame {
 		menuBar.add(mnSair);
 		getContentPane().setLayout(null);
 		
-		JPanel painelPrincipal = new JPanel();
+		painelPrincipal = new JPanel();
 		painelPrincipal.setBackground(Color.WHITE);
 		painelPrincipal.setBounds(0, 0, 784, 441);
 		getContentPane().add(painelPrincipal);
@@ -216,9 +224,72 @@ public class TelaPrincipal extends JFrame {
 		rotuloRelItens.setBounds(5, 5, 130, 30);
 		panel_8.add(rotuloRelItens);
 		
-		Panel barraStatus = new Panel();
-		barraStatus.setBackground(new Color(108,117,127));
-		barraStatus.setBounds(0, 421, 784, 20);
-		painelPrincipal.add(barraStatus);
+		barraDeStatus();
+		
 	}
+	
+	public void barraDeStatus(){
+		BorderLayout layout = new BorderLayout();
+		painelPrincipal.setLayout(layout);
+	    
+	    Border border = BorderFactory.createLoweredBevelBorder();
+	    
+	    horas = new JLabel("horas", JLabel.CENTER);
+	    horas.setPreferredSize(new Dimension(75, 20));
+	    horas.setBorder(border);
+	    
+	    data = new JLabel("data", JLabel.CENTER);
+	    data.setPreferredSize(new Dimension(240, 20));
+	    data.setBorder(border);
+	    
+	    usuarioLogado = new JLabel("Usuário: ", JLabel.CENTER);
+	    usuarioLogado.setPreferredSize(new Dimension(400, 20));
+	    usuarioLogado.setBorder(border);
+	    
+	   
+	    
+		JPanel inferior = new JPanel();
+		inferior.setLayout(new FlowLayout(FlowLayout.LEFT, 1, 0));
+		inferior.add(horas);
+		inferior.add(data);
+		inferior.add(usuarioLogado);
+	    
+	    painelPrincipal.add(inferior, BorderLayout.SOUTH);
+	    
+	    ActionListener tarefa = new ActionListener(){
+	      public void actionPerformed(ActionEvent e){
+	        horasData();
+	      }
+	    };
+
+	    javax.swing.Timer timer = new javax.swing.Timer(1000, tarefa);
+	    timer.start();
+	    
+	}
+	
+	private void horasData(){
+		Calendar agora = Calendar.getInstance();
+		int ho = agora.get(Calendar.HOUR_OF_DAY);
+		int mi = agora.get(Calendar.MINUTE);
+		int se = agora.get(Calendar.SECOND);
+		
+		int ds = agora.get(Calendar.DAY_OF_WEEK);
+		int dia = agora.get(Calendar.DAY_OF_MONTH);
+		int mes = agora.get(Calendar.MONTH);
+		int ano = agora.get(Calendar.YEAR);
+		
+		horas.setText(formatar(ho % 24) + ":" + formatar(mi) + ":" + formatar(se) + "");
+		
+		data.setText(diaSemana[ds - 1] + ", " + formatar(dia) + " de " + meses[mes] + " de " + ano + "");
+	}
+	  
+	private String formatar(int num){
+		DecimalFormat df = new DecimalFormat("00");
+		    
+		return df.format(num);
+	}
+		  
+	 
+	 
+    
 }
