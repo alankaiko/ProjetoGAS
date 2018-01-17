@@ -53,7 +53,7 @@ public class TelaPrincipal extends JFrame {
 		setBounds(100, 100, 800, 500);
 		
 		JMenuBar menuBar = new JMenuBar();
-		menuBar.setBackground(Color.GRAY);
+		menuBar.setBackground(new Color(217,236,255));
 		setJMenuBar(menuBar);
 		
 		JMenu mnNewMenu = new JMenu("Arquivo");
@@ -142,7 +142,7 @@ public class TelaPrincipal extends JFrame {
 		painelPrincipal.setLayout(null);
 		
 		Panel painelMenuRapido = new Panel();
-		painelMenuRapido.setBackground(SystemColor.textHighlight);
+		painelMenuRapido.setBackground(new Color(18,46,81));
 		painelMenuRapido.setBounds(15, 0, 239, 420);
 		painelPrincipal.add(painelMenuRapido);
 		painelMenuRapido.setLayout(null);
@@ -160,7 +160,7 @@ public class TelaPrincipal extends JFrame {
 		rotuloMenuRapido.add(label);
 		
 		Panel panel_4 = new Panel();
-		panel_4.setBackground(new Color(0,122,204));
+		panel_4.setBackground(new Color(23,58,102));
 		panel_4.setBounds(0, 109, 239, 35);
 		painelMenuRapido.add(panel_4);
 		panel_4.setLayout(null);
@@ -174,8 +174,8 @@ public class TelaPrincipal extends JFrame {
 		
 		Panel panel_5 = new Panel();
 		panel_5.setLayout(null);
-		panel_5.setBackground(new Color(0,122,204));
-		panel_5.setBounds(0, 150, 239, 35);
+		panel_5.setBackground(new Color(23,58,102));
+		panel_5.setBounds(0, 145, 239, 35);
 		painelMenuRapido.add(panel_5);
 		
 		Label rotuloFuncionarios = new Label("Funcion\u00E1rios");
@@ -187,8 +187,8 @@ public class TelaPrincipal extends JFrame {
 		
 		Panel panel_6 = new Panel();
 		panel_6.setLayout(null);
-		panel_6.setBackground(new Color(0,122,204));
-		panel_6.setBounds(0, 191, 239, 35);
+		panel_6.setBackground(new Color(23,58,102));
+		panel_6.setBounds(0, 181, 239, 35);
 		painelMenuRapido.add(panel_6);
 		
 		Label rotuloProdutos = new Label("Produtos");
@@ -200,8 +200,8 @@ public class TelaPrincipal extends JFrame {
 		
 		Panel panel_7 = new Panel();
 		panel_7.setLayout(null);
-		panel_7.setBackground(new Color(0,122,204));
-		panel_7.setBounds(0, 232, 239, 35);
+		panel_7.setBackground(new Color(23,58,102));
+		panel_7.setBounds(0, 217, 239, 35);
 		painelMenuRapido.add(panel_7);
 		
 		Label rotuloRelPaciente = new Label("Relat\u00F3rio de Pacientes");
@@ -213,8 +213,8 @@ public class TelaPrincipal extends JFrame {
 		
 		Panel panel_8 = new Panel();
 		panel_8.setLayout(null);
-		panel_8.setBackground(new Color(0,122,204));
-		panel_8.setBounds(0, 273, 239, 35);
+		panel_8.setBackground(new Color(23,58,102));
+		panel_8.setBounds(0, 253, 239, 35);
 		painelMenuRapido.add(panel_8);
 		
 		Label rotuloRelItens = new Label("Relat\u00F3rio de Itens");
@@ -234,21 +234,29 @@ public class TelaPrincipal extends JFrame {
 	    
 	    Border border = BorderFactory.createLoweredBevelBorder();
 	    
-	    horas = new JLabel("horas", JLabel.CENTER);
+	    horas = new JLabel("HORAS", JLabel.CENTER);
+	    horas.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 14));
+	    horas.setForeground(Color.WHITE);
 	    horas.setPreferredSize(new Dimension(75, 20));
 	    horas.setBorder(border);
 	    
-	    data = new JLabel("data", JLabel.CENTER);
+	    data = new JLabel("DATA", JLabel.CENTER);
+	    data.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 14));
+	    data.setForeground(Color.WHITE);
 	    data.setPreferredSize(new Dimension(240, 20));
 	    data.setBorder(border);
 	    
 	    usuarioLogado = new JLabel("Usuário: ", JLabel.CENTER);
+	    usuarioLogado.setForeground(Color.WHITE);
+	    usuarioLogado.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 14));
 	    usuarioLogado.setPreferredSize(new Dimension(400, 20));
 	    usuarioLogado.setBorder(border);
 	    
 	   
 	    
 		JPanel inferior = new JPanel();
+		inferior.setForeground(Color.WHITE);
+		inferior.setBackground(new Color(119,119,119));
 		inferior.setLayout(new FlowLayout(FlowLayout.LEFT, 1, 0));
 		inferior.add(horas);
 		inferior.add(data);
