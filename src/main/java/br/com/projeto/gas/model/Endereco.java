@@ -7,7 +7,7 @@ public class Endereco implements Serializable {
 
 	private double id;
 	private String logradouro;
-	private String complementoString;
+	private String complemento;
 	private double numero;
 	private String bairro;
 	private String cidade;
@@ -31,12 +31,13 @@ public class Endereco implements Serializable {
 		this.logradouro = logradouro;
 	}
 
-	public String getComplementoString() {
-		return complementoString;
+	
+	public String getComplemento() {
+		return complemento;
 	}
 
-	public void setComplementoString(String complementoString) {
-		this.complementoString = complementoString;
+	public void setComplemento(String complemento) {
+		this.complemento = complemento;
 	}
 
 	public double getNumero() {
