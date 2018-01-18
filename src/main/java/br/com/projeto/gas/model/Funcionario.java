@@ -1,6 +1,7 @@
 package br.com.projeto.gas.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -15,7 +16,7 @@ public class Funcionario implements Serializable{
 	private SexoType sexo;
 	private String observacoes;
 	private Contato contato;
-	private List<Endereco> endereco;
+	private List<Endereco> endereco = new ArrayList<Endereco>();
 	
 	
 	
