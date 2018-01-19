@@ -28,15 +28,13 @@
         <property name="show_sql">true</property>
 
         <!-- Drop and re-create the database schema on startup -->
-        <property name="hbm2ddl.auto">validate</property>
+        <property name="hbm2ddl.auto">create</property>
         	
         <property name="hibernate.temp.use_jdbc_metadata_defaults">false</property>
 		
-		<mapping class="br.com.projeto.Domain.DadosNotaEntrada"/>
-      	<mapping class="br.com.projeto.Domain.ItensNotaEntrada"/>
-		<mapping class="br.com.projeto.Domain.Itens"/>
-		<mapping class="br.com.projeto.Domain.DadosNotaSaida"/>
-		<mapping class="br.com.projeto.Domain.ItensNotaSaida"/>
+		<mapping class="br.com.projeto.gsv.controller.Contato"/>
+      	<mapping class="br.com.projeto.gsv.controller.Endereco"/>
+      	<mapping class="br.com.projeto.gsv.controller.Funcionario"/>
     </session-factory>
 
 </hibernate-configuration>

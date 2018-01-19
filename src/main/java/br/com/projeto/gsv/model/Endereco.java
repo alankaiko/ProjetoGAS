@@ -2,6 +2,16 @@ package br.com.projeto.gsv.model;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+
+@Entity
+@Table(name="endereco")
 public class Endereco implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -14,7 +24,8 @@ public class Endereco implements Serializable {
 	private String estado;
 	
 	
-
+	@Id
+	@GeneratedValue
 	public double getId() {
 		return id;
 	}
@@ -23,6 +34,7 @@ public class Endereco implements Serializable {
 		this.id = id;
 	}
 
+	@Column(nullable=false, length=150)
 	public String getLogradouro() {
 		return logradouro;
 	}
@@ -31,7 +43,7 @@ public class Endereco implements Serializable {
 		this.logradouro = logradouro;
 	}
 
-	
+	@Column(length=60)
 	public String getComplemento() {
 		return complemento;
 	}
@@ -39,7 +51,8 @@ public class Endereco implements Serializable {
 	public void setComplemento(String complemento) {
 		this.complemento = complemento;
 	}
-
+	
+	@Column(length=10)
 	public double getNumero() {
 		return numero;
 	}
@@ -48,6 +61,7 @@ public class Endereco implements Serializable {
 		this.numero = numero;
 	}
 
+	@Column(nullable=false, length=50)
 	public String getBairro() {
 		return bairro;
 	}
@@ -56,6 +70,7 @@ public class Endereco implements Serializable {
 		this.bairro = bairro;
 	}
 
+	@Column(nullable=false, length=60)
 	public String getCidade() {
 		return cidade;
 	}
@@ -64,6 +79,7 @@ public class Endereco implements Serializable {
 		this.cidade = cidade;
 	}
 
+	@Column(nullable=false, length=50)
 	public String getEstado() {
 		return estado;
 	}
@@ -71,5 +87,31 @@ public class Endereco implements Serializable {
 	public void setEstado(String estado) {
 		this.estado = estado;
 	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		long temp;
+		temp = Double.doubleToLongBits(id);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Endereco other = (Endereco) obj;
+		if (Double.doubleToLongBits(id) != Double.doubleToLongBits(other.id))
+			return false;
+		return true;
+	}
+	
+	
 
 }
