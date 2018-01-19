@@ -32,9 +32,9 @@
         	
         <property name="hibernate.temp.use_jdbc_metadata_defaults">false</property>
 		
-		<mapping class="br.com.projeto.gsv.controller.Contato"/>
-      	<mapping class="br.com.projeto.gsv.controller.Endereco"/>
-      	<mapping class="br.com.projeto.gsv.controller.Funcionario"/>
+		<mapping class="br.com.projeto.gsv.domain.Contato"/>
+      	<mapping class="br.com.projeto.gsv.domain.Endereco"/>
+      	<mapping class="br.com.projeto.gsv.domain.Funcionario"/>
     </session-factory>
 
 </hibernate-configuration>

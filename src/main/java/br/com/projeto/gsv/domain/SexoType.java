@@ -1,4 +1,4 @@
-package br.com.projeto.gsv.model;
+package br.com.projeto.gsv.domain;
 
 public enum SexoType {
 	MASCULINO("M"), FEMININO("F");

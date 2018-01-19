@@ -1,4 +1,4 @@
-package teste;
+package br.com.projeto.gsv.util;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
@@ -6,7 +6,6 @@ import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
 
 public class HibernateUtil {
-
     private static final SessionFactory sessionFactory = buildSessionFactory();
 
     private static SessionFactory buildSessionFactory() {
@@ -15,16 +14,13 @@ public class HibernateUtil {
         	configuration.configure();
         	
         	ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
-        	.applySettings(configuration.getProperties())
-        	.build();
+	        	.applySettings(configuration.getProperties())
+	        	.build();
         	
         	SessionFactory sessionFactory = configuration.buildSessionFactory(serviceRegistry);
-        	
-        	return sessionFactory;
-        
+        	return sessionFactory;        
         }
         catch (Throwable ex) {
-         
             System.err.println("Falha na criacao da Sessao" + ex);
             throw new ExceptionInInitializerError(ex);
         }

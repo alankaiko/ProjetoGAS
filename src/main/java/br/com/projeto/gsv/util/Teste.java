@@ -1,7 +1,7 @@
-package teste;
+package br.com.projeto.gsv.util;
 
 
-public class TESte {
+public class Teste {
 
 	public static void main(String[] args) {
 		HibernateUtil.getSessionFactory().openSession();
