@@ -1,4 +1,4 @@
-package br.com.projeto.gas.model;
+package br.com.projeto.gsv.model;
 
 import java.io.Serializable;
 

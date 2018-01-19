@@ -1,4 +1,4 @@
-package br.com.projeto.gas.tela;
+package br.com.projeto.gsv.tela;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -26,8 +26,8 @@ import javax.swing.border.Border;
 public class TelaPrincipal extends JFrame {
 	JPanel painelPrincipal;  
     JLabel horas, data, usuarioLogado;
-	String diaSemana[] = {"Domingo", "Segunda-feira", "Terça-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira", "Sábado"};              
-	String meses[] = {"Janeiro", "fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"}; 
+	String diaSemana[] = {"Domingo", "Segunda-feira", "Terï¿½a-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira", "Sï¿½bado"};              
+	String meses[] = {"Janeiro", "fevereiro", "Marï¿½o", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"}; 
 
 
 	public static void main(String[] args) {
@@ -246,7 +246,7 @@ public class TelaPrincipal extends JFrame {
 	    data.setPreferredSize(new Dimension(240, 20));
 	    data.setBorder(border);
 	    
-	    usuarioLogado = new JLabel("Usuário: ", JLabel.CENTER);
+	    usuarioLogado = new JLabel("Usuï¿½rio: ", JLabel.CENTER);
 	    usuarioLogado.setForeground(Color.WHITE);
 	    usuarioLogado.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 14));
 	    usuarioLogado.setPreferredSize(new Dimension(400, 20));
