@@ -6,7 +6,13 @@ import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.PersistenceException;
 
+
+
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+
 import br.com.projeto.gsv.domain.Funcionario;
+import br.com.projeto.gsv.util.HibernateUtil;
 
 
 public class FuncionarioRepository {
@@ -65,8 +71,21 @@ public class FuncionarioRepository {
 	
 
 	// insere um funcionario no banco
-	public Funcionario Adicionar(Funcionario funcionario) {
-		return manager.merge(funcionario);
+	public void Adicionar(Funcionario funcionario) {
+		Session sessao = HibernateUtil.getSessionFactory().openSession();
+		Transaction transacao = null;
+
+		try {
+			transacao = sessao.beginTransaction();
+			sessao.save(funcionario);
+			transacao.commit();
+		} catch (RuntimeException e) {
+			if (transacao != null)
+				transacao.rollback();
+			throw e;
+		} finally {
+			sessao.close();
+		}
 	}
 
 }

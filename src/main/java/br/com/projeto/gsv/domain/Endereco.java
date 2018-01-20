@@ -25,7 +25,7 @@ public class Endereco implements Serializable {
 	
 	
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy =GenerationType.AUTO)
 	public double getId() {
 		return id;
 	}
