@@ -16,32 +16,32 @@ public class TEstando {
 		
 		Cliente cliente = new Cliente();
 		cliente.setId(2L);
-		cliente.setNome("Gernervindo e voltando");
+		cliente.setNome("abigail e voltando");
 		cliente.setTipo(TipoPessoa.FISICA);
 		cliente.setDocumento("148.148.548-77");
 		cliente.setRg_insc("8447711");
 		cliente.setDataCad(new Date());
 		cliente.setDataNasc(new Date());
-		cliente.setSexo(SexoType.FEMININO);
-		cliente.setObservacao("continua sem nada pra falar");
+		cliente.setSexo(SexoType.MASCULINO);
+		cliente.setObservacao("condas pra falar");
 		
 		
 		Contato contato = new Contato();
-		contato.setEmail("gernervindo@hotmail.com");
-		contato.setCelular("999477584");
-		contato.setTelefone("481225547");
+		contato.setEmail("fdasf@hotmail.com");
+		contato.setCelular("43523452345");
+		contato.setTelefone("14145235");
 		contato.setCliente(cliente);
 		
 		Contato contato1 = new Contato();
-		contato1.setEmail("gernervindo@hotmail.com");
-		contato1.setCelular("999477584");
-		contato1.setTelefone("481225547");
+		contato1.setEmail("vdafvdsav@hotmail.com");
+		contato1.setCelular("143152345235");
+		contato1.setTelefone("3425252345");
 		contato1.setCliente(cliente);
 		
 		Contato contato2 = new Contato();
 		contato2.setEmail("gernervindo@hotmail.com");
-		contato2.setCelular("999477584");
-		contato2.setTelefone("481225547");
+		contato2.setCelular("35");
+		contato2.setTelefone("3322");
 		contato2.setCliente(cliente);
 		
 		Endereco endereco = new Endereco();
@@ -66,7 +66,7 @@ public class TEstando {
 		controller.setCliente(cliente);
 		//controller.setContato(contato);
 		//controller.setEndereco(endereco);
-		controller.SalvarCliente();
-	}
+		controller.EditarCliente();
+}
 
 }

@@ -63,7 +63,7 @@ public class Contato implements Serializable {
 	}
 
 	@ManyToOne
-	@JoinColumn(name="cliente_codigo")
+	@JoinColumn(name="cliente_codigo", insertable=true)
 	public Cliente getCliente() {
 		return cliente;
 	}
