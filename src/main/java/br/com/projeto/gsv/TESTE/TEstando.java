@@ -15,33 +15,33 @@ public class TEstando {
 		ClienteController controller = new ClienteController();
 		
 		Cliente cliente = new Cliente();
-		cliente.setNome("João das Couves");
+		cliente.setId(2L);
+		cliente.setNome("Gernervindo e voltando");
 		cliente.setTipo(TipoPessoa.FISICA);
-		cliente.setDocumento("123.456.789-90");
-		cliente.setTipo(TipoPessoa.FISICA);
-		cliente.setRg("4112254");
+		cliente.setDocumento("148.148.548-77");
+		cliente.setRg_insc("8447711");
 		cliente.setDataCad(new Date());
 		cliente.setDataNasc(new Date());
-		cliente.setSexo(SexoType.MASCULINO);
-		cliente.setObservacao("nada a declarar");
+		cliente.setSexo(SexoType.FEMININO);
+		cliente.setObservacao("continua sem nada pra falar");
 		
 		
 		Contato contato = new Contato();
-		contato.setEmail("vinicius_cok@hotmail.com");
-		contato.setCelular("11111111");
-		contato.setTelefone("111111");
+		contato.setEmail("gernervindo@hotmail.com");
+		contato.setCelular("999477584");
+		contato.setTelefone("481225547");
 		contato.setCliente(cliente);
 		
 		Contato contato1 = new Contato();
-		contato1.setEmail("vinicius_cok@hotmail.com");
-		contato1.setCelular("11111111");
-		contato1.setTelefone("111111");
+		contato1.setEmail("gernervindo@hotmail.com");
+		contato1.setCelular("999477584");
+		contato1.setTelefone("481225547");
 		contato1.setCliente(cliente);
 		
 		Contato contato2 = new Contato();
-		contato2.setEmail("vinicius_cok@hotmail.com");
-		contato2.setCelular("11111111");
-		contato2.setTelefone("111111");
+		contato2.setEmail("gernervindo@hotmail.com");
+		contato2.setCelular("999477584");
+		contato2.setTelefone("481225547");
 		contato2.setCliente(cliente);
 		
 		Endereco endereco = new Endereco();

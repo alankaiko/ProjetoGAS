@@ -13,22 +13,27 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
-import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "cliente")
+@NamedQueries({
+	@NamedQuery(name="Cliente.listar", query="SELECT cliente FROM Cliente cliente"),
+	@NamedQuery(name="Cliente.buscarPorCodigo", query="SELECT cliente FROM Cliente cliente WHERE cliente.id= :id")
+})
 public class Cliente implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private Long id;
 	private String nome;
 	private String documento;
-	private String rg;
+	private String rg_insc;
 	private Date dataNasc;
 	private Date dataCad;
 	private SexoType sexo;
@@ -67,13 +72,13 @@ public class Cliente implements Serializable {
 		this.documento = documento;
 	}
 
-	@Column(nullable = false, length = 9)
-	public String getRg() {
-		return rg;
+	@Column(name="rginscricao",nullable = false, length = 9)
+	public String getRg_insc() {
+		return rg_insc;
 	}
 
-	public void setRg(String rg) {
-		this.rg = rg;
+	public void setRg_insc(String rg_insc) {
+		this.rg_insc = rg_insc;
 	}
 
 	@Temporal(TemporalType.TIMESTAMP)
@@ -194,13 +199,26 @@ public class Cliente implements Serializable {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Cliente [id=").append(id).append(", nome=")
-				.append(nome).append(", documento=").append(documento)
-				.append(", rg=").append(rg).append(", dataNasc=")
-				.append(dataNasc).append(", dataCad=").append(dataCad)
-				.append(", sexo=").append(sexo).append(", tipo=").append(tipo)
-				.append(", contato=").append(contato).append(", endereco=")
-				.append(endereco).append(", observacao=").append(observacao)
+		builder.append("Cliente [id=")
+				.append(id).append(", nome=")
+				.append(nome).append(", documento=")
+				.append(documento)
+				.append(", rg=")
+				.append(rg_insc)
+				.append(", dataNasc=")
+				.append(dataNasc)
+				.append(", dataCad=")
+				.append(dataCad)
+				.append(", sexo=")
+				.append(sexo)
+				.append(", tipo=")
+				.append(tipo)
+				.append(", contato=")
+				.append(contato)
+				.append(", endereco=")
+				.append(endereco)
+				.append(", observacao=")
+				.append(observacao)
 				.append("]");
 		return builder.toString();
 	}

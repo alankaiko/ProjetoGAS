@@ -100,9 +100,15 @@ public class Contato implements Serializable {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Contato [id=").append(id).append(", email=")
-				.append(email).append(", telefone=").append(telefone)
-				.append(", celular=").append(celular).append("]");
+		builder.append("Contato [id=")
+				.append(id)
+				.append(", email=")
+				.append(email)
+				.append(", telefone=")
+				.append(telefone)
+				.append(", celular=")
+				.append(celular)
+				.append("]");
 		return builder.toString();
 	}
 
