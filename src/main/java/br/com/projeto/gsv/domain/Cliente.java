@@ -137,7 +137,7 @@ public class Cliente implements Serializable {
 	/* NotNull= o contato não pode ser nulo, OneToMany= um para muitos mappedby campo 
 	 * da outra classe que está sendo mapeado CascadeType.ALL= quando um cliente for 
 	 * excluído o contato é excluído junto com ele.	 */
-	@OneToMany(mappedBy="cliente", cascade= CascadeType.ALL, fetch=FetchType.EAGER)	
+	@OneToMany(mappedBy="cliente", cascade= CascadeType.ALL, fetch=FetchType.LAZY)	
 	public List<Endereco> getEndereco() {
 		return endereco;
 	}

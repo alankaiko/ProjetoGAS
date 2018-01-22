@@ -1,5 +1,7 @@
 package br.com.projeto.gsv.controller;
 
+import java.util.List;
+
 import br.com.projeto.gsv.domain.Cliente;
 import br.com.projeto.gsv.domain.Contato;
 import br.com.projeto.gsv.domain.Endereco;
@@ -26,15 +28,27 @@ public class ClienteController {
 		this.cadastroService.Editar(this.cliente);
 	}
 	
+	public void RemoverCliente(){
+		this.cadastroService.Remover(this.cliente);
+	}
+	
+	public List<Cliente> ListaCompletaDeClientes(){
+		return this.cadastroService.ListandoClientes();
+	}
+	
 	public Cliente BuscarPelaID(Long id){
 		return this.cadastroService.BuscandoId(id);
 	}
+	
+	
+	
+	
+	
 	
 	public Cliente getCliente() {
 		return cliente;
 	}
 	
-
 	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
 	}
