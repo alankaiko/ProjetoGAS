@@ -55,7 +55,8 @@ public class ClienteRepository {
 
 		try {
 			transacao = sessao.beginTransaction();
-			sessao.saveOrUpdate(cliente);
+			//sessao.update(cliente);
+			sessao.update(cliente);
 			transacao.commit();
 		} catch (RuntimeException e) {
 			if (transacao != null)

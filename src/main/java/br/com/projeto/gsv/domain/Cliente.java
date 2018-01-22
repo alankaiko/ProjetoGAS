@@ -10,6 +10,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -118,7 +119,7 @@ public class Cliente implements Serializable {
 	}
 	
 	
-
+	
 	/* NotNull= o contato não pode ser nulo, OneToMany= um para muitos mappedby
 	 * campo da outra classe que está sendo mapeado CascadeType.ALL= quando um
 	 * cliente for excluído ocontato é excluído junto com ele.*/
@@ -136,7 +137,7 @@ public class Cliente implements Serializable {
 	/* NotNull= o contato não pode ser nulo, OneToMany= um para muitos mappedby campo 
 	 * da outra classe que está sendo mapeado CascadeType.ALL= quando um cliente for 
 	 * excluído o contato é excluído junto com ele.	 */
-	@OneToMany(mappedBy="cliente", cascade= CascadeType.ALL)	
+	@OneToMany(mappedBy="cliente", cascade= CascadeType.ALL, fetch=FetchType.EAGER)	
 	public List<Endereco> getEndereco() {
 		return endereco;
 	}

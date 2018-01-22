@@ -16,20 +16,20 @@ public class TEstando {
 		
 		Cliente cliente = new Cliente();
 		cliente.setId(2L);
-		cliente.setNome("abigail e voltando");
-		cliente.setTipo(TipoPessoa.FISICA);
-		cliente.setDocumento("148.148.548-77");
-		cliente.setRg_insc("8447711");
+		cliente.setNome("juranildeles pacheco silva");
+		cliente.setTipo(TipoPessoa.JURIDICA);
+		cliente.setDocumento("472258430001-54");
+		cliente.setRg_insc("2554");
 		cliente.setDataCad(new Date());
 		cliente.setDataNasc(new Date());
-		cliente.setSexo(SexoType.MASCULINO);
-		cliente.setObservacao("condas pra falar");
+		cliente.setSexo(SexoType.FEMININO);
+		cliente.setObservacao("agora vai malucao");
 		
 		
 		Contato contato = new Contato();
-		contato.setEmail("fdasf@hotmail.com");
-		contato.setCelular("43523452345");
-		contato.setTelefone("14145235");
+		contato.setEmail("teste@hotmail.com");
+		contato.setCelular("daff mariasdf");
+		contato.setTelefone("14aff maria5");
 		contato.setCliente(cliente);
 		
 		Contato contato1 = new Contato();
@@ -60,13 +60,16 @@ public class TEstando {
 		cliente.getContato().add(contato2);
 		cliente.getEndereco().add(endereco);
 		
-
+		
+		
 		
 		controller.Inicializar();
 		controller.setCliente(cliente);
-		//controller.setContato(contato);
-		//controller.setEndereco(endereco);
-		controller.EditarCliente();
-}
+		controller.SalvarCliente();
+		//controller.EditarCliente();
+		//cliente = controller.BuscarPelaID(1L);
+		
+		//System.out.println(cliente.getContato().toString());
+	}
 
 }

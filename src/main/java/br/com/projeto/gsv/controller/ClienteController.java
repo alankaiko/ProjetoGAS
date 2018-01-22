@@ -26,6 +26,10 @@ public class ClienteController {
 		this.cadastroService.Editar(this.cliente);
 	}
 	
+	public Cliente BuscarPelaID(Long id){
+		return this.cadastroService.BuscandoId(id);
+	}
+	
 	public Cliente getCliente() {
 		return cliente;
 	}

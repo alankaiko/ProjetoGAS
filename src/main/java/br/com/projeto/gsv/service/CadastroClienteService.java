@@ -19,7 +19,7 @@ public class CadastroClienteService {
 	}
 	
 	
-	public void BuscandoId(Long id){
-		this.repositorio.BuscarPorId(id);
+	public Cliente BuscandoId(Long id){
+		return this.repositorio.BuscarPorId(id);
 	}
 }
