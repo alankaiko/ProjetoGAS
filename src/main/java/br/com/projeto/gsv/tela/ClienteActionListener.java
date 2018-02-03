@@ -2,16 +2,16 @@ package br.com.projeto.gsv.tela;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
+
+import javax.swing.JTextField;
 
 import br.com.projeto.gsv.domain.Cliente;
 import br.com.projeto.gsv.domain.Contato;
 import br.com.projeto.gsv.domain.Endereco;
-import br.com.projeto.gsv.domain.SexoType;
 import br.com.projeto.gsv.domain.TipoPessoa;
 import br.com.projeto.gsv.service.CadastroClienteService;
+import br.com.projeto.gsv.util.TransformaDate;
 
 public class ClienteActionListener implements ActionListener{
 
@@ -28,14 +28,20 @@ public class ClienteActionListener implements ActionListener{
 		AdicionarListener();
 	}
 	
-private void Inserir(){
+	private void Inserir(){
 		
 	}
 	
-	private void Salvar(){}
+	private void Salvar(){
+		FormToCliente();
+		FormToContato();
+		FormToEndereco();
+		AtrelarObjetos();
+		service.Salvar(this.cliente);
+	}
 	
 	//Classe pega os botoes do formulario e atrela à esta classe controller aqui (propria classe ClienteActionListener)
-	public void AdicionarListener(){
+	private void AdicionarListener(){
 		formulario.getBTNovo().addActionListener(this);
 		formulario.getBTGravar().addActionListener(this);
 		formulario.getBTCancelar().addActionListener(this);
@@ -60,32 +66,28 @@ private void Inserir(){
 	}	
 	
 	//Classe que pega informacoes do cliente e joga dentro do objeto Cliente
-	private Cliente FormToCliente(){
+	private void FormToCliente(){
 		cliente = new Cliente();
 		cliente.setNome(this.formulario.getTNome().getText());
 		cliente.setDocumento(this.formulario.getJCpf().getText());
 		cliente.setRg_insc(this.formulario.getTRg_insc().getText());
 		cliente.setDataCad(new Date());
-		cliente.setDataNasc(new Date());
-		cliente.setSexo(SexoType.MASCULINO);
+		cliente.setDataNasc(TransformaDate.Transformando(this.formulario.getJDataNasc().getText()));
+		cliente.setTipo(TipoPessoa.FISICA);
 		cliente.setObservacao(this.formulario.getTObservacao().getText());
-		
-		return cliente;
 	}
 	
 	//Classe que pega informacoes dos contatos e Joga dentro do objeto Contatos
-	private Contato FormToContato(){
+	private void FormToContato(){
 		contato = new Contato();
 		
 		contato.setEmail(this.formulario.getTEmail().getText());
 		contato.setCelular(this.formulario.getTCelular().getText());
 		contato.setTelefone(this.formulario.getTTelefone().getText());
-		
-		return contato;
 	}
 	
 	//Classe que pega infromacoes do Endereco e joga dentro do objeto Endereco
-	private Endereco FormToEndereco(){
+	private void FormToEndereco(){
 		endereco = new Endereco();
 		
 		endereco.setLogradouro(this.formulario.getTLogradouro().getText());
@@ -94,25 +96,42 @@ private void Inserir(){
 		endereco.setBairro(this.formulario.getTBairro().getText());
 		endereco.setCidade(this.formulario.getTCidade().getText());
 		endereco.setEstado(this.formulario.getTCep().getText());
-		
-		return endereco;
 	}
-	
 
 	
 	
+	
+	
+	
+	
+	/*-----------------------------------------------------------------------------------------------------------------*/
+	/*---------------------------------------CLASSES PARA EDICAO DOS OBJETOS-------------------------------------------*/
+	public void AlterandoObjetos(){
+		this.formulario.getTNome().setText(this.cliente.getNome());
+		this.formulario.getTRg_insc().setText(this.cliente.getRg_insc());
+		this.formulario.getJCpf().setText(this.cliente.getDocumento());
+		this.formulario.getTObservacao().setText(this.cliente.getObservacao());
+		this.formulario.getTLogradouro().setText(this.endereco.getLogradouro());
+		this.formulario.getTComplemento().setText(this.endereco.getComplemento());
+		this.formulario.getTNumero().setText(String.valueOf(this.endereco.getNumero()));
+		
+	}
+
+	
+	 TObservacao, TLogradouro, TComplemento, TNumero;
+	private JTextField TBairro, TCidade, TCep, TEmail, TTelefone, TCelular;
 	
 	/*-----------------------------------------------------------------------------------------------------------------*/
 	/*-------------------CLASSES QUE POSSUI AS ACOES DOS BOTOES ---------------*/
 	
 	//Classe que possui eventos dos botoes da TELA
 	public void actionPerformed(ActionEvent event) {
-		if(event.getActionCommand().equals("Inserir")){
+		if(event.getActionCommand().equals("Novo")){
 			
 		}
 		
-		if(event.getActionCommand().equals("Salvar")){
-			
+		if(event.getActionCommand().equals("Gravar")){
+			Salvar();
 		}
 		
 		if(event.getActionCommand().equals("Cancelar")){

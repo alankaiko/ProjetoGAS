@@ -8,16 +8,17 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.text.ParseException;
 
+import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JFormattedTextField;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-import javax.swing.WindowConstants;
 import javax.swing.border.EmptyBorder;
 import javax.swing.text.MaskFormatter;
-import javax.swing.JButton;
+
+import br.com.projeto.gsv.util.TransformaDate;
 
 public class FrmIncluirClienteCPF extends JDialog {
 	private ClienteActionListener listener;
@@ -55,8 +56,6 @@ public class FrmIncluirClienteCPF extends JDialog {
 		contentPanel.setLayout(null);
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		
-		this.valor = valor;
-		this.codigo = codigo;
 	}
 	
 	
@@ -72,7 +71,7 @@ public class FrmIncluirClienteCPF extends JDialog {
 			LId = new JLabel ("Código:");
 			LId.setBounds(65,30,50,20);
 			LId.setFont(new Font("Arial",Font.BOLD,11));
-				TId = new JTextField(codigo+"5");
+				TId = new JTextField();
 				TId.setBounds(111,31,84,20);
 				TId.setBackground(new Color(255,255,204));
 				TId.setFont(new Font("Arial",Font.BOLD,10));
@@ -92,12 +91,6 @@ public class FrmIncluirClienteCPF extends JDialog {
 				JCpf= new JFormattedTextField(mascaraCpf);
 				JCpf.setBounds(111,62,173,19);		
 				
-			/*LTipoPessoa = new JLabel("Sexo:");
-			LTipoPessoa.setBounds(287,70,100,20);
-			LTipoPessoa.setFont(new Font("Arial" , Font.BOLD,11));;
-				lista4 = new JComboBox(tipopessoa);
-				lista4.setMaximumRowCount(4);
-				lista4.setBounds(320,70,115,19);*/
 						
 			LDataNasc = new JLabel("Data Nasc.:");
 			LDataNasc.setBounds(50,121,60,20);
@@ -120,13 +113,6 @@ public class FrmIncluirClienteCPF extends JDialog {
 				TRg_insc .setFont(new Font("Arial",Font.BOLD,10));
 						
 						
-			/*LSexo = new JLabel("Sexo:");
-			LSexo.setBounds(287,70,100,20);
-			LSexo.setFont(new Font("Arial" , Font.BOLD,11));;
-				lista3 = new JComboBox(sexo);
-				lista3.setMaximumRowCount(4);
-				lista3.setBounds(320,70,115,19);*/
-				
 					
 			LNome = new JLabel("*Nome:");
 			LNome.setBounds(65,90,50,20);
@@ -152,9 +138,11 @@ public class FrmIncluirClienteCPF extends JDialog {
 					mascaraDataCadastro.setPlaceholderCharacter('_');
 				}
 				catch(ParseException excp){}
-					
 				JDataCadastro= new JFormattedTextField(mascaraDataNasc);
+				JDataCadastro.setEditable(false);
+				JDataCadastro.setText(TransformaDate.RetornaDataAtual());
 				JDataCadastro.setBounds(525,30,84,19);
+
 				
 			LObservacao = new JLabel("Observação:");
 			LObservacao.setBounds(31,361,72,20);
@@ -242,7 +230,7 @@ public class FrmIncluirClienteCPF extends JDialog {
 				TTelefone = new JTextField();
 				TTelefone.setBounds(456, 322, 155, 20);
 				TTelefone.setColumns(10);	
-				
+					
 				
 		BTNovo = new JButton("Novo");
 		BTNovo.setFont(new Font("Calibri", Font.PLAIN, 12));
@@ -272,8 +260,6 @@ public class FrmIncluirClienteCPF extends JDialog {
 		tela.add(this.LDataCad);
 		tela.add(this.LObservacao);
 		tela.add(this.LIndentif);
-		//tela.add(this.ComboSexo);
-		//tela.add(this.ComboTipoPessoa);
 		tela.add(this.JDataCadastro);		
 		tela.add(this.JCpf);
 		tela.add(this.JDataNasc);
@@ -297,26 +283,23 @@ public class FrmIncluirClienteCPF extends JDialog {
 		tela.add(this.TEmail);
 		tela.add(this.TTelefone);
 		tela.add(this.TCelular);
-		tela.add(BTNovo);
-		tela.add(BTGravar);
-		tela.add(BTCancelar);
+		tela.add(this.BTNovo);
+		tela.add(this.BTGravar);
+		tela.add(this.BTCancelar);
 	}
 
 	
 	
 	private final JPanel contentPanel = new JPanel();
 	private Container tela = getContentPane();
-	private String valor, codigo;
 	private JLabel LId, LNome, LDocumento, LRg_insc, LDataNasc, LDataCad, LObservacao;
 	private JLabel LIndentif, LEndereco, LLogradouro, LComplemento;
 	private JLabel LNumero, LBairro, LCidade, LCep, LContato, LEmail, LCelular, LTelefone;
 	private MaskFormatter  mascaraCep, mascaraFoneFixo, mascaraFoneCel, mascaraCpf,mascaraDataNasc, mascaraDataCadastro;
 	private JTextField TId, TNome, TRg_insc, TObservacao, TLogradouro, TComplemento, TNumero;
 	private JTextField TBairro, TCidade, TCep, TEmail, TTelefone, TCelular;
-	private JComboBox  ComboSexo, ComboTipoPessoa;
 	private JFormattedTextField JCpf,JDataNasc, JDataCadastro;
 	private JButton BTNovo, BTGravar, BTCancelar;
-	
 	
 
 	public JButton getBTNovo() {
@@ -358,25 +341,6 @@ public class FrmIncluirClienteCPF extends JDialog {
 		this.tela = tela;
 	}
 
-
-	public String getValor() {
-		return valor;
-	}
-
-
-	public void setValor(String valor) {
-		this.valor = valor;
-	}
-
-
-	public String getCodigo() {
-		return codigo;
-	}
-
-
-	public void setCodigo(String codigo) {
-		this.codigo = codigo;
-	}
 
 
 	public JLabel getLId() {
@@ -759,26 +723,6 @@ public class FrmIncluirClienteCPF extends JDialog {
 	}
 
 
-	public JComboBox getComboSexo() {
-		return ComboSexo;
-	}
-
-
-	public void setComboSexo(JComboBox comboSexo) {
-		ComboSexo = comboSexo;
-	}
-
-
-	public JComboBox getComboTipoPessoa() {
-		return ComboTipoPessoa;
-	}
-
-
-	public void setComboTipoPessoa(JComboBox comboTipoPessoa) {
-		ComboTipoPessoa = comboTipoPessoa;
-	}
-
-
 	public JFormattedTextField getJCpf() {
 		return JCpf;
 	}
@@ -807,9 +751,6 @@ public class FrmIncluirClienteCPF extends JDialog {
 	public void setJDataCadastro(JFormattedTextField jDataCadastro) {
 		JDataCadastro = jDataCadastro;
 	}
-
-
-	
 
 	
 }

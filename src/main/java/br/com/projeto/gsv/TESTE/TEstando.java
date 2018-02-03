@@ -6,7 +6,6 @@ import br.com.projeto.gsv.controller.ClienteController;
 import br.com.projeto.gsv.domain.Cliente;
 import br.com.projeto.gsv.domain.Contato;
 import br.com.projeto.gsv.domain.Endereco;
-import br.com.projeto.gsv.domain.SexoType;
 import br.com.projeto.gsv.domain.TipoPessoa;
 
 public class TEstando {
@@ -22,7 +21,6 @@ public class TEstando {
 		cliente.setRg_insc("2554");
 		cliente.setDataCad(new Date());
 		cliente.setDataNasc(new Date());
-		cliente.setSexo(SexoType.FEMININO);
 		cliente.setObservacao("agora vai malucao");
 		
 		

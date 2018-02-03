@@ -37,7 +37,6 @@ public class Cliente implements Serializable {
 	private String rg_insc;
 	private Date dataNasc;
 	private Date dataCad;
-	private SexoType sexo;
 	private TipoPessoa tipo;
 	private List<Contato> contato = new ArrayList<Contato>();
 	private List<Endereco> endereco = new ArrayList<Endereco>();
@@ -100,16 +99,7 @@ public class Cliente implements Serializable {
 		this.dataCad = dataCad;
 	}
 
-	@Enumerated(EnumType.STRING)
-	@Column(length = 15)
-	public SexoType getSexo() {
-		return sexo;
-	}
-
-	public void setSexo(SexoType sexo) {
-		this.sexo = sexo;
-	}
-
+	
 	public TipoPessoa getTipo() {
 		return tipo;
 	}
@@ -211,7 +201,6 @@ public class Cliente implements Serializable {
 				.append(", dataCad=")
 				.append(dataCad)
 				.append(", sexo=")
-				.append(sexo)
 				.append(", tipo=")
 				.append(tipo)
 				.append(", contato=")
