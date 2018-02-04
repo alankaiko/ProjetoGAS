@@ -1,4 +1,4 @@
-package br.com.projeto.gsv.tela;
+package br.com.projeto.gsv.formularios;
 
 import java.awt.Color;
 import java.awt.EventQueue;

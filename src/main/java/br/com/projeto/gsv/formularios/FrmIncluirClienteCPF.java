@@ -1,4 +1,4 @@
-package br.com.projeto.gsv.tela;
+package br.com.projeto.gsv.formularios;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -7,7 +7,10 @@ import java.awt.Font;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.text.ParseException;
+import java.util.Vector;
 
+import javax.swing.ComboBoxModel;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
@@ -18,10 +21,12 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 import javax.swing.text.MaskFormatter;
 
+import br.com.projeto.gsv.Listeners.ClienteCPFListener;
+import br.com.projeto.gsv.util.ListasUtil;
 import br.com.projeto.gsv.util.TransformaDate;
 
 public class FrmIncluirClienteCPF extends JDialog {
-	private ClienteActionListener listener;
+	private ClienteCPFListener listener;
 	
 	public static void main(String[] args) {
 		try {
@@ -39,12 +44,12 @@ public class FrmIncluirClienteCPF extends JDialog {
 		CriarTelaGeral();
 		DadosCPF();
 		InicializaCompomentes();
-		listener = new ClienteActionListener(this);
+		listener = new ClienteCPFListener(this);
 	}
 	
 	
 	//cria e tela geral onde todos os componentes serao inseridos, é a tela geral do sistema
-	public void CriarTelaGeral(){
+	private void CriarTelaGeral(){
 		this.setTitle("Inserir Dados de Cliente");
 		this.setModal(true);
 		this.setResizable(false);
@@ -198,6 +203,12 @@ public class FrmIncluirClienteCPF extends JDialog {
 				TCidade = new JTextField();
 				TCidade.setBounds(111, 250, 208, 20);
 				TCidade.setColumns(10);
+		
+			ComboEstado = new JComboBox();
+			ComboEstado.setModel(new DefaultComboBoxModel(new Vector(ListasUtil.Estados())));
+			ComboEstado.setBounds(456, 250, 86, 20);
+				LEstado = new JLabel("UF: ");
+				LEstado.setBounds(429, 253, 46, 14);
 						
 			LCep = new JLabel("CEP:");
 			LCep.setFont(new Font("Arial", Font.BOLD, 11));
@@ -286,6 +297,10 @@ public class FrmIncluirClienteCPF extends JDialog {
 		tela.add(this.BTNovo);
 		tela.add(this.BTGravar);
 		tela.add(this.BTCancelar);
+		tela.add(ComboEstado);
+		tela.add(LEstado);
+		
+		
 	}
 
 	
@@ -294,13 +309,13 @@ public class FrmIncluirClienteCPF extends JDialog {
 	private Container tela = getContentPane();
 	private JLabel LId, LNome, LDocumento, LRg_insc, LDataNasc, LDataCad, LObservacao;
 	private JLabel LIndentif, LEndereco, LLogradouro, LComplemento;
-	private JLabel LNumero, LBairro, LCidade, LCep, LContato, LEmail, LCelular, LTelefone;
+	private JLabel LNumero, LBairro, LCidade, LCep, LContato, LEmail, LCelular, LTelefone, LEstado;
 	private MaskFormatter  mascaraCep, mascaraFoneFixo, mascaraFoneCel, mascaraCpf,mascaraDataNasc, mascaraDataCadastro;
 	private JTextField TId, TNome, TRg_insc, TObservacao, TLogradouro, TComplemento, TNumero;
 	private JTextField TBairro, TCidade, TCep, TEmail, TTelefone, TCelular;
 	private JFormattedTextField JCpf,JDataNasc, JDataCadastro;
 	private JButton BTNovo, BTGravar, BTCancelar;
-	
+	private JComboBox ComboEstado;
 
 	public JButton getBTNovo() {
 		return BTNovo;
@@ -322,12 +337,12 @@ public class FrmIncluirClienteCPF extends JDialog {
 	}
 
 
-	public ClienteActionListener getListener() {
+	public ClienteCPFListener getListener() {
 		return listener;
 	}
 
 
-	public void setListener(ClienteActionListener listener) {
+	public void setListener(ClienteCPFListener listener) {
 		this.listener = listener;
 	}
 
@@ -751,6 +766,18 @@ public class FrmIncluirClienteCPF extends JDialog {
 	public void setJDataCadastro(JFormattedTextField jDataCadastro) {
 		JDataCadastro = jDataCadastro;
 	}
+
+
+	public JComboBox getComboEstado() {
+		return ComboEstado;
+	}
+
+
+	public void setComboEstado(JComboBox comboEstado) {
+		ComboEstado = comboEstado;
+	}
+
+	
 
 	
 }

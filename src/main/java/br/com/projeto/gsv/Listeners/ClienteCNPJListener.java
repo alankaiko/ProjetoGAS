@@ -1,35 +1,28 @@
-package br.com.projeto.gsv.tela;
+package br.com.projeto.gsv.Listeners;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Date;
 
-import javax.swing.JTextField;
-
 import br.com.projeto.gsv.domain.Cliente;
 import br.com.projeto.gsv.domain.Contato;
 import br.com.projeto.gsv.domain.Endereco;
 import br.com.projeto.gsv.domain.TipoPessoa;
+import br.com.projeto.gsv.formularios.FrmIncluirClienteCNPJ;
 import br.com.projeto.gsv.service.CadastroClienteService;
 import br.com.projeto.gsv.util.TransformaDate;
 
-public class ClienteActionListener implements ActionListener{
-
-	private FrmIncluirClienteCPF formulario;
+public class ClienteCNPJListener implements ActionListener{
+	private FrmIncluirClienteCNPJ formulario;
 	private CadastroClienteService service;
 	Cliente cliente;
 	private Contato contato;
 	private Endereco endereco;
 	
-	
-	public ClienteActionListener(FrmIncluirClienteCPF formulario) {
+	public ClienteCNPJListener(FrmIncluirClienteCNPJ formulario) {
 		this.formulario = formulario;
 		service = new CadastroClienteService();
 		AdicionarListener();
-	}
-	
-	private void Inserir(){
-		
 	}
 	
 	private void Salvar(){
@@ -95,7 +88,8 @@ public class ClienteActionListener implements ActionListener{
 		endereco.setNumero(Double.parseDouble(this.formulario.getTNumero().getText()));
 		endereco.setBairro(this.formulario.getTBairro().getText());
 		endereco.setCidade(this.formulario.getTCidade().getText());
-		endereco.setEstado(this.formulario.getTCep().getText());
+		endereco.setEstado((String)this.formulario.getComboEstado().getSelectedItem());
+		endereco.setCep(this.formulario.getTCep().getText());
 	}
 
 	
@@ -107,6 +101,7 @@ public class ClienteActionListener implements ActionListener{
 	/*-----------------------------------------------------------------------------------------------------------------*/
 	/*---------------------------------------CLASSES PARA EDICAO DOS OBJETOS-------------------------------------------*/
 	public void AlterandoObjetos(){
+		this.formulario.getTId().setText(String.valueOf(this.cliente.getId()));
 		this.formulario.getTNome().setText(this.cliente.getNome());
 		this.formulario.getTRg_insc().setText(this.cliente.getRg_insc());
 		this.formulario.getJCpf().setText(this.cliente.getDocumento());
@@ -114,12 +109,18 @@ public class ClienteActionListener implements ActionListener{
 		this.formulario.getTLogradouro().setText(this.endereco.getLogradouro());
 		this.formulario.getTComplemento().setText(this.endereco.getComplemento());
 		this.formulario.getTNumero().setText(String.valueOf(this.endereco.getNumero()));
+		this.formulario.getTBairro().setText(this.endereco.getBairro());
+		this.formulario.getTCidade().setText(this.endereco.getCidade());
+		this.formulario.getTCep().setText(this.endereco.getCep());
+		this.formulario.getTEmail().setText(this.contato.getEmail());
+		this.formulario.getTTelefone().setText(this.contato.getTelefone());
+		this.formulario.getTCelular().setText(this.contato.getCelular());
 		
 	}
 
 	
-	 TObservacao, TLogradouro, TComplemento, TNumero;
-	private JTextField TBairro, TCidade, TCep, TEmail, TTelefone, TCelular;
+	
+	
 	
 	/*-----------------------------------------------------------------------------------------------------------------*/
 	/*-------------------CLASSES QUE POSSUI AS ACOES DOS BOTOES ---------------*/
@@ -139,5 +140,4 @@ public class ClienteActionListener implements ActionListener{
 		}
 		
 	}
-	
 }

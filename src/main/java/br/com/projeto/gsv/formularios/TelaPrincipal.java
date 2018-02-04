@@ -1,4 +1,4 @@
-package br.com.projeto.gsv.tela;
+package br.com.projeto.gsv.formularios;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -23,13 +23,13 @@ import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.border.Border;
 
+import br.com.projeto.gsv.util.ListasUtil;
+
 public class TelaPrincipal extends JFrame {
 	JPanel painelPrincipal;  
     JLabel horas, data, usuarioLogado;
-	String diaSemana[] = {"Domingo", "Segunda-feira", "Ter�a-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira", "S�bado"};              
-	String meses[] = {"Janeiro", "fevereiro", "Mar�o", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"}; 
-
-
+	
+    
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -228,6 +228,14 @@ public class TelaPrincipal extends JFrame {
 		
 	}
 	
+	
+	
+	
+	
+	
+	
+	
+	
 	public void barraDeStatus(){
 		BorderLayout layout = new BorderLayout();
 		painelPrincipal.setLayout(layout);
@@ -288,7 +296,7 @@ public class TelaPrincipal extends JFrame {
 		
 		horas.setText(formatar(ho % 24) + ":" + formatar(mi) + ":" + formatar(se) + "");
 		
-		data.setText(diaSemana[ds - 1] + ", " + formatar(dia) + " de " + meses[mes] + " de " + ano + "");
+		data.setText(ListasUtil.DiasSemana().get(ds -1) + ", " + formatar(dia) + " de " + ListasUtil.Meses().get(mes) + " de " + ano + "");
 	}
 	  
 	private String formatar(int num){

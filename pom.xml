@@ -8,20 +8,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
   
-  	<dependencies>		
-  		<!-- Validacao de CPF CNPJ etc etc etc -->
-  		<dependency>
-		    <groupId>br.com.caelum.stella</groupId>
-		    <artifactId>caelum-stella-core</artifactId>
-		    <version>2.1.2</version>
-		</dependency>
-		
-		<dependency>
-		    <groupId>br.com.caelum.stella</groupId>
-		    <artifactId>caelum-stella-bean-validation</artifactId>
-		    <version>2.1.2</version>
-		</dependency>
-  	
+  	<dependencies>		  	
 		<!-- Implementacao do Bean Validation -->
 		<dependency>
 			<groupId>org.hibernate</groupId>
