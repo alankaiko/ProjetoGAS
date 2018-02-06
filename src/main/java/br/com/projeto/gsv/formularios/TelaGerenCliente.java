@@ -42,7 +42,6 @@ public class TelaGerenCliente extends JDialog {
 		this.setModal(true);
 		this.setBounds(100, 100, 700, 480);
 		this.setResizable(false);
-		
 		this.tela.setLayout(null);
 		this.tela.add(contentPanel, BorderLayout.CENTER);
 		
@@ -186,6 +185,16 @@ public class TelaGerenCliente extends JDialog {
 
 	public void setTable(JTable table) {
 		this.table = table;
+	}
+
+
+	public JScrollPane getScrollPane() {
+		return scrollPane;
+	}
+
+
+	public void setScrollPane(JScrollPane scrollPane) {
+		this.scrollPane = scrollPane;
 	}
 	
 	

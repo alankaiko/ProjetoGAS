@@ -60,7 +60,7 @@ public class TEstando {
 		
 		
 		
-		controller.Inicializar();
+		
 		controller.setCliente(cliente);
 		controller.SalvarCliente();
 		//controller.EditarCliente();

@@ -9,11 +9,11 @@ import br.com.projeto.gsv.domain.Cliente;
 
 public class TabelaDeClientesUtil extends AbstractTableModel{
 
-	private String[] colunas = new String[] { "CODIGO", "NOME", "IDENTIFICAÇÂO" };
+	private String[] colunas = new String[] { "CODIGO", "NOME", "CPF" };
 	private List<Cliente> linhas;
 	private static final int CODIGO = 0;
     private static final int NOME = 1;
-    private static final int IDENTIFICACAO = 2;
+    private static final int CPF = 2;
 	 
     
     public TabelaDeClientesUtil() {
@@ -43,10 +43,10 @@ public class TabelaDeClientesUtil extends AbstractTableModel{
     public Class<?> getColumnClass(int columnIndex) {
         switch (columnIndex) {
         case CODIGO:
-            return Integer.class;
+            return Long.class;
         case NOME:
             return String.class;
-        case IDENTIFICACAO:
+        case CPF:
             return String.class;
         default:
            
@@ -68,8 +68,8 @@ public class TabelaDeClientesUtil extends AbstractTableModel{
             return dados.getId();
         case NOME:
             return dados.getNome();
-        case IDENTIFICACAO:
-            return dados.getRg();
+        case CPF:
+            return dados.getCpf();
         default:
            
             throw new IndexOutOfBoundsException("columnIndex out of bounds");
@@ -79,7 +79,6 @@ public class TabelaDeClientesUtil extends AbstractTableModel{
 	 
 	
 	public void addSocio(Cliente dados) {
-	  
 	    linhas.add(dados);
 	    int ultimoIndice = getRowCount() - 1;
 	    fireTableRowsInserted(ultimoIndice, ultimoIndice);
@@ -88,7 +87,6 @@ public class TabelaDeClientesUtil extends AbstractTableModel{
 	 
 	
 	public void addListaDeSocios(List<Cliente> dados) {
-	    
 	    int indice = getRowCount();
 	    linhas.addAll(dados);
 	    fireTableRowsInserted(indice, indice + dados.size());
@@ -96,7 +94,6 @@ public class TabelaDeClientesUtil extends AbstractTableModel{
 	 
 
 	public void limpar() {
-	   
 	    linhas.clear();
 	    fireTableDataChanged();
 	}
@@ -118,7 +115,7 @@ public class TabelaDeClientesUtil extends AbstractTableModel{
         case NOME:
         	dados.setNome((String) aValue);
             break;
-        case IDENTIFICACAO:
+        case CPF:
         	dados.setCpf((String) aValue);
             break;
         default:

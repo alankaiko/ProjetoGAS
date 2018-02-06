@@ -9,7 +9,6 @@ import java.awt.event.KeyEvent;
 import java.text.ParseException;
 import java.util.Vector;
 
-import javax.swing.ComboBoxModel;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -28,16 +27,6 @@ import br.com.projeto.gsv.util.TransformaDateUtil;
 public class FrmIncluirCliente extends JDialog {
 	private ClienteListener listener;
 	
-	public static void main(String[] args) {
-		try {
-			FrmIncluirCliente dialog = new FrmIncluirCliente();
-			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-			dialog.setVisible(true);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-
 	
 	//metodo construtor que inicia tudo
 	public FrmIncluirCliente() {

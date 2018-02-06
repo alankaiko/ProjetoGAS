@@ -38,6 +38,10 @@ public class ClienteListener implements ActionListener{
 		service.Salvar(this.cliente);
 	}
 	
+	private void Editar(){
+		
+	}
+	
 	//Classe pega os botoes do formulario e atrela à esta classe controller aqui (propria classe ClienteActionListener)
 	private void AdicionarListener(){
 		formulario.getBTNovo().addActionListener(this);
@@ -77,7 +81,6 @@ public class ClienteListener implements ActionListener{
 	//Classe que pega informacoes dos contatos e Joga dentro do objeto Contatos
 	private void FormToContato(){
 		contato = new Contato();
-		
 		contato.setEmail(this.formulario.getTEmail().getText());
 		contato.setCelular(this.formulario.getTCelular().getText());
 		contato.setTelefone(this.formulario.getTTelefone().getText());
@@ -86,7 +89,6 @@ public class ClienteListener implements ActionListener{
 	//Classe que pega infromacoes do Endereco e joga dentro do objeto Endereco
 	private void FormToEndereco(){
 		endereco = new Endereco();
-		
 		endereco.setLogradouro(this.formulario.getTLogradouro().getText());
 		endereco.setComplemento(this.formulario.getTComplemento().getText());
 		endereco.setNumero(Double.parseDouble(this.formulario.getTNumero().getText()));
@@ -104,6 +106,10 @@ public class ClienteListener implements ActionListener{
 	
 	/*-----------------------------------------------------------------------------------------------------------------*/
 	/*---------------------------------------CLASSES PARA EDICAO DOS OBJETOS-------------------------------------------*/
+	public void PegaCliente(Cliente cliente){
+		this.cliente = cliente;
+	}
+	
 	public void AlterandoObjetos(){
 		this.formulario.getTId().setText(String.valueOf(this.cliente.getId()));
 		this.formulario.getTNome().setText(this.cliente.getNome());
@@ -123,6 +129,27 @@ public class ClienteListener implements ActionListener{
 	}
 
 	
+	
+	
+	/*-----------------------------------------------------------------------------------------------------------------*/
+	/*---------------------------------------CLASSES PARA DETALHAR OBJETOS-------------------------------------------*/
+	public void DetalhandoObjetos(){
+		this.formulario.getTId().setEditable(false);
+		this.formulario.getTNome().setEditable(false);
+		this.formulario.getTRg_insc().setEditable(false);
+		this.formulario.getJCpf().setEditable(false);
+		this.formulario.getTObservacao().setEditable(false);
+		this.formulario.getTLogradouro().setEditable(false);
+		this.formulario.getTComplemento().setEditable(false);
+		this.formulario.getTNumero().setEditable(false);
+		this.formulario.getTBairro().setEditable(false);
+		this.formulario.getTCidade().setEditable(false);
+		this.formulario.getTCep().setEditable(false);
+		this.formulario.getTEmail().setEditable(false);
+		this.formulario.getTTelefone().setEditable(false);
+		this.formulario.getTCelular().setEditable(false);
+				
+	}
 	
 	
 	

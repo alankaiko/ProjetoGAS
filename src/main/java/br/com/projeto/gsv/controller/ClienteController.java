@@ -11,12 +11,12 @@ import br.com.projeto.gsv.util.NegocioException;
 
 public class ClienteController {
 	private Cliente cliente;
-	private CadastroClienteService cadastroService= new CadastroClienteService();
+	private CadastroClienteService cadastroService;
 	
 	
-	public void Inicializar(){
-			this.cliente = new Cliente();
-			
+	public ClienteController(){
+		this.cliente = new Cliente();
+		this.cadastroService = new CadastroClienteService();
 	}
 	
 	

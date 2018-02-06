@@ -15,9 +15,11 @@ public class GerenClienteListener implements ActionListener{
 	private TabelaDeClientesUtil tabelas;
 	
 	
+	
 	public GerenClienteListener(TelaGerenCliente gerenciamento) {
 		this.gerenciamento = gerenciamento;
 		AdicionaListener();
+		TabelaDeCliente();
 	}
 
 	private void AdicionaListener(){
@@ -32,33 +34,23 @@ public class GerenClienteListener implements ActionListener{
 
 	
 	
-	public void Tabelas(){
+	public void TabelaDeCliente(){
 		ClienteController control = new ClienteController();
 		tabelas = new TabelaDeClientesUtil(control.ListaCompletaDeClientes());
 		this.gerenciamento.getTable().setModel(tabelas);
+		this.gerenciamento.getTable().getColumnModel().getColumn(0).setPreferredWidth(40);
+		this.gerenciamento.getTable().getColumnModel().getColumn(1).setPreferredWidth(210);
+		this.gerenciamento.getTable().getColumnModel().getColumn(2).setPreferredWidth(150);
 		this.gerenciamento.getTable().setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		
+		this.gerenciamento.getTable().setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		this.gerenciamento.getTable().changeSelection(0, 0, false, false);
+		//this.gerenciamento.getTable().setRowSelectionInterval(0, 0);
+		this.gerenciamento.getTable().setFocusable(false);
+		
+		this.gerenciamento.getScrollPane().setViewportView(this.gerenciamento.getTable());
+		
 	}
-	
-	
-	
-	
-	
-	
-	/*public void tabelas(){
-		tabelaClientes = new TabelaDeClientes(dao.buscarId());
-		table.setModel(tabelaClientes);
-		table.getColumnModel().getColumn(0).setPreferredWidth(40);  
-		table.getColumnModel().getColumn(1).setPreferredWidth(180);   
-		table.getColumnModel().getColumn(2).setPreferredWidth(100); 
-		
-		table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		table.changeSelection( 0 , 0 , false , false);
-		//table.setRowSelectionInterval(0, 0);
-		table.setFocusable(false);
-		
-		scrollPane.setViewportView(table);
-	}*/
 	
 	
 	

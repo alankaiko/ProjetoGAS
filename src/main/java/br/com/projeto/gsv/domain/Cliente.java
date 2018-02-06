@@ -71,7 +71,7 @@ public class Cliente implements Serializable {
 		this.cpf = cpf;
 	}
 
-	@Column(name="rginscricao",nullable = false, length = 9)
+	@Column(nullable = false, length = 9)
 	public String getRg() {
 		return rg;
 	}
@@ -171,7 +171,8 @@ public class Cliente implements Serializable {
 		StringBuilder builder = new StringBuilder();
 		builder.append("Cliente [id=")
 				.append(id).append(", nome=")
-				.append(nome).append(", documento=")
+				.append(nome)
+				.append(", cpf=")
 				.append(", rg=")
 				.append(", dataNasc=")
 				.append(dataNasc)
