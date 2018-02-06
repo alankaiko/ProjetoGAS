@@ -21,16 +21,16 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 import javax.swing.text.MaskFormatter;
 
-import br.com.projeto.gsv.Listeners.ClienteCPFListener;
+import br.com.projeto.gsv.formularios.listeners.ClienteListener;
 import br.com.projeto.gsv.util.ListasUtil;
-import br.com.projeto.gsv.util.TransformaDate;
+import br.com.projeto.gsv.util.TransformaDateUtil;
 
-public class FrmIncluirClienteCPF extends JDialog {
-	private ClienteCPFListener listener;
+public class FrmIncluirCliente extends JDialog {
+	private ClienteListener listener;
 	
 	public static void main(String[] args) {
 		try {
-			FrmIncluirClienteCPF dialog = new FrmIncluirClienteCPF();
+			FrmIncluirCliente dialog = new FrmIncluirCliente();
 			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 			dialog.setVisible(true);
 		} catch (Exception e) {
@@ -40,11 +40,11 @@ public class FrmIncluirClienteCPF extends JDialog {
 
 	
 	//metodo construtor que inicia tudo
-	public FrmIncluirClienteCPF() {
+	public FrmIncluirCliente() {
 		CriarTelaGeral();
 		DadosCPF();
 		InicializaCompomentes();
-		listener = new ClienteCPFListener(this);
+		listener = new ClienteListener(this);
 	}
 	
 	
@@ -145,7 +145,7 @@ public class FrmIncluirClienteCPF extends JDialog {
 				catch(ParseException excp){}
 				JDataCadastro= new JFormattedTextField(mascaraDataNasc);
 				JDataCadastro.setEditable(false);
-				JDataCadastro.setText(TransformaDate.RetornaDataAtual());
+				JDataCadastro.setText(TransformaDateUtil.RetornaDataAtual());
 				JDataCadastro.setBounds(525,30,84,19);
 
 				
@@ -337,12 +337,12 @@ public class FrmIncluirClienteCPF extends JDialog {
 	}
 
 
-	public ClienteCPFListener getListener() {
+	public ClienteListener getListener() {
 		return listener;
 	}
 
 
-	public void setListener(ClienteCPFListener listener) {
+	public void setListener(ClienteListener listener) {
 		this.listener = listener;
 	}
 

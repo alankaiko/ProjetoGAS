@@ -11,12 +11,12 @@ import br.com.projeto.gsv.util.NegocioException;
 
 public class ClienteController {
 	private Cliente cliente;
-	private CadastroClienteService cadastroService;
+	private CadastroClienteService cadastroService= new CadastroClienteService();
 	
 	
 	public void Inicializar(){
 			this.cliente = new Cliente();
-			this.cadastroService = new CadastroClienteService();
+			
 	}
 	
 	
@@ -33,7 +33,7 @@ public class ClienteController {
 	}
 	
 	public List<Cliente> ListaCompletaDeClientes(){
-		return this.cadastroService.ListandoClientes();
+		return cadastroService.ListandoClientes();
 	}
 	
 	public Cliente BuscarPelaID(Long id){

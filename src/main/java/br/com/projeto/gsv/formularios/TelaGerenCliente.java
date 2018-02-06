@@ -13,7 +13,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.border.EmptyBorder;
 
-import br.com.projeto.gsv.Listeners.GerenClienteListener;
+import br.com.projeto.gsv.formularios.listeners.GerenClienteListener;
 
 public class TelaGerenCliente extends JDialog {
 	private GerenClienteListener listener;
@@ -40,7 +40,7 @@ public class TelaGerenCliente extends JDialog {
 	private void CriaTelaGeral(){
 		this.setTitle("Cadastro de Pacientes");
 		this.setModal(true);
-		this.setBounds(100, 100, 620, 400);
+		this.setBounds(100, 100, 700, 480);
 		this.setResizable(false);
 		
 		this.tela.setLayout(null);
@@ -50,32 +50,32 @@ public class TelaGerenCliente extends JDialog {
 		contentPanel.setLayout(null);
 		
 		scrollPane = new JScrollPane();
-		scrollPane.setBounds(26,12,420,330);
+		scrollPane.setBounds(26,12,472,412);
 		this.tela.add(this.scrollPane);
 		table = new JTable();		
 	}
 	
 	private void Dados(){
 		detalhes= new JButton("Detalhes");
-		detalhes.setBounds(450,12,125,20);
+		detalhes.setBounds(525,11,125,20);
 		
 		codigo= new JButton("Código");
-		codigo.setBounds(450,35,125,20);
+		codigo.setBounds(525,35,125,20);
 		
 		buscar= new JButton("Buscar");
-		buscar.setBounds(450,58,125,20);
+		buscar.setBounds(525,58,125,20);
 		
 		modificar= new JButton("Modificar");
-		modificar.setBounds(450,81,125,20);
+		modificar.setBounds(525,81,125,20);
 		
 		incluir= new JButton("Incluir");
-		incluir.setBounds(450,104,125,20);
+		incluir.setBounds(525,104,125,20);
 		
 		excluir= new JButton("Excluir");
-		excluir.setBounds(450,127,125,20);
+		excluir.setBounds(525,127,125,20);
 		
 		fim= new JButton("Fim");
-		fim.setBounds(450,150,125,20);
+		fim.setBounds(525,150,125,20);
 		
 	}
 	
@@ -166,6 +166,26 @@ public class TelaGerenCliente extends JDialog {
 
 	public void setDetalhes(JButton detalhes) {
 		this.detalhes = detalhes;
+	}
+
+
+	public Container getTela() {
+		return tela;
+	}
+
+
+	public void setTela(Container tela) {
+		this.tela = tela;
+	}
+
+
+	public JTable getTable() {
+		return table;
+	}
+
+
+	public void setTable(JTable table) {
+		this.table = table;
 	}
 	
 	

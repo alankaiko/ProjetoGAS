@@ -1,29 +1,34 @@
-package br.com.projeto.gsv.Listeners;
+package br.com.projeto.gsv.formularios.listeners;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Date;
 
+import javax.swing.JTextField;
+
 import br.com.projeto.gsv.domain.Cliente;
 import br.com.projeto.gsv.domain.Contato;
 import br.com.projeto.gsv.domain.Endereco;
 import br.com.projeto.gsv.domain.TipoPessoa;
-import br.com.projeto.gsv.formularios.FrmIncluirClienteCNPJ;
+import br.com.projeto.gsv.formularios.FrmIncluirCliente;
 import br.com.projeto.gsv.service.CadastroClienteService;
-import br.com.projeto.gsv.util.TransformaDate;
+import br.com.projeto.gsv.util.TransformaDateUtil;
 
-public class ClienteCNPJListener implements ActionListener{
-	private FrmIncluirClienteCNPJ formulario;
+public class ClienteListener implements ActionListener{
+
+	private FrmIncluirCliente formulario;
 	private CadastroClienteService service;
 	Cliente cliente;
 	private Contato contato;
 	private Endereco endereco;
 	
-	public ClienteCNPJListener(FrmIncluirClienteCNPJ formulario) {
+	
+	public ClienteListener(FrmIncluirCliente formulario) {
 		this.formulario = formulario;
 		service = new CadastroClienteService();
 		AdicionarListener();
 	}
+	
 	
 	private void Salvar(){
 		FormToCliente();
@@ -62,11 +67,10 @@ public class ClienteCNPJListener implements ActionListener{
 	private void FormToCliente(){
 		cliente = new Cliente();
 		cliente.setNome(this.formulario.getTNome().getText());
-		cliente.setDocumento(this.formulario.getJCpf().getText());
-		cliente.setRg_insc(this.formulario.getTRg_insc().getText());
+		cliente.setCpf(this.formulario.getJCpf().getText());
+		cliente.setRg(this.formulario.getTRg_insc().getText());
 		cliente.setDataCad(new Date());
-		cliente.setDataNasc(TransformaDate.Transformando(this.formulario.getJDataNasc().getText()));
-		cliente.setTipo(TipoPessoa.FISICA);
+		cliente.setDataNasc(TransformaDateUtil.Transformando(this.formulario.getJDataNasc().getText()));
 		cliente.setObservacao(this.formulario.getTObservacao().getText());
 	}
 	
@@ -103,8 +107,8 @@ public class ClienteCNPJListener implements ActionListener{
 	public void AlterandoObjetos(){
 		this.formulario.getTId().setText(String.valueOf(this.cliente.getId()));
 		this.formulario.getTNome().setText(this.cliente.getNome());
-		this.formulario.getTRg_insc().setText(this.cliente.getRg_insc());
-		this.formulario.getJCpf().setText(this.cliente.getDocumento());
+		this.formulario.getTRg_insc().setText(this.cliente.getRg());
+		this.formulario.getJCpf().setText(this.cliente.getCpf());
 		this.formulario.getTObservacao().setText(this.cliente.getObservacao());
 		this.formulario.getTLogradouro().setText(this.endereco.getLogradouro());
 		this.formulario.getTComplemento().setText(this.endereco.getComplemento());
@@ -140,4 +144,5 @@ public class ClienteCNPJListener implements ActionListener{
 		}
 		
 	}
+	
 }

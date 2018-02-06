@@ -16,9 +16,8 @@ public class TEstando {
 		Cliente cliente = new Cliente();
 		cliente.setId(2L);
 		cliente.setNome("juranildeles pacheco silva");
-		cliente.setTipo(TipoPessoa.JURIDICA);
-		cliente.setDocumento("472258430001-54");
-		cliente.setRg_insc("2554");
+		cliente.setCpf("472258430001-54");
+		cliente.setRg("2554");
 		cliente.setDataCad(new Date());
 		cliente.setDataNasc(new Date());
 		cliente.setObservacao("agora vai malucao");

@@ -22,7 +22,7 @@ public class CadastroClienteService {
 	}
 	
 	public List<Cliente> ListandoClientes(){
-		return this.repositorio.ListarClientes();
+		return repositorio.ListarClientes();
 	}
 	
 	public Cliente BuscandoId(Long id){

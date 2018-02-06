@@ -33,11 +33,10 @@ public class Cliente implements Serializable {
 
 	private Long id;
 	private String nome;
-	private String documento;
-	private String rg_insc;
+	private String cpf;
+	private String rg;
 	private Date dataNasc;
 	private Date dataCad;
-	private TipoPessoa tipo;
 	private List<Contato> contato = new ArrayList<Contato>();
 	private List<Endereco> endereco = new ArrayList<Endereco>();
 	private String observacao;
@@ -64,21 +63,21 @@ public class Cliente implements Serializable {
 	}
 
 	@Column(nullable = false, length = 15)
-	public String getDocumento() {
-		return documento;
+	public String getCpf() {
+		return cpf;
 	}
 
-	public void setDocumento(String documento) {
-		this.documento = documento;
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
 	}
 
 	@Column(name="rginscricao",nullable = false, length = 9)
-	public String getRg_insc() {
-		return rg_insc;
+	public String getRg() {
+		return rg;
 	}
 
-	public void setRg_insc(String rg_insc) {
-		this.rg_insc = rg_insc;
+	public void setRg(String rg) {
+		this.rg = rg;
 	}
 
 	@Temporal(TemporalType.TIMESTAMP)
@@ -100,14 +99,7 @@ public class Cliente implements Serializable {
 	}
 
 	
-	public TipoPessoa getTipo() {
-		return tipo;
-	}
 
-	public void setTipo(TipoPessoa tipo) {
-		this.tipo = tipo;
-	}
-	
 	
 	
 	/* NotNull= o contato não pode ser nulo, OneToMany= um para muitos mappedby
@@ -171,21 +163,8 @@ public class Cliente implements Serializable {
 	}
 	
 	
-	/* Transient= não é persistido no banco de dados Esse método verifica 
-	 * se pessoa FISICA for igual A pessoa fisica ele retorna true.*/
-	@Transient
-	public boolean isPessoaFisica()
-	{
-		return TipoPessoa.FISICA !=null && tipo.equals(TipoPessoa.FISICA);
-	}
-		
-	/* Transient= não é persistido no banco de dados Esse método verifica
-	 *  se pessoa JURIDICA for igual A (pessoa juridica) ele retorna true.*/	
-	@Transient
-	public boolean isPessoaJuridica()
-	{
-		return TipoPessoa.JURIDICA !=null && tipo.JURIDICA.equals(this.getTipo());
-	}
+	
+
 
 	@Override
 	public String toString() {
@@ -193,16 +172,13 @@ public class Cliente implements Serializable {
 		builder.append("Cliente [id=")
 				.append(id).append(", nome=")
 				.append(nome).append(", documento=")
-				.append(documento)
 				.append(", rg=")
-				.append(rg_insc)
 				.append(", dataNasc=")
 				.append(dataNasc)
 				.append(", dataCad=")
 				.append(dataCad)
 				.append(", sexo=")
 				.append(", tipo=")
-				.append(tipo)
 				.append(", contato=")
 				.append(contato)
 				.append(", endereco=")
