@@ -29,7 +29,7 @@ public class TabelaDeClientesUtil extends AbstractTableModel{
     }
 	
     
- 
+    @Override
     public int getColumnCount() {
         return colunas.length;
     }
@@ -54,11 +54,12 @@ public class TabelaDeClientesUtil extends AbstractTableModel{
         }
     }
     
-
+    @Override
 	public int getRowCount() {
 	    return linhas.size();
 	}
 
+	@Override
 	public Object getValueAt(int rowIndex, int columnIndex) {
         
         Cliente dados = linhas.get(rowIndex);

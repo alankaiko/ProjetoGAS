@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 import javax.swing.ListSelectionModel;
 
 import br.com.projeto.gsv.controller.ClienteController;
+import br.com.projeto.gsv.formularios.ExcClienteDialog;
 import br.com.projeto.gsv.formularios.FrmIncluirCliente;
 import br.com.projeto.gsv.formularios.TelaGerenCliente;
 import br.com.projeto.gsv.util.TabelaDeClientesUtil;
@@ -34,7 +35,7 @@ public class GerenClienteListener implements ActionListener{
 
 	
 	
-	public void TabelaDeCliente(){
+	private void TabelaDeCliente(){
 		ClienteController control = new ClienteController();
 		tabelas = new TabelaDeClientesUtil(control.ListaCompletaDeClientes());
 		this.gerenciamento.getTable().setModel(tabelas);
@@ -73,13 +74,11 @@ public class GerenClienteListener implements ActionListener{
 		}
 		
 		if(event.getActionCommand().equals("Incluir")){
-			FrmIncluirCliente painel = new FrmIncluirCliente();
-			painel.setLocationRelativeTo(this.gerenciamento.getTela());
-			painel.setVisible(true);			
+			ExecutaInclusao();
 		}
 		
 		if(event.getActionCommand().equals("Excluir")){
-			
+			ExecutaExclusao(SelecionaLinha());
 		}
 		
 		if(event.getActionCommand().equals("Fim")){
@@ -87,9 +86,28 @@ public class GerenClienteListener implements ActionListener{
 		}
 	}
 	
+	private Long SelecionaLinha(){
+		int linha = this.gerenciamento.getTable().getSelectedRow();
+		Long id = (Long) this.gerenciamento.getTable().getValueAt(linha,0);
+		
+		return id;
+	}
 	
+	private void ExecutaInclusao(){
+		FrmIncluirCliente painel = new FrmIncluirCliente();
+		painel.setLocationRelativeTo(this.gerenciamento.getTela());
+		painel.setVisible(true);		
+		TabelaDeCliente();
+	}
 	
-	
+	private void ExecutaExclusao(Long id){
+		ClienteController controller = new ClienteController();
+		
+		ExcClienteDialog telaExc = new ExcClienteDialog(controller.BuscarPelaID(id));
+		telaExc.setLocationRelativeTo(this.gerenciamento.getTela());
+		telaExc.setVisible(true);
+		TabelaDeCliente();	
+	}
 	
 	
 }
