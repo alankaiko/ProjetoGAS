@@ -6,7 +6,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-public class TransformaDateUtil {
+public class ConverteDadosUtil {
 	
 	
 	//Converte as datas de String para Date para ser armazenadas
@@ -49,4 +49,6 @@ public class TransformaDateUtil {
 		valor = df.format(calendario.getTime());
 		return valor;
 	}
+	
+	
 }

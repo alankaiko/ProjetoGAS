@@ -22,7 +22,7 @@ import javax.swing.text.MaskFormatter;
 
 import br.com.projeto.gsv.formularios.listeners.ClienteListener;
 import br.com.projeto.gsv.util.ListasUtil;
-import br.com.projeto.gsv.util.TransformaDateUtil;
+import br.com.projeto.gsv.util.ConverteDadosUtil;
 
 public class FrmIncluirCliente extends JDialog {
 	private ClienteListener listener;
@@ -99,12 +99,12 @@ public class FrmIncluirCliente extends JDialog {
 				JDataNasc.setBounds(111,121,120,19);
 					
 												
-			LRg_insc = new JLabel("*RG:");
-			LRg_insc.setBounds(456,60,29,20);
-			LRg_insc.setFont(new Font("Arial" , Font.BOLD,11));;
-				TRg_insc = new JTextField();
-				TRg_insc .setBounds(489,61,120,19);
-				TRg_insc .setFont(new Font("Arial",Font.BOLD,10));
+			LRg = new JLabel("*RG:");
+			LRg.setBounds(456,60,29,20);
+			LRg.setFont(new Font("Arial" , Font.BOLD,11));;
+				TRg = new JTextField();
+				TRg .setBounds(489,61,120,19);
+				TRg .setFont(new Font("Arial",Font.BOLD,10));
 						
 						
 					
@@ -134,7 +134,7 @@ public class FrmIncluirCliente extends JDialog {
 				catch(ParseException excp){}
 				JDataCadastro= new JFormattedTextField(mascaraDataNasc);
 				JDataCadastro.setEditable(false);
-				JDataCadastro.setText(TransformaDateUtil.RetornaDataAtual());
+				JDataCadastro.setText(ConverteDadosUtil.RetornaDataAtual());
 				JDataCadastro.setBounds(525,30,84,19);
 
 				
@@ -250,12 +250,12 @@ public class FrmIncluirCliente extends JDialog {
 	public void InicializaCompomentes(){
 		tela.add(this.TId);
 		tela.add(this.TNome );
-		tela.add(this.TRg_insc);
+		tela.add(this.TRg);
 		tela.add(this.TObservacao);
 		tela.add(this.LId);
 		tela.add(this.LNome);
 		tela.add(this.LDocumento);
-		tela.add(this.LRg_insc);
+		tela.add(this.LRg);
 		tela.add(this.LDataNasc);
 		tela.add(this.LDataCad);
 		tela.add(this.LObservacao);
@@ -296,11 +296,11 @@ public class FrmIncluirCliente extends JDialog {
 	
 	private final JPanel contentPanel = new JPanel();
 	private Container tela = getContentPane();
-	private JLabel LId, LNome, LDocumento, LRg_insc, LDataNasc, LDataCad, LObservacao;
+	private JLabel LId, LNome, LDocumento, LRg, LDataNasc, LDataCad, LObservacao;
 	private JLabel LIndentif, LEndereco, LLogradouro, LComplemento;
 	private JLabel LNumero, LBairro, LCidade, LCep, LContato, LEmail, LCelular, LTelefone, LEstado;
 	private MaskFormatter  mascaraCep, mascaraFoneFixo, mascaraFoneCel, mascaraCpf,mascaraDataNasc, mascaraDataCadastro;
-	private JTextField TId, TNome, TRg_insc, TObservacao, TLogradouro, TComplemento, TNumero;
+	private JTextField TId, TNome, TRg, TObservacao, TLogradouro, TComplemento, TNumero;
 	private JTextField TBairro, TCidade, TCep, TEmail, TTelefone, TCelular;
 	private JFormattedTextField JCpf,JDataNasc, JDataCadastro;
 	private JButton BTNovo, BTGravar, BTCancelar;
@@ -378,12 +378,12 @@ public class FrmIncluirCliente extends JDialog {
 
 
 	public JLabel getLRg_insc() {
-		return LRg_insc;
+		return LRg;
 	}
 
 
 	public void setLRg_insc(JLabel lRg_insc) {
-		LRg_insc = lRg_insc;
+		LRg = lRg_insc;
 	}
 
 
@@ -617,13 +617,16 @@ public class FrmIncluirCliente extends JDialog {
 	}
 
 
-	public JTextField getTRg_insc() {
-		return TRg_insc;
+	
+
+
+	public JTextField getTRg() {
+		return TRg;
 	}
 
 
-	public void setTRg_insc(JTextField tRg_insc) {
-		TRg_insc = tRg_insc;
+	public void setTRg(JTextField tRg) {
+		TRg = tRg;
 	}
 
 

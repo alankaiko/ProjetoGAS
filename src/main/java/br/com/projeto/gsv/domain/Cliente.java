@@ -81,7 +81,7 @@ public class Cliente implements Serializable {
 	}
 
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(nullable = false)
+	@Column
 	public Date getDataNasc() {
 		return dataNasc;
 	}

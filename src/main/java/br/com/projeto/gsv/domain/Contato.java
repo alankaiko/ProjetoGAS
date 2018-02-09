@@ -46,7 +46,7 @@ public class Contato implements Serializable {
 		this.email = email;
 	}
 
-	@Column(nullable=true, length=20)
+	@Column(length=20)
 	public String getTelefone() {
 		return telefone;
 	}
@@ -55,7 +55,7 @@ public class Contato implements Serializable {
 		this.telefone = telefone;
 	}
 
-	@Column(nullable=true, length=20)
+	@Column(length=20)
 	public String getCelular() {
 		return celular;
 	}

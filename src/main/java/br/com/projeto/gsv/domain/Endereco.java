@@ -21,7 +21,7 @@ public class Endereco implements Serializable {
 	private Long id;
 	private String logradouro;
 	private String complemento;
-	private double numero;
+	private int numero;
 	private String bairro;
 	private String cidade;
 	private String estado;
@@ -38,7 +38,7 @@ public class Endereco implements Serializable {
 		this.id = id;
 	}
 
-	@Column(nullable = false, length = 100)
+	@Column(length = 100)
 	public String getLogradouro() {
 		return logradouro;
 	}
@@ -57,11 +57,11 @@ public class Endereco implements Serializable {
 	}
 
 	@Column(length = 20)
-	public double getNumero() {
+	public int getNumero() {
 		return numero;
 	}
 
-	public void setNumero(double numero) {
+	public void setNumero(int numero) {
 		this.numero = numero;
 	}
 
@@ -74,7 +74,7 @@ public class Endereco implements Serializable {
 		this.bairro = bairro;
 	}
 
-	@Column(nullable = false, length = 50)
+	@Column(length = 50)
 	public String getCidade() {
 		return cidade;
 	}
@@ -83,7 +83,7 @@ public class Endereco implements Serializable {
 		this.cidade = cidade;
 	}
 
-	@Column(nullable = false, length = 50)
+	@Column(length = 50)
 	public String getEstado() {
 		return estado;
 	}
@@ -102,7 +102,7 @@ public class Endereco implements Serializable {
 	}
 
 	@ManyToOne
-	@JoinColumn(name="cliente_codigo", nullable=false)
+	@JoinColumn(name="cliente_codigo")
 	public Cliente getCliente() {
 		return cliente;
 	}

@@ -12,7 +12,7 @@ import br.com.projeto.gsv.domain.Endereco;
 import br.com.projeto.gsv.domain.TipoPessoa;
 import br.com.projeto.gsv.formularios.FrmIncluirCliente;
 import br.com.projeto.gsv.service.CadastroClienteService;
-import br.com.projeto.gsv.util.TransformaDateUtil;
+import br.com.projeto.gsv.util.ConverteDadosUtil;
 
 public class ClienteListener implements ActionListener{
 
@@ -39,8 +39,11 @@ public class ClienteListener implements ActionListener{
 	}
 	
 	private void Editar(){
-		
+		EditToCliente();
+		service.Salvar(this.cliente);
 	}
+	
+	
 	
 	//Classe pega os botoes do formulario e atrela à esta classe controller aqui (propria classe ClienteActionListener)
 	private void AdicionarListener(){
@@ -72,10 +75,28 @@ public class ClienteListener implements ActionListener{
 		cliente = new Cliente();
 		cliente.setNome(this.formulario.getTNome().getText());
 		cliente.setCpf(this.formulario.getJCpf().getText());
-		cliente.setRg(this.formulario.getTRg_insc().getText());
+		cliente.setRg(this.formulario.getTRg().getText());
 		cliente.setDataCad(new Date());
-		cliente.setDataNasc(TransformaDateUtil.TransformandoEmDate(this.formulario.getJDataNasc().getText()));
+		cliente.setDataNasc(ConverteDadosUtil.TransformandoEmDate(this.formulario.getJDataNasc().getText()));
 		cliente.setObservacao(this.formulario.getTObservacao().getText());
+	}
+	
+	private void EditToCliente(){
+		cliente.setId(Long.parseLong(this.formulario.getTId().getText()));
+		cliente.setNome(this.formulario.getTNome().getText());
+		cliente.setCpf(this.formulario.getJCpf().getText());
+		cliente.setRg(this.formulario.getTRg().getText());
+		//cliente.setDataNasc(ConverteDadosUtil.TransformandoEmDate(this.formulario.getJDataNasc().getText()));
+		/*cliente.getEndereco().get(0).setLogradouro(this.formulario.getTLogradouro().getText());
+		cliente.getEndereco().get(0).setComplemento(this.formulario.getTComplemento().getText());
+		cliente.getEndereco().get(0).setNumero(Integer.parseInt(this.formulario.getTNumero().getText()));
+		cliente.getEndereco().get(0).setBairro(this.formulario.getTBairro().getText());
+		cliente.getEndereco().get(0).setCidade(this.formulario.getTCidade().getText());
+		cliente.getEndereco().get(0).setEstado((String)this.formulario.getComboEstado().getSelectedItem());
+		cliente.getEndereco().get(0).setCep(this.formulario.getTCep().getText());
+		cliente.getContato().get(0).setEmail(this.formulario.getTEmail().getText());
+		cliente.getContato().get(0).setCelular(this.formulario.getTCelular().getText());
+		cliente.getContato().get(0).setTelefone(this.formulario.getTTelefone().getText());*/
 	}
 	
 	//Classe que pega informacoes dos contatos e Joga dentro do objeto Contatos
@@ -91,7 +112,7 @@ public class ClienteListener implements ActionListener{
 		endereco = new Endereco();
 		endereco.setLogradouro(this.formulario.getTLogradouro().getText());
 		endereco.setComplemento(this.formulario.getTComplemento().getText());
-		endereco.setNumero(Double.parseDouble(this.formulario.getTNumero().getText()));
+		endereco.setNumero(Integer.parseInt(this.formulario.getTNumero().getText()));
 		endereco.setBairro(this.formulario.getTBairro().getText());
 		endereco.setCidade(this.formulario.getTCidade().getText());
 		endereco.setEstado((String)this.formulario.getComboEstado().getSelectedItem());
@@ -113,11 +134,11 @@ public class ClienteListener implements ActionListener{
 	public void AlterandoObjetos(){
 		this.formulario.getTId().setText(String.valueOf(this.cliente.getId()));
 		this.formulario.getTNome().setText(this.cliente.getNome());
-		this.formulario.getTRg_insc().setText(this.cliente.getRg());
+		this.formulario.getTRg().setText(this.cliente.getRg());
 		this.formulario.getJCpf().setText(this.cliente.getCpf());
 		this.formulario.getTObservacao().setText(this.cliente.getObservacao());
-		this.formulario.getJDataNasc().setText(TransformaDateUtil.TransformandoEmString(this.cliente.getDataNasc()));
-		this.formulario.getJDataCadastro().setText(TransformaDateUtil.TransformandoEmString(this.cliente.getDataCad()));
+		this.formulario.getJDataNasc().setText(ConverteDadosUtil.TransformandoEmString(this.cliente.getDataNasc()));
+		this.formulario.getJDataCadastro().setText(ConverteDadosUtil.TransformandoEmString(this.cliente.getDataCad()));
 		this.formulario.getTLogradouro().setText(this.cliente.getEndereco().get(0).getLogradouro());
 		this.formulario.getTComplemento().setText(this.cliente.getEndereco().get(0).getComplemento());
 		this.formulario.getTNumero().setText(String.valueOf(this.cliente.getEndereco().get(0).getNumero()));
@@ -137,7 +158,7 @@ public class ClienteListener implements ActionListener{
 	public void DetalhandoObjetos(){
 		this.formulario.getTId().setEditable(false);
 		this.formulario.getTNome().setEditable(false);
-		this.formulario.getTRg_insc().setEditable(false);
+		this.formulario.getTRg().setEditable(false);
 		this.formulario.getJCpf().setEditable(false);
 		this.formulario.getTObservacao().setEditable(false);
 		this.formulario.getTLogradouro().setEditable(false);
@@ -164,8 +185,12 @@ public class ClienteListener implements ActionListener{
 		}
 		
 		if(event.getActionCommand().equals("Gravar")){
-			Salvar();
-			this.formulario.dispose();
+			if(this.formulario.getTId().getText().isEmpty())
+				Salvar();
+			else
+				Editar();
+			
+			//this.formulario.dispose();
 		}
 		
 		if(event.getActionCommand().equals("Cancelar")){
