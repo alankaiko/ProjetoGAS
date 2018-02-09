@@ -23,6 +23,7 @@ public class TelaGerenCliente extends JDialog {
 			TelaGerenCliente dialog = new TelaGerenCliente();
 			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 			dialog.setVisible(true);
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

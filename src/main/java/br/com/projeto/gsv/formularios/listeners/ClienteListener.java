@@ -18,7 +18,7 @@ public class ClienteListener implements ActionListener{
 
 	private FrmIncluirCliente formulario;
 	private CadastroClienteService service;
-	Cliente cliente;
+	private Cliente cliente;
 	private Contato contato;
 	private Endereco endereco;
 	
@@ -74,7 +74,7 @@ public class ClienteListener implements ActionListener{
 		cliente.setCpf(this.formulario.getJCpf().getText());
 		cliente.setRg(this.formulario.getTRg_insc().getText());
 		cliente.setDataCad(new Date());
-		cliente.setDataNasc(TransformaDateUtil.Transformando(this.formulario.getJDataNasc().getText()));
+		cliente.setDataNasc(TransformaDateUtil.TransformandoEmDate(this.formulario.getJDataNasc().getText()));
 		cliente.setObservacao(this.formulario.getTObservacao().getText());
 	}
 	
@@ -116,16 +116,17 @@ public class ClienteListener implements ActionListener{
 		this.formulario.getTRg_insc().setText(this.cliente.getRg());
 		this.formulario.getJCpf().setText(this.cliente.getCpf());
 		this.formulario.getTObservacao().setText(this.cliente.getObservacao());
-		this.formulario.getTLogradouro().setText(this.endereco.getLogradouro());
-		this.formulario.getTComplemento().setText(this.endereco.getComplemento());
-		this.formulario.getTNumero().setText(String.valueOf(this.endereco.getNumero()));
-		this.formulario.getTBairro().setText(this.endereco.getBairro());
-		this.formulario.getTCidade().setText(this.endereco.getCidade());
-		this.formulario.getTCep().setText(this.endereco.getCep());
-		this.formulario.getTEmail().setText(this.contato.getEmail());
-		this.formulario.getTTelefone().setText(this.contato.getTelefone());
-		this.formulario.getTCelular().setText(this.contato.getCelular());
-		
+		this.formulario.getJDataNasc().setText(TransformaDateUtil.TransformandoEmString(this.cliente.getDataNasc()));
+		this.formulario.getJDataCadastro().setText(TransformaDateUtil.TransformandoEmString(this.cliente.getDataCad()));
+		this.formulario.getTLogradouro().setText(this.cliente.getEndereco().get(0).getLogradouro());
+		this.formulario.getTComplemento().setText(this.cliente.getEndereco().get(0).getComplemento());
+		this.formulario.getTNumero().setText(String.valueOf(this.cliente.getEndereco().get(0).getNumero()));
+		this.formulario.getTBairro().setText(this.cliente.getEndereco().get(0).getBairro());
+		this.formulario.getTCidade().setText(this.cliente.getEndereco().get(0).getCidade());
+		this.formulario.getTCep().setText(this.cliente.getEndereco().get(0).getCep());
+		this.formulario.getTEmail().setText(this.cliente.getContato().get(0).getEmail());
+		this.formulario.getTCelular().setText(this.cliente.getContato().get(0).getCelular());
+		this.formulario.getTTelefone().setText(this.cliente.getContato().get(0).getTelefone());
 	}
 
 	
@@ -159,17 +160,32 @@ public class ClienteListener implements ActionListener{
 	//Classe que possui eventos dos botoes da TELA
 	public void actionPerformed(ActionEvent event) {
 		if(event.getActionCommand().equals("Novo")){
-			
+			this.formulario = new FrmIncluirCliente();
 		}
 		
 		if(event.getActionCommand().equals("Gravar")){
 			Salvar();
+			this.formulario.dispose();
 		}
 		
 		if(event.getActionCommand().equals("Cancelar")){
-			
+			this.formulario.dispose();
 		}
 		
 	}
+
+
+	public Cliente getCliente() {
+		return cliente;
+	}
+
+
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
+	}
+	
+	
+	
+	
 	
 }

@@ -9,8 +9,8 @@ import java.util.Date;
 public class TransformaDateUtil {
 	
 	
-	//Converte as datas em String para Date para ser armazenadas
-	public static Date Transformando(String data){
+	//Converte as datas de String para Date para ser armazenadas
+	public static Date TransformandoEmDate(String data){
 		Date dat = null;
 		
 		try {
@@ -24,6 +24,19 @@ public class TransformaDateUtil {
 	}
 	
 	
+	//Faz o inverso, pega a variavel do tipo Date e transforma em String
+	public static String TransformandoEmString(Date data){
+		String dat;
+		
+		Calendar calen = Calendar.getInstance();
+		calen.setTime(data);
+		DateFormat df = DateFormat.getDateInstance(DateFormat.MEDIUM);
+		dat = df.format(calen.getTime());
+		return dat;
+	}
+		
+		
+	
 	//Pega a data do dia atual e transforma em String para ser apresentada pra quem chamar
 	public static String RetornaDataAtual(){
 		String valor;
@@ -33,7 +46,7 @@ public class TransformaDateUtil {
 		calendario.setTime(data);
 		DateFormat df = DateFormat.getDateInstance(DateFormat.MEDIUM);
 		
-		
-		return valor = df.format(calendario.getTime());
+		valor = df.format(calendario.getTime());
+		return valor;
 	}
 }

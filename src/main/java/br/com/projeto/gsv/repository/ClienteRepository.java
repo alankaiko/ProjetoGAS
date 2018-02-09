@@ -21,7 +21,7 @@ public class ClienteRepository {
 		
 		try {
 			transacao = sessao.beginTransaction();
-			sessao.save(cliente);
+			sessao.saveOrUpdate(cliente);
 			transacao.commit();
 		} catch (RuntimeException e) {
 			if (transacao != null)

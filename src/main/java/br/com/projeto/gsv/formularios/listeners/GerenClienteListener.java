@@ -70,7 +70,7 @@ public class GerenClienteListener implements ActionListener{
 		}
 		
 		if(event.getActionCommand().equals("Modificar")){
-			
+			ExecutaEdicao(SelecionaLinha());
 		}
 		
 		if(event.getActionCommand().equals("Incluir")){
@@ -82,7 +82,7 @@ public class GerenClienteListener implements ActionListener{
 		}
 		
 		if(event.getActionCommand().equals("Fim")){
-			
+			this.gerenciamento.dispose();
 		}
 	}
 	
@@ -94,9 +94,9 @@ public class GerenClienteListener implements ActionListener{
 	}
 	
 	private void ExecutaInclusao(){
-		FrmIncluirCliente painel = new FrmIncluirCliente();
-		painel.setLocationRelativeTo(this.gerenciamento.getTela());
-		painel.setVisible(true);		
+		FrmIncluirCliente inclui = new FrmIncluirCliente();
+		inclui.setLocationRelativeTo(this.gerenciamento.getTela());
+		inclui.setVisible(true);		
 		TabelaDeCliente();
 	}
 	
@@ -107,6 +107,19 @@ public class GerenClienteListener implements ActionListener{
 		telaExc.setLocationRelativeTo(this.gerenciamento.getTela());
 		telaExc.setVisible(true);
 		TabelaDeCliente();	
+	}
+	
+	private void ExecutaEdicao(Long id){
+		ClienteController controller = new ClienteController();
+		FrmIncluirCliente edita = new FrmIncluirCliente();
+		
+		edita.getListener().setCliente(controller.BuscarPelaID(id));
+		edita.getListener().AlterandoObjetos();
+		
+		edita.setLocationRelativeTo(this.gerenciamento.getTela());
+		edita.setVisible(true);
+		
+		TabelaDeCliente();
 	}
 	
 	

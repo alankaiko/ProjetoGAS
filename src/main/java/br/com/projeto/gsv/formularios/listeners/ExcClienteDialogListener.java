@@ -55,6 +55,7 @@ public class ExcClienteDialogListener implements ActionListener{
 			this.controller = new ClienteController();
 			controller.setCliente(this.dialogo.getCliente());
 			controller.RemoverCliente();
+			this.dialogo.dispose();
 		}
 		
 		if(event.getActionCommand().equals("Cancelar")){
