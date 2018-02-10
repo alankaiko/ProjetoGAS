@@ -86,8 +86,8 @@ public class ClienteListener implements ActionListener{
 		cliente.setNome(this.formulario.getTNome().getText());
 		cliente.setCpf(this.formulario.getJCpf().getText());
 		cliente.setRg(this.formulario.getTRg().getText());
-		//cliente.setDataNasc(ConverteDadosUtil.TransformandoEmDate(this.formulario.getJDataNasc().getText()));
-		/*cliente.getEndereco().get(0).setLogradouro(this.formulario.getTLogradouro().getText());
+		cliente.setDataNasc(ConverteDadosUtil.TransformandoEmDate(this.formulario.getJDataNasc().getText()));
+		cliente.getEndereco().get(0).setLogradouro(this.formulario.getTLogradouro().getText());
 		cliente.getEndereco().get(0).setComplemento(this.formulario.getTComplemento().getText());
 		cliente.getEndereco().get(0).setNumero(Integer.parseInt(this.formulario.getTNumero().getText()));
 		cliente.getEndereco().get(0).setBairro(this.formulario.getTBairro().getText());
@@ -96,7 +96,7 @@ public class ClienteListener implements ActionListener{
 		cliente.getEndereco().get(0).setCep(this.formulario.getTCep().getText());
 		cliente.getContato().get(0).setEmail(this.formulario.getTEmail().getText());
 		cliente.getContato().get(0).setCelular(this.formulario.getTCelular().getText());
-		cliente.getContato().get(0).setTelefone(this.formulario.getTTelefone().getText());*/
+		cliente.getContato().get(0).setTelefone(this.formulario.getTTelefone().getText());
 	}
 	
 	//Classe que pega informacoes dos contatos e Joga dentro do objeto Contatos
