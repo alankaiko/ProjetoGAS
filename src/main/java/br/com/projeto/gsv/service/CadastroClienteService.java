@@ -12,10 +12,6 @@ public class CadastroClienteService {
 	public void Salvar(Cliente cliente){
 		this.repositorio.Guardar(cliente);
 	}
-		
-	public void Editar(Cliente cliente){
-		this.repositorio.Editar(cliente);
-	}
 	
 	public void Remover(Cliente cliente){
 		this.repositorio.Remover(cliente);

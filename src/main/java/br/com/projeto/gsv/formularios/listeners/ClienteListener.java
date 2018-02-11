@@ -6,6 +6,7 @@ import java.util.Date;
 
 import javax.swing.JTextField;
 
+import br.com.projeto.gsv.controller.ClienteController;
 import br.com.projeto.gsv.domain.Cliente;
 import br.com.projeto.gsv.domain.Contato;
 import br.com.projeto.gsv.domain.Endereco;
@@ -17,7 +18,7 @@ import br.com.projeto.gsv.util.ConverteDadosUtil;
 public class ClienteListener implements ActionListener{
 
 	private FrmIncluirCliente formulario;
-	private CadastroClienteService service;
+	private ClienteController con;
 	private Cliente cliente;
 	private Contato contato;
 	private Endereco endereco;
@@ -25,7 +26,7 @@ public class ClienteListener implements ActionListener{
 	
 	public ClienteListener(FrmIncluirCliente formulario) {
 		this.formulario = formulario;
-		service = new CadastroClienteService();
+		con = new ClienteController();
 		AdicionarListener();
 	}
 	
@@ -35,12 +36,14 @@ public class ClienteListener implements ActionListener{
 		FormToContato();
 		FormToEndereco();
 		AtrelarObjetos();
-		service.Salvar(this.cliente);
+		con.setCliente(this.cliente);
+		con.SalvarCliente();
 	}
 	
 	private void Editar(){
 		EditToCliente();
-		service.Salvar(this.cliente);
+		con.setCliente(this.cliente);
+		con.SalvarCliente();
 	}
 	
 	
@@ -60,46 +63,20 @@ public class ClienteListener implements ActionListener{
 	
 	/*-----------------------------------------------------------------------------------------------------------------*/
 	/*-------------------CLASSES INTERNAS QUE CAPTURAM AS INFORMACOES E INSEREM NOS RESPECTIVOS OBJETOS ---------------*/
-	
-	//Classe que mapeia os objetos contato e endereco dentro do objeto cliente
-	private void AtrelarObjetos(){
-		this.cliente.getContato().add(this.contato);
-		this.cliente.getEndereco().add(this.endereco);
 		
-		this.endereco.setCliente(this.cliente);
-		this.contato.setCliente(this.cliente);
-	}	
-	
-	//Classe que pega informacoes do cliente e joga dentro do objeto Cliente
+	//Método que pega informacoes do cliente e joga dentro do objeto Cliente
 	private void FormToCliente(){
 		cliente = new Cliente();
 		cliente.setNome(this.formulario.getTNome().getText());
-		cliente.setCpf(this.formulario.getJCpf().getText());
+		cliente.setCpf(this.formulario.getJCpf().getText().replaceAll("[_.-]", ""));
 		cliente.setRg(this.formulario.getTRg().getText());
 		cliente.setDataCad(new Date());
 		cliente.setDataNasc(ConverteDadosUtil.TransformandoEmDate(this.formulario.getJDataNasc().getText()));
 		cliente.setObservacao(this.formulario.getTObservacao().getText());
 	}
 	
-	private void EditToCliente(){
-		cliente.setId(Long.parseLong(this.formulario.getTId().getText()));
-		cliente.setNome(this.formulario.getTNome().getText());
-		cliente.setCpf(this.formulario.getJCpf().getText());
-		cliente.setRg(this.formulario.getTRg().getText());
-		cliente.setDataNasc(ConverteDadosUtil.TransformandoEmDate(this.formulario.getJDataNasc().getText()));
-		cliente.getEndereco().get(0).setLogradouro(this.formulario.getTLogradouro().getText());
-		cliente.getEndereco().get(0).setComplemento(this.formulario.getTComplemento().getText());
-		cliente.getEndereco().get(0).setNumero(Integer.parseInt(this.formulario.getTNumero().getText()));
-		cliente.getEndereco().get(0).setBairro(this.formulario.getTBairro().getText());
-		cliente.getEndereco().get(0).setCidade(this.formulario.getTCidade().getText());
-		cliente.getEndereco().get(0).setEstado((String)this.formulario.getComboEstado().getSelectedItem());
-		cliente.getEndereco().get(0).setCep(this.formulario.getTCep().getText());
-		cliente.getContato().get(0).setEmail(this.formulario.getTEmail().getText());
-		cliente.getContato().get(0).setCelular(this.formulario.getTCelular().getText());
-		cliente.getContato().get(0).setTelefone(this.formulario.getTTelefone().getText());
-	}
 	
-	//Classe que pega informacoes dos contatos e Joga dentro do objeto Contatos
+	//Método que pega informacoes dos contatos e Joga dentro do objeto Contatos
 	private void FormToContato(){
 		contato = new Contato();
 		contato.setEmail(this.formulario.getTEmail().getText());
@@ -107,7 +84,7 @@ public class ClienteListener implements ActionListener{
 		contato.setTelefone(this.formulario.getTTelefone().getText());
 	}
 	
-	//Classe que pega infromacoes do Endereco e joga dentro do objeto Endereco
+	//Método que pega infromacoes do Endereco e joga dentro do objeto Endereco
 	private void FormToEndereco(){
 		endereco = new Endereco();
 		endereco.setLogradouro(this.formulario.getTLogradouro().getText());
@@ -118,7 +95,18 @@ public class ClienteListener implements ActionListener{
 		endereco.setEstado((String)this.formulario.getComboEstado().getSelectedItem());
 		endereco.setCep(this.formulario.getTCep().getText());
 	}
+	
+	//Método que mapeia os objetos contato e endereco dentro do objeto cliente
+	private void AtrelarObjetos(){
+		this.cliente.getContato().add(this.contato);
+		this.cliente.getEndereco().add(this.endereco);
+		
+		this.endereco.setCliente(this.cliente);
+		this.contato.setCliente(this.cliente);
+	}	
 
+	
+	
 	
 	
 	
@@ -127,10 +115,6 @@ public class ClienteListener implements ActionListener{
 	
 	/*-----------------------------------------------------------------------------------------------------------------*/
 	/*---------------------------------------CLASSES PARA EDICAO DOS OBJETOS-------------------------------------------*/
-	public void PegaCliente(Cliente cliente){
-		this.cliente = cliente;
-	}
-	
 	public void AlterandoObjetos(){
 		this.formulario.getTId().setText(String.valueOf(this.cliente.getId()));
 		this.formulario.getTNome().setText(this.cliente.getNome());
@@ -150,6 +134,28 @@ public class ClienteListener implements ActionListener{
 		this.formulario.getTTelefone().setText(this.cliente.getContato().get(0).getTelefone());
 	}
 
+	
+	//Método para Edicao de clientes
+		private void EditToCliente(){
+			cliente.setId(Long.parseLong(this.formulario.getTId().getText()));
+			cliente.setNome(this.formulario.getTNome().getText());
+			cliente.setCpf(this.formulario.getJCpf().getText().replaceAll("[_.-]", ""));
+			cliente.setRg(this.formulario.getTRg().getText());
+			cliente.setDataNasc(ConverteDadosUtil.TransformandoEmDate(this.formulario.getJDataNasc().getText()));
+			cliente.getEndereco().get(0).setLogradouro(this.formulario.getTLogradouro().getText());
+			cliente.getEndereco().get(0).setComplemento(this.formulario.getTComplemento().getText());
+			cliente.getEndereco().get(0).setNumero(Integer.parseInt(this.formulario.getTNumero().getText()));
+			cliente.getEndereco().get(0).setBairro(this.formulario.getTBairro().getText());
+			cliente.getEndereco().get(0).setCidade(this.formulario.getTCidade().getText());
+			cliente.getEndereco().get(0).setEstado((String)this.formulario.getComboEstado().getSelectedItem());
+			cliente.getEndereco().get(0).setCep(this.formulario.getTCep().getText());
+			cliente.getContato().get(0).setEmail(this.formulario.getTEmail().getText());
+			cliente.getContato().get(0).setCelular(this.formulario.getTCelular().getText());
+			cliente.getContato().get(0).setTelefone(this.formulario.getTTelefone().getText());
+		}
+		
+		
+		
 	
 	
 	

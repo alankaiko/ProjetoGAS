@@ -7,6 +7,7 @@ import javax.swing.ListSelectionModel;
 
 import br.com.projeto.gsv.controller.ClienteController;
 import br.com.projeto.gsv.formularios.ExcClienteDialog;
+import br.com.projeto.gsv.formularios.FrmClienteDetail;
 import br.com.projeto.gsv.formularios.FrmIncluirCliente;
 import br.com.projeto.gsv.formularios.TelaGerenCliente;
 import br.com.projeto.gsv.util.TabelaDeClientesUtil;
@@ -58,7 +59,7 @@ public class GerenClienteListener implements ActionListener{
 	
 	public void actionPerformed(ActionEvent event) {
 		if(event.getActionCommand().equals("Detalhes")){
-			
+			ExecutaTelaDetalhes(SelecionaLinha());
 		}
 		
 		if(event.getActionCommand().equals("Código")){
@@ -122,5 +123,15 @@ public class GerenClienteListener implements ActionListener{
 		TabelaDeCliente();
 	}
 	
+	private void ExecutaTelaDetalhes(Long id){
+		ClienteController controller = new ClienteController();
+		FrmClienteDetail detalhes = new FrmClienteDetail();
+		
+		detalhes.getListener().setCliente(controller.BuscarPelaID(id));
+		detalhes.getListener().GetDados();
+		
+		detalhes.setLocationRelativeTo(this.gerenciamento.getTela());
+		detalhes.setVisible(true);
+	}
 	
 }

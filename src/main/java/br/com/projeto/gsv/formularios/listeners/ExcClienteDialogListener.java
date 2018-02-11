@@ -9,39 +9,39 @@ import br.com.projeto.gsv.controller.ClienteController;
 import br.com.projeto.gsv.formularios.ExcClienteDialog;
 
 public class ExcClienteDialogListener implements ActionListener{
-	private ExcClienteDialog dialogo;
+	private ExcClienteDialog formulario;
 	private ClienteController controller;
 	
 	
-	public ExcClienteDialogListener(ExcClienteDialog dialogo) {
-		this.dialogo = dialogo;
+	public ExcClienteDialogListener(ExcClienteDialog formulario) {
+		this.formulario = formulario;
 		AdicionaListener();
 		UsandoTAB();
 	}
 	
 	
 	private void AdicionaListener(){
-		dialogo.getOk().addActionListener(this);
-		dialogo.getCancelar().addActionListener(this);
+		formulario.getOk().addActionListener(this);
+		formulario.getCancelar().addActionListener(this);
 	}
 		
 	
 	
 	private void UsandoTAB(){
-		this.dialogo.getOk().addKeyListener(new KeyAdapter() {  
+		this.formulario.getOk().addKeyListener(new KeyAdapter() {  
             public void keyPressed(KeyEvent e) {  
                 if (e.getKeyCode() == KeyEvent.VK_ENTER) {  
-                	dialogo.getOk().doClick();
+                	formulario.getOk().doClick();
                 }  
             }  
         });
 		
 		
 		
-		this.dialogo.getCancelar().addKeyListener(new KeyAdapter() {  
+		this.formulario.getCancelar().addKeyListener(new KeyAdapter() {  
             public void keyPressed(KeyEvent e) {  
                 if (e.getKeyCode() == KeyEvent.VK_ENTER) {  
-                	dialogo.getCancelar().doClick();  
+                	formulario.getCancelar().doClick();  
                 }  
             }  
         });
@@ -51,15 +51,15 @@ public class ExcClienteDialogListener implements ActionListener{
 	
 	
 	public void actionPerformed(ActionEvent event) {
-		if(event.getActionCommand().equals("OK")){
+		if(event.getSource().equals(this.formulario.getOk())){
 			this.controller = new ClienteController();
-			controller.setCliente(this.dialogo.getCliente());
+			controller.setCliente(this.formulario.getCliente());
 			controller.RemoverCliente();
-			this.dialogo.dispose();
+			this.formulario.dispose();
 		}
 		
-		if(event.getActionCommand().equals("Cancelar")){
-			
+		if(event.getSource().equals(this.formulario.getCancelar())){
+			this.formulario.dispose();
 		}
 		
 	}

@@ -21,7 +21,7 @@ public class ClienteRepository {
 		
 		try {
 			transacao = sessao.beginTransaction();
-			sessao.saveOrUpdate(cliente);
+			sessao.merge(cliente);
 			transacao.commit();
 		} catch (RuntimeException e) {
 			if (transacao != null)
@@ -50,22 +50,6 @@ public class ClienteRepository {
 	}
 	
 	
-	public void Editar(Cliente cliente){
-		sessao = HibernateUtil.getSessionFactory().openSession();
-
-		try {
-			transacao = sessao.beginTransaction();
-			//sessao.update(cliente);
-			sessao.update(cliente);
-			transacao.commit();
-		} catch (RuntimeException e) {
-			if (transacao != null)
-				transacao.rollback();
-			throw e;
-		} finally {
-			sessao.close();
-		}
-	}
 	
 	public Cliente BuscarPorId(Long id){
 		sessao = HibernateUtil.getSessionFactory().openSession();

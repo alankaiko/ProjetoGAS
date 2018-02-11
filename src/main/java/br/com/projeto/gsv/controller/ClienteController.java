@@ -24,9 +24,6 @@ public class ClienteController {
 		this.cadastroService.Salvar(this.cliente);
 	}
 	
-	public void EditarCliente(){
-		this.cadastroService.Editar(this.cliente);
-	}
 	
 	public void RemoverCliente(){
 		this.cadastroService.Remover(this.cliente);

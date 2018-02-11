@@ -1,10 +1,16 @@
 package br.com.projeto.gsv.util;
 
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+
+import javax.swing.JFormattedTextField;
+import javax.swing.JTextField;
+import javax.swing.text.MaskFormatter;
 
 public class ConverteDadosUtil {
 	
@@ -51,4 +57,35 @@ public class ConverteDadosUtil {
 	}
 	
 	
+	//Metodo que adiciona mascara ao campo de Cpf
+	public static MaskFormatter FormataCPF(){
+		MaskFormatter mascaraCpf = null;
+		
+		try{
+			mascaraCpf=new MaskFormatter("###.###.###-##");
+			mascaraCpf.setPlaceholderCharacter('_');
+		}
+		catch(ParseException excp){}
+		
+		return mascaraCpf;
+	}
+	
+	
+	//Metodo que adiciona mascara ao campo de data
+	public static MaskFormatter FormataData(){
+		MaskFormatter mascaraData = null;
+		
+		try{
+			mascaraData=new MaskFormatter("##/##/####");
+			mascaraData.setPlaceholderCharacter('_');
+		}
+		catch(ParseException excp){}
+		
+		return mascaraData;
+	}
+	
+	
 }
+	
+	
+	

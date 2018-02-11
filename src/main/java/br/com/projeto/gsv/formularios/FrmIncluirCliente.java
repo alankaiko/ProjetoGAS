@@ -76,26 +76,14 @@ public class FrmIncluirCliente extends JDialog {
 			LDocumento = new JLabel("*CPF:");
 			LDocumento.setBounds(75,60,35,20);
 			LDocumento.setFont(new Font("Arial" , Font.BOLD,11));;
-				try{
-					mascaraCpf=new MaskFormatter("###.###.###-##");
-					mascaraCpf.setPlaceholderCharacter('_');
-				}
-				catch(ParseException excp){}
-							
-				JCpf= new JFormattedTextField(mascaraCpf);
+				JCpf= new JFormattedTextField(ConverteDadosUtil.FormataCPF());
 				JCpf.setBounds(111,62,173,19);		
 				
 						
 			LDataNasc = new JLabel("Data Nasc.:");
 			LDataNasc.setBounds(50,121,60,20);
-			LDataNasc.setFont(new Font("Arial" , Font.BOLD,11));;
-				try{
-					mascaraDataNasc=new MaskFormatter("##/##/####");
-					mascaraDataNasc.setPlaceholderCharacter('_');
-				}
-				catch(ParseException excp){}
-					
-				JDataNasc= new JFormattedTextField(mascaraDataNasc);
+			LDataNasc.setFont(new Font("Arial" , Font.BOLD,11));;					
+				JDataNasc= new JFormattedTextField(ConverteDadosUtil.FormataData());
 				JDataNasc.setBounds(111,121,120,19);
 					
 												
@@ -127,12 +115,7 @@ public class FrmIncluirCliente extends JDialog {
 			LDataCad = new JLabel("Data Cadastro:");
 			LDataCad.setBounds(439,30,84,20);
 			LDataCad.setFont(new Font("Arial" , Font.BOLD,11));;
-				try{
-					mascaraDataCadastro=new MaskFormatter("##/##/####");
-					mascaraDataCadastro.setPlaceholderCharacter('_');
-				}
-				catch(ParseException excp){}
-				JDataCadastro= new JFormattedTextField(mascaraDataNasc);
+				JDataCadastro= new JFormattedTextField(ConverteDadosUtil.FormataData());
 				JDataCadastro.setEditable(false);
 				JDataCadastro.setText(ConverteDadosUtil.RetornaDataAtual());
 				JDataCadastro.setBounds(525,30,84,19);
@@ -299,7 +282,6 @@ public class FrmIncluirCliente extends JDialog {
 	private JLabel LId, LNome, LDocumento, LRg, LDataNasc, LDataCad, LObservacao;
 	private JLabel LIndentif, LEndereco, LLogradouro, LComplemento;
 	private JLabel LNumero, LBairro, LCidade, LCep, LContato, LEmail, LCelular, LTelefone, LEstado;
-	private MaskFormatter  mascaraCep, mascaraFoneFixo, mascaraFoneCel, mascaraCpf,mascaraDataNasc, mascaraDataCadastro;
 	private JTextField TId, TNome, TRg, TObservacao, TLogradouro, TComplemento, TNumero;
 	private JTextField TBairro, TCidade, TCep, TEmail, TTelefone, TCelular;
 	private JFormattedTextField JCpf,JDataNasc, JDataCadastro;
@@ -345,258 +327,7 @@ public class FrmIncluirCliente extends JDialog {
 		this.tela = tela;
 	}
 
-
-
-	public JLabel getLId() {
-		return LId;
-	}
-
-
-	public void setLId(JLabel lId) {
-		LId = lId;
-	}
-
-
-	public JLabel getLNome() {
-		return LNome;
-	}
-
-
-	public void setLNome(JLabel lNome) {
-		LNome = lNome;
-	}
-
-
-	public JLabel getLDocumento() {
-		return LDocumento;
-	}
-
-
-	public void setLDocumento(JLabel lDocumento) {
-		LDocumento = lDocumento;
-	}
-
-
-	public JLabel getLRg_insc() {
-		return LRg;
-	}
-
-
-	public void setLRg_insc(JLabel lRg_insc) {
-		LRg = lRg_insc;
-	}
-
-
-	public JLabel getLDataNasc() {
-		return LDataNasc;
-	}
-
-
-	public void setLDataNasc(JLabel lDataNasc) {
-		LDataNasc = lDataNasc;
-	}
-
-
-	public JLabel getLDataCad() {
-		return LDataCad;
-	}
-
-
-	public void setLDataCad(JLabel lDataCad) {
-		LDataCad = lDataCad;
-	}
-
-
-	public JLabel getLObservacao() {
-		return LObservacao;
-	}
-
-
-	public void setLObservacao(JLabel lObservacao) {
-		LObservacao = lObservacao;
-	}
-
-
-	public JLabel getLIndentif() {
-		return LIndentif;
-	}
-
-
-	public void setLIndentif(JLabel lIndentif) {
-		LIndentif = lIndentif;
-	}
-
-
-	public JLabel getLEndereco() {
-		return LEndereco;
-	}
-
-
-	public void setLEndereco(JLabel lEndereco) {
-		LEndereco = lEndereco;
-	}
-
-
-	public JLabel getLLogradouro() {
-		return LLogradouro;
-	}
-
-
-	public void setLLogradouro(JLabel lLogradouro) {
-		LLogradouro = lLogradouro;
-	}
-
-
-	public JLabel getLComplemento() {
-		return LComplemento;
-	}
-
-
-	public void setLComplemento(JLabel lComplemento) {
-		LComplemento = lComplemento;
-	}
-
-
-	public JLabel getLNumero() {
-		return LNumero;
-	}
-
-
-	public void setLNumero(JLabel lNumero) {
-		LNumero = lNumero;
-	}
-
-
-	public JLabel getLBairro() {
-		return LBairro;
-	}
-
-
-	public void setLBairro(JLabel lBairro) {
-		LBairro = lBairro;
-	}
-
-
-	public JLabel getLCidade() {
-		return LCidade;
-	}
-
-
-	public void setLCidade(JLabel lCidade) {
-		LCidade = lCidade;
-	}
-
-
-	public JLabel getLCep() {
-		return LCep;
-	}
-
-
-	public void setLCep(JLabel lCep) {
-		LCep = lCep;
-	}
-
-
-	public JLabel getLContato() {
-		return LContato;
-	}
-
-
-	public void setLContato(JLabel lContato) {
-		LContato = lContato;
-	}
-
-
-	public JLabel getLEmail() {
-		return LEmail;
-	}
-
-
-	public void setLEmail(JLabel lEmail) {
-		LEmail = lEmail;
-	}
-
-
-	public JLabel getLCelular() {
-		return LCelular;
-	}
-
-
-	public void setLCelular(JLabel lCelular) {
-		LCelular = lCelular;
-	}
-
-
-	public JLabel getLTelefone() {
-		return LTelefone;
-	}
-
-
-	public void setLTelefone(JLabel lTelefone) {
-		LTelefone = lTelefone;
-	}
-
-
-	public MaskFormatter getMascaraCep() {
-		return mascaraCep;
-	}
-
-
-	public void setMascaraCep(MaskFormatter mascaraCep) {
-		this.mascaraCep = mascaraCep;
-	}
-
-
-	public MaskFormatter getMascaraFoneFixo() {
-		return mascaraFoneFixo;
-	}
-
-
-	public void setMascaraFoneFixo(MaskFormatter mascaraFoneFixo) {
-		this.mascaraFoneFixo = mascaraFoneFixo;
-	}
-
-
-	public MaskFormatter getMascaraFoneCel() {
-		return mascaraFoneCel;
-	}
-
-
-	public void setMascaraFoneCel(MaskFormatter mascaraFoneCel) {
-		this.mascaraFoneCel = mascaraFoneCel;
-	}
-
-
-	public MaskFormatter getMascaraCpf() {
-		return mascaraCpf;
-	}
-
-
-	public void setMascaraCpf(MaskFormatter mascaraCpf) {
-		this.mascaraCpf = mascaraCpf;
-	}
-
-
-	public MaskFormatter getMascaraDataNasc() {
-		return mascaraDataNasc;
-	}
-
-
-	public void setMascaraDataNasc(MaskFormatter mascaraDataNasc) {
-		this.mascaraDataNasc = mascaraDataNasc;
-	}
-
-
-	public MaskFormatter getMascaraDataCadastro() {
-		return mascaraDataCadastro;
-	}
-
-
-	public void setMascaraDataCadastro(MaskFormatter mascaraDataCadastro) {
-		this.mascaraDataCadastro = mascaraDataCadastro;
-	}
-
-
+	
 	public JTextField getTId() {
 		return TId;
 	}
@@ -615,9 +346,6 @@ public class FrmIncluirCliente extends JDialog {
 	public void setTNome(JTextField tNome) {
 		TNome = tNome;
 	}
-
-
-	
 
 
 	public JTextField getTRg() {
