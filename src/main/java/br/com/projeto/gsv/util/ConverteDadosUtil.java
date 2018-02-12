@@ -85,6 +85,20 @@ public class ConverteDadosUtil {
 	}
 	
 	
+	//Metodo que adiciona mascara ao campo cep
+	public static MaskFormatter FormataCep(){
+		MaskFormatter mascaraCep = null;
+		
+		try{
+			mascaraCep=new MaskFormatter("#####-###");
+			mascaraCep.setPlaceholderCharacter('_');
+		}
+		catch(ParseException excp){}
+		
+		return mascaraCep;
+	}
+	
+	
 }
 	
 	

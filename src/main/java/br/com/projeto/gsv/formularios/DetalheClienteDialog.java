@@ -6,30 +6,24 @@ import java.awt.Container;
 import java.awt.Font;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-import java.text.ParseException;
-import java.util.Vector;
 
-import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
-import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JFormattedTextField;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import javax.swing.text.MaskFormatter;
 
-import br.com.projeto.gsv.formularios.listeners.DetailClienteListener;
+import br.com.projeto.gsv.formularios.listeners.DetalhesClienteListener;
 import br.com.projeto.gsv.util.ConverteDadosUtil;
-import br.com.projeto.gsv.util.ListasUtil;
 
-public class FrmClienteDetail extends JDialog {
+public class DetalheClienteDialog extends JDialog {
 		
-	public FrmClienteDetail() {
+	public DetalheClienteDialog() {
 		CriarTelaGeral();
 		DadosCPF();
 		InicializaCompomentes();
-		listener = new DetailClienteListener(this);
+		listener = new DetalhesClienteListener(this);
 	}
 
 	
@@ -68,34 +62,25 @@ public class FrmClienteDetail extends JDialog {
 				TId.setForeground(Color.black);
 					
 						 
-			LDocumento = new JLabel("*CPF:");
-			LDocumento.setBounds(75,60,35,20);
-			LDocumento.setFont(new Font("Arial" , Font.BOLD,11));;
+				LCpf = new JLabel("CPF:");
+				LCpf.setBounds(75,60,35,20);
+				LCpf.setFont(new Font("Arial" , Font.BOLD,11));
 				JCpf= new JFormattedTextField(ConverteDadosUtil.FormataCPF());
-				TCpf = new JLabel(JCpf.getText());
-				TCpf.setBounds(111,62,173,19);
-				TCpf.setForeground(Color.black);
-							
+				TCpf = new JLabel();
+				TCpf.setBounds(111,62,173,16);
+				
+			
 						
 			LDataNasc = new JLabel("Data Nasc.:");
 			LDataNasc.setBounds(50,121,60,20);
 			LDataNasc.setFont(new Font("Arial" , Font.BOLD,11));;
-				try{
-					mascaraDataNasc=new MaskFormatter("##/##/####");
-					mascaraDataNasc.setPlaceholderCharacter('_');
-				}
-				catch(ParseException excp){}
-					
-				JDataNasc= new JFormattedTextField(mascaraDataNasc);
+				JDataNasc= new JFormattedTextField(ConverteDadosUtil.FormataData());
 				TDataNasc= new JLabel();
 				TDataNasc.setBounds(111,121,120,19);
-				TDataNasc.setBackground(new Color(255,255,204));
-				TDataNasc.setFont(new Font("Arial",Font.BOLD,12));
-				TDataNasc.setForeground(Color.black);
-										
+				TDataNasc.setFont(new Font("Arial",Font.BOLD,12));										
 					
 												
-			LRg = new JLabel("*RG:");
+			LRg = new JLabel("RG:");
 			LRg.setBounds(456,60,29,20);
 			LRg.setFont(new Font("Arial" , Font.BOLD,11));;
 				TRg = new JLabel();
@@ -104,7 +89,7 @@ public class FrmClienteDetail extends JDialog {
 						
 						
 					
-			LNome = new JLabel("*Nome:");
+			LNome = new JLabel("Nome:");
 			LNome.setBounds(65,90,50,20);
 			LNome.setFont(new Font("Arial" , Font.BOLD,11));;
 				TNome = new JLabel();
@@ -114,12 +99,7 @@ public class FrmClienteDetail extends JDialog {
 			LDataCad = new JLabel("Data Cadastro:");
 			LDataCad.setBounds(439,30,84,20);
 			LDataCad.setFont(new Font("Arial" , Font.BOLD,11));;
-				try{
-					mascaraDataCadastro=new MaskFormatter("##/##/####");
-					mascaraDataCadastro.setPlaceholderCharacter('_');
-				}
-				catch(ParseException excp){}
-				JDataCadastro= new JFormattedTextField(mascaraDataNasc);
+				JDataCadastro= new JFormattedTextField(ConverteDadosUtil.FormataData());
 				TDataCadastro = new JLabel();
 				TDataCadastro.setBounds(525,30,84,19);
 
@@ -177,16 +157,16 @@ public class FrmClienteDetail extends JDialog {
 				TCidade = new JLabel();
 				TCidade.setBounds(111, 250, 208, 20);
 				
-		
-			ComboEstado = new JComboBox();
-			ComboEstado.setModel(new DefaultComboBoxModel(new Vector(ListasUtil.Estados())));
-			ComboEstado.setBounds(456, 250, 86, 20);
-				LEstado = new JLabel("UF: ");
-				LEstado.setBounds(429, 253, 46, 14);
+			LEstado = new JLabel("UF: ");
+			LEstado.setBounds(429, 253, 46, 14);
+				TComboEstado = new JLabel();
+				TComboEstado.setBounds(456, 250, 86, 20);
+				
 						
 			LCep = new JLabel("CEP:");
 			LCep.setFont(new Font("Arial", Font.BOLD, 11));
 			LCep.setBounds(75, 284, 35, 14);
+				JCep = new JFormattedTextField(ConverteDadosUtil.FormataCep());
 				TCep = new JLabel();
 				TCep.setBounds(111, 281, 86, 20);
 					
@@ -229,15 +209,15 @@ public class FrmClienteDetail extends JDialog {
 			tela.add(this.TObservacao);
 			tela.add(this.LId);
 			tela.add(this.LNome);
-			tela.add(this.LDocumento);
+			tela.add(this.LCpf);
 			tela.add(this.LRg);
 			tela.add(this.LDataNasc);
 			tela.add(this.LDataCad);
 			tela.add(this.LObservacao);
 			tela.add(this.LIndentif);
-			tela.add(this.JDataCadastro);		
+			tela.add(this.TDataCadastro);		
+			tela.add(this.JCpf);
 			tela.add(this.TCpf);
-			tela.add(this.JDataNasc);
 			tela.add(this.LEndereco);
 			tela.add(this.LLogradouro);
 			tela.add(this.TLogradouro);
@@ -259,25 +239,23 @@ public class FrmClienteDetail extends JDialog {
 			tela.add(this.TTelefone);
 			tela.add(this.TCelular);
 			tela.add(this.cancelar);
-			tela.add(ComboEstado);
-			tela.add(LEstado);
-			
+			tela.add(this.TComboEstado);
+			tela.add(this.LEstado);
+			tela.add(this.TDataNasc);
 			
 		}
 
 		
-		private DetailClienteListener listener;
+		private DetalhesClienteListener listener;
 		private final JPanel contentPanel = new JPanel();
 		private Container tela = getContentPane();
-		private JLabel LId, LNome, LDocumento, LRg, LDataNasc, LDataCad, LObservacao;
+		private JLabel LId, LNome, LCpf, LRg, LDataNasc, LDataCad, LObservacao;
 		private JLabel LIndentif, LEndereco, LLogradouro, LComplemento;
 		private JLabel LNumero, LBairro, LCidade, LCep, LContato, LEmail, LCelular, LTelefone, LEstado;
-		private MaskFormatter  mascaraCep, mascaraFoneFixo, mascaraFoneCel, mascaraCpf,mascaraDataNasc, mascaraDataCadastro;
 		private JLabel TId, TNome, TCpf, TDataCadastro,TRg, TDataNasc, TObservacao, TLogradouro, TComplemento, TNumero;
-		private JLabel TBairro, TCidade, TCep, TEmail, TTelefone, TCelular;
-		private JFormattedTextField JCpf,JDataNasc, JDataCadastro;
+		private JLabel TBairro, TCidade, TComboEstado, TCep, TEmail, TTelefone, TCelular;
+		private JFormattedTextField JCpf,JDataNasc, JDataCadastro,JCep;
 		private JButton cancelar;
-		private JComboBox ComboEstado;
 
 		
 
@@ -302,259 +280,6 @@ public class FrmClienteDetail extends JDialog {
 			this.tela = tela;
 		}
 
-
-
-		public JLabel getLId() {
-			return LId;
-		}
-
-
-		public void setLId(JLabel lId) {
-			LId = lId;
-		}
-
-
-		public JLabel getLNome() {
-			return LNome;
-		}
-
-
-		public void setLNome(JLabel lNome) {
-			LNome = lNome;
-		}
-
-
-		public JLabel getLDocumento() {
-			return LDocumento;
-		}
-
-
-		public void setLDocumento(JLabel lDocumento) {
-			LDocumento = lDocumento;
-		}
-
-
-		public JLabel getLRg_insc() {
-			return LRg;
-		}
-
-
-		public void setLRg_insc(JLabel lRg_insc) {
-			LRg = lRg_insc;
-		}
-
-
-		public JLabel getLDataNasc() {
-			return LDataNasc;
-		}
-
-
-		public void setLDataNasc(JLabel lDataNasc) {
-			LDataNasc = lDataNasc;
-		}
-
-
-		public JLabel getLDataCad() {
-			return LDataCad;
-		}
-
-
-		public void setLDataCad(JLabel lDataCad) {
-			LDataCad = lDataCad;
-		}
-
-
-		public JLabel getLObservacao() {
-			return LObservacao;
-		}
-
-
-		public void setLObservacao(JLabel lObservacao) {
-			LObservacao = lObservacao;
-		}
-
-
-		public JLabel getLIndentif() {
-			return LIndentif;
-		}
-
-
-		public void setLIndentif(JLabel lIndentif) {
-			LIndentif = lIndentif;
-		}
-
-
-		public JLabel getLEndereco() {
-			return LEndereco;
-		}
-
-
-		public void setLEndereco(JLabel lEndereco) {
-			LEndereco = lEndereco;
-		}
-
-
-		public JLabel getLLogradouro() {
-			return LLogradouro;
-		}
-
-
-		public void setLLogradouro(JLabel lLogradouro) {
-			LLogradouro = lLogradouro;
-		}
-
-
-		public JLabel getLComplemento() {
-			return LComplemento;
-		}
-
-
-		public void setLComplemento(JLabel lComplemento) {
-			LComplemento = lComplemento;
-		}
-
-
-		public JLabel getLNumero() {
-			return LNumero;
-		}
-
-
-		public void setLNumero(JLabel lNumero) {
-			LNumero = lNumero;
-		}
-
-
-		public JLabel getLBairro() {
-			return LBairro;
-		}
-
-
-		public void setLBairro(JLabel lBairro) {
-			LBairro = lBairro;
-		}
-
-
-		public JLabel getLCidade() {
-			return LCidade;
-		}
-
-
-		public void setLCidade(JLabel lCidade) {
-			LCidade = lCidade;
-		}
-
-
-		public JLabel getLCep() {
-			return LCep;
-		}
-
-
-		public void setLCep(JLabel lCep) {
-			LCep = lCep;
-		}
-
-
-		public JLabel getLContato() {
-			return LContato;
-		}
-
-
-		public void setLContato(JLabel lContato) {
-			LContato = lContato;
-		}
-
-
-		public JLabel getLEmail() {
-			return LEmail;
-		}
-
-
-		public void setLEmail(JLabel lEmail) {
-			LEmail = lEmail;
-		}
-
-
-		public JLabel getLCelular() {
-			return LCelular;
-		}
-
-
-		public void setLCelular(JLabel lCelular) {
-			LCelular = lCelular;
-		}
-
-
-		public JLabel getLTelefone() {
-			return LTelefone;
-		}
-
-
-		public void setLTelefone(JLabel lTelefone) {
-			LTelefone = lTelefone;
-		}
-
-
-		public MaskFormatter getMascaraCep() {
-			return mascaraCep;
-		}
-
-
-		public void setMascaraCep(MaskFormatter mascaraCep) {
-			this.mascaraCep = mascaraCep;
-		}
-
-
-		public MaskFormatter getMascaraFoneFixo() {
-			return mascaraFoneFixo;
-		}
-
-
-		public void setMascaraFoneFixo(MaskFormatter mascaraFoneFixo) {
-			this.mascaraFoneFixo = mascaraFoneFixo;
-		}
-
-
-		public MaskFormatter getMascaraFoneCel() {
-			return mascaraFoneCel;
-		}
-
-
-		public void setMascaraFoneCel(MaskFormatter mascaraFoneCel) {
-			this.mascaraFoneCel = mascaraFoneCel;
-		}
-
-
-		public MaskFormatter getMascaraCpf() {
-			return mascaraCpf;
-		}
-
-
-		public void setMascaraCpf(MaskFormatter mascaraCpf) {
-			this.mascaraCpf = mascaraCpf;
-		}
-
-
-		public MaskFormatter getMascaraDataNasc() {
-			return mascaraDataNasc;
-		}
-
-
-		public void setMascaraDataNasc(MaskFormatter mascaraDataNasc) {
-			this.mascaraDataNasc = mascaraDataNasc;
-		}
-
-
-		public MaskFormatter getMascaraDataCadastro() {
-			return mascaraDataCadastro;
-		}
-
-
-		public void setMascaraDataCadastro(MaskFormatter mascaraDataCadastro) {
-			this.mascaraDataCadastro = mascaraDataCadastro;
-		}
-
-
-		
 
 		public JFormattedTextField getJCpf() {
 			return JCpf;
@@ -586,51 +311,27 @@ public class FrmClienteDetail extends JDialog {
 		}
 
 
-		public JComboBox getComboEstado() {
-			return ComboEstado;
-		}
-
-
-		public void setComboEstado(JComboBox comboEstado) {
-			ComboEstado = comboEstado;
+		public JLabel getTComboEstado() {
+			return TComboEstado;
 		}
 
 
 
-		public DetailClienteListener getListener() {
+		public void setTComboEstado(JLabel tComboEstado) {
+			TComboEstado = tComboEstado;
+		}
+
+
+
+		public DetalhesClienteListener getListener() {
 			return listener;
 		}
 
 
 
-		public void setListener(DetailClienteListener listener) {
+		public void setListener(DetalhesClienteListener listener) {
 			this.listener = listener;
 		}
-
-
-
-		public JLabel getLRg() {
-			return LRg;
-		}
-
-
-
-		public void setLRg(JLabel lRg) {
-			LRg = lRg;
-		}
-
-
-
-		public JLabel getLEstado() {
-			return LEstado;
-		}
-
-
-
-		public void setLEstado(JLabel lEstado) {
-			LEstado = lEstado;
-		}
-
 
 
 		public JLabel getTId() {
@@ -821,6 +522,18 @@ public class FrmClienteDetail extends JDialog {
 
 		public void setTCelular(JLabel tCelular) {
 			TCelular = tCelular;
+		}
+
+
+
+		public JFormattedTextField getJCep() {
+			return JCep;
+		}
+
+
+
+		public void setJCep(JFormattedTextField jCep) {
+			JCep = jCep;
 		}
 
 		

@@ -5,18 +5,24 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
-import br.com.projeto.gsv.controller.ClienteController;
-import br.com.projeto.gsv.formularios.ExcClienteDialog;
+import javax.swing.AbstractAction;
+import javax.swing.JComponent;
+import javax.swing.JRootPane;
+import javax.swing.KeyStroke;
 
-public class ExcClienteDialogListener implements ActionListener{
-	private ExcClienteDialog formulario;
+import br.com.projeto.gsv.controller.ClienteController;
+import br.com.projeto.gsv.formularios.ExcluirClienteDialog;
+
+public class ExcluirClienteListener implements ActionListener{
+	private ExcluirClienteDialog formulario;
 	private ClienteController controller;
 	
 	
-	public ExcClienteDialogListener(ExcClienteDialog formulario) {
+	public ExcluirClienteListener(ExcluirClienteDialog formulario) {
 		this.formulario = formulario;
 		AdicionaListener();
 		UsandoTAB();
+		TeclaEsc();
 	}
 	
 	
@@ -28,6 +34,7 @@ public class ExcClienteDialogListener implements ActionListener{
 	
 	
 	private void UsandoTAB(){
+		this.formulario.getRootPane().setDefaultButton(this.formulario.getOk());
 		this.formulario.getOk().addKeyListener(new KeyAdapter() {  
             public void keyPressed(KeyEvent e) {  
                 if (e.getKeyCode() == KeyEvent.VK_ENTER) {  
@@ -63,5 +70,16 @@ public class ExcClienteDialogListener implements ActionListener{
 		}
 		
 	}
+	
+	public void TeclaEsc(){
+        JRootPane meurootpane = this.formulario.getRootPane();  
+        meurootpane.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), "ESCAPE");  
+        meurootpane.getRootPane().getActionMap().put("ESCAPE", new AbstractAction("ESCAPE") {  
+  
+            public void actionPerformed(ActionEvent e) {  
+            	formulario.dispose();  
+            }  
+        });  
+    } 
 
 }

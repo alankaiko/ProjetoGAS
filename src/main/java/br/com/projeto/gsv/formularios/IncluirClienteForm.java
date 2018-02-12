@@ -20,20 +20,20 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 import javax.swing.text.MaskFormatter;
 
-import br.com.projeto.gsv.formularios.listeners.ClienteListener;
+import br.com.projeto.gsv.formularios.listeners.ClienteFormListener;
 import br.com.projeto.gsv.util.ListasUtil;
 import br.com.projeto.gsv.util.ConverteDadosUtil;
 
-public class FrmIncluirCliente extends JDialog {
-	private ClienteListener listener;
+public class IncluirClienteForm extends JDialog {
+	private ClienteFormListener listener;
 	
 	
 	//metodo construtor que inicia tudo
-	public FrmIncluirCliente() {
+	public IncluirClienteForm() {
 		CriarTelaGeral();
 		DadosCPF();
 		InicializaCompomentes();
-		listener = new ClienteListener(this);
+		listener = new ClienteFormListener(this);
 	}
 	
 	
@@ -176,18 +176,19 @@ public class FrmIncluirCliente extends JDialog {
 				TCidade.setBounds(111, 250, 208, 20);
 				TCidade.setColumns(10);
 		
-			ComboEstado = new JComboBox();
-			ComboEstado.setModel(new DefaultComboBoxModel(new Vector(ListasUtil.Estados())));
-			ComboEstado.setBounds(456, 250, 86, 20);
-				LEstado = new JLabel("UF: ");
-				LEstado.setBounds(429, 253, 46, 14);
+			LEstado = new JLabel("UF: ");
+			LEstado.setBounds(429, 253, 46, 14);
+				ComboEstado = new JComboBox();
+				ComboEstado.setModel(new DefaultComboBoxModel(new Vector(ListasUtil.Estados())));
+				ComboEstado.setBounds(456, 250, 86, 20);
+				
 						
 			LCep = new JLabel("CEP:");
 			LCep.setFont(new Font("Arial", Font.BOLD, 11));
 			LCep.setBounds(75, 284, 35, 14);
-				TCep = new JTextField();
-				TCep.setBounds(111, 281, 86, 20);
-				TCep.setColumns(10);			
+				JCep = new JFormattedTextField(ConverteDadosUtil.FormataCep());
+				JCep.setBounds(111, 281, 86, 20);
+					
 				
 		LContato = new JLabel("CONTATO");
 		LContato.setFont(new Font("Calibri", Font.BOLD, 13));
@@ -245,6 +246,7 @@ public class FrmIncluirCliente extends JDialog {
 		tela.add(this.LIndentif);
 		tela.add(this.JDataCadastro);		
 		tela.add(this.JCpf);
+		tela.add(this.JCep);
 		tela.add(this.JDataNasc);
 		tela.add(this.LEndereco);
 		tela.add(this.LLogradouro);
@@ -258,7 +260,6 @@ public class FrmIncluirCliente extends JDialog {
 		tela.add(this.TNumero);
 		tela.add(this.TBairro);
 		tela.add(this.TCidade);
-		tela.add(this.TCep);
 		tela.add(this.LContato);
 		tela.add(this.LEmail);
 		tela.add(this.LCelular);
@@ -283,8 +284,8 @@ public class FrmIncluirCliente extends JDialog {
 	private JLabel LIndentif, LEndereco, LLogradouro, LComplemento;
 	private JLabel LNumero, LBairro, LCidade, LCep, LContato, LEmail, LCelular, LTelefone, LEstado;
 	private JTextField TId, TNome, TRg, TObservacao, TLogradouro, TComplemento, TNumero;
-	private JTextField TBairro, TCidade, TCep, TEmail, TTelefone, TCelular;
-	private JFormattedTextField JCpf,JDataNasc, JDataCadastro;
+	private JTextField TBairro, TCidade, TEmail, TTelefone, TCelular;
+	private JFormattedTextField JCpf,JDataNasc, JDataCadastro, JCep;
 	private JButton BTNovo, BTGravar, BTCancelar;
 	private JComboBox ComboEstado;
 
@@ -308,12 +309,12 @@ public class FrmIncluirCliente extends JDialog {
 	}
 
 
-	public ClienteListener getListener() {
+	public ClienteFormListener getListener() {
 		return listener;
 	}
 
 
-	public void setListener(ClienteListener listener) {
+	public void setListener(ClienteFormListener listener) {
 		this.listener = listener;
 	}
 
@@ -418,14 +419,7 @@ public class FrmIncluirCliente extends JDialog {
 	}
 
 
-	public JTextField getTCep() {
-		return TCep;
-	}
 
-
-	public void setTCep(JTextField tCep) {
-		TCep = tCep;
-	}
 
 
 	public JTextField getTEmail() {
@@ -495,6 +489,16 @@ public class FrmIncluirCliente extends JDialog {
 
 	public void setComboEstado(JComboBox comboEstado) {
 		ComboEstado = comboEstado;
+	}
+
+
+	public JFormattedTextField getJCep() {
+		return JCep;
+	}
+
+
+	public void setJCep(JFormattedTextField jCep) {
+		JCep = jCep;
 	}
 
 	

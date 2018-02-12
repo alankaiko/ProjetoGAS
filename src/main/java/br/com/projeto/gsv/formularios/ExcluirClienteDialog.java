@@ -12,23 +12,23 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import br.com.projeto.gsv.domain.Cliente;
-import br.com.projeto.gsv.formularios.listeners.ExcClienteDialogListener;
+import br.com.projeto.gsv.formularios.listeners.ExcluirClienteListener;
 
-public class ExcClienteDialog extends JDialog {
+public class ExcluirClienteDialog extends JDialog {
 	private final JPanel contentPanel = new JPanel();
 	private Container tela = getContentPane();
 	private JButton ok, cancelar;
 	private JLabel excluir;
 	private Cliente cliente;
-	private ExcClienteDialogListener listener;
+	private ExcluirClienteListener listener;
 	
 	
-	public ExcClienteDialog(Cliente cliente) {
+	public ExcluirClienteDialog(Cliente cliente) {
 		this.cliente = cliente;
 		
 		CriaTela();
 		CriaCompomentes();
-		this.listener = new ExcClienteDialogListener(this);
+		this.listener = new ExcluirClienteListener(this);
 	}
 	
 	

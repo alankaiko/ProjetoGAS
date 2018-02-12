@@ -2,32 +2,40 @@ package br.com.projeto.gsv.formularios.listeners;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.util.Date;
 
+import javax.swing.AbstractAction;
+import javax.swing.JComponent;
+import javax.swing.JRootPane;
 import javax.swing.JTextField;
+import javax.swing.KeyStroke;
 
 import br.com.projeto.gsv.controller.ClienteController;
 import br.com.projeto.gsv.domain.Cliente;
 import br.com.projeto.gsv.domain.Contato;
 import br.com.projeto.gsv.domain.Endereco;
 import br.com.projeto.gsv.domain.TipoPessoa;
-import br.com.projeto.gsv.formularios.FrmIncluirCliente;
+import br.com.projeto.gsv.formularios.IncluirClienteForm;
 import br.com.projeto.gsv.service.CadastroClienteService;
 import br.com.projeto.gsv.util.ConverteDadosUtil;
 
-public class ClienteListener implements ActionListener{
+public class ClienteFormListener implements ActionListener{
 
-	private FrmIncluirCliente formulario;
+	private IncluirClienteForm formulario;
 	private ClienteController con;
 	private Cliente cliente;
 	private Contato contato;
 	private Endereco endereco;
 	
 	
-	public ClienteListener(FrmIncluirCliente formulario) {
+	public ClienteFormListener(IncluirClienteForm formulario) {
 		this.formulario = formulario;
 		con = new ClienteController();
 		AdicionarListener();
+		TeclaEsc();
+		UsandoTAB();
 	}
 	
 	
@@ -93,7 +101,7 @@ public class ClienteListener implements ActionListener{
 		endereco.setBairro(this.formulario.getTBairro().getText());
 		endereco.setCidade(this.formulario.getTCidade().getText());
 		endereco.setEstado((String)this.formulario.getComboEstado().getSelectedItem());
-		endereco.setCep(this.formulario.getTCep().getText());
+		endereco.setCep(this.formulario.getJCep().getText().replaceAll("[_.-]", ""));
 	}
 	
 	//Método que mapeia os objetos contato e endereco dentro do objeto cliente
@@ -128,7 +136,7 @@ public class ClienteListener implements ActionListener{
 		this.formulario.getTNumero().setText(String.valueOf(this.cliente.getEndereco().get(0).getNumero()));
 		this.formulario.getTBairro().setText(this.cliente.getEndereco().get(0).getBairro());
 		this.formulario.getTCidade().setText(this.cliente.getEndereco().get(0).getCidade());
-		this.formulario.getTCep().setText(this.cliente.getEndereco().get(0).getCep());
+		this.formulario.getJCep().setText(this.cliente.getEndereco().get(0).getCep());
 		this.formulario.getTEmail().setText(this.cliente.getContato().get(0).getEmail());
 		this.formulario.getTCelular().setText(this.cliente.getContato().get(0).getCelular());
 		this.formulario.getTTelefone().setText(this.cliente.getContato().get(0).getTelefone());
@@ -148,7 +156,7 @@ public class ClienteListener implements ActionListener{
 			cliente.getEndereco().get(0).setBairro(this.formulario.getTBairro().getText());
 			cliente.getEndereco().get(0).setCidade(this.formulario.getTCidade().getText());
 			cliente.getEndereco().get(0).setEstado((String)this.formulario.getComboEstado().getSelectedItem());
-			cliente.getEndereco().get(0).setCep(this.formulario.getTCep().getText());
+			cliente.getEndereco().get(0).setCep(this.formulario.getJCep().getText());
 			cliente.getContato().get(0).setEmail(this.formulario.getTEmail().getText());
 			cliente.getContato().get(0).setCelular(this.formulario.getTCelular().getText());
 			cliente.getContato().get(0).setTelefone(this.formulario.getTTelefone().getText());
@@ -172,7 +180,7 @@ public class ClienteListener implements ActionListener{
 		this.formulario.getTNumero().setEditable(false);
 		this.formulario.getTBairro().setEditable(false);
 		this.formulario.getTCidade().setEditable(false);
-		this.formulario.getTCep().setEditable(false);
+		this.formulario.getJCep().setEditable(false);
 		this.formulario.getTEmail().setEditable(false);
 		this.formulario.getTTelefone().setEditable(false);
 		this.formulario.getTCelular().setEditable(false);
@@ -187,7 +195,7 @@ public class ClienteListener implements ActionListener{
 	//Classe que possui eventos dos botoes da TELA
 	public void actionPerformed(ActionEvent event) {
 		if(event.getActionCommand().equals("Novo")){
-			this.formulario = new FrmIncluirCliente();
+			this.formulario = new IncluirClienteForm();
 		}
 		
 		if(event.getActionCommand().equals("Gravar")){
@@ -204,6 +212,42 @@ public class ClienteListener implements ActionListener{
 		}
 		
 	}
+	
+	
+	private void UsandoTAB(){
+		this.formulario.getRootPane().setDefaultButton(this.formulario.getBTGravar());
+		this.formulario.getBTGravar().addKeyListener(new KeyAdapter() {  
+            public void keyPressed(KeyEvent e) {  
+                if (e.getKeyCode() == KeyEvent.VK_ENTER) {  
+                	formulario.getBTGravar().doClick();
+                }  
+            }  
+        });
+		
+		
+		
+		this.formulario.getBTCancelar().addKeyListener(new KeyAdapter() {  
+            public void keyPressed(KeyEvent e) {  
+                if (e.getKeyCode() == KeyEvent.VK_ENTER) {  
+                	formulario.getBTCancelar().doClick();  
+                }  
+            }  
+        });
+	}
+	
+	
+	public void TeclaEsc(){
+        JRootPane meurootpane = this.formulario.getRootPane();  
+        meurootpane.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), "ESCAPE");  
+        meurootpane.getRootPane().getActionMap().put("ESCAPE", new AbstractAction("ESCAPE") {  
+  
+            public void actionPerformed(ActionEvent e) {  
+            	formulario.dispose();  
+            }  
+        });  
+    }  
+
+
 
 
 	public Cliente getCliente() {

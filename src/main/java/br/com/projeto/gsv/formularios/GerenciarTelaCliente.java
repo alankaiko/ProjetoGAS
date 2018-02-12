@@ -2,9 +2,6 @@ package br.com.projeto.gsv.formularios;
 
 import java.awt.BorderLayout;
 import java.awt.Container;
-import java.awt.FlowLayout;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
@@ -13,14 +10,14 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.border.EmptyBorder;
 
-import br.com.projeto.gsv.formularios.listeners.GerenClienteListener;
+import br.com.projeto.gsv.formularios.listeners.GerenciarClienteListener;
 
-public class TelaGerenCliente extends JDialog {
-	private GerenClienteListener listener;
+public class GerenciarTelaCliente extends JDialog {
+	private GerenciarClienteListener listener;
 	
 	public static void main(String[] args) {
 		try {
-			TelaGerenCliente dialog = new TelaGerenCliente();
+			GerenciarTelaCliente dialog = new GerenciarTelaCliente();
 			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 			dialog.setVisible(true);
 			
@@ -30,11 +27,11 @@ public class TelaGerenCliente extends JDialog {
 	}
 
 	
-	public TelaGerenCliente() {
+	public GerenciarTelaCliente() {
 		CriaTelaGeral();
 		Dados();
 		InicializaComponentes();
-		this.listener = new GerenClienteListener(this);
+		this.listener = new GerenciarClienteListener(this);
 	}
 	
 	
