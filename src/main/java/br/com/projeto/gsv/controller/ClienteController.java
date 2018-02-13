@@ -37,7 +37,9 @@ public class ClienteController {
 		return this.cadastroService.BuscandoId(id);
 	}
 	
-	
+	public List<Cliente> BuscarPeloNome(String nome){
+		return this.cadastroService.BuscandoPeloNome(nome);
+	}
 	
 	
 	

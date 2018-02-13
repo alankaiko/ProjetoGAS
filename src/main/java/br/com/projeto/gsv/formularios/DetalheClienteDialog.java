@@ -110,14 +110,7 @@ public class DetalheClienteDialog extends JDialog {
 				TObservacao = new JLabel();
 				TObservacao.setBounds(111,362,506,19);
 				TObservacao.setFont(new Font("Arial",Font.BOLD,10));
-				TObservacao.addKeyListener(new KeyAdapter() {  
-					public void keyReleased(KeyEvent ke) {  
-						if (ke.getKeyCode() != KeyEvent.VK_HOME) {  
-							String s = TObservacao.getText();  
-							TObservacao.setText(s.toUpperCase());  
-						}  
-					}  
-				}); 
+				
 				
 		LEndereco = new JLabel("ENDEREÇO");
 		LEndereco.setFont(new Font("Calibri", Font.BOLD, 13));

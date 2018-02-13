@@ -26,7 +26,8 @@ import javax.persistence.Transient;
 @Table(name = "cliente")
 @NamedQueries({
 	@NamedQuery(name="Cliente.listar", query="SELECT cliente FROM Cliente cliente order by id"),
-	@NamedQuery(name="Cliente.buscarPorId", query="SELECT cliente FROM Cliente cliente WHERE cliente.id= :id")
+	@NamedQuery(name="Cliente.buscarPorId", query="SELECT cliente FROM Cliente cliente WHERE cliente.id= :id"),
+	@NamedQuery(name="Cliente.buscarPeloNome", query="SELECT cliente FROM Cliente cliente WHERE cliente.nome LIKE :nome")
 })
 public class Cliente implements Serializable {
 	private static final long serialVersionUID = 1L;

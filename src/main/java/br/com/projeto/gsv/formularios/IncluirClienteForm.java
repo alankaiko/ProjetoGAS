@@ -92,25 +92,14 @@ public class IncluirClienteForm extends JDialog {
 			LRg.setFont(new Font("Arial" , Font.BOLD,11));;
 				TRg = new JTextField();
 				TRg .setBounds(489,61,120,19);
-				TRg .setFont(new Font("Arial",Font.BOLD,10));
-						
-						
+				TRg .setFont(new Font("Arial",Font.BOLD,10));	
 					
 			LNome = new JLabel("*Nome:");
 			LNome.setBounds(65,90,50,20);
 			LNome.setFont(new Font("Arial" , Font.BOLD,11));;
 				TNome = new JTextField();
 				TNome.setBounds(111,91,500,19);
-				TNome.setFont(new Font("Arial",Font.BOLD,10));
-				TNome.addKeyListener(new KeyAdapter() {  
-					public void keyReleased(KeyEvent ke) {  
-						if (ke.getKeyCode() != KeyEvent.VK_HOME) {  
-							String s = TNome.getText();  
-							TNome.setText(s.toUpperCase());  
-						}  
-					}  
-				}); 	
-					
+				TNome.setFont(new Font("Arial",Font.BOLD,10));		
 			
 			LDataCad = new JLabel("Data Cadastro:");
 			LDataCad.setBounds(439,30,84,20);
@@ -127,14 +116,6 @@ public class IncluirClienteForm extends JDialog {
 				TObservacao = new JTextField();
 				TObservacao.setBounds(111,362,506,19);
 				TObservacao.setFont(new Font("Arial",Font.BOLD,10));
-				TObservacao.addKeyListener(new KeyAdapter() {  
-					public void keyReleased(KeyEvent ke) {  
-						if (ke.getKeyCode() != KeyEvent.VK_HOME) {  
-							String s = TObservacao.getText();  
-							TObservacao.setText(s.toUpperCase());  
-						}  
-					}  
-				}); 
 				
 		LEndereco = new JLabel("ENDEREÇO");
 		LEndereco.setFont(new Font("Calibri", Font.BOLD, 13));

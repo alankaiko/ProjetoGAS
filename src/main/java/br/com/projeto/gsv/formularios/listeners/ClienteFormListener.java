@@ -36,6 +36,7 @@ public class ClienteFormListener implements ActionListener{
 		AdicionarListener();
 		TeclaEsc();
 		UsandoTAB();
+		UpCase();
 	}
 	
 	
@@ -233,6 +234,28 @@ public class ClienteFormListener implements ActionListener{
                 }  
             }  
         });
+	}
+	
+	
+	private void UpCase(){
+		this.formulario.getTNome().addKeyListener(new KeyAdapter() {  
+			public void keyReleased(KeyEvent ke) {  
+				if (ke.getKeyCode() != KeyEvent.VK_HOME) {  
+					String s = formulario.getTNome().getText();  
+					formulario.getTNome().setText(s.toUpperCase());  
+				}  
+			}  
+		}); 	
+		
+		
+		this.formulario.getTObservacao().addKeyListener(new KeyAdapter() {  
+			public void keyReleased(KeyEvent ke) {  
+				if (ke.getKeyCode() != KeyEvent.VK_HOME) {  
+					String s = formulario.getTObservacao().getText();  
+					formulario.getTObservacao().setText(s.toUpperCase());  
+				}  
+			}  
+		}); 
 	}
 	
 	

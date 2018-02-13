@@ -85,4 +85,23 @@ public class ClienteRepository {
 	}
 	
 	
+	@SuppressWarnings("unchecked")
+	public List<Cliente> BuscarPeloNome(String nome){
+		sessao = HibernateUtil.getSessionFactory().openSession();
+		List<Cliente> lista = null;
+		
+		try {
+			Query consulta = sessao.getNamedQuery("Cliente.buscarPeloNome");
+			consulta.setString("nome", "%"+nome+"%");
+			lista = consulta.list();
+		} catch (RuntimeException e) {
+			throw e;
+		}finally{
+			sessao.close();
+		}
+		
+		return lista;
+	}
+	
+	
 }

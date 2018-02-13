@@ -164,5 +164,58 @@ public class BuscarClienteDialog extends JDialog {
 	public void setScrollPane(JScrollPane scrollPane) {
 		this.scrollPane = scrollPane;
 	}
+
+
+	public JRadioButton getBuscaCpf() {
+		return buscaCpf;
+	}
+
+
+	public void setBuscaCpf(JRadioButton buscaCpf) {
+		this.buscaCpf = buscaCpf;
+	}
+
+
+	public JRadioButton getBuscaRg() {
+		return buscaRg;
+	}
+
+
+	public void setBuscaRg(JRadioButton buscaRg) {
+		this.buscaRg = buscaRg;
+	}
+
+
+	public JRadioButton getBuscaNome() {
+		return buscaNome;
+	}
+
+
+	public void setBuscaNome(JRadioButton buscaNome) {
+		this.buscaNome = buscaNome;
+	}
+
+
+	public JRadioButton getBuscaCodigo() {
+		return buscaCodigo;
+	}
+
+
+	public void setBuscaCodigo(JRadioButton buscaCodigo) {
+		this.buscaCodigo = buscaCodigo;
+	}
+
+
+	public JTextField getTextoBuscar() {
+		return textoBuscar;
+	}
+
+
+	public void setTextoBuscar(JTextField textoBuscar) {
+		this.textoBuscar = textoBuscar;
+	}
+
+
+	
 	
 }

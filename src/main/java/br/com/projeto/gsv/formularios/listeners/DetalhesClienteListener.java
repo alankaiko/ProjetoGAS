@@ -79,7 +79,8 @@ public class DetalhesClienteListener implements ActionListener{
             }  
         });
 	}
-
+	
+	
 	
 	public void TeclaEsc(){
         JRootPane meurootpane = this.formulario.getRootPane();  

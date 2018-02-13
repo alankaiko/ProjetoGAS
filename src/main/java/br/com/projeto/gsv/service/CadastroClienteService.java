@@ -24,4 +24,8 @@ public class CadastroClienteService {
 	public Cliente BuscandoId(Long id){
 		return this.repositorio.BuscarPorId(id);
 	}
+	
+	public List<Cliente> BuscandoPeloNome(String nome){
+		return this.repositorio.BuscarPeloNome(nome);
+	}
 }
