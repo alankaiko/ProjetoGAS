@@ -6,7 +6,6 @@ import br.com.projeto.gsv.controller.ClienteController;
 import br.com.projeto.gsv.domain.Cliente;
 import br.com.projeto.gsv.domain.Contato;
 import br.com.projeto.gsv.domain.Endereco;
-import br.com.projeto.gsv.domain.TipoPessoa;
 
 public class TEstando {
 

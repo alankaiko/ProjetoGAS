@@ -13,7 +13,7 @@ import javax.swing.ListSelectionModel;
 import br.com.projeto.gsv.controller.ClienteController;
 import br.com.projeto.gsv.formularios.BuscarClienteDialog;
 import br.com.projeto.gsv.formularios.CodidoClienteDialog;
-import br.com.projeto.gsv.formularios.DetalheClienteDialog;
+import br.com.projeto.gsv.formularios.DetalhesClienteDialog;
 import br.com.projeto.gsv.formularios.ExcluirClienteDialog;
 import br.com.projeto.gsv.formularios.GerenciarTelaCliente;
 import br.com.projeto.gsv.formularios.IncluirClienteForm;
@@ -142,7 +142,7 @@ public class GerenciarClienteListener implements ActionListener{
 	
 	private void ExecutaTelaDetalhes(Long id){
 		ClienteController controller = new ClienteController();
-		DetalheClienteDialog detalhes = new DetalheClienteDialog();
+		DetalhesClienteDialog detalhes = new DetalhesClienteDialog();
 		
 		detalhes.getListener().setCliente(controller.BuscarPelaID(id));
 		detalhes.getListener().Detalhar();

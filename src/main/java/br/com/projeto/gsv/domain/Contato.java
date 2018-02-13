@@ -37,7 +37,7 @@ public class Contato implements Serializable {
 	}
 
 	@Email
-	@Column(name="nm_email", nullable = true)
+	@Column(name="email")
 	public String getEmail() {
 		return email;
 	}

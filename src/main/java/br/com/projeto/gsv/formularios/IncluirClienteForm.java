@@ -20,12 +20,12 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 import javax.swing.text.MaskFormatter;
 
-import br.com.projeto.gsv.formularios.listeners.ClienteFormListener;
+import br.com.projeto.gsv.formularios.listeners.IncluirClienteListener;
 import br.com.projeto.gsv.util.ListasUtil;
 import br.com.projeto.gsv.util.ConverteDadosUtil;
 
 public class IncluirClienteForm extends JDialog {
-	private ClienteFormListener listener;
+	private IncluirClienteListener listener;
 	
 	
 	//metodo construtor que inicia tudo
@@ -33,7 +33,7 @@ public class IncluirClienteForm extends JDialog {
 		CriarTelaGeral();
 		DadosCPF();
 		InicializaCompomentes();
-		listener = new ClienteFormListener(this);
+		listener = new IncluirClienteListener(this);
 	}
 	
 	
@@ -79,6 +79,12 @@ public class IncluirClienteForm extends JDialog {
 				JCpf= new JFormattedTextField(ConverteDadosUtil.FormataCPF());
 				JCpf.setBounds(111,62,173,19);		
 				
+				cpfObrigatorio = new JLabel("Obrigatorio");
+				cpfObrigatorio.setForeground(Color.RED);
+				cpfObrigatorio.setFont(new Font("Calibri Light", Font.PLAIN, 9));
+				cpfObrigatorio.setBounds(15, 63, 65, 14);
+			
+				
 						
 			LDataNasc = new JLabel("Data Nasc.:");
 			LDataNasc.setBounds(50,121,60,20);
@@ -93,6 +99,11 @@ public class IncluirClienteForm extends JDialog {
 				TRg = new JTextField();
 				TRg .setBounds(489,61,120,19);
 				TRg .setFont(new Font("Arial",Font.BOLD,10));	
+				
+				rgObrigatorio = new JLabel("Obrigatorio");
+				rgObrigatorio.setForeground(Color.RED);
+				rgObrigatorio.setFont(new Font("Calibri Light", Font.PLAIN, 9));
+				rgObrigatorio.setBounds(405, 63, 65, 14);
 					
 			LNome = new JLabel("*Nome:");
 			LNome.setBounds(65,90,50,20);
@@ -100,7 +111,13 @@ public class IncluirClienteForm extends JDialog {
 				TNome = new JTextField();
 				TNome.setBounds(111,91,500,19);
 				TNome.setFont(new Font("Arial",Font.BOLD,10));		
-			
+				
+				
+				nomeObrigatorio = new JLabel("Obrigatorio");
+				nomeObrigatorio.setForeground(Color.RED);
+				nomeObrigatorio.setFont(new Font("Calibri Light", Font.PLAIN, 9));
+				nomeObrigatorio.setBounds(18, 93, 65, 14);
+				
 			LDataCad = new JLabel("Data Cadastro:");
 			LDataCad.setBounds(439,30,84,20);
 			LDataCad.setFont(new Font("Arial" , Font.BOLD,11));;
@@ -251,9 +268,11 @@ public class IncluirClienteForm extends JDialog {
 		tela.add(this.BTNovo);
 		tela.add(this.BTGravar);
 		tela.add(this.BTCancelar);
-		tela.add(ComboEstado);
-		tela.add(LEstado);
-		
+		tela.add(this.ComboEstado);
+		tela.add(this.LEstado);
+		tela.add(this.nomeObrigatorio);
+		tela.add(this.rgObrigatorio);
+		tela.add(this.cpfObrigatorio);		
 		
 	}
 
@@ -263,12 +282,14 @@ public class IncluirClienteForm extends JDialog {
 	private Container tela = getContentPane();
 	private JLabel LId, LNome, LDocumento, LRg, LDataNasc, LDataCad, LObservacao;
 	private JLabel LIndentif, LEndereco, LLogradouro, LComplemento;
+	private JLabel nomeObrigatorio, rgObrigatorio, cpfObrigatorio;
 	private JLabel LNumero, LBairro, LCidade, LCep, LContato, LEmail, LCelular, LTelefone, LEstado;
 	private JTextField TId, TNome, TRg, TObservacao, TLogradouro, TComplemento, TNumero;
 	private JTextField TBairro, TCidade, TEmail, TTelefone, TCelular;
 	private JFormattedTextField JCpf,JDataNasc, JDataCadastro, JCep;
 	private JButton BTNovo, BTGravar, BTCancelar;
 	private JComboBox ComboEstado;
+
 
 	public JButton getBTNovo() {
 		return BTNovo;
@@ -290,12 +311,12 @@ public class IncluirClienteForm extends JDialog {
 	}
 
 
-	public ClienteFormListener getListener() {
+	public IncluirClienteListener getListener() {
 		return listener;
 	}
 
 
-	public void setListener(ClienteFormListener listener) {
+	public void setListener(IncluirClienteListener listener) {
 		this.listener = listener;
 	}
 
@@ -482,6 +503,35 @@ public class IncluirClienteForm extends JDialog {
 		JCep = jCep;
 	}
 
+
+	public JLabel getNomeObrigatorio() {
+		return nomeObrigatorio;
+	}
+
+
+	public void setNomeObrigatorio(JLabel nomeObrigatorio) {
+		this.nomeObrigatorio = nomeObrigatorio;
+	}
+
+
+	public JLabel getRgObrigatorio() {
+		return rgObrigatorio;
+	}
+
+
+	public void setRgObrigatorio(JLabel rgObrigatorio) {
+		this.rgObrigatorio = rgObrigatorio;
+	}
+
+
+	public JLabel getCpfObrigatorio() {
+		return cpfObrigatorio;
+	}
+
+
+	public void setCpfObrigatorio(JLabel cpfObrigatorio) {
+		this.cpfObrigatorio = cpfObrigatorio;
+	}
 	
 	
 	

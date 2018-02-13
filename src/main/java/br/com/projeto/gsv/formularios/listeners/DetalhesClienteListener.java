@@ -12,15 +12,15 @@ import javax.swing.KeyStroke;
 
 import br.com.projeto.gsv.controller.ClienteController;
 import br.com.projeto.gsv.domain.Cliente;
-import br.com.projeto.gsv.formularios.DetalheClienteDialog;
+import br.com.projeto.gsv.formularios.DetalhesClienteDialog;
 import br.com.projeto.gsv.util.ConverteDadosUtil;
 
 public class DetalhesClienteListener implements ActionListener{
 	private Cliente cliente;
-	private DetalheClienteDialog formulario;
+	private DetalhesClienteDialog formulario;
 
 	
-	public DetalhesClienteListener(DetalheClienteDialog formulario) {
+	public DetalhesClienteListener(DetalhesClienteDialog formulario) {
 		this.formulario = formulario;
 		AdicionarListener();
 		UsandoTAB();
@@ -70,8 +70,8 @@ public class DetalhesClienteListener implements ActionListener{
 	
 	
 	private void UsandoTAB(){
-		formulario.getRootPane().setDefaultButton(this.formulario.getCancelar());
-		formulario.getCancelar().addKeyListener(new KeyAdapter() {  
+		this.formulario.getRootPane().setDefaultButton(this.formulario.getCancelar());
+		this.formulario.getCancelar().addKeyListener(new KeyAdapter() {  
             public void keyPressed(KeyEvent e) {  
                 if (e.getKeyCode() == KeyEvent.VK_ENTER) {  
                 	formulario.getCancelar().doClick();  

@@ -1,30 +1,44 @@
 package br.com.projeto.gsv.util;
 
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-import javax.swing.JFormattedTextField;
-import javax.swing.JTextField;
 import javax.swing.text.MaskFormatter;
 
 public class ConverteDadosUtil {
 	
 	
-	//Converte as datas de String para Date para ser armazenadas
+	//Converte o texto em Integer
+	public static Integer RetornaInt(String valor){
+		Integer num = null;
+		
+		if(!valor.isEmpty()){
+			return num = Integer.parseInt(valor);
+		}
+		
+		return num;		
+	}
+	
+	
+	//Converte as datas de String para Date para ser armazenadas Desde que a String nao seja nula
 	public static Date TransformandoEmDate(String data){
 		Date dat = null;
 		
-		try {
-			DateFormat formata = new SimpleDateFormat("dd/MM/yyyy");
-			dat = (Date)formata.parse(data);
-		} catch (ParseException e) {
-			e.printStackTrace();
+		if(data.replaceAll("[_/]", "").isEmpty()){
+			//return null;
+		}else{
+			try {
+				DateFormat formata = new SimpleDateFormat("dd/MM/yyyy");
+				dat = (Date)formata.parse(data);
+			} catch (ParseException e) {
+				e.printStackTrace();
+			}
 		}
+		
+		
 
 		return dat;
 	}
@@ -32,12 +46,16 @@ public class ConverteDadosUtil {
 	
 	//Faz o inverso, pega a variavel do tipo Date e transforma em String
 	public static String TransformandoEmString(Date data){
-		String dat;
+		String dat= null;
 		
-		Calendar calen = Calendar.getInstance();
-		calen.setTime(data);
-		DateFormat df = DateFormat.getDateInstance(DateFormat.MEDIUM);
-		dat = df.format(calen.getTime());
+		if(data != null){
+			Calendar calen = Calendar.getInstance();
+			calen.setTime(data);
+			DateFormat df = DateFormat.getDateInstance(DateFormat.MEDIUM);
+			dat = df.format(calen.getTime());
+			
+		}
+		
 		return dat;
 	}
 		

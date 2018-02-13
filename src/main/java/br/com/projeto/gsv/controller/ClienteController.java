@@ -3,11 +3,7 @@ package br.com.projeto.gsv.controller;
 import java.util.List;
 
 import br.com.projeto.gsv.domain.Cliente;
-import br.com.projeto.gsv.domain.Contato;
-import br.com.projeto.gsv.domain.Endereco;
-import br.com.projeto.gsv.domain.TipoPessoa;
 import br.com.projeto.gsv.service.CadastroClienteService;
-import br.com.projeto.gsv.util.NegocioException;
 
 public class ClienteController {
 	private Cliente cliente;

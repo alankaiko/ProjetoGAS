@@ -54,7 +54,7 @@ public class Cliente implements Serializable {
 		this.id = id;
 	}
 
-	@Column(nullable = false, length = 100)
+	@Column(length = 100)
 	public String getNome() {
 		return nome;
 	}
@@ -63,7 +63,7 @@ public class Cliente implements Serializable {
 		this.nome = nome;
 	}
 
-	@Column(nullable = false, length = 15)
+	@Column(length = 15)
 	public String getCpf() {
 		return cpf;
 	}
@@ -72,7 +72,7 @@ public class Cliente implements Serializable {
 		this.cpf = cpf;
 	}
 
-	@Column(nullable = false, length = 9)
+	@Column(length = 9)
 	public String getRg() {
 		return rg;
 	}
@@ -82,7 +82,7 @@ public class Cliente implements Serializable {
 	}
 
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column
+	@Column(nullable=true)
 	public Date getDataNasc() {
 		return dataNasc;
 	}

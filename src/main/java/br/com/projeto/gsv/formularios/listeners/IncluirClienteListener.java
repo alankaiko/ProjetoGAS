@@ -9,19 +9,16 @@ import java.util.Date;
 import javax.swing.AbstractAction;
 import javax.swing.JComponent;
 import javax.swing.JRootPane;
-import javax.swing.JTextField;
 import javax.swing.KeyStroke;
 
 import br.com.projeto.gsv.controller.ClienteController;
 import br.com.projeto.gsv.domain.Cliente;
 import br.com.projeto.gsv.domain.Contato;
 import br.com.projeto.gsv.domain.Endereco;
-import br.com.projeto.gsv.domain.TipoPessoa;
 import br.com.projeto.gsv.formularios.IncluirClienteForm;
-import br.com.projeto.gsv.service.CadastroClienteService;
 import br.com.projeto.gsv.util.ConverteDadosUtil;
 
-public class ClienteFormListener implements ActionListener{
+public class IncluirClienteListener implements ActionListener{
 
 	private IncluirClienteForm formulario;
 	private ClienteController con;
@@ -30,13 +27,14 @@ public class ClienteFormListener implements ActionListener{
 	private Endereco endereco;
 	
 	
-	public ClienteFormListener(IncluirClienteForm formulario) {
+	public IncluirClienteListener(IncluirClienteForm formulario) {
 		this.formulario = formulario;
 		con = new ClienteController();
 		AdicionarListener();
 		TeclaEsc();
 		UsandoTAB();
 		UpCase();
+		CamposObrigatorios();
 	}
 	
 	
@@ -64,7 +62,11 @@ public class ClienteFormListener implements ActionListener{
 		formulario.getBTCancelar().addActionListener(this);
 	}
 	
-	
+	private void CamposObrigatorios(){
+		this.formulario.getNomeObrigatorio().setVisible(false);
+		this.formulario.getCpfObrigatorio().setVisible(false);
+		this.formulario.getRgObrigatorio().setVisible(false);
+	}
 	
 	
 	
@@ -98,7 +100,7 @@ public class ClienteFormListener implements ActionListener{
 		endereco = new Endereco();
 		endereco.setLogradouro(this.formulario.getTLogradouro().getText());
 		endereco.setComplemento(this.formulario.getTComplemento().getText());
-		endereco.setNumero(Integer.parseInt(this.formulario.getTNumero().getText()));
+		endereco.setNumero(ConverteDadosUtil.RetornaInt(this.formulario.getTNumero().getText()));
 		endereco.setBairro(this.formulario.getTBairro().getText());
 		endereco.setCidade(this.formulario.getTCidade().getText());
 		endereco.setEstado((String)this.formulario.getComboEstado().getSelectedItem());
@@ -137,6 +139,7 @@ public class ClienteFormListener implements ActionListener{
 		this.formulario.getTNumero().setText(String.valueOf(this.cliente.getEndereco().get(0).getNumero()));
 		this.formulario.getTBairro().setText(this.cliente.getEndereco().get(0).getBairro());
 		this.formulario.getTCidade().setText(this.cliente.getEndereco().get(0).getCidade());
+		this.formulario.getComboEstado().setSelectedItem(this.cliente.getEndereco().get(0).getEstado());
 		this.formulario.getJCep().setText(this.cliente.getEndereco().get(0).getCep());
 		this.formulario.getTEmail().setText(this.cliente.getContato().get(0).getEmail());
 		this.formulario.getTCelular().setText(this.cliente.getContato().get(0).getCelular());
@@ -153,7 +156,7 @@ public class ClienteFormListener implements ActionListener{
 			cliente.setDataNasc(ConverteDadosUtil.TransformandoEmDate(this.formulario.getJDataNasc().getText()));
 			cliente.getEndereco().get(0).setLogradouro(this.formulario.getTLogradouro().getText());
 			cliente.getEndereco().get(0).setComplemento(this.formulario.getTComplemento().getText());
-			cliente.getEndereco().get(0).setNumero(Integer.parseInt(this.formulario.getTNumero().getText()));
+			cliente.getEndereco().get(0).setNumero(ConverteDadosUtil.RetornaInt(this.formulario.getTNumero().getText()));
 			cliente.getEndereco().get(0).setBairro(this.formulario.getTBairro().getText());
 			cliente.getEndereco().get(0).setCidade(this.formulario.getTCidade().getText());
 			cliente.getEndereco().get(0).setEstado((String)this.formulario.getComboEstado().getSelectedItem());
@@ -270,9 +273,8 @@ public class ClienteFormListener implements ActionListener{
         });  
     }  
 
-
-
-
+	
+	
 	public Cliente getCliente() {
 		return cliente;
 	}

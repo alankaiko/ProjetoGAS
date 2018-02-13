@@ -4,8 +4,6 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.Font;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
@@ -17,11 +15,12 @@ import javax.swing.border.EmptyBorder;
 import br.com.projeto.gsv.formularios.listeners.DetalhesClienteListener;
 import br.com.projeto.gsv.util.ConverteDadosUtil;
 
-public class DetalheClienteDialog extends JDialog {
-		
-	public DetalheClienteDialog() {
+public class DetalhesClienteDialog extends JDialog {
+	private DetalhesClienteListener listener;	
+	
+	public DetalhesClienteDialog() {
 		CriarTelaGeral();
-		DadosCPF();
+		Dados();
 		InicializaCompomentes();
 		listener = new DetalhesClienteListener(this);
 	}
@@ -46,7 +45,7 @@ public class DetalheClienteDialog extends JDialog {
 		
 		
 	//cria os componentes jbutton jlabel jtexfield etc etc etc e organiza dentro do layout geral
-	public void DadosCPF(){
+	public void Dados(){
 		LIndentif = new JLabel("DADOS PESSOAIS");
 		LIndentif.setBounds(15,10,300,20);
 		LIndentif.setFont(new Font("Calibri", Font.BOLD, 13));
@@ -239,7 +238,6 @@ public class DetalheClienteDialog extends JDialog {
 		}
 
 		
-		private DetalhesClienteListener listener;
 		private final JPanel contentPanel = new JPanel();
 		private Container tela = getContentPane();
 		private JLabel LId, LNome, LCpf, LRg, LDataNasc, LDataCad, LObservacao;

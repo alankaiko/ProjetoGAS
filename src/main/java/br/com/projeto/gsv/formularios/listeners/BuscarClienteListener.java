@@ -5,6 +5,10 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
+import javax.swing.AbstractAction;
+import javax.swing.JComponent;
+import javax.swing.JRootPane;
+import javax.swing.KeyStroke;
 import javax.swing.ListSelectionModel;
 
 import br.com.projeto.gsv.controller.ClienteController;
@@ -22,6 +26,7 @@ public class BuscarClienteListener implements ActionListener{
 		AdicionaListener();
 		UsandoTAB();
 		UpCase();
+		TeclaEsc();
 	}
 	
 	private void AdicionaListener(){
@@ -95,6 +100,16 @@ public class BuscarClienteListener implements ActionListener{
 		}); 	
 	}
 	
+	public void TeclaEsc(){
+        JRootPane meurootpane = this.formulario.getRootPane();  
+        meurootpane.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), "ESCAPE");  
+        meurootpane.getRootPane().getActionMap().put("ESCAPE", new AbstractAction("ESCAPE") {  
+  
+            public void actionPerformed(ActionEvent e) {  
+            	formulario.dispose();  
+            }  
+        });  
+    }  
 	
 	
 	@Override
