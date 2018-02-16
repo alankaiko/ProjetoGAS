@@ -6,24 +6,24 @@ import java.util.List;
 import javax.swing.table.AbstractTableModel;
 
 import br.com.gsv.cliente.domain.Cliente;
+import br.com.gsv.funcionario.domain.Funcionario;
 
-public class TabelaDeClientesUtil extends AbstractTableModel{
-
+public class TabelaDeFuncionariosUtil extends AbstractTableModel{
 	private String[] colunas = new String[] { "CODIGO", "NOME", "CPF" };
-	private List<Cliente> linhas;
+	private List<Funcionario> linhas;
 	private static final int CODIGO = 0;
     private static final int NOME = 1;
     private static final int CPF = 2;
 	 
     
-    public TabelaDeClientesUtil() {
-        linhas = new ArrayList<Cliente>();
+    public TabelaDeFuncionariosUtil() {
+        linhas = new ArrayList<Funcionario>();
        
     }
  
     
-    public TabelaDeClientesUtil(List<Cliente> dadosCliente) {
-        linhas = new ArrayList<Cliente>(dadosCliente);
+    public TabelaDeFuncionariosUtil(List<Funcionario> dadosFuncionario) {
+        linhas = new ArrayList<Funcionario>(dadosFuncionario);
 	
 	
     }
@@ -62,7 +62,7 @@ public class TabelaDeClientesUtil extends AbstractTableModel{
 	@Override
 	public Object getValueAt(int rowIndex, int columnIndex) {
         
-        Cliente dados = linhas.get(rowIndex);
+        Funcionario dados = linhas.get(rowIndex);
  
         switch (columnIndex) {
         case CODIGO:
@@ -79,7 +79,7 @@ public class TabelaDeClientesUtil extends AbstractTableModel{
 	
 	 
 	
-	public void addSocio(Cliente dados) {
+	public void addSocio(Funcionario dados) {
 	    linhas.add(dados);
 	    int ultimoIndice = getRowCount() - 1;
 	    fireTableRowsInserted(ultimoIndice, ultimoIndice);
@@ -87,7 +87,7 @@ public class TabelaDeClientesUtil extends AbstractTableModel{
 	 
 	 
 	
-	public void addListaDeSocios(List<Cliente> dados) {
+	public void addListaDeSocios(List<Funcionario> dados) {
 	    int indice = getRowCount();
 	    linhas.addAll(dados);
 	    fireTableRowsInserted(indice, indice + dados.size());
@@ -107,7 +107,7 @@ public class TabelaDeClientesUtil extends AbstractTableModel{
 	@Override
     public void setValueAt(Object aValue, int rowIndex, int columnIndex) {
        
-        Cliente dados = linhas.get(rowIndex);
+        Funcionario dados = linhas.get(rowIndex);
  
         switch (columnIndex) {
         case CODIGO:

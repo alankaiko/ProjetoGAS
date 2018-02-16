@@ -2,7 +2,7 @@ package br.com.projeto.gsv.controller;
 
 import java.util.List;
 
-import br.com.projeto.gsv.domain.Cliente;
+import br.com.gsv.cliente.domain.Cliente;
 import br.com.projeto.gsv.service.CadastroClienteService;
 
 public class ClienteController {

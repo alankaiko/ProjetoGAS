@@ -5,7 +5,7 @@ import java.util.List;
 
 import javax.swing.table.AbstractTableModel;
 
-import br.com.projeto.gsv.domain.Cliente;
+import br.com.gsv.cliente.domain.Cliente;
 
 
 
