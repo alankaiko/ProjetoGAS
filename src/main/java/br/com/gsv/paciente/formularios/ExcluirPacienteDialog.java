@@ -1,4 +1,4 @@
-package br.com.gsv.cliente.formularios;
+package br.com.gsv.paciente.formularios;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -11,24 +11,24 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import br.com.gsv.cliente.domain.Cliente;
-import br.com.gsv.cliente.listeners.ExcluirClienteListener;
+import br.com.gsv.paciente.domain.Paciente;
+import br.com.gsv.paciente.listeners.ExcluirPacienteListener;
 
-public class ExcluirClienteDialog extends JDialog {
+public class ExcluirPacienteDialog extends JDialog {
 	private final JPanel contentPanel = new JPanel();
 	private Container tela = getContentPane();
 	private JButton ok, cancelar;
 	private JLabel excluir;
-	private Cliente cliente;
-	private ExcluirClienteListener listener;
+	private Paciente cliente;
+	private ExcluirPacienteListener listener;
 	
 	
-	public ExcluirClienteDialog(Cliente cliente) {
+	public ExcluirPacienteDialog(Paciente cliente) {
 		this.cliente = cliente;
 		
 		CriaTela();
 		CriaCompomentes();
-		this.listener = new ExcluirClienteListener(this);
+		this.listener = new ExcluirPacienteListener(this);
 	}
 	
 	
@@ -84,7 +84,7 @@ public class ExcluirClienteDialog extends JDialog {
 		this.cancelar = cancelar;
 	}
 	
-	public Cliente getCliente() {
+	public Paciente getCliente() {
 		return cliente;
 	}
 	

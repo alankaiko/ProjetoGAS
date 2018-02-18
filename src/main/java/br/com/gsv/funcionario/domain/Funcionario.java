@@ -15,8 +15,7 @@ import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import br.com.gsv.cliente.domain.Contato;
-import br.com.gsv.cliente.domain.Endereco;
+
 
 
 @Entity
@@ -33,8 +32,8 @@ public class Funcionario implements Serializable{
 	private String nome;
 	private String cpf;
 	private String rg;
-	private List<Contato> contato = new ArrayList<Contato>();
-	private List<Endereco> endereco = new ArrayList<Endereco>();
+	private List<Contato_fun> contato = new ArrayList<Contato_fun>();
+	private List<Endereco_fun> endereco = new ArrayList<Endereco_fun>();
 
 	@Id
 	@GeneratedValue
@@ -78,11 +77,11 @@ public class Funcionario implements Serializable{
 	 * campo da outra classe que está sendo mapeado CascadeType.ALL= quando um
 	 * cliente for excluído ocontato é excluído junto com ele.*/
 	@OneToMany(mappedBy = "funcionario", cascade = CascadeType.ALL, fetch=FetchType.EAGER)
-	public List<Contato> getContato() {
+	public List<Contato_fun> getContato() {
 		return contato;
 	}
 
-	public void setContato(List<Contato> contato) {
+	public void setContato(List<Contato_fun> contato) {
 		this.contato = contato;
 	}
 	
@@ -92,11 +91,11 @@ public class Funcionario implements Serializable{
 	 * da outra classe que está sendo mapeado CascadeType.ALL= quando um cliente for 
 	 * excluído o contato é excluído junto com ele.	 */
 	@OneToMany(mappedBy="funcionario", cascade= CascadeType.ALL, fetch=FetchType.EAGER)	
-	public List<Endereco> getEndereco() {
+	public List<Endereco_fun> getEndereco() {
 		return endereco;
 	}
 
-	public void setEndereco(List<Endereco> endereco) {
+	public void setEndereco(List<Endereco_fun> endereco) {
 		this.endereco = endereco;
 	}
 

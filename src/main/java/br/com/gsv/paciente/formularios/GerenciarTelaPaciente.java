@@ -1,4 +1,4 @@
-package br.com.gsv.cliente.formularios;
+package br.com.gsv.paciente.formularios;
 
 import java.awt.BorderLayout;
 import java.awt.Container;
@@ -10,14 +10,14 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.border.EmptyBorder;
 
-import br.com.gsv.cliente.listeners.GerenciarClienteListener;
+import br.com.gsv.paciente.listeners.GerenciarPacienteListener;
 
-public class GerenciarTelaCliente extends JDialog {
-	private GerenciarClienteListener listener;
+public class GerenciarTelaPaciente extends JDialog {
+	private GerenciarPacienteListener listener;
 	
 	public static void main(String[] args) {
 		try {
-			GerenciarTelaCliente dialog = new GerenciarTelaCliente();
+			GerenciarTelaPaciente dialog = new GerenciarTelaPaciente();
 			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 			dialog.setVisible(true);
 			
@@ -27,11 +27,11 @@ public class GerenciarTelaCliente extends JDialog {
 	}
 
 	
-	public GerenciarTelaCliente() {
+	public GerenciarTelaPaciente() {
 		CriaTelaGeral();
 		Dados();
 		InicializaComponentes();
-		this.listener = new GerenciarClienteListener(this);
+		this.listener = new GerenciarPacienteListener(this);
 	}
 	
 	

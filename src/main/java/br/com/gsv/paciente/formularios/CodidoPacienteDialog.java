@@ -1,4 +1,4 @@
-package br.com.gsv.cliente.formularios;
+package br.com.gsv.paciente.formularios;
 
 import java.awt.BorderLayout;
 import java.awt.Container;
@@ -15,23 +15,23 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
-import br.com.gsv.cliente.listeners.CodigoClienteListener;
+import br.com.gsv.paciente.listeners.CodigoPacienteListener;
 
-public class CodidoClienteDialog extends JDialog {
+public class CodidoPacienteDialog extends JDialog {
 	private final JPanel contentPanel = new JPanel();
 	private JButton ok, cancelar;
 	private Container tela= getContentPane();
 	private JTextField TBuscar;
-	private CodigoClienteListener listener;
+	private CodigoPacienteListener listener;
 	private Long codigo;
 	
 	
 	
-	public CodidoClienteDialog() {
+	public CodidoPacienteDialog() {
 		CriaTelaGeral();
 		CriarTela();
 		AdicionaNaTela();
-		listener = new CodigoClienteListener(this);
+		listener = new CodigoPacienteListener(this);
 	}
 	
 	

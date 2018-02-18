@@ -1,4 +1,4 @@
-package br.com.gsv.cliente.listeners;
+package br.com.gsv.paciente.listeners;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -11,16 +11,16 @@ import javax.swing.JRootPane;
 import javax.swing.KeyStroke;
 import javax.swing.ListSelectionModel;
 
-import br.com.gsv.cliente.formularios.BuscarClienteDialog;
-import br.com.projeto.gsv.controller.ClienteController;
-import br.com.projeto.gsv.util.TabelaBuscarClientesUtil;
+import br.com.gsv.paciente.formularios.BuscarPacienteDialog;
+import br.com.projeto.gsv.controller.PacienteController;
+import br.com.projeto.gsv.util.TabelaBuscarPacientesUtil;
 
-public class BuscarClienteListener implements ActionListener{
-	private BuscarClienteDialog formulario;
-	private TabelaBuscarClientesUtil tabela;
+public class BuscarPacienteListener implements ActionListener{
+	private BuscarPacienteDialog formulario;
+	private TabelaBuscarPacientesUtil tabela;
 	
 	
-	public BuscarClienteListener(BuscarClienteDialog formulario) {
+	public BuscarPacienteListener(BuscarPacienteDialog formulario) {
 		this.formulario = formulario;
 		TabelaCliente();
 		AdicionaListener();
@@ -37,8 +37,8 @@ public class BuscarClienteListener implements ActionListener{
 	
 	
 	private void TabelaCliente(){
-		ClienteController control = new ClienteController();
-		tabela = new TabelaBuscarClientesUtil(control.ListaCompletaDeClientes());
+		PacienteController control = new PacienteController();
+		tabela = new TabelaBuscarPacientesUtil(control.ListaCompletaDePaciente());
 		this.formulario.getTable().setModel(tabela);
 		this.formulario.getTable().getColumnModel().getColumn(0).setPreferredWidth(30);
 		this.formulario.getTable().getColumnModel().getColumn(1).setPreferredWidth(180);
@@ -179,8 +179,8 @@ public class BuscarClienteListener implements ActionListener{
 	}
 	
 	private void BuscarNome(){
-		ClienteController control = new ClienteController();
-		tabela = new TabelaBuscarClientesUtil(control.BuscarPeloNome(this.formulario.getTextoBuscar().getText()));
+		PacienteController control = new PacienteController();
+		tabela = new TabelaBuscarPacientesUtil(control.BuscarPeloNome(this.formulario.getTextoBuscar().getText()));
 		this.formulario.getTable().setModel(tabela);
 		this.formulario.getTable().getColumnModel().getColumn(0).setPreferredWidth(30);
 		this.formulario.getTable().getColumnModel().getColumn(1).setPreferredWidth(180);

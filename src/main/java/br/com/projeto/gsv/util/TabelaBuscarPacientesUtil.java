@@ -5,30 +5,32 @@ import java.util.List;
 
 import javax.swing.table.AbstractTableModel;
 
-import br.com.gsv.funcionario.domain.Funcionario;
 import br.com.gsv.paciente.domain.Paciente;
 
-public class TabelaDeFuncionariosUtil extends AbstractTableModel{
-	private String[] colunas = new String[] { "CODIGO", "NOME", "CPF" };
-	private List<Funcionario> linhas;
+
+
+public class TabelaBuscarPacientesUtil extends AbstractTableModel{
+	private String[] colunas = new String[] { "CÓDIGO", "NOME", "CPF","RG" };
+	private List<Paciente> linhas;
 	private static final int CODIGO = 0;
     private static final int NOME = 1;
     private static final int CPF = 2;
+    private static final int RG = 3;
 	 
     
-    public TabelaDeFuncionariosUtil() {
-        linhas = new ArrayList<Funcionario>();
+    public TabelaBuscarPacientesUtil() {
+        linhas = new ArrayList<Paciente>();
        
     }
  
     
-    public TabelaDeFuncionariosUtil(List<Funcionario> dadosFuncionario) {
-        linhas = new ArrayList<Funcionario>(dadosFuncionario);
+    public TabelaBuscarPacientesUtil(List<Paciente> paciente) {
+        linhas = new ArrayList<Paciente>(paciente);
 	
 	
     }
 	
-    
+	
     @Override
     public int getColumnCount() {
         return colunas.length;
@@ -43,26 +45,27 @@ public class TabelaDeFuncionariosUtil extends AbstractTableModel{
     public Class<?> getColumnClass(int columnIndex) {
         switch (columnIndex) {
         case CODIGO:
-            return Long.class;
+            return Integer.class;
         case NOME:
             return String.class;
         case CPF:
             return String.class;
+        case RG:
+        	return String.class;
         default:
-           
             throw new IndexOutOfBoundsException("columnIndex out of bounds");
         }
     }
     
-    @Override
+	@Override
 	public int getRowCount() {
 	    return linhas.size();
 	}
 
 	@Override
-	public Object getValueAt(int rowIndex, int columnIndex) {
+    public Object getValueAt(int rowIndex, int columnIndex) {
         
-        Funcionario dados = linhas.get(rowIndex);
+		Paciente dados = linhas.get(rowIndex);
  
         switch (columnIndex) {
         case CODIGO:
@@ -71,6 +74,8 @@ public class TabelaDeFuncionariosUtil extends AbstractTableModel{
             return dados.getNome();
         case CPF:
             return dados.getCpf();
+        case RG:
+        	return dados.getRg();
         default:
            
             throw new IndexOutOfBoundsException("columnIndex out of bounds");
@@ -79,7 +84,8 @@ public class TabelaDeFuncionariosUtil extends AbstractTableModel{
 	
 	 
 	
-	public void addSocio(Funcionario dados) {
+	public void addUsuario(Paciente dados) {
+	  
 	    linhas.add(dados);
 	    int ultimoIndice = getRowCount() - 1;
 	    fireTableRowsInserted(ultimoIndice, ultimoIndice);
@@ -87,7 +93,8 @@ public class TabelaDeFuncionariosUtil extends AbstractTableModel{
 	 
 	 
 	
-	public void addListaDeSocios(List<Funcionario> dados) {
+	public void addListaDeUsuario(List<Paciente> dados) {
+	    
 	    int indice = getRowCount();
 	    linhas.addAll(dados);
 	    fireTableRowsInserted(indice, indice + dados.size());
@@ -95,19 +102,17 @@ public class TabelaDeFuncionariosUtil extends AbstractTableModel{
 	 
 
 	public void limpar() {
+	   
 	    linhas.clear();
 	    fireTableDataChanged();
 	}
 	
-	
-	
-	
-	
+
 	
 	@Override
     public void setValueAt(Object aValue, int rowIndex, int columnIndex) {
        
-        Funcionario dados = linhas.get(rowIndex);
+		Paciente dados = linhas.get(rowIndex);
  
         switch (columnIndex) {
         case CODIGO:
@@ -118,6 +123,8 @@ public class TabelaDeFuncionariosUtil extends AbstractTableModel{
             break;
         case CPF:
         	dados.setCpf((String) aValue);
+        case RG:
+        	dados.setRg((String) aValue);
             break;
         default:
             throw new IndexOutOfBoundsException("columnIndex out of bounds");

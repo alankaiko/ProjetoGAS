@@ -11,19 +11,19 @@ import javax.swing.JRootPane;
 import javax.swing.KeyStroke;
 import javax.swing.ListSelectionModel;
 
-import br.com.gsv.cliente.formularios.BuscarClienteDialog;
 import br.com.gsv.funcionario.formularios.BuscarFuncionarioDialog;
-import br.com.projeto.gsv.controller.ClienteController;
-import br.com.projeto.gsv.util.TabelaBuscarClientesUtil;
+import br.com.projeto.gsv.controller.FuncionarioController;
+import br.com.projeto.gsv.util.TabelaBuscarPacientesUtil;
+import br.com.projeto.gsv.util.TabelaBuscarFuncionariosUtil;
 
 public class BuscarFuncionarioListener implements ActionListener{
 	private BuscarFuncionarioDialog formulario;
-	private TabelaBuscarClientesUtil tabela;
+	private TabelaBuscarFuncionariosUtil tabela;
 	
 	
 	public BuscarFuncionarioListener(BuscarFuncionarioDialog formulario) {
 		this.formulario = formulario;
-		TabelaCliente();
+		TabelaFuncionario();
 		AdicionaListener();
 		UsandoTAB();
 		UpCase();
@@ -37,9 +37,9 @@ public class BuscarFuncionarioListener implements ActionListener{
 	}
 	
 	
-	private void TabelaCliente(){
-		ClienteController control = new ClienteController();
-		tabela = new TabelaBuscarClientesUtil(control.ListaCompletaDeClientes());
+	private void TabelaFuncionario(){
+		FuncionarioController control = new FuncionarioController();
+		tabela = new TabelaBuscarFuncionariosUtil(control.ListaCompletaDeFuncionarios());
 		this.formulario.getTable().setModel(tabela);
 		this.formulario.getTable().getColumnModel().getColumn(0).setPreferredWidth(30);
 		this.formulario.getTable().getColumnModel().getColumn(1).setPreferredWidth(180);
@@ -141,7 +141,7 @@ public class BuscarFuncionarioListener implements ActionListener{
 	
 	
 	private void BuscarCodigo(){
-		TabelaCliente();
+		TabelaFuncionario();
 		Long codigo = Long.parseLong(this.formulario.getTextoBuscar().getText());
 		
 		for(int i = 0; i < this.formulario.getTable().getRowCount(); i++){
@@ -154,7 +154,7 @@ public class BuscarFuncionarioListener implements ActionListener{
 		
 		
 	private void BuscarRg(){
-		TabelaCliente();
+		TabelaFuncionario();
 		String rg =  this.formulario.getTextoBuscar().getText();
 		
 		for(int i=0; i < this.formulario.getTable().getRowCount(); i++){
@@ -167,7 +167,7 @@ public class BuscarFuncionarioListener implements ActionListener{
 	
 	
 	private void BuscarCpf(){
-		TabelaCliente();
+		TabelaFuncionario();
 		String cpf = this.formulario.getTextoBuscar().getText();
 		
 		for(int i =0; i < this.formulario.getTable().getRowCount(); i++){  
@@ -180,8 +180,8 @@ public class BuscarFuncionarioListener implements ActionListener{
 	}
 	
 	private void BuscarNome(){
-		ClienteController control = new ClienteController();
-		tabela = new TabelaBuscarClientesUtil(control.BuscarPeloNome(this.formulario.getTextoBuscar().getText()));
+		FuncionarioController control = new FuncionarioController();
+		tabela = new TabelaBuscarFuncionariosUtil(control.BuscarPeloNome(this.formulario.getTextoBuscar().getText()));
 		this.formulario.getTable().setModel(tabela);
 		this.formulario.getTable().getColumnModel().getColumn(0).setPreferredWidth(30);
 		this.formulario.getTable().getColumnModel().getColumn(1).setPreferredWidth(180);

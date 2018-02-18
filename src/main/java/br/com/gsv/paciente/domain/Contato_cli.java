@@ -1,4 +1,4 @@
-package br.com.gsv.funcionario.domain;
+package br.com.gsv.paciente.domain;
 
 import java.io.Serializable;
 
@@ -16,18 +16,15 @@ import javax.persistence.Table;
 import org.hibernate.validator.constraints.Email;
 
 @Entity
-@Table(name = "contato")
-public class Contato implements Serializable {
+@Table(name = "contato_cli")
+public class Contato_cli implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private Long id;
 	private String email;
 	private String telefone;
 	private String celular;
-	private Funcionario funcionario;
-	
-	
-	
+	private Paciente paciente;
 
 	@Id
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
@@ -67,19 +64,19 @@ public class Contato implements Serializable {
 		this.celular = celular;
 	}
 	
+	
+	
+	public void setPaciente(Paciente paciente) {
+		this.paciente = paciente;
+	}
+	
 	@ManyToOne
-	@JoinColumn(name="funcionario_codigo")
-	public Funcionario getFuncionario() {
-		return funcionario;
+	@JoinColumn(name="paciente_codigo")
+	public Paciente getPaciente() {
+		return paciente;
 	}
 	
-	public void setFuncionario(Funcionario funcionario) {
-		this.funcionario = funcionario;
-	}
-	
-	
-	
-	
+
 
 	@Override
 	public int hashCode() {
@@ -97,7 +94,7 @@ public class Contato implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Contato other = (Contato) obj;
+		Contato_cli other = (Contato_cli) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;
@@ -110,20 +107,17 @@ public class Contato implements Serializable {
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
 		builder.append("Contato [id=")
-		.append(id)
-		.append(", email=")
-		.append(email)
-		.append(", telefone=")
-		.append(telefone)
-		.append(", celular=")
-		.append(celular)
-		.append(", funcionario=")
-		.append(funcionario)
-		.append("]");
+			.append(id)
+			.append(", email=")
+			.append(email)
+			.append(", telefone=")
+			.append(telefone)
+			.append(", celular=")
+			.append(celular)
+			.append("]");
 		return builder.toString();
 	}
 
-	
 	
 	
 }

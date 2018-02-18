@@ -1,4 +1,4 @@
-package br.com.gsv.cliente.listeners;
+package br.com.gsv.paciente.listeners;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -10,15 +10,15 @@ import javax.swing.JComponent;
 import javax.swing.JRootPane;
 import javax.swing.KeyStroke;
 
-import br.com.gsv.cliente.formularios.ExcluirClienteDialog;
-import br.com.projeto.gsv.controller.ClienteController;
+import br.com.gsv.paciente.formularios.ExcluirPacienteDialog;
+import br.com.projeto.gsv.controller.PacienteController;
 
-public class ExcluirClienteListener implements ActionListener{
-	private ExcluirClienteDialog formulario;
-	private ClienteController controller;
+public class ExcluirPacienteListener implements ActionListener{
+	private ExcluirPacienteDialog formulario;
+	private PacienteController controller;
 	
 	
-	public ExcluirClienteListener(ExcluirClienteDialog formulario) {
+	public ExcluirPacienteListener(ExcluirPacienteDialog formulario) {
 		this.formulario = formulario;
 		AdicionaListener();
 		UsandoTAB();
@@ -59,9 +59,9 @@ public class ExcluirClienteListener implements ActionListener{
 	
 	public void actionPerformed(ActionEvent event) {
 		if(event.getSource().equals(this.formulario.getOk())){
-			this.controller = new ClienteController();
-			controller.setCliente(this.formulario.getCliente());
-			controller.RemoverCliente();
+			this.controller = new PacienteController();
+			controller.setPaciente(this.formulario.getCliente());
+			controller.RemoverPaciente();
 			this.formulario.dispose();
 		}
 		

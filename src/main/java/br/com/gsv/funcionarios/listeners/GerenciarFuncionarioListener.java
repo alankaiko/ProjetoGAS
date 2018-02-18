@@ -10,16 +10,13 @@ import javax.swing.JRootPane;
 import javax.swing.KeyStroke;
 import javax.swing.ListSelectionModel;
 
-import br.com.gsv.cliente.formularios.BuscarClienteDialog;
-import br.com.gsv.cliente.formularios.CodidoClienteDialog;
-import br.com.gsv.cliente.formularios.DetalhesClienteDialog;
-import br.com.gsv.cliente.formularios.ExcluirClienteDialog;
-import br.com.gsv.cliente.formularios.GerenciarTelaCliente;
-import br.com.gsv.cliente.formularios.IncluirClienteForm;
+import br.com.gsv.funcionario.formularios.BuscarFuncionarioDialog;
+import br.com.gsv.funcionario.formularios.CodigoFuncionarioDialog;
+import br.com.gsv.funcionario.formularios.DetalhesFuncionarioDialog;
+import br.com.gsv.funcionario.formularios.ExcluirFuncionarioDialog;
 import br.com.gsv.funcionario.formularios.GerenciarTelaFuncionario;
-import br.com.projeto.gsv.controller.ClienteController;
+import br.com.gsv.funcionario.formularios.IncluirFuncionariosForm;
 import br.com.projeto.gsv.controller.FuncionarioController;
-import br.com.projeto.gsv.util.TabelaDeClientesUtil;
 import br.com.projeto.gsv.util.TabelaDeFuncionariosUtil;
 
 public class GerenciarFuncionarioListener implements ActionListener{
@@ -115,39 +112,39 @@ public class GerenciarFuncionarioListener implements ActionListener{
 	}
 	
 	private void ExecutaInclusao(){
-		IncluirClienteForm inclui = new IncluirClienteForm();
+		IncluirFuncionariosForm inclui = new IncluirFuncionariosForm();
 		inclui.setLocationRelativeTo(this.gerenciamento.getTela());
 		inclui.setVisible(true);		
-		TabelaDeCliente();
+		TabelaDeFuncionarios();
 	}
 	
 	private void ExecutaExclusao(Long id){
-		ClienteController controller = new ClienteController();
+		FuncionarioController controller = new FuncionarioController();
 		
-		ExcluirClienteDialog telaExc = new ExcluirClienteDialog(controller.BuscarPelaID(id));
+		ExcluirFuncionarioDialog telaExc = new ExcluirFuncionarioDialog(controller.BuscarPelaID(id));
 		telaExc.setLocationRelativeTo(this.gerenciamento.getTela());
 		telaExc.setVisible(true);
-		TabelaDeCliente();	
+		TabelaDeFuncionarios();	
 	}
 	
 	private void ExecutaEdicao(Long id){
-		ClienteController controller = new ClienteController();
-		IncluirClienteForm edita = new IncluirClienteForm();
+		FuncionarioController controller = new FuncionarioController();
+		IncluirFuncionariosForm edita = new IncluirFuncionariosForm();
 		
-		edita.getListener().setCliente(controller.BuscarPelaID(id));
+		edita.getListener().setFuncionario(controller.BuscarPelaID(id));
 		edita.getListener().AlterandoObjetos();
 		
 		edita.setLocationRelativeTo(this.gerenciamento.getTela());
 		edita.setVisible(true);
 		
-		TabelaDeCliente();
+		TabelaDeFuncionarios();
 	}
 	
 	private void ExecutaTelaDetalhes(Long id){
-		ClienteController controller = new ClienteController();
-		DetalhesClienteDialog detalhes = new DetalhesClienteDialog();
+		FuncionarioController controller = new FuncionarioController();
+		DetalhesFuncionarioDialog detalhes = new DetalhesFuncionarioDialog();
 		
-		detalhes.getListener().setCliente(controller.BuscarPelaID(id));
+		detalhes.getListener().setFuncionario(controller.BuscarPelaID(id));
 		detalhes.getListener().Detalhar();
 		
 		detalhes.setLocationRelativeTo(this.gerenciamento.getTela());
@@ -155,7 +152,7 @@ public class GerenciarFuncionarioListener implements ActionListener{
 	}
 	
 	private void ExecutaTelaCodigo(){
-		CodidoClienteDialog dialogo = new CodidoClienteDialog();
+		CodigoFuncionarioDialog dialogo = new CodigoFuncionarioDialog();
 		dialogo.setLocationRelativeTo(this.gerenciamento.getTela());
 		dialogo.setVisible(true);
 		pegaLinha(dialogo.getCodigo());
@@ -163,7 +160,7 @@ public class GerenciarFuncionarioListener implements ActionListener{
 	
 	
 	private void ExecutaTelaBuscar(){
-		BuscarClienteDialog busca = new BuscarClienteDialog();
+		BuscarFuncionarioDialog busca = new BuscarFuncionarioDialog();
 		busca.setLocationRelativeTo(this.gerenciamento.getTela());
 		busca.setVisible(true);
 	}

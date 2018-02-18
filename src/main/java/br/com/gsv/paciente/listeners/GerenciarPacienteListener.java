@@ -1,4 +1,4 @@
-package br.com.gsv.cliente.listeners;
+package br.com.gsv.paciente.listeners;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -10,22 +10,22 @@ import javax.swing.JRootPane;
 import javax.swing.KeyStroke;
 import javax.swing.ListSelectionModel;
 
-import br.com.gsv.cliente.formularios.BuscarClienteDialog;
-import br.com.gsv.cliente.formularios.CodidoClienteDialog;
-import br.com.gsv.cliente.formularios.DetalhesClienteDialog;
-import br.com.gsv.cliente.formularios.ExcluirClienteDialog;
-import br.com.gsv.cliente.formularios.GerenciarTelaCliente;
-import br.com.gsv.cliente.formularios.IncluirClienteForm;
-import br.com.projeto.gsv.controller.ClienteController;
-import br.com.projeto.gsv.util.TabelaDeClientesUtil;
+import br.com.gsv.paciente.formularios.BuscarPacienteDialog;
+import br.com.gsv.paciente.formularios.CodidoPacienteDialog;
+import br.com.gsv.paciente.formularios.DetalhesPacienteDialog;
+import br.com.gsv.paciente.formularios.ExcluirPacienteDialog;
+import br.com.gsv.paciente.formularios.GerenciarTelaPaciente;
+import br.com.gsv.paciente.formularios.IncluirPacienteForm;
+import br.com.projeto.gsv.controller.PacienteController;
+import br.com.projeto.gsv.util.TabelaDePacientesUtil;
 
-public class GerenciarClienteListener implements ActionListener{
-	private GerenciarTelaCliente gerenciamento;
-	private TabelaDeClientesUtil tabela;
+public class GerenciarPacienteListener implements ActionListener{
+	private GerenciarTelaPaciente gerenciamento;
+	private TabelaDePacientesUtil tabela;
 	
 	
 	
-	public GerenciarClienteListener(GerenciarTelaCliente gerenciamento) {
+	public GerenciarPacienteListener(GerenciarTelaPaciente gerenciamento) {
 		this.gerenciamento = gerenciamento;
 		AdicionaListener();
 		TabelaDeCliente();
@@ -45,8 +45,8 @@ public class GerenciarClienteListener implements ActionListener{
 	
 	
 	private void TabelaDeCliente(){
-		ClienteController control = new ClienteController();
-		tabela = new TabelaDeClientesUtil(control.ListaCompletaDeClientes());
+		PacienteController control = new PacienteController();
+		tabela = new TabelaDePacientesUtil(control.ListaCompletaDePaciente());
 		this.gerenciamento.getTable().setModel(tabela);
 		this.gerenciamento.getTable().getColumnModel().getColumn(0).setPreferredWidth(40);
 		this.gerenciamento.getTable().getColumnModel().getColumn(1).setPreferredWidth(210);
@@ -112,26 +112,26 @@ public class GerenciarClienteListener implements ActionListener{
 	}
 	
 	private void ExecutaInclusao(){
-		IncluirClienteForm inclui = new IncluirClienteForm();
+		IncluirPacienteForm inclui = new IncluirPacienteForm();
 		inclui.setLocationRelativeTo(this.gerenciamento.getTela());
 		inclui.setVisible(true);		
 		TabelaDeCliente();
 	}
 	
 	private void ExecutaExclusao(Long id){
-		ClienteController controller = new ClienteController();
+		PacienteController controller = new PacienteController();
 		
-		ExcluirClienteDialog telaExc = new ExcluirClienteDialog(controller.BuscarPelaID(id));
+		ExcluirPacienteDialog telaExc = new ExcluirPacienteDialog(controller.BuscarPelaID(id));
 		telaExc.setLocationRelativeTo(this.gerenciamento.getTela());
 		telaExc.setVisible(true);
 		TabelaDeCliente();	
 	}
 	
 	private void ExecutaEdicao(Long id){
-		ClienteController controller = new ClienteController();
-		IncluirClienteForm edita = new IncluirClienteForm();
+		PacienteController controller = new PacienteController();
+		IncluirPacienteForm edita = new IncluirPacienteForm();
 		
-		edita.getListener().setCliente(controller.BuscarPelaID(id));
+		edita.getListener().setPaciente(controller.BuscarPelaID(id));
 		edita.getListener().AlterandoObjetos();
 		
 		edita.setLocationRelativeTo(this.gerenciamento.getTela());
@@ -141,10 +141,10 @@ public class GerenciarClienteListener implements ActionListener{
 	}
 	
 	private void ExecutaTelaDetalhes(Long id){
-		ClienteController controller = new ClienteController();
-		DetalhesClienteDialog detalhes = new DetalhesClienteDialog();
+		PacienteController controller = new PacienteController();
+		DetalhesPacienteDialog detalhes = new DetalhesPacienteDialog();
 		
-		detalhes.getListener().setCliente(controller.BuscarPelaID(id));
+		detalhes.getListener().setPaciente(controller.BuscarPelaID(id));
 		detalhes.getListener().Detalhar();
 		
 		detalhes.setLocationRelativeTo(this.gerenciamento.getTela());
@@ -152,7 +152,7 @@ public class GerenciarClienteListener implements ActionListener{
 	}
 	
 	private void ExecutaTelaCodigo(){
-		CodidoClienteDialog dialogo = new CodidoClienteDialog();
+		CodidoPacienteDialog dialogo = new CodidoPacienteDialog();
 		dialogo.setLocationRelativeTo(this.gerenciamento.getTela());
 		dialogo.setVisible(true);
 		pegaLinha(dialogo.getCodigo());
@@ -160,7 +160,7 @@ public class GerenciarClienteListener implements ActionListener{
 	
 	
 	private void ExecutaTelaBuscar(){
-		BuscarClienteDialog busca = new BuscarClienteDialog();
+		BuscarPacienteDialog busca = new BuscarPacienteDialog();
 		busca.setLocationRelativeTo(this.gerenciamento.getTela());
 		busca.setVisible(true);
 	}

@@ -4,15 +4,14 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-import java.util.Date;
 
 import javax.swing.AbstractAction;
 import javax.swing.JComponent;
 import javax.swing.JRootPane;
 import javax.swing.KeyStroke;
 
-import br.com.gsv.funcionario.domain.Contato;
-import br.com.gsv.funcionario.domain.Endereco;
+import br.com.gsv.funcionario.domain.Contato_fun;
+import br.com.gsv.funcionario.domain.Endereco_fun;
 import br.com.gsv.funcionario.domain.Funcionario;
 import br.com.gsv.funcionario.formularios.IncluirFuncionariosForm;
 import br.com.projeto.gsv.controller.FuncionarioController;
@@ -24,8 +23,8 @@ public class IncluirFuncionarioListener implements ActionListener{
 	private IncluirFuncionariosForm formulario;
 	private FuncionarioController con;
 	private Funcionario funcionario;
-	private Contato contato;
-	private Endereco endereco;
+	private Contato_fun contato;
+	private Endereco_fun endereco;
 	
 	
 	public IncluirFuncionarioListener(IncluirFuncionariosForm formulario) {
@@ -79,7 +78,7 @@ public class IncluirFuncionarioListener implements ActionListener{
 	
 	//Método que pega informacoes dos contatos e Joga dentro do objeto Contatos
 	private void FormToContato(){
-		contato = new Contato();
+		contato = new Contato_fun();
 		contato.setEmail(this.formulario.getTEmail().getText());
 		contato.setCelular(this.formulario.getTCelular().getText());
 		contato.setTelefone(this.formulario.getTTelefone().getText());
@@ -87,7 +86,7 @@ public class IncluirFuncionarioListener implements ActionListener{
 	
 	//Método que pega infromacoes do Endereco e joga dentro do objeto Endereco
 	private void FormToEndereco(){
-		endereco = new Endereco();
+		endereco = new Endereco_fun();
 		endereco.setLogradouro(this.formulario.getTLogradouro().getText());
 		endereco.setComplemento(this.formulario.getTComplemento().getText());
 		endereco.setNumero(ConverteDadosUtil.RetornaInt(this.formulario.getTNumero().getText()));
@@ -99,7 +98,7 @@ public class IncluirFuncionarioListener implements ActionListener{
 	
 	//Método que mapeia os objetos contato e endereco dentro do objeto cliente
 	private void AtrelarObjetos(){
-		this.funcionario.getContato().add(this.contato);
+		
 		this.funcionario.getContato().add(this.contato);
 		this.funcionario.getEndereco().add(this.endereco);
 		

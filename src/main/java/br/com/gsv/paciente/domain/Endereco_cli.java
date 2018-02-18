@@ -1,4 +1,4 @@
-package br.com.gsv.cliente.domain;
+package br.com.gsv.paciente.domain;
 
 import java.io.Serializable;
 
@@ -14,8 +14,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "endereco")
-public class Endereco implements Serializable {
+@Table(name = "endereco_cli")
+public class Endereco_cli implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private Long id;
@@ -26,7 +26,7 @@ public class Endereco implements Serializable {
 	private String cidade;
 	private String estado;
 	private String cep;
-	private Cliente cliente;
+	private Paciente paciente;
 
 	@Id
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
@@ -102,14 +102,16 @@ public class Endereco implements Serializable {
 	}
 
 	@ManyToOne
-	@JoinColumn(name="cliente_codigo")
-	public Cliente getCliente() {
-		return cliente;
+	@JoinColumn(name="paciente_codigo")
+	public Paciente getPaciente() {
+		return paciente;
 	}
-
-	public void setCliente(Cliente cliente) {
-		this.cliente = cliente;
+	
+	public void setPaciente(Paciente paciente) {
+		this.paciente = paciente;
 	}
+	
+	
 
 	@Override
 	public int hashCode() {
@@ -127,7 +129,7 @@ public class Endereco implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Endereco other = (Endereco) obj;
+		Endereco_cli other = (Endereco_cli) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;
@@ -140,22 +142,22 @@ public class Endereco implements Serializable {
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
 		builder.append("Endereco [id=")
-				.append(id)
-				.append(", logradouro=")
-				.append(logradouro)
-				.append(", complemento=")
-				.append(complemento)
-				.append(", numero=")
-				.append(numero)
-				.append(", bairro=")
-				.append(bairro)
-				.append(", cidade=")
-				.append(cidade)
-				.append(", estado=")
-				.append(estado)
-				.append(", cep=")
-				.append(cep)
-				.append("]");
+			.append(id)
+			.append(", logradouro=")
+			.append(logradouro)
+			.append(", complemento=")
+			.append(complemento)
+			.append(", numero=")
+			.append(numero)
+			.append(", bairro=")
+			.append(bairro)
+			.append(", cidade=")
+			.append(cidade)
+			.append(", estado=")
+			.append(estado)
+			.append(", cep=")
+			.append(cep)
+			.append("]");
 		return builder.toString();
 	}
 

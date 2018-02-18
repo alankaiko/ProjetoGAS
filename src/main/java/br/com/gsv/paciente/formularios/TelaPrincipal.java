@@ -1,4 +1,4 @@
-package br.com.gsv.cliente.formularios;
+package br.com.gsv.paciente.formularios;
 
 import java.awt.BorderLayout;
 import java.awt.Color;

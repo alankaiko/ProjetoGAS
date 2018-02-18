@@ -1,11 +1,9 @@
-package br.com.gsv.cliente.domain;
+package br.com.gsv.funcionario.domain;
 
 import java.io.Serializable;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -16,15 +14,18 @@ import javax.persistence.Table;
 import org.hibernate.validator.constraints.Email;
 
 @Entity
-@Table(name = "contato")
-public class Contato implements Serializable {
+@Table(name = "contato_fun")
+public class Contato_fun implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private Long id;
 	private String email;
 	private String telefone;
 	private String celular;
-	private Cliente cliente;
+	private Funcionario funcionario;
+	
+	
+	
 
 	@Id
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
@@ -63,16 +64,20 @@ public class Contato implements Serializable {
 	public void setCelular(String celular) {
 		this.celular = celular;
 	}
-
+	
 	@ManyToOne
-	@JoinColumn(name="cliente_codigo")
-	public Cliente getCliente() {
-		return cliente;
+	@JoinColumn(name="funcionario_codigo")
+	public Funcionario getFuncionario() {
+		return funcionario;
 	}
-
-	public void setCliente(Cliente cliente) {
-		this.cliente = cliente;
+	
+	public void setFuncionario(Funcionario funcionario) {
+		this.funcionario = funcionario;
 	}
+	
+	
+	
+	
 
 	@Override
 	public int hashCode() {
@@ -90,7 +95,7 @@ public class Contato implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Contato other = (Contato) obj;
+		Contato_fun other = (Contato_fun) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;
@@ -103,17 +108,20 @@ public class Contato implements Serializable {
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
 		builder.append("Contato [id=")
-				.append(id)
-				.append(", email=")
-				.append(email)
-				.append(", telefone=")
-				.append(telefone)
-				.append(", celular=")
-				.append(celular)
-				.append("]");
+		.append(id)
+		.append(", email=")
+		.append(email)
+		.append(", telefone=")
+		.append(telefone)
+		.append(", celular=")
+		.append(celular)
+		.append(", funcionario=")
+		.append(funcionario)
+		.append("]");
 		return builder.toString();
 	}
 
+	
 	
 	
 }

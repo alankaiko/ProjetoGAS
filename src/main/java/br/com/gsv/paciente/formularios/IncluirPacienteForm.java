@@ -1,4 +1,4 @@
-package br.com.gsv.cliente.formularios;
+package br.com.gsv.paciente.formularios;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -20,26 +20,26 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 import javax.swing.text.MaskFormatter;
 
-import br.com.gsv.cliente.listeners.IncluirClienteListener;
+import br.com.gsv.paciente.listeners.IncluirPacienteListener;
 import br.com.projeto.gsv.util.ListasUtil;
 import br.com.projeto.gsv.util.ConverteDadosUtil;
 
-public class IncluirClienteForm extends JDialog {
-	private IncluirClienteListener listener;
+public class IncluirPacienteForm extends JDialog {
+	private IncluirPacienteListener listener;
 	
 	
 	//metodo construtor que inicia tudo
-	public IncluirClienteForm() {
+	public IncluirPacienteForm() {
 		CriarTelaGeral();
 		DadosCPF();
 		InicializaCompomentes();
-		listener = new IncluirClienteListener(this);
+		listener = new IncluirPacienteListener(this);
 	}
 	
 	
 	//cria e tela geral onde todos os componentes serao inseridos, é a tela geral do sistema
 	private void CriarTelaGeral(){
-		this.setTitle("Inserir Dados de Cliente");
+		this.setTitle("Inserir Dados de Paciente");
 		this.setModal(true);
 		this.setResizable(false);
 		this.setBounds(100, 100, 650, 460);
@@ -311,12 +311,12 @@ public class IncluirClienteForm extends JDialog {
 	}
 
 
-	public IncluirClienteListener getListener() {
+	public IncluirPacienteListener getListener() {
 		return listener;
 	}
 
 
-	public void setListener(IncluirClienteListener listener) {
+	public void setListener(IncluirPacienteListener listener) {
 		this.listener = listener;
 	}
 

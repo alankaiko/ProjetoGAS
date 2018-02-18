@@ -1,4 +1,4 @@
-package br.com.gsv.cliente.formularios;
+package br.com.gsv.paciente.formularios;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -18,9 +18,9 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
-import br.com.gsv.cliente.listeners.BuscarClienteListener;
+import br.com.gsv.paciente.listeners.BuscarPacienteListener;
 
-public class BuscarClienteDialog extends JDialog {
+public class BuscarPacienteDialog extends JDialog {
 	private final JPanel contentPanel = new JPanel();
 	private Container tela = getContentPane();
 	private JTextField textoBuscar;
@@ -30,14 +30,14 @@ public class BuscarClienteDialog extends JDialog {
 	private ButtonGroup botaoGrupo= new ButtonGroup();
 	private JScrollPane scrollPane;
 	private JTable table;
-	private BuscarClienteListener listener;
+	private BuscarPacienteListener listener;
 	
 	
-	public BuscarClienteDialog() {
+	public BuscarPacienteDialog() {
 		CriarTelaGeral();
 		CriaComponentes();
 		AdicionaNaTela();
-		listener = new BuscarClienteListener(this);
+		listener = new BuscarPacienteListener(this);
 	}
 	
 	

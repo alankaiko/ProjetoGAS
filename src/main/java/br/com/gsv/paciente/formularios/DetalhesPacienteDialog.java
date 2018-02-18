@@ -1,4 +1,4 @@
-package br.com.gsv.cliente.formularios;
+package br.com.gsv.paciente.formularios;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -12,24 +12,24 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import br.com.gsv.cliente.listeners.DetalhesClienteListener;
+import br.com.gsv.paciente.listeners.DetalhesPacienteListener;
 import br.com.projeto.gsv.util.ConverteDadosUtil;
 
-public class DetalhesClienteDialog extends JDialog {
-	private DetalhesClienteListener listener;	
+public class DetalhesPacienteDialog extends JDialog {
+	private DetalhesPacienteListener listener;	
 	
-	public DetalhesClienteDialog() {
+	public DetalhesPacienteDialog() {
 		CriarTelaGeral();
 		Dados();
 		InicializaCompomentes();
-		listener = new DetalhesClienteListener(this);
+		listener = new DetalhesPacienteListener(this);
 	}
 
 	
 		
 		//cria e tela geral onde todos os componentes serao inseridos, é a tela geral do sistema
 	private void CriarTelaGeral(){
-		this.setTitle("Inserir Dados de Cliente");
+		this.setTitle("Inserir Dados de Paciente");
 		this.setModal(true);
 		this.setResizable(false);
 		this.setBounds(100, 100, 650, 460);
@@ -518,13 +518,13 @@ public class DetalhesClienteDialog extends JDialog {
 
 
 
-		public DetalhesClienteListener getListener() {
+		public DetalhesPacienteListener getListener() {
 			return listener;
 		}
 
 
 
-		public void setListener(DetalhesClienteListener listener) {
+		public void setListener(DetalhesPacienteListener listener) {
 			this.listener = listener;
 		}
 

@@ -2,23 +2,17 @@ package br.com.gsv.funcionario.formularios;
 
 import java.awt.BorderLayout;
 import java.awt.Container;
-import java.awt.FlowLayout;
 import java.awt.Font;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
-import br.com.gsv.cliente.listeners.CodigoClienteListener;
 import br.com.gsv.funcionarios.listeners.CodigoFuncionarioListener;
 
-public class CodidoFuncionarioDialog extends JDialog {
+public class CodigoFuncionarioDialog extends JDialog {
 	private final JPanel contentPanel = new JPanel();
 	private JButton ok, cancelar;
 	private Container tela= getContentPane();
@@ -28,7 +22,7 @@ public class CodidoFuncionarioDialog extends JDialog {
 	
 	
 	
-	public CodidoFuncionarioDialog() {
+	public CodigoFuncionarioDialog() {
 		CriaTelaGeral();
 		CriarTela();
 		AdicionaNaTela();

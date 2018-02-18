@@ -6,22 +6,22 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-import br.com.gsv.cliente.domain.Cliente;
+import br.com.gsv.paciente.domain.Paciente;
 import br.com.projeto.gsv.util.HibernateUtil;
 
 
 
-public class ClienteRepository {
+public class PacienteRepository {
 	Session sessao;
 	Transaction transacao = null;
 	
 	//Metodo que salva um novo cliente Pessoa Fisica ou Pessoa Juridica
-	public void Guardar(Cliente cliente){
+	public void Guardar(Paciente paciente){
 		sessao = HibernateUtil.getSessionFactory().openSession();
 		
 		try {
 			transacao = sessao.beginTransaction();
-			sessao.merge(cliente);
+			sessao.merge(paciente);
 			transacao.commit();
 		} catch (RuntimeException e) {
 			if (transacao != null)
@@ -33,12 +33,12 @@ public class ClienteRepository {
 	}
 	
 	
-	public void Remover(Cliente cliente) {
+	public void Remover(Paciente paciente) {
 		sessao = HibernateUtil.getSessionFactory().openSession();
 		
 		try {
 			transacao = sessao.beginTransaction();
-			sessao.delete(cliente);
+			sessao.delete(paciente);
 			transacao.commit();
 		} catch (RuntimeException e) {
 			if (transacao != null)
@@ -51,29 +51,29 @@ public class ClienteRepository {
 	
 	
 	
-	public Cliente BuscarPorId(Long id){
+	public Paciente BuscarPorId(Long id){
 		sessao = HibernateUtil.getSessionFactory().openSession();
-		Cliente cliente = null;
+		Paciente paciente = null;
 		
 		try {
-			Query consulta = sessao.getNamedQuery("Cliente.buscarPorId");
+			Query consulta = sessao.getNamedQuery("Paciente.buscarPorId");
 			consulta.setLong("id", id);
-			cliente = (Cliente) consulta.uniqueResult();
+			paciente = (Paciente) consulta.uniqueResult();
 		} catch (RuntimeException e) {
 			throw e;
 		}finally{
 			sessao.close();
 		}		
-		return cliente;
+		return paciente;
 	}
 	
 	@SuppressWarnings("unchecked")
-	public List<Cliente> ListarClientes(){
+	public List<Paciente> ListarPacientes(){
 		sessao = HibernateUtil.getSessionFactory().openSession();
-		List<Cliente> lista = null;
+		List<Paciente> lista = null;
 		
 		try {
-			Query consulta = sessao.getNamedQuery("Cliente.listar");
+			Query consulta = sessao.getNamedQuery("Paciente.listar");
 			lista = consulta.list();
 		} catch (RuntimeException e) {
 			throw e;
@@ -86,12 +86,12 @@ public class ClienteRepository {
 	
 	
 	@SuppressWarnings("unchecked")
-	public List<Cliente> BuscarPeloNome(String nome){
+	public List<Paciente> BuscarPeloNome(String nome){
 		sessao = HibernateUtil.getSessionFactory().openSession();
-		List<Cliente> lista = null;
+		List<Paciente> lista = null;
 		
 		try {
-			Query consulta = sessao.getNamedQuery("Cliente.buscarPeloNome");
+			Query consulta = sessao.getNamedQuery("Paciente.buscarPeloNome");
 			consulta.setString("nome", "%"+nome+"%");
 			lista = consulta.list();
 		} catch (RuntimeException e) {

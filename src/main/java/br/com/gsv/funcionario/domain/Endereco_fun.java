@@ -2,10 +2,8 @@ package br.com.gsv.funcionario.domain;
 
 import java.io.Serializable;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -14,8 +12,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "endereco")
-public class Endereco implements Serializable {
+@Table(name = "endereco_fun")
+public class Endereco_fun implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private Long id;
@@ -128,7 +126,7 @@ public class Endereco implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Endereco other = (Endereco) obj;
+		Endereco_fun other = (Endereco_fun) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;

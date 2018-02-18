@@ -1,4 +1,4 @@
-package br.com.gsv.cliente.domain;
+package br.com.gsv.paciente.domain;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -23,13 +23,13 @@ import javax.persistence.TemporalType;
 import javax.persistence.Transient;
 
 @Entity
-@Table(name = "cliente")
+@Table(name = "paciente")
 @NamedQueries({
-	@NamedQuery(name="Cliente.listar", query="SELECT cliente FROM Cliente cliente order by id"),
-	@NamedQuery(name="Cliente.buscarPorId", query="SELECT cliente FROM Cliente cliente WHERE cliente.id= :id"),
-	@NamedQuery(name="Cliente.buscarPeloNome", query="SELECT cliente FROM Cliente cliente WHERE cliente.nome LIKE :nome")
+	@NamedQuery(name="Paciente.listar", query="SELECT paciente FROM Paciente paciente order by id"),
+	@NamedQuery(name="Paciente.buscarPorId", query="SELECT paciente FROM Paciente paciente WHERE paciente.id= :id"),
+	@NamedQuery(name="Paciente.buscarPeloNome", query="SELECT paciente FROM Paciente paciente WHERE paciente.nome LIKE :nome")
 })
-public class Cliente implements Serializable {
+public class Paciente implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private Long id;
@@ -38,8 +38,8 @@ public class Cliente implements Serializable {
 	private String rg;
 	private Date dataNasc;
 	private Date dataCad;
-	private List<Contato> contato = new ArrayList<Contato>();
-	private List<Endereco> endereco = new ArrayList<Endereco>();
+	private List<Contato_cli> contato = new ArrayList<Contato_cli>();
+	private List<Endereco_cli> endereco = new ArrayList<Endereco_cli>();
 	private String observacao;
 
 	
@@ -106,12 +106,12 @@ public class Cliente implements Serializable {
 	/* NotNull= o contato não pode ser nulo, OneToMany= um para muitos mappedby
 	 * campo da outra classe que está sendo mapeado CascadeType.ALL= quando um
 	 * cliente for excluído ocontato é excluído junto com ele.*/
-	@OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL, fetch=FetchType.EAGER)
-	public List<Contato> getContato() {
+	@OneToMany(mappedBy = "paciente", cascade = CascadeType.ALL, fetch=FetchType.EAGER)
+	public List<Contato_cli> getContato() {
 		return contato;
 	}
 
-	public void setContato(List<Contato> contato) {
+	public void setContato(List<Contato_cli> contato) {
 		this.contato = contato;
 	}
 	
@@ -120,12 +120,12 @@ public class Cliente implements Serializable {
 	/* NotNull= o contato não pode ser nulo, OneToMany= um para muitos mappedby campo 
 	 * da outra classe que está sendo mapeado CascadeType.ALL= quando um cliente for 
 	 * excluído o contato é excluído junto com ele.	 */
-	@OneToMany(mappedBy="cliente", cascade= CascadeType.ALL, fetch=FetchType.EAGER)	
-	public List<Endereco> getEndereco() {
+	@OneToMany(mappedBy="paciente", cascade= CascadeType.ALL, fetch=FetchType.EAGER)	
+	public List<Endereco_cli> getEndereco() {
 		return endereco;
 	}
 
-	public void setEndereco(List<Endereco> endereco) {
+	public void setEndereco(List<Endereco_cli> endereco) {
 		this.endereco = endereco;
 	}
 
@@ -154,7 +154,7 @@ public class Cliente implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Cliente other = (Cliente) obj;
+		Paciente other = (Paciente) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;
@@ -162,34 +162,36 @@ public class Cliente implements Serializable {
 			return false;
 		return true;
 	}
-	
-	
-	
-
 
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Cliente [id=")
-				.append(id).append(", nome=")
-				.append(nome)
-				.append(", cpf=")
-				.append(", rg=")
-				.append(", dataNasc=")
-				.append(dataNasc)
-				.append(", dataCad=")
-				.append(dataCad)
-				.append(", sexo=")
-				.append(", tipo=")
-				.append(", contato=")
-				.append(contato)
-				.append(", endereco=")
-				.append(endereco)
-				.append(", observacao=")
-				.append(observacao)
-				.append("]");
+		builder.append("Paciente [id=")
+			.append(id)
+			.append(", nome=")
+			.append(nome)
+			.append(", cpf=")
+			.append(cpf)
+			.append(", rg=")
+			.append(rg)
+			.append(", dataNasc=")
+			.append(dataNasc)
+			.append(", dataCad=")
+			.append(dataCad)
+			.append(", contato=")
+			.append(contato)
+			.append(", endereco=")
+			.append(endereco)
+			.append(", observacao=")
+			.append(observacao)
+			.append("]");
 		return builder.toString();
 	}
+	
+	
+	
+
+	
 		
 	
 	
