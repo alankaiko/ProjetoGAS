@@ -3,18 +3,30 @@ package br.com.gsv.produtos.domain;
 import java.io.Serializable;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.Table;
 
+
+@Entity
+@Table
+@NamedQueries({
+	@NamedQuery(name="Produto.listar", query="SELECT produto FROM Produto produto"),
+	@NamedQuery(name="Produto.buscarPorId", query="SELECT produto FROM Produto produto WHERE produto.id = :id"),
+	@NamedQuery(name="Produto.buscarPelaDescricao", query="SELECT produto FROM Produto produto WHERE produto.descricao LIKE :descricao")
+})
 public class Produto implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	
 	private Long id;
+	private String codigo;
 	private String descricao;
-	private Integer registro;
 	private Integer quantidade;
 	private Integer lote;
 	private String medida;
@@ -41,11 +53,11 @@ public class Produto implements Serializable{
 	}
 	
 	@Column
-	public Integer getRegistro() {
-		return registro;
+	public String getCodigo() {
+		return codigo;
 	}
-	public void setRegistro(Integer registro) {
-		this.registro = registro;
+	public void setCodigo(String codigo) {
+		this.codigo = codigo;
 	}
 	
 	@Column
@@ -116,10 +128,10 @@ public class Produto implements Serializable{
 		StringBuilder builder = new StringBuilder();
 		builder.append("Produto [id=")
 			.append(id)
+			.append(", codigo=")
+			.append(codigo)
 			.append(", descricao=")
 			.append(descricao)
-			.append(", registro=")
-			.append(registro)
 			.append(", quantidade=")
 			.append(quantidade)
 			.append(", lote=")
@@ -133,6 +145,8 @@ public class Produto implements Serializable{
 			.append("]");
 		return builder.toString();
 	}
+	
+	
 	
 	
 	

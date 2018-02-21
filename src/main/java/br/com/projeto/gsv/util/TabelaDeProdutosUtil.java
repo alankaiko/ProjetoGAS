@@ -7,7 +7,7 @@ import javax.swing.table.AbstractTableModel;
 
 import br.com.gsv.produtos.domain.Produto;
 
-public class TabelaDeProdutos extends AbstractTableModel{
+public class TabelaDeProdutosUtil extends AbstractTableModel{
 	private String[] colunas = new String[] { "CODIGO", "DESCRICAO", "FABRICANTE" };
 	private List<Produto> linhas;
 	private static final int CODIGO = 0;
@@ -15,13 +15,13 @@ public class TabelaDeProdutos extends AbstractTableModel{
     private static final int FABRICANTE = 2;
 	 
     
-    public TabelaDeProdutos() {
+    public TabelaDeProdutosUtil() {
         linhas = new ArrayList<Produto>();
        
     }
  
     
-    public TabelaDeProdutos(List<Produto> dadosProduto) {
+    public TabelaDeProdutosUtil(List<Produto> dadosProduto) {
         linhas = new ArrayList<Produto>(dadosProduto);
 	
 	

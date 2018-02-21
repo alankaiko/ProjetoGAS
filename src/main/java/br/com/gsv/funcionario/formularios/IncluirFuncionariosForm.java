@@ -27,7 +27,7 @@ public class IncluirFuncionariosForm extends JDialog {
 	//metodo construtor que inicia tudo
 	public IncluirFuncionariosForm() {
 		CriarTelaGeral();
-		DadosCPF();
+		DadosFuncionario();
 		InicializaCompomentes();
 		listener = new IncluirFuncionarioListener(this);
 	}
@@ -51,7 +51,7 @@ public class IncluirFuncionariosForm extends JDialog {
 	
 	
 	//cria os componentes jbutton jlabel jtexfield etc etc etc e organiza dentro do layout geral
-	public void DadosCPF(){
+	public void DadosFuncionario(){
 		LIndentif = new JLabel("DADOS PESSOAIS");
 		LIndentif.setBounds(15,10,300,20);
 		LIndentif.setFont(new Font("Calibri", Font.BOLD, 13));
