@@ -15,12 +15,7 @@ import br.com.gsv.produtos.domain.Produto;
 import br.com.gsv.produtos.listeners.ExcluirProdutoListener;
 
 public class ExcluirProdutoDialog extends JDialog {
-
-	private final JPanel contentPanel = new JPanel();
-	private Container tela = getContentPane();
-	private JButton ok, cancelar;
-	private JLabel excluir;
-	private Produto produto;
+	private static final long serialVersionUID = 1L;
 	private ExcluirProdutoListener listener;
 	
 	
@@ -29,7 +24,7 @@ public class ExcluirProdutoDialog extends JDialog {
 		this.produto = produto;
 		CriaTela();
 		CriaCompomentes();
-		this.listener = new ExcluirProdutoListener(this);
+		listener = new ExcluirProdutoListener(this);
 		
 	}
 	
@@ -67,6 +62,15 @@ public class ExcluirProdutoDialog extends JDialog {
 	}
 
 
+	
+	private final JPanel contentPanel = new JPanel();
+	private Container tela = getContentPane();
+	private JButton ok, cancelar;
+	private JLabel excluir;
+	private Produto produto;
+	
+	
+	
 	public JButton getOk() {
 		return ok;
 	}

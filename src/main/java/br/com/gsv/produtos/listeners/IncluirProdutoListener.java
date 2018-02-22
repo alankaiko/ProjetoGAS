@@ -10,6 +10,7 @@ import javax.swing.JComponent;
 import javax.swing.JRootPane;
 import javax.swing.KeyStroke;
 
+import br.com.gsv.produtos.domain.Fabricante;
 import br.com.gsv.produtos.domain.Produto;
 import br.com.gsv.produtos.formularios.IncluirProdutosForm;
 import br.com.projeto.gsv.controller.ProdutoController;
@@ -19,6 +20,7 @@ public class IncluirProdutoListener implements ActionListener {
 	private IncluirProdutosForm formulario;
 	private ProdutoController con;
 	private Produto produto;
+	private Fabricante fabricante;
 	
 	
 	
@@ -40,6 +42,7 @@ public class IncluirProdutoListener implements ActionListener {
 	private void Salvar(){
 		FormToProduto();
 		con.setProduto(this.produto);
+		con.SalvarProduto();
 	}
 	
 	private void Editar(){
@@ -59,13 +62,15 @@ public class IncluirProdutoListener implements ActionListener {
 	
 	private void FormToProduto(){
 		produto = new Produto();
+		fabricante = new Fabricante();
 		this.produto.setCodigo(this.formulario.getTCodigo().getText());
 		this.produto.setDescricao(this.formulario.getTDescricao().getText());
 		this.produto.setQuantidade(ConverteDadosUtil.RetornaInt(this.formulario.getTQuantidade().getText()));
 		this.produto.setLote(ConverteDadosUtil.RetornaInt(this.formulario.getTLote().getText()));
 		this.produto.setMedida(this.formulario.getTMedida().getText());
 		this.produto.setClasseTerapeutica(this.formulario.getTClasse().getText());
-		this.produto.getFabricante().setDescricao(this.formulario.getTFabricante().getText());
+		this.fabricante.setDescricao(this.formulario.getTFabricante().getText());
+		this.produto.setFabricante(this.fabricante);
 	}
 	
 	
@@ -112,15 +117,18 @@ public class IncluirProdutoListener implements ActionListener {
 	public void actionPerformed(ActionEvent event) {
 		if(event.getSource().equals(this.formulario.getBTGravar())){
 			Salvar();
-			
+			System.out.println("botao gravar");
 		}
 		
 		if(event.getSource().equals(this.formulario.getBTNovo())){
-			this.formulario = new IncluirProdutosForm();
+			//this.formulario = new IncluirProdutosForm();
+			System.out.println("botao novo");
 		}
 		
 		if(event.getSource().equals(this.formulario.getBTCancelar())){
+			System.out.println("botao cancelar");
 			this.formulario.dispose();
+			
 		}
 	}
 	

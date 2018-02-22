@@ -13,6 +13,7 @@ import javax.swing.border.EmptyBorder;
 import br.com.gsv.funcionarios.listeners.GerenciarFuncionarioListener;
 
 public class GerenciarTelaFuncionario extends JDialog {
+	private static final long serialVersionUID = 1L;
 	private GerenciarFuncionarioListener listener;
 	
 	public static void main(String[] args) {
@@ -194,10 +195,6 @@ public class GerenciarTelaFuncionario extends JDialog {
 	public void setScrollPane(JScrollPane scrollPane) {
 		this.scrollPane = scrollPane;
 	}
-	
-	
-	
-	
 	
 
 }

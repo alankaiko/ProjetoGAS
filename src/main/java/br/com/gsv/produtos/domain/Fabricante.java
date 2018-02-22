@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -24,6 +25,7 @@ public class Fabricante implements Serializable {
 
 	
 	@Id
+	@GeneratedValue
 	@Column(name="fab_codigo")
 	public Long getId() {
 		return id;

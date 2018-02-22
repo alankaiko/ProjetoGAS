@@ -1,6 +1,7 @@
 package br.com.gsv.produtos.listeners;
 
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
@@ -10,19 +11,18 @@ import javax.swing.JRootPane;
 import javax.swing.KeyStroke;
 import javax.swing.ListSelectionModel;
 
-import br.com.gsv.funcionario.formularios.BuscarFuncionarioDialog;
 import br.com.gsv.produtos.formularios.BuscarProdutoDialog;
-import br.com.projeto.gsv.controller.FuncionarioController;
-import br.com.projeto.gsv.util.TabelaBuscarFuncionariosUtil;
+import br.com.projeto.gsv.controller.ProdutoController;
+import br.com.projeto.gsv.util.TabelaBuscarProdutoUtil;
 
-public class BuscarProdutoListener {
+public class BuscarProdutoListener implements ActionListener{
 	private BuscarProdutoDialog formulario;
-	private TabelaBuscarFuncionariosUtil tabela;
+	private TabelaBuscarProdutoUtil tabela;
 	
 	
-	public BuscarProdutoListener(BuscarFuncionarioDialog formulario) {
+	public BuscarProdutoListener(BuscarProdutoDialog formulario) {
 		this.formulario = formulario;
-		TabelaFuncionario();
+		TabelaProduto();
 		AdicionaListener();
 		UsandoTAB();
 		UpCase();
@@ -31,14 +31,14 @@ public class BuscarProdutoListener {
 	
 	private void AdicionaListener(){
 		this.formulario.getBuscar().addActionListener(this);
-		this.formulario.getOk().addActionListener(this);
 		this.formulario.getCancelar().addActionListener(this);
+		this.formulario.getOk().addActionListener(this);
 	}
 	
 	
-	private void TabelaFuncionario(){
-		FuncionarioController control = new FuncionarioController();
-		tabela = new TabelaBuscarFuncionariosUtil(control.ListaCompletaDeFuncionarios());
+	private void TabelaProduto(){
+		ProdutoController control = new ProdutoController();
+		tabela = new TabelaBuscarProdutoUtil(control.ListaCompletaDeProdutos());
 		this.formulario.getTable().setModel(tabela);
 		this.formulario.getTable().getColumnModel().getColumn(0).setPreferredWidth(30);
 		this.formulario.getTable().getColumnModel().getColumn(1).setPreferredWidth(180);
@@ -121,14 +121,13 @@ public class BuscarProdutoListener {
 			if(this.formulario.getBuscaCodigo().isSelected())
 				BuscarCodigo();
 			
-			if(this.formulario.getBuscaRg().isSelected())
-				BuscarRg();
+			if(this.formulario.getBuscaDescricao().isSelected())
+				BuscarDescricao();
 			
-			if(this.formulario.getBuscaCpf().isSelected())
-				BuscarCpf();
+			if(this.formulario.getBuscaFabricante().isSelected())
+				BuscarFabricante();
 			
-			if(this.formulario.getBuscaNome().isSelected())
-				BuscarNome();
+			
 		}		
 		if(event.getSource().equals(this.formulario.getCancelar())){
 			this.formulario.dispose();
@@ -140,7 +139,7 @@ public class BuscarProdutoListener {
 	
 	
 	private void BuscarCodigo(){
-		TabelaFuncionario();
+		TabelaProduto();
 		Long codigo = Long.parseLong(this.formulario.getTextoBuscar().getText());
 		
 		for(int i = 0; i < this.formulario.getTable().getRowCount(); i++){
@@ -152,42 +151,31 @@ public class BuscarProdutoListener {
 	}
 		
 		
-	private void BuscarRg(){
-		TabelaFuncionario();
-		String rg =  this.formulario.getTextoBuscar().getText();
+	private void BuscarDescricao(){
+		TabelaProduto();
+		String descricao =  this.formulario.getTextoBuscar().getText();
 		
 		for(int i=0; i < this.formulario.getTable().getRowCount(); i++){
 			String coluna = (String) this.formulario.getTable().getValueAt(i, 3);
-			if(coluna.equals(rg)){
+			if(coluna.equals(descricao)){
 				this.formulario.getTable().changeSelection(i, 4, false, false);
 			}
 		}	
 	}
 	
 	
-	private void BuscarCpf(){
-		TabelaFuncionario();
-		String cpf = this.formulario.getTextoBuscar().getText();
+	private void BuscarFabricante(){
+		TabelaProduto();
+		String fabricante = this.formulario.getTextoBuscar().getText();
 		
 		for(int i =0; i < this.formulario.getTable().getRowCount(); i++){  
 		     String coluna = (String)this.formulario.getTable().getValueAt(i, 2); 
-		       if(coluna.equals(cpf)){  
+		       if(coluna.equals(fabricante)){  
 		    	   this.formulario.getTable().changeSelection( i , 4 , false , false); 
 		    	   break;
 		       } 								      
 		}	
 	}
 	
-	private void BuscarNome(){
-		FuncionarioController control = new FuncionarioController();
-		tabela = new TabelaBuscarFuncionariosUtil(control.BuscarPeloNome(this.formulario.getTextoBuscar().getText()));
-		this.formulario.getTable().setModel(tabela);
-		this.formulario.getTable().getColumnModel().getColumn(0).setPreferredWidth(30);
-		this.formulario.getTable().getColumnModel().getColumn(1).setPreferredWidth(180);
-		this.formulario.getTable().getColumnModel().getColumn(2).setPreferredWidth(100);
-		this.formulario.getTable().getColumnModel().getColumn(3).setPreferredWidth(30);
-		this.formulario.getTable().changeSelection(0, 4, false, false);
-		
-		
-	}
+	
 }

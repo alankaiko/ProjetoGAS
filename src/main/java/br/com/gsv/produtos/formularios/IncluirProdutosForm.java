@@ -11,20 +11,17 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
+import br.com.gsv.produtos.listeners.IncluirProdutoListener;
+
 public class IncluirProdutosForm extends JDialog {
 	private static final long serialVersionUID = 1L;
-	
-	private final JPanel contentPanel = new JPanel();
-	private Container tela = getContentPane();
-	private JButton BTNovo, BTGravar, BTCancelar;
-	private JTextField TCodigo, TDescricao, TLote, TMedida, TClasse,TFabricante, TQuantidade;
-	private JLabel LDados, LCodigo, LDescricao, LQuantidade, LLote, LMedida, LClasse, LFabricante;
-
+	private IncluirProdutoListener listener;
 	
 	public IncluirProdutosForm() {
 		CriarTelaGeral();
 		CriaComponentes();
 		InicializaComponentes();
+		listener = new IncluirProdutoListener(this);
 	}
 	
 	
@@ -48,45 +45,45 @@ public class IncluirProdutosForm extends JDialog {
 		LDados.setBounds(38, 29, 94, 14);
 		
 		LCodigo = new JLabel("Código");
-		LCodigo.setBounds(38, 62, 46, 14);
+		LCodigo.setBounds(38, 62, 70, 14);
 			TCodigo = new JTextField();
-			TCodigo.setBounds(86, 59, 86, 20);
+			TCodigo.setBounds(100, 59, 86, 20);
 			TCodigo.setColumns(10);
 		
 		LDescricao = new JLabel("Descrição");
-		LDescricao.setBounds(38, 104, 46, 14);
+		LDescricao.setBounds(38, 104, 70, 14);
 			TDescricao = new JTextField();
-			TDescricao.setBounds(86, 101, 328, 20);
+			TDescricao.setBounds(106, 101, 328, 20);
 			TDescricao.setColumns(10);
 		
 		LQuantidade = new JLabel("Quantidade");
-		LQuantidade.setBounds(38, 171, 86, 14);
+		LQuantidade.setBounds(38, 171, 94, 14);
 			TQuantidade = new JTextField();
-			TQuantidade.setBounds(99, 168, 124, 20);
+			TQuantidade.setBounds(121, 168, 124, 20);
 			TQuantidade.setColumns(10);
 		
 		LLote = new JLabel("Lote");
-		LLote.setBounds(296, 171, 46, 14);
+		LLote.setBounds(296, 171, 70, 14);
 			TLote = new JTextField();
-			TLote.setBounds(327, 168, 153, 20);
+			TLote.setBounds(356, 168, 153, 20);
 			TLote.setColumns(10);
 		
 		LMedida = new JLabel("Unidade Medida");
-		LMedida.setBounds(38, 221, 109, 14);
+		LMedida.setBounds(38, 221, 134, 14);
 			TMedida = new JTextField();
-			TMedida.setBounds(121, 218, 102, 20);
+			TMedida.setBounds(143, 218, 102, 20);
 			TMedida.setColumns(10);
 		
 		LClasse = new JLabel("Classe Terapeutica");
-		LClasse.setBounds(296, 221, 102, 14);
+		LClasse.setBounds(296, 221, 118, 14);
 			TClasse = new JTextField();
-			TClasse.setBounds(395, 218, 165, 20);
+			TClasse.setBounds(425, 218, 165, 20);
 			TClasse.setColumns(10);
 		
 		LFabricante = new JLabel("Fabricante");
-		LFabricante.setBounds(38, 304, 86, 14);
+		LFabricante.setBounds(38, 304, 113, 14);
 			TFabricante = new JTextField();
-			TFabricante.setBounds(101, 301, 241, 20);
+			TFabricante.setBounds(125, 301, 241, 20);
 			TFabricante.setColumns(10);
 		
 		BTNovo = new JButton("Novo");
@@ -121,6 +118,21 @@ public class IncluirProdutosForm extends JDialog {
 		tela.add(BTGravar);
 		tela.add(BTNovo);
 		tela.add(TQuantidade);
+	}
+	
+	
+	private final JPanel contentPanel = new JPanel();
+	private Container tela = getContentPane();
+	private JButton BTNovo, BTGravar, BTCancelar;
+	private JTextField TCodigo, TDescricao, TLote, TMedida, TClasse,TFabricante, TQuantidade;
+	private JLabel LDados, LCodigo, LDescricao, LQuantidade, LLote, LMedida, LClasse, LFabricante;
+
+	
+	public IncluirProdutoListener getListener() {
+		return listener;
+	}
+	public void setListener(IncluirProdutoListener listener) {
+		this.listener = listener;
 	}
 
 

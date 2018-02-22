@@ -10,14 +10,12 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import br.com.gsv.produtos.listeners.DetalhesProdutoListener;
+
 public class DetalhesProdutoDialog extends JDialog {
-	private final JPanel contentPanel = new JPanel();
-	private Container tela = getContentPane();
-	private JButton BTCancelar;
-	private JLabel TCodigo, TDescricao, TLote, TMedida, TClasse,TFabricante, TQuantidade;
-	private JLabel LDados, LCodigo, LDescricao, LQuantidade, LLote, LMedida, LClasse, LFabricante;
-	
-	
+	private static final long serialVersionUID = 1L;
+	private DetalhesProdutoListener listener;	
+		
 	
 	public DetalhesProdutoDialog() {
 		CriarTelaGeral();
@@ -105,6 +103,20 @@ public class DetalhesProdutoDialog extends JDialog {
 		tela.add(TQuantidade);
 	}
 
+	private final JPanel contentPanel = new JPanel();
+	private Container tela = getContentPane();
+	private JButton BTCancelar;
+	private JLabel TCodigo, TDescricao, TLote, TMedida, TClasse,TFabricante, TQuantidade;
+	private JLabel LDados, LCodigo, LDescricao, LQuantidade, LLote, LMedida, LClasse, LFabricante;
+	
+	
+	public DetalhesProdutoListener getListener() {
+		return listener;
+	}
+	
+	public void setListener(DetalhesProdutoListener listener) {
+		this.listener = listener;
+	}
 
 
 	public JButton getBTCancelar() {

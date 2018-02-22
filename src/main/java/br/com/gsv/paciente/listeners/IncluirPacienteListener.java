@@ -199,7 +199,7 @@ public class IncluirPacienteListener implements ActionListener{
 	//Classe que possui eventos dos botoes da TELA
 	public void actionPerformed(ActionEvent event) {
 		if(event.getActionCommand().equals("Novo")){
-			this.formulario = new IncluirPacienteForm();
+			//this.formulario = new IncluirPacienteForm();
 		}
 		
 		if(event.getActionCommand().equals("Gravar")){

@@ -3,7 +3,6 @@ package br.com.gsv.produtos.formularios;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Container;
-import java.awt.FlowLayout;
 import java.awt.Font;
 
 import javax.swing.ButtonGroup;
@@ -17,18 +16,10 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
-import br.com.gsv.funcionarios.listeners.BuscarFuncionarioListener;
+import br.com.gsv.produtos.listeners.BuscarProdutoListener;
 
 public class BuscarProdutoDialog extends JDialog {
-	private final JPanel contentPanel = new JPanel();
-	private Container tela = getContentPane();
-	private JTextField textoBuscar;
-	private JButton ok,cancelar, buscar;
-	private JRadioButton buscaCodigo, buscaDescricao, buscaFabricante;
-	private JLabel buscarDescricao;
-	private ButtonGroup botaoGrupo= new ButtonGroup();
-	private JScrollPane scrollPane;
-	private JTable table;
+	private static final long serialVersionUID = 1L;
 	private BuscarProdutoListener listener;
 
 	
@@ -111,7 +102,84 @@ public class BuscarProdutoDialog extends JDialog {
 		tela.add(this.cancelar);
 	}
 
+
+	
+	private final JPanel contentPanel = new JPanel();
+	private Container tela = getContentPane();
+	private JTextField textoBuscar;
+	private JButton ok,cancelar, buscar;
+	private JRadioButton buscaCodigo, buscaDescricao, buscaFabricante;
+	private JLabel buscarDescricao;
+	private ButtonGroup botaoGrupo= new ButtonGroup();
+	private JScrollPane scrollPane;
+	private JTable table;
 	
 	
 
+	public JButton getOk() {
+		return ok;
+	}
+
+
+	public void setOk(JButton ok) {
+		this.ok = ok;
+	}
+
+
+	public JButton getCancelar() {
+		return cancelar;
+	}
+
+
+	public void setCancelar(JButton cancelar) {
+		this.cancelar = cancelar;
+	}
+
+
+	public JButton getBuscar() {
+		return buscar;
+	}
+
+
+	public void setBuscar(JButton buscar) {
+		this.buscar = buscar;
+	}
+
+
+	public JTable getTable() {
+		return table;
+	}
+	
+	public void setTable(JTable table) {
+		this.table = table;
+	}
+	
+	
+	public JScrollPane getScrollPane() {
+		return scrollPane;
+	}
+	
+	public void setScrollPane(JScrollPane scrollPane) {
+		this.scrollPane = scrollPane;
+	}
+
+	public JTextField getTextoBuscar() {
+		return textoBuscar;
+	}
+	
+	public void setTextoBuscar(JTextField textoBuscar) {
+		this.textoBuscar = textoBuscar;
+	}
+	
+	public JRadioButton getBuscaCodigo() {
+		return buscaCodigo;
+	}
+	
+	public JRadioButton getBuscaDescricao() {
+		return buscaDescricao;
+	}
+	
+	public JRadioButton getBuscaFabricante() {
+		return buscaFabricante;
+	}
 }

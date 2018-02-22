@@ -3,12 +3,14 @@ package br.com.projeto.gsv.util;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.table.AbstractTableModel;
+
 import br.com.gsv.funcionario.domain.Funcionario;
 import br.com.gsv.produtos.domain.Produto;
 
-public class TabelaBuscarProdutoUtil {
+public class TabelaBuscarProdutoUtil extends AbstractTableModel {
 	private String[] colunas = new String[] { "CODIGO", "DESCRICAO", "FABRICANTE" };
-	private List<Funcionario> linhas;
+	private List<Produto> linhas;
 	private static final int CODIGO = 0;
     private static final int DESCRICAO = 1;
     private static final int FABRICANTE = 2;
@@ -21,8 +23,8 @@ public class TabelaBuscarProdutoUtil {
     }
  
     
-    public TabelaBuscarFuncionariosUtil(List<Funcionario> funcionario) {
-        linhas = new ArrayList<Funcionario>(funcionario);
+    public TabelaBuscarProdutoUtil(List<Produto> produto) {
+        linhas = new ArrayList<Produto>(produto);
 	
 	
     }
@@ -43,12 +45,10 @@ public class TabelaBuscarProdutoUtil {
         switch (columnIndex) {
         case CODIGO:
             return Integer.class;
-        case NOME:
+        case DESCRICAO:
             return String.class;
-        case CPF:
+        case FABRICANTE:
             return String.class;
-        case RG:
-        	return String.class;
         default:
             throw new IndexOutOfBoundsException("columnIndex out of bounds");
         }
@@ -62,17 +62,15 @@ public class TabelaBuscarProdutoUtil {
 	@Override
     public Object getValueAt(int rowIndex, int columnIndex) {
         
-		Funcionario dados = linhas.get(rowIndex);
+		Produto dados = linhas.get(rowIndex);
  
         switch (columnIndex) {
         case CODIGO:
             return dados.getId();
-        case NOME:
-            return dados.getNome();
-        case CPF:
-            return dados.getCpf();
-        case RG:
-        	return dados.getRg();
+        case DESCRICAO:
+            return dados.getDescricao();
+        case FABRICANTE:
+            return dados.getFabricante().getDescricao();
         default:
            
             throw new IndexOutOfBoundsException("columnIndex out of bounds");
@@ -81,7 +79,7 @@ public class TabelaBuscarProdutoUtil {
 	
 	 
 	
-	public void addUsuario(Funcionario dados) {
+	public void addUsuario(Produto dados) {
 	  
 	    linhas.add(dados);
 	    int ultimoIndice = getRowCount() - 1;
@@ -90,7 +88,7 @@ public class TabelaBuscarProdutoUtil {
 	 
 	 
 	
-	public void addListaDeUsuario(List<Funcionario> dados) {
+	public void addListaDeUsuario(List<Produto> dados) {
 	    
 	    int indice = getRowCount();
 	    linhas.addAll(dados);
@@ -109,20 +107,17 @@ public class TabelaBuscarProdutoUtil {
 	@Override
     public void setValueAt(Object aValue, int rowIndex, int columnIndex) {
        
-		Funcionario dados = linhas.get(rowIndex);
+		Produto dados = linhas.get(rowIndex);
  
         switch (columnIndex) {
         case CODIGO:
         	dados.setId((Long) aValue);
             break;
-        case NOME:
-        	dados.setNome((String) aValue);
+        case DESCRICAO:
+        	dados.setDescricao((String) aValue);
             break;
-        case CPF:
-        	dados.setCpf((String) aValue);
-        case RG:
-        	dados.setRg((String) aValue);
-            break;
+        case FABRICANTE:
+        	dados.getFabricante().setDescricao((String) aValue);
         default:
             throw new IndexOutOfBoundsException("columnIndex out of bounds");
         }

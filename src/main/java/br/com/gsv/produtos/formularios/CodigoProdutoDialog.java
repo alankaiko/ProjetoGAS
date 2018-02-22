@@ -13,14 +13,8 @@ import javax.swing.border.EmptyBorder;
 import br.com.gsv.produtos.listeners.CodigoProdutoListener;
 
 public class CodigoProdutoDialog extends JDialog {
-	private final JPanel contentPanel = new JPanel();
-	private JButton ok, cancelar;
-	private Container tela= getContentPane();
-	private JTextField TBuscar;
+	private static final long serialVersionUID = 1L;
 	private CodigoProdutoListener listener;
-	private Long codigo;
-	
-	
 	
 	public CodigoProdutoDialog() {
 		CriaTelaGeral();
@@ -67,6 +61,15 @@ public class CodigoProdutoDialog extends JDialog {
 	}
 
 
+	
+	private final JPanel contentPanel = new JPanel();
+	private JButton ok, cancelar;
+	private Container tela= getContentPane();
+	private JTextField TBuscar;
+	private Long codigo;
+	
+	
+	
 
 	public JButton getOk() {
 		return ok;

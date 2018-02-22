@@ -2,7 +2,6 @@ package br.com.gsv.produtos.formularios;
 
 import java.awt.BorderLayout;
 import java.awt.Container;
-import java.awt.FlowLayout;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
@@ -11,15 +10,18 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.border.EmptyBorder;
 
+import br.com.gsv.produtos.listeners.GerenciarProdutosListener;
+
 public class GerenciaTelaProdutos extends JDialog {
-
+	private static final long serialVersionUID = 1L;
+	private GerenciarProdutosListener listener;
 	
-
 	public static void main(String[] args) {
 		try {
 			GerenciaTelaProdutos dialog = new GerenciaTelaProdutos();
 			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 			dialog.setVisible(true);
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -27,18 +29,19 @@ public class GerenciaTelaProdutos extends JDialog {
 
 	
 	public GerenciaTelaProdutos() {
-		CriaTela();
+		CriaTelaGeral();
 		Dados();
 		InicializaComponentes();
+		this.listener = new GerenciarProdutosListener(this);
 	}
 	
-	private void CriaTela(){
-		this.setBounds(100, 100, 700, 480);
+	
+	private void CriaTelaGeral(){
 		this.setTitle("Cadastro de Produtos");
 		this.setModal(true);
+		this.setBounds(100, 100, 700, 480);
 		this.setResizable(false);
 		this.tela.setLayout(null);
-		this.tela.setLayout(new BorderLayout());
 		this.tela.add(contentPanel, BorderLayout.CENTER);
 		
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -71,6 +74,7 @@ public class GerenciaTelaProdutos extends JDialog {
 		
 		fim= new JButton("Fim");
 		fim.setBounds(525,150,125,20);
+		
 	}
 	
 	private void InicializaComponentes(){
@@ -82,7 +86,8 @@ public class GerenciaTelaProdutos extends JDialog {
 		tela.add(excluir);
 		tela.add(fim);
 	}
-
+	
+	
 	
 	
 	private final JPanel contentPanel = new JPanel();
@@ -92,7 +97,6 @@ public class GerenciaTelaProdutos extends JDialog {
 	private JScrollPane scrollPane;
 
 
-	
 	public JButton getCodigo() {
 		return codigo;
 	}
@@ -191,8 +195,6 @@ public class GerenciaTelaProdutos extends JDialog {
 	public void setScrollPane(JScrollPane scrollPane) {
 		this.scrollPane = scrollPane;
 	}
-	
-	
 	
 	
 }
