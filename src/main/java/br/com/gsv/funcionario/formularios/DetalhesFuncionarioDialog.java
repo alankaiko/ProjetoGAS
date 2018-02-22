@@ -27,7 +27,7 @@ public class DetalhesFuncionarioDialog extends JDialog {
 
 	
 		
-		//cria e tela geral onde todos os componentes serao inseridos, é a tela geral do sistema
+	//cria e tela geral onde todos os componentes serao inseridos, é a tela geral do sistema
 	private void CriarTelaGeral(){
 		this.setTitle("Inserir Dados de Funcionário");
 		this.setModal(true);
