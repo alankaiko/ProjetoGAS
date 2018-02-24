@@ -42,7 +42,7 @@ public class IncluirProdutosForm extends JDialog {
 	
 	private void CriaComponentes(){
 		LDados = new JLabel("Dados do Produto");
-		LDados.setBounds(38, 29, 94, 14);
+		LDados.setBounds(38, 29, 130, 14);
 		
 		LCodigo = new JLabel("Código");
 		LCodigo.setBounds(38, 62, 70, 14);

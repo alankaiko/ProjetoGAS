@@ -54,8 +54,10 @@ public class ProdutoRepository {
 		
 
 		public Produto BuscarPorCodigo(String codigo){
+			System.out.println("codigo " +codigo);
 			sessao = HibernateUtil.getSessionFactory().openSession();
 			Produto produto = null;
+			
 			
 			try {
 				Query consulta = sessao.getNamedQuery("Produto.buscarPorCodigo");
@@ -66,7 +68,6 @@ public class ProdutoRepository {
 			}finally{
 				sessao.close();
 			}
-			System.out.println("rodou"+produto.getDescricao());
 			return produto;
 		}
 		

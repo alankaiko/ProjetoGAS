@@ -117,16 +117,13 @@ public class IncluirProdutoListener implements ActionListener {
 	public void actionPerformed(ActionEvent event) {
 		if(event.getSource().equals(this.formulario.getBTGravar())){
 			Salvar();
-			System.out.println("botao gravar");
 		}
 		
 		if(event.getSource().equals(this.formulario.getBTNovo())){
 			//this.formulario = new IncluirProdutosForm();
-			System.out.println("botao novo");
 		}
 		
 		if(event.getSource().equals(this.formulario.getBTCancelar())){
-			System.out.println("botao cancelar");
 			this.formulario.dispose();
 			
 		}

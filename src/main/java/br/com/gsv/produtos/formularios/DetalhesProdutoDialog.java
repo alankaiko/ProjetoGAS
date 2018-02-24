@@ -42,40 +42,40 @@ public class DetalhesProdutoDialog extends JDialog {
 	
 	private void CriaComponentes(){
 		LDados = new JLabel("Dados do Produto");
-		LDados.setBounds(38, 29, 94, 14);
+		LDados.setBounds(38, 29, 134, 14);
 		
 		LCodigo = new JLabel("Código");
-		LCodigo.setBounds(38, 62, 46, 14);
+		LCodigo.setBounds(38, 62, 68, 14);
 			TCodigo = new JLabel();
 			TCodigo.setBounds(86, 59, 86, 20);
 		
 		LDescricao = new JLabel("Descrição");
-		LDescricao.setBounds(38, 104, 46, 14);
+		LDescricao.setBounds(38, 104, 68, 14);
 			TDescricao = new JLabel();
 			TDescricao.setBounds(86, 101, 328, 20);
 		
 		LQuantidade = new JLabel("Quantidade");
-		LQuantidade.setBounds(38, 171, 86, 14);
+		LQuantidade.setBounds(38, 171, 102, 14);
 			TQuantidade = new JLabel();
 			TQuantidade.setBounds(99, 168, 124, 20);
 		
 		LLote = new JLabel("Lote");
-		LLote.setBounds(296, 171, 46, 14);
+		LLote.setBounds(296, 171, 68, 14);
 			TLote = new JLabel();
 			TLote.setBounds(327, 168, 153, 20);
 		
 		LMedida = new JLabel("Unidade Medida");
-		LMedida.setBounds(38, 221, 109, 14);
+		LMedida.setBounds(38, 221, 134, 14);
 			TMedida = new JLabel();
 			TMedida.setBounds(121, 218, 102, 20);
 		
 		LClasse = new JLabel("Classe Terapeutica");
-		LClasse.setBounds(296, 221, 102, 14);
+		LClasse.setBounds(296, 221, 118, 14);
 			TClasse = new JLabel();
 			TClasse.setBounds(395, 218, 165, 20);
 		
 		LFabricante = new JLabel("Fabricante");
-		LFabricante.setBounds(38, 304, 86, 14);
+		LFabricante.setBounds(38, 304, 102, 14);
 			TFabricante = new JLabel();
 			TFabricante.setBounds(101, 301, 241, 20);
 				
