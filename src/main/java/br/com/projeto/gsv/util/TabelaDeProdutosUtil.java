@@ -23,8 +23,6 @@ public class TabelaDeProdutosUtil extends AbstractTableModel{
     
     public TabelaDeProdutosUtil(List<Produto> dadosProduto) {
         linhas = new ArrayList<Produto>(dadosProduto);
-	
-	
     }
 	
     
@@ -65,7 +63,7 @@ public class TabelaDeProdutosUtil extends AbstractTableModel{
  
         switch (columnIndex) {
         case CODIGO:
-            return dados.getId();
+            return dados.getCodigo();
         case DESCRICAO:
             return dados.getDescricao();
         case FABRICANTE:
@@ -110,7 +108,7 @@ public class TabelaDeProdutosUtil extends AbstractTableModel{
  
         switch (columnIndex) {
         case CODIGO:
-        	dados.setId((Long) aValue);
+        	dados.setCodigo((String) aValue);
             break;
         case DESCRICAO:
         	dados.setDescricao((String) aValue);

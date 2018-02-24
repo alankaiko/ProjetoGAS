@@ -5,14 +5,14 @@ import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
-
 @Entity
-@Table
+@Table(name = "tbl_fabricantes")
 @NamedQueries({
 	@NamedQuery(name="Fabricante.listar", query="SELECT fabricante FROM Fabricante fabricante"),
 	@NamedQuery(name="Fabricante.buscarPorId", query="SELECT fabricante FROM Fabricante fabricante WHERE fabricante.id = :id")
@@ -20,13 +20,14 @@ import javax.persistence.Table;
 public class Fabricante implements Serializable {
 	private static final long serialVersionUID = 1L;
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "fab_codigo")
 	private Long id;
 	private String descricao;
 
 	
-	@Id
-	@GeneratedValue
-	@Column(name="fab_codigo")
+	
 	public Long getId() {
 		return id;
 	}

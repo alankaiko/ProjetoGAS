@@ -77,7 +77,7 @@ public class GerenciarProdutosListener implements ActionListener{
 	
 	@Override
 	public void actionPerformed(ActionEvent event) {
-		if(event.getSource().equals("Detalhes")){
+		if(event.getSource().equals(gerenciamento.getDetalhes())){
 			ExecutaTelaDetalhes(SelecionaLinha());
 		}
 		
@@ -85,7 +85,7 @@ public class GerenciarProdutosListener implements ActionListener{
 			ExecutaTelaCodigo();
 		}
 		
-		if(event.getActionCommand().equals("Buscar")){
+		if(event.getActionCommand().equals(gerenciamento.getBuscar())){
 			ExecutaTelaBuscar();
 		}
 		

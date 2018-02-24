@@ -6,6 +6,7 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import br.com.gsv.funcionario.domain.Funcionario;
 import br.com.gsv.produtos.domain.Produto;
 import br.com.projeto.gsv.util.HibernateUtil;
 
@@ -51,22 +52,23 @@ public class ProdutoRepository {
 		}
 		
 		
-		public Produto BuscarPorId(Long id){
+		@SuppressWarnings("unchecked")
+		public List<Produto> BuscarPorCodigo(String codigo){
 			sessao = HibernateUtil.getSessionFactory().openSession();
-			Produto produto = null;
+			List<Produto> lista = null;
 			
 			try {
-				Query consulta = sessao.getNamedQuery("Produto.buscarPorId");
-				consulta.setLong("id", id);
-				produto = (Produto) consulta.uniqueResult();
+				Query consulta = sessao.getNamedQuery("Produto.buscarPorCodigo");
+				consulta.setString("codigo", "%"+codigo+"%");
+				lista = consulta.list();
 			} catch (RuntimeException e) {
 				throw e;
 			}finally{
 				sessao.close();
-			}		
-			return produto;
+			}
+			
+			return lista;
 		}
-		
 		
 		@SuppressWarnings("unchecked")
 		public List<Produto> ListarProdutos(){
@@ -103,6 +105,26 @@ public class ProdutoRepository {
 			
 			return lista;
 		}
+		
+		
+		
+		
+		public Produto BuscarPorId(Long id){
+			sessao = HibernateUtil.getSessionFactory().openSession();
+			Produto produto = null;
+			
+			try {
+				Query consulta = sessao.getNamedQuery("Produto.buscarPorId");
+				consulta.setLong("id", id);
+				produto = (Produto) consulta.uniqueResult();
+			} catch (RuntimeException e) {
+				throw e;
+			}finally{
+				sessao.close();
+			}		
+			return produto;
+		}
+		
 	
 }
 

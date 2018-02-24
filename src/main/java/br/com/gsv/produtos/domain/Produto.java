@@ -15,10 +15,11 @@ import javax.persistence.Table;
 
 
 @Entity
-@Table
+@Table(name = "tbl_produtos")
 @NamedQueries({
 	@NamedQuery(name="Produto.listar", query="SELECT produto FROM Produto produto"),
-	@NamedQuery(name="Produto.buscarPorId", query="SELECT produto FROM Produto produto WHERE produto.id = :id"),
+	@NamedQuery(name="Produto.buscarPorId", query="SELECT produto FROM Produto produto WHERE produto.id= :id"),
+	@NamedQuery(name="Produto.buscarPorCodigo", query="SELECT produto FROM Produto produto WHERE produto.codigo = :codigo"),
 	@NamedQuery(name="Produto.buscarPelaDescricao", query="SELECT produto FROM Produto produto WHERE produto.descricao LIKE :descricao")
 })
 public class Produto implements Serializable{
@@ -32,6 +33,9 @@ public class Produto implements Serializable{
 	private Integer lote;
 	private String medida;
 	private String classeTerapeutica;
+	
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "tbl_fabricantes_fab_codigo", referencedColumnName = "fab_codigo", nullable = false)
 	private Fabricante fabricante;
 	
 	
@@ -93,14 +97,15 @@ public class Produto implements Serializable{
 		this.classeTerapeutica = classeTerapeutica;
 	}
 	
-	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "tbl_fabricantes_fab_codigo", referencedColumnName = "fab_codigo", nullable = false)
+	
 	public Fabricante getFabricante() {
 		return fabricante;
 	}
 	public void setFabricante(Fabricante fabricante) {
 		this.fabricante = fabricante;
 	}
+	
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
