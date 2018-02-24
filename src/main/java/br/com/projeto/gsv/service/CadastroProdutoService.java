@@ -22,7 +22,7 @@ public class CadastroProdutoService {
 		return repositorio.ListarProdutos();
 	}
 	
-	public List<Produto> BuscandoCodigo(String codigo){
+	public Produto BuscandoCodigo(String codigo){
 		return this.repositorio.BuscarPorCodigo(codigo);
 	}
 	

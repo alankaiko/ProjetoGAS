@@ -78,7 +78,7 @@ public class GerenciarProdutosListener implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent event) {
 		if(event.getSource().equals(gerenciamento.getDetalhes())){
-			ExecutaTelaDetalhes(SelecionaLinha());
+			ExecutaTelaDetalhes(SelecionaItem());
 		}
 		
 		if(event.getSource().equals(gerenciamento.getCodigo())){
@@ -109,7 +109,12 @@ public class GerenciarProdutosListener implements ActionListener{
 
 	
 	
-	
+	private String SelecionaItem(){
+		int linha = this.gerenciamento.getTable().getSelectedRow();
+		String codigo = (String) this.gerenciamento.getTable().getValueAt(linha, 0);
+		
+		return codigo;
+	}
 	
 	
 	private Long SelecionaLinha(){
@@ -148,11 +153,11 @@ public class GerenciarProdutosListener implements ActionListener{
 		TabelaDeProdutos();
 	}
 	
-	private void ExecutaTelaDetalhes(Long id){
+	private void ExecutaTelaDetalhes(String codigo){
 		ProdutoController controller = new ProdutoController();
 		DetalhesProdutoDialog detalhes = new DetalhesProdutoDialog();
 		
-		detalhes.getListener().setProduto(controller.BuscarPelaID(id));
+		detalhes.getListener().setProduto(controller.BuscarPorCodigo(codigo));
 		detalhes.getListener().Detalhar();
 		
 		detalhes.setLocationRelativeTo(this.gerenciamento.getTela());

@@ -52,22 +52,22 @@ public class ProdutoRepository {
 		}
 		
 		
-		@SuppressWarnings("unchecked")
-		public List<Produto> BuscarPorCodigo(String codigo){
+
+		public Produto BuscarPorCodigo(String codigo){
 			sessao = HibernateUtil.getSessionFactory().openSession();
-			List<Produto> lista = null;
+			Produto produto = null;
 			
 			try {
 				Query consulta = sessao.getNamedQuery("Produto.buscarPorCodigo");
-				consulta.setString("codigo", "%"+codigo+"%");
-				lista = consulta.list();
+				consulta.setString("codigo", codigo);
+				produto = (Produto) consulta.uniqueResult();
 			} catch (RuntimeException e) {
 				throw e;
 			}finally{
 				sessao.close();
 			}
-			
-			return lista;
+			System.out.println("rodou"+produto.getDescricao());
+			return produto;
 		}
 		
 		@SuppressWarnings("unchecked")

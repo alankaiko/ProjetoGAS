@@ -29,7 +29,7 @@ public class ProdutoController {
 		return cadastroService.ListandoProdutos();
 	}
 
-	public List<Produto> BuscarPorCodigo(String codigo) {
+	public Produto BuscarPorCodigo(String codigo) {
 		return this.cadastroService.BuscandoCodigo(codigo);
 	}
 
