@@ -2,6 +2,7 @@ package br.com.projeto.gsv.controller;
 
 import java.util.List;
 
+import br.com.gsv.fabricantes.domain.Fabricante;
 import br.com.gsv.funcionario.domain.Funcionario;
 import br.com.gsv.produtos.domain.Produto;
 import br.com.projeto.gsv.service.CadastroProdutoService;
@@ -9,7 +10,6 @@ import br.com.projeto.gsv.service.CadastroProdutoService;
 public class ProdutoController {
 	private Produto produto;
 	private CadastroProdutoService cadastroService;
-
 	
 	
 	public ProdutoController() {
@@ -37,6 +37,10 @@ public class ProdutoController {
 		return this.cadastroService.BuscandoPelaDescricao(descricao);
 	}
 
+	public List<Fabricante> RetornaFabricante(){
+		return this.cadastroService.FabricanteListaCompleta();
+	}
+	
 	
 	public Produto BuscarPelaID(Long id) {
 		return this.cadastroService.BuscandoId(id);

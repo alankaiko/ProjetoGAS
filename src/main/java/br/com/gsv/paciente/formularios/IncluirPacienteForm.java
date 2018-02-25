@@ -4,9 +4,6 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.Font;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
-import java.text.ParseException;
 import java.util.Vector;
 
 import javax.swing.DefaultComboBoxModel;
@@ -18,11 +15,10 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
-import javax.swing.text.MaskFormatter;
 
 import br.com.gsv.paciente.listeners.IncluirPacienteListener;
-import br.com.projeto.gsv.util.ListasUtil;
 import br.com.projeto.gsv.util.ConverteDadosUtil;
+import br.com.projeto.gsv.util.ListasUtil;
 
 public class IncluirPacienteForm extends JDialog {
 	private IncluirPacienteListener listener;

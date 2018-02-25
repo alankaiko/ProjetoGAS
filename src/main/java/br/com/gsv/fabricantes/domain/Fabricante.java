@@ -68,11 +68,11 @@ public class Fabricante implements Serializable {
 		return true;
 	}
 
+	
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Fabricante [id=").append(id).append(", descricao=")
-				.append(descricao).append("]");
+		builder.append(descricao);
 		return builder.toString();
 	}
 

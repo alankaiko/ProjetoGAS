@@ -2,7 +2,6 @@ package br.com.gsv.fabricantes.formularios;
 
 import java.awt.BorderLayout;
 import java.awt.Container;
-import java.awt.FlowLayout;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
@@ -12,8 +11,6 @@ import javax.swing.JTable;
 import javax.swing.border.EmptyBorder;
 
 import br.com.gsv.fabricantes.listeners.GerenciaFabricanteListener;
-import br.com.gsv.funcionario.formularios.GerenciarTelaFuncionario;
-import br.com.gsv.funcionarios.listeners.GerenciarFuncionarioListener;
 
 public class GerenciaTelaFabricante extends JDialog {
 	private static final long serialVersionUID = 1L;

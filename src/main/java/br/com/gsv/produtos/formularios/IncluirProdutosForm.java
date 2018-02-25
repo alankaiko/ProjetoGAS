@@ -3,8 +3,11 @@ package br.com.gsv.produtos.formularios;
 import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.Font;
+import java.util.Vector;
 
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -12,6 +15,7 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
 import br.com.gsv.produtos.listeners.IncluirProdutoListener;
+import br.com.projeto.gsv.util.ListasUtil;
 
 public class IncluirProdutosForm extends JDialog {
 	private static final long serialVersionUID = 1L;
@@ -82,9 +86,9 @@ public class IncluirProdutosForm extends JDialog {
 		
 		LFabricante = new JLabel("Fabricante");
 		LFabricante.setBounds(38, 304, 113, 14);
-			TFabricante = new JTextField();
-			TFabricante.setBounds(125, 301, 241, 20);
-			TFabricante.setColumns(10);
+			comboFabricante = new JComboBox();
+			comboFabricante.setBounds(125, 301, 241, 20);
+
 		
 		BTNovo = new JButton("Novo");
 		BTNovo.setFont(new Font("Calibri", Font.PLAIN, 12));
@@ -113,7 +117,7 @@ public class IncluirProdutosForm extends JDialog {
 		tela.add(LClasse);
 		tela.add(TClasse);
 		tela.add(LFabricante);
-		tela.add(TFabricante);
+		tela.add(comboFabricante);
 		tela.add(BTCancelar);
 		tela.add(BTGravar);
 		tela.add(BTNovo);
@@ -124,8 +128,9 @@ public class IncluirProdutosForm extends JDialog {
 	private final JPanel contentPanel = new JPanel();
 	private Container tela = getContentPane();
 	private JButton BTNovo, BTGravar, BTCancelar;
-	private JTextField TCodigo, TDescricao, TLote, TMedida, TClasse,TFabricante, TQuantidade;
+	private JTextField TCodigo, TDescricao, TLote, TMedida, TClasse, TQuantidade;
 	private JLabel LDados, LCodigo, LDescricao, LQuantidade, LLote, LMedida, LClasse, LFabricante;
+	private JComboBox comboFabricante;
 
 	
 	public IncluirProdutoListener getListener() {
@@ -215,16 +220,13 @@ public class IncluirProdutosForm extends JDialog {
 		TClasse = tClasse;
 	}
 
-
-	public JTextField getTFabricante() {
-		return TFabricante;
+	public void setComboFabricante(JComboBox comboFabricante) {
+		this.comboFabricante = comboFabricante;
 	}
-
-
-	public void setTFabricante(JTextField tFabricante) {
-		TFabricante = tFabricante;
+	
+	public JComboBox getComboFabricante() {
+		return comboFabricante;
 	}
-
 
 	public JLabel getLDados() {
 		return LDados;
