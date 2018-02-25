@@ -13,7 +13,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "tbl_fabricantes")
 @NamedQueries({
-	@NamedQuery(name="Fabricante.listar", query="SELECT fabricante FROM Fabricante fabricante"),
+	@NamedQuery(name="Fabricante.listar", query="SELECT fabricante FROM Fabricante fabricante order by id"),
 	@NamedQuery(name="Fabricante.buscarPorId", query="SELECT fabricante FROM Fabricante fabricante WHERE fabricante.id = :id")
 })
 public class Fabricante implements Serializable {

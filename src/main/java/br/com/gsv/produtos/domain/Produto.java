@@ -13,6 +13,8 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
+import br.com.gsv.fabricantes.domain.Fabricante;
+
 
 @Entity
 @Table(name = "tbl_produtos")

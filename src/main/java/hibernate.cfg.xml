@@ -28,7 +28,7 @@
         <property name="show_sql">false</property>
 
         <!-- Drop and re-create the database schema on startup -->
-        <property name="hbm2ddl.auto">validate</property>
+        <property name="hbm2ddl.auto">create</property>
         	
         <property name="hibernate.temp.use_jdbc_metadata_defaults">false</property>
 		
@@ -40,7 +40,7 @@
       	<mapping class="br.com.gsv.paciente.domain.Endereco_cli"/>
       	<mapping class="br.com.gsv.paciente.domain.Paciente"/>
       	<mapping class="br.com.gsv.produtos.domain.Produto"/>
-      	<mapping class="br.com.gsv.produtos.domain.Fabricante"/>
+      	<mapping class="br.com.gsv.fabricantes.domain.Fabricante"/>
     </session-factory>
 
 </hibernate-configuration>

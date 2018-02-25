@@ -10,7 +10,7 @@ import javax.swing.JComponent;
 import javax.swing.JRootPane;
 import javax.swing.KeyStroke;
 
-import br.com.gsv.produtos.domain.Fabricante;
+import br.com.gsv.fabricantes.domain.Fabricante;
 import br.com.gsv.produtos.domain.Produto;
 import br.com.gsv.produtos.formularios.IncluirProdutosForm;
 import br.com.projeto.gsv.controller.ProdutoController;

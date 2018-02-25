@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.Font;
+import java.util.EventListener;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
@@ -126,5 +127,12 @@ public class IncluirFabricantesForm extends JDialog {
 	public void setTFabricante(JTextField tFabricante) {
 		TFabricante = tFabricante;
 	}
-
+	
+	public void setListener(IncluirFabricantesListener listener) {
+		this.listener = listener;
+	}
+	
+	public IncluirFabricantesListener getListener() {
+		return listener;
+	}
 }
