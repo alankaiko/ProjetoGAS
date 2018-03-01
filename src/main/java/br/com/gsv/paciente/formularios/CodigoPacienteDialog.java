@@ -17,7 +17,7 @@ import javax.swing.border.EmptyBorder;
 
 import br.com.gsv.paciente.listeners.CodigoPacienteListener;
 
-public class CodidoPacienteDialog extends JDialog {
+public class CodigoPacienteDialog extends JDialog {
 	private final JPanel contentPanel = new JPanel();
 	private JButton ok, cancelar;
 	private Container tela= getContentPane();
@@ -27,7 +27,7 @@ public class CodidoPacienteDialog extends JDialog {
 	
 	
 	
-	public CodidoPacienteDialog() {
+	public CodigoPacienteDialog() {
 		CriaTelaGeral();
 		CriarTela();
 		AdicionaNaTela();

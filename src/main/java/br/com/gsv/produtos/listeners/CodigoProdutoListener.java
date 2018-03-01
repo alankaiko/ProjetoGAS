@@ -57,7 +57,7 @@ private CodigoProdutoDialog formulario;
 	@Override
 	public void actionPerformed(ActionEvent event) {
 		if(event.getSource().equals(this.formulario.getOk())){
-			this.formulario.setCodigo(Long.parseLong(this.formulario.getTBuscar().getText()));
+			this.formulario.setCodigo(this.formulario.getTBuscar().getText());
 			this.formulario.dispose();
 		}
 		if(event.getSource().equals(this.formulario.getCancelar())){

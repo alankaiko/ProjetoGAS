@@ -58,10 +58,8 @@ public class IncluirFabricantesListener implements ActionListener {
 	/*-----------------------------------------------------------------------------------------------------------------*/
 	/*---------------------------------------CLASSES PARA EDICAO DOS OBJETOS-------------------------------------------*/
 	public void AlterandoObjetos() {
-		this.formulario.getTId().setText(
-				String.valueOf(this.fabricante.getId()));
-		this.formulario.getTFabricante()
-				.setText(this.fabricante.getDescricao());
+		this.formulario.getTId().setText(String.valueOf(this.fabricante.getId()));
+		this.formulario.getTFabricante().setText(this.fabricante.getDescricao());
 	}
 
 	// Método para Edicao de clientes
@@ -84,11 +82,13 @@ public class IncluirFabricantesListener implements ActionListener {
 	// Classe que possui eventos dos botoes da TELA
 	public void actionPerformed(ActionEvent event) {
 		if (event.getSource().equals(this.formulario.getBTGravar())) {
-			if (this.formulario.getTId().getText().isEmpty())
+			if (this.formulario.getTId().getText().isEmpty()){
 				Salvar();
-			else
+			System.out.println("rodou salvar");
+			}else{
+				System.out.println("rodou editar");
 				Editar();
-
+			}
 			// this.formulario.dispose();
 		}
 

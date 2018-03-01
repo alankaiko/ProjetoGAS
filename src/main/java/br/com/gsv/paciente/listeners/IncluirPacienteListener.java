@@ -168,29 +168,7 @@ public class IncluirPacienteListener implements ActionListener{
 		
 		
 		
-	
-	
-	
-	/*-----------------------------------------------------------------------------------------------------------------*/
-	/*---------------------------------------CLASSES PARA DETALHAR OBJETOS-------------------------------------------*/
-	public void DetalhandoObjetos(){
-		this.formulario.getTId().setEditable(false);
-		this.formulario.getTNome().setEditable(false);
-		this.formulario.getTRg().setEditable(false);
-		this.formulario.getJCpf().setEditable(false);
-		this.formulario.getTObservacao().setEditable(false);
-		this.formulario.getTLogradouro().setEditable(false);
-		this.formulario.getTComplemento().setEditable(false);
-		this.formulario.getTNumero().setEditable(false);
-		this.formulario.getTBairro().setEditable(false);
-		this.formulario.getTCidade().setEditable(false);
-		this.formulario.getJCep().setEditable(false);
-		this.formulario.getTEmail().setEditable(false);
-		this.formulario.getTTelefone().setEditable(false);
-		this.formulario.getTCelular().setEditable(false);
-				
-	}
-	
+
 	
 	
 	/*-----------------------------------------------------------------------------------------------------------------*/

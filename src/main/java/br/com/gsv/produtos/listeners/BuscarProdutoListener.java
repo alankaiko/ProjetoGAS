@@ -43,7 +43,6 @@ public class BuscarProdutoListener implements ActionListener{
 		this.formulario.getTable().getColumnModel().getColumn(0).setPreferredWidth(30);
 		this.formulario.getTable().getColumnModel().getColumn(1).setPreferredWidth(180);
 		this.formulario.getTable().getColumnModel().getColumn(2).setPreferredWidth(100);
-		this.formulario.getTable().getColumnModel().getColumn(3).setPreferredWidth(30);
 		
 		this.formulario.getTable().setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		this.formulario.getTable().changeSelection(0, 0, false, false);

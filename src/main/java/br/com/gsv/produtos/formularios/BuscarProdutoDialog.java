@@ -61,7 +61,7 @@ public class BuscarProdutoDialog extends JDialog {
 		
 		buscaDescricao = new JRadioButton("Descrição");
 		buscaDescricao.setFont(new Font("Arial", Font.PLAIN, 13));
-		buscaDescricao.setBounds(15, 40, 83, 23);
+		buscaDescricao.setBounds(192, 40, 83, 23);
 		
 		buscaFabricante = new JRadioButton("Fabricante");
 		buscaFabricante.setFont(new Font("Arial", Font.PLAIN, 13));
@@ -69,7 +69,7 @@ public class BuscarProdutoDialog extends JDialog {
 		
 		buscaCodigo = new JRadioButton("Código");
 		buscaCodigo.setFont(new Font("Arial", Font.PLAIN, 13));
-		buscaCodigo.setBounds(210, 40, 65, 23);
+		buscaCodigo.setBounds(15, 40, 65, 23);
 		
 		botaoGrupo.add(buscaCodigo);
 		botaoGrupo.add(buscaDescricao);

@@ -19,7 +19,7 @@ import br.com.gsv.fabricantes.domain.Fabricante;
 @Entity
 @Table(name = "tbl_produtos")
 @NamedQueries({
-	@NamedQuery(name="Produto.listar", query="SELECT produto FROM Produto produto order by id"),
+	@NamedQuery(name="Produto.listar", query="SELECT produto FROM Produto produto order by descricao"),
 	@NamedQuery(name="Produto.buscarPorId", query="SELECT produto FROM Produto produto WHERE produto.id= :id"),
 	@NamedQuery(name="Produto.buscarPorCodigo", query="SELECT produto FROM Produto produto WHERE produto.codigo = :codigo"),
 	@NamedQuery(name="Produto.buscarPelaDescricao", query="SELECT produto FROM Produto produto WHERE produto.descricao LIKE :descricao")

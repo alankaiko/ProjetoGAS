@@ -85,7 +85,7 @@ public class GerenciarProdutosListener implements ActionListener{
 			ExecutaTelaCodigo();
 		}
 		
-		if(event.getActionCommand().equals(gerenciamento.getBuscar())){
+		if(event.getSource().equals(gerenciamento.getBuscar())){
 			ExecutaTelaBuscar();
 		}
 		
@@ -117,41 +117,8 @@ public class GerenciarProdutosListener implements ActionListener{
 	}
 	
 	
-	private Long SelecionaLinha(){
-		int linha = this.gerenciamento.getTable().getSelectedRow();
-		Long id = (Long) this.gerenciamento.getTable().getValueAt(linha,0);
-		
-		return id;
-	}
 	
-	private void ExecutaInclusao(){
-		IncluirProdutosForm inclui = new IncluirProdutosForm();
-		inclui.setLocationRelativeTo(this.gerenciamento.getTela());
-		inclui.setVisible(true);		
-		TabelaDeProdutos();
-	}
 	
-	private void ExecutaExclusao(Long id){
-		ProdutoController controller = new ProdutoController();
-		
-		ExcluirProdutoDialog telaExc = new ExcluirProdutoDialog(controller.BuscarPelaID(id));
-		telaExc.setLocationRelativeTo(this.gerenciamento.getTela());
-		telaExc.setVisible(true);
-		TabelaDeProdutos();	
-	}
-	
-	private void ExecutaEdicao(Long id){
-		ProdutoController controller = new ProdutoController();
-		IncluirProdutosForm edita = new IncluirProdutosForm();
-		
-		edita.getListener().setProduto(controller.BuscarPelaID(id));
-		edita.getListener().AlterandoProdutos();
-		
-		edita.setLocationRelativeTo(this.gerenciamento.getTela());
-		edita.setVisible(true);
-		
-		TabelaDeProdutos();
-	}
 	
 	private void ExecutaTelaDetalhes(String codigo){
 		ProdutoController controller = new ProdutoController();
@@ -163,6 +130,7 @@ public class GerenciarProdutosListener implements ActionListener{
 		detalhes.setLocationRelativeTo(this.gerenciamento.getTela());
 		detalhes.setVisible(true);
 	}
+	
 	
 	private void ExecutaTelaCodigo(){
 		CodigoProdutoDialog dialogo = new CodigoProdutoDialog();
@@ -178,9 +146,50 @@ public class GerenciarProdutosListener implements ActionListener{
 		busca.setVisible(true);
 	}
 	
-	private void pegaLinha(Long codigo){
+
+	private void ExecutaEdicao(String codigo){
+		ProdutoController controller = new ProdutoController();
+		IncluirProdutosForm edita = new IncluirProdutosForm();
+		
+		edita.getListener().setProduto(controller.BuscarPorCodigo(codigo));
+		edita.getListener().AlterandoProdutos();
+		
+		edita.setLocationRelativeTo(this.gerenciamento.getTela());
+		edita.setVisible(true);
+		
+		TabelaDeProdutos();
+	}
+	
+	
+	private void ExecutaInclusao(){
+		IncluirProdutosForm inclui = new IncluirProdutosForm();
+		inclui.getListener().InicializaObjetos();
+		inclui.setLocationRelativeTo(this.gerenciamento.getTela());
+		inclui.setVisible(true);		
+		TabelaDeProdutos();
+	}
+	
+	private void ExecutaExclusao(String codigo){
+		ProdutoController controller = new ProdutoController();
+		
+		ExcluirProdutoDialog telaExc = new ExcluirProdutoDialog(controller.BuscarPorCodigo(codigo));
+		telaExc.setLocationRelativeTo(this.gerenciamento.getTela());
+		telaExc.setVisible(true);
+		TabelaDeProdutos();	
+	}
+	
+	
+	private String SelecionaLinha(){
+		int linha = this.gerenciamento.getTable().getSelectedRow();
+		String codigo = (String) this.gerenciamento.getTable().getValueAt(linha,0);
+		
+		return codigo;
+	}
+	
+	
+	private void pegaLinha(String codigo){
 		for(int i =0; i < this.gerenciamento.getTable().getRowCount(); i++){  
-		      Long coluna = (Long) this.gerenciamento.getTable().getValueAt(i, 0);
+		      String coluna = (String) this.gerenciamento.getTable().getValueAt(i, 0);
 		       if(coluna.equals(codigo)){  
 		    	   this.gerenciamento.getTable().changeSelection( i , 3 , false , false); 
 		    	   break;

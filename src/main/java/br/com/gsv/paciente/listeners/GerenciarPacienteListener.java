@@ -11,7 +11,7 @@ import javax.swing.KeyStroke;
 import javax.swing.ListSelectionModel;
 
 import br.com.gsv.paciente.formularios.BuscarPacienteDialog;
-import br.com.gsv.paciente.formularios.CodidoPacienteDialog;
+import br.com.gsv.paciente.formularios.CodigoPacienteDialog;
 import br.com.gsv.paciente.formularios.DetalhesPacienteDialog;
 import br.com.gsv.paciente.formularios.ExcluirPacienteDialog;
 import br.com.gsv.paciente.formularios.GerenciarTelaPaciente;
@@ -152,7 +152,7 @@ public class GerenciarPacienteListener implements ActionListener{
 	}
 	
 	private void ExecutaTelaCodigo(){
-		CodidoPacienteDialog dialogo = new CodidoPacienteDialog();
+		CodigoPacienteDialog dialogo = new CodigoPacienteDialog();
 		dialogo.setLocationRelativeTo(this.gerenciamento.getTela());
 		dialogo.setVisible(true);
 		pegaLinha(dialogo.getCodigo());

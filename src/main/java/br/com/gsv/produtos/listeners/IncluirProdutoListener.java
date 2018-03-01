@@ -4,7 +4,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-import java.util.List;
 import java.util.Vector;
 
 import javax.swing.AbstractAction;
@@ -18,7 +17,6 @@ import br.com.gsv.produtos.domain.Produto;
 import br.com.gsv.produtos.formularios.IncluirProdutosForm;
 import br.com.projeto.gsv.controller.ProdutoController;
 import br.com.projeto.gsv.util.ConverteDadosUtil;
-import br.com.projeto.gsv.util.ListasUtil;
 
 public class IncluirProdutoListener implements ActionListener {
 	private IncluirProdutosForm formulario;
@@ -34,6 +32,7 @@ public class IncluirProdutoListener implements ActionListener {
 		ListaFabricantes();
 		AdicionaListener();
 		UsandoTAB();
+		TeclaEsc();
 	}
 	
 	
@@ -50,24 +49,17 @@ public class IncluirProdutoListener implements ActionListener {
 		con.SalvarProduto();
 	}
 	
-	private void Editar(){
-		EditaProduto();
-		con.setProduto(this.produto);
+		
+	
+	public void InicializaObjetos(){
+		this.produto = new Produto();
+		this.fabricante = new Fabricante();
 	}
 	
 	
 	
 	
-	
-	
-	
-	
-	
-	
-	
 	private void FormToProduto(){
-		produto = new Produto();
-		fabricante = new Fabricante();
 		this.produto.setCodigo(this.formulario.getTCodigo().getText());
 		this.produto.setDescricao(this.formulario.getTDescricao().getText());
 		this.produto.setQuantidade(ConverteDadosUtil.RetornaInt(this.formulario.getTQuantidade().getText()));
@@ -78,15 +70,6 @@ public class IncluirProdutoListener implements ActionListener {
 	}
 	
 	
-	private void EditaProduto(){
-		this.produto.setCodigo(this.formulario.getTCodigo().getText());
-		this.produto.setDescricao(this.formulario.getTDescricao().getText());
-		this.produto.setQuantidade(ConverteDadosUtil.RetornaInt(this.formulario.getTQuantidade().getText()));
-		this.produto.setLote(ConverteDadosUtil.RetornaInt(this.formulario.getTLote().getText()));
-		this.produto.setMedida(this.formulario.getTMedida().getText());
-		this.produto.setClasseTerapeutica(this.formulario.getTClasse().getText());
-		//this.produto.getFabricante().setDescricao(this.formulario.getTFabricante().getText());
-	}
 	
 	/*-----------------------------------------------------------------------------------------------------------------*/
 	/*---------------------------------------CLASSES PARA EDICAO DOS OBJETOS-------------------------------------------*/
@@ -97,22 +80,10 @@ public class IncluirProdutoListener implements ActionListener {
 		this.formulario.getTLote().setText(String.valueOf(this.produto.getLote()));
 		this.formulario.getTMedida().setText(this.produto.getMedida());
 		this.formulario.getTClasse().setText(this.produto.getClasseTerapeutica());
-		//this.formulario.getTFabricante().setText(this.produto.getFabricante().getDescricao());
+		this.formulario.getComboFabricante().setSelectedItem(this.produto.getFabricante());
+		
 	}
 
-	
-	/*-----------------------------------------------------------------------------------------------------------------*/
-	/*---------------------------------------CLASSES PARA DETALHAR OBJETOS-------------------------------------------*/
-	public void DetalhandoProdutos(){
-		this.formulario.getTCodigo().setEditable(false);
-		this.formulario.getTDescricao().setEditable(false);
-		this.formulario.getTQuantidade().setEditable(false);
-		this.formulario.getTLote().setEditable(false);
-		this.formulario.getTMedida().setEditable(false);
-		this.formulario.getTClasse().setEditable(false);
-		//this.formulario.getTFabricante().setEditable(false);
-				
-	}
 	
 	
 	
@@ -139,6 +110,7 @@ public class IncluirProdutoListener implements ActionListener {
 	
 	
 	
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public void ListaFabricantes(){
 		this.formulario.getComboFabricante().setModel(new DefaultComboBoxModel(new Vector(con.RetornaFabricante())));
 	}

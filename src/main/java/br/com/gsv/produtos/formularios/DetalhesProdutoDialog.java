@@ -21,6 +21,7 @@ public class DetalhesProdutoDialog extends JDialog {
 		CriarTelaGeral();
 		CriaComponentes();
 		InicializaComponentes();
+		listener = new DetalhesProdutoListener(this);
 	}
 	
 	

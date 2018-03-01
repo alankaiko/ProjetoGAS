@@ -10,12 +10,12 @@ import javax.swing.JComponent;
 import javax.swing.JRootPane;
 import javax.swing.KeyStroke;
 
-import br.com.gsv.paciente.formularios.CodidoPacienteDialog;
+import br.com.gsv.paciente.formularios.CodigoPacienteDialog;
 
 public class CodigoPacienteListener implements ActionListener{
-	private CodidoPacienteDialog formulario;
+	private CodigoPacienteDialog formulario;
 	
-	public CodigoPacienteListener(CodidoPacienteDialog formulario) {
+	public CodigoPacienteListener(CodigoPacienteDialog formulario) {
 		this.formulario = formulario;
 		AdicionaComponentes();
 		UsandoTAB();

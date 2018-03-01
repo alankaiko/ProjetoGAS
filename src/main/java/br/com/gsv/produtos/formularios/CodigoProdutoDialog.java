@@ -66,7 +66,7 @@ public class CodigoProdutoDialog extends JDialog {
 	private JButton ok, cancelar;
 	private Container tela= getContentPane();
 	private JTextField TBuscar;
-	private Long codigo;
+	private String codigo;
 	
 	
 	
@@ -107,16 +107,13 @@ public class CodigoProdutoDialog extends JDialog {
 
 
 
-	public Long getCodigo() {
-		return codigo;
-	}
-
-
-
-	public void setCodigo(Long codigo) {
+	public void setCodigo(String codigo) {
 		this.codigo = codigo;
 	}
-
+	
+	public String getCodigo() {
+		return codigo;
+	}
 
 
 
