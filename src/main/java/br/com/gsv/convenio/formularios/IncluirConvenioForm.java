@@ -134,6 +134,13 @@ public class IncluirConvenioForm extends JDialog{
 	public void setTConvenio(JTextField tConvenio) {
 		TConvenio = tConvenio;
 	}
+	
+	public void setListener(IncluirConvenioListener listener) {
+		this.listener = listener;
+	}
+	public IncluirConvenioListener getListener() {
+		return listener;
+	}
 
 	
 }

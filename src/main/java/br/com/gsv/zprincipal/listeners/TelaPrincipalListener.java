@@ -3,6 +3,7 @@ package br.com.gsv.zprincipal.listeners;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import br.com.gsv.convenio.formularios.GerenciaTelaConvenio;
 import br.com.gsv.fabricantes.formularios.GerenciaTelaFabricante;
 import br.com.gsv.funcionario.formularios.GerenciarTelaFuncionario;
 import br.com.gsv.funcionario.formularios.IncluirFuncionariosForm;
@@ -37,6 +38,7 @@ public class TelaPrincipalListener implements ActionListener{
 		this.tela.getCadastroPaciente().addActionListener(this);
 		
 		this.tela.getCadastroProntuario().addActionListener(this);
+		this.tela.getCadastroConvenio().addActionListener(this);
 		this.tela.getUsaurioFuncionario().addActionListener(this);
 		this.tela.getUsuarioConsulta().addActionListener(this);
 		this.tela.getFarmaciaFornecedor().addActionListener(this);
@@ -55,6 +57,7 @@ public class TelaPrincipalListener implements ActionListener{
 		this.tela.getRotuloPacientes().addActionListener(this);
 		this.tela.getRotuloFuncionario().addActionListener(this);
 		this.tela.getRotuloProdutos().addActionListener(this);
+		
 	}
 	
 	
@@ -115,6 +118,12 @@ public class TelaPrincipalListener implements ActionListener{
 			GerenciaTelaProdutos produtos = new GerenciaTelaProdutos();
 			produtos.setLocationRelativeTo(this.tela.getTela());
 			produtos.setVisible(true);
+		}
+		
+		if(event.getSource().equals(this.tela.getCadastroConvenio())){
+			GerenciaTelaConvenio convenio = new GerenciaTelaConvenio();
+			convenio.setLocationRelativeTo(this.tela.getTela());
+			convenio.setVisible(true);
 		}
 		
 	}
