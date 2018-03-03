@@ -1,4 +1,4 @@
-package br.com.gsv.fabricantes.listeners;
+package br.com.gsv.convenio.listeners;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -10,36 +10,40 @@ import javax.swing.JComponent;
 import javax.swing.JRootPane;
 import javax.swing.KeyStroke;
 
-import br.com.gsv.fabricantes.formularios.CodigoFabricanteDialog;
+import br.com.gsv.convenio.formularios.ExcluirConvenioDialog;
+import br.com.projeto.gsv.controller.ConvenioController;
 
-public class CodigoFabricanteListener implements ActionListener{
-	private CodigoFabricanteDialog formulario;
+public class ExcluirConvenioListener implements ActionListener{
+	private ExcluirConvenioDialog formulario;
+	private ConvenioController controller;
 	
-	public CodigoFabricanteListener(CodigoFabricanteDialog formulario) {
+	
+	public ExcluirConvenioListener(ExcluirConvenioDialog formulario) {
 		this.formulario = formulario;
-		AdicionaComponentes();
+		AdicionaListener();
 		UsandoTAB();
 		TeclaEsc();
 	}
 	
 	
-	
-	private void AdicionaComponentes(){
+	private void AdicionaListener(){
 		formulario.getOk().addActionListener(this);
 		formulario.getCancelar().addActionListener(this);
 	}
-
-
+		
+	
 	
 	private void UsandoTAB(){
 		this.formulario.getRootPane().setDefaultButton(this.formulario.getOk());
 		this.formulario.getOk().addKeyListener(new KeyAdapter() {  
             public void keyPressed(KeyEvent e) {  
                 if (e.getKeyCode() == KeyEvent.VK_ENTER) {  
-                	formulario.getOk().doClick();  
+                	formulario.getOk().doClick();
                 }  
             }  
         });
+		
+		
 		
 		this.formulario.getCancelar().addKeyListener(new KeyAdapter() {  
             public void keyPressed(KeyEvent e) {  
@@ -48,25 +52,24 @@ public class CodigoFabricanteListener implements ActionListener{
                 }  
             }  
         });
-
 	}
 	
 	
 	
 	
-	@Override
 	public void actionPerformed(ActionEvent event) {
 		if(event.getSource().equals(this.formulario.getOk())){
-			this.formulario.setCodigo(Long.parseLong(this.formulario.getTBuscar().getText()));
+			this.controller = new ConvenioController();
+			controller.setConvenio(this.formulario.getConvenio());
+			controller.RemoverConvenio();
 			this.formulario.dispose();
 		}
+		
 		if(event.getSource().equals(this.formulario.getCancelar())){
 			this.formulario.dispose();
-		};
-		
+		}
 		
 	}
-	
 	
 	public void TeclaEsc(){
         JRootPane meurootpane = this.formulario.getRootPane();  
@@ -78,7 +81,4 @@ public class CodigoFabricanteListener implements ActionListener{
             }  
         });  
     } 
-	
-	
-	
 }

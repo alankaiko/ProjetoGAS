@@ -1,4 +1,4 @@
-package br.com.gsv.fabricantes.listeners;
+package br.com.gsv.convenio.listeners;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -10,12 +10,13 @@ import javax.swing.JComponent;
 import javax.swing.JRootPane;
 import javax.swing.KeyStroke;
 
+import br.com.gsv.convenio.formularios.CodigoConvenioDialog;
 import br.com.gsv.fabricantes.formularios.CodigoFabricanteDialog;
 
-public class CodigoFabricanteListener implements ActionListener{
-	private CodigoFabricanteDialog formulario;
+public class CodigoConvenioListener implements ActionListener{
+	private CodigoConvenioDialog formulario;
 	
-	public CodigoFabricanteListener(CodigoFabricanteDialog formulario) {
+	public CodigoConvenioListener(CodigoConvenioDialog formulario) {
 		this.formulario = formulario;
 		AdicionaComponentes();
 		UsandoTAB();
@@ -78,7 +79,6 @@ public class CodigoFabricanteListener implements ActionListener{
             }  
         });  
     } 
-	
 	
 	
 }

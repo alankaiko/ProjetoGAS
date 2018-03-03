@@ -41,6 +41,7 @@
       	<mapping class="br.com.gsv.paciente.domain.Paciente"/>
       	<mapping class="br.com.gsv.produtos.domain.Produto"/>
       	<mapping class="br.com.gsv.fabricantes.domain.Fabricante"/>
+      	<mapping class="br.com.gsv.convenio.domain.Convenio"/>
     </session-factory>
 
 </hibernate-configuration>

@@ -1,4 +1,4 @@
-package br.com.gsv.fabricantes.formularios;
+package br.com.gsv.convenio.formularios;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -12,23 +12,23 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
-import br.com.gsv.fabricantes.listeners.DetalhesFabricanteListener;
+import br.com.gsv.convenio.listeners.DetalhesConvenioListener;
 
-public class DetalhesFabricanteDialog extends JDialog {
-	private DetalhesFabricanteListener listener;	
+public class DetalhesConvenioDialog extends JDialog {
+	private DetalhesConvenioListener listener;	
 	
-	public DetalhesFabricanteDialog() {
+	public DetalhesConvenioDialog() {
 		CriarTelaGeral();
 		Dados();
 		InicializaCompomentes();
-		listener = new DetalhesFabricanteListener(this);
+		listener = new DetalhesConvenioListener(this);
 	}
 
 	
 		
 	//cria e tela geral onde todos os componentes serao inseridos, é a tela geral do sistema
 	private void CriarTelaGeral(){
-		this.setTitle("Dados de Fabricante ");
+		this.setTitle("Dados de Convenio ");
 		this.setModal(true);
 		this.setResizable(false);
 		this.setBounds(100, 100, 350, 200);
@@ -55,7 +55,7 @@ public class DetalhesFabricanteDialog extends JDialog {
 			TId.setForeground(Color.black);
 			TId.setEditable(false);
 
-		LFabricante = new JLabel("Fabricante ");
+		LFabricante = new JLabel("Convênio ");
 		LFabricante.setBounds(22, 62, 97, 20);
 		LFabricante.setFont(new Font("Arial", Font.BOLD, 11));
 			TFabricante = new JTextField();
@@ -132,12 +132,12 @@ public class DetalhesFabricanteDialog extends JDialog {
 			TFabricante = tFabricante;
 		}
 
-		public DetalhesFabricanteListener getListener() {
+		public DetalhesConvenioListener getListener() {
 			return listener;
 		}
-		public void setListener(DetalhesFabricanteListener listener) {
+		
+		public void setListener(DetalhesConvenioListener listener) {
 			this.listener = listener;
 		}
-
 
 }

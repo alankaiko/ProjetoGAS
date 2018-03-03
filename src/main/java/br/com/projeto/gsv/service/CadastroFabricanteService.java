@@ -8,7 +8,7 @@ import br.com.gsv.repository.FabricanteRepository;
 
 
 public class CadastroFabricanteService {
-private FabricanteRepository repositorio = new FabricanteRepository();
+	private FabricanteRepository repositorio = new FabricanteRepository();
 
 	
 	public void Salvar(Fabricante fabricante){
