@@ -3,6 +3,11 @@ package br.com.gsv.zprincipal.listeners;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import br.com.gsv.fabricantes.formularios.GerenciaTelaFabricante;
+import br.com.gsv.funcionario.formularios.GerenciarTelaFuncionario;
+import br.com.gsv.funcionario.formularios.IncluirFuncionariosForm;
+import br.com.gsv.paciente.formularios.GerenciarTelaPaciente;
+import br.com.gsv.produtos.formularios.GerenciaTelaProdutos;
 import br.com.gsv.zprincipal.form.TelaPrincipal;
 
 public class TelaPrincipalListener implements ActionListener{
@@ -34,7 +39,6 @@ public class TelaPrincipalListener implements ActionListener{
 		this.tela.getCadastroProntuario().addActionListener(this);
 		this.tela.getUsaurioFuncionario().addActionListener(this);
 		this.tela.getUsuarioConsulta().addActionListener(this);
-		this.tela.getFarmaciaProduto().addActionListener(this);
 		this.tela.getFarmaciaFornecedor().addActionListener(this);
 		
 		this.tela.getFarmaciaGrupoItens().addActionListener(this);
@@ -47,6 +51,10 @@ public class TelaPrincipalListener implements ActionListener{
 		this.tela.getRelatorioPaciente().addActionListener(this);
 		this.tela.getRelatorioFuncionario().addActionListener(this);
 		this.tela.getRelatorioClinicas().addActionListener(this);
+		
+		this.tela.getRotuloPacientes().addActionListener(this);
+		this.tela.getRotuloFuncionario().addActionListener(this);
+		this.tela.getRotuloProdutos().addActionListener(this);
 	}
 	
 	
@@ -60,11 +68,54 @@ public class TelaPrincipalListener implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent event) {
 		if(event.getSource().equals(this.tela.getCadastroPaciente())){
-			
+			GerenciarTelaPaciente paciente = new GerenciarTelaPaciente();
+			paciente.setLocationRelativeTo(this.tela.getTela());
+			paciente.setVisible(true);
+		}		
+		if(event.getSource().equals(this.tela.getRotuloPacientes())){
+			GerenciarTelaPaciente paciente = new GerenciarTelaPaciente();
+			paciente.setLocationRelativeTo(this.tela.getTela());
+			paciente.setVisible(true);
 		}
 		
 		
-			
+		
+		if(event.getSource().equals(this.tela.getUsuarioConsulta())){
+			GerenciarTelaFuncionario funcionario = new GerenciarTelaFuncionario();
+			funcionario.setLocationRelativeTo(this.tela.getTela());
+			funcionario.setVisible(true);
+		}
+		if(event.getSource().equals(this.tela.getRotuloFuncionario())){
+			GerenciarTelaFuncionario funcionario = new GerenciarTelaFuncionario();
+			funcionario.setLocationRelativeTo(this.tela.getTela());
+			funcionario.setVisible(true);
+		}
+		
+		
+		if(event.getSource().equals(this.tela.getUsaurioFuncionario())){
+			IncluirFuncionariosForm incluirFunc =  new IncluirFuncionariosForm();
+			incluirFunc.setLocationRelativeTo(this.tela.getTela());
+			incluirFunc.setVisible(true);
+		}
+		
+		
+		if(event.getSource().equals(this.tela.getFarmaciaFornecedor())){
+			GerenciaTelaFabricante fabricante = new GerenciaTelaFabricante();
+			fabricante.setLocationRelativeTo(this.tela.getTela());
+			fabricante.setVisible(true);
+		}
+		
+		
+		if(event.getSource().equals(this.tela.getFarmaciaItens())){
+			GerenciaTelaProdutos produtos = new GerenciaTelaProdutos();
+			produtos.setLocationRelativeTo(this.tela.getTela());
+			produtos.setVisible(true);
+		}
+		if(event.getSource().equals(this.tela.getRotuloProdutos())){
+			GerenciaTelaProdutos produtos = new GerenciaTelaProdutos();
+			produtos.setLocationRelativeTo(this.tela.getTela());
+			produtos.setVisible(true);
+		}
 		
 	}
 	

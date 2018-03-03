@@ -16,17 +16,7 @@ public class GerenciarTelaFuncionario extends JDialog {
 	private static final long serialVersionUID = 1L;
 	private GerenciarFuncionarioListener listener;
 	
-	public static void main(String[] args) {
-		try {
-			GerenciarTelaFuncionario dialog = new GerenciarTelaFuncionario();
-			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-			dialog.setVisible(true);
-			
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-
+	
 	
 	public GerenciarTelaFuncionario() {
 		CriaTelaGeral();

@@ -14,17 +14,6 @@ import br.com.gsv.paciente.listeners.GerenciarPacienteListener;
 
 public class GerenciarTelaPaciente extends JDialog {
 	private GerenciarPacienteListener listener;
-	
-	public static void main(String[] args) {
-		try {
-			GerenciarTelaPaciente dialog = new GerenciarTelaPaciente();
-			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-			dialog.setVisible(true);
-			
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
 
 	
 	public GerenciarTelaPaciente() {

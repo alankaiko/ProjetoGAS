@@ -8,6 +8,7 @@ import java.awt.Font;
 import java.awt.Label;
 import java.awt.Panel;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JMenu;
@@ -26,12 +27,14 @@ public class TelaPrincipal extends JFrame {
 	private JMenuBar menuBar;
 	private JMenu menuArquivo, menuCadastro, menuUsuario, menuFarmacia, menuRelatorio, menuSair;
 	private JMenuItem arquivoAgenda, arquivoConsulta, arquivoAcomodacoes, cadastroConvenio, cadastroClinica, cadastroPaciente;
-	private JMenuItem cadastroProntuario, usaurioFuncionario, usuarioConsulta, farmaciaProduto, farmaciaFornecedor;
+	private JMenuItem cadastroProntuario, usaurioFuncionario, usuarioConsulta, farmaciaFornecedor;
 	private JMenuItem farmaciaGrupoItens, farmaciaItens, farmaciaDevolucoes, relatorioItens;
 	private JMenuItem relatorioFornecedor, relatorioGruposItens, relatorioPaciente, relatorioFuncionario, relatorioClinicas;
 	private Panel painelMenuRapido, rotuloMenuRapido, paienlPacie, painelFun, painelProd, painelRelPacie, painelRelItens;
-	private Label label, rotuloPacientes, rotuloFuncionarios, rotuloProdutos, rotuloRelPaciente, rotuloRelItens;
+	private Label label, rotuloRelPaciente, rotuloRelItens;
+	private JButton rotuloPacientes, rotuloFuncionario, rotuloProdutos;
 	private TelaPrincipalListener listener;
+	
 	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -107,17 +110,14 @@ public class TelaPrincipal extends JFrame {
 		
 		menuFarmacia = new JMenu("Farm\u00E1cia");
 		menuBar.add(menuFarmacia);
-		
-		farmaciaProduto = new JMenuItem("Cadastro de Produtos");
-		menuFarmacia.add(farmaciaProduto);
-		
+			
 		farmaciaFornecedor = new JMenuItem("Cadastro de Fornecedor");
 		menuFarmacia.add(farmaciaFornecedor);
 		
-		farmaciaGrupoItens = new JMenuItem("Cadastro de Grupos de Itens");
+		farmaciaGrupoItens = new JMenuItem("Grupos de Produto");
 		menuFarmacia.add(farmaciaGrupoItens);
 		
-		farmaciaItens = new JMenuItem("Cadastro de Itens");
+		farmaciaItens = new JMenuItem("Cadastro de Produto");
 		menuFarmacia.add(farmaciaItens);
 		
 		farmaciaDevolucoes = new JMenuItem("Motivos de Devolu\u00E7\u00F5es");
@@ -173,17 +173,41 @@ public class TelaPrincipal extends JFrame {
 		painelMenuRapido.add(paienlPacie);
 		paienlPacie.setLayout(null);
 		
+		
+		
+		
+		rotuloPacientes = new JButton("Pacientes");
+		rotuloPacientes.setBackground(new Color(255, 255, 255));
+		rotuloPacientes.setForeground(Color.BLACK);
+		rotuloPacientes.setFont(new Font("Tahoma", Font.BOLD, 15));
+		rotuloPacientes.setBounds(10, 11, 130, 23);
+		paienlPacie.add(rotuloPacientes);
+		
 		painelFun = new Panel();
 		painelFun.setLayout(null);
 		painelFun.setBackground(new Color(23,58,102));
 		painelFun.setBounds(0, 145, 239, 35);
 		painelMenuRapido.add(painelFun);
 		
+		rotuloFuncionario = new JButton("Funcionários");
+		rotuloFuncionario.setBounds(10, 11, 130, 23);
+		painelFun.add(rotuloFuncionario);
+		rotuloFuncionario.setForeground(Color.BLACK);
+		rotuloFuncionario.setFont(new Font("Tahoma", Font.BOLD, 15));
+		rotuloFuncionario.setBackground(Color.WHITE);
+		
 		painelProd = new Panel();
 		painelProd.setLayout(null);
 		painelProd.setBackground(new Color(23,58,102));
 		painelProd.setBounds(0, 181, 239, 35);
 		painelMenuRapido.add(painelProd);
+		
+		rotuloProdutos = new JButton("Produtos");
+		rotuloProdutos.setForeground(Color.BLACK);
+		rotuloProdutos.setFont(new Font("Tahoma", Font.BOLD, 15));
+		rotuloProdutos.setBackground(Color.WHITE);
+		rotuloProdutos.setBounds(10, 11, 130, 23);
+		painelProd.add(rotuloProdutos);
 		
 		painelRelPacie = new Panel();
 		painelRelPacie.setLayout(null);
@@ -202,27 +226,6 @@ public class TelaPrincipal extends JFrame {
 		label.setFont(new Font("Segoe UI", Font.BOLD, 18));
 		label.setAlignment(Label.CENTER);
 		rotuloMenuRapido.add(label);
-		
-		rotuloPacientes = new Label("Pacientes");
-		rotuloPacientes.setBounds(0, 5, 83, 30);
-		rotuloPacientes.setForeground(Color.WHITE);
-		rotuloPacientes.setFont(new Font("Segoe UI", Font.BOLD, 14));
-		rotuloPacientes.setAlignment(Label.CENTER);
-		paienlPacie.add(rotuloPacientes);
-		
-		rotuloFuncionarios = new Label("Funcion\u00E1rios");
-		rotuloFuncionarios.setForeground(Color.WHITE);
-		rotuloFuncionarios.setFont(new Font("Segoe UI", Font.BOLD, 14));
-		rotuloFuncionarios.setAlignment(Label.CENTER);
-		rotuloFuncionarios.setBounds(0, 5, 106, 30);
-		painelFun.add(rotuloFuncionarios);
-		
-		rotuloProdutos = new Label("Produtos");
-		rotuloProdutos.setForeground(Color.WHITE);
-		rotuloProdutos.setFont(new Font("Segoe UI", Font.BOLD, 14));
-		rotuloProdutos.setAlignment(Label.CENTER);
-		rotuloProdutos.setBounds(0, 5, 78, 30);
-		painelProd.add(rotuloProdutos);
 		
 		rotuloRelPaciente = new Label("Relat\u00F3rio de Pacientes");
 		rotuloRelPaciente.setForeground(Color.WHITE);
@@ -489,18 +492,6 @@ public class TelaPrincipal extends JFrame {
 
 
 
-	public JMenuItem getFarmaciaProduto() {
-		return farmaciaProduto;
-	}
-
-
-
-	public void setFarmaciaProduto(JMenuItem farmaciaProduto) {
-		this.farmaciaProduto = farmaciaProduto;
-	}
-
-
-
 	public JMenuItem getFarmaciaFornecedor() {
 		return farmaciaFornecedor;
 	}
@@ -717,37 +708,40 @@ public class TelaPrincipal extends JFrame {
 
 
 
-	public Label getRotuloPacientes() {
+
+
+	public JButton getRotuloPacientes() {
 		return rotuloPacientes;
 	}
 
 
 
-	public void setRotuloPacientes(Label rotuloPacientes) {
+	public void setRotuloPacientes(JButton rotuloPacientes) {
 		this.rotuloPacientes = rotuloPacientes;
 	}
 
 
 
-	public Label getRotuloFuncionarios() {
-		return rotuloFuncionarios;
+	public JButton getRotuloFuncionario() {
+		return rotuloFuncionario;
 	}
 
 
 
-	public void setRotuloFuncionarios(Label rotuloFuncionarios) {
-		this.rotuloFuncionarios = rotuloFuncionarios;
+	public void setRotuloFuncionario(JButton rotuloFuncionario) {
+		this.rotuloFuncionario = rotuloFuncionario;
 	}
 
+	
 
 
-	public Label getRotuloProdutos() {
+	public JButton getRotuloProdutos() {
 		return rotuloProdutos;
 	}
 
 
 
-	public void setRotuloProdutos(Label rotuloProdutos) {
+	public void setRotuloProdutos(JButton rotuloProdutos) {
 		this.rotuloProdutos = rotuloProdutos;
 	}
 
@@ -783,5 +777,4 @@ public class TelaPrincipal extends JFrame {
 	 public JPanel getInferior() {
 		return inferior;
 	}
-    
 }
