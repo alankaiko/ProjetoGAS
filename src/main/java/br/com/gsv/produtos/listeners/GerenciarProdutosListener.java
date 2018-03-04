@@ -77,19 +77,19 @@ public class GerenciarProdutosListener implements ActionListener{
 	
 	@Override
 	public void actionPerformed(ActionEvent event) {
-		if(event.getSource().equals(gerenciamento.getDetalhes())){
+		if(event.getSource().equals(gerenciamento.getDetalhes()) && this.gerenciamento.getTable().getRowCount() != 0){
 			ExecutaTelaDetalhes(SelecionaItem());
 		}
 		
-		if(event.getSource().equals(gerenciamento.getCodigo())){
+		if(event.getSource().equals(gerenciamento.getCodigo()) && this.gerenciamento.getTable().getRowCount() != 0){
 			ExecutaTelaCodigo();
 		}
 		
-		if(event.getSource().equals(gerenciamento.getBuscar())){
+		if(event.getSource().equals(gerenciamento.getBuscar()) && this.gerenciamento.getTable().getRowCount() != 0){
 			ExecutaTelaBuscar();
 		}
 		
-		if(event.getSource().equals(gerenciamento.getModificar())){
+		if(event.getSource().equals(gerenciamento.getModificar()) && this.gerenciamento.getTable().getRowCount() != 0){
 			ExecutaEdicao(SelecionaLinha());
 		}
 		
@@ -97,7 +97,7 @@ public class GerenciarProdutosListener implements ActionListener{
 			ExecutaInclusao();
 		}
 		
-		if(event.getSource().equals(gerenciamento.getExcluir())){
+		if(event.getSource().equals(gerenciamento.getExcluir()) && this.gerenciamento.getTable().getRowCount() != 0){
 			ExecutaExclusao(SelecionaLinha());
 		}
 		

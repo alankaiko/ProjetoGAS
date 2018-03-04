@@ -48,17 +48,16 @@ public class DetalhesFabricanteDialog extends JDialog {
 		LId = new JLabel("Código");
 		LId.setBounds(37, 30, 50, 20);
 		LId.setFont(new Font("Arial", Font.BOLD, 11));
-			TId = new JTextField();
+			TId = new JLabel();
 			TId.setBounds(83, 31, 84, 20);
 			TId.setBackground(new Color(255, 255, 204));
 			TId.setFont(new Font("Arial", Font.BOLD, 10));
 			TId.setForeground(Color.black);
-			TId.setEditable(false);
 
 		LFabricante = new JLabel("Fabricante ");
 		LFabricante.setBounds(22, 62, 97, 20);
 		LFabricante.setFont(new Font("Arial", Font.BOLD, 11));
-			TFabricante = new JTextField();
+			TFabricante = new JLabel();
 			TFabricante.setBounds(83, 63, 239, 19);
 			TFabricante.setFont(new Font("Arial", Font.BOLD, 10));
 					
@@ -82,7 +81,7 @@ public class DetalhesFabricanteDialog extends JDialog {
 		private final JPanel contentPanel = new JPanel();
 		private Container tela = getContentPane();
 		private JLabel LId, LFabricante;
-		private JTextField TId, TFabricante;
+		private JLabel TId, TFabricante;
 		private JButton cancelar;
 
 		
@@ -109,28 +108,29 @@ public class DetalhesFabricanteDialog extends JDialog {
 		}
 
 
-
-		public JTextField getTId() {
+		public JLabel getTId() {
 			return TId;
 		}
 
 
 
-		public void setTId(JTextField tId) {
+		public void setTId(JLabel tId) {
 			TId = tId;
 		}
 
 
 
-		public JTextField getTFabricante() {
+		public JLabel getTFabricante() {
 			return TFabricante;
 		}
 
 
 
-		public void setTFabricante(JTextField tFabricante) {
+		public void setTFabricante(JLabel tFabricante) {
 			TFabricante = tFabricante;
 		}
+
+
 
 		public DetalhesFabricanteListener getListener() {
 			return listener;

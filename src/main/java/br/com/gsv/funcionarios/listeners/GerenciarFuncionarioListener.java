@@ -66,19 +66,19 @@ public class GerenciarFuncionarioListener implements ActionListener{
 	
 	@Override
 	public void actionPerformed(ActionEvent event) {
-		if(event.getActionCommand().equals("Detalhes")){
+		if(event.getActionCommand().equals("Detalhes") && this.gerenciamento.getTable().getRowCount() != 0){
 			ExecutaTelaDetalhes(SelecionaLinha());
 		}
 		
-		if(event.getSource().equals(gerenciamento.getCodigo())){
+		if(event.getSource().equals(gerenciamento.getCodigo()) && this.gerenciamento.getTable().getRowCount() != 0){
 			ExecutaTelaCodigo();
 		}
 		
-		if(event.getActionCommand().equals("Buscar")){
+		if(event.getActionCommand().equals("Buscar") && this.gerenciamento.getTable().getRowCount() != 0){
 			ExecutaTelaBuscar();
 		}
 		
-		if(event.getSource().equals(gerenciamento.getModificar())){
+		if(event.getSource().equals(gerenciamento.getModificar()) && this.gerenciamento.getTable().getRowCount() != 0){
 			ExecutaEdicao(SelecionaLinha());
 		}
 		
@@ -86,7 +86,7 @@ public class GerenciarFuncionarioListener implements ActionListener{
 			ExecutaInclusao();
 		}
 		
-		if(event.getSource().equals(gerenciamento.getExcluir())){
+		if(event.getSource().equals(gerenciamento.getExcluir()) && this.gerenciamento.getTable().getRowCount() != 0){
 			ExecutaExclusao(SelecionaLinha());
 		}
 		

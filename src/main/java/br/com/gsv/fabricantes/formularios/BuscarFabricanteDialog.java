@@ -66,12 +66,12 @@ public class BuscarFabricanteDialog extends JDialog {
 	
 		buscaId = new JRadioButton("Código");
 		buscaId.setFont(new Font("Arial", Font.PLAIN, 13));
-		buscaId.setBounds(15, 40, 53, 23);
+		buscaId.setBounds(15, 40, 86, 23);
 		
 		
 		buscaDescricao = new JRadioButton("Descrição");
 		buscaDescricao.setFont(new Font("Arial", Font.PLAIN, 13));
-		buscaDescricao.setBounds(70, 40, 53, 23);
+		buscaDescricao.setBounds(144, 40, 99, 23);
 		
 		botaoGrupo.add(buscaId);
 		botaoGrupo.add(buscaDescricao);

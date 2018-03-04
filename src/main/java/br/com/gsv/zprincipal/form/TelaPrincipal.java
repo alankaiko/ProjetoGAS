@@ -56,7 +56,7 @@ public class TelaPrincipal extends JFrame {
 	public TelaPrincipal() {
 		setBackground(Color.WHITE);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 800, 500);
+		setBounds(100, 100, 800, 521);
 		
 		CriaComponentes();
 		horas = new JLabel();

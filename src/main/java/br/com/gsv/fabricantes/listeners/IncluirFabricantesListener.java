@@ -24,6 +24,7 @@ public class IncluirFabricantesListener implements ActionListener {
 		con = new FabricanteController();
 		AdicionarListener();
 		TeclaEsc();
+		UpCase();
 		UsandoTAB();
 	}
 
@@ -84,9 +85,7 @@ public class IncluirFabricantesListener implements ActionListener {
 		if (event.getSource().equals(this.formulario.getBTGravar())) {
 			if (this.formulario.getTId().getText().isEmpty()){
 				Salvar();
-			System.out.println("rodou salvar");
 			}else{
-				System.out.println("rodou editar");
 				Editar();
 			}
 			// this.formulario.dispose();
@@ -98,36 +97,54 @@ public class IncluirFabricantesListener implements ActionListener {
 
 	}
 
-	private void UsandoTAB() {
-		this.formulario.getRootPane().setDefaultButton(
-				this.formulario.getBTGravar());
-		this.formulario.getBTGravar().addKeyListener(new KeyAdapter() {
-			public void keyPressed(KeyEvent e) {
-				if (e.getKeyCode() == KeyEvent.VK_ENTER) {
-					formulario.getBTGravar().doClick();
-				}
-			}
-		});
-
-		this.formulario.getBTCancelar().addKeyListener(new KeyAdapter() {
-			public void keyPressed(KeyEvent e) {
-				if (e.getKeyCode() == KeyEvent.VK_ENTER) {
-					formulario.getBTCancelar().doClick();
-				}
-			}
-		});
+	private void UsandoTAB(){
+		this.formulario.getRootPane().setDefaultButton(this.formulario.getBTGravar());
+		this.formulario.getBTGravar().addKeyListener(new KeyAdapter() {  
+            public void keyPressed(KeyEvent e) {  
+                if (e.getKeyCode() == KeyEvent.VK_ENTER) {  
+                	formulario.getBTGravar().doClick();
+                }  
+            }  
+        });
+		
+		
+		
+		this.formulario.getBTCancelar().addKeyListener(new KeyAdapter() {  
+            public void keyPressed(KeyEvent e) {  
+                if (e.getKeyCode() == KeyEvent.VK_ENTER) {  
+                	formulario.getBTCancelar().doClick();  
+                }  
+            }  
+        });
 	}
+	
+	
+	private void UpCase(){
+		this.formulario.getTFabricante().addKeyListener(new KeyAdapter() {  
+			public void keyReleased(KeyEvent ke) {  
+				if (ke.getKeyCode() != KeyEvent.VK_HOME) {  
+					String s = formulario.getTFabricante().getText();  
+					formulario.getTFabricante().setText(s.toUpperCase());  
+				}  
+			}  
+		}); 	
+		
 
-	public void TeclaEsc() {
-		JRootPane meurootpane = this.formulario.getRootPane();
-		meurootpane.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), "ESCAPE");
-		meurootpane.getRootPane().getActionMap().put("ESCAPE", new AbstractAction("ESCAPE") {
-			public void actionPerformed(ActionEvent e) {
-				formulario.dispose();
-			}
-		});
 	}
+	
+	
+	public void TeclaEsc(){
+        JRootPane meurootpane = this.formulario.getRootPane();  
+        meurootpane.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), "ESCAPE");  
+        meurootpane.getRootPane().getActionMap().put("ESCAPE", new AbstractAction("ESCAPE") {  
+  
+            public void actionPerformed(ActionEvent e) {  
+            	formulario.dispose();  
+            }  
+        });  
+    }  
 
+	
 	public void setFabricante(Fabricante fabricante) {
 		this.fabricante = fabricante;
 	}
