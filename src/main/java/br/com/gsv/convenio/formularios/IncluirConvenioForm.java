@@ -54,8 +54,8 @@ public class IncluirConvenioForm extends JDialog{
 			TId.setForeground(Color.black);
 			TId.setEditable(false);
 
-		LConvenio = new JLabel("Convenio / Plano / Credencial ");
-		LConvenio.setBounds(22, 62, 97, 20);
+		LConvenio = new JLabel("Convenio");
+		LConvenio.setBounds(22, 62, 104, 20);
 		LConvenio.setFont(new Font("Arial", Font.BOLD, 11));
 			TConvenio = new JTextField();
 			TConvenio.setBounds(83, 63, 239, 19);

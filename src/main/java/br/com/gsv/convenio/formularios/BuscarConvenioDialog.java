@@ -66,12 +66,12 @@ public class BuscarConvenioDialog extends JDialog {
 	
 		buscaId = new JRadioButton("Código");
 		buscaId.setFont(new Font("Arial", Font.PLAIN, 13));
-		buscaId.setBounds(15, 40, 53, 23);
+		buscaId.setBounds(15, 40, 84, 23);
 		
 		
 		buscaNome = new JRadioButton("Convenio");
 		buscaNome.setFont(new Font("Arial", Font.PLAIN, 13));
-		buscaNome.setBounds(70, 40, 53, 23);
+		buscaNome.setBounds(106, 40, 90, 23);
 		
 		botaoGrupo.add(buscaId);
 		botaoGrupo.add(buscaNome);

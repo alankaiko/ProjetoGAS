@@ -111,7 +111,7 @@ public class TelaPrincipal extends JFrame {
 		menuFarmacia = new JMenu("Farm\u00E1cia");
 		menuBar.add(menuFarmacia);
 			
-		farmaciaFornecedor = new JMenuItem("Cadastro de Fornecedor");
+		farmaciaFornecedor = new JMenuItem("Cadastro de Fabricantes");
 		menuFarmacia.add(farmaciaFornecedor);
 		
 		farmaciaGrupoItens = new JMenuItem("Grupos de Produto");

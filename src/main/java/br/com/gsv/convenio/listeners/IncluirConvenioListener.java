@@ -24,6 +24,7 @@ public class IncluirConvenioListener implements ActionListener{
 		con = new ConvenioController();
 		AdicionarListener();
 		TeclaEsc();
+		UpCase();
 		UsandoTAB();
 	}
 
@@ -124,6 +125,18 @@ public class IncluirConvenioListener implements ActionListener{
 				formulario.dispose();
 			}
 		});
+	}
+	
+	
+	private void UpCase(){
+		this.formulario.getTConvenio().addKeyListener(new KeyAdapter() {  
+			public void keyReleased(KeyEvent ke) {  
+				if (ke.getKeyCode() != KeyEvent.VK_HOME) {  
+					String s = formulario.getTConvenio().getText();  
+					formulario.getTConvenio().setText(s.toUpperCase());  
+				}  
+			}  
+		}); 	
 	}
 
 	public void setConvenio(Convenio convenio) {

@@ -32,7 +32,7 @@ public class GerenciaTelaConvenio extends JDialog {
 	private void CriaTelaGeral(){
 		this.setTitle("Convenio / Plano / Credencial");
 		this.setModal(true);
-		this.setBounds(100, 100, 700, 480);
+		this.setBounds(100, 100, 542, 372);
 		this.setResizable(false);
 		this.tela.setLayout(null);
 		this.tela.add(contentPanel, BorderLayout.CENTER);
@@ -41,32 +41,32 @@ public class GerenciaTelaConvenio extends JDialog {
 		contentPanel.setLayout(null);
 		
 		scrollPane = new JScrollPane();
-		scrollPane.setBounds(26,12,472,412);
+		scrollPane.setBounds(26,12,346,305);
 		this.tela.add(this.scrollPane);
 		table = new JTable();		
 	}
 	
 	private void Dados(){
 		detalhes= new JButton("Detalhes");
-		detalhes.setBounds(525,11,125,20);
+		detalhes.setBounds(395,11,125,20);
 		
 		codigo= new JButton("Código");
-		codigo.setBounds(525,35,125,20);
+		codigo.setBounds(395,34,125,20);
 		
 		buscar= new JButton("Buscar");
-		buscar.setBounds(525,58,125,20);
+		buscar.setBounds(395,57,125,20);
 		
 		modificar= new JButton("Modificar");
-		modificar.setBounds(525,81,125,20);
+		modificar.setBounds(395,80,125,20);
 		
 		incluir= new JButton("Incluir");
-		incluir.setBounds(525,104,125,20);
+		incluir.setBounds(395,103,125,20);
 		
 		excluir= new JButton("Excluir");
-		excluir.setBounds(525,127,125,20);
+		excluir.setBounds(395,126,125,20);
 		
 		fim= new JButton("Fim");
-		fim.setBounds(525,150,125,20);
+		fim.setBounds(395,149,125,20);
 		
 	}
 	
