@@ -163,6 +163,7 @@ public class GerenciarPacienteListener implements ActionListener{
 		BuscarPacienteDialog busca = new BuscarPacienteDialog();
 		busca.setLocationRelativeTo(this.gerenciamento.getTela());
 		busca.setVisible(true);
+		pegaLinha(busca.getListener().getCodigo());
 	}
 	
 	private void pegaLinha(Long codigo){

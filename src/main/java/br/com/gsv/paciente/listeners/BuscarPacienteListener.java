@@ -18,6 +18,7 @@ import br.com.projeto.gsv.util.TabelaBuscarPacientesUtil;
 public class BuscarPacienteListener implements ActionListener{
 	private BuscarPacienteDialog formulario;
 	private TabelaBuscarPacientesUtil tabela;
+	private Long codigo;
 	
 	
 	public BuscarPacienteListener(BuscarPacienteDialog formulario) {
@@ -115,9 +116,12 @@ public class BuscarPacienteListener implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent event) {
 		if(event.getSource().equals(this.formulario.getOk())){
-			
+			int linha = this.formulario.getTable().getSelectedRow();
+			codigo = (Long) this.formulario.getTable().getValueAt(linha, 0);
+			this.formulario.dispose();
 		}
-		if(event.getSource().equals(this.formulario.getBuscar())){
+		
+		if(event.getSource().equals(this.formulario.getBuscar()) && !this.formulario.getTextoBuscar().getText().isEmpty()){
 			if(this.formulario.getBuscaCodigo().isSelected())
 				BuscarCodigo();
 			
@@ -130,6 +134,7 @@ public class BuscarPacienteListener implements ActionListener{
 			if(this.formulario.getBuscaNome().isSelected())
 				BuscarNome();
 		}		
+		
 		if(event.getSource().equals(this.formulario.getCancelar())){
 			this.formulario.dispose();
 		}
@@ -191,4 +196,10 @@ public class BuscarPacienteListener implements ActionListener{
 		
 	}
 	
+	public Long getCodigo() {
+		return codigo;
+	}
+	public void setCodigo(Long codigo) {
+		this.codigo = codigo;
+	}
 }

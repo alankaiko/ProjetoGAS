@@ -18,6 +18,8 @@ import br.com.projeto.gsv.util.TabelaBuscarFabricantesUtil;
 public class BuscarFabricanteListener implements ActionListener{
 	private BuscarFabricanteDialog formulario;
 	private TabelaBuscarFabricantesUtil tabela;
+	private Long codigo;
+	
 	
 	
 	public BuscarFabricanteListener(BuscarFabricanteDialog formulario) {
@@ -113,9 +115,11 @@ public class BuscarFabricanteListener implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent event) {
 		if(event.getSource().equals(this.formulario.getOk())){
-			
+			int linha = this.formulario.getTable().getSelectedRow();
+			codigo = (Long) this.formulario.getTable().getValueAt(linha, 0);
+			this.formulario.dispose();
 		}
-		if(event.getSource().equals(this.formulario.getBuscar())){
+		if(event.getSource().equals(this.formulario.getBuscar()) && !this.formulario.getTextoBuscar().getText().isEmpty()){
 			if(this.formulario.getBuscaId().isSelected())
 				BuscarCodigo();
 			
@@ -155,6 +159,13 @@ public class BuscarFabricanteListener implements ActionListener{
 				this.formulario.getTable().changeSelection(i, 4, false, false);
 			}
 		}	
+	}
+	
+	public void setCodigo(Long codigo) {
+		this.codigo = codigo;
+	}
+	public Long getCodigo() {
+		return codigo;
 	}
 	
 }

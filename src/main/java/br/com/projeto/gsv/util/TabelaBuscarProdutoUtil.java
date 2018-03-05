@@ -66,7 +66,7 @@ public class TabelaBuscarProdutoUtil extends AbstractTableModel {
  
         switch (columnIndex) {
         case CODIGO:
-            return dados.getId();
+            return dados.getCodigo();
         case DESCRICAO:
             return dados.getDescricao();
         case FABRICANTE:
@@ -111,7 +111,7 @@ public class TabelaBuscarProdutoUtil extends AbstractTableModel {
  
         switch (columnIndex) {
         case CODIGO:
-        	dados.setId((Long) aValue);
+        	dados.setCodigo(String.valueOf(aValue));
             break;
         case DESCRICAO:
         	dados.setDescricao((String) aValue);

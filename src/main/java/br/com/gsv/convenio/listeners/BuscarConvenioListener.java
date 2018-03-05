@@ -18,6 +18,7 @@ import br.com.projeto.gsv.util.TabelaBuscarConvenioUtil;
 public class BuscarConvenioListener  implements ActionListener{
 	private BuscarConvenioDialog formulario;
 	private TabelaBuscarConvenioUtil tabela;
+	private Long codigo;
 	
 	
 	public BuscarConvenioListener(BuscarConvenioDialog formulario) {
@@ -113,16 +114,19 @@ public class BuscarConvenioListener  implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent event) {
 		if(event.getSource().equals(this.formulario.getOk())){
-			
+			int linha = this.formulario.getTable().getSelectedRow();
+			codigo = (Long) this.formulario.getTable().getValueAt(linha, 0);
+			this.formulario.dispose();
 		}
-		if(event.getSource().equals(this.formulario.getBuscar())){
+		
+		if(event.getSource().equals(this.formulario.getBuscar()) && !this.formulario.getTextoBuscar().getText().isEmpty()){
 			if(this.formulario.getBuscaId().isSelected())
 				BuscarCodigo();
 			
 			if(this.formulario.getBuscaNome().isSelected())
 				BuscarConvenio();
-			
 		}		
+		
 		if(event.getSource().equals(this.formulario.getCancelar())){
 			this.formulario.dispose();
 		}
@@ -155,5 +159,12 @@ public class BuscarConvenioListener  implements ActionListener{
 				this.formulario.getTable().changeSelection(i, 4, false, false);
 			}
 		}	
+	}
+	
+	public void setCodigo(Long codigo) {
+		this.codigo = codigo;
+	}
+	public Long getCodigo() {
+		return codigo;
 	}
 }

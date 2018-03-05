@@ -18,6 +18,7 @@ import br.com.projeto.gsv.util.TabelaBuscarProdutoUtil;
 public class BuscarProdutoListener implements ActionListener{
 	private BuscarProdutoDialog formulario;
 	private TabelaBuscarProdutoUtil tabela;
+	private String codigo;
 	
 	
 	public BuscarProdutoListener(BuscarProdutoDialog formulario) {
@@ -114,9 +115,12 @@ public class BuscarProdutoListener implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent event) {
 		if(event.getSource().equals(this.formulario.getOk())){
-			
+			int linha = this.formulario.getTable().getSelectedRow();
+			codigo =  String.valueOf(this.formulario.getTable().getValueAt(linha, 0));
+			this.formulario.dispose();
 		}
-		if(event.getSource().equals(this.formulario.getBuscar())){
+		
+		if(event.getSource().equals(this.formulario.getBuscar()) && !this.formulario.getTextoBuscar().getText().isEmpty()){
 			if(this.formulario.getBuscaCodigo().isSelected())
 				BuscarCodigo();
 			
@@ -125,9 +129,8 @@ public class BuscarProdutoListener implements ActionListener{
 			
 			if(this.formulario.getBuscaFabricante().isSelected())
 				BuscarFabricante();
-			
-			
-		}		
+		}	
+		
 		if(event.getSource().equals(this.formulario.getCancelar())){
 			this.formulario.dispose();
 		}
@@ -139,10 +142,10 @@ public class BuscarProdutoListener implements ActionListener{
 	
 	private void BuscarCodigo(){
 		TabelaProduto();
-		Long codigo = Long.parseLong(this.formulario.getTextoBuscar().getText());
+		String codigo =this.formulario.getTextoBuscar().getText();
 		
 		for(int i = 0; i < this.formulario.getTable().getRowCount(); i++){
-			Long coluna = (Long) this.formulario.getTable().getValueAt(i, 0);
+			String coluna = String.valueOf(this.formulario.getTable().getValueAt(i, 0));
 			if(coluna.equals(codigo)){
 				this.formulario.getTable().changeSelection(i, 4, false, false);
 			}
@@ -155,7 +158,7 @@ public class BuscarProdutoListener implements ActionListener{
 		String descricao =  this.formulario.getTextoBuscar().getText();
 		
 		for(int i=0; i < this.formulario.getTable().getRowCount(); i++){
-			String coluna = (String) this.formulario.getTable().getValueAt(i, 3);
+			String coluna = (String) this.formulario.getTable().getValueAt(i, 1);
 			if(coluna.equals(descricao)){
 				this.formulario.getTable().changeSelection(i, 4, false, false);
 			}
@@ -176,5 +179,11 @@ public class BuscarProdutoListener implements ActionListener{
 		}	
 	}
 	
+	public String getCodigo() {
+		return codigo;
+	}
 	
+	public void setCodigo(String codigo) {
+		this.codigo = codigo;
+	}
 }

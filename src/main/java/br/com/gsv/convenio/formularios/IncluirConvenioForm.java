@@ -31,7 +31,7 @@ public class IncluirConvenioForm extends JDialog{
 		this.setTitle("Inserir Convenio / Plano / Credencial");
 		this.setModal(true);
 		this.setResizable(false);
-		this.setBounds(100, 100, 350, 200);
+		this.setBounds(100, 100, 350, 164);
 
 		this.tela.setLayout(null);
 		this.tela.add(contentPanel, BorderLayout.CENTER);
@@ -63,11 +63,11 @@ public class IncluirConvenioForm extends JDialog{
 
 		BTGravar = new JButton("Gravar");
 		BTGravar.setFont(new Font("Calibri", Font.PLAIN, 12));
-		BTGravar.setBounds(37, 121, 89, 23);
+		BTGravar.setBounds(59, 93, 89, 23);
 
 		BTCancelar = new JButton("Cancelar");
 		BTCancelar.setFont(new Font("Calibri", Font.PLAIN, 12));
-		BTCancelar.setBounds(160, 121, 89, 23);
+		BTCancelar.setBounds(170, 93, 89, 23);
 	}
 
 	// classe que adiciona os componentes criados no metodo anterior à tela

@@ -67,20 +67,20 @@ public class BuscarFuncionarioDialog extends JDialog {
 	
 		buscaCpf = new JRadioButton("CPF");
 		buscaCpf.setFont(new Font("Arial", Font.PLAIN, 13));
-		buscaCpf.setBounds(15, 40, 53, 23);
+		buscaCpf.setBounds(154, 40, 53, 23);
 		
 		
 		buscaRg = new JRadioButton("RG");
 		buscaRg.setFont(new Font("Arial", Font.PLAIN, 13));
-		buscaRg.setBounds(70, 40, 53, 23);
+		buscaRg.setBounds(209, 40, 53, 23);
 		
 		buscaNome = new JRadioButton("Nome");
 		buscaNome.setFont(new Font("Arial", Font.PLAIN, 13));
-		buscaNome.setBounds(125, 40, 60, 23);
+		buscaNome.setBounds(81, 40, 60, 23);
 		
 		buscaCodigo = new JRadioButton("Código");
 		buscaCodigo.setFont(new Font("Arial", Font.PLAIN, 13));
-		buscaCodigo.setBounds(185, 40, 65, 23);
+		buscaCodigo.setBounds(15, 40, 65, 23);
 		
 		botaoGrupo.add(buscaCpf);
 		botaoGrupo.add(buscaRg);
@@ -214,7 +214,12 @@ public class BuscarFuncionarioDialog extends JDialog {
 		this.textoBuscar = textoBuscar;
 	}
 
-
+	public BuscarFuncionarioListener getListener() {
+		return listener;
+	}
+	public void setListener(BuscarFuncionarioListener listener) {
+		this.listener = listener;
+	}
 	
 	
 }

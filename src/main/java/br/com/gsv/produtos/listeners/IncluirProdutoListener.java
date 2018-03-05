@@ -32,6 +32,7 @@ public class IncluirProdutoListener implements ActionListener {
 		ListaFabricantes();
 		AdicionaListener();
 		UsandoTAB();
+		UpCase();
 		TeclaEsc();
 	}
 	
@@ -148,6 +149,17 @@ public class IncluirProdutoListener implements ActionListener {
             }  
         });  
     }  
+	
+	private void UpCase(){
+		this.formulario.getTDescricao().addKeyListener(new KeyAdapter() {  
+			public void keyReleased(KeyEvent ke) {  
+				if (ke.getKeyCode() != KeyEvent.VK_HOME) {  
+					String s = formulario.getTDescricao().getText();  
+					formulario.getTDescricao().setText(s.toUpperCase());  
+				}  
+			}  
+		}); 	
+	}
 
 	
 	public void setProduto(Produto produto) {

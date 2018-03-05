@@ -160,6 +160,7 @@ public class GerenciaFabricanteListener implements ActionListener{
 		BuscarFabricanteDialog busca = new BuscarFabricanteDialog();
 		busca.setLocationRelativeTo(this.gerenciamento.getTela());
 		busca.setVisible(true);
+		pegaLinha(busca.getListener().getCodigo());
 	}
 	
 	private void pegaLinha(Long codigo){

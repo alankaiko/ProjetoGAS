@@ -216,6 +216,11 @@ public class BuscarPacienteDialog extends JDialog {
 	}
 
 
-	
+	public BuscarPacienteListener getListener() {
+		return listener;
+	}
+	public void setListener(BuscarPacienteListener listener) {
+		this.listener = listener;
+	}
 	
 }

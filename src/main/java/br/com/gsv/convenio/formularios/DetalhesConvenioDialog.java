@@ -31,7 +31,7 @@ public class DetalhesConvenioDialog extends JDialog {
 		this.setTitle("Dados de Convenio ");
 		this.setModal(true);
 		this.setResizable(false);
-		this.setBounds(100, 100, 350, 200);
+		this.setBounds(100, 100, 323, 174);
 		
 		this.tela.setLayout(null);		
 		this.tela.add(contentPanel, BorderLayout.CENTER);
@@ -64,7 +64,7 @@ public class DetalhesConvenioDialog extends JDialog {
 			
 		cancelar = new JButton("Cancelar");
 		cancelar.setFont(new Font("Calibri", Font.PLAIN, 12));
-		cancelar.setBounds(123, 138, 89, 23);
+		cancelar.setBounds(123, 107, 89, 23);
 	}
 		
 		

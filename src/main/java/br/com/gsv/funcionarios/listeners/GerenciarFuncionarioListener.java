@@ -163,6 +163,7 @@ public class GerenciarFuncionarioListener implements ActionListener{
 		BuscarFuncionarioDialog busca = new BuscarFuncionarioDialog();
 		busca.setLocationRelativeTo(this.gerenciamento.getTela());
 		busca.setVisible(true);
+		pegaLinha(busca.getListener().getCodigo());
 	}
 	
 	private void pegaLinha(Long codigo){

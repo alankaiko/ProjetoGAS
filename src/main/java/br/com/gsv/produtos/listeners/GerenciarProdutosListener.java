@@ -144,6 +144,7 @@ public class GerenciarProdutosListener implements ActionListener{
 		BuscarProdutoDialog busca = new BuscarProdutoDialog();
 		busca.setLocationRelativeTo(this.gerenciamento.getTela());
 		busca.setVisible(true);
+		pegaLinha(busca.getListener().getCodigo());
 	}
 	
 

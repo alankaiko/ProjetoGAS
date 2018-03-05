@@ -44,7 +44,7 @@ public class BuscarConvenioDialog extends JDialog {
 		this.setTitle("Buscar Convenio / Plano / Credencial");
 		this.setModal(true);
 		this.setResizable(false);
-		this.setBounds(100, 100, 620, 400);
+		this.setBounds(100, 100, 514, 344);
 		
 		this.tela.setLayout(null);		
 		this.tela.add(contentPanel, BorderLayout.CENTER);
@@ -53,7 +53,7 @@ public class BuscarConvenioDialog extends JDialog {
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		
 		scrollPane = new JScrollPane();
-		scrollPane.setBounds(15, 100, 560, 220);
+		scrollPane.setBounds(15, 100, 478, 177);
 		this.tela.add(this.scrollPane);
 		table = new JTable();
 		
@@ -85,10 +85,10 @@ public class BuscarConvenioDialog extends JDialog {
 		buscar.setBounds(300,68,125,20);
 
 		ok= new JButton("OK");
-		ok.setBounds(150,340,125,20);
+		ok.setBounds(118,288,125,20);
 	
 		cancelar= new JButton("Cancelar");
-		cancelar.setBounds(290,340,125,20);	
+		cancelar.setBounds(253,288,125,20);	
 	
 	}
 	
@@ -180,6 +180,13 @@ public class BuscarConvenioDialog extends JDialog {
 
 	public void setTextoBuscar(JTextField textoBuscar) {
 		this.textoBuscar = textoBuscar;
+	}
+	
+	public BuscarConvenioListener getListener() {
+		return listener;
+	}
+	public void setListener(BuscarConvenioListener listener) {
+		this.listener = listener;
 	}
 
 }

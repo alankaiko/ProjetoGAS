@@ -183,7 +183,13 @@ public class BuscarFabricanteDialog extends JDialog {
 		this.textoBuscar = textoBuscar;
 	}
 
-
+	public void setListener(BuscarFabricanteListener listener) {
+		this.listener = listener;
+	}
+	
+	public BuscarFabricanteListener getListener() {
+		return listener;
+	}
 	
 
 }
