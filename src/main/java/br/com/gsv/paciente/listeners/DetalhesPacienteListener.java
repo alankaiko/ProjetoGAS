@@ -12,8 +12,8 @@ import javax.swing.KeyStroke;
 
 import br.com.gsv.paciente.domain.Paciente;
 import br.com.gsv.paciente.formularios.DetalhesPacienteDialog;
-import br.com.projeto.gsv.controller.PacienteController;
 import br.com.projeto.gsv.util.ConverteDadosUtil;
+
 
 public class DetalhesPacienteListener implements ActionListener{
 	private Paciente paciente;
@@ -101,6 +101,5 @@ public class DetalhesPacienteListener implements ActionListener{
 	public Paciente getPaciente() {
 		return paciente;
 	}
-	
 	
 }

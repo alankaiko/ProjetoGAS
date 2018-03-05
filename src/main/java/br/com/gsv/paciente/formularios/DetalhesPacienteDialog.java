@@ -16,7 +16,7 @@ import br.com.gsv.paciente.listeners.DetalhesPacienteListener;
 import br.com.projeto.gsv.util.ConverteDadosUtil;
 
 public class DetalhesPacienteDialog extends JDialog {
-	private DetalhesPacienteListener listener;	
+	private DetalhesPacienteListener listener;
 	
 	public DetalhesPacienteDialog() {
 		CriarTelaGeral();
@@ -243,9 +243,9 @@ public class DetalhesPacienteDialog extends JDialog {
 			tela.add(this.TComboEstado);
 			tela.add(this.LEstado);
 			tela.add(this.TDataNasc);
-			
+				
 		}
-
+		
 		
 		private final JPanel contentPanel = new JPanel();
 		private Container tela = getContentPane();
@@ -256,9 +256,7 @@ public class DetalhesPacienteDialog extends JDialog {
 		private JLabel TBairro, TCidade, TComboEstado, TCep, TEmail, TTelefone, TCelular;
 		private JFormattedTextField JCpf,JDataNasc, JDataCadastro,JCep;
 		private JButton cancelar;
-
 		
-
 
 		public JButton getCancelar() {
 			return cancelar;
@@ -550,7 +548,6 @@ public class DetalhesPacienteDialog extends JDialog {
 			TConvenio = tConvenio;
 		}
 
-		
 		
 		
 }
