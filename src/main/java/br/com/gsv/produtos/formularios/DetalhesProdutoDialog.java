@@ -53,12 +53,12 @@ public class DetalhesProdutoDialog extends JDialog {
 		LDescricao = new JLabel("Descrição");
 		LDescricao.setBounds(38, 104, 68, 14);
 			TDescricao = new JLabel();
-			TDescricao.setBounds(86, 101, 328, 20);
+			TDescricao.setBounds(106, 101, 328, 20);
 		
 		LQuantidade = new JLabel("Quantidade");
 		LQuantidade.setBounds(38, 171, 102, 14);
 			TQuantidade = new JLabel();
-			TQuantidade.setBounds(99, 168, 124, 20);
+			TQuantidade.setBounds(115, 168, 124, 20);
 		
 		LLote = new JLabel("Lote");
 		LLote.setBounds(296, 171, 68, 14);
@@ -68,12 +68,12 @@ public class DetalhesProdutoDialog extends JDialog {
 		LMedida = new JLabel("Unidade Medida");
 		LMedida.setBounds(38, 221, 134, 14);
 			TMedida = new JLabel();
-			TMedida.setBounds(121, 218, 102, 20);
+			TMedida.setBounds(145, 218, 102, 20);
 		
 		LClasse = new JLabel("Classe Terapeutica");
 		LClasse.setBounds(296, 221, 118, 14);
 			TClasse = new JLabel();
-			TClasse.setBounds(395, 218, 165, 20);
+			TClasse.setBounds(430, 218, 165, 20);
 		
 		LFabricante = new JLabel("Fabricante");
 		LFabricante.setBounds(38, 304, 102, 14);

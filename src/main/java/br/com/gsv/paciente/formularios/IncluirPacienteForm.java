@@ -107,7 +107,7 @@ public class IncluirPacienteForm extends JDialog {
 				JDataCadastro.setBounds(525,30,84,19);
 				
 			LConvenio = new JLabel("Convênio / Plano / Credencial");
-			LConvenio.setBounds(327, 124, 158, 14);
+			LConvenio.setBounds(303, 124, 220, 14);
 				ComboConvenio = new JComboBox();
 				ComboConvenio.setBounds(478, 121, 133, 20);
 
