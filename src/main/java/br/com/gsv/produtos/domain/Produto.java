@@ -36,8 +36,8 @@ public class Produto implements Serializable{
 	private String medida;
 	private String classeTerapeutica;
 	
-	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "tbl_fabricantes_fab_codigo", referencedColumnName = "fab_codigo", nullable = false)
+	/*@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "tbl_fabricantes_fab_codigo", referencedColumnName = "fab_codigo", nullable = false)*/
 	private Fabricante fabricante;
 	
 	

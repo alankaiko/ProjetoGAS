@@ -2,6 +2,7 @@ package br.com.projeto.gsv.service;
 
 import java.util.List;
 
+import br.com.gsv.convenio.domain.Convenio;
 import br.com.gsv.paciente.domain.Paciente;
 import br.com.gsv.repository.PacienteRepository;
 
@@ -27,5 +28,11 @@ public class CadastroPacienteService {
 	
 	public List<Paciente> BuscandoPeloNome(String nome){
 		return this.repositorio.BuscarPeloNome(nome);
+	}
+	
+	//Acessa o método Service do Objeto Fabricante para retornar uma lista completa de todos os Fabricantes
+	public List<Convenio> ConvenioListaCompleta(){
+		CadastroConvenioService serviceFab = new CadastroConvenioService();
+		return serviceFab.ListandoConvenios();
 	}
 }

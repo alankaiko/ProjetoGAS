@@ -5,15 +5,18 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.util.Date;
+import java.util.Vector;
 
 import javax.swing.AbstractAction;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComponent;
 import javax.swing.JRootPane;
 import javax.swing.KeyStroke;
 
-import br.com.gsv.paciente.domain.Paciente;
+import br.com.gsv.convenio.domain.Convenio;
 import br.com.gsv.paciente.domain.Contato_cli;
 import br.com.gsv.paciente.domain.Endereco_cli;
+import br.com.gsv.paciente.domain.Paciente;
 import br.com.gsv.paciente.formularios.IncluirPacienteForm;
 import br.com.projeto.gsv.controller.PacienteController;
 import br.com.projeto.gsv.util.ConverteDadosUtil;
@@ -23,6 +26,7 @@ public class IncluirPacienteListener implements ActionListener{
 	private IncluirPacienteForm formulario;
 	private PacienteController con;
 	private Paciente paciente;
+	private Convenio convenio;
 	private Contato_cli contato;
 	private Endereco_cli endereco;
 	
@@ -31,10 +35,10 @@ public class IncluirPacienteListener implements ActionListener{
 		this.formulario = formulario;
 		con = new PacienteController();
 		AdicionarListener();
+		ListaConvenios();
 		TeclaEsc();
 		UsandoTAB();
 		UpCase();
-		CamposObrigatorios();
 	}
 	
 	
@@ -62,12 +66,6 @@ public class IncluirPacienteListener implements ActionListener{
 		formulario.getBTCancelar().addActionListener(this);
 	}
 	
-	private void CamposObrigatorios(){
-		this.formulario.getNomeObrigatorio().setVisible(false);
-		this.formulario.getCpfObrigatorio().setVisible(false);
-		this.formulario.getRgObrigatorio().setVisible(false);
-	}
-	
 	
 	
 	
@@ -82,6 +80,7 @@ public class IncluirPacienteListener implements ActionListener{
 		paciente.setCpf(this.formulario.getJCpf().getText().replaceAll("[_.-]", ""));
 		paciente.setRg(this.formulario.getTRg().getText());
 		paciente.setDataCad(new Date());
+		paciente.setConvenio((Convenio) this.formulario.getComboConvenio().getSelectedItem());
 		paciente.setDataNasc(ConverteDadosUtil.TransformandoEmDate(this.formulario.getJDataNasc().getText()));
 		paciente.setObservacao(this.formulario.getTObservacao().getText());
 	}
@@ -132,6 +131,7 @@ public class IncluirPacienteListener implements ActionListener{
 		this.formulario.getTRg().setText(this.paciente.getRg());
 		this.formulario.getJCpf().setText(this.paciente.getCpf());
 		this.formulario.getTObservacao().setText(this.paciente.getObservacao());
+		this.formulario.getComboConvenio().setSelectedItem(this.paciente.getConvenio());
 		this.formulario.getJDataNasc().setText(ConverteDadosUtil.TransformandoEmString(this.paciente.getDataNasc()));
 		this.formulario.getJDataCadastro().setText(ConverteDadosUtil.TransformandoEmString(this.paciente.getDataCad()));
 		this.formulario.getTLogradouro().setText(this.paciente.getEndereco().get(0).getLogradouro());
@@ -153,6 +153,7 @@ public class IncluirPacienteListener implements ActionListener{
 			paciente.setNome(this.formulario.getTNome().getText());
 			paciente.setCpf(this.formulario.getJCpf().getText().replaceAll("[_.-]", ""));
 			paciente.setRg(this.formulario.getTRg().getText());
+			paciente.setConvenio((Convenio)this.formulario.getComboConvenio().getSelectedItem());
 			paciente.setDataNasc(ConverteDadosUtil.TransformandoEmDate(this.formulario.getJDataNasc().getText()));
 			paciente.getEndereco().get(0).setLogradouro(this.formulario.getTLogradouro().getText());
 			paciente.getEndereco().get(0).setComplemento(this.formulario.getTComplemento().getText());
@@ -250,6 +251,12 @@ public class IncluirPacienteListener implements ActionListener{
             }  
         });  
     }  
+	
+	
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+	public void ListaConvenios(){
+		this.formulario.getComboConvenio().setModel(new DefaultComboBoxModel(new Vector(con.RetornaConvenio())));
+	}
 
 	
 	

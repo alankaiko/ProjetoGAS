@@ -10,7 +10,7 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @Entity
-@Table
+@Table(name = "tbl_convenios")
 @NamedQueries({
 	@NamedQuery(name="Convenio.listar", query="SELECT convenio FROM Convenio convenio order by id"),
 	@NamedQuery(name="Convenio.buscarPorId", query="SELECT convenio FROM Convenio convenio WHERE convenio.id = :id")

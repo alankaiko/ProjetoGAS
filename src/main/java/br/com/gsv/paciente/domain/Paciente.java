@@ -14,6 +14,8 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
@@ -22,8 +24,10 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
 
+import br.com.gsv.convenio.domain.Convenio;
+
 @Entity
-@Table(name = "paciente")
+@Table(name = "tbl_paciente")
 @NamedQueries({
 	@NamedQuery(name="Paciente.listar", query="SELECT paciente FROM Paciente paciente order by id"),
 	@NamedQuery(name="Paciente.buscarPorId", query="SELECT paciente FROM Paciente paciente WHERE paciente.id= :id"),
@@ -41,6 +45,7 @@ public class Paciente implements Serializable {
 	private List<Contato_cli> contato = new ArrayList<Contato_cli>();
 	private List<Endereco_cli> endereco = new ArrayList<Endereco_cli>();
 	private String observacao;
+	private Convenio convenio;
 
 	
 	
@@ -103,6 +108,14 @@ public class Paciente implements Serializable {
 
 	
 	
+	public Convenio getConvenio() {
+		return convenio;
+	}
+
+	public void setConvenio(Convenio convenio) {
+		this.convenio = convenio;
+	}
+
 	/* NotNull= o contato não pode ser nulo, OneToMany= um para muitos mappedby
 	 * campo da outra classe que está sendo mapeado CascadeType.ALL= quando um
 	 * cliente for excluído ocontato é excluído junto com ele.*/

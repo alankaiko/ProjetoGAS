@@ -2,6 +2,7 @@ package br.com.projeto.gsv.controller;
 
 import java.util.List;
 
+import br.com.gsv.convenio.domain.Convenio;
 import br.com.gsv.paciente.domain.Paciente;
 import br.com.projeto.gsv.service.CadastroPacienteService;
 
@@ -35,6 +36,11 @@ public class PacienteController {
 	
 	public List<Paciente> BuscarPeloNome(String nome){
 		return this.cadastroService.BuscandoPeloNome(nome);
+	}
+	
+	
+	public List<Convenio> RetornaConvenio(){
+		return this.cadastroService.ConvenioListaCompleta();
 	}
 	
 	

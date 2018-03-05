@@ -73,12 +73,7 @@ public class IncluirPacienteForm extends JDialog {
 			LDocumento.setBounds(75,60,35,20);
 			LDocumento.setFont(new Font("Arial" , Font.BOLD,11));;
 				JCpf= new JFormattedTextField(ConverteDadosUtil.FormataCPF());
-				JCpf.setBounds(111,62,173,19);		
-				
-				cpfObrigatorio = new JLabel("Obrigatorio");
-				cpfObrigatorio.setForeground(Color.RED);
-				cpfObrigatorio.setFont(new Font("Calibri Light", Font.PLAIN, 9));
-				cpfObrigatorio.setBounds(15, 63, 65, 14);
+				JCpf.setBounds(111,62,173,19);
 			
 				
 						
@@ -94,25 +89,14 @@ public class IncluirPacienteForm extends JDialog {
 			LRg.setFont(new Font("Arial" , Font.BOLD,11));;
 				TRg = new JTextField();
 				TRg .setBounds(489,61,120,19);
-				TRg .setFont(new Font("Arial",Font.BOLD,10));	
-				
-				rgObrigatorio = new JLabel("Obrigatorio");
-				rgObrigatorio.setForeground(Color.RED);
-				rgObrigatorio.setFont(new Font("Calibri Light", Font.PLAIN, 9));
-				rgObrigatorio.setBounds(405, 63, 65, 14);
+				TRg .setFont(new Font("Arial",Font.BOLD,10));
 					
 			LNome = new JLabel("*Nome:");
 			LNome.setBounds(65,90,50,20);
 			LNome.setFont(new Font("Arial" , Font.BOLD,11));;
 				TNome = new JTextField();
 				TNome.setBounds(111,91,500,19);
-				TNome.setFont(new Font("Arial",Font.BOLD,10));		
-				
-				
-				nomeObrigatorio = new JLabel("Obrigatorio");
-				nomeObrigatorio.setForeground(Color.RED);
-				nomeObrigatorio.setFont(new Font("Calibri Light", Font.PLAIN, 9));
-				nomeObrigatorio.setBounds(18, 93, 65, 14);
+				TNome.setFont(new Font("Arial",Font.BOLD,10));
 				
 			LDataCad = new JLabel("Data Cadastro:");
 			LDataCad.setBounds(439,30,84,20);
@@ -121,6 +105,11 @@ public class IncluirPacienteForm extends JDialog {
 				JDataCadastro.setEditable(false);
 				JDataCadastro.setText(ConverteDadosUtil.RetornaDataAtual());
 				JDataCadastro.setBounds(525,30,84,19);
+				
+			LConvenio = new JLabel("Convênio / Plano / Credencial");
+			LConvenio.setBounds(327, 124, 158, 14);
+				ComboConvenio = new JComboBox();
+				ComboConvenio.setBounds(478, 121, 133, 20);
 
 				
 			LObservacao = new JLabel("Observação:");
@@ -265,10 +254,9 @@ public class IncluirPacienteForm extends JDialog {
 		tela.add(this.BTGravar);
 		tela.add(this.BTCancelar);
 		tela.add(this.ComboEstado);
+		tela.add(this.ComboConvenio);
+		tela.add(this.LConvenio);
 		tela.add(this.LEstado);
-		tela.add(this.nomeObrigatorio);
-		tela.add(this.rgObrigatorio);
-		tela.add(this.cpfObrigatorio);		
 		
 	}
 
@@ -276,15 +264,14 @@ public class IncluirPacienteForm extends JDialog {
 	
 	private final JPanel contentPanel = new JPanel();
 	private Container tela = getContentPane();
-	private JLabel LId, LNome, LDocumento, LRg, LDataNasc, LDataCad, LObservacao;
+	private JLabel LId, LNome, LDocumento, LRg, LDataNasc, LDataCad, LObservacao, LConvenio;
 	private JLabel LIndentif, LEndereco, LLogradouro, LComplemento;
-	private JLabel nomeObrigatorio, rgObrigatorio, cpfObrigatorio;
 	private JLabel LNumero, LBairro, LCidade, LCep, LContato, LEmail, LCelular, LTelefone, LEstado;
 	private JTextField TId, TNome, TRg, TObservacao, TLogradouro, TComplemento, TNumero;
 	private JTextField TBairro, TCidade, TEmail, TTelefone, TCelular;
 	private JFormattedTextField JCpf,JDataNasc, JDataCadastro, JCep;
 	private JButton BTNovo, BTGravar, BTCancelar;
-	private JComboBox ComboEstado;
+	private JComboBox ComboEstado, ComboConvenio;
 
 
 	public JButton getBTNovo() {
@@ -500,35 +487,15 @@ public class IncluirPacienteForm extends JDialog {
 	}
 
 
-	public JLabel getNomeObrigatorio() {
-		return nomeObrigatorio;
+	public JComboBox getComboConvenio() {
+		return ComboConvenio;
 	}
 
 
-	public void setNomeObrigatorio(JLabel nomeObrigatorio) {
-		this.nomeObrigatorio = nomeObrigatorio;
+	public void setComboConvenio(JComboBox comboConvenio) {
+		ComboConvenio = comboConvenio;
 	}
 
 
-	public JLabel getRgObrigatorio() {
-		return rgObrigatorio;
-	}
-
-
-	public void setRgObrigatorio(JLabel rgObrigatorio) {
-		this.rgObrigatorio = rgObrigatorio;
-	}
-
-
-	public JLabel getCpfObrigatorio() {
-		return cpfObrigatorio;
-	}
-
-
-	public void setCpfObrigatorio(JLabel cpfObrigatorio) {
-		this.cpfObrigatorio = cpfObrigatorio;
-	}
-	
-	
 	
 }
