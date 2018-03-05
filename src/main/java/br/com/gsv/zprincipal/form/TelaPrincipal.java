@@ -151,13 +151,13 @@ public class TelaPrincipal extends JFrame {
 		
 		painelPrincipal = new JPanel();
 		painelPrincipal.setBackground(Color.WHITE);
-		painelPrincipal.setBounds(0, 0, 784, 441);
+		painelPrincipal.setBounds(0, 0, 784, 462);
 		tela.add(painelPrincipal);
 		painelPrincipal.setLayout(null);
 		
 		painelMenuRapido = new Panel();
 		painelMenuRapido.setBackground(new Color(18,46,81));
-		painelMenuRapido.setBounds(15, 0, 239, 420);
+		painelMenuRapido.setBounds(15, 0, 239, 439);
 		painelPrincipal.add(painelMenuRapido);
 		painelMenuRapido.setLayout(null);
 		

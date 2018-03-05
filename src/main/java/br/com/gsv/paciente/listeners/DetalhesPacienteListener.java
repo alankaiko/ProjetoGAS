@@ -40,6 +40,7 @@ public class DetalhesPacienteListener implements ActionListener{
 		this.formulario.getTRg().setText(this.paciente.getRg());
 		this.formulario.getJCpf().setText(this.paciente.getCpf());
 		this.formulario.getTCpf().setText(this.formulario.getJCpf().getText());
+		this.formulario.getTConvenio().setText(this.paciente.getConvenio().getNome());
 		this.formulario.getTObservacao().setText(this.paciente.getObservacao());
 		this.formulario.getJDataNasc().setText(ConverteDadosUtil.TransformandoEmString(this.paciente.getDataNasc()));
 		this.formulario.getTDataNasc().setText(this.formulario.getJDataNasc().getText());

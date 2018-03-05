@@ -101,6 +101,13 @@ public class DetalhesPacienteDialog extends JDialog {
 				JDataCadastro= new JFormattedTextField(ConverteDadosUtil.FormataData());
 				TDataCadastro = new JLabel();
 				TDataCadastro.setBounds(525,30,84,19);
+				
+			LConvenio = new JLabel("Convênio / Plano / Credencial");
+			LConvenio.setBounds(303, 124, 220, 14);
+			LConvenio.setFont(new Font("Arial" , Font.BOLD,11));;
+				TConvenio = new JLabel();
+				TConvenio.setBounds(478, 121, 133, 20);
+				TConvenio.setFont(new Font("Arial",Font.BOLD,10));
 
 				
 			LObservacao = new JLabel("Observação:");
@@ -210,6 +217,8 @@ public class DetalhesPacienteDialog extends JDialog {
 			tela.add(this.TDataCadastro);		
 			tela.add(this.JCpf);
 			tela.add(this.TCpf);
+			tela.add(this.LConvenio);
+			tela.add(this.TConvenio);
 			tela.add(this.LEndereco);
 			tela.add(this.LLogradouro);
 			tela.add(this.TLogradouro);
@@ -242,7 +251,7 @@ public class DetalhesPacienteDialog extends JDialog {
 		private Container tela = getContentPane();
 		private JLabel LId, LNome, LCpf, LRg, LDataNasc, LDataCad, LObservacao;
 		private JLabel LIndentif, LEndereco, LLogradouro, LComplemento;
-		private JLabel LNumero, LBairro, LCidade, LCep, LContato, LEmail, LCelular, LTelefone, LEstado;
+		private JLabel LNumero, LBairro, LCidade, LCep, LContato, LEmail, LCelular, LTelefone, LEstado, LConvenio, TConvenio;
 		private JLabel TId, TNome, TCpf, TDataCadastro,TRg, TDataNasc, TObservacao, TLogradouro, TComplemento, TNumero;
 		private JLabel TBairro, TCidade, TComboEstado, TCep, TEmail, TTelefone, TCelular;
 		private JFormattedTextField JCpf,JDataNasc, JDataCadastro,JCep;
@@ -527,6 +536,18 @@ public class DetalhesPacienteDialog extends JDialog {
 
 		public void setListener(DetalhesPacienteListener listener) {
 			this.listener = listener;
+		}
+
+
+
+		public JLabel getTConvenio() {
+			return TConvenio;
+		}
+
+
+
+		public void setTConvenio(JLabel tConvenio) {
+			TConvenio = tConvenio;
 		}
 
 		
