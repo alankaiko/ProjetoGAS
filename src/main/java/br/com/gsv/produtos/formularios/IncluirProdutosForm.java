@@ -34,7 +34,7 @@ public class IncluirProdutosForm extends JDialog {
 		this.setTitle("Inserir Dados de Produtos");
 		this.setModal(true);
 		this.setResizable(false);
-		this.setBounds(100, 100, 650, 460);
+		this.setBounds(100, 100, 489, 356);
 		
 		this.tela.setLayout(null);		
 		this.tela.add(contentPanel, BorderLayout.CENTER);
@@ -61,46 +61,29 @@ public class IncluirProdutosForm extends JDialog {
 			TDescricao.setColumns(10);
 		
 		LQuantidade = new JLabel("Quantidade");
-		LQuantidade.setBounds(38, 171, 94, 14);
+		LQuantidade.setBounds(38, 145, 94, 14);
 			TQuantidade = new JTextField();
-			TQuantidade.setBounds(121, 168, 124, 20);
+			TQuantidade.setBounds(116, 142, 124, 20);
 			TQuantidade.setColumns(10);
 		
-		LLote = new JLabel("Lote");
-		LLote.setBounds(296, 171, 70, 14);
-			TLote = new JTextField();
-			TLote.setBounds(356, 168, 153, 20);
-			TLote.setColumns(10);
-		
-		LMedida = new JLabel("Unidade Medida");
-		LMedida.setBounds(38, 221, 134, 14);
-			TMedida = new JTextField();
-			TMedida.setBounds(143, 218, 102, 20);
-			TMedida.setColumns(10);
-		
-		LClasse = new JLabel("Classe Terapeutica");
-		LClasse.setBounds(296, 221, 118, 14);
-			TClasse = new JTextField();
-			TClasse.setBounds(425, 218, 165, 20);
-			TClasse.setColumns(10);
 		
 		LFabricante = new JLabel("Fabricante");
-		LFabricante.setBounds(38, 304, 113, 14);
+		LFabricante.setBounds(38, 196, 113, 14);
 			comboFabricante = new JComboBox();
-			comboFabricante.setBounds(125, 301, 241, 20);
+			comboFabricante.setBounds(106, 193, 241, 20);
 
 		
 		BTNovo = new JButton("Novo");
 		BTNovo.setFont(new Font("Calibri", Font.PLAIN, 12));
-		BTNovo.setBounds(111, 398, 89, 23);
+		BTNovo.setBounds(43, 276, 89, 23);
 		
 		BTGravar = new JButton("Gravar");
 		BTGravar.setFont(new Font("Calibri", Font.PLAIN, 12));
-		BTGravar.setBounds(210, 398, 89, 23);
+		BTGravar.setBounds(142, 276, 89, 23);
 		
 		BTCancelar = new JButton("Cancelar");
 		BTCancelar.setFont(new Font("Calibri", Font.PLAIN, 12));
-		BTCancelar.setBounds(522, 398, 89, 23);
+		BTCancelar.setBounds(347, 276, 89, 23);
 	}
 	
 	private void InicializaComponentes(){
@@ -110,12 +93,6 @@ public class IncluirProdutosForm extends JDialog {
 		tela.add(LDescricao);
 		tela.add(TDescricao);
 		tela.add(LQuantidade);
-		tela.add(LLote);
-		tela.add(TLote);
-		tela.add(LMedida);
-		tela.add(TMedida);
-		tela.add(LClasse);
-		tela.add(TClasse);
 		tela.add(LFabricante);
 		tela.add(comboFabricante);
 		tela.add(BTCancelar);
@@ -128,8 +105,8 @@ public class IncluirProdutosForm extends JDialog {
 	private final JPanel contentPanel = new JPanel();
 	private Container tela = getContentPane();
 	private JButton BTNovo, BTGravar, BTCancelar;
-	private JTextField TCodigo, TDescricao, TLote, TMedida, TClasse, TQuantidade;
-	private JLabel LDados, LCodigo, LDescricao, LQuantidade, LLote, LMedida, LClasse, LFabricante;
+	private JTextField TCodigo, TDescricao, TQuantidade;
+	private JLabel LDados, LCodigo, LDescricao, LQuantidade, LFabricante;
 	private JComboBox comboFabricante;
 
 	
@@ -191,34 +168,7 @@ public class IncluirProdutosForm extends JDialog {
 	}
 
 
-	public JTextField getTLote() {
-		return TLote;
-	}
-
-
-	public void setTLote(JTextField tLote) {
-		TLote = tLote;
-	}
-
-
-	public JTextField getTMedida() {
-		return TMedida;
-	}
-
-
-	public void setTMedida(JTextField tMedida) {
-		TMedida = tMedida;
-	}
-
-
-	public JTextField getTClasse() {
-		return TClasse;
-	}
-
-
-	public void setTClasse(JTextField tClasse) {
-		TClasse = tClasse;
-	}
+	
 
 	public void setComboFabricante(JComboBox comboFabricante) {
 		this.comboFabricante = comboFabricante;
@@ -265,36 +215,6 @@ public class IncluirProdutosForm extends JDialog {
 
 	public void setLQuantidade(JLabel lQuantidade) {
 		LQuantidade = lQuantidade;
-	}
-
-
-	public JLabel getLLote() {
-		return LLote;
-	}
-
-
-	public void setLLote(JLabel lLote) {
-		LLote = lLote;
-	}
-
-
-	public JLabel getLMedida() {
-		return LMedida;
-	}
-
-
-	public void setLMedida(JLabel lMedida) {
-		LMedida = lMedida;
-	}
-
-
-	public JLabel getLClasse() {
-		return LClasse;
-	}
-
-
-	public void setLClasse(JLabel lClasse) {
-		LClasse = lClasse;
 	}
 
 

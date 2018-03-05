@@ -59,21 +59,7 @@ public class DetalhesProdutoDialog extends JDialog {
 		LQuantidade.setBounds(38, 171, 102, 14);
 			TQuantidade = new JLabel();
 			TQuantidade.setBounds(115, 168, 124, 20);
-		
-		LLote = new JLabel("Lote");
-		LLote.setBounds(296, 171, 68, 14);
-			TLote = new JLabel();
-			TLote.setBounds(327, 168, 153, 20);
-		
-		LMedida = new JLabel("Unidade Medida");
-		LMedida.setBounds(38, 221, 134, 14);
-			TMedida = new JLabel();
-			TMedida.setBounds(145, 218, 102, 20);
-		
-		LClasse = new JLabel("Classe Terapeutica");
-		LClasse.setBounds(296, 221, 118, 14);
-			TClasse = new JLabel();
-			TClasse.setBounds(430, 218, 165, 20);
+	
 		
 		LFabricante = new JLabel("Fabricante");
 		LFabricante.setBounds(38, 304, 102, 14);
@@ -92,12 +78,6 @@ public class DetalhesProdutoDialog extends JDialog {
 		tela.add(LDescricao);
 		tela.add(TDescricao);
 		tela.add(LQuantidade);
-		tela.add(LLote);
-		tela.add(TLote);
-		tela.add(LMedida);
-		tela.add(TMedida);
-		tela.add(LClasse);
-		tela.add(TClasse);
 		tela.add(LFabricante);
 		tela.add(TFabricante);
 		tela.add(BTCancelar);
@@ -107,8 +87,8 @@ public class DetalhesProdutoDialog extends JDialog {
 	private final JPanel contentPanel = new JPanel();
 	private Container tela = getContentPane();
 	private JButton BTCancelar;
-	private JLabel TCodigo, TDescricao, TLote, TMedida, TClasse,TFabricante, TQuantidade;
-	private JLabel LDados, LCodigo, LDescricao, LQuantidade, LLote, LMedida, LClasse, LFabricante;
+	private JLabel TCodigo, TDescricao, TFabricante, TQuantidade;
+	private JLabel LDados, LCodigo, LDescricao, LQuantidade, LFabricante;
 	
 	
 	public DetalhesProdutoListener getListener() {
@@ -149,35 +129,6 @@ public class DetalhesProdutoDialog extends JDialog {
 		TDescricao = tDescricao;
 	}
 
-
-	public JLabel getTLote() {
-		return TLote;
-	}
-
-
-	public void setTLote(JLabel tLote) {
-		TLote = tLote;
-	}
-
-
-	public JLabel getTMedida() {
-		return TMedida;
-	}
-
-
-	public void setTMedida(JLabel tMedida) {
-		TMedida = tMedida;
-	}
-
-
-	public JLabel getTClasse() {
-		return TClasse;
-	}
-
-
-	public void setTClasse(JLabel tClasse) {
-		TClasse = tClasse;
-	}
 
 
 	public JLabel getTFabricante() {
@@ -237,36 +188,6 @@ public class DetalhesProdutoDialog extends JDialog {
 
 	public void setLQuantidade(JLabel lQuantidade) {
 		LQuantidade = lQuantidade;
-	}
-
-
-	public JLabel getLLote() {
-		return LLote;
-	}
-
-
-	public void setLLote(JLabel lLote) {
-		LLote = lLote;
-	}
-
-
-	public JLabel getLMedida() {
-		return LMedida;
-	}
-
-
-	public void setLMedida(JLabel lMedida) {
-		LMedida = lMedida;
-	}
-
-
-	public JLabel getLClasse() {
-		return LClasse;
-	}
-
-
-	public void setLClasse(JLabel lClasse) {
-		LClasse = lClasse;
 	}
 
 

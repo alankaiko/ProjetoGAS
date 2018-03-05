@@ -9,6 +9,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -19,7 +20,7 @@ import javax.persistence.Table;
 
 
 @Entity
-@Table(name = "funcionario")
+@Table
 @NamedQueries({
 	@NamedQuery(name="Funcionario.listar", query="SELECT funcionario FROM Funcionario funcionario order by id"),
 	@NamedQuery(name="Funcionario.buscarPorId", query="SELECT funcionario FROM Funcionario funcionario WHERE funcionario.id= :id"),
@@ -36,7 +37,7 @@ public class Funcionario implements Serializable{
 	private List<Endereco_fun> endereco = new ArrayList<Endereco_fun>();
 
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	public Long getId() {
 		return id;
 	}

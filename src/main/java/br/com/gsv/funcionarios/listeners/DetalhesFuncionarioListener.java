@@ -21,7 +21,7 @@ public class DetalhesFuncionarioListener implements ActionListener{
 	public DetalhesFuncionarioListener(DetalhesFuncionarioDialog formulario) {
 		this.formulario = formulario;
 		AdicionarListener();
-		UsandoTAB();
+		//UsandoTAB();
 		TeclaEsc();
 	}
 
@@ -72,6 +72,7 @@ public class DetalhesFuncionarioListener implements ActionListener{
             }  
         });
 	}
+	
 	
 	
 	

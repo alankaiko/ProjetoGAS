@@ -64,9 +64,6 @@ public class IncluirProdutoListener implements ActionListener {
 		this.produto.setCodigo(this.formulario.getTCodigo().getText());
 		this.produto.setDescricao(this.formulario.getTDescricao().getText());
 		this.produto.setQuantidade(ConverteDadosUtil.RetornaInt(this.formulario.getTQuantidade().getText()));
-		this.produto.setLote(ConverteDadosUtil.RetornaInt(this.formulario.getTLote().getText()));
-		this.produto.setMedida(this.formulario.getTMedida().getText());
-		this.produto.setClasseTerapeutica(this.formulario.getTClasse().getText());
 		this.produto.setFabricante((Fabricante) this.formulario.getComboFabricante().getSelectedItem());
 	}
 	
@@ -78,9 +75,6 @@ public class IncluirProdutoListener implements ActionListener {
 		this.formulario.getTCodigo().setText(this.produto.getCodigo());
 		this.formulario.getTDescricao().setText(this.produto.getDescricao());
 		this.formulario.getTQuantidade().setText(String.valueOf(this.produto.getQuantidade()));
-		this.formulario.getTLote().setText(String.valueOf(this.produto.getLote()));
-		this.formulario.getTMedida().setText(this.produto.getMedida());
-		this.formulario.getTClasse().setText(this.produto.getClasseTerapeutica());
 		this.formulario.getComboFabricante().setSelectedItem(this.produto.getFabricante());
 		
 	}

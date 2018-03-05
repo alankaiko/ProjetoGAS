@@ -6,6 +6,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -17,7 +18,7 @@ import br.com.gsv.fabricantes.domain.Fabricante;
 
 
 @Entity
-@Table(name = "tbl_produtos")
+@Table
 @NamedQueries({
 	@NamedQuery(name="Produto.listar", query="SELECT produto FROM Produto produto order by descricao"),
 	@NamedQuery(name="Produto.buscarPorId", query="SELECT produto FROM Produto produto WHERE produto.id= :id"),
@@ -32,10 +33,7 @@ public class Produto implements Serializable{
 	private String codigo;
 	private String descricao;
 	private Integer quantidade;
-	private Integer lote;
-	private String medida;
-	private String classeTerapeutica;
-	
+		
 	/*@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "tbl_fabricantes_fab_codigo", referencedColumnName = "fab_codigo", nullable = false)*/
 	private Fabricante fabricante;
@@ -43,7 +41,7 @@ public class Produto implements Serializable{
 	
 	
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	public Long getId() {
 		return id;
 	}
@@ -73,30 +71,6 @@ public class Produto implements Serializable{
 	}
 	public void setQuantidade(Integer quantidade) {
 		this.quantidade = quantidade;
-	}
-	
-	@Column
-	public Integer getLote() {
-		return lote;
-	}
-	public void setLote(Integer lote) {
-		this.lote = lote;
-	}
-	
-	@Column
-	public String getMedida() {
-		return medida;
-	}
-	public void setMedida(String medida) {
-		this.medida = medida;
-	}
-	
-	@Column
-	public String getClasseTerapeutica() {
-		return classeTerapeutica;
-	}
-	public void setClasseTerapeutica(String classeTerapeutica) {
-		this.classeTerapeutica = classeTerapeutica;
 	}
 	
 	
@@ -143,11 +117,8 @@ public class Produto implements Serializable{
 			.append(", quantidade=")
 			.append(quantidade)
 			.append(", lote=")
-			.append(lote)
 			.append(", medida=")
-			.append(medida)
 			.append(", classeTerapeutica=")
-			.append(classeTerapeutica)
 			.append(", fabricante=")
 			.append(fabricante)
 			.append("]");

@@ -39,9 +39,6 @@ public class DetalhesProdutoListener implements ActionListener{
 		this.formulario.getTCodigo().setText(this.produto.getCodigo());
 		this.formulario.getTDescricao().setText(this.produto.getDescricao());
 		this.formulario.getTQuantidade().setText(String.valueOf(this.produto.getQuantidade()));
-		this.formulario.getTLote().setText(String.valueOf(this.produto.getLote()));
-		this.formulario.getTMedida().setText(this.produto.getMedida());
-		this.formulario.getTClasse().setText(this.produto.getClasseTerapeutica());
 		this.formulario.getTFabricante().setText(this.produto.getFabricante().getDescricao());
 	}
 	

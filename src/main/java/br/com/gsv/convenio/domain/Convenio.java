@@ -4,13 +4,14 @@ import java.io.Serializable;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "tbl_convenios")
+@Table
 @NamedQueries({
 	@NamedQuery(name="Convenio.listar", query="SELECT convenio FROM Convenio convenio order by id"),
 	@NamedQuery(name="Convenio.buscarPorId", query="SELECT convenio FROM Convenio convenio WHERE convenio.id = :id")
@@ -19,7 +20,7 @@ public class Convenio implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	private Long id;
 	private String nome;
 

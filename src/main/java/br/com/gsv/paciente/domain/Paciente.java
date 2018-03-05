@@ -27,7 +27,7 @@ import javax.persistence.Transient;
 import br.com.gsv.convenio.domain.Convenio;
 
 @Entity
-@Table(name = "tbl_paciente")
+@Table
 @NamedQueries({
 	@NamedQuery(name="Paciente.listar", query="SELECT paciente FROM Paciente paciente order by id"),
 	@NamedQuery(name="Paciente.buscarPorId", query="SELECT paciente FROM Paciente paciente WHERE paciente.id= :id"),
@@ -50,7 +50,7 @@ public class Paciente implements Serializable {
 	
 	
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	public Long getId() {
 		return id;
 	}

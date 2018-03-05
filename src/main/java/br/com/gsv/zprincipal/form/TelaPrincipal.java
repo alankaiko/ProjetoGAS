@@ -18,6 +18,7 @@ import javax.swing.JPanel;
 
 import br.com.gsv.zprincipal.listeners.BarraStatusListener;
 import br.com.gsv.zprincipal.listeners.TelaPrincipalListener;
+import br.com.projeto.gsv.util.HibernateUtil;
 
 public class TelaPrincipal extends JFrame {
 	private Container tela= getContentPane();
@@ -65,6 +66,7 @@ public class TelaPrincipal extends JFrame {
 		inferior = new JPanel();
 		listener = new TelaPrincipalListener(this);
 		BarraStatusListener status = new BarraStatusListener(this);
+		HibernateUtil.getSessionFactory();
 	}
 	
 	private void CriaComponentes(){
