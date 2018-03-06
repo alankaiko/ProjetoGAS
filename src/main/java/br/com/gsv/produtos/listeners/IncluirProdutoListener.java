@@ -87,6 +87,7 @@ public class IncluirProdutoListener implements ActionListener {
 	public void actionPerformed(ActionEvent event) {
 		if(event.getSource().equals(this.formulario.getBTGravar())){
 			Salvar();
+			this.formulario.dispose();
 		}
 		
 		if(event.getSource().equals(this.formulario.getBTNovo())){

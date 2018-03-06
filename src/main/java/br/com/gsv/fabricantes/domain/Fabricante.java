@@ -15,7 +15,8 @@ import javax.persistence.Table;
 @Table
 @NamedQueries({
 	@NamedQuery(name="Fabricante.listar", query="SELECT fabricante FROM Fabricante fabricante order by id"),
-	@NamedQuery(name="Fabricante.buscarPorId", query="SELECT fabricante FROM Fabricante fabricante WHERE fabricante.id = :id")
+	@NamedQuery(name="Fabricante.buscarPorId", query="SELECT fabricante FROM Fabricante fabricante WHERE fabricante.id = :id"),
+	@NamedQuery(name="Fabricante.buscarPeloNome", query="SELECT fabricante FROM Fabricante fabricante WHERE fabricante.descricao LIKE :descricao")
 })
 public class Fabricante implements Serializable {
 	private static final long serialVersionUID = 1L;

@@ -87,13 +87,13 @@ public class FabricanteRepository {
 	
 	
 	@SuppressWarnings("unchecked")
-	public List<Fabricante> BuscarPeloNome(String nome){
+	public List<Fabricante> BuscarPeloNome(String descricao){
 		sessao = HibernateUtil.getSessionFactory().openSession();
 		List<Fabricante> lista = null;
 		
 		try {
 			Query consulta = sessao.getNamedQuery("Fabricante.buscarPeloNome");
-			consulta.setString("nome", "%"+nome+"%");
+			consulta.setString("descricao", "%"+descricao+"%");
 			lista = consulta.list();
 		} catch (RuntimeException e) {
 			throw e;

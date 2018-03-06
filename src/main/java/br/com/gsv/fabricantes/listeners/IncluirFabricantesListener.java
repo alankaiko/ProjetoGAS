@@ -88,7 +88,7 @@ public class IncluirFabricantesListener implements ActionListener {
 			}else{
 				Editar();
 			}
-			// this.formulario.dispose();
+			 this.formulario.dispose();
 		}
 
 		if (event.getSource().equals(this.formulario.getBTCancelar())) {

@@ -13,7 +13,9 @@ import javax.swing.ListSelectionModel;
 
 import br.com.gsv.convenio.formularios.BuscarConvenioDialog;
 import br.com.projeto.gsv.controller.ConvenioController;
+import br.com.projeto.gsv.controller.ProdutoController;
 import br.com.projeto.gsv.util.TabelaBuscarConvenioUtil;
+import br.com.projeto.gsv.util.TabelaBuscarProdutoUtil;
 
 public class BuscarConvenioListener  implements ActionListener{
 	private BuscarConvenioDialog formulario;
@@ -150,15 +152,12 @@ public class BuscarConvenioListener  implements ActionListener{
 		
 		
 	private void BuscarConvenio(){
-		TabelaConvenio();
-		String descricao =  this.formulario.getTextoBuscar().getText();
-		
-		for(int i=0; i < this.formulario.getTable().getRowCount(); i++){
-			String coluna = (String) this.formulario.getTable().getValueAt(i, 1);
-			if(coluna.equals(descricao)){
-				this.formulario.getTable().changeSelection(i, 4, false, false);
-			}
-		}	
+		ConvenioController control = new ConvenioController();
+		tabela = new TabelaBuscarConvenioUtil(control.BuscarPeloNome(this.formulario.getTextoBuscar().getText()));
+		this.formulario.getTable().setModel(tabela);
+		this.formulario.getTable().getColumnModel().getColumn(0).setPreferredWidth(30);
+		this.formulario.getTable().getColumnModel().getColumn(1).setPreferredWidth(180);
+		this.formulario.getTable().changeSelection(0, 1, false, false);
 	}
 	
 	public void setCodigo(Long codigo) {

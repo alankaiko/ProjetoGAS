@@ -12,7 +12,9 @@ import javax.swing.KeyStroke;
 import javax.swing.ListSelectionModel;
 
 import br.com.gsv.produtos.formularios.BuscarProdutoDialog;
+import br.com.projeto.gsv.controller.PacienteController;
 import br.com.projeto.gsv.controller.ProdutoController;
+import br.com.projeto.gsv.util.TabelaBuscarPacientesUtil;
 import br.com.projeto.gsv.util.TabelaBuscarProdutoUtil;
 
 public class BuscarProdutoListener implements ActionListener{
@@ -154,15 +156,13 @@ public class BuscarProdutoListener implements ActionListener{
 		
 		
 	private void BuscarDescricao(){
-		TabelaProduto();
-		String descricao =  this.formulario.getTextoBuscar().getText();
-		
-		for(int i=0; i < this.formulario.getTable().getRowCount(); i++){
-			String coluna = (String) this.formulario.getTable().getValueAt(i, 1);
-			if(coluna.equals(descricao)){
-				this.formulario.getTable().changeSelection(i, 4, false, false);
-			}
-		}	
+		ProdutoController control = new ProdutoController();
+		tabela = new TabelaBuscarProdutoUtil(control.BuscarPelaDescricao(this.formulario.getTextoBuscar().getText()));
+		this.formulario.getTable().setModel(tabela);
+		this.formulario.getTable().getColumnModel().getColumn(0).setPreferredWidth(30);
+		this.formulario.getTable().getColumnModel().getColumn(1).setPreferredWidth(180);
+		this.formulario.getTable().getColumnModel().getColumn(2).setPreferredWidth(100);
+		this.formulario.getTable().changeSelection(0, 2, false, false);
 	}
 	
 	

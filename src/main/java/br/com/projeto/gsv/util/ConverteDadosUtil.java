@@ -11,9 +11,12 @@ import javax.swing.text.MaskFormatter;
 public class ConverteDadosUtil {
 	
 	
+	
+	
+	
 	//Converte o texto em Integer
 	public static Integer RetornaInt(String valor){
-		Integer num = null;
+		Integer num = 0;
 		
 		if(!valor.isEmpty()){
 			return num = Integer.parseInt(valor);

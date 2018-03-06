@@ -13,7 +13,9 @@ import javax.swing.ListSelectionModel;
 
 import br.com.gsv.fabricantes.formularios.BuscarFabricanteDialog;
 import br.com.projeto.gsv.controller.FabricanteController;
+import br.com.projeto.gsv.controller.PacienteController;
 import br.com.projeto.gsv.util.TabelaBuscarFabricantesUtil;
+import br.com.projeto.gsv.util.TabelaBuscarPacientesUtil;
 
 public class BuscarFabricanteListener implements ActionListener{
 	private BuscarFabricanteDialog formulario;
@@ -150,15 +152,12 @@ public class BuscarFabricanteListener implements ActionListener{
 		
 		
 	private void BuscarDescricao(){
-		TabelaFabricante();
-		String descricao =  this.formulario.getTextoBuscar().getText();
-		
-		for(int i=0; i < this.formulario.getTable().getRowCount(); i++){
-			String coluna = (String) this.formulario.getTable().getValueAt(i, 1);
-			if(coluna.equals(descricao)){
-				this.formulario.getTable().changeSelection(i, 4, false, false);
-			}
-		}	
+		FabricanteController control = new FabricanteController();
+		tabela = new TabelaBuscarFabricantesUtil(control.BuscarPeloNome(this.formulario.getTextoBuscar().getText()));
+		this.formulario.getTable().setModel(tabela);
+		this.formulario.getTable().getColumnModel().getColumn(0).setPreferredWidth(30);
+		this.formulario.getTable().getColumnModel().getColumn(1).setPreferredWidth(180);
+		this.formulario.getTable().changeSelection(0, 1, false, false);	
 	}
 	
 	public void setCodigo(Long codigo) {

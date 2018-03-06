@@ -187,7 +187,7 @@ public class IncluirPacienteListener implements ActionListener{
 			else
 				Editar();
 			
-			//this.formulario.dispose();
+			this.formulario.dispose();
 		}
 		
 		if(event.getActionCommand().equals("Cancelar")){
