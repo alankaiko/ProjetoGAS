@@ -1,5 +1,6 @@
 package br.com.projeto.gsv.util;
 
+import java.awt.event.KeyEvent;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -10,7 +11,13 @@ import javax.swing.text.MaskFormatter;
 
 public class ConverteDadosUtil {
 	
-	
+	public static void TextFieldNumero(KeyEvent evt) {
+		String caracteres="0987654321";// lista de caracters que devem ser aceitos
+		
+		if(!caracteres.contains(evt.getKeyChar()+"")){// se o caracter que gerou o evento estiver não estiver na lista
+			evt.consume();//aciona esse propriedade para eliminar a ação do evento
+		}
+	}
 	
 	
 	

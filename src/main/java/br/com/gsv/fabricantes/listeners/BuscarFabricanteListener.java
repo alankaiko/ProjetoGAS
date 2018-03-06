@@ -13,10 +13,8 @@ import javax.swing.ListSelectionModel;
 
 import br.com.gsv.fabricantes.formularios.BuscarFabricanteDialog;
 import br.com.projeto.gsv.controller.FabricanteController;
-import br.com.projeto.gsv.controller.PacienteController;
-import br.com.projeto.gsv.util.SomenteNumerosUtil;
+import br.com.projeto.gsv.util.ConverteDadosUtil;
 import br.com.projeto.gsv.util.TabelaBuscarFabricantesUtil;
-import br.com.projeto.gsv.util.TabelaBuscarPacientesUtil;
 
 public class BuscarFabricanteListener implements ActionListener{
 	private BuscarFabricanteDialog formulario;
@@ -101,11 +99,32 @@ public class BuscarFabricanteListener implements ActionListener{
 				}  
 			}  
 		}); 	
+		
+		
+		if(this.formulario.getBuscaId().isSelected() == true){
+			this.formulario.getTextoBuscar().addKeyListener(new KeyAdapter() {
+				@Override
+			    public void keyTyped(KeyEvent evt) {
+			        ConverteDadosUtil.TextFieldNumero(evt);
+		        }
+			});
+		}
+		
+		
+		
+			
+		
+		
+		
+		
 	}
 	
-	private void Teste(){
-		this.formulario.getTextoBuscar().addKeyListener(new SomenteNumerosUtil());
-	}
+	
+	
+	
+	
+	
+
 	
 	public void TeclaEsc(){
         JRootPane meurootpane = this.formulario.getRootPane();  
@@ -116,6 +135,8 @@ public class BuscarFabricanteListener implements ActionListener{
             	formulario.dispose();  
             }  
         });  
+        
+       
     }  
 	
 	
