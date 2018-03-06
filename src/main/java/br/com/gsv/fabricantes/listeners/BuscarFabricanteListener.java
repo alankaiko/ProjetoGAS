@@ -14,6 +14,7 @@ import javax.swing.ListSelectionModel;
 import br.com.gsv.fabricantes.formularios.BuscarFabricanteDialog;
 import br.com.projeto.gsv.controller.FabricanteController;
 import br.com.projeto.gsv.controller.PacienteController;
+import br.com.projeto.gsv.util.SomenteNumerosUtil;
 import br.com.projeto.gsv.util.TabelaBuscarFabricantesUtil;
 import br.com.projeto.gsv.util.TabelaBuscarPacientesUtil;
 
@@ -100,6 +101,10 @@ public class BuscarFabricanteListener implements ActionListener{
 				}  
 			}  
 		}); 	
+	}
+	
+	private void Teste(){
+		this.formulario.getTextoBuscar().addKeyListener(new SomenteNumerosUtil());
 	}
 	
 	public void TeclaEsc(){
