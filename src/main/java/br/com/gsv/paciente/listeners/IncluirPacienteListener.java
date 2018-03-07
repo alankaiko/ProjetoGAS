@@ -91,6 +91,7 @@ public class IncluirPacienteListener implements ActionListener{
 		if(this.formulario.getComboConvenio().getSelectedIndex() != -1){
 			this.paciente.setConvenio((Convenio) this.formulario.getComboConvenio().getSelectedItem()); 
 		}else{
+			convenio = new Convenio();
 			this.paciente.setConvenio(this.convenio);
 		}
 	}

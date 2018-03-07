@@ -104,10 +104,8 @@ public class DetalhesPacienteDialog extends JDialog {
 				
 			LConvenio = new JLabel("Convênio / Plano / Credencial");
 			LConvenio.setBounds(303, 124, 220, 14);
-			LConvenio.setFont(new Font("Arial" , Font.BOLD,11));;
 				TConvenio = new JLabel();
 				TConvenio.setBounds(478, 121, 133, 20);
-				TConvenio.setFont(new Font("Arial",Font.BOLD,10));
 
 				
 			LObservacao = new JLabel("Observação:");

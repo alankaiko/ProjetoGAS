@@ -151,57 +151,6 @@ public class DetalhesProdutoDialog extends JDialog {
 	}
 
 
-	public JLabel getLDados() {
-		return LDados;
-	}
 
-
-	public void setLDados(JLabel lDados) {
-		LDados = lDados;
-	}
-
-
-	public JLabel getLCodigo() {
-		return LCodigo;
-	}
-
-
-	public void setLCodigo(JLabel lCodigo) {
-		LCodigo = lCodigo;
-	}
-
-
-	public JLabel getLDescricao() {
-		return LDescricao;
-	}
-
-
-	public void setLDescricao(JLabel lDescricao) {
-		LDescricao = lDescricao;
-	}
-
-
-	public JLabel getLQuantidade() {
-		return LQuantidade;
-	}
-
-
-	public void setLQuantidade(JLabel lQuantidade) {
-		LQuantidade = lQuantidade;
-	}
-
-
-	public JLabel getLFabricante() {
-		return LFabricante;
-	}
-
-
-	public void setLFabricante(JLabel lFabricante) {
-		LFabricante = lFabricante;
-	}
-
-	
-
-	
 		
 }
