@@ -45,6 +45,9 @@ public class Paciente implements Serializable {
 	private List<Contato_cli> contato = new ArrayList<Contato_cli>();
 	private List<Endereco_cli> endereco = new ArrayList<Endereco_cli>();
 	private String observacao;
+	
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "tbl_convenios_conv_id", referencedColumnName = "conv_id", nullable = false)
 	private Convenio convenio;
 
 	
@@ -104,10 +107,7 @@ public class Paciente implements Serializable {
 		this.dataCad = dataCad;
 	}
 
-	
 
-	
-	
 	public Convenio getConvenio() {
 		return convenio;
 	}
@@ -116,7 +116,7 @@ public class Paciente implements Serializable {
 		this.convenio = convenio;
 	}
 
-	/* NotNull= o contato não pode ser nulo, OneToMany= um para muitos mappedby
+	/*  OneToMany= um para muitos mappedby
 	 * campo da outra classe que está sendo mapeado CascadeType.ALL= quando um
 	 * cliente for excluído ocontato é excluído junto com ele.*/
 	@OneToMany(mappedBy = "paciente", cascade = CascadeType.ALL, fetch=FetchType.EAGER)

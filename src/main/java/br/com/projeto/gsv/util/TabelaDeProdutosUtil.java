@@ -67,9 +67,8 @@ public class TabelaDeProdutosUtil extends AbstractTableModel{
         case DESCRICAO:
             return dados.getDescricao();
         case FABRICANTE:
-            return dados.getFabricante().getDescricao();
+        	return dados.getFabricante().getDescricao();
         default:
-           
             throw new IndexOutOfBoundsException("columnIndex out of bounds");
         }
     }

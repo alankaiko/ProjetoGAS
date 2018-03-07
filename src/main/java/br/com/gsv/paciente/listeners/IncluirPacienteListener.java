@@ -14,6 +14,7 @@ import javax.swing.JRootPane;
 import javax.swing.KeyStroke;
 
 import br.com.gsv.convenio.domain.Convenio;
+import br.com.gsv.fabricantes.domain.Fabricante;
 import br.com.gsv.paciente.domain.Contato_cli;
 import br.com.gsv.paciente.domain.Endereco_cli;
 import br.com.gsv.paciente.domain.Paciente;
@@ -80,10 +81,21 @@ public class IncluirPacienteListener implements ActionListener{
 		paciente.setCpf(this.formulario.getJCpf().getText().replaceAll("[_.-]", ""));
 		paciente.setRg(this.formulario.getTRg().getText());
 		paciente.setDataCad(new Date());
-		paciente.setConvenio((Convenio) this.formulario.getComboConvenio().getSelectedItem());
 		paciente.setDataNasc(ConverteDadosUtil.TransformandoEmDate(this.formulario.getJDataNasc().getText()));
 		paciente.setObservacao(this.formulario.getTObservacao().getText());
+		FormaFab();
 	}
+	
+	
+	private void FormaFab(){
+		if(this.formulario.getComboConvenio().getSelectedIndex() != -1){
+			this.paciente.setConvenio((Convenio) this.formulario.getComboConvenio().getSelectedItem()); 
+		}else{
+			this.paciente.setConvenio(this.convenio);
+		}
+	}
+	
+	
 	
 	
 	//Método que pega informacoes dos contatos e Joga dentro do objeto Contatos
@@ -256,6 +268,7 @@ public class IncluirPacienteListener implements ActionListener{
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public void ListaConvenios(){
 		this.formulario.getComboConvenio().setModel(new DefaultComboBoxModel(new Vector(con.RetornaConvenio())));
+		this.formulario.getComboConvenio().setSelectedIndex(-1);
 	}
 
 	

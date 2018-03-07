@@ -64,10 +64,16 @@ public class IncluirProdutoListener implements ActionListener {
 		this.produto.setCodigo(this.formulario.getTCodigo().getText());
 		this.produto.setDescricao(this.formulario.getTDescricao().getText());
 		this.produto.setQuantidade(ConverteDadosUtil.RetornaInt(this.formulario.getTQuantidade().getText()));
-		this.produto.setFabricante((Fabricante) this.formulario.getComboFabricante().getSelectedItem());
+		FormaFab();
 	}
 	
-	
+	private void FormaFab(){
+		if(this.formulario.getComboFabricante().getSelectedIndex() != -1){
+			this.produto.setFabricante((Fabricante) this.formulario.getComboFabricante().getSelectedItem()); 
+		}else{
+			this.produto.setFabricante(fabricante);
+		}
+	}
 	
 	/*-----------------------------------------------------------------------------------------------------------------*/
 	/*---------------------------------------CLASSES PARA EDICAO DOS OBJETOS-------------------------------------------*/
@@ -109,6 +115,7 @@ public class IncluirProdutoListener implements ActionListener {
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public void ListaFabricantes(){
 		this.formulario.getComboFabricante().setModel(new DefaultComboBoxModel(new Vector(con.RetornaFabricante())));
+		this.formulario.getComboFabricante().setSelectedIndex(-1);
 	}
 	
 	

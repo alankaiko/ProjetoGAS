@@ -9,7 +9,16 @@ import java.util.Date;
 
 import javax.swing.text.MaskFormatter;
 
+import br.com.gsv.fabricantes.domain.Fabricante;
+
 public class ConverteDadosUtil {
+	
+/*	public static Fabricante ConfereFabricante(String valor){
+		Fabricante fab = new Fabricante();
+		
+	}
+	*/
+	
 	
 	public static void TextFieldNumero(KeyEvent evt) {
 		String caracteres="0987654321";// lista de caracters que devem ser aceitos

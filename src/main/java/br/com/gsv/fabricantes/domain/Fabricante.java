@@ -2,6 +2,7 @@ package br.com.gsv.fabricantes.domain;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,7 +10,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import br.com.gsv.produtos.domain.Produto;
 
 @Entity
 @Table
@@ -23,9 +27,9 @@ public class Fabricante implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
+	@Column(name="fab_codigo")
 	private Long id;
 	private String descricao;
-
 	
 	
 	public Long getId() {
@@ -44,6 +48,8 @@ public class Fabricante implements Serializable {
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
+
+	
 
 	@Override
 	public int hashCode() {
@@ -70,7 +76,6 @@ public class Fabricante implements Serializable {
 		return true;
 	}
 
-	
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
@@ -78,4 +83,5 @@ public class Fabricante implements Serializable {
 		return builder.toString();
 	}
 
+	
 }
