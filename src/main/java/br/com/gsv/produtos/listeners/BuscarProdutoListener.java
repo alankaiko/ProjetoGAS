@@ -170,8 +170,12 @@ public class BuscarProdutoListener implements ActionListener{
 		TabelaProduto();
 		String fabricante = this.formulario.getTextoBuscar().getText();
 		
+		
+		
+		
 		for(int i =0; i < this.formulario.getTable().getRowCount(); i++){  
-		     String coluna = (String)this.formulario.getTable().getValueAt(i, 2); 
+		     String coluna = String.valueOf(this.formulario.getTable().getValueAt(i, 2)); 
+		     
 		       if(coluna.equals(fabricante)){  
 		    	   this.formulario.getTable().changeSelection( i , 4 , false , false); 
 		    	   break;

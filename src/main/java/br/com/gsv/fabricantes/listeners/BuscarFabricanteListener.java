@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
 import javax.swing.AbstractAction;
 import javax.swing.JComponent;
@@ -101,18 +102,22 @@ public class BuscarFabricanteListener implements ActionListener{
 		}); 	
 		
 		
-		if(this.formulario.getBuscaId().isSelected() == true){
+		this.formulario.getBuscaId();
+		
+		
+		
+		/*
 			this.formulario.getTextoBuscar().addKeyListener(new KeyAdapter() {
 				@Override
 			    public void keyTyped(KeyEvent evt) {
 			        ConverteDadosUtil.TextFieldNumero(evt);
 		        }
 			});
-		}
 		
 		
 		
-			
+		
+			*/
 		
 		
 		
@@ -120,7 +125,7 @@ public class BuscarFabricanteListener implements ActionListener{
 	}
 	
 	
-	
+
 	
 	
 	
