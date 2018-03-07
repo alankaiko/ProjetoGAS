@@ -15,17 +15,20 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
 import br.com.gsv.produtos.listeners.IncluirProdutoListener;
+import br.com.gsv.produtos.listeners.IncluirProdutoMouseListener;
 import br.com.projeto.gsv.util.ListasUtil;
 
 public class IncluirProdutosForm extends JDialog {
 	private static final long serialVersionUID = 1L;
 	private IncluirProdutoListener listener;
+	private IncluirProdutoMouseListener mouseListener;
 	
 	public IncluirProdutosForm() {
 		CriarTelaGeral();
 		CriaComponentes();
 		InicializaComponentes();
 		listener = new IncluirProdutoListener(this);
+		mouseListener = new IncluirProdutoMouseListener(this);
 	}
 	
 	
@@ -72,6 +75,8 @@ public class IncluirProdutosForm extends JDialog {
 			comboFabricante = new JComboBox();
 			comboFabricante.setBounds(106, 193, 241, 20);
 
+			LAdicionaFabricante = new JLabel("Adiciona Fabricante?");
+			LAdicionaFabricante.setBounds(360, 196, 113, 14);
 		
 		BTNovo = new JButton("Novo");
 		BTNovo.setFont(new Font("Calibri", Font.PLAIN, 12));
@@ -99,6 +104,8 @@ public class IncluirProdutosForm extends JDialog {
 		tela.add(BTGravar);
 		tela.add(BTNovo);
 		tela.add(TQuantidade);
+		tela.add(LAdicionaFabricante);
+		
 	}
 	
 	
@@ -106,7 +113,7 @@ public class IncluirProdutosForm extends JDialog {
 	private Container tela = getContentPane();
 	private JButton BTNovo, BTGravar, BTCancelar;
 	private JTextField TCodigo, TDescricao, TQuantidade;
-	private JLabel LDados, LCodigo, LDescricao, LQuantidade, LFabricante;
+	private JLabel LDados, LCodigo, LDescricao, LQuantidade, LFabricante, LAdicionaFabricante;
 	private JComboBox comboFabricante;
 
 	
@@ -236,7 +243,24 @@ public class IncluirProdutosForm extends JDialog {
 	public void setTQuantidade(JTextField tQuantidade) {
 		TQuantidade = tQuantidade;
 	}
-		
-		
-		
+	
+	public void setLAdicionaFabricante(JLabel lAdicionaFabricante) {
+		LAdicionaFabricante = lAdicionaFabricante;
+	}
+	
+	public JLabel getLAdicionaFabricante() {
+		return LAdicionaFabricante;
+	}
+
+
+	public Container getTela() {
+		return tela;
+	}
+
+
+	public void setTela(Container tela) {
+		this.tela = tela;
+	}
+	
+	
 }
