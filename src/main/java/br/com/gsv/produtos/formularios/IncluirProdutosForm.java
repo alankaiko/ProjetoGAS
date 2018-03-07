@@ -3,9 +3,7 @@ package br.com.gsv.produtos.formularios;
 import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.Font;
-import java.util.Vector;
 
-import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
@@ -15,20 +13,18 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
 import br.com.gsv.produtos.listeners.IncluirProdutoListener;
-import br.com.gsv.produtos.listeners.IncluirProdutoMouseListener;
-import br.com.projeto.gsv.util.ListasUtil;
+import java.awt.Color;
 
 public class IncluirProdutosForm extends JDialog {
 	private static final long serialVersionUID = 1L;
 	private IncluirProdutoListener listener;
-	private IncluirProdutoMouseListener mouseListener;
+	
 	
 	public IncluirProdutosForm() {
 		CriarTelaGeral();
 		CriaComponentes();
 		InicializaComponentes();
 		listener = new IncluirProdutoListener(this);
-		mouseListener = new IncluirProdutoMouseListener(this);
 	}
 	
 	
@@ -75,8 +71,10 @@ public class IncluirProdutosForm extends JDialog {
 			comboFabricante = new JComboBox();
 			comboFabricante.setBounds(106, 193, 241, 20);
 
-			LAdicionaFabricante = new JLabel("Adiciona Fabricante?");
-			LAdicionaFabricante.setBounds(360, 196, 113, 14);
+			LAdicionaFabricante = new JLabel("Adicionar?");
+			LAdicionaFabricante.setForeground(Color.BLUE);
+			LAdicionaFabricante.setFont(new Font("Palatino Linotype", Font.PLAIN, 10));
+			LAdicionaFabricante.setBounds(357, 202, 123, 14);
 		
 		BTNovo = new JButton("Novo");
 		BTNovo.setFont(new Font("Calibri", Font.PLAIN, 12));

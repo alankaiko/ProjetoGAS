@@ -4,8 +4,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import java.util.Vector;
 
 import javax.swing.AbstractAction;
@@ -15,6 +15,7 @@ import javax.swing.JRootPane;
 import javax.swing.KeyStroke;
 
 import br.com.gsv.fabricantes.domain.Fabricante;
+import br.com.gsv.fabricantes.formularios.IncluirFabricantesForm;
 import br.com.gsv.produtos.domain.Produto;
 import br.com.gsv.produtos.formularios.IncluirProdutosForm;
 import br.com.projeto.gsv.controller.ProdutoController;
@@ -35,6 +36,7 @@ public class IncluirProdutoListener implements ActionListener {
 		AdicionaListener();
 		UsandoTAB();
 		UpCase();
+		HiperlinkAdicionarFab();
 		TeclaEsc();
 	}
 	
@@ -43,6 +45,7 @@ public class IncluirProdutoListener implements ActionListener {
 		this.formulario.getBTCancelar().addActionListener(this);
 		this.formulario.getBTGravar().addActionListener(this);
 		this.formulario.getBTNovo().addActionListener(this);
+		
 	}
 	
 	
@@ -163,6 +166,18 @@ public class IncluirProdutoListener implements ActionListener {
 				}  
 			}  
 		}); 	
+	}
+	
+	private void HiperlinkAdicionarFab(){
+		this.formulario.getLAdicionaFabricante().addMouseListener(new MouseAdapter() {
+		    @Override
+		    public void mouseClicked(MouseEvent e) {
+		         IncluirFabricantesForm formu = new IncluirFabricantesForm();
+		         formu.setLocationRelativeTo(formulario.getTela());
+		         formu.setVisible(true);
+		         ListaFabricantes();
+		    }
+		});
 	}
 
 	

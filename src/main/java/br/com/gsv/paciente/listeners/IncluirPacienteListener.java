@@ -4,6 +4,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.Date;
 import java.util.Vector;
 
@@ -14,7 +16,9 @@ import javax.swing.JRootPane;
 import javax.swing.KeyStroke;
 
 import br.com.gsv.convenio.domain.Convenio;
+import br.com.gsv.convenio.formularios.IncluirConvenioForm;
 import br.com.gsv.fabricantes.domain.Fabricante;
+import br.com.gsv.fabricantes.formularios.IncluirFabricantesForm;
 import br.com.gsv.paciente.domain.Contato_cli;
 import br.com.gsv.paciente.domain.Endereco_cli;
 import br.com.gsv.paciente.domain.Paciente;
@@ -39,6 +43,7 @@ public class IncluirPacienteListener implements ActionListener{
 		ListaConvenios();
 		TeclaEsc();
 		UsandoTAB();
+		HiperlinkAdicionarFab();
 		UpCase();
 	}
 	
@@ -251,6 +256,18 @@ public class IncluirPacienteListener implements ActionListener{
 				}  
 			}  
 		}); 
+	}
+	
+	private void HiperlinkAdicionarFab(){
+		this.formulario.getLAdicionaConvenio().addMouseListener(new MouseAdapter() {
+		    @Override
+		    public void mouseClicked(MouseEvent e) {
+		         IncluirConvenioForm formu = new IncluirConvenioForm();
+		         formu.setLocationRelativeTo(formulario.getTela());
+		         formu.setVisible(true);
+		         ListaConvenios();
+		    }
+		});
 	}
 	
 	

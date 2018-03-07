@@ -107,9 +107,14 @@ public class IncluirPacienteForm extends JDialog {
 				JDataCadastro.setBounds(525,30,84,19);
 				
 			LConvenio = new JLabel("Convênio / Plano / Credencial");
-			LConvenio.setBounds(303, 124, 220, 14);
+			LConvenio.setBounds(254, 124, 220, 14);
 				ComboConvenio = new JComboBox();
-				ComboConvenio.setBounds(478, 121, 133, 20);
+				ComboConvenio.setBounds(409, 121, 133, 20);
+				
+				LAdicionaConvenio = new JLabel("Adicionar?");
+				LAdicionaConvenio.setForeground(Color.BLUE);
+				LAdicionaConvenio.setFont(new Font("Palatino Linotype", Font.PLAIN, 10));
+				LAdicionaConvenio.setBounds(552, 130, 123, 14);
 
 				
 			LObservacao = new JLabel("Observação:");
@@ -249,6 +254,7 @@ public class IncluirPacienteForm extends JDialog {
 		tela.add(this.LTelefone);
 		tela.add(this.TEmail);
 		tela.add(this.TTelefone);
+		tela.add(this.LAdicionaConvenio);
 		tela.add(this.TCelular);
 		tela.add(this.BTNovo);
 		tela.add(this.BTGravar);
@@ -265,7 +271,7 @@ public class IncluirPacienteForm extends JDialog {
 	private final JPanel contentPanel = new JPanel();
 	private Container tela = getContentPane();
 	private JLabel LId, LNome, LDocumento, LRg, LDataNasc, LDataCad, LObservacao, LConvenio;
-	private JLabel LIndentif, LEndereco, LLogradouro, LComplemento;
+	private JLabel LIndentif, LEndereco, LLogradouro, LComplemento, LAdicionaConvenio;
 	private JLabel LNumero, LBairro, LCidade, LCep, LContato, LEmail, LCelular, LTelefone, LEstado;
 	private JTextField TId, TNome, TRg, TObservacao, TLogradouro, TComplemento, TNumero;
 	private JTextField TBairro, TCidade, TEmail, TTelefone, TCelular;
@@ -497,5 +503,13 @@ public class IncluirPacienteForm extends JDialog {
 	}
 
 
+	public JLabel getLAdicionaConvenio() {
+		return LAdicionaConvenio;
+	}
+	
+	public void setLAdicionaConvenio(JLabel lAdicionaConvenio) {
+		LAdicionaConvenio = lAdicionaConvenio;
+	}
+	
 	
 }
