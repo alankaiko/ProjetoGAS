@@ -61,6 +61,7 @@ public class IncluirFabricantesForm extends JDialog {
 			TFabricante = new JTextField();
 			TFabricante.setBounds(83, 63, 239, 19);
 			TFabricante.setFont(new Font("Arial", Font.BOLD, 10));
+			
 
 		BTGravar = new JButton("Gravar");
 		BTGravar.setFont(new Font("Calibri", Font.PLAIN, 12));
