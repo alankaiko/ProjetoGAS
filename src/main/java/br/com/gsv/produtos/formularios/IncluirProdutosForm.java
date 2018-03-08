@@ -52,7 +52,7 @@ public class IncluirProdutosForm extends JDialog {
 			TCodigo = new JTextField();
 			TCodigo.setBounds(100, 59, 86, 20);
 			TCodigo.setColumns(10);
-			TCodigo.setToolTipText("Insira o Código.");
+			TCodigo.setToolTipText("Aceita Letras e Números para composição do Código");
 		
 		LDescricao = new JLabel("Descrição");
 		LDescricao.setBounds(38, 104, 70, 14);

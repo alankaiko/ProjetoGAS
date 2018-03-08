@@ -18,6 +18,7 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
 import br.com.gsv.funcionarios.listeners.BuscarFuncionarioListener;
+import br.com.gsv.funcionarios.listeners.RadioListenerFuncionario;
 
 public class BuscarFuncionarioDialog extends JDialog {
 	private final JPanel contentPanel = new JPanel();
@@ -30,6 +31,7 @@ public class BuscarFuncionarioDialog extends JDialog {
 	private JScrollPane scrollPane;
 	private JTable table;
 	private BuscarFuncionarioListener listener;
+	private RadioListenerFuncionario radioFuncionario;
 	
 	
 	public BuscarFuncionarioDialog() {
@@ -37,6 +39,7 @@ public class BuscarFuncionarioDialog extends JDialog {
 		CriaComponentes();
 		AdicionaNaTela();
 		listener = new BuscarFuncionarioListener(this);
+		radioFuncionario = new RadioListenerFuncionario(this);
 	}
 	
 	

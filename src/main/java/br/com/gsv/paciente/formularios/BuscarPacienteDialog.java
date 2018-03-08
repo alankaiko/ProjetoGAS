@@ -19,6 +19,7 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
 import br.com.gsv.paciente.listeners.BuscarPacienteListener;
+import br.com.gsv.paciente.listeners.RadioListenerPaciente;
 
 public class BuscarPacienteDialog extends JDialog {
 	private final JPanel contentPanel = new JPanel();
@@ -31,6 +32,7 @@ public class BuscarPacienteDialog extends JDialog {
 	private JScrollPane scrollPane;
 	private JTable table;
 	private BuscarPacienteListener listener;
+	private RadioListenerPaciente radioListener;
 	
 	
 	public BuscarPacienteDialog() {
@@ -38,6 +40,7 @@ public class BuscarPacienteDialog extends JDialog {
 		CriaComponentes();
 		AdicionaNaTela();
 		listener = new BuscarPacienteListener(this);
+		radioListener = new RadioListenerPaciente(this);
 	}
 	
 	

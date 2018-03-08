@@ -17,6 +17,7 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
 import br.com.gsv.fabricantes.listeners.BuscarFabricanteListener;
+import br.com.gsv.fabricantes.listeners.RadioListenerFabricante;
 
 public class BuscarFabricanteDialog extends JDialog {
 	private final JPanel contentPanel = new JPanel();
@@ -29,6 +30,7 @@ public class BuscarFabricanteDialog extends JDialog {
 	private JScrollPane scrollPane;
 	private JTable table;
 	private BuscarFabricanteListener listener;
+	private RadioListenerFabricante radioListener;
 	
 	
 	public BuscarFabricanteDialog() {
@@ -36,6 +38,7 @@ public class BuscarFabricanteDialog extends JDialog {
 		CriaComponentes();
 		AdicionaNaTela();
 		listener = new BuscarFabricanteListener(this);
+		radioListener = new RadioListenerFabricante(this);
 	}
 	
 	
@@ -191,5 +194,11 @@ public class BuscarFabricanteDialog extends JDialog {
 		return listener;
 	}
 	
+	public RadioListenerFabricante getRadioListener() {
+		return radioListener;
+	}
+	public void setRadioListener(RadioListenerFabricante radioListener) {
+		this.radioListener = radioListener;
+	}
 
 }

@@ -2,6 +2,8 @@ package br.com.gsv.fabricantes.listeners;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -100,28 +102,7 @@ public class BuscarFabricanteListener implements ActionListener{
 				}  
 			}  
 		}); 	
-		
-		
 		this.formulario.getBuscaId();
-		
-		
-		
-		/*
-			this.formulario.getTextoBuscar().addKeyListener(new KeyAdapter() {
-				@Override
-			    public void keyTyped(KeyEvent evt) {
-			        ConverteDadosUtil.TextFieldNumero(evt);
-		        }
-			});
-		
-		
-		
-		
-			*/
-		
-		
-		
-		
 	}
 	
 	
@@ -139,9 +120,7 @@ public class BuscarFabricanteListener implements ActionListener{
             public void actionPerformed(ActionEvent e) {  
             	formulario.dispose();  
             }  
-        });  
-        
-       
+        });   
     }  
 	
 	

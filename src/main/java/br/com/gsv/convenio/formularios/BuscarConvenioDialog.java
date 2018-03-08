@@ -17,6 +17,7 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
 import br.com.gsv.convenio.listeners.BuscarConvenioListener;
+import br.com.gsv.convenio.listeners.RadioListenerConvenio;
 
 public class BuscarConvenioDialog extends JDialog {
 	private final JPanel contentPanel = new JPanel();
@@ -29,6 +30,7 @@ public class BuscarConvenioDialog extends JDialog {
 	private JScrollPane scrollPane;
 	private JTable table;
 	private BuscarConvenioListener listener;
+	private RadioListenerConvenio radioListener;
 	
 	
 	public BuscarConvenioDialog() {
@@ -36,6 +38,7 @@ public class BuscarConvenioDialog extends JDialog {
 		CriaComponentes();
 		AdicionaNaTela();
 		listener = new BuscarConvenioListener(this);
+		radioListener = new RadioListenerConvenio(this);
 	}
 	
 	
