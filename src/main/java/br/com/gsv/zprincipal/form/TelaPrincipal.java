@@ -158,7 +158,7 @@ public class TelaPrincipal extends JFrame {
 		painelPrincipal.setLayout(null);
 		
 		painelMenuRapido = new Panel();
-		painelMenuRapido.setBackground(new Color(18,46,81));
+		painelMenuRapido.setBackground(new Color(84, 127, 206));
 		painelMenuRapido.setBounds(15, 0, 239, 439);
 		painelPrincipal.add(painelMenuRapido);
 		painelMenuRapido.setLayout(null);

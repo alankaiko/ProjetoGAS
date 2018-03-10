@@ -660,8 +660,10 @@ public class TelaPrincipal extends JFrame {
     
     private JLabel btn_exit, jLabel1, jLabel10, jLabel11, jLabel12, jLabel13, jLabel14, jLabel15, jLabel16,  jLabel2;
     private JLabel jLabel3, jLabel4, jLabel5, jLabel6, jLabel7, jLabel8, jLabel9;
+    
     private JPanel btn_1, btn_2, btn_3, btn_4, ind_1, ind_2, ind_3, ind_4, jPanel2, jPanel3, jPanel4, jPanel5;
     private JPanel jPanel6, jPanel7, side_pane;
+    
     private JProgressBar jProgressBar1;
     private JScrollPane jScrollPane1;
     private JSeparator jSeparator1;
