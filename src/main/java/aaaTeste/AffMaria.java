@@ -11,23 +11,20 @@ import javax.swing.GroupLayout.Alignment;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JMenuBar;
 import javax.swing.JPanel;
 import javax.swing.LayoutStyle.ComponentPlacement;
-import javax.swing.border.LineBorder;
-import javax.swing.border.MatteBorder;
 
 import br.com.projeto.gsv.util.HibernateUtil;
+import aaaTesteListener.AffMariaListener;
 import aaaTesteListener.BarraDeStatusAffMaria;
 
 public class AffMaria extends JFrame {
-	private Container tela;
-	private JMenuBar menuBar;
+	private Container tela = getContentPane();
 	private JPanel panel, painelEsquerdo, botaoFuncionario, botaoPaciente;
 	private JPanel botaoProdutos, botaoRelPacientes, botaoRelItens;
 	private JLabel LFuncionario,iconeFuncionario,LStatusUsuario,LStatusData,LStatusHora,iconePaciente;
 	private JLabel LPaciente,iconeProduto, LProduto, iconeRelPaciente,LRelPaciente,iconeRelItens,LRelItens;
-	
+	private AffMariaListener listener;
 	
 	
 	public static void main(String[] args) {
@@ -35,6 +32,8 @@ public class AffMaria extends JFrame {
 			public void run() {
 				try {
 					AffMaria frame = new AffMaria();
+					frame.setResizable(false);
+					frame.setLocationRelativeTo(null);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -47,24 +46,24 @@ public class AffMaria extends JFrame {
 	
 	public AffMaria() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 800, 520);
+		setBounds(100, 100, 900, 590);
 		
 		PainelPrincipal();
 		GruposPainelEsquerdo();
 		GruposPainelStatus();
+		BarraDeStatusAffMaria status = new BarraDeStatusAffMaria(this);
+		listener = new AffMariaListener(this);
 		HibernateUtil.getSessionFactory();
 	}
 
 	private void PainelPrincipal(){
-		menuBar = new JMenuBar();
-		setJMenuBar(menuBar);
 		tela = new JPanel();
 		setContentPane(tela);
 		tela.setLayout(null);
 		
 		panel = new JPanel();
 		panel.setBackground(Color.WHITE);
-		panel.setBounds(0, 0, 784, 461);
+		panel.setBounds(0, 0, 900, 570);
 		tela.add(panel);
 		panel.setLayout(null);
 	}
@@ -72,8 +71,7 @@ public class AffMaria extends JFrame {
 	
 	private void GruposPainelEsquerdo(){
 		painelEsquerdo = new JPanel();
-		painelEsquerdo.setBorder(new MatteBorder(0, 0, 1, 0, (Color) new Color(191, 205, 219)));
-		painelEsquerdo.setBounds(0, 38, 245, 400);
+		painelEsquerdo.setBounds(0, 122, 245, 416);
 		painelEsquerdo.setBackground(new Color(71,120,197));
 		
 		botaoFuncionario = new JPanel();
@@ -274,7 +272,7 @@ public class AffMaria extends JFrame {
 	private void GruposPainelStatus(){
 		Panel painelStatus = new Panel();
 		painelStatus.setBackground(new Color(71,120,197));
-		painelStatus.setBounds(0, 440, 784, 20);
+		painelStatus.setBounds(0, 540, 890, 20);
 		panel.add(painelStatus);
 		
 		LStatusUsuario = new JLabel();
@@ -320,6 +318,66 @@ public class AffMaria extends JFrame {
 	
 
 
+	public JPanel getBotaoFuncionario() {
+		return botaoFuncionario;
+	}
+
+
+
+	public void setBotaoFuncionario(JPanel botaoFuncionario) {
+		this.botaoFuncionario = botaoFuncionario;
+	}
+
+
+
+	public JPanel getBotaoPaciente() {
+		return botaoPaciente;
+	}
+
+
+
+	public void setBotaoPaciente(JPanel botaoPaciente) {
+		this.botaoPaciente = botaoPaciente;
+	}
+
+
+
+	public JPanel getBotaoProdutos() {
+		return botaoProdutos;
+	}
+
+
+
+	public void setBotaoProdutos(JPanel botaoProdutos) {
+		this.botaoProdutos = botaoProdutos;
+	}
+
+
+
+	public JPanel getBotaoRelPacientes() {
+		return botaoRelPacientes;
+	}
+
+
+
+	public void setBotaoRelPacientes(JPanel botaoRelPacientes) {
+		this.botaoRelPacientes = botaoRelPacientes;
+	}
+
+
+
+	public JPanel getBotaoRelItens() {
+		return botaoRelItens;
+	}
+
+
+
+	public void setBotaoRelItens(JPanel botaoRelItens) {
+		this.botaoRelItens = botaoRelItens;
+	}
+
+
+
 	public JLabel getLStatusUsuario() {
 		return LStatusUsuario;
 	}
@@ -353,7 +411,4 @@ public class AffMaria extends JFrame {
 	public void setLStatusHora(JLabel lStatusHora) {
 		LStatusHora = lStatusHora;
 	}
-	
-	
-	
 }
