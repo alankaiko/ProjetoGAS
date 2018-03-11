@@ -6,6 +6,8 @@ import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.SystemColor;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
@@ -14,14 +16,16 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSeparator;
+import javax.swing.JTextField;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.border.EmptyBorder;
-import javax.swing.JTextField;
 
 public class TelaBeta extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textField;
+	private JPanel botao1, botao2, botao3, botao4;
+	private JPanel panHome, panUser, panProfile, panSettings;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -37,6 +41,7 @@ public class TelaBeta extends JFrame {
 	}
 
 	
+	
 	public TelaBeta() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 940, 490);
@@ -47,26 +52,153 @@ public class TelaBeta extends JFrame {
 		//setLocationByPlatform(true);
         //setUndecorated(true);
 		
-		JPanel panel = new JPanel();
-		panel.setBackground(new Color(26,35,51));
-		panel.setBounds(0, 0, 121, 452);
-		contentPane.add(panel);
+		JPanel painelEsquerdo = new JPanel();
+		painelEsquerdo.setBackground(new Color(26,35,51));
+		painelEsquerdo.setBounds(0, 0, 121, 452);
+		contentPane.add(painelEsquerdo);
 		
-		JPanel panel_7 = new JPanel();
-		panel_7.setBackground(new Color(41,57,80));
-		GroupLayout gl_panel = new GroupLayout(panel);
-		gl_panel.setHorizontalGroup(
-			gl_panel.createParallelGroup(Alignment.LEADING)
-				.addComponent(panel_7, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 121, Short.MAX_VALUE)
+		botao1 = new JPanel();
+		botao1.setBackground(new Color(41,57,80));
+		
+		botao2 = new JPanel();
+		botao2.setBackground(new Color(41, 57, 80));
+		
+		panUser = new JPanel();
+		
+		JLabel LUser = new JLabel("Users");
+		LUser.setForeground(Color.WHITE);
+		LUser.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+		LUser.setBackground(Color.WHITE);
+		GroupLayout gl_botao2 = new GroupLayout(botao2);
+		gl_botao2.setHorizontalGroup(
+			gl_botao2.createParallelGroup(Alignment.LEADING)
+				.addGap(0, 121, Short.MAX_VALUE)
+				.addGroup(gl_botao2.createSequentialGroup()
+					.addComponent(panUser, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addGap(18)
+					.addComponent(LUser)
+					.addContainerGap(47, Short.MAX_VALUE))
 		);
-		gl_panel.setVerticalGroup(
-			gl_panel.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_panel.createSequentialGroup()
-					.addGap(100)
-					.addComponent(panel_7, GroupLayout.PREFERRED_SIZE, 57, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(295, Short.MAX_VALUE))
+		gl_botao2.setVerticalGroup(
+			gl_botao2.createParallelGroup(Alignment.LEADING)
+				.addGap(0, 33, Short.MAX_VALUE)
+				.addComponent(panUser, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE)
+				.addGroup(Alignment.TRAILING, gl_botao2.createSequentialGroup()
+					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+					.addComponent(LUser)
+					.addContainerGap())
 		);
-		panel.setLayout(gl_panel);
+		botao2.setLayout(gl_botao2);
+		
+		botao3 = new JPanel();
+		botao3.setBackground(new Color(41, 57, 80));
+		
+		panProfile = new JPanel();
+		
+		JLabel LProfile = new JLabel("Profile");
+		LProfile.setForeground(Color.WHITE);
+		LProfile.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+		LProfile.setBackground(Color.WHITE);
+		GroupLayout gl_botao3 = new GroupLayout(botao3);
+		gl_botao3.setHorizontalGroup(
+			gl_botao3.createParallelGroup(Alignment.LEADING)
+				.addGap(0, 121, Short.MAX_VALUE)
+				.addGroup(gl_botao3.createSequentialGroup()
+					.addComponent(panProfile, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addGap(18)
+					.addComponent(LProfile)
+					.addContainerGap(65, Short.MAX_VALUE))
+		);
+		gl_botao3.setVerticalGroup(
+			gl_botao3.createParallelGroup(Alignment.TRAILING)
+				.addGap(0, 33, Short.MAX_VALUE)
+				.addComponent(panProfile, GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
+				.addGroup(gl_botao3.createSequentialGroup()
+					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+					.addComponent(LProfile)
+					.addContainerGap())
+		);
+		botao3.setLayout(gl_botao3);
+		
+		botao4 = new JPanel();
+		botao4.setBackground(new Color(41, 57, 80));
+		
+		panSettings = new JPanel();
+		
+		JLabel LSettings = new JLabel("Settings");
+		LSettings.setForeground(Color.WHITE);
+		LSettings.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+		LSettings.setBackground(Color.WHITE);
+		GroupLayout gl_botao4 = new GroupLayout(botao4);
+		gl_botao4.setHorizontalGroup(
+			gl_botao4.createParallelGroup(Alignment.LEADING)
+				.addGap(0, 121, Short.MAX_VALUE)
+				.addGroup(gl_botao4.createSequentialGroup()
+					.addComponent(panSettings, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addGap(18)
+					.addComponent(LSettings)
+					.addContainerGap(59, Short.MAX_VALUE))
+		);
+		gl_botao4.setVerticalGroup(
+			gl_botao4.createParallelGroup(Alignment.TRAILING)
+				.addGap(0, 33, Short.MAX_VALUE)
+				.addComponent(panSettings, GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
+				.addGroup(gl_botao4.createSequentialGroup()
+					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+					.addComponent(LSettings)
+					.addContainerGap())
+		);
+		botao4.setLayout(gl_botao4);
+		GroupLayout gl_painelEsquerdo = new GroupLayout(painelEsquerdo);
+		gl_painelEsquerdo.setHorizontalGroup(
+			gl_painelEsquerdo.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_painelEsquerdo.createSequentialGroup()
+					.addGroup(gl_painelEsquerdo.createParallelGroup(Alignment.LEADING)
+						.addComponent(botao1, GroupLayout.DEFAULT_SIZE, 121, Short.MAX_VALUE)
+						.addComponent(botao2, GroupLayout.PREFERRED_SIZE, 121, GroupLayout.PREFERRED_SIZE)
+						.addComponent(botao3, GroupLayout.PREFERRED_SIZE, 121, GroupLayout.PREFERRED_SIZE)
+						.addComponent(botao4, GroupLayout.PREFERRED_SIZE, 121, GroupLayout.PREFERRED_SIZE))
+					.addContainerGap())
+		);
+		gl_painelEsquerdo.setVerticalGroup(
+			gl_painelEsquerdo.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_painelEsquerdo.createSequentialGroup()
+					.addGap(103)
+					.addComponent(botao1, GroupLayout.PREFERRED_SIZE, 33, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(botao2, GroupLayout.PREFERRED_SIZE, 33, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(botao3, GroupLayout.PREFERRED_SIZE, 33, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(botao4, GroupLayout.PREFERRED_SIZE, 33, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap(199, Short.MAX_VALUE))
+		);
+		
+		panHome = new JPanel();
+		
+		JLabel LHome = new JLabel("Home");
+		LHome.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+		LHome.setForeground(Color.WHITE);
+		LHome.setBackground(Color.WHITE);
+		GroupLayout gl_botao1 = new GroupLayout(botao1);
+		gl_botao1.setHorizontalGroup(
+			gl_botao1.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_botao1.createSequentialGroup()
+					.addComponent(panHome, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addGap(18)
+					.addComponent(LHome)
+					.addContainerGap(47, Short.MAX_VALUE))
+		);
+		gl_botao1.setVerticalGroup(
+			gl_botao1.createParallelGroup(Alignment.LEADING)
+				.addComponent(panHome, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE)
+				.addGroup(Alignment.TRAILING, gl_botao1.createSequentialGroup()
+					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+					.addComponent(LHome)
+					.addContainerGap())
+		);
+		botao1.setLayout(gl_botao1);
+		painelEsquerdo.setLayout(gl_painelEsquerdo);
 		
 		JPanel panel_1 = new JPanel();
 		panel_1.setBackground(new Color(71,120,197));
@@ -234,5 +366,100 @@ public class TelaBeta extends JFrame {
 		btnBook.setFont(new Font("Segoe UI", 0, 14));
 		btnBook.setForeground(new Color(255, 255, 255));
 		contentPane.add(btnBook);
+		
+		AdicionaListeners();
 	}
+	
+	
+	
+	private void AdicionaListeners(){
+		botao1.addMouseListener(new MouseAdapter() {
+            public void mousePressed(MouseEvent evt) {
+                Botao1Pressionado(evt);
+            }
+        });
+		 
+		botao2.addMouseListener(new MouseAdapter() {
+            public void mouseReleased(MouseEvent evt) {
+                Botao2Pressionado(evt);
+            }
+        });
+		
+		
+		botao3.addMouseListener(new MouseAdapter() {
+            public void mousePressed(MouseEvent evt) {
+                Botao3Pressionado(evt);
+            }
+        });
+		
+        botao4.addMouseListener(new MouseAdapter() {
+	            public void mousePressed(MouseEvent evt) {
+	                Botao4Pressionado(evt);
+	            }
+        });
+	   
+	}	
+	
+	private void Botao1Pressionado(MouseEvent evt) {
+        AtivaBotao(botao1); 
+        panHome.setOpaque(true);
+        ResetaBotao(new JPanel[]{botao2, botao3, botao4}, new JPanel[]{panUser, panProfile, panSettings});
+    }
+
+    private void Botao2Pressionado(MouseEvent evt) {
+        AtivaBotao(botao2); 
+        panUser.setOpaque(true);
+        ResetaBotao(new JPanel[]{botao1, botao3, botao4}, new JPanel[]{panHome, panProfile, panSettings});
+    }
+
+    private void Botao3Pressionado(MouseEvent evt) {
+    	AtivaBotao(botao3); 
+        panProfile.setOpaque(true);
+        ResetaBotao(new JPanel[]{botao1, botao2, botao4}, new JPanel[]{panHome, panUser, panSettings});
+    }
+
+    private void Botao4Pressionado(MouseEvent evt) {
+        AtivaBotao(botao4); 
+        panSettings.setOpaque(true);
+        ResetaBotao(new JPanel[]{botao1, botao2, botao3}, new JPanel[]{panHome, panUser, panProfile});
+    }
+    
+    
+    private void AtivaBotao(JPanel painel){
+		painel.setBackground(new Color(41,57,80));
+	}
+	
+    private void ResetaBotao(JPanel [] painel, JPanel [] indicadores){
+        for(int i=0;i<painel.length;i++){
+        	painel[i].setBackground(new Color(23,35,51));
+           
+        } for(int i=0;i<indicadores.length;i++){
+        	indicadores[i].setOpaque(false);           
+        }
+        
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
