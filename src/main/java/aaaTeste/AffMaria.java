@@ -19,7 +19,7 @@ import aaaTesteListener.AffMariaListener;
 import aaaTesteListener.BarraDeStatusAffMaria;
 
 public class AffMaria extends JFrame {
-	private Container tela = getContentPane();
+	private Container tela;
 	private JPanel panel, painelEsquerdo, botaoFuncionario, botaoPaciente;
 	private JPanel botaoProdutos, botaoRelPacientes, botaoRelItens;
 	private JLabel LFuncionario,iconeFuncionario,LStatusUsuario,LStatusData,LStatusHora,iconePaciente;
@@ -411,4 +411,18 @@ public class AffMaria extends JFrame {
 	public void setLStatusHora(JLabel lStatusHora) {
 		LStatusHora = lStatusHora;
 	}
+
+
+
+	public Container getTela() {
+		return tela;
+	}
+
+
+
+	public void setTela(Container tela) {
+		this.tela = tela;
+	}
+	
+	
 }
