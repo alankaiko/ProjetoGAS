@@ -17,6 +17,8 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 import br.com.projeto.gsv.util.HibernateUtil;
 import aaaTesteListener.AffMariaListener;
 import aaaTesteListener.BarraDeStatusAffMaria;
+import java.awt.SystemColor;
+import javax.swing.JSeparator;
 
 public class AffMaria extends JFrame {
 	private Container tela;
@@ -71,7 +73,7 @@ public class AffMaria extends JFrame {
 	
 	private void GruposPainelEsquerdo(){
 		painelEsquerdo = new JPanel();
-		painelEsquerdo.setBounds(0, 122, 245, 416);
+		painelEsquerdo.setBounds(0, 76, 245, 462);
 		painelEsquerdo.setBackground(new Color(71,120,197));
 		
 		botaoFuncionario = new JPanel();
@@ -83,7 +85,7 @@ public class AffMaria extends JFrame {
 		iconePaciente = new JLabel("");
 		iconePaciente.setIcon(new ImageIcon(AffMaria.class.getResource("/imagens/icons8-adicionar-usuário-masculino-25.png")));
 		
-		LPaciente = new JLabel("<html><u>Pacientes</u></html>");
+		LPaciente = new JLabel("Pacientes");
 		LPaciente.setForeground(Color.WHITE);
 		LPaciente.setFont(new Font("Segoe UI", Font.PLAIN, 18));
 		
@@ -118,7 +120,7 @@ public class AffMaria extends JFrame {
 		iconeProduto = new JLabel("");
 		iconeProduto.setIcon(new ImageIcon(AffMaria.class.getResource("/imagens/icons8-pílula-24.png")));
 		
-		LProduto = new JLabel("<html><u>Produtos</u></html>");
+		LProduto = new JLabel("Produtos");
 		LProduto.setForeground(Color.WHITE);
 		LProduto.setFont(new Font("Segoe UI", Font.PLAIN, 18));
 		GroupLayout gl_botaoProdutos = new GroupLayout(botaoProdutos);
@@ -151,7 +153,7 @@ public class AffMaria extends JFrame {
 		iconeRelPaciente = new JLabel("");
 		iconeRelPaciente.setIcon(new ImageIcon(AffMaria.class.getResource("/imagens/icons8-empresa-cliente-24.png")));
 		
-		LRelPaciente = new JLabel("<html><u>Relatório de Pacientes</u></html>");
+		LRelPaciente = new JLabel("Relatório de Pacientes");
 		LRelPaciente.setForeground(Color.WHITE);
 		LRelPaciente.setFont(new Font("Segoe UI", Font.PLAIN, 18));
 		GroupLayout gl_botaoRelPacientes = new GroupLayout(botaoRelPacientes);
@@ -182,7 +184,7 @@ public class AffMaria extends JFrame {
 		iconeRelItens = new JLabel("");
 		iconeRelItens.setIcon(new ImageIcon(AffMaria.class.getResource("/imagens/icons8-boletim-24.png")));
 		
-		LRelItens = new JLabel("<html><u>Relatório de Itens</u></html>");
+		LRelItens = new JLabel("Relatório de Itens");
 		LRelItens.setForeground(Color.WHITE);
 		LRelItens.setFont(new Font("Segoe UI", Font.PLAIN, 18));
 		GroupLayout gl_botaoRelItens = new GroupLayout(botaoRelItens);
@@ -205,39 +207,56 @@ public class AffMaria extends JFrame {
 		);
 		botaoRelItens.setLayout(gl_botaoRelItens);
 		
+		JLabel lblMenuRpido = new JLabel("MENU RÁPIDO");
+		lblMenuRpido.setFont(new Font("Segoe UI Light", Font.PLAIN, 28));
+		lblMenuRpido.setForeground(SystemColor.textHighlightText);
+		
+		JSeparator separator = new JSeparator();
+		
 		
 		
 		GroupLayout gl_painelEsquerdo = new GroupLayout(painelEsquerdo);
 		gl_painelEsquerdo.setHorizontalGroup(
-			gl_painelEsquerdo.createParallelGroup(Alignment.LEADING)
-				.addGroup(Alignment.TRAILING, gl_painelEsquerdo.createSequentialGroup()
-				.addContainerGap(20, Short.MAX_VALUE)
-				.addGroup(gl_painelEsquerdo.createParallelGroup(Alignment.LEADING)
-				.addComponent(botaoPaciente, Alignment.TRAILING, GroupLayout.PREFERRED_SIZE, 231, GroupLayout.PREFERRED_SIZE)
-				.addComponent(botaoFuncionario, Alignment.TRAILING, GroupLayout.PREFERRED_SIZE, 231, GroupLayout.PREFERRED_SIZE)
-				.addComponent(botaoProdutos, Alignment.TRAILING, GroupLayout.PREFERRED_SIZE, 231, GroupLayout.PREFERRED_SIZE)
-				.addComponent(botaoRelPacientes, Alignment.TRAILING, GroupLayout.PREFERRED_SIZE, 231, GroupLayout.PREFERRED_SIZE)
-				.addComponent(botaoRelItens, Alignment.TRAILING, GroupLayout.PREFERRED_SIZE, 231, GroupLayout.PREFERRED_SIZE)))
+			gl_painelEsquerdo.createParallelGroup(Alignment.TRAILING)
+				.addGroup(Alignment.LEADING, gl_painelEsquerdo.createSequentialGroup()
+					.addGap(35)
+					.addComponent(lblMenuRpido)
+					.addContainerGap(164, Short.MAX_VALUE))
+				.addGroup(gl_painelEsquerdo.createSequentialGroup()
+					.addContainerGap(14, Short.MAX_VALUE)
+					.addGroup(gl_painelEsquerdo.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_painelEsquerdo.createParallelGroup(Alignment.LEADING)
+							.addComponent(botaoPaciente, Alignment.TRAILING, GroupLayout.PREFERRED_SIZE, 231, GroupLayout.PREFERRED_SIZE)
+							.addComponent(botaoFuncionario, Alignment.TRAILING, GroupLayout.PREFERRED_SIZE, 231, GroupLayout.PREFERRED_SIZE)
+							.addComponent(botaoProdutos, Alignment.TRAILING, GroupLayout.PREFERRED_SIZE, 231, GroupLayout.PREFERRED_SIZE)
+							.addComponent(botaoRelPacientes, Alignment.TRAILING, GroupLayout.PREFERRED_SIZE, 231, GroupLayout.PREFERRED_SIZE)
+							.addComponent(botaoRelItens, Alignment.TRAILING, GroupLayout.PREFERRED_SIZE, 231, GroupLayout.PREFERRED_SIZE))
+						.addComponent(separator, GroupLayout.PREFERRED_SIZE, 215, GroupLayout.PREFERRED_SIZE))
+					.addGap(132))
 		);
 		gl_painelEsquerdo.setVerticalGroup(
 			gl_painelEsquerdo.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_painelEsquerdo.createSequentialGroup()
-				.addGap(50)
-				.addComponent(botaoPaciente, GroupLayout.PREFERRED_SIZE, 37, GroupLayout.PREFERRED_SIZE)
-				.addPreferredGap(ComponentPlacement.RELATED)
-				.addComponent(botaoFuncionario, GroupLayout.PREFERRED_SIZE, 37, GroupLayout.PREFERRED_SIZE)
-				.addPreferredGap(ComponentPlacement.RELATED)
-				.addComponent(botaoProdutos, GroupLayout.PREFERRED_SIZE, 37, GroupLayout.PREFERRED_SIZE)
-				.addPreferredGap(ComponentPlacement.RELATED)
-				.addComponent(botaoRelPacientes, GroupLayout.PREFERRED_SIZE, 37, GroupLayout.PREFERRED_SIZE)
-				.addPreferredGap(ComponentPlacement.RELATED)
-				.addComponent(botaoRelItens, GroupLayout.PREFERRED_SIZE, 37, GroupLayout.PREFERRED_SIZE)
-				.addContainerGap(94, Short.MAX_VALUE))
+					.addGap(23)
+					.addComponent(lblMenuRpido)
+					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addComponent(separator, GroupLayout.PREFERRED_SIZE, 2, GroupLayout.PREFERRED_SIZE)
+					.addGap(18)
+					.addComponent(botaoPaciente, GroupLayout.PREFERRED_SIZE, 37, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(botaoFuncionario, GroupLayout.PREFERRED_SIZE, 37, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(botaoProdutos, GroupLayout.PREFERRED_SIZE, 37, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(botaoRelPacientes, GroupLayout.PREFERRED_SIZE, 37, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(botaoRelItens, GroupLayout.PREFERRED_SIZE, 37, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap(161, Short.MAX_VALUE))
 		);
 		
 		
 		
-		LFuncionario = new JLabel("<html><u>Funcionário</u></html>");
+		LFuncionario = new JLabel("Funcionário");
 		LFuncionario.setForeground(Color.WHITE);
 		LFuncionario.setFont(new Font("Segoe UI", Font.PLAIN, 18));
 		
@@ -423,6 +442,4 @@ public class AffMaria extends JFrame {
 	public void setTela(Container tela) {
 		this.tela = tela;
 	}
-	
-	
 }
