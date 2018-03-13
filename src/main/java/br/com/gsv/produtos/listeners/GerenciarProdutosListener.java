@@ -14,7 +14,7 @@ import br.com.gsv.funcionario.formularios.BuscarFuncionarioDialog;
 import br.com.gsv.funcionario.formularios.CodigoFuncionarioDialog;
 import br.com.gsv.funcionario.formularios.DetalhesFuncionarioDialog;
 import br.com.gsv.funcionario.formularios.ExcluirFuncionarioDialog;
-import br.com.gsv.funcionario.formularios.GerenciarTelaFuncionario;
+import br.com.gsv.funcionario.formularios.GerenciaTelaFuncionario;
 import br.com.gsv.funcionario.formularios.IncluirFuncionariosForm;
 import br.com.gsv.paciente.formularios.DetalhesPacienteDialog;
 import br.com.gsv.paciente.formularios.IncluirPacienteForm;

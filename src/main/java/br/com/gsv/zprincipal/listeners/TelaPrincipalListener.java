@@ -5,9 +5,9 @@ import java.awt.event.ActionListener;
 
 import br.com.gsv.convenio.formularios.GerenciaTelaConvenio;
 import br.com.gsv.fabricantes.formularios.GerenciaTelaFabricante;
-import br.com.gsv.funcionario.formularios.GerenciarTelaFuncionario;
+import br.com.gsv.funcionario.formularios.GerenciaTelaFuncionario;
 import br.com.gsv.funcionario.formularios.IncluirFuncionariosForm;
-import br.com.gsv.paciente.formularios.GerenciarTelaPaciente;
+import br.com.gsv.paciente.formularios.GerenciaTelaPaciente;
 import br.com.gsv.produtos.formularios.GerenciaTelaProdutos;
 import br.com.gsv.zprincipal.form.TelaPrincipal;
 
@@ -113,13 +113,13 @@ public class TelaPrincipalListener implements ActionListener{
 	
 	
 	private void AbreCadPaciente(){
-		GerenciarTelaPaciente paciente = new GerenciarTelaPaciente();
+		GerenciaTelaPaciente paciente = new GerenciaTelaPaciente();
 		paciente.setLocationRelativeTo(this.tela.getTela());
 		paciente.setVisible(true);
 	}
 	
 	private void AbreUsuConsulta(){
-		GerenciarTelaFuncionario funcionario = new GerenciarTelaFuncionario();
+		GerenciaTelaFuncionario funcionario = new GerenciaTelaFuncionario();
 		funcionario.setLocationRelativeTo(this.tela.getTela());
 		funcionario.setVisible(true);
 	}

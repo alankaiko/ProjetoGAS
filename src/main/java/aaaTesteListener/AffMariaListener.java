@@ -1,17 +1,23 @@
 package aaaTesteListener;
 
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 import javax.swing.JPanel;
 
+import br.com.gsv.convenio.formularios.GerenciaTelaConvenio;
+import br.com.gsv.funcionario.formularios.GerenciaTelaFuncionario;
 import br.com.gsv.funcionario.formularios.IncluirFuncionariosForm;
+import br.com.gsv.paciente.formularios.GerenciaTelaPaciente;
 import br.com.gsv.paciente.formularios.IncluirPacienteForm;
+import br.com.gsv.produtos.formularios.GerenciaTelaProdutos;
 import br.com.gsv.produtos.formularios.IncluirProdutosForm;
 import aaaTeste.AffMaria;
 
-public class AffMariaListener implements MouseListener{
+public class AffMariaListener implements MouseListener, ActionListener{
 	private AffMaria tela;
 	
 	
@@ -28,6 +34,16 @@ public class AffMariaListener implements MouseListener{
 		this.tela.getBotaoProdutos().addMouseListener(this);
 		this.tela.getBotaoRelItens().addMouseListener(this);
 		this.tela.getBotaoRelPacientes().addMouseListener(this);
+		
+		
+		this.tela.getCadastroConvenio().addActionListener(this);
+		this.tela.getCadastroPaciente().addActionListener(this);
+		
+		this.tela.getUsuarioConFun().addActionListener(this);
+		this.tela.getUsuarioFuncionario().addActionListener(this);
+		
+		this.tela.getFarmaciaFabricante().addActionListener(this);
+		this.tela.getFarmaciaProduto().addActionListener(this);
 	}
 	
 	
@@ -36,19 +52,19 @@ public class AffMariaListener implements MouseListener{
 	@Override
 	public void mouseClicked(MouseEvent event) {
 		if(event.getSource().equals(this.tela.getBotaoFuncionario())){
-			IncluirFuncionariosForm formulario = new IncluirFuncionariosForm();
+			GerenciaTelaFuncionario formulario = new GerenciaTelaFuncionario();
 			formulario.setLocationRelativeTo(this.tela.getTela());
 			formulario.setVisible(true);
 		}
 		
 		if(event.getSource().equals(this.tela.getBotaoPaciente())){
-			IncluirPacienteForm formulario = new IncluirPacienteForm();
+			GerenciaTelaPaciente formulario = new GerenciaTelaPaciente();
 			formulario.setLocationRelativeTo(this.tela.getTela());
 			formulario.setVisible(true);
 		}
 		
 		if(event.getSource().equals(this.tela.getBotaoProdutos())){
-			IncluirProdutosForm formulario = new IncluirProdutosForm();
+			GerenciaTelaProdutos formulario = new GerenciaTelaProdutos();
 			formulario.setLocationRelativeTo(this.tela.getTela());
 			formulario.setVisible(true);
 		}
@@ -155,6 +171,40 @@ public class AffMariaListener implements MouseListener{
         	painel[i].setBackground(new Color(71,120,197));
         }         
     }
+
+
+	@Override
+	public void actionPerformed(ActionEvent event) {
+		if(event.getSource().equals(this.tela.getCadastroConvenio())){
+			GerenciaTelaConvenio formulario = new GerenciaTelaConvenio();
+			formulario.setLocationRelativeTo(this.tela.getTela());
+			formulario.setVisible(true);
+		}
+		
+		if(event.getSource().equals(this.tela.getCadastroPaciente())){
+			GerenciaTelaPaciente formulario = new GerenciaTelaPaciente();
+			formulario.setLocationRelativeTo(this.tela.getTela());
+			formulario.setVisible(true);
+		}
+		
+		if(event.getSource().equals(this.tela.getUsuarioConFun())){
+			
+		}
+		
+		if(event.getSource().equals(this.tela.getUsuarioFuncionario())){
+			
+		}
+			
+			
+	
+		
+		this.tela.getUsuarioConFun().addActionListener(this);
+		this.tela.getUsuarioFuncionario().addActionListener(this);
+		
+		this.tela.getFarmaciaFabricante().addActionListener(this);
+		this.tela.getFarmaciaProduto().addActionListener(this);
+		
+	}
 
 }
 

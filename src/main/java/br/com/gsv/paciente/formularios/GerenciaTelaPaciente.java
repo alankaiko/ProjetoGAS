@@ -12,11 +12,11 @@ import javax.swing.border.EmptyBorder;
 
 import br.com.gsv.paciente.listeners.GerenciarPacienteListener;
 
-public class GerenciarTelaPaciente extends JDialog {
+public class GerenciaTelaPaciente extends JDialog {
 	private GerenciarPacienteListener listener;
 
 	
-	public GerenciarTelaPaciente() {
+	public GerenciaTelaPaciente() {
 		CriaTelaGeral();
 		Dados();
 		InicializaComponentes();

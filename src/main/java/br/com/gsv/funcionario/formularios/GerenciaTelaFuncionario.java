@@ -12,13 +12,13 @@ import javax.swing.border.EmptyBorder;
 
 import br.com.gsv.funcionarios.listeners.GerenciarFuncionarioListener;
 
-public class GerenciarTelaFuncionario extends JDialog {
+public class GerenciaTelaFuncionario extends JDialog {
 	private static final long serialVersionUID = 1L;
 	private GerenciarFuncionarioListener listener;
 	
 	
 	
-	public GerenciarTelaFuncionario() {
+	public GerenciaTelaFuncionario() {
 		CriaTelaGeral();
 		Dados();
 		InicializaComponentes();

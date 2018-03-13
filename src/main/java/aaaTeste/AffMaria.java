@@ -5,20 +5,22 @@ import java.awt.Container;
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.Panel;
+import java.awt.SystemColor;
 
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 import javax.swing.JPanel;
+import javax.swing.JSeparator;
 import javax.swing.LayoutStyle.ComponentPlacement;
 
-import br.com.projeto.gsv.util.HibernateUtil;
 import aaaTesteListener.AffMariaListener;
 import aaaTesteListener.BarraDeStatusAffMaria;
-import java.awt.SystemColor;
-import javax.swing.JSeparator;
 
 public class AffMaria extends JFrame {
 	private Container tela;
@@ -27,6 +29,14 @@ public class AffMaria extends JFrame {
 	private JLabel LFuncionario,iconeFuncionario,LStatusUsuario,LStatusData,LStatusHora,iconePaciente;
 	private JLabel LPaciente,iconeProduto, LProduto, iconeRelPaciente,LRelPaciente,iconeRelItens,LRelItens;
 	private AffMariaListener listener;
+	private JMenuBar menuBar;
+	private JMenu menuArquivo, menuCadastro, menuUsuario, menuFarmacia, menuRelatorio, menuSair;
+	private JMenuItem arquivoAgCli, arquivoConAte, arquivoAcomodacoes, cadastroConvenio;
+	private JMenuItem cadastroClinica, cadastroPaciente, relatorioFuncionario;
+	private JMenuItem cadastroProntuario, usuarioFuncionario, usuarioConFun;
+	private JMenuItem farmaciaFabricante, farmaciaGruProduto, relatorioClinica;
+	private JMenuItem farmaciaProduto, farmaciaDevolucoes, relatorioItens, relatorioFornecedores;
+	private JMenuItem relatorioGruItens, relatorioPaciente;
 	
 	
 	public static void main(String[] args) {
@@ -55,7 +65,7 @@ public class AffMaria extends JFrame {
 		GruposPainelStatus();
 		BarraDeStatusAffMaria status = new BarraDeStatusAffMaria(this);
 		listener = new AffMariaListener(this);
-		HibernateUtil.getSessionFactory();
+		//HibernateUtil.getSessionFactory();
 	}
 
 	private void PainelPrincipal(){
@@ -64,6 +74,7 @@ public class AffMaria extends JFrame {
 		tela.setLayout(null);
 		
 		panel = new JPanel();
+		panel.setBorder(null);
 		panel.setBackground(Color.WHITE);
 		panel.setBounds(0, 0, 900, 570);
 		tela.add(panel);
@@ -304,24 +315,124 @@ public class AffMaria extends JFrame {
 		gl_painelStatus.setHorizontalGroup(
 			gl_painelStatus.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_painelStatus.createSequentialGroup()
-				.addContainerGap()
-				.addComponent(LStatusUsuario, GroupLayout.PREFERRED_SIZE, 222, GroupLayout.PREFERRED_SIZE)
-				.addGap(33)
-				.addComponent(LStatusData, GroupLayout.PREFERRED_SIZE, 222, GroupLayout.PREFERRED_SIZE)
-				.addPreferredGap(ComponentPlacement.RELATED, 180, Short.MAX_VALUE)
-				.addComponent(LStatusHora, GroupLayout.PREFERRED_SIZE, 117, GroupLayout.PREFERRED_SIZE))
+					.addContainerGap()
+					.addComponent(LStatusUsuario, GroupLayout.PREFERRED_SIZE, 222, GroupLayout.PREFERRED_SIZE)
+					.addGap(33)
+					.addComponent(LStatusData, GroupLayout.PREFERRED_SIZE, 288, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.RELATED, 220, Short.MAX_VALUE)
+					.addComponent(LStatusHora, GroupLayout.PREFERRED_SIZE, 117, GroupLayout.PREFERRED_SIZE))
 		);
 		gl_painelStatus.setVerticalGroup(
 			gl_painelStatus.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_painelStatus.createSequentialGroup()
-				.addGroup(gl_painelStatus.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_painelStatus.createParallelGroup(Alignment.BASELINE)
-				.addComponent(LStatusData, GroupLayout.PREFERRED_SIZE, 20, GroupLayout.PREFERRED_SIZE)
-				.addComponent(LStatusUsuario, GroupLayout.DEFAULT_SIZE, 20, Short.MAX_VALUE))
-				.addComponent(LStatusHora, GroupLayout.PREFERRED_SIZE, 20, GroupLayout.PREFERRED_SIZE))
-				.addContainerGap())
+					.addGroup(gl_painelStatus.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_painelStatus.createParallelGroup(Alignment.BASELINE)
+							.addComponent(LStatusData, GroupLayout.PREFERRED_SIZE, 20, GroupLayout.PREFERRED_SIZE)
+							.addComponent(LStatusUsuario, GroupLayout.DEFAULT_SIZE, 20, Short.MAX_VALUE))
+						.addComponent(LStatusHora, GroupLayout.PREFERRED_SIZE, 20, GroupLayout.PREFERRED_SIZE))
+					.addContainerGap())
 		);
 		painelStatus.setLayout(gl_painelStatus);
+		
+		menuBar = new JMenuBar();
+		menuBar.setBorder(null);
+		menuBar.setFont(new Font("Segoe UI Light", Font.PLAIN, 13));
+		menuBar.setBackground(new Color(26,35,51));
+		menuBar.setBounds(0, 0, 900, 30);
+		panel.add(menuBar);
+		
+		menuArquivo = new JMenu("Arquivo");
+		menuArquivo.setForeground(SystemColor.textHighlightText);
+		menuArquivo.setBackground(new Color(26,35,51));
+		menuArquivo.setFont(new Font("Segoe UI", Font.PLAIN, 15));
+		menuBar.add(menuArquivo);
+		
+		arquivoAgCli = new JMenuItem("Agenda Clínica");
+		menuArquivo.add(arquivoAgCli);
+		
+		arquivoConAte = new JMenuItem("Consulta Atendimentos");
+		menuArquivo.add(arquivoConAte);
+		
+		arquivoAcomodacoes = new JMenuItem("Acomodações");
+		menuArquivo.add(arquivoAcomodacoes);
+		
+		menuCadastro = new JMenu("Cadastro");
+		menuCadastro.setFont(new Font("Segoe UI", Font.PLAIN, 15));
+		menuCadastro.setForeground(SystemColor.textHighlightText);
+		menuCadastro.setBackground(new Color(26,35,51));
+		menuBar.add(menuCadastro);
+		
+		cadastroConvenio = new JMenuItem("Cadastro de Convênios");
+		menuCadastro.add(cadastroConvenio);
+		
+		cadastroClinica = new JMenuItem("Cadastro de Clínicas");
+		menuCadastro.add(cadastroClinica);
+		
+		cadastroPaciente = new JMenuItem("Cadastro de Pacientes");
+		menuCadastro.add(cadastroPaciente);
+		
+		cadastroProntuario = new JMenuItem("Cadastro de Prontuários");
+		menuCadastro.add(cadastroProntuario);
+		
+		menuUsuario = new JMenu("Usuário");
+		menuUsuario.setFont(new Font("Segoe UI", Font.PLAIN, 15));
+		menuUsuario.setForeground(SystemColor.textHighlightText);
+		menuUsuario.setBackground(new Color(26,35,51));
+		menuBar.add(menuUsuario);
+		
+		usuarioFuncionario = new JMenuItem("Cadastro de Funcionários");
+		menuUsuario.add(usuarioFuncionario);
+		
+		usuarioConFun = new JMenuItem("Consulta Funcionários");
+		menuUsuario.add(usuarioConFun);
+		
+		menuFarmacia = new JMenu("Farmácia");
+		menuFarmacia.setFont(new Font("Segoe UI", Font.PLAIN, 15));
+		menuFarmacia.setForeground(SystemColor.textHighlightText);
+		menuFarmacia.setBackground(new Color(26,35,51));
+		menuBar.add(menuFarmacia);
+		
+		farmaciaFabricante = new JMenuItem("Cadastro de Fabricantes");
+		menuFarmacia.add(farmaciaFabricante);
+		
+		farmaciaGruProduto = new JMenuItem("Grupo de Produtos");
+		menuFarmacia.add(farmaciaGruProduto);
+		
+		farmaciaProduto = new JMenuItem("Cadastro de Produto");
+		menuFarmacia.add(farmaciaProduto);
+		
+		farmaciaDevolucoes = new JMenuItem("Motivos de Devoluções");
+		menuFarmacia.add(farmaciaDevolucoes);
+		
+		menuRelatorio = new JMenu("Relatórios");
+		menuRelatorio.setFont(new Font("Segoe UI", Font.PLAIN, 15));
+		menuRelatorio.setForeground(SystemColor.textHighlightText);
+		menuRelatorio.setBackground(new Color(26,35,51));
+		menuBar.add(menuRelatorio);
+		
+		relatorioItens = new JMenuItem("Relatório de Itens");
+		menuRelatorio.add(relatorioItens);
+		
+		relatorioFornecedores = new JMenuItem("Relatório de Fornecedores");
+		menuRelatorio.add(relatorioFornecedores);
+		
+		relatorioGruItens = new JMenuItem("Relatório de Grupo de Itens");
+		menuRelatorio.add(relatorioGruItens);
+		
+		relatorioPaciente = new JMenuItem("Relatório de Pacientes");
+		menuRelatorio.add(relatorioPaciente);
+		
+		relatorioFuncionario = new JMenuItem("Relatório de Funcionários");
+		menuRelatorio.add(relatorioFuncionario);
+		
+		relatorioClinica = new JMenuItem("Relatório de Clínicas");
+		menuRelatorio.add(relatorioClinica);
+		
+		menuSair = new JMenu("Sair");
+		menuSair.setFont(new Font("Segoe UI", Font.PLAIN, 15));
+		menuSair.setForeground(SystemColor.textHighlightText);
+		menuSair.setBackground(new Color(26,35,51));
+		menuBar.add(menuSair);
 	}
 	
 	
@@ -442,4 +553,247 @@ public class AffMaria extends JFrame {
 	public void setTela(Container tela) {
 		this.tela = tela;
 	}
+
+
+
+	public JMenuItem getArquivoAgCli() {
+		return arquivoAgCli;
+	}
+
+
+
+	public void setArquivoAgCli(JMenuItem arquivoAgCli) {
+		this.arquivoAgCli = arquivoAgCli;
+	}
+
+
+
+	public JMenuItem getArquivoConAte() {
+		return arquivoConAte;
+	}
+
+
+
+	public void setArquivoConAte(JMenuItem arquivoConAte) {
+		this.arquivoConAte = arquivoConAte;
+	}
+
+
+
+	public JMenuItem getArquivoAcomodacoes() {
+		return arquivoAcomodacoes;
+	}
+
+
+
+	public void setArquivoAcomodacoes(JMenuItem arquivoAcomodacoes) {
+		this.arquivoAcomodacoes = arquivoAcomodacoes;
+	}
+
+
+
+	public JMenuItem getCadastroConvenio() {
+		return cadastroConvenio;
+	}
+
+
+
+	public void setCadastroConvenio(JMenuItem cadastroConvenio) {
+		this.cadastroConvenio = cadastroConvenio;
+	}
+
+
+
+	public JMenuItem getCadastroClinica() {
+		return cadastroClinica;
+	}
+
+
+
+	public void setCadastroClinica(JMenuItem cadastroClinica) {
+		this.cadastroClinica = cadastroClinica;
+	}
+
+
+
+	public JMenuItem getCadastroPaciente() {
+		return cadastroPaciente;
+	}
+
+
+
+	public void setCadastroPaciente(JMenuItem cadastroPaciente) {
+		this.cadastroPaciente = cadastroPaciente;
+	}
+
+
+
+	public JMenuItem getRelatorioFuncionario() {
+		return relatorioFuncionario;
+	}
+
+
+
+	public void setRelatorioFuncionario(JMenuItem relatorioFuncionario) {
+		this.relatorioFuncionario = relatorioFuncionario;
+	}
+
+
+
+	public JMenuItem getCadastroProntuario() {
+		return cadastroProntuario;
+	}
+
+
+
+	public void setCadastroProntuario(JMenuItem cadastroProntuario) {
+		this.cadastroProntuario = cadastroProntuario;
+	}
+
+
+
+	public JMenuItem getUsuarioFuncionario() {
+		return usuarioFuncionario;
+	}
+
+
+
+	public void setUsuarioFuncionario(JMenuItem usuarioFuncionario) {
+		this.usuarioFuncionario = usuarioFuncionario;
+	}
+
+
+
+	public JMenuItem getUsuarioConFun() {
+		return usuarioConFun;
+	}
+
+
+
+	public void setUsuarioConFun(JMenuItem usuarioConFun) {
+		this.usuarioConFun = usuarioConFun;
+	}
+
+
+
+	public JMenuItem getFarmaciaFabricante() {
+		return farmaciaFabricante;
+	}
+
+
+
+	public void setFarmaciaFabricante(JMenuItem farmaciaFabricante) {
+		this.farmaciaFabricante = farmaciaFabricante;
+	}
+
+
+
+	public JMenuItem getFarmaciaGruProduto() {
+		return farmaciaGruProduto;
+	}
+
+
+
+	public void setFarmaciaGruProduto(JMenuItem farmaciaGruProduto) {
+		this.farmaciaGruProduto = farmaciaGruProduto;
+	}
+
+
+
+	public JMenuItem getRelatorioClinica() {
+		return relatorioClinica;
+	}
+
+
+
+	public void setRelatorioClinica(JMenuItem relatorioClinica) {
+		this.relatorioClinica = relatorioClinica;
+	}
+
+
+
+	public JMenuItem getFarmaciaProduto() {
+		return farmaciaProduto;
+	}
+
+
+
+	public void setFarmaciaProduto(JMenuItem farmaciaProduto) {
+		this.farmaciaProduto = farmaciaProduto;
+	}
+
+
+
+	public JMenuItem getFarmaciaDevolucoes() {
+		return farmaciaDevolucoes;
+	}
+
+
+
+	public void setFarmaciaDevolucoes(JMenuItem farmaciaDevolucoes) {
+		this.farmaciaDevolucoes = farmaciaDevolucoes;
+	}
+
+
+
+	public JMenuItem getRelatorioItens() {
+		return relatorioItens;
+	}
+
+
+
+	public void setRelatorioItens(JMenuItem relatorioItens) {
+		this.relatorioItens = relatorioItens;
+	}
+
+
+
+	public JMenuItem getRelatorioFornecedores() {
+		return relatorioFornecedores;
+	}
+
+
+
+	public void setRelatorioFornecedores(JMenuItem relatorioFornecedores) {
+		this.relatorioFornecedores = relatorioFornecedores;
+	}
+
+
+
+	public JMenuItem getRelatorioGruItens() {
+		return relatorioGruItens;
+	}
+
+
+
+	public void setRelatorioGruItens(JMenuItem relatorioGruItens) {
+		this.relatorioGruItens = relatorioGruItens;
+	}
+
+
+
+	public JMenuItem getRelatorioPaciente() {
+		return relatorioPaciente;
+	}
+
+
+
+	public void setRelatorioPaciente(JMenuItem relatorioPaciente) {
+		this.relatorioPaciente = relatorioPaciente;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
