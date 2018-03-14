@@ -15,14 +15,14 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.Border;
 
-import br.com.gsv.zprincipal.form.TelaPrincipal;
+import br.com.gsv.zprincipal.form.TelaPrincipalClassic;
 import br.com.projeto.gsv.util.ListasUtil;
 
 public class BarraStatusListener {
-	private TelaPrincipal tela;
+	private TelaPrincipalClassic tela;
 	
 	
-	public BarraStatusListener(TelaPrincipal tela) {
+	public BarraStatusListener(TelaPrincipalClassic tela) {
 		this.tela = tela;
 		BarraDeStatus();
 	}

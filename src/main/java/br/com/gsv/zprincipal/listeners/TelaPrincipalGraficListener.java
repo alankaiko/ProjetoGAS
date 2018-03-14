@@ -1,4 +1,4 @@
-package aaaTesteListener;
+package br.com.gsv.zprincipal.listeners;
 
 import java.awt.Color;
 import java.awt.event.ActionEvent;
@@ -15,14 +15,14 @@ import br.com.gsv.paciente.formularios.GerenciaTelaPaciente;
 import br.com.gsv.paciente.formularios.IncluirPacienteForm;
 import br.com.gsv.produtos.formularios.GerenciaTelaProdutos;
 import br.com.gsv.produtos.formularios.IncluirProdutosForm;
-import aaaTeste.AffMaria;
+import br.com.gsv.zprincipal.form.TelaPrincipalGrafic;
 
-public class AffMariaListener implements MouseListener, ActionListener{
-	private AffMaria tela;
+public class TelaPrincipalGraficListener implements MouseListener, ActionListener{
+	private TelaPrincipalGrafic tela;
 	
 	
 	
-	public AffMariaListener(AffMaria tela) {
+	public TelaPrincipalGraficListener(TelaPrincipalGrafic tela) {
 		this.tela = tela;
 		AdicionaListener();
 	}

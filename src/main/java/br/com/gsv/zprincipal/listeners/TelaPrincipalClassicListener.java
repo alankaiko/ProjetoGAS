@@ -9,14 +9,14 @@ import br.com.gsv.funcionario.formularios.GerenciaTelaFuncionario;
 import br.com.gsv.funcionario.formularios.IncluirFuncionariosForm;
 import br.com.gsv.paciente.formularios.GerenciaTelaPaciente;
 import br.com.gsv.produtos.formularios.GerenciaTelaProdutos;
-import br.com.gsv.zprincipal.form.TelaPrincipal;
+import br.com.gsv.zprincipal.form.TelaPrincipalClassic;
 
-public class TelaPrincipalListener implements ActionListener{
-	private TelaPrincipal tela;
+public class TelaPrincipalClassicListener implements ActionListener{
+	private TelaPrincipalClassic tela;
 	
 	
 	
-	public TelaPrincipalListener(TelaPrincipal tela) {
+	public TelaPrincipalClassicListener(TelaPrincipalClassic tela) {
 		this.tela = tela;
 		AdicionaListener();
 	}

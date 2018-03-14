@@ -17,10 +17,10 @@ import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 
 import br.com.gsv.zprincipal.listeners.BarraStatusListener;
-import br.com.gsv.zprincipal.listeners.TelaPrincipalListener;
+import br.com.gsv.zprincipal.listeners.TelaPrincipalClassicListener;
 import br.com.projeto.gsv.util.HibernateUtil;
 
-public class TelaPrincipal extends JFrame {
+public class TelaPrincipalClassic extends JFrame {
 	private Container tela= getContentPane();
 	private JPanel painelPrincipal;  
 	private JLabel horas, data, usuarioLogado;
@@ -34,14 +34,14 @@ public class TelaPrincipal extends JFrame {
 	private Panel painelMenuRapido, rotuloMenuRapido, paienlPacie, painelFun, painelProd, painelRelPacie, painelRelItens;
 	private Label label, rotuloRelPaciente, rotuloRelItens;
 	private JButton rotuloPacientes, rotuloFuncionario, rotuloProdutos;
-	private TelaPrincipalListener listener;
+	private TelaPrincipalClassicListener listener;
 	
 	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					TelaPrincipal frame = new TelaPrincipal();
+					TelaPrincipalClassic frame = new TelaPrincipalClassic();
 					frame.setResizable(false);
 					frame.setLocationRelativeTo(null);
 					frame.setVisible(true);
@@ -54,7 +54,7 @@ public class TelaPrincipal extends JFrame {
 
 
 
-	public TelaPrincipal() {
+	public TelaPrincipalClassic() {
 		setBackground(Color.WHITE);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 800, 521);
@@ -64,7 +64,7 @@ public class TelaPrincipal extends JFrame {
 		data = new JLabel();
 		usuarioLogado = new JLabel();
 		inferior = new JPanel();
-		listener = new TelaPrincipalListener(this);
+		listener = new TelaPrincipalClassicListener(this);
 		BarraStatusListener status = new BarraStatusListener(this);
 		HibernateUtil.getSessionFactory();
 	}

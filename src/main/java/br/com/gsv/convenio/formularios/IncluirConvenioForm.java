@@ -1,9 +1,7 @@
 package br.com.gsv.convenio.formularios;
 
 import java.awt.BorderLayout;
-import java.awt.Color;
 import java.awt.Container;
-import java.awt.Font;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
@@ -16,6 +14,7 @@ import br.com.gsv.convenio.listeners.IncluirConvenioListener;
 
 public class IncluirConvenioForm extends JDialog{
 	private IncluirConvenioListener listener;
+	private IncluirConvenioGrafico listenerGrafico;
 
 	// metodo construtor que inicia tudo
 	public IncluirConvenioForm() {
@@ -23,8 +22,10 @@ public class IncluirConvenioForm extends JDialog{
 		DadosFuncionario();
 		InicializaCompomentes();
 		listener = new IncluirConvenioListener(this);
+		listenerGrafico = new IncluirConvenioGrafico(this);
 	}
 
+	
 	// cria e tela geral onde todos os componentes serao inseridos, é a tela
 	// geral do sistema
 	private void CriarTelaGeral() {
@@ -40,34 +41,17 @@ public class IncluirConvenioForm extends JDialog{
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 	}
-
+		
+	
 	// cria os componentes jbutton jlabel jtexfield etc etc etc e organiza
 	// dentro do layout geral
 	public void DadosFuncionario() {
-		LId = new JLabel("Código");
-		LId.setBounds(37, 30, 50, 20);
-		LId.setFont(new Font("Arial", Font.BOLD, 11));
-			TId = new JTextField();
-			TId.setBounds(83, 31, 84, 20);
-			TId.setBackground(new Color(255, 255, 204));
-			TId.setFont(new Font("Arial", Font.BOLD, 10));
-			TId.setForeground(Color.black);
-			TId.setEditable(false);
-
-		LConvenio = new JLabel("Convenio");
-		LConvenio.setBounds(22, 62, 104, 20);
-		LConvenio.setFont(new Font("Arial", Font.BOLD, 11));
-			TConvenio = new JTextField();
-			TConvenio.setBounds(83, 63, 239, 19);
-			TConvenio.setFont(new Font("Arial", Font.BOLD, 10));
-
-		BTGravar = new JButton("Gravar");
-		BTGravar.setFont(new Font("Calibri", Font.PLAIN, 12));
-		BTGravar.setBounds(59, 93, 89, 23);
-
-		BTCancelar = new JButton("Cancelar");
-		BTCancelar.setFont(new Font("Calibri", Font.PLAIN, 12));
-		BTCancelar.setBounds(170, 93, 89, 23);
+		LId = new JLabel();
+		TId = new JTextField();
+		LConvenio = new JLabel();
+		TConvenio = new JTextField();
+		BTGravar = new JButton();
+		BTCancelar = new JButton();
 	}
 
 	// classe que adiciona os componentes criados no metodo anterior à tela
@@ -142,5 +126,22 @@ public class IncluirConvenioForm extends JDialog{
 		return listener;
 	}
 
+	public JLabel getLId() {
+		return LId;
+	}
+
+	public void setLId(JLabel lId) {
+		LId = lId;
+	}
+
+
+	public JPanel getContentPanel() {
+		return contentPanel;
+	}
+
+	
+	
+
+	
 	
 }

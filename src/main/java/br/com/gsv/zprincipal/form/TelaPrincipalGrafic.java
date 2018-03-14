@@ -1,4 +1,4 @@
-package aaaTeste;
+package br.com.gsv.zprincipal.form;
 
 import java.awt.Color;
 import java.awt.Container;
@@ -19,16 +19,17 @@ import javax.swing.JPanel;
 import javax.swing.JSeparator;
 import javax.swing.LayoutStyle.ComponentPlacement;
 
-import aaaTesteListener.AffMariaListener;
-import aaaTesteListener.BarraDeStatusAffMaria;
+import br.com.gsv.zprincipal.listeners.BarraDeStatusGrafic;
+import br.com.gsv.zprincipal.listeners.TelaPrincipalGraficListener;
+import br.com.projeto.gsv.util.HibernateUtil;
 
-public class AffMaria extends JFrame {
+public class TelaPrincipalGrafic extends JFrame {
 	private Container tela;
 	private JPanel panel, painelEsquerdo, botaoFuncionario, botaoPaciente;
 	private JPanel botaoProdutos, botaoRelPacientes, botaoRelItens;
 	private JLabel LFuncionario,iconeFuncionario,LStatusUsuario,LStatusData,LStatusHora,iconePaciente;
 	private JLabel LPaciente,iconeProduto, LProduto, iconeRelPaciente,LRelPaciente,iconeRelItens,LRelItens;
-	private AffMariaListener listener;
+	private TelaPrincipalGraficListener listener;
 	private JMenuBar menuBar;
 	private JMenu menuArquivo, menuCadastro, menuUsuario, menuFarmacia, menuRelatorio, menuSair;
 	private JMenuItem arquivoAgCli, arquivoConAte, arquivoAcomodacoes, cadastroConvenio;
@@ -43,7 +44,7 @@ public class AffMaria extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					AffMaria frame = new AffMaria();
+					TelaPrincipalGrafic frame = new TelaPrincipalGrafic();
 					frame.setResizable(false);
 					frame.setLocationRelativeTo(null);
 					frame.setVisible(true);
@@ -56,16 +57,16 @@ public class AffMaria extends JFrame {
 
 	
 	
-	public AffMaria() {
+	public TelaPrincipalGrafic() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 900, 590);
 		
 		PainelPrincipal();
 		GruposPainelEsquerdo();
 		GruposPainelStatus();
-		BarraDeStatusAffMaria status = new BarraDeStatusAffMaria(this);
-		listener = new AffMariaListener(this);
-		//HibernateUtil.getSessionFactory();
+		BarraDeStatusGrafic status = new BarraDeStatusGrafic(this);
+		listener = new TelaPrincipalGraficListener(this);
+		HibernateUtil.getSessionFactory();
 	}
 
 	private void PainelPrincipal(){
@@ -94,7 +95,7 @@ public class AffMaria extends JFrame {
 		botaoPaciente.setBackground(new Color(71, 120, 197));
 		
 		iconePaciente = new JLabel("");
-		iconePaciente.setIcon(new ImageIcon(AffMaria.class.getResource("/imagens/icons8-adicionar-usuário-masculino-25.png")));
+		iconePaciente.setIcon(new ImageIcon(TelaPrincipalGrafic.class.getResource("/imagens/icons8-adicionar-usuário-masculino-25.png")));
 		
 		LPaciente = new JLabel("Pacientes");
 		LPaciente.setForeground(Color.WHITE);
@@ -129,7 +130,7 @@ public class AffMaria extends JFrame {
 		botaoProdutos.setBackground(new Color(71, 120, 197));
 		
 		iconeProduto = new JLabel("");
-		iconeProduto.setIcon(new ImageIcon(AffMaria.class.getResource("/imagens/icons8-pílula-24.png")));
+		iconeProduto.setIcon(new ImageIcon(TelaPrincipalGrafic.class.getResource("/imagens/icons8-pílula-24.png")));
 		
 		LProduto = new JLabel("Produtos");
 		LProduto.setForeground(Color.WHITE);
@@ -162,7 +163,7 @@ public class AffMaria extends JFrame {
 		botaoRelPacientes.setBackground(new Color(71, 120, 197));
 		
 		iconeRelPaciente = new JLabel("");
-		iconeRelPaciente.setIcon(new ImageIcon(AffMaria.class.getResource("/imagens/icons8-empresa-cliente-24.png")));
+		iconeRelPaciente.setIcon(new ImageIcon(TelaPrincipalGrafic.class.getResource("/imagens/icons8-empresa-cliente-24.png")));
 		
 		LRelPaciente = new JLabel("Relatório de Pacientes");
 		LRelPaciente.setForeground(Color.WHITE);
@@ -193,7 +194,7 @@ public class AffMaria extends JFrame {
 		botaoRelItens.setBackground(new Color(71, 120, 197));
 		
 		iconeRelItens = new JLabel("");
-		iconeRelItens.setIcon(new ImageIcon(AffMaria.class.getResource("/imagens/icons8-boletim-24.png")));
+		iconeRelItens.setIcon(new ImageIcon(TelaPrincipalGrafic.class.getResource("/imagens/icons8-boletim-24.png")));
 		
 		LRelItens = new JLabel("Relatório de Itens");
 		LRelItens.setForeground(Color.WHITE);
@@ -272,7 +273,7 @@ public class AffMaria extends JFrame {
 		LFuncionario.setFont(new Font("Segoe UI", Font.PLAIN, 18));
 		
 		iconeFuncionario = new JLabel("");
-		iconeFuncionario.setIcon(new ImageIcon(AffMaria.class.getResource("/imagens/icons8-crachá-25.png")));
+		iconeFuncionario.setIcon(new ImageIcon(TelaPrincipalGrafic.class.getResource("/imagens/icons8-crachá-25.png")));
 		GroupLayout gl_botaoFuncionario = new GroupLayout(botaoFuncionario);
 		gl_botaoFuncionario.setHorizontalGroup(
 			gl_botaoFuncionario.createParallelGroup(Alignment.LEADING)

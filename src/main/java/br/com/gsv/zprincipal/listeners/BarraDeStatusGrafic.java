@@ -1,4 +1,4 @@
-package aaaTesteListener;
+package br.com.gsv.zprincipal.listeners;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -8,15 +8,15 @@ import java.awt.event.ActionListener;
 import java.text.DecimalFormat;
 import java.util.Calendar;
 
-import aaaTeste.AffMaria;
+import br.com.gsv.zprincipal.form.TelaPrincipalGrafic;
 import br.com.projeto.gsv.util.ListasUtil;
 
-public class BarraDeStatusAffMaria {
+public class BarraDeStatusGrafic {
 	
-private AffMaria tela;
+private TelaPrincipalGrafic tela;
 	
 	
-	public BarraDeStatusAffMaria(AffMaria tela) {
+	public BarraDeStatusGrafic(TelaPrincipalGrafic tela) {
 		this.tela = tela;
 		BarraDeStatus();
 	}
