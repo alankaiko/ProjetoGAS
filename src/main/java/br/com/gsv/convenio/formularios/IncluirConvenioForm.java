@@ -14,7 +14,7 @@ import br.com.gsv.convenio.listeners.IncluirConvenioListener;
 
 public class IncluirConvenioForm extends JDialog{
 	private IncluirConvenioListener listener;
-	private IncluirConvenioGrafico listenerGrafico;
+	private IncluirConvenioClassic listenerGrafico;
 
 	// metodo construtor que inicia tudo
 	public IncluirConvenioForm() {
@@ -22,7 +22,7 @@ public class IncluirConvenioForm extends JDialog{
 		DadosFuncionario();
 		InicializaCompomentes();
 		listener = new IncluirConvenioListener(this);
-		listenerGrafico = new IncluirConvenioGrafico(this);
+		listenerGrafico = new IncluirConvenioClassic(this);
 	}
 
 	
@@ -65,7 +65,7 @@ public class IncluirConvenioForm extends JDialog{
 		tela.add(this.BTCancelar);
 	}
 
-	private final JPanel contentPanel = new JPanel();
+	private JPanel contentPanel = new JPanel();
 	private Container tela = getContentPane();
 	private JLabel LId, LConvenio;
 	private JTextField TId, TConvenio;

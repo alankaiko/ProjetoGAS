@@ -6,15 +6,33 @@ import java.awt.Font;
 
 import javax.swing.border.EmptyBorder;
 
-public class IncluirConvenioGrafico {
-	private IncluirConvenioForm formulario;
+public class IncluirConvenioClassic {
+private IncluirConvenioForm formulario;
 	
-	public IncluirConvenioGrafico(IncluirConvenioForm formulario) {
+	public IncluirConvenioClassic(IncluirConvenioForm formulario) {
 		this.formulario = formulario;
 		DadosFuncionario();
 		this.formulario.InicializaCompomentes();
 	}
 	
+	
+	// cria e tela geral onde todos os componentes serao inseridos, é a tela
+	// geral do sistema
+	private void CriarTelaGeral() {
+		
+		this.setTitle("Inserir Convenio / Plano / Credencial");
+		this.setModal(true);
+		this.setResizable(false);
+		this.setBounds(100, 100, 350, 164);
+
+		this.tela.setLayout(null);
+		this.tela.add(contentPanel, BorderLayout.CENTER);
+
+		contentPanel.setLayout(null);
+		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
+
+	}
+			
 	
 	
 	// cria os componentes jbutton jlabel jtexfield etc etc etc e organiza
