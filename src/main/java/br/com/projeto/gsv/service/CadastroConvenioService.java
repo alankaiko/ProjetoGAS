@@ -28,4 +28,6 @@ public class CadastroConvenioService {
 	public List<Convenio> BuscandoPeloNome(String nome){
 		return this.repositorio.BuscarPeloNome(nome);
 	}
+	
+
 }

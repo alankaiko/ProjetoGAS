@@ -16,7 +16,7 @@ import javax.persistence.Table;
 @NamedQueries({
 	@NamedQuery(name="Convenio.listar", query="SELECT convenio FROM Convenio convenio order by id"),
 	@NamedQuery(name="Convenio.buscarPorId", query="SELECT convenio FROM Convenio convenio WHERE convenio.id = :id"),
-	@NamedQuery(name="Convenio.buscarPeloNome", query="SELECT convenio FROM Convenio convenio WHERE convenio.nome LIKE :nome")
+	@NamedQuery(name="Convenio.buscarPeloNome", query="SELECT convenio FROM Convenio convenio WHERE convenio.nome LIKE :nome"),
 })
 public class Convenio implements Serializable {
 	private static final long serialVersionUID = 1L;

@@ -2,6 +2,7 @@ package br.com.gsv.convenio.formularios;
 
 import java.awt.BorderLayout;
 import java.awt.Container;
+import java.awt.EventQueue;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
@@ -11,40 +12,52 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
 import br.com.gsv.convenio.listeners.IncluirConvenioListener;
+import br.com.gsv.zprincipal.form.TelaPrincipalGrafic;
 
 public class IncluirConvenioForm extends JDialog{
 	private IncluirConvenioListener listener;
-	private IncluirConvenioClassic listenerGrafico;
+	IncluirConvenioClassic listenerClassic;
+	IncluirConvenioGrafic listenerGrafico;
+	
+	
 
-	// metodo construtor que inicia tudo
+	
 	public IncluirConvenioForm() {
-		CriarTelaGeral();
 		DadosFuncionario();
 		InicializaCompomentes();
 		listener = new IncluirConvenioListener(this);
-		listenerGrafico = new IncluirConvenioClassic(this);
+		//listenerClassic = new IncluirConvenioClassic(this);
+		//listenerGrafico = new IncluirConvenioGrafic(this);
 	}
 
 	
-	// cria e tela geral onde todos os componentes serao inseridos, é a tela
-	// geral do sistema
-	private void CriarTelaGeral() {
+	
+	/*public void CriarTelaGeralClassic() {
+		IncluirConvenioClassic listenerGrafico = new IncluirConvenioClassic(this);
 		this.setTitle("Inserir Convenio / Plano / Credencial");
 		this.setModal(true);
 		this.setResizable(false);
 		this.setBounds(100, 100, 350, 164);
 
 		this.tela.setLayout(null);
-		this.tela.add(contentPanel, BorderLayout.CENTER);
+		this.tela.add(panel, BorderLayout.CENTER);
 
-		contentPanel.setLayout(null);
-		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
+		panel.setLayout(null);
+		panel.setBorder(new EmptyBorder(5, 5, 5, 5));
 
-	}
+	}*/
+	
+	/*public void CriarTelaGeralGrafic(){
+		this.setTitle("Inserir Convenio / Plano / Credencial");
+		this.setModal(true);
+		this.setResizable(false);
+		this.setBounds(100, 100, 401, 215);
+		setUndecorated(true);
+		IncluirConvenioGrafic listenerGrafico = new IncluirConvenioGrafic(this);		
+	}*/
 		
 	
-	// cria os componentes jbutton jlabel jtexfield etc etc etc e organiza
-	// dentro do layout geral
+	
 	public void DadosFuncionario() {
 		LId = new JLabel();
 		TId = new JTextField();
@@ -54,8 +67,7 @@ public class IncluirConvenioForm extends JDialog{
 		BTCancelar = new JButton();
 	}
 
-	// classe que adiciona os componentes criados no metodo anterior à tela
-	// geral
+	
 	public void InicializaCompomentes() {
 		tela.add(this.TId);
 		tela.add(this.LConvenio);
@@ -65,7 +77,8 @@ public class IncluirConvenioForm extends JDialog{
 		tela.add(this.BTCancelar);
 	}
 
-	private JPanel contentPanel = new JPanel();
+	//private JPanel contentPanel = new JPanel();
+	private JPanel panel = new JPanel();
 	private Container tela = getContentPane();
 	private JLabel LId, LConvenio;
 	private JTextField TId, TConvenio;
@@ -135,8 +148,16 @@ public class IncluirConvenioForm extends JDialog{
 	}
 
 
-	public JPanel getContentPanel() {
-		return contentPanel;
+	
+
+	public JPanel getPanel() {
+		return panel;
+	}
+
+
+
+	public void setPanel(JPanel panel) {
+		this.panel = panel;
 	}
 
 	

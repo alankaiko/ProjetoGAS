@@ -20,6 +20,8 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
 
+import br.com.projeto.gsv.util.FieldListener;
+
 public class DialogCovnenio extends JDialog {
 	private Container tela = getContentPane();
 	private JTextField TId;
@@ -76,6 +78,12 @@ public class DialogCovnenio extends JDialog {
 		TConvenio.setColumns(10);
 		TConvenio.setBorder(new LineBorder(new Color(71, 120, 197)));
 		
+		FieldListener f1 = new  FieldListener();
+		
+		TId.addFocusListener(f1);
+		TConvenio.addFocusListener(f1);
+		
+		
 		JButton BTGravar = new JButton("Cadastrar");
 		BTGravar.setBounds(215, 381, 84, 23);
 		BTGravar.setBackground(new Color(71, 120, 197));
@@ -93,39 +101,39 @@ public class DialogCovnenio extends JDialog {
 		gl_panel.setHorizontalGroup(
 			gl_panel.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_panel.createSequentialGroup()
-					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_panel.createSequentialGroup()
-							.addGap(37)
-							.addGroup(gl_panel.createParallelGroup(Alignment.TRAILING)
-								.addComponent(LConvenio)
-								.addComponent(LId))
-							.addGap(18)
-							.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
-								.addComponent(TId, GroupLayout.PREFERRED_SIZE, 56, GroupLayout.PREFERRED_SIZE)
-								.addComponent(TConvenio, GroupLayout.PREFERRED_SIZE, 246, GroupLayout.PREFERRED_SIZE)))
-						.addGroup(gl_panel.createSequentialGroup()
-							.addGap(87)
-							.addComponent(BTGravar)
-							.addGap(26)
-							.addComponent(BTCancelar)))
-					.addContainerGap(33, Short.MAX_VALUE))
+				.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_panel.createSequentialGroup()
+				.addGap(37)
+				.addGroup(gl_panel.createParallelGroup(Alignment.TRAILING)
+				.addComponent(LConvenio)
+				.addComponent(LId))
+				.addGap(18)
+				.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
+				.addComponent(TId, GroupLayout.PREFERRED_SIZE, 56, GroupLayout.PREFERRED_SIZE)
+				.addComponent(TConvenio, GroupLayout.PREFERRED_SIZE, 246, GroupLayout.PREFERRED_SIZE)))
+				.addGroup(gl_panel.createSequentialGroup()
+				.addGap(87)
+				.addComponent(BTGravar)
+				.addGap(26)
+				.addComponent(BTCancelar)))
+				.addContainerGap(33, Short.MAX_VALUE))
 		);
 		gl_panel.setVerticalGroup(
 			gl_panel.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_panel.createSequentialGroup()
-					.addContainerGap(20, Short.MAX_VALUE)
-					.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
-						.addComponent(TId, GroupLayout.PREFERRED_SIZE, 22, GroupLayout.PREFERRED_SIZE)
-						.addComponent(LId))
-					.addGap(30)
-					.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
-						.addComponent(LConvenio)
-						.addComponent(TConvenio, GroupLayout.PREFERRED_SIZE, 23, GroupLayout.PREFERRED_SIZE))
-					.addPreferredGap(ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
-					.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
-						.addComponent(BTGravar)
-						.addComponent(BTCancelar))
-					.addContainerGap())
+				.addContainerGap(20, Short.MAX_VALUE)
+				.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
+				.addComponent(TId, GroupLayout.PREFERRED_SIZE, 22, GroupLayout.PREFERRED_SIZE)
+				.addComponent(LId))
+				.addGap(30)
+				.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
+				.addComponent(LConvenio)
+				.addComponent(TConvenio, GroupLayout.PREFERRED_SIZE, 23, GroupLayout.PREFERRED_SIZE))
+				.addPreferredGap(ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
+				.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
+				.addComponent(BTGravar)
+				.addComponent(BTCancelar))
+				.addContainerGap())
 		);
 		panel.setLayout(gl_panel);
 		getContentPane().setLayout(groupLayout);

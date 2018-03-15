@@ -11,32 +11,27 @@ private IncluirConvenioForm formulario;
 	
 	public IncluirConvenioClassic(IncluirConvenioForm formulario) {
 		this.formulario = formulario;
+		CriarTelaGeralClassic();
 		DadosFuncionario();
 		this.formulario.InicializaCompomentes();
 	}
 	
 	
-	// cria e tela geral onde todos os componentes serao inseridos, é a tela
-	// geral do sistema
-	private void CriarTelaGeral() {
-		
-		this.setTitle("Inserir Convenio / Plano / Credencial");
-		this.setModal(true);
-		this.setResizable(false);
-		this.setBounds(100, 100, 350, 164);
+	public void CriarTelaGeralClassic() {
+		this.formulario.setTitle("Inserir Convenio / Plano / Credencial");
+		this.formulario.setModal(true);
+		this.formulario.setResizable(false);
+		this.formulario.setBounds(100, 100, 350, 164);
 
-		this.tela.setLayout(null);
-		this.tela.add(contentPanel, BorderLayout.CENTER);
+		this.formulario.getTela().setLayout(null);
+		this.formulario.getTela().add(this.formulario.getPanel(), BorderLayout.CENTER);
 
-		contentPanel.setLayout(null);
-		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
+		this.formulario.getPanel().setLayout(null);
+		this.formulario.getPanel().setBorder(new EmptyBorder(5, 5, 5, 5));
 
 	}
-			
 	
-	
-	// cria os componentes jbutton jlabel jtexfield etc etc etc e organiza
-	// dentro do layout geral
+
 	public void DadosFuncionario() {
 		this.formulario.getLId().setText("Código");
 		this.formulario.getLId().setFont(new Font("Arial", Font.BOLD, 11));

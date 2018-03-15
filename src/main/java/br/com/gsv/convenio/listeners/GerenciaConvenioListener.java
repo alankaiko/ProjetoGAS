@@ -110,6 +110,7 @@ public class GerenciaConvenioListener implements ActionListener{
 	
 	private void ExecutaInclusao(){
 		IncluirConvenioForm inclui = new IncluirConvenioForm();
+		//inclui.CriarTelaGeralGrafic();
 		inclui.setLocationRelativeTo(this.gerenciamento.getTela());
 		inclui.setVisible(true);		
 		TabelaDeConvenio();

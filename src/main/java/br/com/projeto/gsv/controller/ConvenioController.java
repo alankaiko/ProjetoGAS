@@ -33,6 +33,8 @@ public class ConvenioController {
 	public List<Convenio> BuscarPeloNome(String nome) {
 		return this.cadastroService.BuscandoPeloNome(nome);
 	}
+	
+	
 
 	public void setConvenio(Convenio convenio) {
 		this.convenio = convenio;
@@ -41,4 +43,5 @@ public class ConvenioController {
 	public Convenio getConvenio() {
 		return convenio;
 	}
+	
 }
