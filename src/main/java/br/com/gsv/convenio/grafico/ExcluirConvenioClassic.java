@@ -1,10 +1,12 @@
-package br.com.gsv.convenio.formularios;
+package br.com.gsv.convenio.grafico;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.FlowLayout;
 
 import javax.swing.border.EmptyBorder;
+
+import br.com.gsv.convenio.formularios.ExcluirConvenioDialog;
 
 public class ExcluirConvenioClassic {
 	private ExcluirConvenioDialog formulario;
@@ -13,7 +15,7 @@ public class ExcluirConvenioClassic {
 		this.formulario = formulario;
 		this.formulario.AdicionaComponentes();
 		CriaTela();
-		CriaCompomentes();
+		DefineComponentes();
 		
 	}
 	
@@ -34,7 +36,8 @@ public class ExcluirConvenioClassic {
 		this.formulario.getPanel().setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 	}
 	
-	public void CriaCompomentes(){
+	
+	public void DefineComponentes(){
 		this.formulario.getExcluir().setText("Excluir: "+ formulario.getConvenio().getNome() + "?");
 		this.formulario.getExcluir().setForeground(Color.black);
 		this.formulario.getExcluir().setBounds(10, 10, 300, 18);

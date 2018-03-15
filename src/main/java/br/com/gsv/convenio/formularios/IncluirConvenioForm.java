@@ -8,9 +8,16 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import br.com.gsv.convenio.grafico.IncluirConvenioClassic;
+import br.com.gsv.convenio.grafico.IncluirConvenioGrafic;
 import br.com.gsv.convenio.listeners.IncluirConvenioListener;
 
 public class IncluirConvenioForm extends JDialog{
+	private JPanel panel = new JPanel();
+	private Container tela = getContentPane();
+	private JLabel LId, LConvenio;
+	private JTextField TId, TConvenio;
+	private JButton BTGravar, BTCancelar;
 	private IncluirConvenioListener listener;
 	private IncluirConvenioClassic listenerClassic;
 	private IncluirConvenioGrafic listenerGrafico;
@@ -22,39 +29,11 @@ public class IncluirConvenioForm extends JDialog{
 		CriaVariaveis();
 		AdicionaComponentes();
 		
-		
-		
 		listener = new IncluirConvenioListener(this);
 		//listenerClassic = new IncluirConvenioClassic(this);
 		listenerGrafico = new IncluirConvenioGrafic(this);
 	}
 
-	
-	
-	/*public void CriarTelaGeralClassic() {
-		IncluirConvenioClassic listenerGrafico = new IncluirConvenioClassic(this);
-		this.setTitle("Inserir Convenio / Plano / Credencial");
-		this.setModal(true);
-		this.setResizable(false);
-		this.setBounds(100, 100, 350, 164);
-
-		this.tela.setLayout(null);
-		this.tela.add(panel, BorderLayout.CENTER);
-
-		panel.setLayout(null);
-		panel.setBorder(new EmptyBorder(5, 5, 5, 5));
-
-	}*/
-	
-	/*public void CriarTelaGeralGrafic(){
-		this.setTitle("Inserir Convenio / Plano / Credencial");
-		this.setModal(true);
-		this.setResizable(false);
-		this.setBounds(100, 100, 401, 215);
-		setUndecorated(true);
-		IncluirConvenioGrafic listenerGrafico = new IncluirConvenioGrafic(this);		
-	}*/
-		
 	
 	
 	public void CriaVariaveis() {
@@ -67,7 +46,7 @@ public class IncluirConvenioForm extends JDialog{
 	}
 
 	
-	public void AdicionaComponentes() {
+	private void AdicionaComponentes() {
 		tela.add(this.TId);
 		tela.add(this.LConvenio);
 		tela.add(this.TConvenio);
@@ -76,12 +55,7 @@ public class IncluirConvenioForm extends JDialog{
 		tela.add(this.BTCancelar);
 	}
 
-	//private JPanel contentPanel = new JPanel();
-	private JPanel panel = new JPanel();
-	private Container tela = getContentPane();
-	private JLabel LId, LConvenio;
-	private JTextField TId, TConvenio;
-	private JButton BTGravar, BTCancelar;
+	
 
 	public JButton getBTGravar() {
 		return BTGravar;

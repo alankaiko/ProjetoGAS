@@ -1,4 +1,4 @@
-package br.com.gsv.convenio.formularios;
+package br.com.gsv.convenio.grafico;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -6,55 +6,51 @@ import java.awt.Font;
 
 import javax.swing.border.EmptyBorder;
 
-public class IncluirConvenioClassic {
-private IncluirConvenioForm formulario;
+import br.com.gsv.convenio.formularios.DetalhesConvenioDialog;
+
+public class DetalheConvenioClassic {
+	private DetalhesConvenioDialog formulario;
 	
-	public IncluirConvenioClassic(IncluirConvenioForm formulario) {
+	public DetalheConvenioClassic(DetalhesConvenioDialog formulario) {
 		this.formulario = formulario;
 		CriarTelaGeralClassic();
-		DadosFuncionario();
-		this.formulario.AdicionaComponentes();
+		DadosConvenio();
 	}
 	
 	
 	public void CriarTelaGeralClassic() {
-		this.formulario.setTitle("Inserir Convenio / Plano / Credencial");
+		this.formulario.setTitle("Dados de Convenio ");
 		this.formulario.setModal(true);
 		this.formulario.setResizable(false);
-		this.formulario.setBounds(100, 100, 350, 164);
-
-		this.formulario.getTela().setLayout(null);
+		this.formulario.setBounds(100, 100, 323, 174);
+		
+		this.formulario.getTela().setLayout(null);		
 		this.formulario.getTela().add(this.formulario.getPanel(), BorderLayout.CENTER);
-
+		
 		this.formulario.getPanel().setLayout(null);
 		this.formulario.getPanel().setBorder(new EmptyBorder(5, 5, 5, 5));
-
 	}
 	
 
-	public void DadosFuncionario() {
+	public void DadosConvenio() {
 		this.formulario.getLId().setText("Código");
-		this.formulario.getLId().setFont(new Font("Arial", Font.BOLD, 11));
 		this.formulario.getLId().setBounds(37, 30, 50, 20);
+		this.formulario.getLId().setFont(new Font("Arial", Font.BOLD, 11));
 			this.formulario.getTId().setBounds(83, 31, 84, 20);
 			this.formulario.getTId().setBackground(new Color(255, 255, 204));
 			this.formulario.getTId().setFont(new Font("Arial", Font.BOLD, 10));
 			this.formulario.getTId().setForeground(Color.black);
-			this.formulario.getTId().setEditable(false);
 
-		this.formulario.getLConvenio().setText("Convenio");
-		this.formulario.getLConvenio().setBounds(22, 62, 104, 20);
+		this.formulario.getLConvenio().setText("Convênio ");
+		this.formulario.getLConvenio().setBounds(22, 62, 97, 20);
 		this.formulario.getLConvenio().setFont(new Font("Arial", Font.BOLD, 11));
 			this.formulario.getTConvenio().setBounds(83, 63, 239, 19);
 			this.formulario.getTConvenio().setFont(new Font("Arial", Font.BOLD, 10));
-
-		this.formulario.getBTGravar().setText("Gravar");
-		this.formulario.getBTGravar().setFont(new Font("Calibri", Font.PLAIN, 12));
-		this.formulario.getBTGravar().setBounds(59, 93, 89, 23);
-
-		this.formulario.getBTCancelar().setText("Cancelar");
-		this.formulario.getBTCancelar().setFont(new Font("Calibri", Font.PLAIN, 12));
-		this.formulario.getBTCancelar().setBounds(170, 93, 89, 23);
+					
+			
+		this.formulario.getCancelar().setText("Cancelar");
+		this.formulario.getCancelar().setFont(new Font("Calibri", Font.PLAIN, 12));
+		this.formulario.getCancelar().setBounds(123, 107, 89, 23);
 	}
 
 }

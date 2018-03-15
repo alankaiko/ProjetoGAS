@@ -34,7 +34,7 @@ public class DetalhesConvenioListener implements ActionListener{
 	
 	public void Detalhar(){
 		this.formulario.getTId().setText(String.valueOf(this.convenio.getId()));
-		this.formulario.getTFabricante().setText(this.convenio.getNome());
+		this.formulario.getTConvenio().setText(this.convenio.getNome());
 	}
 	
 	

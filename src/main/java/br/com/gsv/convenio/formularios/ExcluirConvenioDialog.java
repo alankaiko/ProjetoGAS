@@ -6,8 +6,11 @@ import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JSeparator;
 
 import br.com.gsv.convenio.domain.Convenio;
+import br.com.gsv.convenio.grafico.ExcluirConvenioClassic;
+import br.com.gsv.convenio.grafico.ExcluirConvenioGrafic;
 import br.com.gsv.convenio.listeners.ExcluirConvenioListener;
 
 public class ExcluirConvenioDialog extends JDialog {
@@ -15,6 +18,7 @@ public class ExcluirConvenioDialog extends JDialog {
 	private Container tela = getContentPane();
 	private JButton ok, cancelar;
 	private JLabel excluir;
+	private JSeparator separa;
 	private Convenio convenio;
 	private ExcluirConvenioListener listener;
 	private ExcluirConvenioClassic listenerClassic;
@@ -24,6 +28,7 @@ public class ExcluirConvenioDialog extends JDialog {
 	public ExcluirConvenioDialog(Convenio convenio) {
 		CriaVariaveis();
 		this.convenio = convenio;
+		AdicionaComponentes();
 		
 		//listenerClassic = new ExcluirConvenioClassic(this);
 		listenerGrafic = new ExcluirConvenioGrafic(this);
@@ -31,16 +36,18 @@ public class ExcluirConvenioDialog extends JDialog {
 	}
 	
 	private void CriaVariaveis(){
-		this.excluir = new JLabel();
-		this.ok = new JButton();
-		this.cancelar = new JButton();
-		this.convenio = new Convenio();
+		excluir = new JLabel();
+		ok = new JButton();
+		separa = new JSeparator();
+		cancelar = new JButton();
+		convenio = new Convenio();
 	}
 	
 	public void AdicionaComponentes(){
-		tela.add(ok);
-		tela.add(cancelar);
-		tela.add(excluir);
+		tela.add(this.ok);
+		tela.add(this.separa);
+		tela.add(this.cancelar);
+		tela.add(this.excluir);
 	}
 	
 
@@ -100,6 +107,14 @@ public class ExcluirConvenioDialog extends JDialog {
 
 	public void setConvenio(Convenio convenio) {
 		this.convenio = convenio;
+	}
+
+	public JSeparator getSepara() {
+		return separa;
+	}
+
+	public void setSepara(JSeparator separa) {
+		this.separa = separa;
 	}
 
 	

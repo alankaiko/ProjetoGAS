@@ -1,145 +1,155 @@
 package br.com.gsv.convenio.formularios;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
 import java.awt.Container;
-import java.awt.Font;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
-import javax.swing.border.EmptyBorder;
+import javax.swing.JSeparator;
 
+import br.com.gsv.convenio.grafico.DetalheConvenioClassic;
+import br.com.gsv.convenio.grafico.DetalheConvenioGrafic;
 import br.com.gsv.convenio.listeners.DetalhesConvenioListener;
 
 public class DetalhesConvenioDialog extends JDialog {
-	private DetalhesConvenioListener listener;	
+	private final JPanel panel = new JPanel();
+	private Container tela = getContentPane();
+	private JLabel LId, LConvenio;
+	private JLabel TId, TConvenio;
+	private JButton cancelar;
+	private JSeparator separa;
+	private DetalhesConvenioListener listener;
+	private DetalheConvenioClassic listenerClassic;
+	private DetalheConvenioGrafic listenerGrafic;
 	
+
 	public DetalhesConvenioDialog() {
-		CriarTelaGeral();
-		Dados();
-		InicializaCompomentes();
+		CriaVariaveis();
+		AdicionaComponentes();
+		
+		//listenerClassic = new DetalheConvenioClassic(this);
+		listenerGrafic = new DetalheConvenioGrafic(this);
 		listener = new DetalhesConvenioListener(this);
 	}
 
 	
+	public void CriaVariaveis() {
+		LId = new JLabel();
+		LConvenio = new JLabel();
+		TId = new JLabel();
+		TConvenio = new JLabel();
+		cancelar = new JButton();
+		separa = new JSeparator();
+	}
+
+	
+	public void AdicionaComponentes(){
+		tela.add(this.TId);
+		tela.add(this.LConvenio );
+		tela.add(this.TConvenio);
+		tela.add(this.LId);
+		tela.add(this.separa);
+		tela.add(this.cancelar);			
+	}
 		
-	//cria e tela geral onde todos os componentes serao inseridos, é a tela geral do sistema
-	private void CriarTelaGeral(){
-		this.setTitle("Dados de Convenio ");
-		this.setModal(true);
-		this.setResizable(false);
-		this.setBounds(100, 100, 323, 174);
 		
-		this.tela.setLayout(null);		
-		this.tela.add(contentPanel, BorderLayout.CENTER);
 		
-		contentPanel.setLayout(null);
-		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		
+
+		
+
+	public JButton getCancelar() {
+		return cancelar;
+	}
+
+
+
+	public void setCancelar(JButton cancelar) {
+		this.cancelar = cancelar;
+	}
+
+
+
+	public Container getTela() {
+		return tela;
+	}
+
+
+	public void setTela(Container tela) {
+		this.tela = tela;
+	}
+
+	
+
+	public JLabel getTId() {
+		return TId;
+	}
+
+
+
+	public void setTId(JLabel tId) {
+		TId = tId;
+	}
+
+
+	public JLabel getLConvenio() {
+		return LConvenio;
+	}
+
+
+	public void setLConvenio(JLabel lConvenio) {
+		LConvenio = lConvenio;
+	}
+
+
+	public JLabel getTConvenio() {
+		return TConvenio;
+	}
+
+
+	public void setTConvenio(JLabel tConvenio) {
+		TConvenio = tConvenio;
+	}
+
+
+	public DetalhesConvenioListener getListener() {
+		return listener;
 	}
 	
-		
-		
-	//cria os componentes jbutton jlabel jtexfield etc etc etc e organiza dentro do layout geral
-	public void Dados(){
-		LId = new JLabel("Código");
-		LId.setBounds(37, 30, 50, 20);
-		LId.setFont(new Font("Arial", Font.BOLD, 11));
-			TId = new JLabel();
-			TId.setBounds(83, 31, 84, 20);
-			TId.setBackground(new Color(255, 255, 204));
-			TId.setFont(new Font("Arial", Font.BOLD, 10));
-			TId.setForeground(Color.black);
-
-		LFabricante = new JLabel("Convênio ");
-		LFabricante.setBounds(22, 62, 97, 20);
-		LFabricante.setFont(new Font("Arial", Font.BOLD, 11));
-			TFabricante = new JLabel();
-			TFabricante.setBounds(83, 63, 239, 19);
-			TFabricante.setFont(new Font("Arial", Font.BOLD, 10));
-					
-			
-		cancelar = new JButton("Cancelar");
-		cancelar.setFont(new Font("Calibri", Font.PLAIN, 12));
-		cancelar.setBounds(123, 107, 89, 23);
+	public void setListener(DetalhesConvenioListener listener) {
+		this.listener = listener;
 	}
+
+
+
+	public JLabel getLId() {
+		return LId;
+	}
+
+
+
+	public void setLId(JLabel lId) {
+		LId = lId;
+	}
+
+
+
+	public JPanel getPanel() {
+		return panel;
+	}
+
+
+	public JSeparator getSepara() {
+		return separa;
+	}
+
+
+	public void setSepara(JSeparator separa) {
+		this.separa = separa;
+	}
+
+
+	
 		
-		
-		//classe que adiciona os componentes criados no metodo anterior à tela geral
-		public void InicializaCompomentes(){
-			tela.add(this.TId);
-			tela.add(this.TFabricante );
-			tela.add(this.LFabricante);
-			tela.add(this.LId);
-			tela.add(this.cancelar);			
-		}
-		
-		
-		private final JPanel contentPanel = new JPanel();
-		private Container tela = getContentPane();
-		private JLabel LId, LFabricante;
-		private JLabel TId, TFabricante;
-		private JButton cancelar;
-		
-
-		
-
-		public JButton getCancelar() {
-			return cancelar;
-		}
-
-
-
-		public void setCancelar(JButton cancelar) {
-			this.cancelar = cancelar;
-		}
-
-
-
-		public Container getTela() {
-			return tela;
-		}
-
-
-		public void setTela(Container tela) {
-			this.tela = tela;
-		}
-
-		
-
-		public JLabel getTId() {
-			return TId;
-		}
-
-
-
-		public void setTId(JLabel tId) {
-			TId = tId;
-		}
-
-
-
-		public JLabel getTFabricante() {
-			return TFabricante;
-		}
-
-
-
-		public void setTFabricante(JLabel tFabricante) {
-			TFabricante = tFabricante;
-		}
-
-
-
-		public DetalhesConvenioListener getListener() {
-			return listener;
-		}
-		
-		public void setListener(DetalhesConvenioListener listener) {
-			this.listener = listener;
-		}
-
 }
