@@ -1,29 +1,25 @@
 package br.com.gsv.convenio.formularios;
 
-import java.awt.BorderLayout;
 import java.awt.Container;
-import java.awt.EventQueue;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-import javax.swing.border.EmptyBorder;
 
 import br.com.gsv.convenio.listeners.IncluirConvenioListener;
-import br.com.gsv.zprincipal.form.TelaPrincipalGrafic;
 
 public class IncluirConvenioForm extends JDialog{
 	private IncluirConvenioListener listener;
-	IncluirConvenioClassic listenerClassic;
-	IncluirConvenioGrafic listenerGrafico;
+	private IncluirConvenioClassic listenerClassic;
+	private IncluirConvenioGrafic listenerGrafico;
 	
 	
 
 	
 	public IncluirConvenioForm() {
-		DadosFuncionario();
+		DadosConvenio();
 		InicializaCompomentes();
 		listener = new IncluirConvenioListener(this);
 		//listenerClassic = new IncluirConvenioClassic(this);
@@ -58,7 +54,7 @@ public class IncluirConvenioForm extends JDialog{
 		
 	
 	
-	public void DadosFuncionario() {
+	public void DadosConvenio() {
 		LId = new JLabel();
 		TId = new JTextField();
 		LConvenio = new JLabel();

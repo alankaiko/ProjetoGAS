@@ -19,6 +19,8 @@ import javax.swing.JSeparator;
 import javax.swing.JTextField;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.border.EmptyBorder;
+import javax.swing.JDesktopPane;
+import javax.swing.JToolBar;
 
 public class TelaBeta extends JFrame {
 
@@ -50,7 +52,7 @@ public class TelaBeta extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		//setLocationByPlatform(true);
-        //setUndecorated(true);
+        setUndecorated(true);
 		
 		JPanel painelEsquerdo = new JPanel();
 		painelEsquerdo.setBackground(new Color(26,35,51));
@@ -214,11 +216,19 @@ public class TelaBeta extends JFrame {
 		
 		JLabel label_7 = new JLabel("");
 		label_7.setIcon(new ImageIcon(TelaBeta.class.getResource("/images/icons8_Search_18px.png")));
+		
+		JDesktopPane desktopPane = new JDesktopPane();
+		
+		JToolBar toolBar = new JToolBar();
 		GroupLayout gl_panel_1 = new GroupLayout(panel_1);
 		gl_panel_1.setHorizontalGroup(
 			gl_panel_1.createParallelGroup(Alignment.TRAILING)
 				.addGroup(gl_panel_1.createSequentialGroup()
-					.addContainerGap(552, Short.MAX_VALUE)
+					.addGap(24)
+					.addComponent(desktopPane, GroupLayout.PREFERRED_SIZE, 132, GroupLayout.PREFERRED_SIZE)
+					.addGap(130)
+					.addComponent(toolBar, GroupLayout.DEFAULT_SIZE, 256, Short.MAX_VALUE)
+					.addPreferredGap(ComponentPlacement.UNRELATED)
 					.addComponent(textField, GroupLayout.PREFERRED_SIZE, 151, GroupLayout.PREFERRED_SIZE)
 					.addPreferredGap(ComponentPlacement.UNRELATED)
 					.addComponent(label_7)
@@ -227,11 +237,17 @@ public class TelaBeta extends JFrame {
 		gl_panel_1.setVerticalGroup(
 			gl_panel_1.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_panel_1.createSequentialGroup()
-					.addContainerGap()
 					.addGroup(gl_panel_1.createParallelGroup(Alignment.LEADING)
-						.addComponent(label_7)
-						.addComponent(textField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-					.addContainerGap(17, Short.MAX_VALUE))
+						.addGroup(gl_panel_1.createSequentialGroup()
+							.addGap(12)
+							.addGroup(gl_panel_1.createParallelGroup(Alignment.LEADING)
+								.addComponent(label_7)
+								.addComponent(textField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
+						.addGroup(gl_panel_1.createSequentialGroup()
+							.addGap(1)
+							.addComponent(desktopPane, GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE))
+						.addComponent(toolBar, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addContainerGap())
 		);
 		panel_1.setLayout(gl_panel_1);
 		

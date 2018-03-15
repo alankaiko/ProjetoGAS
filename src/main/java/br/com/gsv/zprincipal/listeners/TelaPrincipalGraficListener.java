@@ -9,6 +9,7 @@ import java.awt.event.MouseListener;
 import javax.swing.JPanel;
 
 import br.com.gsv.convenio.formularios.GerenciaTelaConvenio;
+import br.com.gsv.fabricantes.formularios.GerenciaTelaFabricante;
 import br.com.gsv.funcionario.formularios.GerenciaTelaFuncionario;
 import br.com.gsv.funcionario.formularios.IncluirFuncionariosForm;
 import br.com.gsv.paciente.formularios.GerenciaTelaPaciente;
@@ -97,6 +98,7 @@ public class TelaPrincipalGraficListener implements MouseListener, ActionListene
 			AtivaEfeitoBotoes(this.tela.getBotaoProdutos());
 		}
 		
+		
 		if(event.getSource().equals(this.tela.getBotaoRelItens())){
 			AtivaEfeitoBotoes(this.tela.getBotaoRelItens());		
 		}
@@ -183,6 +185,12 @@ public class TelaPrincipalGraficListener implements MouseListener, ActionListene
 		
 		if(event.getSource().equals(this.tela.getCadastroPaciente())){
 			GerenciaTelaPaciente formulario = new GerenciaTelaPaciente();
+			formulario.setLocationRelativeTo(this.tela.getTela());
+			formulario.setVisible(true);
+		}
+		
+		if(event.getSource().equals(this.tela.getFarmaciaFabricante())){
+			GerenciaTelaFabricante formulario = new GerenciaTelaFabricante();
 			formulario.setLocationRelativeTo(this.tela.getTela());
 			formulario.setVisible(true);
 		}

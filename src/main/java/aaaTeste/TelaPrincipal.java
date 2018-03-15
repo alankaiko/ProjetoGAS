@@ -26,6 +26,9 @@ import javax.swing.LayoutStyle;
 import javax.swing.WindowConstants;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.JDesktopPane;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.LayoutStyle.ComponentPlacement;
 
 
 
@@ -375,49 +378,6 @@ public class TelaPrincipal extends JFrame {
         );
         
         jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-            	.addGroup(GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addGroup(jPanel5Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(12, 12, 12)
-                .addComponent(jLabel15)
-                .addGap(28, 28, 28)
-                .addComponent(jLabel1)
-                .addGap(45, 45, 45)
-                .addComponent(jLabel3)
-                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel4))
-                .addGroup(jPanel5Layout.createSequentialGroup()
-                .addComponent(jLabel5)
-                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel5Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel5Layout.createSequentialGroup()
-                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
-                .addComponent(jProgressBar1, GroupLayout.PREFERRED_SIZE, 194, GroupLayout.PREFERRED_SIZE))
-                .addComponent(jSeparator1))))
-                .addGap(40, 40, 40))
-        );
-        
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-            	.addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(32, 32, 32)
-                .addGroup(jPanel5Layout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
-                .addComponent(jLabel4, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel3, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel15, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel5Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel5Layout.createSequentialGroup()
-                .addComponent(jSeparator1, GroupLayout.PREFERRED_SIZE, 10, GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jProgressBar1,GroupLayout.PREFERRED_SIZE,GroupLayout.DEFAULT_SIZE,GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 24, Short.MAX_VALUE))
-                .addComponent(jLabel5, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-        );
         
         jPanel3Layout = new GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -553,7 +513,56 @@ public class TelaPrincipal extends JFrame {
 	    ind_4Layout = new GroupLayout(ind_4);
 	    btn_4Layout = new GroupLayout(btn_4);
 	    jPanel2Layout = new GroupLayout(jPanel2);
+	    
+	    JDesktopPane desktopPane = new JDesktopPane();
+	    desktopPane.setBackground(Color.YELLOW);
 	    jPanel5Layout = new GroupLayout(jPanel5);
+	    jPanel5Layout.setHorizontalGroup(
+	    	jPanel5Layout.createParallelGroup(Alignment.TRAILING)
+	    		.addGroup(jPanel5Layout.createSequentialGroup()
+	    			.addGap(27)
+	    			.addGroup(jPanel5Layout.createParallelGroup(Alignment.LEADING)
+	    				.addGroup(jPanel5Layout.createSequentialGroup()
+	    					.addGap(12)
+	    					.addComponent(jLabel15)
+	    					.addGap(28)
+	    					.addComponent(jLabel1)
+	    					.addGap(45)
+	    					.addComponent(jLabel3)
+	    					.addPreferredGap(ComponentPlacement.RELATED, 198, Short.MAX_VALUE)
+	    					.addComponent(jLabel4))
+	    				.addGroup(jPanel5Layout.createSequentialGroup()
+	    					.addComponent(jLabel5)
+	    					.addPreferredGap(ComponentPlacement.RELATED)
+	    					.addGroup(jPanel5Layout.createParallelGroup(Alignment.LEADING)
+	    						.addGroup(jPanel5Layout.createSequentialGroup()
+	    							.addPreferredGap(ComponentPlacement.RELATED, 160, Short.MAX_VALUE)
+	    							.addComponent(jProgressBar1, GroupLayout.PREFERRED_SIZE, 194, GroupLayout.PREFERRED_SIZE))
+	    						.addComponent(jSeparator1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))))
+	    			.addGap(28))
+	    		.addGroup(Alignment.LEADING, jPanel5Layout.createSequentialGroup()
+	    			.addGap(135)
+	    			.addComponent(desktopPane, GroupLayout.PREFERRED_SIZE, 234, GroupLayout.PREFERRED_SIZE)
+	    			.addContainerGap(81, Short.MAX_VALUE))
+	    );
+	    jPanel5Layout.setVerticalGroup(
+	    	jPanel5Layout.createParallelGroup(Alignment.LEADING)
+	    		.addGroup(jPanel5Layout.createSequentialGroup()
+	    			.addComponent(desktopPane, GroupLayout.PREFERRED_SIZE, 41, GroupLayout.PREFERRED_SIZE)
+	    			.addPreferredGap(ComponentPlacement.RELATED)
+	    			.addGroup(jPanel5Layout.createParallelGroup(Alignment.LEADING, false)
+	    				.addComponent(jLabel4, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+	    				.addComponent(jLabel3, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+	    				.addComponent(jLabel1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+	    				.addComponent(jLabel15, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+	    			.addPreferredGap(ComponentPlacement.UNRELATED)
+	    			.addGroup(jPanel5Layout.createParallelGroup(Alignment.LEADING)
+	    				.addGroup(jPanel5Layout.createSequentialGroup()
+	    					.addComponent(jSeparator1, GroupLayout.PREFERRED_SIZE, 10, GroupLayout.PREFERRED_SIZE)
+	    					.addGap(18)
+	    					.addComponent(jProgressBar1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+	    				.addComponent(jLabel5, GroupLayout.DEFAULT_SIZE, 232, Short.MAX_VALUE)))
+	    );
         
 	    //getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 	    // side_pane.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -670,5 +679,4 @@ public class TelaPrincipal extends JFrame {
     private JTable jTable1;
     private JTextField jTextField1;
     private Button button1;
-    
 }

@@ -1,80 +1,44 @@
 package br.com.gsv.fabricantes.formularios;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
 import java.awt.Container;
-import java.awt.Font;
-import java.util.EventListener;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-import javax.swing.border.EmptyBorder;
 
 import br.com.gsv.fabricantes.listeners.IncluirFabricantesListener;
 
 public class IncluirFabricantesForm extends JDialog {
 	private IncluirFabricantesListener listener;
-
-	// metodo construtor que inicia tudo
+	private IncluirFabricanteClassic listenerClassic;
+	private IncluirFabricanteGrafic listenerGrafic;
+	private JPanel panel = new JPanel();
+	private Container tela = getContentPane();
+	private JLabel LId, LFabricante;
+	private JTextField TId, TFabricante;
+	private JButton BTGravar, BTCancelar;
+	
 	public IncluirFabricantesForm() {
-		CriarTelaGeral();
-		DadosFuncionario();
-		InicializaCompomentes();
+		InicializaObjetos();
+		AdicionaCompomentes();
+		//listenerClassic = new IncluirFabricanteClassic(this);
+		listenerGrafic = new IncluirFabricanteGrafic(this);
 		listener = new IncluirFabricantesListener(this);
 	}
 
-	// cria e tela geral onde todos os componentes serao inseridos, é a tela
-	// geral do sistema
-	private void CriarTelaGeral() {
-		this.setTitle("Inserir Dados de Fabricante");
-		this.setModal(true);
-		this.setResizable(false);
-		this.setBounds(100, 100, 350, 200);
-
-		this.tela.setLayout(null);
-		this.tela.add(contentPanel, BorderLayout.CENTER);
-
-		contentPanel.setLayout(null);
-		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
-
+	public void InicializaObjetos(){
+		LId = new JLabel();
+		LFabricante = new JLabel(); 
+		TId = new JTextField();
+		TFabricante = new JTextField();
+		BTGravar = new JButton();
+		BTCancelar = new JButton();
 	}
-
-	// cria os componentes jbutton jlabel jtexfield etc etc etc e organiza
-	// dentro do layout geral
-	public void DadosFuncionario() {
-		LId = new JLabel("Código");
-		LId.setBounds(37, 30, 50, 20);
-		LId.setFont(new Font("Arial", Font.BOLD, 11));
-			TId = new JTextField();
-			TId.setBounds(83, 31, 84, 20);
-			TId.setBackground(new Color(255, 255, 204));
-			TId.setFont(new Font("Arial", Font.BOLD, 10));
-			TId.setForeground(Color.black);
-			TId.setEditable(false);
-
-		LFabricante = new JLabel("Fabricante ");
-		LFabricante.setBounds(22, 62, 97, 20);
-		LFabricante.setFont(new Font("Arial", Font.BOLD, 11));
-			TFabricante = new JTextField();
-			TFabricante.setBounds(83, 63, 239, 19);
-			TFabricante.setFont(new Font("Arial", Font.BOLD, 10));
-			
-
-		BTGravar = new JButton("Gravar");
-		BTGravar.setFont(new Font("Calibri", Font.PLAIN, 12));
-		BTGravar.setBounds(37, 121, 89, 23);
-
-		BTCancelar = new JButton("Cancelar");
-		BTCancelar.setFont(new Font("Calibri", Font.PLAIN, 12));
-		BTCancelar.setBounds(160, 121, 89, 23);
-	}
-
-	// classe que adiciona os componentes criados no metodo anterior à tela
-	// geral
-	public void InicializaCompomentes() {
+	
+	
+	public void AdicionaCompomentes() {
 		tela.add(this.TId);
 		tela.add(this.LFabricante);
 		tela.add(this.TFabricante);
@@ -83,11 +47,7 @@ public class IncluirFabricantesForm extends JDialog {
 		tela.add(this.BTCancelar);
 	}
 
-	private final JPanel contentPanel = new JPanel();
-	private Container tela = getContentPane();
-	private JLabel LId, LFabricante;
-	private JTextField TId, TFabricante;
-	private JButton BTGravar, BTCancelar;
+	
 
 	public JButton getBTGravar() {
 		return BTGravar;
@@ -136,4 +96,34 @@ public class IncluirFabricantesForm extends JDialog {
 	public IncluirFabricantesListener getListener() {
 		return listener;
 	}
+
+
+	public JPanel getPanel() {
+		return panel;
+	}
+
+
+	public void setPanel(JPanel panel) {
+		this.panel = panel;
+	}
+
+	public JLabel getLId() {
+		return LId;
+	}
+
+
+	public void setLId(JLabel lId) {
+		LId = lId;
+	}
+
+	public JLabel getLFabricante() {
+		return LFabricante;
+	}
+
+
+	public void setLFabricante(JLabel lFabricante) {
+		LFabricante = lFabricante;
+	}
+	
+	
 }
