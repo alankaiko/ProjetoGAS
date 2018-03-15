@@ -13,7 +13,7 @@ private IncluirConvenioForm formulario;
 		this.formulario = formulario;
 		CriarTelaGeralClassic();
 		DadosFuncionario();
-		this.formulario.InicializaCompomentes();
+		this.formulario.AdicionaComponentes();
 	}
 	
 	

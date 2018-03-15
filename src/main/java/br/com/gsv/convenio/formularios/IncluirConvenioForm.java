@@ -19,11 +19,14 @@ public class IncluirConvenioForm extends JDialog{
 
 	
 	public IncluirConvenioForm() {
-		DadosConvenio();
-		InicializaCompomentes();
+		CriaVariaveis();
+		AdicionaComponentes();
+		
+		
+		
 		listener = new IncluirConvenioListener(this);
 		//listenerClassic = new IncluirConvenioClassic(this);
-		//listenerGrafico = new IncluirConvenioGrafic(this);
+		listenerGrafico = new IncluirConvenioGrafic(this);
 	}
 
 	
@@ -54,7 +57,7 @@ public class IncluirConvenioForm extends JDialog{
 		
 	
 	
-	public void DadosConvenio() {
+	public void CriaVariaveis() {
 		LId = new JLabel();
 		TId = new JTextField();
 		LConvenio = new JLabel();
@@ -64,7 +67,7 @@ public class IncluirConvenioForm extends JDialog{
 	}
 
 	
-	public void InicializaCompomentes() {
+	public void AdicionaComponentes() {
 		tela.add(this.TId);
 		tela.add(this.LConvenio);
 		tela.add(this.TConvenio);

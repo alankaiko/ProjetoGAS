@@ -203,14 +203,6 @@ public class TelaPrincipalGraficListener implements MouseListener, ActionListene
 			
 		}
 			
-			
-	
-		
-		this.tela.getUsuarioConFun().addActionListener(this);
-		this.tela.getUsuarioFuncionario().addActionListener(this);
-		
-		this.tela.getFarmaciaFabricante().addActionListener(this);
-		this.tela.getFarmaciaProduto().addActionListener(this);
 		
 	}
 
