@@ -24,7 +24,6 @@ public class IncluirConvenioGrafic {
 	
 	
 	private void CriarTelaGeralGrafic(){
-		this.formulario.setTitle("Inserir Convenio / Plano / Credencial");
 		this.formulario.setModal(true);
 		this.formulario.setResizable(false);
 		this.formulario.setBounds(100, 100, 401, 215);

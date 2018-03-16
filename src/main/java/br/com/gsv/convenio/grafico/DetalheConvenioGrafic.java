@@ -1,11 +1,13 @@
 package br.com.gsv.convenio.grafico;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
 
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 
 import br.com.gsv.convenio.formularios.DetalhesConvenioDialog;
@@ -25,6 +27,12 @@ public class DetalheConvenioGrafic {
 		this.formulario.setUndecorated(true);
 		this.formulario.getPanel().setBorder(new LineBorder(new Color(71, 120, 197)));
 		this.formulario.getPanel().setBackground(Color.WHITE);
+				
+		this.formulario.getTela().setLayout(null);		
+		this.formulario.getTela().add(this.formulario.getPanel(), BorderLayout.CENTER);
+		
+		this.formulario.setModal(true);
+		
 	}
 	
 

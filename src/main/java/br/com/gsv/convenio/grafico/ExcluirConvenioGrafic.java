@@ -25,7 +25,6 @@ public class ExcluirConvenioGrafic {
 	
 	
 	public void CriaTela(){
-		this.formulario.setTitle("Excluir Convênio");
 		this.formulario.setModal(true);
 		this.formulario.setBounds(100, 100, 376, 155);
 		this.formulario.setUndecorated(true);
@@ -47,7 +46,7 @@ public class ExcluirConvenioGrafic {
 		);
 		
 		
-		this.formulario.getExcluir().setText("Excluir: Jacaranda de Souza Gimenes");
+		this.formulario.getExcluir().setText("Excluir: "+ formulario.getConvenio().getNome() + "?");
 		this.formulario.getExcluir().setFont(new Font("Segoe UI Symbol", Font.PLAIN, 17));
 		
 		

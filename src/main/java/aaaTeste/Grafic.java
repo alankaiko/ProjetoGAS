@@ -15,6 +15,7 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 import java.awt.Font;
 import javax.swing.JSeparator;
 import javax.swing.border.LineBorder;
+import javax.swing.ImageIcon;
 
 public class Grafic extends JDialog {
 
@@ -73,39 +74,42 @@ public class Grafic extends JDialog {
 		
 		JSeparator separator = new JSeparator();
 		separator.setBackground(new Color(71, 120, 197));
+		
+		JPanel painelDrag = new JPanel();
+		painelDrag.setBackground(new Color(26,35,51));
 		GroupLayout gl_panel = new GroupLayout(panel);
 		gl_panel.setHorizontalGroup(
 			gl_panel.createParallelGroup(Alignment.TRAILING)
 				.addGroup(gl_panel.createSequentialGroup()
 					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
 						.addGroup(gl_panel.createSequentialGroup()
-							.addContainerGap(103, Short.MAX_VALUE)
+							.addContainerGap(74, Short.MAX_VALUE)
 							.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
 								.addComponent(lid)
 								.addComponent(lconvenio, GroupLayout.PREFERRED_SIZE, 80, GroupLayout.PREFERRED_SIZE))
-							.addPreferredGap(ComponentPlacement.RELATED)
-							.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
+							.addGap(34)
+							.addGroup(gl_panel.createParallelGroup(Alignment.TRAILING)
 								.addGroup(gl_panel.createSequentialGroup()
-									.addGap(46)
 									.addComponent(tid, GroupLayout.PREFERRED_SIZE, 22, GroupLayout.PREFERRED_SIZE)
 									.addGap(36))
-								.addGroup(Alignment.TRAILING, gl_panel.createSequentialGroup()
-									.addPreferredGap(ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
+								.addGroup(gl_panel.createSequentialGroup()
 									.addComponent(tconvenio, GroupLayout.PREFERRED_SIZE, 171, GroupLayout.PREFERRED_SIZE)
 									.addGap(14))))
 						.addGroup(gl_panel.createSequentialGroup()
 							.addGap(155)
 							.addComponent(cancelar)
-							.addPreferredGap(ComponentPlacement.RELATED, 159, Short.MAX_VALUE))
+							.addPreferredGap(ComponentPlacement.RELATED, 149, Short.MAX_VALUE))
 						.addGroup(gl_panel.createSequentialGroup()
 							.addGap(28)
-							.addComponent(separator, GroupLayout.DEFAULT_SIZE, 347, Short.MAX_VALUE)))
+							.addComponent(separator, GroupLayout.DEFAULT_SIZE, 345, Short.MAX_VALUE)))
 					.addGap(26))
+				.addComponent(painelDrag, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 399, Short.MAX_VALUE)
 		);
 		gl_panel.setVerticalGroup(
 			gl_panel.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_panel.createSequentialGroup()
-					.addGap(61)
+					.addComponent(painelDrag, GroupLayout.PREFERRED_SIZE, 16, GroupLayout.PREFERRED_SIZE)
+					.addGap(34)
 					.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
 						.addComponent(tid)
 						.addComponent(lid))
@@ -115,10 +119,28 @@ public class Grafic extends JDialog {
 						.addComponent(lconvenio))
 					.addGap(18)
 					.addComponent(separator, GroupLayout.PREFERRED_SIZE, 2, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
+					.addPreferredGap(ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
 					.addComponent(cancelar)
 					.addGap(23))
 		);
+		
+		JLabel label = new JLabel("");
+		label.setIcon(new ImageIcon(Grafic.class.getResource("/imagens/icons8-sair-13.png")));
+		GroupLayout gl_painelDrag = new GroupLayout(painelDrag);
+		gl_painelDrag.setHorizontalGroup(
+			gl_painelDrag.createParallelGroup(Alignment.TRAILING)
+				.addGroup(gl_painelDrag.createSequentialGroup()
+					.addContainerGap(365, Short.MAX_VALUE)
+					.addComponent(label)
+					.addContainerGap())
+		);
+		gl_painelDrag.setVerticalGroup(
+			gl_painelDrag.createParallelGroup(Alignment.TRAILING)
+				.addGroup(Alignment.LEADING, gl_painelDrag.createSequentialGroup()
+					.addComponent(label)
+					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+		);
+		painelDrag.setLayout(gl_painelDrag);
 		panel.setLayout(gl_panel);
 		getContentPane().setLayout(groupLayout);
 		
