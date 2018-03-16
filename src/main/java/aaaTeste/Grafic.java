@@ -11,13 +11,13 @@ import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import java.awt.Color;
 import javax.swing.JLabel;
+import javax.swing.JTextField;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import java.awt.Font;
-import javax.swing.JSeparator;
 import javax.swing.border.LineBorder;
-import javax.swing.ImageIcon;
 
 public class Grafic extends JDialog {
+	private JTextField TCodigo;
 
 	/**
 	 * Launch the application.
@@ -36,111 +36,81 @@ public class Grafic extends JDialog {
 	 * Create the dialog.
 	 */
 	public Grafic() {
-		setBounds(100, 100, 401, 215);
+		setBounds(100, 100, 316, 171);
 		setUndecorated(true);
 		JPanel panel = new JPanel();
-		panel.setBorder(new LineBorder(new Color(71, 120, 197)));
+		panel.setBorder(new LineBorder(new Color(71,120,197)));
 		panel.setBackground(Color.WHITE);
+		
 		
 		
 		GroupLayout groupLayout = new GroupLayout(getContentPane());
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
-				.addComponent(panel, GroupLayout.DEFAULT_SIZE, 385, Short.MAX_VALUE)
+				.addComponent(panel, GroupLayout.DEFAULT_SIZE, 316, Short.MAX_VALUE)
 		);
 		groupLayout.setVerticalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
-				.addComponent(panel, GroupLayout.DEFAULT_SIZE, 177, Short.MAX_VALUE)
+				.addComponent(panel, GroupLayout.DEFAULT_SIZE, 169, Short.MAX_VALUE)
 		);
 		
-		JLabel lid = new JLabel("Código: ");
-		lid.setFont(new Font("Segoe UI Symbol", Font.BOLD, 14));
+		JLabel LCodigo = new JLabel("Buscar Código");
+		LCodigo.setFont(new Font("Segoe UI Symbol", Font.PLAIN, 16));
 		
-		JLabel lconvenio = new JLabel("Convênio: ");
-		lconvenio.setFont(new Font("Segoe UI Symbol", Font.BOLD, 14));
+		TCodigo = new JTextField();
+		TCodigo.setColumns(10);
 		
-		JLabel tid = new JLabel("1");
-		tid.setFont(new Font("Segoe UI Symbol", Font.PLAIN, 14));
+		JButton ok = new JButton();
+		ok.setText("Buscar");
+		ok.setBounds(215, 381, 84, 23);
+		ok.setBackground(new Color(71, 120, 197));
+		ok.setFont(new Font("Segoe UI", 0, 14));
+		ok.setForeground(new Color(255, 255, 255));
 		
-		JLabel tconvenio = new JLabel("jurema convenios");
-		tconvenio.setFont(new Font("Segoe UI Symbol", Font.PLAIN, 14));
-		
-		JButton cancelar = new JButton();
+		JButton cancelar = new JButton("Voltar");
 		cancelar.setText("Voltar");
 		cancelar.setBounds(215, 381, 84, 23);
 		cancelar.setBackground(new Color(71, 120, 197));
 		cancelar.setFont(new Font("Segoe UI", 0, 14));
 		cancelar.setForeground(new Color(255, 255, 255));
 		
-		JSeparator separator = new JSeparator();
-		separator.setBackground(new Color(71, 120, 197));
+		JPanel panel_1 = new JPanel();
+		panel_1.setBackground(new Color(0, 102, 204));
 		
-		JPanel painelDrag = new JPanel();
-		painelDrag.setBackground(new Color(26,35,51));
+		
+		
 		GroupLayout gl_panel = new GroupLayout(panel);
 		gl_panel.setHorizontalGroup(
-			gl_panel.createParallelGroup(Alignment.TRAILING)
+			gl_panel.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_panel.createSequentialGroup()
 					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
 						.addGroup(gl_panel.createSequentialGroup()
-							.addContainerGap(74, Short.MAX_VALUE)
-							.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
-								.addComponent(lid)
-								.addComponent(lconvenio, GroupLayout.PREFERRED_SIZE, 80, GroupLayout.PREFERRED_SIZE))
-							.addGap(34)
-							.addGroup(gl_panel.createParallelGroup(Alignment.TRAILING)
-								.addGroup(gl_panel.createSequentialGroup()
-									.addComponent(tid, GroupLayout.PREFERRED_SIZE, 22, GroupLayout.PREFERRED_SIZE)
-									.addGap(36))
-								.addGroup(gl_panel.createSequentialGroup()
-									.addComponent(tconvenio, GroupLayout.PREFERRED_SIZE, 171, GroupLayout.PREFERRED_SIZE)
-									.addGap(14))))
+							.addGap(73)
+							.addComponent(ok)
+							.addGap(18)
+							.addComponent(cancelar))
 						.addGroup(gl_panel.createSequentialGroup()
-							.addGap(155)
-							.addComponent(cancelar)
-							.addPreferredGap(ComponentPlacement.RELATED, 149, Short.MAX_VALUE))
-						.addGroup(gl_panel.createSequentialGroup()
-							.addGap(28)
-							.addComponent(separator, GroupLayout.DEFAULT_SIZE, 345, Short.MAX_VALUE)))
-					.addGap(26))
-				.addComponent(painelDrag, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 399, Short.MAX_VALUE)
+							.addGap(26)
+							.addComponent(LCodigo, GroupLayout.PREFERRED_SIZE, 104, GroupLayout.PREFERRED_SIZE)
+							.addPreferredGap(ComponentPlacement.UNRELATED)
+							.addComponent(TCodigo, GroupLayout.PREFERRED_SIZE, 126, GroupLayout.PREFERRED_SIZE)))
+					.addContainerGap(50, Short.MAX_VALUE))
+				.addComponent(panel_1, GroupLayout.DEFAULT_SIZE, 316, Short.MAX_VALUE)
 		);
 		gl_panel.setVerticalGroup(
 			gl_panel.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_panel.createSequentialGroup()
-					.addComponent(painelDrag, GroupLayout.PREFERRED_SIZE, 16, GroupLayout.PREFERRED_SIZE)
-					.addGap(34)
+					.addComponent(panel_1, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
+					.addGap(26)
 					.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
-						.addComponent(tid)
-						.addComponent(lid))
-					.addGap(29)
+						.addComponent(TCodigo, GroupLayout.PREFERRED_SIZE, 24, GroupLayout.PREFERRED_SIZE)
+						.addComponent(LCodigo))
+					.addGap(45)
 					.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
-						.addComponent(tconvenio)
-						.addComponent(lconvenio))
-					.addGap(18)
-					.addComponent(separator, GroupLayout.PREFERRED_SIZE, 2, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
-					.addComponent(cancelar)
-					.addGap(23))
-		);
-		
-		JLabel label = new JLabel("");
-		label.setIcon(new ImageIcon(Grafic.class.getResource("/imagens/icons8-sair-13.png")));
-		GroupLayout gl_painelDrag = new GroupLayout(painelDrag);
-		gl_painelDrag.setHorizontalGroup(
-			gl_painelDrag.createParallelGroup(Alignment.TRAILING)
-				.addGroup(gl_painelDrag.createSequentialGroup()
-					.addContainerGap(365, Short.MAX_VALUE)
-					.addComponent(label)
+						.addComponent(ok)
+						.addComponent(cancelar))
 					.addContainerGap())
 		);
-		gl_painelDrag.setVerticalGroup(
-			gl_painelDrag.createParallelGroup(Alignment.TRAILING)
-				.addGroup(Alignment.LEADING, gl_painelDrag.createSequentialGroup()
-					.addComponent(label)
-					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-		);
-		painelDrag.setLayout(gl_painelDrag);
 		panel.setLayout(gl_panel);
 		getContentPane().setLayout(groupLayout);
 		
