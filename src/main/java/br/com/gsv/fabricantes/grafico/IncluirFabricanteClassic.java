@@ -1,10 +1,12 @@
-package br.com.gsv.fabricantes.formularios;
+package br.com.gsv.fabricantes.grafico;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
 
 import javax.swing.border.EmptyBorder;
+
+import br.com.gsv.fabricantes.formularios.IncluirFabricantesForm;
 
 public class IncluirFabricanteClassic {
 	IncluirFabricantesForm formulario;

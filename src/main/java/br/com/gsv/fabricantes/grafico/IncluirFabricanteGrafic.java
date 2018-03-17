@@ -1,4 +1,4 @@
-package br.com.gsv.fabricantes.formularios;
+package br.com.gsv.fabricantes.grafico;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -8,6 +8,7 @@ import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.border.LineBorder;
 
+import br.com.gsv.fabricantes.formularios.IncluirFabricantesForm;
 import br.com.projeto.gsv.util.FieldListener;
 
 

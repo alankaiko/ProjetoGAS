@@ -40,7 +40,6 @@ public class ExcluirConvenioDialog extends JDialog {
 		ok = new JButton();
 		separa = new JSeparator();
 		cancelar = new JButton();
-		convenio = new Convenio();
 	}
 	
 	public void AdicionaComponentes(){

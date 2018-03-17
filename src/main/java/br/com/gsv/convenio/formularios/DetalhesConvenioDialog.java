@@ -28,8 +28,8 @@ public class DetalhesConvenioDialog extends JDialog {
 		CriaVariaveis();
 		AdicionaComponentes();
 		
-		//listenerClassic = new DetalheConvenioClassic(this);
-		listenerGrafic = new DetalheConvenioGrafic(this);
+		listenerClassic = new DetalheConvenioClassic(this);
+		//listenerGrafic = new DetalheConvenioGrafic(this);
 		listener = new DetalhesConvenioListener(this);
 	}
 
@@ -52,11 +52,6 @@ public class DetalhesConvenioDialog extends JDialog {
 		tela.add(this.separa);
 		tela.add(this.cancelar);			
 	}
-		
-		
-		
-		
-
 		
 
 	public JButton getCancelar() {
