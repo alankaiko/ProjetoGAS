@@ -56,7 +56,6 @@ public class IncluirFuncionarioListener implements ActionListener{
 	
 	//Classe pega os botoes do formulario e atrela à esta classe controller aqui (propria classe ClienteActionListener)
 	private void AdicionarListener(){
-		formulario.getBTNovo().addActionListener(this);
 		formulario.getBTGravar().addActionListener(this);
 		formulario.getBTCancelar().addActionListener(this);
 	}
@@ -193,7 +192,7 @@ public class IncluirFuncionarioListener implements ActionListener{
 			else
 				Editar();
 			
-			this.formulario.dispose();
+			//this.formulario.dispose();
 		}
 		
 		if(event.getActionCommand().equals("Cancelar")){

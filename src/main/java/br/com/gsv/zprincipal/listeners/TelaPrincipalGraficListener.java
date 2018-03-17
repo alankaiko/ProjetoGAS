@@ -197,12 +197,14 @@ public class TelaPrincipalGraficListener implements MouseListener, ActionListene
 		
 		if(event.getSource().equals(this.tela.getUsuarioConFun())){
 			GerenciaTelaFuncionario formulario = new GerenciaTelaFuncionario();
-			//formulario.setLocationRelativeTo(this.tela.getTela());
+			formulario.setLocationRelativeTo(this.tela.getTela());
 			formulario.setVisible(true);
 		}
 		
 		if(event.getSource().equals(this.tela.getUsuarioFuncionario())){
-			
+			IncluirFuncionariosForm formulario = new IncluirFuncionariosForm();
+			formulario.setLocationRelativeTo(this.tela.getTela());
+			formulario.setVisible(true);
 		}
 			
 		

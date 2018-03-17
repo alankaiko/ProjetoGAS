@@ -25,7 +25,7 @@ public class IncluirFuncionariosForm extends JDialog {
 	private JTextField TId, TNome, TRg, TLogradouro, TComplemento, TNumero;
 	private JTextField TBairro, TCidade, TEmail, TTelefone, TCelular;
 	private JFormattedTextField JCpf, JCep;
-	private JButton BTNovo, BTGravar, BTCancelar;
+	private JButton BTGravar, BTCancelar;
 	private JComboBox ComboEstado;
 	private IncluirFuncionarioClassic listenerClassic;
 	private IncluirFuncionarioGrafic listenerGrafic;
@@ -35,9 +35,10 @@ public class IncluirFuncionariosForm extends JDialog {
 	public IncluirFuncionariosForm() {
 		InicializaVariaveis();
 		InicializaCompomentes();
+		listenerClassic = new IncluirFuncionarioClassic(this);
+		//listenerGrafic = new IncluirFuncionarioGrafic(this);
 		listener = new IncluirFuncionarioListener(this);
-		//listenerClassic = new IncluirFuncionarioClassic(this);
-		listenerGrafic = new IncluirFuncionarioGrafic(this);
+		
 	}
 	
 	private void InicializaVariaveis(){
@@ -71,7 +72,6 @@ public class IncluirFuncionariosForm extends JDialog {
 		TCelular = new JTextField();
 		JCpf = new JFormattedTextField(ConverteDadosUtil.FormataCPF());
 		JCep = new JFormattedTextField(ConverteDadosUtil.FormataCep());
-		BTNovo = new JButton();
 		BTGravar = new JButton();
 		BTCancelar = new JButton();
 		ComboEstado = new JComboBox();
@@ -107,7 +107,6 @@ public class IncluirFuncionariosForm extends JDialog {
 		tela.add(this.TEmail);
 		tela.add(this.TTelefone);
 		tela.add(this.TCelular);
-		tela.add(this.BTNovo);
 		tela.add(this.BTGravar);
 		tela.add(this.BTCancelar);
 		tela.add(this.ComboEstado);
@@ -431,15 +430,6 @@ public class IncluirFuncionariosForm extends JDialog {
 
 	public void setJCep(JFormattedTextField jCep) {
 		JCep = jCep;
-	}
-
-	public JButton getBTNovo() {
-		return BTNovo;
-	}
-
-
-	public void setBTNovo(JButton bTNovo) {
-		BTNovo = bTNovo;
 	}
 
 	public JButton getBTGravar() {

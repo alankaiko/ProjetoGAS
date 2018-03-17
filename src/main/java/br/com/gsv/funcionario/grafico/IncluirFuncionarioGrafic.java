@@ -2,9 +2,11 @@ package br.com.gsv.funcionario.grafico;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.util.Vector;
 
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSeparator;
@@ -12,9 +14,12 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.border.LineBorder;
 
 import br.com.gsv.funcionario.formularios.IncluirFuncionariosForm;
+import br.com.projeto.gsv.util.FieldListener;
+import br.com.projeto.gsv.util.ListasUtil;
 
 public class IncluirFuncionarioGrafic {
 	private IncluirFuncionariosForm formulario;
+	private FieldListener field = new FieldListener();
 	
 	public IncluirFuncionarioGrafic(IncluirFuncionariosForm formulario) {
 		this.formulario = formulario;
@@ -24,7 +29,7 @@ public class IncluirFuncionarioGrafic {
 	
 	
 	private void CriarTelaGeral(){
-		this.formulario.setBounds(100, 100, 680, 590);
+		this.formulario.setBounds(100, 100, 730, 650);
 		this.formulario.setUndecorated(true);
 		this.formulario.getPanel().setBorder(new LineBorder(new Color(71,120,197)));
 		this.formulario.getPanel().setBackground(Color.WHITE);
@@ -64,18 +69,21 @@ public class IncluirFuncionarioGrafic {
 		
 		this.formulario.getTId().setColumns(10);
 		this.formulario.getTId().setBorder(new LineBorder(new Color(71,120,197)));
+		this.formulario.getTId().addFocusListener(field);
 		
 		this.formulario.getLRg().setText("RG");
 		this.formulario.getLRg().setFont(new Font("Segoe UI Light", Font.PLAIN, 12));
 		
 		this.formulario.getTRg().setColumns(10);
 		this.formulario.getTRg().setBorder(new LineBorder(new Color(71,120,197)));
+		this.formulario.getTRg().addFocusListener(field);
 		
 		this.formulario.getLNome().setText("Nome");
 		this.formulario.getLNome().setFont(new Font("Segoe UI Light", Font.PLAIN, 12));
 		
 		this.formulario.getTNome().setBorder(new LineBorder(new Color(71,120,197)));
 		this.formulario.getTNome().setColumns(10);
+		this.formulario.getTNome().addFocusListener(field);
 		
 		this.formulario.getLEndereco().setText("ENDEREÇO");
 		this.formulario.getLEndereco().setForeground(new Color(71, 120, 197));
@@ -86,15 +94,18 @@ public class IncluirFuncionarioGrafic {
 		
 		this.formulario.getTLogradouro().setColumns(10);
 		this.formulario.getTLogradouro().setBorder(new LineBorder(new Color(71,120,197)));
+		this.formulario.getTLogradouro().addFocusListener(field);
 		
 		this.formulario.getTComplemento().setColumns(10);
 		this.formulario.getTComplemento().setBorder(new LineBorder(new Color(71,120,197)));
+		this.formulario.getTComplemento().addFocusListener(field);
 		
 		this.formulario.getLComplemento().setText("Complemento");
 		this.formulario.getLComplemento().setFont(new Font("Segoe UI Light", Font.PLAIN, 12));
 		
 		this.formulario.getTNumero().setColumns(10);
 		this.formulario.getTNumero().setBorder(new LineBorder(new Color(71,120,197)));
+		this.formulario.getTNumero().addFocusListener(field);
 		
 		this.formulario.getLNumero().setText("Número");
 		this.formulario.getLNumero().setFont(new Font("Segoe UI Light", Font.PLAIN, 12));
@@ -104,9 +115,11 @@ public class IncluirFuncionarioGrafic {
 		
 		this.formulario.getTBairro().setColumns(10);
 		this.formulario.getTBairro().setBorder(new LineBorder(new Color(71,120,197)));
+		this.formulario.getTBairro().addFocusListener(field);
 		
 		this.formulario.getTCidade().setColumns(10);
 		this.formulario.getTCidade().setBorder(new LineBorder(new Color(71,120,197)));
+		this.formulario.getTCidade().addFocusListener(field);
 		
 		this.formulario.getLCidade().setText("Cidade");
 		this.formulario.getLCidade().setFont(new Font("Segoe UI Light", Font.PLAIN, 12));
@@ -114,8 +127,11 @@ public class IncluirFuncionarioGrafic {
 		this.formulario.getLEstado().setText("Estado");
 		this.formulario.getLEstado().setFont(new Font("Segoe UI Light", Font.PLAIN, 12));
 		
+		this.formulario.getComboEstado().setModel(new DefaultComboBoxModel(new Vector(ListasUtil.Estados())));
+		
 		this.formulario.getJCep().setColumns(10);
 		this.formulario.getJCep().setBorder(new LineBorder(new Color(71,120,197)));
+		this.formulario.getJCep().addFocusListener(field);
 		
 		this.formulario.getLCep().setText("CEP");
 		this.formulario.getLCep().setFont(new Font("Segoe UI Light", Font.PLAIN, 12));
@@ -129,18 +145,21 @@ public class IncluirFuncionarioGrafic {
 		
 		this.formulario.getTEmail().setColumns(10);
 		this.formulario.getTEmail().setBorder(new LineBorder(new Color(71,120,197)));
+		this.formulario.getTEmail().addFocusListener(field);
 		
 		this.formulario.getLEmail().setText("E-mail");
 		this.formulario.getLEmail().setFont(new Font("Segoe UI Light", Font.PLAIN, 12));
 		
 		this.formulario.getTCelular().setColumns(10);
 		this.formulario.getTCelular().setBorder(new LineBorder(new Color(71,120,197)));
+		this.formulario.getTCelular().addFocusListener(field);
 		
 		this.formulario.getLCelular().setText("Celular");
 		this.formulario.getLCelular().setFont(new Font("Segoe UI Light", Font.PLAIN, 12));
 		
 		this.formulario.getTTelefone().setColumns(10);
 		this.formulario.getTTelefone().setBorder(new LineBorder(new Color(71,120,197)));
+		this.formulario.getTTelefone().addFocusListener(field);
 		
 		this.formulario.getLTelefone().setText("Telefone");
 		this.formulario.getLTelefone().setFont(new Font("Segoe UI Light", Font.PLAIN, 12));
@@ -205,7 +224,7 @@ public class IncluirFuncionarioGrafic {
 				.addComponent(this.formulario.getTBairro(), GroupLayout.PREFERRED_SIZE, 226, GroupLayout.PREFERRED_SIZE)))))
 				.addGap(60))
 				.addGroup(gl_panel.createSequentialGroup()
-				.addComponent(separaEnd, GroupLayout.PREFERRED_SIZE, 640, GroupLayout.PREFERRED_SIZE)
+				.addComponent(separaEnd, GroupLayout.DEFAULT_SIZE, 640, Short.MAX_VALUE)
 				.addContainerGap())))))
 				.addGroup(gl_panel.createSequentialGroup()
 				.addContainerGap()
@@ -218,7 +237,7 @@ public class IncluirFuncionarioGrafic {
 				.addComponent(this.formulario.getLNome(), GroupLayout.PREFERRED_SIZE, 37, GroupLayout.PREFERRED_SIZE))
 				.addGap(53)
 				.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
-				.addComponent(this.formulario.getTComplemento(), GroupLayout.PREFERRED_SIZE, 68, GroupLayout.PREFERRED_SIZE)
+				.addComponent(this.formulario.getTId(), GroupLayout.PREFERRED_SIZE, 68, GroupLayout.PREFERRED_SIZE)
 				.addGroup(gl_panel.createSequentialGroup()
 				.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
 				.addComponent(this.formulario.getTNome(), GroupLayout.DEFAULT_SIZE, 510, Short.MAX_VALUE)
@@ -260,75 +279,75 @@ public class IncluirFuncionarioGrafic {
 		gl_panel.setVerticalGroup(
 			gl_panel.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_panel.createSequentialGroup()
-					.addComponent(panelLabel, GroupLayout.PREFERRED_SIZE, 32, GroupLayout.PREFERRED_SIZE)
-					.addGap(18)
-					.addComponent(this.formulario.getLIndentif())
-					.addPreferredGap(ComponentPlacement.UNRELATED)
-					.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
-					.addComponent(this.formulario.getTId(), GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE)
-					.addComponent(this.formulario.getLId()))
-					.addGap(18)
-					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
-					.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
-					.addComponent(this.formulario.getJCpf(), GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE)
-					.addComponent(this.formulario.getLCpf(), GroupLayout.PREFERRED_SIZE, 16, GroupLayout.PREFERRED_SIZE))
-					.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
-					.addComponent(this.formulario.getLRg(), GroupLayout.PREFERRED_SIZE, 16, GroupLayout.PREFERRED_SIZE)
-					.addComponent(this.formulario.getTRg(), GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE)))
-					.addGap(16)
-					.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
-					.addComponent(this.formulario.getTNome(), GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE)
-					.addComponent(this.formulario.getLNome(), GroupLayout.PREFERRED_SIZE, 16, GroupLayout.PREFERRED_SIZE))
-					.addPreferredGap(ComponentPlacement.UNRELATED)
-					.addComponent(separaFun, GroupLayout.PREFERRED_SIZE, 2, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(this.formulario.getLEndereco(), GroupLayout.PREFERRED_SIZE, 20, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.UNRELATED)
-					.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
-					.addComponent(this.formulario.getTLogradouro(), GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE)
-					.addComponent(this.formulario.getLLogradouro(), GroupLayout.PREFERRED_SIZE, 16, GroupLayout.PREFERRED_SIZE))
-					.addPreferredGap(ComponentPlacement.UNRELATED)
-					.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
-					.addComponent(this.formulario.getTComplemento(), GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE)
-					.addComponent(this.formulario.getLComplemento(), GroupLayout.PREFERRED_SIZE, 16, GroupLayout.PREFERRED_SIZE))
-					.addPreferredGap(ComponentPlacement.UNRELATED)
-					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
-					.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
-					.addComponent(this.formulario.getTNumero(), GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE)
-					.addComponent(this.formulario.getLNumero(), GroupLayout.PREFERRED_SIZE, 16, GroupLayout.PREFERRED_SIZE))
-					.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
-					.addComponent(this.formulario.getTBairro(), GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE)
-					.addComponent(this.formulario.getLBairro(), GroupLayout.PREFERRED_SIZE, 16, GroupLayout.PREFERRED_SIZE)))
-					.addPreferredGap(ComponentPlacement.UNRELATED)
-					.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
-					.addComponent(this.formulario.getTCidade(), GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE)
-					.addComponent(this.formulario.getLCidade(), GroupLayout.PREFERRED_SIZE, 16, GroupLayout.PREFERRED_SIZE)
-					.addComponent(this.formulario.getComboEstado(), GroupLayout
-							.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-					.addComponent(this.formulario.getLEstado(), GroupLayout.PREFERRED_SIZE, 16, GroupLayout.PREFERRED_SIZE))
-					.addGap(18)
-					.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
-					.addComponent(this.formulario.getJCep(), GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE)
-					.addComponent(this.formulario.getLCep(), GroupLayout.PREFERRED_SIZE, 16, GroupLayout.PREFERRED_SIZE))
-					.addGap(18)
-					.addComponent(separaEnd, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(this.formulario.getLContato(), GroupLayout.PREFERRED_SIZE, 20, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
-					.addComponent(this.formulario.getLEmail(), GroupLayout.PREFERRED_SIZE, 16, GroupLayout.PREFERRED_SIZE)
-					.addComponent(this.formulario.getTEmail(), GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE))
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
-					.addComponent(this.formulario.getTCelular(), GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE)
-					.addComponent(this.formulario.getLCelular(), GroupLayout.PREFERRED_SIZE, 16, GroupLayout.PREFERRED_SIZE)
-					.addComponent(this.formulario.getTTelefone(), GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE)
-					.addComponent(this.formulario.getLTelefone(), GroupLayout.PREFERRED_SIZE, 16, GroupLayout.PREFERRED_SIZE))
-					.addPreferredGap(ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
-					.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
-					.addComponent(this.formulario.getBTCancelar())
-					.addComponent(this.formulario.getBTGravar()))
-					.addContainerGap())
+				.addComponent(panelLabel, GroupLayout.PREFERRED_SIZE, 32, GroupLayout.PREFERRED_SIZE)
+				.addGap(18)
+				.addComponent(this.formulario.getLIndentif())
+				.addPreferredGap(ComponentPlacement.UNRELATED)
+				.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
+				.addComponent(this.formulario.getTId(), GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE)
+				.addComponent(this.formulario.getLId()))
+				.addGap(18)
+				.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
+				.addComponent(this.formulario.getJCpf(), GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE)
+				.addComponent(this.formulario.getLCpf(), GroupLayout.PREFERRED_SIZE, 16, GroupLayout.PREFERRED_SIZE))
+				.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
+				.addComponent(this.formulario.getLRg(), GroupLayout.PREFERRED_SIZE, 16, GroupLayout.PREFERRED_SIZE)
+				.addComponent(this.formulario.getTRg(), GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE)))
+				.addGap(16)
+				.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
+				.addComponent(this.formulario.getTNome(), GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE)
+				.addComponent(this.formulario.getLNome(), GroupLayout.PREFERRED_SIZE, 16, GroupLayout.PREFERRED_SIZE))
+				.addPreferredGap(ComponentPlacement.UNRELATED)
+				.addComponent(separaFun, GroupLayout.PREFERRED_SIZE, 2, GroupLayout.PREFERRED_SIZE)
+				.addPreferredGap(ComponentPlacement.RELATED)
+				.addComponent(this.formulario.getLEndereco(), GroupLayout.PREFERRED_SIZE, 20, GroupLayout.PREFERRED_SIZE)
+				.addPreferredGap(ComponentPlacement.UNRELATED)
+				.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
+				.addComponent(this.formulario.getTLogradouro(), GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE)
+				.addComponent(this.formulario.getLLogradouro(), GroupLayout.PREFERRED_SIZE, 16, GroupLayout.PREFERRED_SIZE))
+				.addPreferredGap(ComponentPlacement.UNRELATED)
+				.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
+				.addComponent(this.formulario.getTComplemento(), GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE)
+				.addComponent(this.formulario.getLComplemento(), GroupLayout.PREFERRED_SIZE, 16, GroupLayout.PREFERRED_SIZE))
+				.addPreferredGap(ComponentPlacement.UNRELATED)
+				.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
+				.addComponent(this.formulario.getTNumero(), GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE)
+				.addComponent(this.formulario.getLNumero(), GroupLayout.PREFERRED_SIZE, 16, GroupLayout.PREFERRED_SIZE))
+				.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
+				.addComponent(this.formulario.getTBairro(), GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE)
+				.addComponent(this.formulario.getLBairro(), GroupLayout.PREFERRED_SIZE, 16, GroupLayout.PREFERRED_SIZE)))
+				.addPreferredGap(ComponentPlacement.UNRELATED)
+				.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
+				.addComponent(this.formulario.getTCidade(), GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE)
+				.addComponent(this.formulario.getLCidade(), GroupLayout.PREFERRED_SIZE, 16, GroupLayout.PREFERRED_SIZE)
+				.addComponent(this.formulario.getComboEstado(), GroupLayout
+						.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+				.addComponent(this.formulario.getLEstado(), GroupLayout.PREFERRED_SIZE, 16, GroupLayout.PREFERRED_SIZE))
+				.addGap(18)
+				.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
+				.addComponent(this.formulario.getJCep(), GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE)
+				.addComponent(this.formulario.getLCep(), GroupLayout.PREFERRED_SIZE, 16, GroupLayout.PREFERRED_SIZE))
+				.addGap(18)
+				.addComponent(separaEnd, GroupLayout.PREFERRED_SIZE, 2, GroupLayout.PREFERRED_SIZE)
+				.addPreferredGap(ComponentPlacement.RELATED)
+				.addComponent(this.formulario.getLContato(), GroupLayout.PREFERRED_SIZE, 20, GroupLayout.PREFERRED_SIZE)
+				.addPreferredGap(ComponentPlacement.RELATED)
+				.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
+				.addComponent(this.formulario.getLEmail(), GroupLayout.PREFERRED_SIZE, 16, GroupLayout.PREFERRED_SIZE)
+				.addComponent(this.formulario.getTEmail(), GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE))
+				.addPreferredGap(ComponentPlacement.RELATED)
+				.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
+				.addComponent(this.formulario.getTCelular(), GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE)
+				.addComponent(this.formulario.getLCelular(), GroupLayout.PREFERRED_SIZE, 16, GroupLayout.PREFERRED_SIZE)
+				.addComponent(this.formulario.getTTelefone(), GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE)
+				.addComponent(this.formulario.getLTelefone(), GroupLayout.PREFERRED_SIZE, 16, GroupLayout.PREFERRED_SIZE))
+				.addPreferredGap(ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+				.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
+				.addComponent(this.formulario.getBTCancelar())
+				.addComponent(this.formulario.getBTGravar()))
+				.addContainerGap())
 		);
 
 		

@@ -48,7 +48,7 @@ public class GraficoFun extends JDialog {
 	 */
 	public GraficoFun() {
 		setBounds(100, 100, 680, 590);
-		setUndecorated(true);
+		//setUndecorated(true);
 		JPanel panel = new JPanel();
 		panel.setBorder(new LineBorder(new Color(71,120,197)));
 		panel.setBackground(Color.WHITE);
