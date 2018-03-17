@@ -28,8 +28,8 @@ public class DetalhesConvenioDialog extends JDialog {
 		CriaVariaveis();
 		AdicionaComponentes();
 		
-		listenerClassic = new DetalheConvenioClassic(this);
-		//listenerGrafic = new DetalheConvenioGrafic(this);
+		//listenerClassic = new DetalheConvenioClassic(this);
+		listenerGrafic = new DetalheConvenioGrafic(this);
 		listener = new DetalhesConvenioListener(this);
 	}
 

@@ -14,7 +14,7 @@ import br.com.gsv.fabricantes.grafico.ExcluirFabricanteGrafic;
 import br.com.gsv.fabricantes.listeners.ExcluirFabricanteListener;
 
 public class ExcluirFabricanteDialog extends JDialog {
-	private final JPanel panel = new JPanel();
+	private JPanel panel = new JPanel();
 	private Container tela = getContentPane();
 	private JButton ok, cancelar;
 	private JLabel excluir;
@@ -94,6 +94,9 @@ public class ExcluirFabricanteDialog extends JDialog {
 		this.excluir = excluir;
 	}
 
+	public void setPanel(JPanel panel) {
+		this.panel = panel;
+	}
 
 	public JPanel getPanel() {
 		return panel;

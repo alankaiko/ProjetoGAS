@@ -1,71 +1,48 @@
 package br.com.gsv.fabricantes.formularios;
 
-import java.awt.BorderLayout;
 import java.awt.Container;
-import java.awt.Font;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-import javax.swing.border.EmptyBorder;
 
+import br.com.gsv.fabricantes.grafico.CodigoFabricanteClassic;
+import br.com.gsv.fabricantes.grafico.CodigoFabricanteGrafic;
 import br.com.gsv.fabricantes.listeners.CodigoFabricanteListener;
 
 public class CodigoFabricanteDialog extends JDialog {
-	private final JPanel contentPanel = new JPanel();
+	private JPanel panel = new JPanel();
 	private JButton ok, cancelar;
 	private Container tela= getContentPane();
 	private JTextField TBuscar;
 	private CodigoFabricanteListener listener;
 	private Long codigo;
+	private CodigoFabricanteClassic listenerClassic;
+	private CodigoFabricanteGrafic listenerGrafic;
 	
 	
 	
 	public CodigoFabricanteDialog() {
-		CriaTelaGeral();
-		CriarTela();
-		AdicionaNaTela();
+		CriaVariaveis();
+		AdicionaComponentes();
 		listener = new CodigoFabricanteListener(this);
+		//listenerClassic = new CodigoFabricanteClassic(this);
+		listenerGrafic = new CodigoFabricanteGrafic(this);
 	}
 	
-	
-	
-	private void CriaTelaGeral(){
-		this.setTitle("Código");
-		this.setModal(true);
-		this.setBounds(100, 100, 200, 120);
-		this.setResizable(false);
-		this.tela.setLayout(null);
-		this.tela.add(contentPanel, BorderLayout.CENTER);
-		
-		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
-		contentPanel.setLayout(null);
-		
+	public void CriaVariaveis() {
+		ok = new JButton();
+		cancelar = new JButton();
+		TBuscar = new JTextField();
 	}
 	
-	
-	
-	public void CriarTela(){
-		TBuscar  = new JTextField();
-		TBuscar.setBounds(50,13,100,23);
-		TBuscar .setFont(new Font("Arial",Font.BOLD,10));
-		
-		ok = new JButton("Buscar");
-		ok.setBounds(7, 60, 85, 18);
-		
-		cancelar = new JButton("Cancelar");
-		cancelar.setBounds(102, 60, 85, 18);
-		
-	}
-	
-	
-	public void AdicionaNaTela(){
-		tela.add(this.TBuscar);
+	private void AdicionaComponentes() {
 		tela.add(this.ok);
 		tela.add(this.cancelar);
-	}
-
+		tela.add(this.TBuscar);
+		
+	}	
 
 
 	public JButton getOk() {
@@ -112,6 +89,30 @@ public class CodigoFabricanteDialog extends JDialog {
 
 	public void setCodigo(Long codigo) {
 		this.codigo = codigo;
+	}
+
+
+
+	public JPanel getPanel() {
+		return panel;
+	}
+
+
+
+	public void setPanel(JPanel panel) {
+		this.panel = panel;
+	}
+
+
+
+	public Container getTela() {
+		return tela;
+	}
+
+
+
+	public void setTela(Container tela) {
+		this.tela = tela;
 	}
 
 
