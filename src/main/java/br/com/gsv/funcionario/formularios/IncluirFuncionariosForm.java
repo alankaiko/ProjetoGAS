@@ -36,8 +36,8 @@ public class IncluirFuncionariosForm extends JDialog {
 		InicializaVariaveis();
 		InicializaCompomentes();
 		listenerClassic = new IncluirFuncionarioClassic(this);
-		//listenerGrafic = new IncluirFuncionarioGrafic(this);
-		listener = new IncluirFuncionarioListener(this);
+		listenerGrafic = new IncluirFuncionarioGrafic(this);
+		//listener = new IncluirFuncionarioListener(this);
 		
 	}
 	
