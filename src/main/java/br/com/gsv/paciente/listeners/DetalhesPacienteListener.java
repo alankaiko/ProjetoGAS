@@ -70,7 +70,6 @@ public class DetalhesPacienteListener implements ActionListener{
 		}
 	}
 	
-	
 	private void UsandoTAB(){
 		this.formulario.getRootPane().setDefaultButton(this.formulario.getCancelar());
 		this.formulario.getCancelar().addKeyListener(new KeyAdapter() {  
@@ -94,6 +93,8 @@ public class DetalhesPacienteListener implements ActionListener{
             }  
         });  
     } 
+
+	
 
 	public void setPaciente(Paciente paciente) {
 		this.paciente = paciente;
