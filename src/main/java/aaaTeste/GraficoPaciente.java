@@ -59,6 +59,9 @@ public class GraficoPaciente extends JDialog {
 		panel.setBorder(new LineBorder(new Color(71,120,197),1,true));
 		panel.setBackground(Color.WHITE);
 		
+		
+		
+		
 		GroupLayout groupLayout = new GroupLayout(getContentPane());
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
@@ -126,7 +129,8 @@ public class GraficoPaciente extends JDialog {
 		LConvenio.setFont(new Font("Segoe UI", Font.PLAIN, 11));
 		
 		JLabel LAdicionar = new JLabel("Adicionar?");
-		LAdicionar.setFont(new Font("Ebrima", Font.PLAIN, 9));
+		LAdicionar.setForeground(Color.BLUE);
+		LAdicionar.setFont(new Font("Times New Roman", Font.PLAIN, 9));
 		
 		JComboBox comboConvenio = new JComboBox();
 		comboConvenio.setBackground(Color.WHITE);

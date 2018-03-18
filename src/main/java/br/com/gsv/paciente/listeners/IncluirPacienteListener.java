@@ -67,7 +67,6 @@ public class IncluirPacienteListener implements ActionListener{
 	
 	//Classe pega os botoes do formulario e atrela à esta classe controller aqui (propria classe ClienteActionListener)
 	private void AdicionarListener(){
-		formulario.getBTNovo().addActionListener(this);
 		formulario.getBTGravar().addActionListener(this);
 		formulario.getBTCancelar().addActionListener(this);
 	}
