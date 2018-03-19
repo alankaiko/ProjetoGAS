@@ -1,8 +1,6 @@
 package br.com.gsv.produtos.formularios;
 
-import java.awt.BorderLayout;
 import java.awt.Container;
-import java.awt.Font;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -10,86 +8,49 @@ import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-import javax.swing.border.EmptyBorder;
 
+import br.com.gsv.produtos.grafico.IncluirProdutoGrafic;
+import br.com.gsv.produtos.grafico.IncluirProdutosClassic;
 import br.com.gsv.produtos.listeners.IncluirProdutoListener;
-import java.awt.Color;
 
 public class IncluirProdutosForm extends JDialog {
 	private static final long serialVersionUID = 1L;
 	private IncluirProdutoListener listener;
+	private JPanel panel = new JPanel();
+	private Container tela = getContentPane();
+	private JButton BTNovo, BTGravar, BTCancelar;
+	private JTextField TCodigo, TDescricao, TQuantidade;
+	private JLabel LDados, LCodigo, LDescricao, LQuantidade, LFabricante, LAdicionaFabricante;
+	private JComboBox comboFabricante;
+	private IncluirProdutosClassic listenerClassic;
+	private IncluirProdutoGrafic listenerGrafic;
 	
 	
 	public IncluirProdutosForm() {
-		CriarTelaGeral();
-		CriaComponentes();
+		CriaVariaveis();
 		InicializaComponentes();
+		
+		listenerGrafic = new IncluirProdutoGrafic(this);
+		//listenerClassic = new IncluirProdutosClassic(this);
 		listener = new IncluirProdutoListener(this);
 	}
 	
-	
-	//cria e tela geral onde todos os componentes serao inseridos, é a tela geral do sistema
-	private void CriarTelaGeral(){
-		this.setTitle("Inserir Dados de Produtos");
-		this.setModal(true);
-		this.setResizable(false);
-		this.setBounds(100, 100, 489, 356);
-		
-		this.tela.setLayout(null);		
-		this.tela.add(contentPanel, BorderLayout.CENTER);
-		
-		contentPanel.setLayout(null);
-		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
-		
+	private void CriaVariaveis(){
+		LDados = new JLabel();
+		LCodigo = new JLabel();
+		TCodigo = new JTextField();
+		LDescricao = new JLabel();
+		TDescricao = new JTextField();
+		LQuantidade = new JLabel();
+		LFabricante = new JLabel();
+		comboFabricante = new JComboBox();
+		BTCancelar = new JButton();
+		BTGravar = new JButton();
+		BTNovo = new JButton();
+		TQuantidade = new JTextField();
+		LAdicionaFabricante = new JLabel();
 	}
 	
-	private void CriaComponentes(){
-		LDados = new JLabel("Dados do Produto");
-		LDados.setBounds(38, 29, 130, 14);
-		
-		LCodigo = new JLabel("Código");
-		LCodigo.setBounds(38, 62, 70, 14);
-			TCodigo = new JTextField();
-			TCodigo.setBounds(100, 59, 86, 20);
-			TCodigo.setColumns(10);
-			TCodigo.setToolTipText("Aceita Letras e Números para composição do Código");
-		
-		LDescricao = new JLabel("Descrição");
-		LDescricao.setBounds(38, 104, 70, 14);
-			TDescricao = new JTextField();
-			TDescricao.setBounds(106, 101, 328, 20);
-			TDescricao.setColumns(10);
-	
-		
-		LQuantidade = new JLabel("Quantidade");
-		LQuantidade.setBounds(38, 145, 94, 14);
-			TQuantidade = new JTextField();
-			TQuantidade.setBounds(116, 142, 124, 20);
-			TQuantidade.setColumns(10);
-		
-		
-		LFabricante = new JLabel("Fabricante");
-		LFabricante.setBounds(38, 196, 113, 14);
-			comboFabricante = new JComboBox();
-			comboFabricante.setBounds(106, 193, 241, 20);
-
-			LAdicionaFabricante = new JLabel("Adicionar?");
-			LAdicionaFabricante.setForeground(Color.BLUE);
-			LAdicionaFabricante.setFont(new Font("Palatino Linotype", Font.PLAIN, 10));
-			LAdicionaFabricante.setBounds(357, 202, 123, 14);
-		
-		BTNovo = new JButton("Novo");
-		BTNovo.setFont(new Font("Calibri", Font.PLAIN, 12));
-		BTNovo.setBounds(43, 276, 89, 23);
-		
-		BTGravar = new JButton("Gravar");
-		BTGravar.setFont(new Font("Calibri", Font.PLAIN, 12));
-		BTGravar.setBounds(142, 276, 89, 23);
-		
-		BTCancelar = new JButton("Cancelar");
-		BTCancelar.setFont(new Font("Calibri", Font.PLAIN, 12));
-		BTCancelar.setBounds(347, 276, 89, 23);
-	}
 	
 	private void InicializaComponentes(){
 		tela.add(LDados);
@@ -109,13 +70,6 @@ public class IncluirProdutosForm extends JDialog {
 	}
 	
 	
-	private final JPanel contentPanel = new JPanel();
-	private Container tela = getContentPane();
-	private JButton BTNovo, BTGravar, BTCancelar;
-	private JTextField TCodigo, TDescricao, TQuantidade;
-	private JLabel LDados, LCodigo, LDescricao, LQuantidade, LFabricante, LAdicionaFabricante;
-	private JComboBox comboFabricante;
-
 	
 	public IncluirProdutoListener getListener() {
 		return listener;
@@ -260,6 +214,14 @@ public class IncluirProdutosForm extends JDialog {
 
 	public void setTela(Container tela) {
 		this.tela = tela;
+	}
+
+	public JPanel getPanel() {
+		return panel;
+	}
+
+	public void setPanel(JPanel panel) {
+		this.panel = panel;
 	}
 	
 	
