@@ -1,67 +1,51 @@
 package br.com.gsv.paciente.formularios;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
 import java.awt.Container;
-import java.awt.FlowLayout;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
+import javax.swing.JSeparator;
 
 import br.com.gsv.paciente.domain.Paciente;
+import br.com.gsv.paciente.grafico.ExcluirPacienteClassic;
+import br.com.gsv.paciente.grafico.ExcluirPacienteGrafic;
 import br.com.gsv.paciente.listeners.ExcluirPacienteListener;
 
 public class ExcluirPacienteDialog extends JDialog {
-	private final JPanel contentPanel = new JPanel();
+	private JPanel panel = new JPanel();
 	private Container tela = getContentPane();
 	private JButton ok, cancelar;
 	private JLabel excluir;
+	private JSeparator separa;
 	private Paciente cliente;
 	private ExcluirPacienteListener listener;
-	
+	private ExcluirPacienteClassic listenerClassic;
+	private ExcluirPacienteGrafic listenerGrafic;
 	
 	public ExcluirPacienteDialog(Paciente cliente) {
 		this.cliente = cliente;
 		
-		CriaTela();
-		CriaCompomentes();
+		IniciaVariaveis();
+		AdicionaComponentes();
 		this.listener = new ExcluirPacienteListener(this);
+		//listenerClassic = new ExcluirPacienteClassic(this);
+		listenerGrafic = new ExcluirPacienteGrafic(this);
 	}
 	
-	
-	public void CriaTela(){
-		this.setBounds(100, 100,320, 100);
-		tela.setLayout(new BorderLayout());
-		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
-		tela.add(contentPanel, BorderLayout.CENTER);
-		
-		this.setTitle("Excluir Paciente");
-		this.setModal(true);
-		this.setResizable(false);
-		this.tela.setLayout(null);		
-		this.tela.add(contentPanel, BorderLayout.CENTER);
-		
-		contentPanel.setLayout(null);
-		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
-		contentPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+	private void IniciaVariaveis(){
+		ok = new JButton();
+		cancelar = new JButton();
+		excluir = new JLabel();
+		separa = new JSeparator();
 	}
 	
-	public void CriaCompomentes(){
-		excluir= new JLabel("Excluir: "+ this.cliente.getNome() +" ?");
-		excluir.setForeground(Color.black);
-		excluir.setBounds(10, 10, 300, 18);
-		tela.add(excluir);
-			getRootPane().setDefaultButton(ok); 
-			ok= new JButton("OK");
-			ok.setBounds(45, 50, 90, 18);
-			this.tela.add(ok);
-			
-			cancelar= new JButton("cancelar");
-			cancelar.setBounds(140, 50, 90, 18);
-			this.tela.add(cancelar);
+	private void AdicionaComponentes(){
+		tela.add(this.ok);
+		tela.add(this.cancelar);
+		tela.add(this.excluir);
+		tela.add(this.separa);
 	}
 
 
@@ -87,7 +71,47 @@ public class ExcluirPacienteDialog extends JDialog {
 	public Paciente getCliente() {
 		return cliente;
 	}
+
+
+	public JPanel getPanel() {
+		return panel;
+	}
+
+
+	public void setPanel(JPanel panel) {
+		this.panel = panel;
+	}
+
+
+	public Container getTela() {
+		return tela;
+	}
+
+
+	public void setTela(Container tela) {
+		this.tela = tela;
+	}
+
+
+	public JLabel getExcluir() {
+		return excluir;
+	}
+
+
+	public void setExcluir(JLabel excluir) {
+		this.excluir = excluir;
+	}
+
+	public void setCliente(Paciente cliente) {
+		this.cliente = cliente;
+	}
 	
+	public void setSepara(JSeparator separa) {
+		this.separa = separa;
+	}
 	
+	public JSeparator getSepara() {
+		return separa;
+	}
 	
 }

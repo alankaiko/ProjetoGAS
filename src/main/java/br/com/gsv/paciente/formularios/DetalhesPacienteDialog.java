@@ -9,6 +9,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import br.com.gsv.paciente.grafico.DetalhesPacienteClassic;
+import br.com.gsv.paciente.grafico.DetalhesPacienteGrafic;
 import br.com.gsv.paciente.listeners.DetalhesPacienteListener;
 import br.com.projeto.gsv.util.ConverteDadosUtil;
 
@@ -24,12 +25,14 @@ public class DetalhesPacienteDialog extends JDialog {
 	private JFormattedTextField JCpf, JDataNasc, JDataCadastro, JCep;
 	private JButton cancelar;
 	private DetalhesPacienteClassic listenerClassic;
+	private DetalhesPacienteGrafic listenerGrafic;
 
 	public DetalhesPacienteDialog() {
 		IniciaVariaveis();
 		InicializaCompomentes();
 		listener = new DetalhesPacienteListener(this);
 		//listenerClassic = new DetalhesPacienteClassic(this);
+		listenerGrafic = new DetalhesPacienteGrafic(this);
 	}
 	
 	public void IniciaVariaveis() {
