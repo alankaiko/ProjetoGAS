@@ -50,7 +50,6 @@ public class IncluirConvenioGrafic {
 		this.formulario.getLId().setFont(new Font("Segoe UI", Font.PLAIN, 13));
 			this.formulario.getTId().setBorder(new LineBorder(new Color(71, 120, 197)));
 			this.formulario.getTId().setColumns(10);
-			
 			this.formulario.getTId().setEditable(false);
 		
 		

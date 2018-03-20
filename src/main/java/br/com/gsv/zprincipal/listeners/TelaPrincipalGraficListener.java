@@ -36,6 +36,7 @@ public class TelaPrincipalGraficListener implements MouseListener, ActionListene
 		this.tela.getBotaoRelItens().addMouseListener(this);
 		this.tela.getBotaoRelPacientes().addMouseListener(this);
 		
+		this.tela.getBotaoProntuario().addMouseListener(this);		
 		
 		this.tela.getCadastroConvenio().addActionListener(this);
 		this.tela.getCadastroPaciente().addActionListener(this);
@@ -106,6 +107,10 @@ public class TelaPrincipalGraficListener implements MouseListener, ActionListene
 		if(event.getSource().equals(this.tela.getBotaoRelPacientes())){
 			AtivaEfeitoBotoes(this.tela.getBotaoRelPacientes());
 		}
+		
+		if(event.getSource().equals(this.tela.getBotaoProntuario())){
+			AtivaEfeitoBotoes(this.tela.getBotaoProntuario());
+		}
 	}
 
 
@@ -117,7 +122,8 @@ public class TelaPrincipalGraficListener implements MouseListener, ActionListene
 				this.tela.getBotaoFuncionario(), 
 				this.tela.getBotaoProdutos(), 
 				this.tela.getBotaoRelItens(),
-				this.tela.getBotaoRelPacientes()
+				this.tela.getBotaoRelPacientes(),
+				this.tela.getBotaoProntuario()
 			});
 		}
 		
@@ -127,7 +133,8 @@ public class TelaPrincipalGraficListener implements MouseListener, ActionListene
 				this.tela.getBotaoPaciente(), 
 				this.tela.getBotaoProdutos(), 
 				this.tela.getBotaoRelItens(), 
-				this.tela.getBotaoRelPacientes()
+				this.tela.getBotaoRelPacientes(),
+				this.tela.getBotaoProntuario()
 			});
 		}
 		
@@ -137,7 +144,8 @@ public class TelaPrincipalGraficListener implements MouseListener, ActionListene
 				this.tela.getBotaoFuncionario(),
 				this.tela.getBotaoPaciente(),
 				this.tela.getBotaoRelItens(),
-				this.tela.getBotaoRelPacientes()
+				this.tela.getBotaoRelPacientes(),
+				this.tela.getBotaoProntuario()
 			}); 
 		}
 		
@@ -147,7 +155,8 @@ public class TelaPrincipalGraficListener implements MouseListener, ActionListene
 				this.tela.getBotaoFuncionario(), 
 				this.tela.getBotaoProdutos(), 
 				this.tela.getBotaoPaciente(),
-				this.tela.getBotaoRelPacientes()
+				this.tela.getBotaoRelPacientes(),
+				this.tela.getBotaoProntuario()
 			}); 			
 		}
 		
@@ -157,7 +166,19 @@ public class TelaPrincipalGraficListener implements MouseListener, ActionListene
 				this.tela.getBotaoFuncionario(), 
 				this.tela.getBotaoProdutos(), 
 				this.tela.getBotaoPaciente(), 
-				this.tela.getBotaoRelItens()
+				this.tela.getBotaoRelItens(),
+				this.tela.getBotaoProntuario()
+			});
+		}
+		
+		if(event.getSource().equals(this.tela.getBotaoProntuario())){
+			ResetaBotao(new JPanel[]{
+				this.tela.getBotaoRelPacientes(),
+				this.tela.getBotaoFuncionario(), 
+				this.tela.getBotaoProdutos(), 
+				this.tela.getBotaoPaciente(), 
+				this.tela.getBotaoRelItens(),
+				this.tela.getBotaoProntuario()
 			});
 		}
 	}
@@ -203,6 +224,12 @@ public class TelaPrincipalGraficListener implements MouseListener, ActionListene
 		
 		if(event.getSource().equals(this.tela.getUsuarioFuncionario())){
 			IncluirFuncionariosForm formulario = new IncluirFuncionariosForm();
+			formulario.setLocationRelativeTo(this.tela.getTela());
+			formulario.setVisible(true);
+		}
+		
+		if(event.getSource().equals(this.tela.getFarmaciaProduto())){
+			GerenciaTelaProdutos formulario = new GerenciaTelaProdutos();
 			formulario.setLocationRelativeTo(this.tela.getTela());
 			formulario.setVisible(true);
 		}

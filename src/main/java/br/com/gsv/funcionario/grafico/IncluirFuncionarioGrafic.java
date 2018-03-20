@@ -61,6 +61,7 @@ public class IncluirFuncionarioGrafic {
 		this.formulario.getLId().setFont(new Font("Segoe UI", Font.PLAIN, 11));
 		
 		this.formulario.getTId().setBorder(new LineBorder(new Color(71,120,197)));
+		this.formulario.getTId().setEditable(false);
 		this.formulario.getTId().setColumns(10);
 		
 		this.formulario.getLNome().setText("Nome");

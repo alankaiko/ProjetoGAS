@@ -63,10 +63,6 @@ public class IncluirProdutosClassic {
 			this.formulario.getLAdicionaFabricante().setFont(new Font("Palatino Linotype", Font.PLAIN, 10));
 			this.formulario.getLAdicionaFabricante().setBounds(357, 202, 123, 14);
 		
-		this.formulario.getBTNovo().setText("Novo");
-		this.formulario.getBTNovo().setFont(new Font("Calibri", Font.PLAIN, 12));
-		this.formulario.getBTNovo().setBounds(43, 276, 89, 23);
-		
 		this.formulario.getBTGravar().setText("Gravar");
 		this.formulario.getBTGravar().setFont(new Font("Calibri", Font.PLAIN, 12));
 		this.formulario.getBTGravar().setBounds(142, 276, 89, 23);

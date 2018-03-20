@@ -12,13 +12,17 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.border.LineBorder;
 
 import br.com.gsv.paciente.formularios.IncluirPacienteForm;
+import br.com.projeto.gsv.util.ConverteDadosUtil;
+import br.com.projeto.gsv.util.FieldListener;
 
 
 public class IncluirPacienteGrafic {
 	private IncluirPacienteForm formulario;
+	private FieldListener field;
 	
 	public IncluirPacienteGrafic(IncluirPacienteForm formulario) {
 		this.formulario = formulario;
+		field = new FieldListener();
 		CriaTela();
 		OrganizaTela();
 	}
@@ -59,18 +63,22 @@ public class IncluirPacienteGrafic {
 		this.formulario.getLId().setFont(new Font("Segoe UI", Font.PLAIN, 11));
 		
 		this.formulario.getTId().setBorder(new LineBorder(new Color(71,120,197)));
+		this.formulario.getTId().addFocusListener(field);
+		this.formulario.getTId().setEditable(false);
 		this.formulario.getTId().setColumns(10);
 		
 		this.formulario.getLNome().setText("Nome");
 		this.formulario.getLNome().setFont(new Font("Segoe UI", Font.PLAIN, 11));
 		
 		this.formulario.getTNome().setBorder(new LineBorder(new Color(71,120,197)));
+		this.formulario.getTNome().addFocusListener(field);
 		this.formulario.getTNome().setColumns(10);
 		
 		this.formulario.getLDataCad().setText("Data Cadastro");
 		this.formulario.getLDataCad().setFont(new Font("Segoe UI", Font.PLAIN, 11));
 		
 		this.formulario.getJDataCadastro().setBorder(new LineBorder(new Color(71,120,197)));
+		this.formulario.getJDataCadastro().setText(ConverteDadosUtil.RetornaDataAtual());
 		this.formulario.getJDataCadastro().setColumns(10);
 		
 		this.formulario.getLRg().setText("RG");
@@ -83,12 +91,14 @@ public class IncluirPacienteGrafic {
 		this.formulario.getLDataNasc().setFont(new Font("Segoe UI", Font.PLAIN, 11));
 		
 		this.formulario.getTRg().setBorder(new LineBorder(new Color(71,120,197)));
+		this.formulario.getTRg().addFocusListener(field);
 		this.formulario.getTRg().setColumns(10);
 		
 		this.formulario.getJCpf().setBorder(new LineBorder(new Color(71,120,197)));
 		this.formulario.getJCpf().setColumns(10);
 		
 		this.formulario.getJDataNasc().setBorder(new LineBorder(new Color(71,120,197)));
+		this.formulario.getJDataNasc().addFocusListener(field);
 		this.formulario.getJDataNasc().setColumns(10);
 		
 		this.formulario.getLConvenio().setText("Convênio / Plano");
@@ -117,24 +127,28 @@ public class IncluirPacienteGrafic {
 		this.formulario.getLNumero().setFont(new Font("Segoe UI", Font.PLAIN, 11));
 		
 		this.formulario.getTNumero().setBorder(new LineBorder(new Color(71,120,197)));
+		this.formulario.getTNumero().addFocusListener(field);
 		this.formulario.getTNumero().setColumns(10);
 		
 		this.formulario.getLComplemento().setText("Complemento");
 		this.formulario.getLComplemento().setFont(new Font("Segoe UI", Font.PLAIN, 11));
 		
 		this.formulario.getTComplemento().setBorder(new LineBorder(new Color(71,120,197)));
+		this.formulario.getTComplemento().addFocusListener(field);
 		this.formulario.getTComplemento().setColumns(10);
 		
 		this.formulario.getLBairro().setText("Bairro");
 		this.formulario.getLBairro().setFont(new Font("Segoe UI", Font.PLAIN, 11));
 		
 		this.formulario.getTBairro().setBorder(new LineBorder(new Color(71,120,197)));
+		this.formulario.getTBairro().addFocusListener(field);
 		this.formulario.getTBairro().setColumns(10);
 		
 		this.formulario.getLCidade().setText("Cidade");
 		this.formulario.getLCidade().setFont(new Font("Segoe UI", Font.PLAIN, 11));
 		
 		this.formulario.getTCidade().setBorder(new LineBorder(new Color(71,120,197)));
+		this.formulario.getTCidade().addFocusListener(field);
 		this.formulario.getTCidade().setColumns(10);
 		
 		this.formulario.getLEstado().setText("Estado");
@@ -146,9 +160,11 @@ public class IncluirPacienteGrafic {
 		this.formulario.getLCep().setFont(new Font("Segoe UI", Font.PLAIN, 11));
 		
 		this.formulario.getTCelular().setBorder(new LineBorder(new Color(71,120,197)));
+		this.formulario.getTCelular().addFocusListener(field);
 		this.formulario.getTCelular().setColumns(10);
 		
 		this.formulario.getTObservacao().setBorder(new LineBorder(new Color(71,120,197)));
+		this.formulario.getTObservacao().addFocusListener(field);
 		this.formulario.getTObservacao().setColumns(10);
 		
 		JSeparator separator_1 = new JSeparator();
@@ -164,18 +180,21 @@ public class IncluirPacienteGrafic {
 		this.formulario.getLEmail().setFont(new Font("Segoe UI", Font.PLAIN, 11));
 		
 		this.formulario.getTEmail().setBorder(new LineBorder(new Color(71,120,197)));
+		this.formulario.getTEmail().addFocusListener(field);
 		this.formulario.getTEmail().setColumns(10);
 		
 		this.formulario.getLTelefone().setText("Telefone");
 		this.formulario.getLTelefone().setFont(new Font("Segoe UI", Font.PLAIN, 11));
 		
 		this.formulario.getTTelefone().setBorder(new LineBorder(new Color(71,120,197)));
+		this.formulario.getTTelefone().addFocusListener(field);
 		this.formulario.getTTelefone().setColumns(10);
 		
 		this.formulario.getLCelular().setText("Celular");
 		this.formulario.getLCelular().setFont(new Font("Segoe UI", Font.PLAIN, 11));
 		
 		this.formulario.getTCelular().setBorder(new LineBorder(new Color(71,120,197)));
+		this.formulario.getTCelular().addFocusListener(field);
 		this.formulario.getTCelular().setColumns(10);
 		
 		this.formulario.getBTGravar().setText("Gravar");

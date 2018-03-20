@@ -38,6 +38,8 @@ public class TelaPrincipalGrafic extends JFrame {
 	private JMenuItem farmaciaFabricante, farmaciaGruProduto, relatorioClinica;
 	private JMenuItem farmaciaProduto, farmaciaDevolucoes, relatorioItens, relatorioFornecedores;
 	private JMenuItem relatorioGruItens, relatorioPaciente;
+	private JPanel botaoProntuario;
+	private JLabel iconProntuario, LProntuarios;
 	
 	
 	public static void main(String[] args) {
@@ -225,45 +227,84 @@ public class TelaPrincipalGrafic extends JFrame {
 		
 		JSeparator separator = new JSeparator();
 		
+		botaoProntuario = new JPanel();
+		botaoProntuario.setBackground(new Color(71, 120, 197));
+		
+		iconProntuario = new JLabel("");
+		iconProntuario.setIcon(new ImageIcon(TelaPrincipalGrafic.class.getResource("/imagens/icons8-modo-de-leitura-do-chrome-25.png")));
+		
+		LProntuarios = new JLabel("Prontuários");
+		LProntuarios.setForeground(Color.WHITE);
+		LProntuarios.setFont(new Font("Segoe UI", Font.PLAIN, 18));
+		GroupLayout gl_botaoProntuario = new GroupLayout(botaoProntuario);
+		gl_botaoProntuario.setHorizontalGroup(
+			gl_botaoProntuario.createParallelGroup(Alignment.LEADING)
+				.addGap(0, 231, Short.MAX_VALUE)
+				.addGroup(gl_botaoProntuario.createSequentialGroup()
+					.addGap(18)
+					.addComponent(iconProntuario)
+					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addComponent(LProntuarios)
+					.addContainerGap(105, Short.MAX_VALUE))
+		);
+		gl_botaoProntuario.setVerticalGroup(
+			gl_botaoProntuario.createParallelGroup(Alignment.LEADING)
+				.addGap(0, 37, Short.MAX_VALUE)
+				.addGroup(gl_botaoProntuario.createSequentialGroup()
+					.addContainerGap(12, Short.MAX_VALUE)
+					.addGroup(gl_botaoProntuario.createParallelGroup(Alignment.LEADING)
+						.addComponent(iconProntuario, Alignment.TRAILING)
+						.addComponent(LProntuarios, Alignment.TRAILING)))
+		);
+		botaoProntuario.setLayout(gl_botaoProntuario);
+		
 		
 		
 		GroupLayout gl_painelEsquerdo = new GroupLayout(painelEsquerdo);
 		gl_painelEsquerdo.setHorizontalGroup(
-			gl_painelEsquerdo.createParallelGroup(Alignment.TRAILING)
-				.addGroup(Alignment.LEADING, gl_painelEsquerdo.createSequentialGroup()
-				.addGap(35)
-				.addComponent(lblMenuRpido)
-				.addContainerGap(164, Short.MAX_VALUE))
+			gl_painelEsquerdo.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_painelEsquerdo.createSequentialGroup()
-				.addContainerGap(14, Short.MAX_VALUE)
-				.addGroup(gl_painelEsquerdo.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_painelEsquerdo.createParallelGroup(Alignment.LEADING)
-				.addComponent(botaoPaciente, Alignment.TRAILING, GroupLayout.PREFERRED_SIZE, 231, GroupLayout.PREFERRED_SIZE)
-				.addComponent(botaoFuncionario, Alignment.TRAILING, GroupLayout.PREFERRED_SIZE, 231, GroupLayout.PREFERRED_SIZE)
-				.addComponent(botaoProdutos, Alignment.TRAILING, GroupLayout.PREFERRED_SIZE, 231, GroupLayout.PREFERRED_SIZE)
-				.addComponent(botaoRelPacientes, Alignment.TRAILING, GroupLayout.PREFERRED_SIZE, 231, GroupLayout.PREFERRED_SIZE)
-				.addComponent(botaoRelItens, Alignment.TRAILING, GroupLayout.PREFERRED_SIZE, 231, GroupLayout.PREFERRED_SIZE))
-				.addComponent(separator, GroupLayout.PREFERRED_SIZE, 215, GroupLayout.PREFERRED_SIZE))
-				.addGap(132))
+					.addGap(35)
+					.addComponent(lblMenuRpido)
+					.addContainerGap(32, Short.MAX_VALUE))
+				.addGroup(gl_painelEsquerdo.createSequentialGroup()
+					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+					.addComponent(separator, GroupLayout.PREFERRED_SIZE, 215, GroupLayout.PREFERRED_SIZE)
+					.addGap(148))
+				.addGroup(gl_painelEsquerdo.createSequentialGroup()
+					.addContainerGap()
+					.addGroup(gl_painelEsquerdo.createParallelGroup(Alignment.LEADING)
+						.addComponent(botaoPaciente, Alignment.TRAILING, GroupLayout.PREFERRED_SIZE, 231, GroupLayout.PREFERRED_SIZE)
+						.addComponent(botaoFuncionario, Alignment.TRAILING, GroupLayout.PREFERRED_SIZE, 231, GroupLayout.PREFERRED_SIZE)
+						.addComponent(botaoProdutos, Alignment.TRAILING, GroupLayout.PREFERRED_SIZE, 231, GroupLayout.PREFERRED_SIZE)
+						.addComponent(botaoRelPacientes, Alignment.TRAILING, GroupLayout.PREFERRED_SIZE, 231, GroupLayout.PREFERRED_SIZE)
+						.addComponent(botaoRelItens, Alignment.TRAILING, GroupLayout.PREFERRED_SIZE, 231, GroupLayout.PREFERRED_SIZE))
+					.addContainerGap(132, Short.MAX_VALUE))
+				.addGroup(gl_painelEsquerdo.createSequentialGroup()
+					.addContainerGap()
+					.addComponent(botaoProntuario, GroupLayout.PREFERRED_SIZE, 231, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
 		);
 		gl_painelEsquerdo.setVerticalGroup(
 			gl_painelEsquerdo.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_painelEsquerdo.createSequentialGroup()
-				.addGap(23)
-				.addComponent(lblMenuRpido)
-				.addPreferredGap(ComponentPlacement.UNRELATED)
-				.addComponent(separator, GroupLayout.PREFERRED_SIZE, 2, GroupLayout.PREFERRED_SIZE)
-				.addGap(18)
-				.addComponent(botaoPaciente, GroupLayout.PREFERRED_SIZE, 37, GroupLayout.PREFERRED_SIZE)
-				.addPreferredGap(ComponentPlacement.RELATED)
-				.addComponent(botaoFuncionario, GroupLayout.PREFERRED_SIZE, 37, GroupLayout.PREFERRED_SIZE)
-				.addPreferredGap(ComponentPlacement.RELATED)
-				.addComponent(botaoProdutos, GroupLayout.PREFERRED_SIZE, 37, GroupLayout.PREFERRED_SIZE)
-				.addPreferredGap(ComponentPlacement.RELATED)
-				.addComponent(botaoRelPacientes, GroupLayout.PREFERRED_SIZE, 37, GroupLayout.PREFERRED_SIZE)
-				.addPreferredGap(ComponentPlacement.RELATED)
-				.addComponent(botaoRelItens, GroupLayout.PREFERRED_SIZE, 37, GroupLayout.PREFERRED_SIZE)
-				.addContainerGap(161, Short.MAX_VALUE))
+					.addGap(23)
+					.addComponent(lblMenuRpido)
+					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addComponent(separator, GroupLayout.PREFERRED_SIZE, 2, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addComponent(botaoProntuario, GroupLayout.PREFERRED_SIZE, 37, GroupLayout.PREFERRED_SIZE)
+					.addGap(12)
+					.addComponent(botaoPaciente, GroupLayout.PREFERRED_SIZE, 37, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(botaoFuncionario, GroupLayout.PREFERRED_SIZE, 37, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(botaoProdutos, GroupLayout.PREFERRED_SIZE, 37, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(botaoRelPacientes, GroupLayout.PREFERRED_SIZE, 37, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(botaoRelItens, GroupLayout.PREFERRED_SIZE, 37, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap(119, Short.MAX_VALUE))
 		);
 		
 		
@@ -356,6 +397,13 @@ public class TelaPrincipalGrafic extends JFrame {
 		
 		arquivoAcomodacoes = new JMenuItem("Acomodações");
 		menuArquivo.add(arquivoAcomodacoes);
+		
+		JMenu menuAtendimento = new JMenu("Atendimento");
+		menuAtendimento.setForeground(Color.WHITE);
+		menuBar.add(menuAtendimento);
+		
+		JMenuItem atendimentoAnotacoes = new JMenuItem("Incluir Anotações");
+		menuAtendimento.add(atendimentoAnotacoes);
 		
 		menuCadastro = new JMenu("Cadastro");
 		menuCadastro.setFont(new Font("Segoe UI", Font.PLAIN, 15));
@@ -782,19 +830,17 @@ public class TelaPrincipalGrafic extends JFrame {
 	public void setRelatorioPaciente(JMenuItem relatorioPaciente) {
 		this.relatorioPaciente = relatorioPaciente;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
+
+
+	public JPanel getBotaoProntuario() {
+		return botaoProntuario;
+	}
+
+
+
+	public void setBotaoProntuario(JPanel botaoProntuario) {
+		this.botaoProntuario = botaoProntuario;
+	}
 	
 }

@@ -18,7 +18,7 @@ public class IncluirProdutosForm extends JDialog {
 	private IncluirProdutoListener listener;
 	private JPanel panel = new JPanel();
 	private Container tela = getContentPane();
-	private JButton BTNovo, BTGravar, BTCancelar;
+	private JButton BTGravar, BTCancelar;
 	private JTextField TCodigo, TDescricao, TQuantidade;
 	private JLabel LDados, LCodigo, LDescricao, LQuantidade, LFabricante, LAdicionaFabricante;
 	private JComboBox comboFabricante;
@@ -46,7 +46,6 @@ public class IncluirProdutosForm extends JDialog {
 		comboFabricante = new JComboBox();
 		BTCancelar = new JButton();
 		BTGravar = new JButton();
-		BTNovo = new JButton();
 		TQuantidade = new JTextField();
 		LAdicionaFabricante = new JLabel();
 	}
@@ -63,7 +62,6 @@ public class IncluirProdutosForm extends JDialog {
 		tela.add(comboFabricante);
 		tela.add(BTCancelar);
 		tela.add(BTGravar);
-		tela.add(BTNovo);
 		tela.add(TQuantidade);
 		tela.add(LAdicionaFabricante);
 		
@@ -77,17 +75,7 @@ public class IncluirProdutosForm extends JDialog {
 	public void setListener(IncluirProdutoListener listener) {
 		this.listener = listener;
 	}
-
-
-	public JButton getBTNovo() {
-		return BTNovo;
-	}
-
-
-	public void setBTNovo(JButton bTNovo) {
-		BTNovo = bTNovo;
-	}
-
+	
 
 	public JButton getBTGravar() {
 		return BTGravar;

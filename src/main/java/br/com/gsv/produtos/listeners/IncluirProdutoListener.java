@@ -44,7 +44,6 @@ public class IncluirProdutoListener implements ActionListener {
 	private void AdicionaListener(){
 		this.formulario.getBTCancelar().addActionListener(this);
 		this.formulario.getBTGravar().addActionListener(this);
-		this.formulario.getBTNovo().addActionListener(this);
 		
 	}
 	
@@ -101,9 +100,7 @@ public class IncluirProdutoListener implements ActionListener {
 			this.formulario.dispose();
 		}
 		
-		if(event.getSource().equals(this.formulario.getBTNovo())){
-			//this.formulario = new IncluirProdutosForm();
-		}
+
 		
 		if(event.getSource().equals(this.formulario.getBTCancelar())){
 			this.formulario.dispose();
