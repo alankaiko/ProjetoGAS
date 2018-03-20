@@ -10,14 +10,22 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JLabel;
+
 import java.awt.Font;
+
 import javax.swing.JTabbedPane;
+
 import java.awt.Color;
+
+import javax.swing.ButtonGroup;
 import javax.swing.JLayeredPane;
 import javax.swing.JTextPane;
 import javax.swing.ImageIcon;
 import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
+import javax.swing.JRadioButton;
+import javax.swing.JSeparator;
+import javax.swing.JTextArea;
 
 public class prontuario extends JDialog {
 
@@ -29,6 +37,11 @@ public class prontuario extends JDialog {
 	private JLayeredPane dadosCliente, layeredPane;
 	private JLayeredPane dadosPrescricao;
 	private JLayeredPane layeredPane_1;
+	private JRadioButton radioAlerta, radioLetargico, radioObnubilado, radioComatoso, radioAgitado;
+	private JRadioButton radioTorporoso, radioCalmo,radioApatico, radioAlegre, radioTriste;
+	private ButtonGroup grupoBotao1 = new ButtonGroup();
+	private ButtonGroup grupoBotao2 = new ButtonGroup();
+	private JSeparator separator;
 
 	public static void main(String[] args) {
 		try {
@@ -61,6 +74,7 @@ public class prontuario extends JDialog {
 		
 		
 		TabCliente();
+		dadosAnotacao();
 	}
 	
 	private void TabCliente(){
@@ -84,7 +98,7 @@ public class prontuario extends JDialog {
 		
 		TPaciente = new JTextField();
 		TPaciente.setBorder(new LineBorder(Color.BLACK));
-		TPaciente.setBounds(60, 52, 378, 20);
+		TPaciente.setBounds(62, 52, 376, 20);
 		TPaciente.setEditable(false);
 		dadosCliente.add(TPaciente);
 		TPaciente.setColumns(10);
@@ -123,32 +137,119 @@ public class prontuario extends JDialog {
 		TCpf.setColumns(10);
 		
 		LDataNasc = new JLabel("Data Nasc.");
-		LDataNasc.setBounds(10, 126, 74, 14);
+		LDataNasc.setBounds(10, 126, 67, 14);
 		dadosCliente.add(LDataNasc);
 		
 		TDataNasc = new JTextField();
 		TDataNasc.setBorder(new LineBorder(Color.BLACK));
-		TDataNasc.setBounds(70, 123, 101, 20);
+		TDataNasc.setBounds(87, 123, 101, 20);
 		TDataNasc.setEditable(false);
 		dadosCliente.add(TDataNasc);
 		TDataNasc.setColumns(10);
 		
 		LDataCad = new JLabel("Data Cadastro ");
-		LDataCad.setBounds(254, 21, 80, 14);
+		LDataCad.setBounds(238, 21, 89, 14);
 		dadosCliente.add(LDataCad);
 		
 		TDataCad = new JTextField();
 		TDataCad.setBorder(new LineBorder(Color.BLACK));
 		TDataCad.setColumns(10);
 		TDataCad.setEditable(false);
-		TDataCad.setBounds(352, 18, 86, 20);
+		TDataCad.setBounds(337, 18, 101, 20);
 		dadosCliente.add(TDataCad);		
-		
 		dadosPrescricao = new JLayeredPane();
-		tabGeral.addTab("Prescrição Médica", null, dadosPrescricao, null);
+		tabGeral.addTab("Anotação", null, dadosPrescricao, null);
 		
-		layeredPane_1 = new JLayeredPane();
-		tabGeral.addTab("Histórico de Admissao", null, layeredPane_1, null);
+		radioAlerta = new JRadioButton("Alerta");
+		radioAlerta.setFont(new Font("Arial", Font.PLAIN, 13));
+		radioAlerta.setBackground(Color.WHITE);
+		radioAlerta.setBounds(17, 39, 70, 23);
+		dadosPrescricao.add(radioAlerta);
+		
+		radioLetargico = new JRadioButton("Letárgico");
+		radioLetargico.setFont(new Font("Arial", Font.PLAIN, 13));
+		radioLetargico.setBackground(Color.WHITE);
+		radioLetargico.setBounds(100, 39, 81, 23);
+		dadosPrescricao.add(radioLetargico);
+		
+		radioObnubilado = new JRadioButton("Obnubilado");
+		radioObnubilado.setFont(new Font("Arial", Font.PLAIN, 13));
+		radioObnubilado.setBackground(Color.WHITE);
+		radioObnubilado.setBounds(183, 39, 98, 23);
+		dadosPrescricao.add(radioObnubilado);
+		
+		radioTorporoso = new JRadioButton("Torporoso");
+		radioTorporoso.setFont(new Font("Arial", Font.PLAIN, 13));
+		radioTorporoso.setBackground(Color.WHITE);
+		radioTorporoso.setBounds(283, 39, 85, 23);
+		dadosPrescricao.add(radioTorporoso);
+		
+		radioComatoso = new JRadioButton("Comatoso");
+		radioComatoso.setFont(new Font("Arial", Font.PLAIN, 13));
+		radioComatoso.setBackground(Color.WHITE);
+		radioComatoso.setBounds(370, 39, 109, 23);
+		dadosPrescricao.add(radioComatoso);
+		
+		grupoBotao1.add(radioAlerta);
+		grupoBotao1.add(radioLetargico);
+		grupoBotao1.add(radioObnubilado);
+		grupoBotao1.add(radioTorporoso);
+		grupoBotao1.add(radioComatoso);
+		
+		separator = new JSeparator();
+		separator.setBounds(17, 106, 577, 2);
+		dadosPrescricao.add(separator);
+		
+		
 	}
 	
+	private void dadosAnotacao(){
+		radioCalmo = new JRadioButton("Calmo");
+		radioCalmo.setFont(new Font("Arial", Font.PLAIN, 13));
+		radioCalmo.setBackground(Color.WHITE);
+		radioCalmo.setBounds(17, 115, 70, 23);
+		dadosPrescricao.add(radioCalmo);
+		
+		radioApatico = new JRadioButton("Apático");
+		radioApatico.setFont(new Font("Arial", Font.PLAIN, 13));
+		radioApatico.setBackground(Color.WHITE);
+		radioApatico.setBounds(100, 115, 81, 23);
+		dadosPrescricao.add(radioApatico);
+		
+		radioAlegre = new JRadioButton("Alegre");
+		radioAlegre.setFont(new Font("Arial", Font.PLAIN, 13));
+		radioAlegre.setBackground(Color.WHITE);
+		radioAlegre.setBounds(183, 115, 98, 23);
+		dadosPrescricao.add(radioAlegre);
+		
+		radioTriste = new JRadioButton("Triste");
+		radioTriste.setFont(new Font("Arial", Font.PLAIN, 13));
+		radioTriste.setBackground(Color.WHITE);
+		radioTriste.setBounds(283, 115, 85, 23);
+		dadosPrescricao.add(radioTriste);
+		
+		radioAgitado = new JRadioButton("Agitado");
+		radioAgitado.setFont(new Font("Arial", Font.PLAIN, 13));
+		radioAgitado.setBackground(Color.WHITE);
+		radioAgitado.setBounds(370, 115, 109, 23);
+		dadosPrescricao.add(radioAgitado);
+		
+		JLabel LObservacao = new JLabel("Observação");
+		LObservacao.setFont(new Font("Arial", Font.PLAIN, 13));
+		LObservacao.setBounds(17, 168, 83, 14);
+		dadosPrescricao.add(LObservacao);
+		
+		JTextArea textArea = new JTextArea();
+		textArea.setBorder(new LineBorder(Color.BLACK));
+		textArea.setRows(7);
+		textArea.setBounds(17, 193, 431, 110);
+		dadosPrescricao.add(textArea);
+		
+		grupoBotao2.add(radioCalmo);
+		grupoBotao2.add(radioApatico);
+		grupoBotao2.add(radioAlegre);
+		grupoBotao2.add(radioTriste);
+		grupoBotao2.add(radioAgitado);
+		
+	}
 }
