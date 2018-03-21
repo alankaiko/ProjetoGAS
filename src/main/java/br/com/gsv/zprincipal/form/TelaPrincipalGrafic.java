@@ -399,7 +399,8 @@ public class TelaPrincipalGrafic extends JFrame {
 		menuArquivo.add(arquivoAcomodacoes);
 		
 		JMenu menuAtendimento = new JMenu("Atendimento");
-		menuAtendimento.setForeground(Color.WHITE);
+		menuAtendimento.setForeground(SystemColor.textHighlightText);
+		menuAtendimento.setFont(new Font("Segoe UI", Font.PLAIN, 15));
 		menuBar.add(menuAtendimento);
 		
 		JMenuItem atendimentoAnotacoes = new JMenuItem("Incluir Anotações");

@@ -35,13 +35,16 @@ public class prontuario extends JDialog {
 	private JButton BTGravar, BTCancelar;
 	private JTabbedPane tabGeral;
 	private JLayeredPane dadosCliente, layeredPane;
-	private JLayeredPane dadosPrescricao;
+	private JLayeredPane dadosAnotacao;
 	private JLayeredPane layeredPane_1;
 	private JRadioButton radioAlerta, radioLetargico, radioObnubilado, radioComatoso, radioAgitado;
 	private JRadioButton radioTorporoso, radioCalmo,radioApatico, radioAlegre, radioTriste;
 	private ButtonGroup grupoBotao1 = new ButtonGroup();
 	private ButtonGroup grupoBotao2 = new ButtonGroup();
-	private JSeparator separator;
+	private JLayeredPane dadosCondicao;
+	private JPanel painelCondicao;
+	private JPanel painelDadosCliente;
+	private JPanel painelAnotacao;
 
 	public static void main(String[] args) {
 		try {
@@ -69,6 +72,7 @@ public class prontuario extends JDialog {
 		panel.add(BTCancelar);
 		
 		tabGeral = new JTabbedPane(JTabbedPane.TOP);
+		tabGeral.setBackground(Color.WHITE);
 		tabGeral.setBounds(15, 34, 609, 342);
 		panel.add(tabGeral);
 		
@@ -84,6 +88,7 @@ public class prontuario extends JDialog {
 		panel.add(LProntuario);
 		
 		dadosCliente = new JLayeredPane();
+		dadosCliente.setBackground(Color.WHITE);
 		tabGeral.addTab("Dados Cliente", null, dadosCliente, null);
 		dadosCliente.setLayout(null);
 		
@@ -109,7 +114,7 @@ public class prontuario extends JDialog {
 		
 		TCodigo = new JTextField();
 		TCodigo.setBorder(new LineBorder(Color.BLACK));
-		TCodigo.setBounds(60, 18, 110, 20);
+		TCodigo.setBounds(60, 18, 128, 20);
 		TCodigo.setEditable(false);
 		dadosCliente.add(TCodigo);
 		TCodigo.setColumns(10);
@@ -120,7 +125,7 @@ public class prontuario extends JDialog {
 		
 		TRg = new JTextField();
 		TRg.setBorder(new LineBorder(Color.BLACK));
-		TRg.setBounds(60, 84, 110, 20);
+		TRg.setBounds(60, 84, 128, 20);
 		TRg.setEditable(false);
 		dadosCliente.add(TRg);
 		TRg.setColumns(10);
@@ -157,38 +162,44 @@ public class prontuario extends JDialog {
 		TDataCad.setEditable(false);
 		TDataCad.setBounds(337, 18, 101, 20);
 		dadosCliente.add(TDataCad);		
-		dadosPrescricao = new JLayeredPane();
-		tabGeral.addTab("Anotação", null, dadosPrescricao, null);
+		
+		painelDadosCliente = new JPanel();
+		painelDadosCliente.setBackground(Color.WHITE);
+		painelDadosCliente.setBounds(0, 0, 604, 314);
+		dadosCliente.add(painelDadosCliente);
+		dadosAnotacao = new JLayeredPane();
+		dadosAnotacao.setBackground(Color.WHITE);
+		tabGeral.addTab("Anotação", null, dadosAnotacao, null);
 		
 		radioAlerta = new JRadioButton("Alerta");
 		radioAlerta.setFont(new Font("Arial", Font.PLAIN, 13));
 		radioAlerta.setBackground(Color.WHITE);
 		radioAlerta.setBounds(17, 39, 70, 23);
-		dadosPrescricao.add(radioAlerta);
+		dadosAnotacao.add(radioAlerta);
 		
 		radioLetargico = new JRadioButton("Letárgico");
 		radioLetargico.setFont(new Font("Arial", Font.PLAIN, 13));
 		radioLetargico.setBackground(Color.WHITE);
 		radioLetargico.setBounds(100, 39, 81, 23);
-		dadosPrescricao.add(radioLetargico);
+		dadosAnotacao.add(radioLetargico);
 		
 		radioObnubilado = new JRadioButton("Obnubilado");
 		radioObnubilado.setFont(new Font("Arial", Font.PLAIN, 13));
 		radioObnubilado.setBackground(Color.WHITE);
 		radioObnubilado.setBounds(183, 39, 98, 23);
-		dadosPrescricao.add(radioObnubilado);
+		dadosAnotacao.add(radioObnubilado);
 		
 		radioTorporoso = new JRadioButton("Torporoso");
 		radioTorporoso.setFont(new Font("Arial", Font.PLAIN, 13));
 		radioTorporoso.setBackground(Color.WHITE);
 		radioTorporoso.setBounds(283, 39, 85, 23);
-		dadosPrescricao.add(radioTorporoso);
+		dadosAnotacao.add(radioTorporoso);
 		
 		radioComatoso = new JRadioButton("Comatoso");
 		radioComatoso.setFont(new Font("Arial", Font.PLAIN, 13));
 		radioComatoso.setBackground(Color.WHITE);
 		radioComatoso.setBounds(370, 39, 109, 23);
-		dadosPrescricao.add(radioComatoso);
+		dadosAnotacao.add(radioComatoso);
 		
 		grupoBotao1.add(radioAlerta);
 		grupoBotao1.add(radioLetargico);
@@ -196,9 +207,81 @@ public class prontuario extends JDialog {
 		grupoBotao1.add(radioTorporoso);
 		grupoBotao1.add(radioComatoso);
 		
-		separator = new JSeparator();
-		separator.setBounds(17, 106, 577, 2);
-		dadosPrescricao.add(separator);
+		dadosCondicao = new JLayeredPane();
+		dadosCondicao.setBackground(Color.WHITE);
+		tabGeral.addTab("Condição", null, dadosCondicao, null);
+		dadosCondicao.setLayout(null);
+		
+		painelCondicao = new JPanel();
+		painelCondicao.setBackground(Color.WHITE);
+		painelCondicao.setBounds(0, 0, 604, 314);
+		dadosCondicao.add(painelCondicao);
+		painelCondicao.setLayout(null);
+		
+		JLabel lblDembulao = new JLabel("Deâmbulação");
+		lblDembulao.setFont(new Font("Arial", Font.PLAIN, 14));
+		lblDembulao.setBounds(10, 11, 127, 14);
+		painelCondicao.add(lblDembulao);
+		
+		JRadioButton radioDe = new JRadioButton("Deâmbulante?");
+		radioDe.setFont(new Font("Arial", Font.PLAIN, 13));
+		radioDe.setBounds(10, 32, 109, 23);
+		painelCondicao.add(radioDe);
+		
+		JRadioButton rdbtnDembulaComDificuldade = new JRadioButton("Utiliza cadeira de rodas?");
+		rdbtnDembulaComDificuldade.setFont(new Font("Arial", Font.PLAIN, 13));
+		rdbtnDembulaComDificuldade.setBounds(136, 32, 197, 23);
+		painelCondicao.add(rdbtnDembulaComDificuldade);
+		
+		JLabel lblObservao = new JLabel("Observação");
+		lblObservao.setFont(new Font("Arial", Font.PLAIN, 13));
+		lblObservao.setBounds(10, 70, 84, 14);
+		painelCondicao.add(lblObservao);
+		
+		JSeparator separator = new JSeparator();
+		separator.setBounds(10, 107, 584, 2);
+		painelCondicao.add(separator);
+		
+		JLabel lblRepousoNoLeito = new JLabel("Repouso no Leito");
+		lblRepousoNoLeito.setFont(new Font("Arial", Font.PLAIN, 14));
+		lblRepousoNoLeito.setBounds(10, 120, 127, 14);
+		painelCondicao.add(lblRepousoNoLeito);
+		
+		JRadioButton rdbtnRelativo = new JRadioButton("Relativo");
+		rdbtnRelativo.setFont(new Font("Arial", Font.PLAIN, 13));
+		rdbtnRelativo.setBounds(10, 144, 109, 23);
+		painelCondicao.add(rdbtnRelativo);
+		
+		JRadioButton rdbtnAbsoluto = new JRadioButton("Absoluto");
+		rdbtnAbsoluto.setFont(new Font("Arial", Font.PLAIN, 13));
+		rdbtnAbsoluto.setBounds(136, 144, 109, 23);
+		painelCondicao.add(rdbtnAbsoluto);
+		
+		JSeparator separator_1 = new JSeparator();
+		separator_1.setBounds(10, 185, 584, 2);
+		painelCondicao.add(separator_1);
+		
+		JLabel lblSonoERepouso = new JLabel("Sono e Repouso");
+		lblSonoERepouso.setFont(new Font("Arial", Font.PLAIN, 14));
+		lblSonoERepouso.setBounds(10, 198, 127, 14);
+		painelCondicao.add(lblSonoERepouso);
+		
+		JLabel label = new JLabel("Observação");
+		label.setFont(new Font("Arial", Font.PLAIN, 13));
+		label.setBounds(10, 226, 84, 14);
+		painelCondicao.add(label);
+		
+		JTextArea textArea = new JTextArea();
+		textArea.setRows(7);
+		textArea.setBorder(new LineBorder(Color.BLACK));
+		textArea.setBounds(132, 65, 433, 38);
+		painelCondicao.add(textArea);
+		
+		JTextArea textArea_1 = new JTextArea();
+		textArea_1.setRows(7);
+		textArea_1.setBorder(new LineBorder(Color.BLACK));
+		textArea_1.setBounds(132, 221, 433, 82);
+		painelCondicao.add(textArea_1);
 		
 		
 	}
@@ -208,48 +291,72 @@ public class prontuario extends JDialog {
 		radioCalmo.setFont(new Font("Arial", Font.PLAIN, 13));
 		radioCalmo.setBackground(Color.WHITE);
 		radioCalmo.setBounds(17, 115, 70, 23);
-		dadosPrescricao.add(radioCalmo);
+		dadosAnotacao.add(radioCalmo);
 		
 		radioApatico = new JRadioButton("Apático");
 		radioApatico.setFont(new Font("Arial", Font.PLAIN, 13));
 		radioApatico.setBackground(Color.WHITE);
 		radioApatico.setBounds(100, 115, 81, 23);
-		dadosPrescricao.add(radioApatico);
+		dadosAnotacao.add(radioApatico);
 		
 		radioAlegre = new JRadioButton("Alegre");
 		radioAlegre.setFont(new Font("Arial", Font.PLAIN, 13));
 		radioAlegre.setBackground(Color.WHITE);
 		radioAlegre.setBounds(183, 115, 98, 23);
-		dadosPrescricao.add(radioAlegre);
+		dadosAnotacao.add(radioAlegre);
 		
 		radioTriste = new JRadioButton("Triste");
 		radioTriste.setFont(new Font("Arial", Font.PLAIN, 13));
 		radioTriste.setBackground(Color.WHITE);
 		radioTriste.setBounds(283, 115, 85, 23);
-		dadosPrescricao.add(radioTriste);
+		dadosAnotacao.add(radioTriste);
 		
 		radioAgitado = new JRadioButton("Agitado");
 		radioAgitado.setFont(new Font("Arial", Font.PLAIN, 13));
 		radioAgitado.setBackground(Color.WHITE);
 		radioAgitado.setBounds(370, 115, 109, 23);
-		dadosPrescricao.add(radioAgitado);
+		dadosAnotacao.add(radioAgitado);
 		
 		JLabel LObservacao = new JLabel("Observação");
-		LObservacao.setFont(new Font("Arial", Font.PLAIN, 13));
-		LObservacao.setBounds(17, 168, 83, 14);
-		dadosPrescricao.add(LObservacao);
-		
-		JTextArea textArea = new JTextArea();
-		textArea.setBorder(new LineBorder(Color.BLACK));
-		textArea.setRows(7);
-		textArea.setBounds(17, 193, 431, 110);
-		dadosPrescricao.add(textArea);
+		LObservacao.setFont(new Font("Arial", Font.PLAIN, 14));
+		LObservacao.setBounds(17, 168, 98, 14);
+		dadosAnotacao.add(LObservacao);
 		
 		grupoBotao2.add(radioCalmo);
 		grupoBotao2.add(radioApatico);
 		grupoBotao2.add(radioAlegre);
 		grupoBotao2.add(radioTriste);
 		grupoBotao2.add(radioAgitado);
+		
+		JLabel lblNvelDeConscincia = new JLabel("Nível de Consciência");
+		lblNvelDeConscincia.setFont(new Font("Arial", Font.PLAIN, 14));
+		lblNvelDeConscincia.setBounds(21, 18, 160, 14);
+		dadosAnotacao.add(lblNvelDeConscincia);
+		
+		JLabel lblEstadoMental = new JLabel("Estado Mental");
+		lblEstadoMental.setFont(new Font("Arial", Font.PLAIN, 14));
+		lblEstadoMental.setBounds(17, 94, 109, 14);
+		dadosAnotacao.add(lblEstadoMental);
+		
+		painelAnotacao = new JPanel();
+		painelAnotacao.setBackground(Color.WHITE);
+		painelAnotacao.setBounds(0, 0, 604, 314);
+		dadosAnotacao.add(painelAnotacao);
+		painelAnotacao.setLayout(null);
+		
+		JSeparator separa1 = new JSeparator();
+		separa1.setBounds(39, 79, 526, 2);
+		painelAnotacao.add(separa1);
+		
+		JSeparator separa2 = new JSeparator();
+		separa2.setBounds(39, 153, 526, 2);
+		painelAnotacao.add(separa2);
+		
+		JTextArea textArea = new JTextArea();
+		textArea.setRows(7);
+		textArea.setBorder(new LineBorder(Color.BLACK));
+		textArea.setBounds(10, 193, 431, 110);
+		painelAnotacao.add(textArea);
 		
 	}
 }
