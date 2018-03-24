@@ -16,7 +16,7 @@ import br.com.gsv.paciente.formularios.GerenciaTelaPaciente;
 import br.com.gsv.paciente.formularios.IncluirPacienteForm;
 import br.com.gsv.produtos.formularios.GerenciaTelaProdutos;
 import br.com.gsv.produtos.formularios.IncluirProdutosForm;
-import br.com.gsv.prontuario.formularios.Prontuario;
+import br.com.gsv.prontuario.formularios.ProntuarioForm;
 import br.com.gsv.zprincipal.form.TelaPrincipalGrafic;
 
 public class TelaPrincipalGraficListener implements MouseListener, ActionListener{
@@ -75,7 +75,7 @@ public class TelaPrincipalGraficListener implements MouseListener, ActionListene
 		}
 		
 		if(event.getSource().equals(this.tela.getBotaoProntuario())){
-			Prontuario formulario = new Prontuario();
+			ProntuarioForm formulario = new ProntuarioForm();
 			formulario.setLocationRelativeTo(this.tela.getTela());
 			formulario.setVisible(true);
 		}
@@ -243,7 +243,7 @@ public class TelaPrincipalGraficListener implements MouseListener, ActionListene
 		}
 			
 		if(event.getSource().equals(this.tela.getAtendimentoProntuario())){
-			Prontuario formulario = new Prontuario();
+			ProntuarioForm formulario = new ProntuarioForm();
 			formulario.setLocationRelativeTo(this.tela.getTela());
 			formulario.setVisible(true);
 		}

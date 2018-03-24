@@ -20,7 +20,7 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 
-public class Prontuario extends JDialog {
+public class ProntuarioForm extends JDialog {
 
 	private JPanel panel = new JPanel();
 	private JButton BTGravar, BTCancelar;
@@ -28,15 +28,19 @@ public class Prontuario extends JDialog {
 	private JPanel painelEquipamentos;
 	private JTextField TPaciente, TCodigo, TRg, TCpf, TDataNasc, TDataCad, THemorragia, TDispneia, TEdema;
 	private JTextField TDEscamacao, THematoma, TCicatriz, TOutrosInt;
-	private JLabel LProntuario, LPaciente, LPesquisar, LCodigo, LRg, LCpf,LDataNasc, LDataCad, LInfoEquip, LSonoCond, LEquipamentocli;
+	private JLabel LProntuario, LPaciente, LPesquisar, LCodigo, LRg, LCpf,LDataNasc, LDataCad;
+	private JLabel LInfoEquip, LSonoCond, LEquipamentocli;
 	private JLabel LMembros, LTipoSintomas, LSintomas,LEspecifIntegridade, LDeambulacao;
 	private JLabel LObservacaoCond, LRepouso, LObservacaoSono, LNivelConsc, LEstadoMental, LObservacaoAnot;
 	private JLayeredPane dadosCliente,  dadosAnotacao, dadosCondicao,dadosIntegridade, dadosSintomas,dadosEquipamentoCli;
-	private JRadioButton radioAlerta, radioLetargico, radioObnubilado,radioComatoso, radioAgitado, radioRelativo, radioAbsoluto;
-	private JRadioButton radioTorporoso, radioCalmo, radioApatico, radioAlegre,	radioTriste, radioDeambulante, radioUtilizaCadeira;
+	private JRadioButton radioAlerta, radioLetargico, radioObnubilado,radioComatoso;
+	private JRadioButton radioAgitado, radioRelativo, radioAbsoluto;
+	private JRadioButton radioTorporoso, radioCalmo, radioApatico, radioAlegre;
+	private JRadioButton radioTriste, radioDeambulante, radioUtilizaCadeira;
 	private JCheckBox checkHemorragia, checkDispneia, checkEdema,checkDescamacao,checkHematoma,checkCicatriz;
 	private JCheckBox checkOutroInt, checkNauseas,checkMalEstar, checkInsonia,checkPrurido, checkColoracao;
-	private JCheckBox checkPerfusao,LPulso, checkCateter,checkSonda,checkUripen,checkDreno,checkCurativos,checkVenoclise,checkOutros;
+	private JCheckBox checkPerfusao,LPulso, checkCateter,checkSonda,checkUripen;
+	private JCheckBox checkDreno,checkCurativos,checkVenoclise,checkOutros;
 	private JTabbedPane tabGeral;
 	private ButtonGroup grupoBotao1 = new ButtonGroup();
 	private ButtonGroup grupoBotao2 = new ButtonGroup();
@@ -49,7 +53,7 @@ public class Prontuario extends JDialog {
 
 
 
-	public Prontuario() {
+	public ProntuarioForm() {
 		setBounds(100, 100, 650, 460);
 		getContentPane().setLayout(new BorderLayout());
 		panel.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -361,12 +365,14 @@ public class Prontuario extends JDialog {
 		radioDeambulante.setBackground(Color.WHITE);
 		radioDeambulante.setFont(new Font("Arial", Font.PLAIN, 13));
 		radioDeambulante.setBounds(10, 32, 109, 23);
+		radioDeambulante.setActionCommand("Deâmbulante");
 		painelCondicao.add(radioDeambulante);
 		
 		radioUtilizaCadeira = new JRadioButton("Utiliza cadeira de rodas?");
 		radioUtilizaCadeira.setBackground(Color.WHITE);
 		radioUtilizaCadeira.setFont(new Font("Arial", Font.PLAIN, 13));
 		radioUtilizaCadeira.setBounds(136, 32, 197, 23);
+		radioDeambulante.setActionCommand("Utiliza cadeira de rodas?");
 		painelCondicao.add(radioUtilizaCadeira);
 
 		LObservacaoCond = new JLabel("Observação");
@@ -390,12 +396,14 @@ public class Prontuario extends JDialog {
 		radioRelativo.setBackground(Color.WHITE);
 		radioRelativo.setFont(new Font("Arial", Font.PLAIN, 13));
 		radioRelativo.setBounds(10, 144, 109, 23);
+		radioRelativo.setActionCommand("Relativo");
 		painelCondicao.add(radioRelativo);
 
 		radioAbsoluto = new JRadioButton("Absoluto");
 		radioAbsoluto.setBackground(Color.WHITE);
 		radioAbsoluto.setFont(new Font("Arial", Font.PLAIN, 13));
 		radioAbsoluto.setBounds(136, 144, 109, 23);
+		radioRelativo.setActionCommand("Absoluto");
 		painelCondicao.add(radioAbsoluto);
 		
 		grupoBotao4.add(radioRelativo);
@@ -460,7 +468,7 @@ public class Prontuario extends JDialog {
 		dadosCliente.add(LPaciente);
 
 		LPesquisar = new JLabel("Pesquisar");
-		LPesquisar.setIcon(new ImageIcon(Prontuario.class.getResource("/imagens/icons8-pesquisar-15.png")));
+		LPesquisar.setIcon(new ImageIcon(ProntuarioForm.class.getResource("/imagens/icons8-pesquisar-15.png")));
 		LPesquisar.setBounds(460, 55, 101, 14);
 		dadosCliente.add(LPesquisar);
 
@@ -543,30 +551,35 @@ public class Prontuario extends JDialog {
 		radioAlerta.setFont(new Font("Arial", Font.PLAIN, 13));
 		radioAlerta.setBackground(Color.WHITE);
 		radioAlerta.setBounds(17, 39, 70, 23);
+		radioAlerta.setActionCommand("Alerta");
 		dadosAnotacao.add(radioAlerta);
 
 		radioLetargico = new JRadioButton("Letárgico");
 		radioLetargico.setFont(new Font("Arial", Font.PLAIN, 13));
 		radioLetargico.setBackground(Color.WHITE);
 		radioLetargico.setBounds(100, 39, 81, 23);
+		radioAlerta.setActionCommand("Letárgico");
 		dadosAnotacao.add(radioLetargico);
 
 		radioObnubilado = new JRadioButton("Obnubilado");
 		radioObnubilado.setFont(new Font("Arial", Font.PLAIN, 13));
 		radioObnubilado.setBackground(Color.WHITE);
 		radioObnubilado.setBounds(183, 39, 98, 23);
+		radioAlerta.setActionCommand("Obnubilado");
 		dadosAnotacao.add(radioObnubilado);
 
 		radioTorporoso = new JRadioButton("Torporoso");
 		radioTorporoso.setFont(new Font("Arial", Font.PLAIN, 13));
 		radioTorporoso.setBackground(Color.WHITE);
 		radioTorporoso.setBounds(283, 39, 85, 23);
+		radioAlerta.setActionCommand("Torporoso");
 		dadosAnotacao.add(radioTorporoso);
 
 		radioComatoso = new JRadioButton("Comatoso");
 		radioComatoso.setFont(new Font("Arial", Font.PLAIN, 13));
 		radioComatoso.setBackground(Color.WHITE);
 		radioComatoso.setBounds(370, 39, 109, 23);
+		radioAlerta.setActionCommand("Comatoso");
 		dadosAnotacao.add(radioComatoso);
 
 		grupoBotao1.add(radioAlerta);
@@ -587,35 +600,41 @@ public class Prontuario extends JDialog {
 		radioCalmo.setFont(new Font("Arial", Font.PLAIN, 13));
 		radioCalmo.setBackground(Color.WHITE);
 		radioCalmo.setBounds(17, 115, 70, 23);
+		radioCalmo.setActionCommand("Calmo");
 		dadosAnotacao.add(radioCalmo);
 
 		radioApatico = new JRadioButton("Apático");
 		radioApatico.setFont(new Font("Arial", Font.PLAIN, 13));
 		radioApatico.setBackground(Color.WHITE);
 		radioApatico.setBounds(100, 115, 81, 23);
+		radioCalmo.setActionCommand("Apático");
 		dadosAnotacao.add(radioApatico);
 
 		radioAlegre = new JRadioButton("Alegre");
 		radioAlegre.setFont(new Font("Arial", Font.PLAIN, 13));
 		radioAlegre.setBackground(Color.WHITE);
 		radioAlegre.setBounds(183, 115, 98, 23);
+		radioCalmo.setActionCommand("Alegre");
 		dadosAnotacao.add(radioAlegre);
 
 		radioTriste = new JRadioButton("Triste");
 		radioTriste.setFont(new Font("Arial", Font.PLAIN, 13));
 		radioTriste.setBackground(Color.WHITE);
 		radioTriste.setBounds(283, 115, 85, 23);
+		radioCalmo.setActionCommand("Triste");
 		dadosAnotacao.add(radioTriste);
 
 		radioAgitado = new JRadioButton("Agitado");
 		radioAgitado.setFont(new Font("Arial", Font.PLAIN, 13));
 		radioAgitado.setBackground(Color.WHITE);
 		radioAgitado.setBounds(370, 115, 109, 23);
+		radioCalmo.setActionCommand("Agitado");
 		dadosAnotacao.add(radioAgitado);
 
 		LObservacaoAnot = new JLabel("Observação");
 		LObservacaoAnot.setFont(new Font("Arial", Font.PLAIN, 14));
 		LObservacaoAnot.setBounds(17, 168, 98, 14);
+		radioCalmo.setActionCommand("Observação");
 		dadosAnotacao.add(LObservacaoAnot);
 
 		grupoBotao2.add(radioCalmo);
@@ -1384,6 +1403,14 @@ public class Prontuario extends JDialog {
 
 	public void setCheckOutros(JCheckBox checkOutros) {
 		this.checkOutros = checkOutros;
+	}
+
+	public JTextArea getTextoEquipamento() {
+		return textoEquipamento;
+	}
+
+	public void setTextoEquipamento(JTextArea textoEquipamento) {
+		this.textoEquipamento = textoEquipamento;
 	}
 	
 	
