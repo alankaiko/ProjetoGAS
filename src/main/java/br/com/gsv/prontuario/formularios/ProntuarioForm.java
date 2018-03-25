@@ -20,15 +20,17 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 
+import br.com.gsv.prontuario.listeners.ProntuarioListener;
+
 public class ProntuarioForm extends JDialog {
 
 	private JPanel panel = new JPanel();
-	private JButton BTGravar, BTCancelar;
+	private JButton BTGravar, BTCancelar, BTPesquisar;
 	private JPanel painelIntegridade,painelCondicao, painelDadosCliente, painelAnotacao, painelSintomas;
 	private JPanel painelEquipamentos;
 	private JTextField TPaciente, TCodigo, TRg, TCpf, TDataNasc, TDataCad, THemorragia, TDispneia, TEdema;
 	private JTextField TDEscamacao, THematoma, TCicatriz, TOutrosInt;
-	private JLabel LProntuario, LPaciente, LPesquisar, LCodigo, LRg, LCpf,LDataNasc, LDataCad;
+	private JLabel LProntuario, LPaciente, LCodigo, LRg, LCpf,LDataNasc, LDataCad;
 	private JLabel LInfoEquip, LSonoCond, LEquipamentocli;
 	private JLabel LMembros, LTipoSintomas, LSintomas,LEspecifIntegridade, LDeambulacao;
 	private JLabel LObservacaoCond, LRepouso, LObservacaoSono, LNivelConsc, LEstadoMental, LObservacaoAnot;
@@ -49,6 +51,7 @@ public class ProntuarioForm extends JDialog {
 	private JTextArea textoSintomas, textoAreaAnotacao, textoEquipamento;
 	private JTextArea textoMembros, textoAreaDeam, textoAreaSono;
 	private JSeparator separator_2, separator, separator_1;
+	private ProntuarioListener listener;
 		
 
 
@@ -58,6 +61,8 @@ public class ProntuarioForm extends JDialog {
 		getContentPane().setLayout(new BorderLayout());
 		panel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(panel, BorderLayout.CENTER);
+		setModal(true);
+		setResizable(false);
 		panel.setLayout(null);
 
 		BTGravar = new JButton("Gravar");
@@ -74,6 +79,7 @@ public class ProntuarioForm extends JDialog {
 		panel.add(tabGeral);
 
 		TabCliente();
+		listener = new ProntuarioListener(this);
 	
 	}
 
@@ -361,14 +367,14 @@ public class ProntuarioForm extends JDialog {
 		LDeambulacao.setBounds(10, 11, 127, 14);
 		painelCondicao.add(LDeambulacao);
 
-		radioDeambulante = new JRadioButton("Deâmbulante?");
+		radioDeambulante = new JRadioButton("Deâmbulante");
 		radioDeambulante.setBackground(Color.WHITE);
 		radioDeambulante.setFont(new Font("Arial", Font.PLAIN, 13));
 		radioDeambulante.setBounds(10, 32, 109, 23);
 		radioDeambulante.setActionCommand("Deâmbulante");
 		painelCondicao.add(radioDeambulante);
 		
-		radioUtilizaCadeira = new JRadioButton("Utiliza cadeira de rodas?");
+		radioUtilizaCadeira = new JRadioButton("Utiliza cadeira de rodas");
 		radioUtilizaCadeira.setBackground(Color.WHITE);
 		radioUtilizaCadeira.setFont(new Font("Arial", Font.PLAIN, 13));
 		radioUtilizaCadeira.setBounds(136, 32, 197, 23);
@@ -467,11 +473,6 @@ public class ProntuarioForm extends JDialog {
 		LPaciente.setBounds(10, 55, 55, 14);
 		dadosCliente.add(LPaciente);
 
-		LPesquisar = new JLabel("Pesquisar");
-		LPesquisar.setIcon(new ImageIcon(ProntuarioForm.class.getResource("/imagens/icons8-pesquisar-15.png")));
-		LPesquisar.setBounds(460, 55, 101, 14);
-		dadosCliente.add(LPesquisar);
-
 		TPaciente = new JTextField();
 		TPaciente.setBorder(new LineBorder(Color.BLACK));
 		TPaciente.setBounds(62, 52, 376, 20);
@@ -538,6 +539,15 @@ public class ProntuarioForm extends JDialog {
 		painelDadosCliente.setBackground(Color.WHITE);
 		painelDadosCliente.setBounds(0, 0, 604, 314);
 		dadosCliente.add(painelDadosCliente);
+		painelDadosCliente.setLayout(null);
+		
+		BTPesquisar = new JButton("Pesquisar");
+		BTPesquisar.setBorder(null);
+		BTPesquisar.setBackground(Color.WHITE);
+		BTPesquisar.setFont(new Font("Segoe UI Light", Font.PLAIN, 10));
+		BTPesquisar.setIcon(new ImageIcon(ProntuarioForm.class.getResource("/imagens/icons8-pesquisar-15.png")));
+		BTPesquisar.setBounds(444, 50, 116, 23);
+		painelDadosCliente.add(BTPesquisar);
 	}
 	
 	
@@ -551,7 +561,6 @@ public class ProntuarioForm extends JDialog {
 		radioAlerta.setFont(new Font("Arial", Font.PLAIN, 13));
 		radioAlerta.setBackground(Color.WHITE);
 		radioAlerta.setBounds(17, 39, 70, 23);
-		radioAlerta.setActionCommand("Alerta");
 		dadosAnotacao.add(radioAlerta);
 
 		radioLetargico = new JRadioButton("Letárgico");
@@ -829,14 +838,14 @@ public class ProntuarioForm extends JDialog {
 		LPaciente = lPaciente;
 	}
 
-	public JLabel getLPesquisar() {
-		return LPesquisar;
+	public void setBTPesquisar(JButton bTPesquisar) {
+		BTPesquisar = bTPesquisar;
 	}
-
-	public void setLPesquisar(JLabel lPesquisar) {
-		LPesquisar = lPesquisar;
+	
+	public JButton getBTPesquisar() {
+		return BTPesquisar;
 	}
-
+	
 	public JLabel getLCodigo() {
 		return LCodigo;
 	}
@@ -1412,7 +1421,4 @@ public class ProntuarioForm extends JDialog {
 	public void setTextoEquipamento(JTextArea textoEquipamento) {
 		this.textoEquipamento = textoEquipamento;
 	}
-	
-	
-
 }

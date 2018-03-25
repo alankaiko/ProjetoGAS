@@ -16,6 +16,9 @@ public class ProntuarioController {
 		this.cadastroService.Salvar(this.prontuario);
 	}
 	
+	
+	
+	
 	public void setProntuario(Prontuario prontuario) {
 		this.prontuario = prontuario;
 	}

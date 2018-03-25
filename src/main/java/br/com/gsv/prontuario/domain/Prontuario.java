@@ -1,5 +1,7 @@
 package br.com.gsv.prontuario.domain;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -15,8 +17,9 @@ import br.com.gsv.paciente.domain.Paciente;
 
 @Table
 @Entity
-public class Prontuario {
-	
+public class Prontuario implements Serializable{
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	@Column(name="conv_id")
@@ -45,10 +48,23 @@ public class Prontuario {
 	
 	@Column
 	private String condSono;
+	
 
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "tab_pront_equip_id", referencedColumnName = "equip_id")
 	private EquipamentoCheckBox equipCheckbox;
+	
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "tab_pront_sint_id", referencedColumnName = "sint_id")
+	private SintomasCheckbox sintomasEsp;
+	
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "tab_pront_memb_id", referencedColumnName = "memb_id")
+	private SintomasMembrosCheckbox sintomasMembros;
+	
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "tab_pront_integ_id", referencedColumnName = "integ_id")
+	private IntegridadeHemorragia integHemorragia;
 	
 	@Column
 	private String equipObservacao;
@@ -74,17 +90,6 @@ public class Prontuario {
 	@Column
 	private String inteOutrosText;
 
-	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "tab_pront_sint_id", referencedColumnName = "sint_id")
-	private SintomasCheckbox sintomasEsp;
-	
-	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "tab_pront_memb_id", referencedColumnName = "memb_id")
-	private SintomasMembrosCheckbox sintomasMembros;
-	
-	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "tab_pront_integ_id", referencedColumnName = "integ_id")
-	private IntegridadeHemorragia integHemorragia;
 	
 	@Column
 	private String sintomasEspText;

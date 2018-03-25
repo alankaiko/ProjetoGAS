@@ -47,7 +47,7 @@ public class Paciente implements Serializable {
 	private String observacao;
 	
 	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "tbl_convenios_conv_id", referencedColumnName = "conv_id", nullable = false)
+	@JoinColumn(name = "tbl_convenios_conv_id", referencedColumnName = "conv_id")
 	private Convenio convenio;
 
 	
