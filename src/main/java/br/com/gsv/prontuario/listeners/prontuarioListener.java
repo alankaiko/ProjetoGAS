@@ -1,22 +1,12 @@
 package br.com.gsv.prontuario.listeners;
 
-import java.awt.Color;
-import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 
-import javax.swing.JCheckBox;
-
-import br.com.gsv.funcionario.formularios.GerenciaTelaFuncionario;
 import br.com.gsv.paciente.domain.Paciente;
 import br.com.gsv.paciente.formularios.BuscarPacienteDialog;
 import br.com.gsv.prontuario.domain.EquipamentoCheckBox;
-import br.com.gsv.prontuario.domain.IntegridadeHemorragia;
 import br.com.gsv.prontuario.domain.Prontuario;
-import br.com.gsv.prontuario.domain.SintomasCheckbox;
-import br.com.gsv.prontuario.domain.SintomasMembrosCheckbox;
 import br.com.gsv.prontuario.formularios.ProntuarioForm;
 import br.com.projeto.gsv.controller.PacienteController;
 import br.com.projeto.gsv.controller.ProntuarioController;
@@ -27,18 +17,12 @@ public class ProntuarioListener implements ActionListener{
 	private Prontuario prontuario;
 	private ProntuarioController controller;
 	private Paciente paciente;
-	private EquipamentoCheckBox equipCheckbox;
-	private IntegridadeHemorragia integriCheckbox;
-	private SintomasCheckbox sintomasCheckbox;
-	private SintomasMembrosCheckbox sintomasMembCheckbox;
-	
+	private EquipamentoCheckBox equiCheckbox;
+
 	public ProntuarioListener(ProntuarioForm formulario) {
 		this.formulario = formulario;
 		this.prontuario = new Prontuario();
-		this.equipCheckbox = new EquipamentoCheckBox();
-		this.integriCheckbox = new IntegridadeHemorragia();
-		this.sintomasCheckbox = new SintomasCheckbox();
-		this.sintomasMembCheckbox = new SintomasMembrosCheckbox();
+		this.equiCheckbox = new EquipamentoCheckBox();
 		
 		AdicionaListener();
 	}
@@ -128,28 +112,27 @@ public class ProntuarioListener implements ActionListener{
 	
 	private void PegarCheckboxes(){
 		if(this.formulario.getCheckCateter().isSelected())
-			this.equipCheckbox.setCheckCateter(this.formulario.getCheckCateter().getText());
+			this.equiCheckbox.setCheckCateter(this.formulario.getCheckCateter().getText());
 		
 		if(this.formulario.getCheckSonda().isSelected())
-			this.equipCheckbox.setCheckSonda(this.formulario.getCheckSonda().getText());
-			
+			this.equiCheckbox.setCheckSonda(this.formulario.getCheckSonda().getText());
 		
 		if(this.formulario.getCheckUripen().isSelected())
-			this.equipCheckbox.setCheckUripen(this.formulario.getCheckUripen().getText());
-			
+			this.equiCheckbox.setCheckUripen(this.formulario.getCheckUripen().getText());
+		
 		if(this.formulario.getCheckDreno().isSelected())
-			this.equipCheckbox.setCheckDreno(this.formulario.getCheckDreno().getText());
-			
+			this.equiCheckbox.setCheckDreno(this.formulario.getCheckDreno().getText());
+		
 		if(this.formulario.getCheckCurativos().isSelected())
-			this.equipCheckbox.setCheckCurativos(this.formulario.getCheckCurativos().getText());
+			this.equiCheckbox.setCheckCurativos(this.formulario.getCheckCurativos().getText());
 		
 		if(this.formulario.getCheckVenoclise().isSelected())
-			this.equipCheckbox.setCheckVenoclise(this.formulario.getCheckVenoclise().getText());
-			
-		if(this.formulario.getCheckOutros().isSelected())
-			this.equipCheckbox.setCheckOutros(this.formulario.getCheckOutros().getText());
+			this.equiCheckbox.setCheckVenoclise(this.formulario.getCheckVenoclise().getText());
 		
-		this.prontuario.setEquipCheckbox(this.equipCheckbox);
+		if(this.formulario.getCheckOutros().isSelected())
+			this.equiCheckbox.setCheckOutros(this.formulario.getCheckOutros().getText());
+		
+		this.prontuario.setEquipCheckbox(this.equiCheckbox);
 	}
 	
 	

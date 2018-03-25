@@ -46,7 +46,7 @@ public class Paciente implements Serializable {
 	private List<Endereco_cli> endereco = new ArrayList<Endereco_cli>();
 	private String observacao;
 	
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinColumn(name = "tbl_convenios_conv_id", referencedColumnName = "conv_id")
 	private Convenio convenio;
 

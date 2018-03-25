@@ -2,6 +2,7 @@ package br.com.gsv.prontuario.domain;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -50,19 +51,19 @@ public class Prontuario implements Serializable{
 	private String condSono;
 	
 
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinColumn(name = "tab_pront_equip_id", referencedColumnName = "equip_id")
 	private EquipamentoCheckBox equipCheckbox;
 	
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinColumn(name = "tab_pront_sint_id", referencedColumnName = "sint_id")
 	private SintomasCheckbox sintomasEsp;
 	
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinColumn(name = "tab_pront_memb_id", referencedColumnName = "memb_id")
 	private SintomasMembrosCheckbox sintomasMembros;
 	
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinColumn(name = "tab_pront_integ_id", referencedColumnName = "integ_id")
 	private IntegridadeHemorragia integHemorragia;
 	

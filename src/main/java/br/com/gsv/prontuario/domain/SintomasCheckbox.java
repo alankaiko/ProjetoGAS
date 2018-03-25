@@ -1,5 +1,7 @@
 package br.com.gsv.prontuario.domain;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,7 +11,8 @@ import javax.persistence.Table;
 
 @Table
 @Entity
-public class SintomasCheckbox {
+public class SintomasCheckbox implements Serializable{
+	private static final long serialVersionUID = 1L;
 	
 	@Id
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
@@ -17,58 +20,57 @@ public class SintomasCheckbox {
 	private Long id;
 	
 	@Column
-	private boolean checkNauseas;
+	private String checkNauseas;
 	
 	@Column
-	private boolean checkMalEstar;
+	private String checkMalEstar;
 	
 	@Column
-	private boolean checkInsonia;
+	private String checkInsonia;
 	
 	@Column
-	private boolean checkPrurido;
+	private String checkPrurido;
 
-	
-	
-	
-	public void setId(Long id) {
-		this.id = id;
-	}
-	
 	public Long getId() {
 		return id;
 	}
-	
-	public boolean isCheckNauseas() {
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getCheckNauseas() {
 		return checkNauseas;
 	}
 
-	public void setCheckNauseas(boolean checkNauseas) {
+	public void setCheckNauseas(String checkNauseas) {
 		this.checkNauseas = checkNauseas;
 	}
 
-	public boolean isCheckMalEstar() {
+	public String getCheckMalEstar() {
 		return checkMalEstar;
 	}
 
-	public void setCheckMalEstar(boolean checkMalEstar) {
+	public void setCheckMalEstar(String checkMalEstar) {
 		this.checkMalEstar = checkMalEstar;
 	}
 
-	public boolean isCheckInsonia() {
+	public String getCheckInsonia() {
 		return checkInsonia;
 	}
 
-	public void setCheckInsonia(boolean checkInsonia) {
+	public void setCheckInsonia(String checkInsonia) {
 		this.checkInsonia = checkInsonia;
 	}
 
-	public boolean isCheckPrurido() {
+	public String getCheckPrurido() {
 		return checkPrurido;
 	}
 
-	public void setCheckPrurido(boolean checkPrurido) {
+	public void setCheckPrurido(String checkPrurido) {
 		this.checkPrurido = checkPrurido;
 	}
+
+	
 
 }

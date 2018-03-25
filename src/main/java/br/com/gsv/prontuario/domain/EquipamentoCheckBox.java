@@ -1,5 +1,7 @@
 package br.com.gsv.prontuario.domain;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -7,43 +9,34 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+
 @Table
 @Entity
-public class EquipamentoCheckBox {
-
+public class EquipamentoCheckBox implements Serializable{
+	private static final long serialVersionUID = 1L;
+	
+	
 	@Id
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	@Column(name="equip_id")
 	private Long id;
-	
-	@Column
+
 	private String checkCateter;
-	
-	@Column
 	private String checkSonda;
-	
-	@Column
 	private String checkUripen;
-	
-	@Column
 	private String checkDreno;
-	
-	@Column
 	private String checkCurativos;
-	
-	@Column
 	private String checkVenoclise;
-	
-	@Column
 	private String checkOutros;
+
 	
-	
-	public void setId(Long id) {
-		this.id = id;
-	}
 	
 	public Long getId() {
 		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public String getCheckCateter() {
@@ -100,8 +93,6 @@ public class EquipamentoCheckBox {
 
 	public void setCheckOutros(String checkOutros) {
 		this.checkOutros = checkOutros;
-	}
-
-	
+	}	
 
 }

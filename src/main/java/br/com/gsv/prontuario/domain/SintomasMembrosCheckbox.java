@@ -1,5 +1,7 @@
 package br.com.gsv.prontuario.domain;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,7 +11,8 @@ import javax.persistence.Table;
 
 @Table
 @Entity
-public class SintomasMembrosCheckbox {
+public class SintomasMembrosCheckbox implements Serializable{
+	private static final long serialVersionUID = 1L;
 	
 	@Id
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
@@ -17,45 +20,45 @@ public class SintomasMembrosCheckbox {
 	private Long id;
 	
 	@Column
-	private boolean checkColoracao;
+	private String checkColoracao;
 	
 	@Column
-	private boolean checkPerfusao;
+	private String checkPerfusao;
 	
 	@Column
-	private boolean LPulso;
+	private String LPulso;
 
-	
-	public void setId(Long id) {
-		this.id = id;
-	}
-	
 	public Long getId() {
 		return id;
 	}
-	
-	public boolean isCheckColoracao() {
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getCheckColoracao() {
 		return checkColoracao;
 	}
 
-	public void setCheckColoracao(boolean checkColoracao) {
+	public void setCheckColoracao(String checkColoracao) {
 		this.checkColoracao = checkColoracao;
 	}
 
-	public boolean isCheckPerfusao() {
+	public String getCheckPerfusao() {
 		return checkPerfusao;
 	}
 
-	public void setCheckPerfusao(boolean checkPerfusao) {
+	public void setCheckPerfusao(String checkPerfusao) {
 		this.checkPerfusao = checkPerfusao;
 	}
 
-	public boolean isLPulso() {
+	public String getLPulso() {
 		return LPulso;
 	}
 
-	public void setLPulso(boolean lPulso) {
+	public void setLPulso(String lPulso) {
 		LPulso = lPulso;
 	}
 
+	
 }

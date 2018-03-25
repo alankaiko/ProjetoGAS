@@ -1,5 +1,7 @@
 package br.com.gsv.prontuario.domain;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,98 +11,96 @@ import javax.persistence.Table;
 
 @Table
 @Entity
-public class IntegridadeHemorragia {
-
+public class IntegridadeHemorragia implements Serializable{
+	private static final long serialVersionUID = 1L;
+	
 	@Id
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	@Column(name="integ_id")
 	private Long id;
 	
 	@Column
-	private boolean checkHemorragia;
+	private String checkHemorragia;
 	
 	@Column
-	private boolean checkDispneia;
+	private String checkDispneia;
 	
 	@Column
-	private boolean checkEdema;
+	private String checkEdema;
 	
 	@Column
-	private boolean checkDescamacao;
+	private String checkDescamacao;
 	
 	@Column
-	private boolean checkHematoma;
+	private String checkHematoma;
 	
 	@Column
-	private boolean checkCicatriz;
+	private String checkCicatriz;
 	
 	@Column
-	private boolean checkOutroInt;
+	private String checkOutroInt;
 
-	
-	
-	
-	public void setId(Long id) {
-		this.id = id;
-	}
-	
 	public Long getId() {
 		return id;
 	}
-	
-	public boolean isCheckHemorragia() {
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getCheckHemorragia() {
 		return checkHemorragia;
 	}
 
-	public void setCheckHemorragia(boolean checkHemorragia) {
+	public void setCheckHemorragia(String checkHemorragia) {
 		this.checkHemorragia = checkHemorragia;
 	}
 
-	public boolean isCheckDispneia() {
+	public String getCheckDispneia() {
 		return checkDispneia;
 	}
 
-	public void setCheckDispneia(boolean checkDispneia) {
+	public void setCheckDispneia(String checkDispneia) {
 		this.checkDispneia = checkDispneia;
 	}
 
-	public boolean isCheckEdema() {
+	public String getCheckEdema() {
 		return checkEdema;
 	}
 
-	public void setCheckEdema(boolean checkEdema) {
+	public void setCheckEdema(String checkEdema) {
 		this.checkEdema = checkEdema;
 	}
 
-	public boolean isCheckDescamacao() {
+	public String getCheckDescamacao() {
 		return checkDescamacao;
 	}
 
-	public void setCheckDescamacao(boolean checkDescamacao) {
+	public void setCheckDescamacao(String checkDescamacao) {
 		this.checkDescamacao = checkDescamacao;
 	}
 
-	public boolean isCheckHematoma() {
+	public String getCheckHematoma() {
 		return checkHematoma;
 	}
 
-	public void setCheckHematoma(boolean checkHematoma) {
+	public void setCheckHematoma(String checkHematoma) {
 		this.checkHematoma = checkHematoma;
 	}
 
-	public boolean isCheckCicatriz() {
+	public String getCheckCicatriz() {
 		return checkCicatriz;
 	}
 
-	public void setCheckCicatriz(boolean checkCicatriz) {
+	public void setCheckCicatriz(String checkCicatriz) {
 		this.checkCicatriz = checkCicatriz;
 	}
 
-	public boolean isCheckOutroInt() {
+	public String getCheckOutroInt() {
 		return checkOutroInt;
 	}
 
-	public void setCheckOutroInt(boolean checkOutroInt) {
+	public void setCheckOutroInt(String checkOutroInt) {
 		this.checkOutroInt = checkOutroInt;
 	}
 
