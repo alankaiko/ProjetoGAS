@@ -17,25 +17,25 @@ public class EquipamentoCheckBox {
 	private Long id;
 	
 	@Column
-	private boolean checkCateter;
+	private String checkCateter;
 	
 	@Column
-	private boolean checkSonda;
+	private String checkSonda;
 	
 	@Column
-	private boolean checkUripen;
+	private String checkUripen;
 	
 	@Column
-	private boolean checkDreno;
+	private String checkDreno;
 	
 	@Column
-	private boolean checkCurativos;
+	private String checkCurativos;
 	
 	@Column
-	private boolean checkVenoclise;
+	private String checkVenoclise;
 	
 	@Column
-	private boolean checkOutros;
+	private String checkOutros;
 	
 	
 	public void setId(Long id) {
@@ -46,60 +46,62 @@ public class EquipamentoCheckBox {
 		return id;
 	}
 
-	public boolean isCheckCateter() {
+	public String getCheckCateter() {
 		return checkCateter;
 	}
 
-	public void setCheckCateter(boolean checkCateter) {
+	public void setCheckCateter(String checkCateter) {
 		this.checkCateter = checkCateter;
 	}
 
-	public boolean isCheckSonda() {
+	public String getCheckSonda() {
 		return checkSonda;
 	}
 
-	public void setCheckSonda(boolean checkSonda) {
+	public void setCheckSonda(String checkSonda) {
 		this.checkSonda = checkSonda;
 	}
 
-	public boolean isCheckUripen() {
+	public String getCheckUripen() {
 		return checkUripen;
 	}
 
-	public void setCheckUripen(boolean checkUripen) {
+	public void setCheckUripen(String checkUripen) {
 		this.checkUripen = checkUripen;
 	}
 
-	public boolean isCheckDreno() {
+	public String getCheckDreno() {
 		return checkDreno;
 	}
 
-	public void setCheckDreno(boolean checkDreno) {
+	public void setCheckDreno(String checkDreno) {
 		this.checkDreno = checkDreno;
 	}
 
-	public boolean isCheckCurativos() {
+	public String getCheckCurativos() {
 		return checkCurativos;
 	}
 
-	public void setCheckCurativos(boolean checkCurativos) {
+	public void setCheckCurativos(String checkCurativos) {
 		this.checkCurativos = checkCurativos;
 	}
 
-	public boolean isCheckVenoclise() {
+	public String getCheckVenoclise() {
 		return checkVenoclise;
 	}
 
-	public void setCheckVenoclise(boolean checkVenoclise) {
+	public void setCheckVenoclise(String checkVenoclise) {
 		this.checkVenoclise = checkVenoclise;
 	}
 
-	public boolean isCheckOutros() {
+	public String getCheckOutros() {
 		return checkOutros;
 	}
 
-	public void setCheckOutros(boolean checkOutros) {
+	public void setCheckOutros(String checkOutros) {
 		this.checkOutros = checkOutros;
 	}
+
+	
 
 }

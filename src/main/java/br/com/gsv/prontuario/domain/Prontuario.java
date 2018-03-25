@@ -95,7 +95,7 @@ public class Prontuario implements Serializable{
 	private String sintomasEspText;
 	
 	@Column
-	private String sinomasMembText;
+	private String sintomasMembText;
 	
 	
 	
@@ -267,12 +267,12 @@ public class Prontuario implements Serializable{
 		this.sintomasEspText = sintomasEspText;
 	}
 
-	public String getSinomasMembText() {
-		return sinomasMembText;
+	public void setSintomasMembText(String sintomasMembText) {
+		this.sintomasMembText = sintomasMembText;
 	}
-
-	public void setSinomasMembText(String sinomasMembText) {
-		this.sinomasMembText = sinomasMembText;
+	
+	public String getSintomasMembText() {
+		return sintomasMembText;
 	}
 	
 	public void setIntegHemorragia(IntegridadeHemorragia integHemorragia) {

@@ -9,6 +9,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JDialog;
+import javax.swing.JFormattedTextField;
 import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
@@ -21,6 +22,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 
 import br.com.gsv.prontuario.listeners.ProntuarioListener;
+import br.com.projeto.gsv.util.ConverteDadosUtil;
 
 public class ProntuarioForm extends JDialog {
 
@@ -52,6 +54,7 @@ public class ProntuarioForm extends JDialog {
 	private JTextArea textoMembros, textoAreaDeam, textoAreaSono;
 	private JSeparator separator_2, separator, separator_1;
 	private ProntuarioListener listener;
+	private JFormattedTextField JCpf, JDatanascimento;
 		
 
 
@@ -80,7 +83,8 @@ public class ProntuarioForm extends JDialog {
 
 		TabCliente();
 		listener = new ProntuarioListener(this);
-	
+		JCpf = new JFormattedTextField(ConverteDadosUtil.FormataCPF());
+		JDatanascimento = new JFormattedTextField(ConverteDadosUtil.FormataData());
 	}
 
 	private void TabCliente() {
@@ -1420,5 +1424,21 @@ public class ProntuarioForm extends JDialog {
 
 	public void setTextoEquipamento(JTextArea textoEquipamento) {
 		this.textoEquipamento = textoEquipamento;
+	}
+	
+	public void setJCpf(JFormattedTextField jCpf) {
+		JCpf = jCpf;
+	}
+	
+	public JFormattedTextField getJCpf() {
+		return JCpf;
+	}
+	
+	public void setJDatanascimento(JFormattedTextField jDatanascimento) {
+		JDatanascimento = jDatanascimento;
+	}
+	
+	public JFormattedTextField getJDatanascimento() {
+		return JDatanascimento;
 	}
 }
