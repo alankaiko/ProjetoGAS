@@ -15,6 +15,12 @@ import br.com.gsv.produtos.listeners.GerenciarProdutosListener;
 public class GerenciaTelaProdutos extends JDialog {
 	private static final long serialVersionUID = 1L;
 	private GerenciarProdutosListener listener;
+	private final JPanel contentPanel = new JPanel();
+	private JTable table;
+	private JButton detalhes, codigo, buscar, modificar, incluir, excluir, fim;
+	private Container tela= getContentPane();
+	private JScrollPane scrollPane;
+
 	
 	public static void main(String[] args) {
 		try {
@@ -90,12 +96,7 @@ public class GerenciaTelaProdutos extends JDialog {
 	
 	
 	
-	private final JPanel contentPanel = new JPanel();
-	private JTable table;
-	private JButton detalhes, codigo, buscar, modificar, incluir, excluir, fim;
-	private Container tela= getContentPane();
-	private JScrollPane scrollPane;
-
+	
 
 	public JButton getCodigo() {
 		return codigo;

@@ -1,5 +1,7 @@
 package br.com.projeto.gsv.controller;
 
+import java.util.List;
+
 import br.com.gsv.prontuario.domain.Prontuario;
 import br.com.projeto.gsv.service.CadastroProntuarioService;
 
@@ -14,6 +16,10 @@ public class ProntuarioController {
 	
 	public void SalvarProntuario() {
 		this.cadastroService.Salvar(this.prontuario);
+	}
+	
+	public List<Prontuario> ListaCompletaDeProntuarios(){
+		return cadastroService.ListandoProntuarios();
 	}
 	
 	

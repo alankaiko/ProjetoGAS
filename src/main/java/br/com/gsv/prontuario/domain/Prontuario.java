@@ -1,6 +1,7 @@
 package br.com.gsv.prontuario.domain;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -11,6 +12,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
@@ -18,6 +21,10 @@ import br.com.gsv.paciente.domain.Paciente;
 
 @Table
 @Entity
+@NamedQueries({
+	@NamedQuery(name="Prontuario.listar", query="SELECT prontuario FROM Prontuario prontuario order by data"),
+	@NamedQuery(name="Prontuario.buscarPorId", query="SELECT prontuario FROM Prontuario prontuario WHERE prontuario.id= :id")
+})
 public class Prontuario implements Serializable{
 	private static final long serialVersionUID = 1L;
 
@@ -26,8 +33,16 @@ public class Prontuario implements Serializable{
 	@Column(name="conv_id")
 	private Long id;
 	
+	
+	@Column
+	private Date data;
+	
+	@Column
+	private String hora;
+	
 	@Column
 	private Paciente paciente;
+	
 	
 	@Column
 	private String anotConsciencia;
@@ -282,5 +297,18 @@ public class Prontuario implements Serializable{
 	public IntegridadeHemorragia getIntegHemorragia() {
 		return integHemorragia;
 	}
-
+	public Date getData() {
+		return data;
+	}
+	public void setData(Date data) {
+		this.data = data;
+	}
+	public String getHora() {
+		return hora;
+	}
+	public void setHora(String hora) {
+		this.hora = hora;
+	}
+	
+	
 }

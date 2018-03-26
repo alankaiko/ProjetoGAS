@@ -5,6 +5,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 import javax.swing.text.MaskFormatter;
 
@@ -73,6 +74,18 @@ public class ConverteDadosUtil {
 		valor = df.format(calendario.getTime());
 		return valor;
 	}
+	
+	
+	public static String RetornaHoraAtual(){
+		Calendar agora = Calendar.getInstance();
+		int ho = agora.get(Calendar.HOUR_OF_DAY);
+		int mi = agora.get(Calendar.MINUTE);
+		int se = agora.get(Calendar.SECOND);
+		
+		String valor = ho+ ":"+mi+":"+se;
+		return valor;
+	}
+	
 	
 	
 	//Metodo que adiciona mascara ao campo de Cpf

@@ -63,6 +63,9 @@ public class ProntuarioListener implements ActionListener{
 	}
 	
 	private void PegarRadioButtons(){
+		if(this.formulario.getRadioNivNormal().isSelected())
+			this.prontuario.setAnotConsciencia(this.formulario.getRadioNivNormal().getText());
+		
 		if(this.formulario.getRadioAlerta().isSelected())
 			this.prontuario.setAnotConsciencia(this.formulario.getRadioAlerta().getText());
 		
@@ -78,6 +81,9 @@ public class ProntuarioListener implements ActionListener{
 		if(this.formulario.getRadioComatoso().isSelected())
 			this.prontuario.setAnotConsciencia(this.formulario.getRadioComatoso().getText());
 		
+		
+		if(this.formulario.getRadioEstNormal().isSelected())
+			this.prontuario.setAnotMental(this.formulario.getRadioEstNormal().getText());
 		
 		if(this.formulario.getRadioCalmo().isSelected())
 			this.prontuario.setAnotMental(this.formulario.getRadioCalmo().getText());
@@ -174,6 +180,7 @@ public class ProntuarioListener implements ActionListener{
 		
 		this.formulario.getTCodigo().setText(String.valueOf(this.paciente.getId()));
 		this.formulario.getTDataCad().setText(ConverteDadosUtil.RetornaDataAtual());
+		this.formulario.getTHora().setText(ConverteDadosUtil.RetornaHoraAtual());
 		this.formulario.getTPaciente().setText(this.paciente.getNome());
 		this.formulario.getTRg().setText(this.paciente.getRg());
 		this.formulario.getJCpf().setText(this.paciente.getCpf());

@@ -1,5 +1,7 @@
 package br.com.projeto.gsv.service;
 
+import java.util.List;
+
 import br.com.gsv.prontuario.domain.Prontuario;
 import br.com.gsv.repository.ProntuarioRepository;
 
@@ -10,5 +12,9 @@ public class CadastroProntuarioService {
 		this.repositorio.Guardar(prontuario);
 	}
 	
+	
+	public List<Prontuario> ListandoProntuarios(){
+		return repositorio.ListarProntuarios();
+	}
 	
 }

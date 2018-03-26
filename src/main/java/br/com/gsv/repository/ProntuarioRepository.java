@@ -1,5 +1,8 @@
 package br.com.gsv.repository;
 
+import java.util.List;
+
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -25,6 +28,25 @@ public class ProntuarioRepository {
 		} finally {
 			sessao.close();
 		}
+	}
+	
+	
+	
+	@SuppressWarnings("unchecked")
+	public List<Prontuario> ListarProntuarios(){
+		sessao = HibernateUtil.getSessionFactory().openSession();
+		List<Prontuario> lista = null;
+		
+		try {
+			Query consulta = sessao.getNamedQuery("Prontuario.listar");
+			lista = consulta.list();
+		} catch (RuntimeException e) {
+			throw e;
+		}finally{
+			sessao.close();
+		}
+		
+		return lista;
 	}
 	
 }
