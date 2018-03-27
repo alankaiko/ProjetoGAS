@@ -8,7 +8,6 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import br.com.gsv.fabricantes.grafico.CodigoFabricanteClassic;
-import br.com.gsv.fabricantes.grafico.CodigoFabricanteGrafic;
 import br.com.gsv.fabricantes.listeners.CodigoFabricanteListener;
 
 public class CodigoFabricanteDialog extends JDialog {
@@ -19,7 +18,7 @@ public class CodigoFabricanteDialog extends JDialog {
 	private CodigoFabricanteListener listener;
 	private Long codigo;
 	private CodigoFabricanteClassic listenerClassic;
-	private CodigoFabricanteGrafic listenerGrafic;
+	//private CodigoFabricanteGrafic listenerGrafic;
 	
 	
 	
@@ -27,8 +26,8 @@ public class CodigoFabricanteDialog extends JDialog {
 		CriaVariaveis();
 		AdicionaComponentes();
 		listener = new CodigoFabricanteListener(this);
-		//listenerClassic = new CodigoFabricanteClassic(this);
-		listenerGrafic = new CodigoFabricanteGrafic(this);
+		listenerClassic = new CodigoFabricanteClassic(this);
+		//listenerGrafic = new CodigoFabricanteGrafic(this);
 	}
 	
 	public void CriaVariaveis() {

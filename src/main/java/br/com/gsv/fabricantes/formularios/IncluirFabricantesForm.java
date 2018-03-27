@@ -9,13 +9,12 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import br.com.gsv.fabricantes.grafico.IncluirFabricanteClassic;
-import br.com.gsv.fabricantes.grafico.IncluirFabricanteGrafic;
 import br.com.gsv.fabricantes.listeners.IncluirFabricantesListener;
 
 public class IncluirFabricantesForm extends JDialog {
 	private IncluirFabricantesListener listener;
 	private IncluirFabricanteClassic listenerClassic;
-	private IncluirFabricanteGrafic listenerGrafic;
+	//private IncluirFabricanteGrafic listenerGrafic;
 	private JPanel panel = new JPanel();
 	private Container tela = getContentPane();
 	private JLabel LId, LFabricante;
@@ -25,8 +24,8 @@ public class IncluirFabricantesForm extends JDialog {
 	public IncluirFabricantesForm() {
 		InicializaObjetos();
 		AdicionaCompomentes();
-		//listenerClassic = new IncluirFabricanteClassic(this);
-		listenerGrafic = new IncluirFabricanteGrafic(this);
+		listenerClassic = new IncluirFabricanteClassic(this);
+		//listenerGrafic = new IncluirFabricanteGrafic(this);
 		listener = new IncluirFabricantesListener(this);
 	}
 

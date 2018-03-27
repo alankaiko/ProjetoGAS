@@ -20,7 +20,7 @@ public class IncluirConvenioForm extends JDialog{
 	private JButton BTGravar, BTCancelar;
 	private IncluirConvenioListener listener;
 	private IncluirConvenioClassic listenerClassic;
-	private IncluirConvenioGrafic listenerGrafico;
+	//private IncluirConvenioGrafic listenerGrafico;
 	
 	
 
@@ -30,8 +30,8 @@ public class IncluirConvenioForm extends JDialog{
 		AdicionaComponentes();
 		
 		listener = new IncluirConvenioListener(this);
-		//listenerClassic = new IncluirConvenioClassic(this);
-		listenerGrafico = new IncluirConvenioGrafic(this);
+		listenerClassic = new IncluirConvenioClassic(this);
+		//listenerGrafico = new IncluirConvenioGrafic(this);
 	}
 
 	

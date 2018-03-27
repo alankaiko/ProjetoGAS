@@ -10,7 +10,6 @@ import javax.swing.JSeparator;
 
 import br.com.gsv.paciente.domain.Paciente;
 import br.com.gsv.paciente.grafico.ExcluirPacienteClassic;
-import br.com.gsv.paciente.grafico.ExcluirPacienteGrafic;
 import br.com.gsv.paciente.listeners.ExcluirPacienteListener;
 
 public class ExcluirPacienteDialog extends JDialog {
@@ -22,7 +21,7 @@ public class ExcluirPacienteDialog extends JDialog {
 	private Paciente cliente;
 	private ExcluirPacienteListener listener;
 	private ExcluirPacienteClassic listenerClassic;
-	private ExcluirPacienteGrafic listenerGrafic;
+	//private ExcluirPacienteGrafic listenerGrafic;
 	
 	public ExcluirPacienteDialog(Paciente cliente) {
 		this.cliente = cliente;
@@ -30,8 +29,8 @@ public class ExcluirPacienteDialog extends JDialog {
 		IniciaVariaveis();
 		AdicionaComponentes();
 		this.listener = new ExcluirPacienteListener(this);
-		//listenerClassic = new ExcluirPacienteClassic(this);
-		listenerGrafic = new ExcluirPacienteGrafic(this);
+		listenerClassic = new ExcluirPacienteClassic(this);
+		//listenerGrafic = new ExcluirPacienteGrafic(this);
 	}
 	
 	private void IniciaVariaveis(){

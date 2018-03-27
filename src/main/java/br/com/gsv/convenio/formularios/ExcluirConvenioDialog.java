@@ -10,7 +10,6 @@ import javax.swing.JSeparator;
 
 import br.com.gsv.convenio.domain.Convenio;
 import br.com.gsv.convenio.grafico.ExcluirConvenioClassic;
-import br.com.gsv.convenio.grafico.ExcluirConvenioGrafic;
 import br.com.gsv.convenio.listeners.ExcluirConvenioListener;
 
 public class ExcluirConvenioDialog extends JDialog {
@@ -22,7 +21,7 @@ public class ExcluirConvenioDialog extends JDialog {
 	private Convenio convenio;
 	private ExcluirConvenioListener listener;
 	private ExcluirConvenioClassic listenerClassic;
-	private ExcluirConvenioGrafic listenerGrafic;
+	//private ExcluirConvenioGrafic listenerGrafic;
 	
 	
 	public ExcluirConvenioDialog(Convenio convenio) {
@@ -30,8 +29,8 @@ public class ExcluirConvenioDialog extends JDialog {
 		this.convenio = convenio;
 		AdicionaComponentes();
 		
-		//listenerClassic = new ExcluirConvenioClassic(this);
-		listenerGrafic = new ExcluirConvenioGrafic(this);
+		listenerClassic = new ExcluirConvenioClassic(this);
+		//listenerGrafic = new ExcluirConvenioGrafic(this);
 		this.listener = new ExcluirConvenioListener(this);
 	}
 	

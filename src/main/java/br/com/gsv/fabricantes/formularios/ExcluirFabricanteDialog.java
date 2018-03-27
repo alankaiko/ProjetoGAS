@@ -10,7 +10,6 @@ import javax.swing.JSeparator;
 
 import br.com.gsv.fabricantes.domain.Fabricante;
 import br.com.gsv.fabricantes.grafico.ExcluirFabricanteClassic;
-import br.com.gsv.fabricantes.grafico.ExcluirFabricanteGrafic;
 import br.com.gsv.fabricantes.listeners.ExcluirFabricanteListener;
 
 public class ExcluirFabricanteDialog extends JDialog {
@@ -22,7 +21,7 @@ public class ExcluirFabricanteDialog extends JDialog {
 	private Fabricante fabricante;
 	private ExcluirFabricanteListener listener;
 	private ExcluirFabricanteClassic listenerClassic;
-	private ExcluirFabricanteGrafic listenerGrafic;
+	//private ExcluirFabricanteGrafic listenerGrafic;
 	
 	
 	
@@ -31,8 +30,8 @@ public class ExcluirFabricanteDialog extends JDialog {
 		this.fabricante = fabricante;
 		AdicionaComponentes();
 		
-		//listenerClassic = new ExcluirFabricanteClassic(this);
-		listenerGrafic = new ExcluirFabricanteGrafic(this);
+		listenerClassic = new ExcluirFabricanteClassic(this);
+		//listenerGrafic = new ExcluirFabricanteGrafic(this);
 		this.listener = new ExcluirFabricanteListener(this);
 	}
 	

@@ -11,7 +11,6 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import br.com.gsv.funcionario.grafico.IncluirFuncionarioClassic;
-import br.com.gsv.funcionario.grafico.IncluirFuncionarioGrafic;
 import br.com.gsv.funcionarios.listeners.IncluirFuncionarioListener;
 import br.com.projeto.gsv.util.ConverteDadosUtil;
 
@@ -28,15 +27,15 @@ public class IncluirFuncionariosForm extends JDialog {
 	private JButton BTGravar, BTCancelar;
 	private JComboBox ComboEstado;
 	private IncluirFuncionarioClassic listenerClassic;
-	private IncluirFuncionarioGrafic listenerGrafic;
+	//private IncluirFuncionarioGrafic listenerGrafic;
 	
 	
 	//metodo construtor que inicia tudo
 	public IncluirFuncionariosForm() {
 		InicializaVariaveis();
 		InicializaCompomentes();
-		//listenerClassic = new IncluirFuncionarioClassic(this);
-		listenerGrafic = new IncluirFuncionarioGrafic(this);
+		listenerClassic = new IncluirFuncionarioClassic(this);
+		//listenerGrafic = new IncluirFuncionarioGrafic(this);
 		listener = new IncluirFuncionarioListener(this);
 		
 	}

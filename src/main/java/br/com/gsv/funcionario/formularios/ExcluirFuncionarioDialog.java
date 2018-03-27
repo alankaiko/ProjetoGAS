@@ -10,7 +10,6 @@ import javax.swing.JSeparator;
 
 import br.com.gsv.funcionario.domain.Funcionario;
 import br.com.gsv.funcionario.grafico.ExcluirFuncionarioClassic;
-import br.com.gsv.funcionario.grafico.ExcluirFuncionarioGrafic;
 import br.com.gsv.funcionarios.listeners.ExcluirFuncionarioListener;
 
 public class ExcluirFuncionarioDialog extends JDialog {
@@ -22,7 +21,7 @@ public class ExcluirFuncionarioDialog extends JDialog {
 	private Funcionario funcionario;
 	private ExcluirFuncionarioListener listener;
 	private ExcluirFuncionarioClassic listenerClassic;
-	private ExcluirFuncionarioGrafic listenerGrafic;
+	//private ExcluirFuncionarioGrafic listenerGrafic;
 	
 	
 	public ExcluirFuncionarioDialog(Funcionario funcionario) {
@@ -31,8 +30,8 @@ public class ExcluirFuncionarioDialog extends JDialog {
 		CriaVariaveis();
 		AdicionaComponentes();
 		listener = new ExcluirFuncionarioListener(this);
-		//listenerClassic = new ExcluirFuncionarioClassic(this);
-		listenerGrafic = new ExcluirFuncionarioGrafic(this);
+		listenerClassic = new ExcluirFuncionarioClassic(this);
+		//listenerGrafic = new ExcluirFuncionarioGrafic(this);
 	}
 	
 	

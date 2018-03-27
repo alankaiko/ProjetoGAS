@@ -9,7 +9,6 @@ import javax.swing.JPanel;
 import javax.swing.JSeparator;
 
 import br.com.gsv.convenio.grafico.DetalheConvenioClassic;
-import br.com.gsv.convenio.grafico.DetalheConvenioGrafic;
 import br.com.gsv.convenio.listeners.DetalhesConvenioListener;
 
 public class DetalhesConvenioDialog extends JDialog {
@@ -21,15 +20,15 @@ public class DetalhesConvenioDialog extends JDialog {
 	private JSeparator separa;
 	private DetalhesConvenioListener listener;
 	private DetalheConvenioClassic listenerClassic;
-	private DetalheConvenioGrafic listenerGrafic;
+	//private DetalheConvenioGrafic listenerGrafic;
 	
 
 	public DetalhesConvenioDialog() {
 		CriaVariaveis();
 		AdicionaComponentes();
 		
-		//listenerClassic = new DetalheConvenioClassic(this);
-		listenerGrafic = new DetalheConvenioGrafic(this);
+		listenerClassic = new DetalheConvenioClassic(this);
+		//listenerGrafic = new DetalheConvenioGrafic(this);
 		listener = new DetalhesConvenioListener(this);
 	}
 

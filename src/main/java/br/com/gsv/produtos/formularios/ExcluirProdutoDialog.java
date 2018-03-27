@@ -10,7 +10,6 @@ import javax.swing.JSeparator;
 
 import br.com.gsv.produtos.domain.Produto;
 import br.com.gsv.produtos.grafico.ExcluirProdutoClassic;
-import br.com.gsv.produtos.grafico.ExcluirProdutoGrafic;
 import br.com.gsv.produtos.listeners.ExcluirProdutoListener;
 
 public class ExcluirProdutoDialog extends JDialog {
@@ -22,15 +21,15 @@ public class ExcluirProdutoDialog extends JDialog {
 	private JSeparator separa;
 	private Produto produto;
 	private ExcluirProdutoClassic listenerClassic;
-	private ExcluirProdutoGrafic listenerGrafic;
+	//private ExcluirProdutoGrafic listenerGrafic;
 
 	public ExcluirProdutoDialog(Produto produto) {
 		this.produto = produto;
 		CriaVariaveis();
 		Inicializa();
 		listener = new ExcluirProdutoListener(this);
-		//listenerClassic = new ExcluirProdutoClassic(this);
-		listenerGrafic = new ExcluirProdutoGrafic(this);
+		listenerClassic = new ExcluirProdutoClassic(this);
+		//listenerGrafic = new ExcluirProdutoGrafic(this);
 		
 	}
 

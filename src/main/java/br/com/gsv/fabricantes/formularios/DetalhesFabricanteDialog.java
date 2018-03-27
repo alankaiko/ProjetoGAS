@@ -1,22 +1,14 @@
 package br.com.gsv.fabricantes.formularios;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
 import java.awt.Container;
-import java.awt.Font;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSeparator;
-import javax.swing.JTextField;
-import javax.swing.border.EmptyBorder;
 
-import br.com.gsv.convenio.grafico.DetalheConvenioClassic;
-import br.com.gsv.convenio.listeners.DetalhesConvenioListener;
 import br.com.gsv.fabricantes.grafico.DetalheFabricanteClassic;
-import br.com.gsv.fabricantes.grafico.DetalheFabricanteGrafic;
 import br.com.gsv.fabricantes.listeners.DetalhesFabricanteListener;
 
 public class DetalhesFabricanteDialog extends JDialog {
@@ -28,15 +20,15 @@ public class DetalhesFabricanteDialog extends JDialog {
 	private JButton cancelar;
 	private JSeparator separa;
 	private DetalheFabricanteClassic listenerClassic;
-	private DetalheFabricanteGrafic listenerGrafic;
+	//private DetalheFabricanteGrafic listenerGrafic;
 
 	
 	public DetalhesFabricanteDialog() {
 		CriaVariaveis();
 		AdicionaComponentes();
 		
-		listenerGrafic = new DetalheFabricanteGrafic(this);
-		//listenerClassic = new DetalheFabricanteClassic(this);
+		//listenerGrafic = new DetalheFabricanteGrafic(this);
+		listenerClassic = new DetalheFabricanteClassic(this);
 		listener = new DetalhesFabricanteListener(this);
 	}
 

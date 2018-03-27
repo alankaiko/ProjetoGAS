@@ -22,17 +22,6 @@ public class GerenciaTelaProdutos extends JDialog {
 	private JScrollPane scrollPane;
 
 	
-	public static void main(String[] args) {
-		try {
-			GerenciaTelaProdutos dialog = new GerenciaTelaProdutos();
-			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-			dialog.setVisible(true);
-			
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-
 	
 	public GerenciaTelaProdutos() {
 		CriaTelaGeral();

@@ -8,7 +8,6 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import br.com.gsv.produtos.grafico.CodigoProdutoClassic;
-import br.com.gsv.produtos.grafico.CodigoProdutoGrafic;
 import br.com.gsv.produtos.listeners.CodigoProdutoListener;
 
 public class CodigoProdutoDialog extends JDialog {
@@ -20,13 +19,13 @@ public class CodigoProdutoDialog extends JDialog {
 	private JTextField TBuscar;
 	private String codigo;
 	private CodigoProdutoClassic listenerClassic;
-	private CodigoProdutoGrafic listenerGrafic;
+	//private CodigoProdutoGrafic listenerGrafic;
 
 	public CodigoProdutoDialog() {
 		CriaVariaveis();
 		AdicionaNaTela();
-		listenerGrafic = new CodigoProdutoGrafic(this);
-		//listenerClassic = new CodigoProdutoClassic(this);
+		//listenerGrafic = new CodigoProdutoGrafic(this);
+		listenerClassic = new CodigoProdutoClassic(this);
 		listener = new CodigoProdutoListener(this);
 	}
 	
