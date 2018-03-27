@@ -3,20 +3,20 @@ package br.com.gsv.zprincipal.listeners;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import aaaTeste.TelaPrincipalClassicOBsoleto;
 import br.com.gsv.convenio.formularios.GerenciaTelaConvenio;
 import br.com.gsv.fabricantes.formularios.GerenciaTelaFabricante;
 import br.com.gsv.funcionario.formularios.GerenciaTelaFuncionario;
 import br.com.gsv.funcionario.formularios.IncluirFuncionariosForm;
 import br.com.gsv.paciente.formularios.GerenciaTelaPaciente;
 import br.com.gsv.produtos.formularios.GerenciaTelaProdutos;
-import br.com.gsv.zprincipal.form.TelaPrincipalClassic;
 
 public class TelaPrincipalClassicListener implements ActionListener{
-	private TelaPrincipalClassic tela;
+	private TelaPrincipalClassicOBsoleto tela;
 	
 	
 	
-	public TelaPrincipalClassicListener(TelaPrincipalClassic tela) {
+	public TelaPrincipalClassicListener(TelaPrincipalClassicOBsoleto tela) {
 		this.tela = tela;
 		AdicionaListener();
 	}
