@@ -63,7 +63,7 @@ public class TelaPrincipalClassicOBsoleto extends JFrame {
 		data = new JLabel();
 		usuarioLogado = new JLabel();
 		inferior = new JPanel();
-		listener = new TelaPrincipalClassicListener(this);
+		//listener = new TelaPrincipalClassicListener(this);
 		BarraStatusListenerObsoleto status = new BarraStatusListenerObsoleto(this);
 		HibernateUtil.getSessionFactory();
 	}

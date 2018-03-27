@@ -13,20 +13,23 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 
 import br.com.gsv.zprincipal.listeners.BarraStatusListener;
+import br.com.gsv.zprincipal.listeners.TelaPrincipalClassicListener;
+import br.com.projeto.gsv.util.HibernateUtil;
 
 public class TelaPrincipalClassic extends JFrame {
 
-	private JPanel contentPane, panelPrincipal;
+	private JPanel tela, panelPrincipal;
 	private JMenuBar menuBar;
 	private JMenu menuArquivo,menuAtendimento, menuCadastro, menuUsuario, menuFarmacia, menuRelatorio, menuSair;
 	private JMenuItem arquivoAgCli, arquivoConAte, arquivoAcomodacoes, cadastroConvenio;
 	private JMenuItem cadastroClinica, cadastroPaciente, relatorioFuncionario;
-	private JMenuItem cadastroProntuario, usuarioFuncionario, usuarioConFun;
+	private JMenuItem usuarioFuncionario, usuarioConFun;
 	private JMenuItem farmaciaFabricante, farmaciaGruProduto, relatorioClinica;
 	private JMenuItem farmaciaProduto, farmaciaDevolucoes, relatorioItens, relatorioFornecedores;
 	private JMenuItem relatorioGruItens, relatorioPaciente, atendimentoAnotacoes,atendimentoProntuario;
 	private JLabel LStatusUsuario, LStatusData, LStatusHora;
 	private JPanel panelStatus;
+	private TelaPrincipalClassicListener listener;
 
 
 	public static void main(String[] args) {
@@ -49,18 +52,20 @@ public class TelaPrincipalClassic extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 900, 590);
 		
-		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		setContentPane(contentPane);
-		contentPane.setLayout(null);
+		tela = new JPanel();
+		tela.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(tela);
+		tela.setLayout(null);
 		
 		panelPrincipal = new JPanel();
 		panelPrincipal.setBounds(0, 0, 884, 552);
-		contentPane.add(panelPrincipal);
+		tela.add(panelPrincipal);
 		panelPrincipal.setLayout(null);
 		
 		CriaComponentes();	
+		listener = new TelaPrincipalClassicListener(this);
 		BarraStatusListener teste = new BarraStatusListener(this);
+		HibernateUtil.getSessionFactory();
 	}
 	
 	
@@ -85,10 +90,10 @@ public class TelaPrincipalClassic extends JFrame {
 		menuAtendimento = new JMenu("Atendimento");
 		menuBar.add(menuAtendimento);
 		
-		atendimentoAnotacoes = new JMenuItem("Incluir Anotações");
+		atendimentoAnotacoes = new JMenuItem("Agendar Anotações");
 		menuAtendimento.add(atendimentoAnotacoes);
 		
-		atendimentoProntuario = new JMenuItem("Prontuários");
+		atendimentoProntuario = new JMenuItem("Gerenciar Prontuários");
 		menuAtendimento.add(atendimentoProntuario);
 		
 		menuCadastro = new JMenu("Cadastro");
@@ -102,9 +107,6 @@ public class TelaPrincipalClassic extends JFrame {
 		
 		cadastroPaciente = new JMenuItem("Cadastro de Pacientes");
 		menuCadastro.add(cadastroPaciente);
-		
-		cadastroProntuario = new JMenuItem("Cadastro de Prontuários");
-		menuCadastro.add(cadastroProntuario);
 		
 		menuUsuario = new JMenu("Usuário");
 		menuBar.add(menuUsuario);
@@ -208,6 +210,343 @@ public class TelaPrincipalClassic extends JFrame {
 
 	public void setLStatusHora(JLabel lStatusHora) {
 		LStatusHora = lStatusHora;
+	}
+
+
+
+	public JMenu getMenuArquivo() {
+		return menuArquivo;
+	}
+
+
+
+	public void setMenuArquivo(JMenu menuArquivo) {
+		this.menuArquivo = menuArquivo;
+	}
+
+
+
+	public JMenu getMenuAtendimento() {
+		return menuAtendimento;
+	}
+
+
+
+	public void setMenuAtendimento(JMenu menuAtendimento) {
+		this.menuAtendimento = menuAtendimento;
+	}
+
+
+
+	public JMenu getMenuCadastro() {
+		return menuCadastro;
+	}
+
+
+
+	public void setMenuCadastro(JMenu menuCadastro) {
+		this.menuCadastro = menuCadastro;
+	}
+
+
+
+	public JMenu getMenuUsuario() {
+		return menuUsuario;
+	}
+
+
+
+	public void setMenuUsuario(JMenu menuUsuario) {
+		this.menuUsuario = menuUsuario;
+	}
+
+
+
+	public JMenu getMenuFarmacia() {
+		return menuFarmacia;
+	}
+
+
+
+	public void setMenuFarmacia(JMenu menuFarmacia) {
+		this.menuFarmacia = menuFarmacia;
+	}
+
+
+
+	public JMenu getMenuRelatorio() {
+		return menuRelatorio;
+	}
+
+
+
+	public void setMenuRelatorio(JMenu menuRelatorio) {
+		this.menuRelatorio = menuRelatorio;
+	}
+
+
+
+	public JMenu getMenuSair() {
+		return menuSair;
+	}
+
+
+
+	public void setMenuSair(JMenu menuSair) {
+		this.menuSair = menuSair;
+	}
+
+
+
+	public JMenuItem getArquivoAgCli() {
+		return arquivoAgCli;
+	}
+
+
+
+	public void setArquivoAgCli(JMenuItem arquivoAgCli) {
+		this.arquivoAgCli = arquivoAgCli;
+	}
+
+
+
+	public JMenuItem getArquivoConAte() {
+		return arquivoConAte;
+	}
+
+
+
+	public void setArquivoConAte(JMenuItem arquivoConAte) {
+		this.arquivoConAte = arquivoConAte;
+	}
+
+
+
+	public JMenuItem getArquivoAcomodacoes() {
+		return arquivoAcomodacoes;
+	}
+
+
+
+	public void setArquivoAcomodacoes(JMenuItem arquivoAcomodacoes) {
+		this.arquivoAcomodacoes = arquivoAcomodacoes;
+	}
+
+
+
+	public JMenuItem getCadastroConvenio() {
+		return cadastroConvenio;
+	}
+
+
+
+	public void setCadastroConvenio(JMenuItem cadastroConvenio) {
+		this.cadastroConvenio = cadastroConvenio;
+	}
+
+
+
+	public JMenuItem getCadastroClinica() {
+		return cadastroClinica;
+	}
+
+
+
+	public void setCadastroClinica(JMenuItem cadastroClinica) {
+		this.cadastroClinica = cadastroClinica;
+	}
+
+
+
+	public JMenuItem getCadastroPaciente() {
+		return cadastroPaciente;
+	}
+
+
+
+	public void setCadastroPaciente(JMenuItem cadastroPaciente) {
+		this.cadastroPaciente = cadastroPaciente;
+	}
+
+
+
+
+	public JMenuItem getUsuarioFuncionario() {
+		return usuarioFuncionario;
+	}
+
+
+
+	public void setUsuarioFuncionario(JMenuItem usuarioFuncionario) {
+		this.usuarioFuncionario = usuarioFuncionario;
+	}
+
+
+
+	public JMenuItem getUsuarioConFun() {
+		return usuarioConFun;
+	}
+
+
+
+	public void setUsuarioConFun(JMenuItem usuarioConFun) {
+		this.usuarioConFun = usuarioConFun;
+	}
+
+
+
+	public JMenuItem getFarmaciaFabricante() {
+		return farmaciaFabricante;
+	}
+
+
+
+	public void setFarmaciaFabricante(JMenuItem farmaciaFabricante) {
+		this.farmaciaFabricante = farmaciaFabricante;
+	}
+
+
+
+	public JMenuItem getFarmaciaGruProduto() {
+		return farmaciaGruProduto;
+	}
+
+
+
+	public void setFarmaciaGruProduto(JMenuItem farmaciaGruProduto) {
+		this.farmaciaGruProduto = farmaciaGruProduto;
+	}
+
+
+
+	public JMenuItem getFarmaciaProduto() {
+		return farmaciaProduto;
+	}
+
+
+
+	public void setFarmaciaProduto(JMenuItem farmaciaProduto) {
+		this.farmaciaProduto = farmaciaProduto;
+	}
+
+
+
+	public JMenuItem getFarmaciaDevolucoes() {
+		return farmaciaDevolucoes;
+	}
+
+
+
+	public void setFarmaciaDevolucoes(JMenuItem farmaciaDevolucoes) {
+		this.farmaciaDevolucoes = farmaciaDevolucoes;
+	}
+
+
+
+	public JMenuItem getRelatorioFuncionario() {
+		return relatorioFuncionario;
+	}
+
+
+
+	public void setRelatorioFuncionario(JMenuItem relatorioFuncionario) {
+		this.relatorioFuncionario = relatorioFuncionario;
+	}
+
+
+
+	public JMenuItem getRelatorioClinica() {
+		return relatorioClinica;
+	}
+
+
+
+	public void setRelatorioClinica(JMenuItem relatorioClinica) {
+		this.relatorioClinica = relatorioClinica;
+	}
+
+
+
+	public JMenuItem getRelatorioItens() {
+		return relatorioItens;
+	}
+
+
+
+	public void setRelatorioItens(JMenuItem relatorioItens) {
+		this.relatorioItens = relatorioItens;
+	}
+
+
+
+	public JMenuItem getRelatorioFornecedores() {
+		return relatorioFornecedores;
+	}
+
+
+
+	public void setRelatorioFornecedores(JMenuItem relatorioFornecedores) {
+		this.relatorioFornecedores = relatorioFornecedores;
+	}
+
+
+
+	public JMenuItem getRelatorioGruItens() {
+		return relatorioGruItens;
+	}
+
+
+
+	public void setRelatorioGruItens(JMenuItem relatorioGruItens) {
+		this.relatorioGruItens = relatorioGruItens;
+	}
+
+
+
+	public JMenuItem getRelatorioPaciente() {
+		return relatorioPaciente;
+	}
+
+
+
+	public void setRelatorioPaciente(JMenuItem relatorioPaciente) {
+		this.relatorioPaciente = relatorioPaciente;
+	}
+
+
+
+	public JMenuItem getAtendimentoAnotacoes() {
+		return atendimentoAnotacoes;
+	}
+
+
+
+	public void setAtendimentoAnotacoes(JMenuItem atendimentoAnotacoes) {
+		this.atendimentoAnotacoes = atendimentoAnotacoes;
+	}
+
+
+
+	public JMenuItem getAtendimentoProntuario() {
+		return atendimentoProntuario;
+	}
+
+
+
+	public void setAtendimentoProntuario(JMenuItem atendimentoProntuario) {
+		this.atendimentoProntuario = atendimentoProntuario;
+	}
+
+
+
+	public JPanel getTela() {
+		return tela;
+	}
+
+
+
+	public void setTela(JPanel tela) {
+		this.tela = tela;
 	}
 	
 	
