@@ -2,6 +2,12 @@ package br.com.gsv.prontuario.listeners;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+
+import javax.swing.AbstractAction;
+import javax.swing.JComponent;
+import javax.swing.JRootPane;
+import javax.swing.KeyStroke;
 
 import br.com.gsv.paciente.domain.Paciente;
 import br.com.gsv.paciente.formularios.BuscarPacienteDialog;
@@ -21,9 +27,7 @@ public class ProntuarioListener implements ActionListener{
 
 	public ProntuarioListener(ProntuarioForm formulario) {
 		this.formulario = formulario;
-		this.prontuario = new Prontuario();
-		this.equiCheckbox = new EquipamentoCheckBox();
-		
+		TeclaEsc();
 		AdicionaListener();
 	}
 	
@@ -37,7 +41,19 @@ public class ProntuarioListener implements ActionListener{
 	}
 	
 	
+	public void InicializaObjetos(){
+		this.prontuario = new Prontuario();
+		this.equiCheckbox = new EquipamentoCheckBox();
+	}
+	
+	
+	
+	
+	/*------------------------------------------SALVA NOVO OBJETO------------------------------------------------*/
+	/*-----------------------------------------------------------------------------------------------------------*/
 	private void FormToProntuario(){
+		this.prontuario.setData(ConverteDadosUtil.TransformandoEmDate(this.formulario.getTDataCad().getText()));
+		this.prontuario.setHora(this.formulario.getTHora().getText());
 		this.prontuario.setAnotObservacao(this.formulario.getTextoAreaAnotacao().getText());
 		this.prontuario.setCondDeamObservacao(this.formulario.getTextoAreaDeam().getText());
 		this.prontuario.setCondSono(this.formulario.getTextoAreaSono().getText());
@@ -54,12 +70,6 @@ public class ProntuarioListener implements ActionListener{
 		PegarRadioButtons();
 		PegarCheckboxes();
 		this.prontuario.setPaciente(this.paciente);
-		
-	/*	private Paciente paciente;
-		private EquipamentoCheckBox equipCheckbox;
-		private SintomasCheckbox sintomasEsp;
-		private SintomasMembrosCheckbox sintomasMembros;
-		*/
 	}
 	
 	private void PegarRadioButtons(){
@@ -140,8 +150,36 @@ public class ProntuarioListener implements ActionListener{
 		
 		this.prontuario.setEquipCheckbox(this.equiCheckbox);
 	}
+	/*-----------------------------------------------------------------------------------------------------------*/
+	/*-----------------------------------------------------------------------------------------------------------*/
 	
-	
+	/*-----------------------------------------------------ALTERA OBJETO-----------------------------------------*/
+	/*-----------------------------------------------------------------------------------------------------------*/
+	public void PreencheCamposParaEdicao(){
+		this.formulario.getTDataCad().setText(ConverteDadosUtil.TransformandoEmString(this.prontuario.getData()));
+		this.formulario.getTHora().setText(this.prontuario.getHora());
+		this.formulario.getTextoAreaAnotacao().setText(this.prontuario.getAnotObservacao());
+		this.formulario.getTextoAreaDeam().setText(this.prontuario.getCondDeamObservacao());
+		this.formulario.getTextoAreaSono().setText(this.prontuario.getCondSono());
+		this.formulario.getTextoEquipamento().setText(this.prontuario.getEquipObservacao());
+		this.formulario.getTHemorragia().setText(this.prontuario.getInteHemoText());
+		this.formulario.getTDispneia().setText(this.prontuario.getInteDispText());
+		this.formulario.getTEdema().setText(this.prontuario.getInteEdemaText());
+		this.formulario.getTDEscamacao().setText(this.prontuario.getInteDescText());
+		this.formulario.getTHematoma().setText(this.prontuario.getInteHemaText());
+		this.formulario.getTCicatriz().setText(this.prontuario.getInteCicaText());
+		this.formulario.getTOutrosInt().setText(this.prontuario.getInteOutrosText());
+		this.formulario.getTextoSintomas().setText(this.prontuario.getSintomasEspText());
+		this.formulario.getTextoMembros().setText(this.prontuario.getSintomasMembText());
+		
+		this.formulario.getTCodigo().setText(String.valueOf(this.prontuario.getPaciente().getId()));
+		this.formulario.getTPaciente().setText(this.prontuario.getPaciente().getNome());
+		this.formulario.getTRg().setText(this.prontuario.getPaciente().getRg());
+		this.formulario.getTCpf().setText(this.prontuario.getPaciente().getCpf());
+		this.formulario.getTDataNasc().setText(ConverteDadosUtil.TransformandoEmString(this.prontuario.getPaciente().getDataNasc()));
+		
+		
+	}
 	
 	
 	
@@ -154,7 +192,7 @@ public class ProntuarioListener implements ActionListener{
 			this.controller = new ProntuarioController();
 			this.controller.setProntuario(prontuario);
 			this.controller.SalvarProntuario();
-			this.formulario.dispose();
+			//this.formulario.dispose();
 		}
 		
 		if(event.getSource().equals(this.formulario.getBTCancelar())){
@@ -191,6 +229,18 @@ public class ProntuarioListener implements ActionListener{
 	}
 	
 	
+	public void TeclaEsc(){
+        JRootPane meurootpane = this.formulario.getRootPane();  
+        meurootpane.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), "ESCAPE");  
+        meurootpane.getRootPane().getActionMap().put("ESCAPE", new AbstractAction("ESCAPE") {  
+  
+            public void actionPerformed(ActionEvent e) {  
+            	formulario.dispose();  
+            }  
+        });  
+    } 
+	
+	
 	public void setProntuario(Prontuario prontuario) {
 		this.prontuario = prontuario;
 	}
@@ -198,8 +248,6 @@ public class ProntuarioListener implements ActionListener{
 	public Prontuario getProntuario() {
 		return prontuario;
 	}
-
-
 	
 	
 }

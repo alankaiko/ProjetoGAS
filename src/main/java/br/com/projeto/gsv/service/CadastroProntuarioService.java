@@ -17,4 +17,8 @@ public class CadastroProntuarioService {
 		return repositorio.ListarProntuarios();
 	}
 	
+	public Prontuario BuscandoId(Long id){
+		return this.repositorio.BuscarPorId(id);
+	}
+	
 }

@@ -1,6 +1,7 @@
 package br.com.projeto.gsv.util;
 
 import java.text.DateFormat;
+import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -80,10 +81,15 @@ public class ConverteDadosUtil {
 		Calendar agora = Calendar.getInstance();
 		int ho = agora.get(Calendar.HOUR_OF_DAY);
 		int mi = agora.get(Calendar.MINUTE);
-		int se = agora.get(Calendar.SECOND);
 		
-		String valor = ho+ ":"+mi+":"+se;
+		String valor = formatar(ho)+ ":"+formatar(mi);
 		return valor;
+	}
+	
+	private static String formatar(int num){
+		DecimalFormat df = new DecimalFormat("00");
+		    
+		return df.format(num);
 	}
 	
 	

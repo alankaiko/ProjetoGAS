@@ -17,7 +17,7 @@ public class GerenciaProntuarios extends JDialog {
 	private JLabel LGerenciar;
 	private JPanel panel = new JPanel();
 	private JDateChooser dateChooser;
-	private JButton BFiltrar, BCancelar, BAgendar, BPesquisar;
+	private JButton BFiltrar, BCancelar, BAgendar, 	BModificar,BExcluir;;
 	private JScrollPane scrollPane;
 	private JTable table;
 	private GerenciarProntuarioListener listener;
@@ -48,17 +48,20 @@ public class GerenciaProntuarios extends JDialog {
 		LGerenciar.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 14));
 		LGerenciar.setBounds(10, 11, 162, 14);
 
-		BPesquisar = new JButton("Pesquisar");
-		BPesquisar.setBounds(330, 386, 96, 23);
-
 		BAgendar = new JButton("Agendar");
-		BAgendar.setBounds(436, 386, 89, 23);
+		BAgendar.setBounds(222, 386, 89, 23);
 
 		BCancelar = new JButton("Cancelar");
 		BCancelar.setBounds(535, 386, 89, 23);
 
 		BFiltrar = new JButton("Filtrar");
 		BFiltrar.setBounds(494, 41, 89, 23);
+		
+		BModificar = new JButton("Modificar");
+		BModificar.setBounds(321, 386, 96, 23);
+	
+		BExcluir = new JButton("Excluir");
+		BExcluir.setBounds(429, 386, 96, 23);
 
 		dateChooser = new JDateChooser();
 		dateChooser.setBounds(380, 41, 104, 20);
@@ -67,11 +70,14 @@ public class GerenciaProntuarios extends JDialog {
 
 	private void AdicionaComponentes() {
 		panel.add(LGerenciar);
-		panel.add(BPesquisar);
 		panel.add(BAgendar);
 		panel.add(BCancelar);
 		panel.add(BFiltrar);
 		panel.add(dateChooser);
+		panel.add(BModificar);
+		panel.add(BExcluir);
+		
+		
 	}
 
 	public JLabel getLGerenciar() {
@@ -122,14 +128,7 @@ public class GerenciaProntuarios extends JDialog {
 		BAgendar = bAgendar;
 	}
 
-	public JButton getBPesquisar() {
-		return BPesquisar;
-	}
-
-	public void setBPesquisar(JButton bPesquisar) {
-		BPesquisar = bPesquisar;
-	}
-
+	
 	public JScrollPane getScrollPane() {
 		return scrollPane;
 	}
@@ -146,4 +145,21 @@ public class GerenciaProntuarios extends JDialog {
 		this.table = table;
 	}
 
+	public JButton getBModificar() {
+		return BModificar;
+	}
+
+	public void setBModificar(JButton bModificar) {
+		BModificar = bModificar;
+	}
+
+	public JButton getBExcluir() {
+		return BExcluir;
+	}
+
+	public void setBExcluir(JButton bExcluir) {
+		BExcluir = bExcluir;
+	}
+	
+	
 }

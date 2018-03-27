@@ -23,6 +23,10 @@ public class ProntuarioController {
 	}
 	
 	
+	public Prontuario BuscarPelaID(Long id){
+		return this.cadastroService.BuscandoId(id);
+	}
+	
 	
 	
 	public void setProntuario(Prontuario prontuario) {

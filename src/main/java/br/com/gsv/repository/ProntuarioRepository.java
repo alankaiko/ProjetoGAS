@@ -49,4 +49,22 @@ public class ProntuarioRepository {
 		return lista;
 	}
 	
+	
+	public Prontuario BuscarPorId(Long id){
+		sessao = HibernateUtil.getSessionFactory().openSession();
+		Prontuario prontuario = null;
+		
+		try {
+			Query consulta = sessao.getNamedQuery("Prontuario.buscarPorId");
+			consulta.setLong("id", id);
+			prontuario = (Prontuario) consulta.uniqueResult();
+		} catch (RuntimeException e) {
+			throw e;
+		}finally{
+			sessao.close();
+		}		
+		return prontuario;
+	}
+	
+	
 }

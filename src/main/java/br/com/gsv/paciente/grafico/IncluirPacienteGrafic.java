@@ -2,9 +2,11 @@ package br.com.gsv.paciente.grafico;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.util.Vector;
 
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSeparator;
@@ -14,6 +16,7 @@ import javax.swing.border.LineBorder;
 import br.com.gsv.paciente.formularios.IncluirPacienteForm;
 import br.com.projeto.gsv.util.ConverteDadosUtil;
 import br.com.projeto.gsv.util.FieldListener;
+import br.com.projeto.gsv.util.ListasUtil;
 
 
 public class IncluirPacienteGrafic {
@@ -155,6 +158,8 @@ public class IncluirPacienteGrafic {
 		this.formulario.getLEstado().setFont(new Font("Segoe UI", Font.PLAIN, 11));
 		
 		this.formulario.getComboEstado().setBackground(Color.WHITE);
+		this.formulario.getComboEstado().setModel(new DefaultComboBoxModel(new Vector(ListasUtil.Estados())));
+		this.formulario.getComboEstado().setBounds(456, 250, 86, 20);
 		
 		this.formulario.getLCep().setText("CEP");
 		this.formulario.getLCep().setFont(new Font("Segoe UI", Font.PLAIN, 11));

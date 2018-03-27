@@ -7,14 +7,14 @@ import javax.swing.table.AbstractTableModel;
 import br.com.gsv.prontuario.domain.Prontuario;
 
 public class TabelaDeProntuarios extends AbstractTableModel{
-	private String[] colunas = new String[] { "DATA", "HORA", "NOME", "CPF", "NIVEL ALERTA", "ESTADO MENTAL" };
+	private String[] colunas = new String[] { "DATA", "HORA", "NOME", "CPF", "ALERTA", "ESTADO" };
 	private List<Prontuario> linhas;
 	private static final int DATA = 0;
     private static final int HORA = 1;
     private static final int NOME = 2;
     private static final int CPF = 3;
-    private static final int NIVEL_ALERTA = 4;
-    private static final int ESTADO_MENTAL = 5;
+    private static final int ALERTA = 4;
+    private static final int ESTADO = 5;
 	 
     
     public TabelaDeProntuarios() {
@@ -49,9 +49,9 @@ public class TabelaDeProntuarios extends AbstractTableModel{
             return String.class;
         case CPF:
             return String.class;
-        case NIVEL_ALERTA:
+        case ALERTA:
             return String.class;
-        case ESTADO_MENTAL:
+        case ESTADO:
             return String.class;
         default:
            
@@ -71,16 +71,16 @@ public class TabelaDeProntuarios extends AbstractTableModel{
  
         switch (columnIndex) {
         case DATA:
-            return dados.getData();
+            return ConverteDadosUtil.TransformandoEmString(dados.getData());
         case HORA:
             return dados.getHora();
         case NOME:
         	return dados.getPaciente().getNome();
         case CPF:
             return dados.getPaciente().getCpf();
-        case NIVEL_ALERTA:
+        case ALERTA:
             return dados.getAnotConsciencia();
-        case ESTADO_MENTAL:
+        case ESTADO:
         	return dados.getAnotMental();
         default:
             throw new IndexOutOfBoundsException("columnIndex out of bounds");
@@ -129,10 +129,10 @@ public class TabelaDeProntuarios extends AbstractTableModel{
         case CPF:
         	dados.getPaciente().setCpf((String) aValue);
             break;
-        case NIVEL_ALERTA:
+        case ALERTA:
         	dados.setAnotConsciencia((String) aValue);
             break;
-        case ESTADO_MENTAL:
+        case ESTADO:
         	dados.setAnotMental((String) aValue);
             break;
         default:

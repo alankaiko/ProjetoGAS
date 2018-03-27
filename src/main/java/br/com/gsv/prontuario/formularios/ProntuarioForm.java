@@ -1485,5 +1485,11 @@ public class ProntuarioForm extends JDialog {
 		this.radioEstNormal = radioEstNormal;
 	}
 	
+	public ProntuarioListener getListener() {
+		return listener;
+	}
+	public void setListener(ProntuarioListener listener) {
+		this.listener = listener;
+	}
 	
 }
