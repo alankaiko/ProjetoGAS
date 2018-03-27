@@ -27,6 +27,10 @@ public class ProntuarioController {
 		return this.cadastroService.BuscandoId(id);
 	}
 	
+	public void RemoverProntuario() {
+		this.cadastroService.Remover(this.prontuario);
+	}
+	
 	
 	
 	public void setProntuario(Prontuario prontuario) {

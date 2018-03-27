@@ -21,4 +21,8 @@ public class CadastroProntuarioService {
 		return this.repositorio.BuscarPorId(id);
 	}
 	
+	public void Remover(Prontuario prontuario){
+		this.repositorio.Remover(prontuario);
+	}
+	
 }

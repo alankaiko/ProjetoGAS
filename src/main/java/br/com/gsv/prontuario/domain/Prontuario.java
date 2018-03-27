@@ -22,7 +22,7 @@ import br.com.gsv.paciente.domain.Paciente;
 @Table
 @Entity
 @NamedQueries({
-	@NamedQuery(name="Prontuario.listar", query="SELECT prontuario FROM Prontuario prontuario order by data"),
+	@NamedQuery(name="Prontuario.listar", query="SELECT prontuario FROM Prontuario prontuario"),
 	@NamedQuery(name="Prontuario.buscarPorId", query="SELECT prontuario FROM Prontuario prontuario WHERE prontuario.id= :id")
 })
 public class Prontuario implements Serializable{

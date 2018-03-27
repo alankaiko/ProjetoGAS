@@ -12,10 +12,13 @@ import javax.swing.KeyStroke;
 import javax.swing.ListSelectionModel;
 
 import br.com.gsv.convenio.formularios.IncluirConvenioForm;
+import br.com.gsv.paciente.formularios.ExcluirPacienteDialog;
 import br.com.gsv.prontuario.domain.Prontuario;
+import br.com.gsv.prontuario.formularios.ExcluirProntuarioDialog;
 import br.com.gsv.prontuario.formularios.GerenciaProntuarios;
 import br.com.gsv.prontuario.formularios.ProntuarioForm;
 import br.com.projeto.gsv.controller.ConvenioController;
+import br.com.projeto.gsv.controller.PacienteController;
 import br.com.projeto.gsv.controller.ProdutoController;
 import br.com.projeto.gsv.controller.ProntuarioController;
 import br.com.projeto.gsv.util.TabelaDeProdutosUtil;
@@ -80,12 +83,16 @@ public class GerenciarProntuarioListener implements ActionListener{
 			TabelaDeProdutos();
 		}
 		
-		if(event.getSource().equals(this.gerenciamento.getBModificar())){
+		if(event.getSource().equals(this.gerenciamento.getBModificar()) && this.gerenciamento.getTable().getRowCount() != 0){
 			ExecutaEdicao(SelecionaLinha());
 		}
 		
-		if(event.getSource().equals(this.gerenciamento.getBFiltrar())){
+		if(event.getSource().equals(this.gerenciamento.getBFiltrar()) && this.gerenciamento.getTable().getRowCount() != 0){
 			
+		}
+		
+		if(event.getSource().equals(this.gerenciamento.getBExcluir())  && this.gerenciamento.getTable().getRowCount() != 0){
+			ExecutaExclusao(SelecionaLinha());
 		}
 		
 		if(event.getSource().equals(this.gerenciamento.getBCancelar())){
@@ -115,6 +122,19 @@ public class GerenciarProntuarioListener implements ActionListener{
 		
 		TabelaDeProdutos();
 	}
+	
+	private void ExecutaExclusao(Long id){
+		ProntuarioController controller = new ProntuarioController();
+		ExcluirProntuarioDialog dialog = new ExcluirProntuarioDialog(controller.BuscarPelaID(id));
+		
+		dialog.setLocationRelativeTo(this.gerenciamento.getContentPane());
+		dialog.setVisible(true);
+		TabelaDeProdutos();	
+	}
+	
+	
+	
+	
 	
 	
 	public void TeclaEsc(){

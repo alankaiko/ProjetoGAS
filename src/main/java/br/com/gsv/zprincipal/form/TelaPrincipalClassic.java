@@ -57,7 +57,7 @@ public class TelaPrincipalClassic extends JFrame {
 	public TelaPrincipalClassic() {
 		setBackground(Color.WHITE);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 800, 521);
+		setBounds(100, 100, 900, 590);
 		
 		CriaComponentes();
 		horas = new JLabel();
@@ -153,13 +153,13 @@ public class TelaPrincipalClassic extends JFrame {
 		
 		painelPrincipal = new JPanel();
 		painelPrincipal.setBackground(Color.WHITE);
-		painelPrincipal.setBounds(0, 0, 784, 462);
+		painelPrincipal.setBounds(0, 0, 884, 531);
 		tela.add(painelPrincipal);
 		painelPrincipal.setLayout(null);
 		
 		painelMenuRapido = new Panel();
 		painelMenuRapido.setBackground(new Color(84, 127, 206));
-		painelMenuRapido.setBounds(15, 0, 239, 439);
+		painelMenuRapido.setBounds(10, 24, 239, 486);
 		painelPrincipal.add(painelMenuRapido);
 		painelMenuRapido.setLayout(null);
 		
@@ -171,7 +171,7 @@ public class TelaPrincipalClassic extends JFrame {
 				
 		paienlPacie = new Panel();
 		paienlPacie.setBackground(new Color(23,58,102));
-		paienlPacie.setBounds(0, 109, 239, 35);
+		paienlPacie.setBounds(0, 147, 239, 35);
 		painelMenuRapido.add(paienlPacie);
 		paienlPacie.setLayout(null);
 		
@@ -188,7 +188,7 @@ public class TelaPrincipalClassic extends JFrame {
 		painelFun = new Panel();
 		painelFun.setLayout(null);
 		painelFun.setBackground(new Color(23,58,102));
-		painelFun.setBounds(0, 145, 239, 35);
+		painelFun.setBounds(0, 183, 239, 35);
 		painelMenuRapido.add(painelFun);
 		
 		rotuloFuncionario = new JButton("Funcionários");
@@ -201,7 +201,7 @@ public class TelaPrincipalClassic extends JFrame {
 		painelProd = new Panel();
 		painelProd.setLayout(null);
 		painelProd.setBackground(new Color(23,58,102));
-		painelProd.setBounds(0, 181, 239, 35);
+		painelProd.setBounds(0, 219, 239, 35);
 		painelMenuRapido.add(painelProd);
 		
 		rotuloProdutos = new JButton("Produtos");
@@ -214,13 +214,13 @@ public class TelaPrincipalClassic extends JFrame {
 		painelRelPacie = new Panel();
 		painelRelPacie.setLayout(null);
 		painelRelPacie.setBackground(new Color(23,58,102));
-		painelRelPacie.setBounds(0, 217, 239, 35);
+		painelRelPacie.setBounds(0, 255, 239, 35);
 		painelMenuRapido.add(painelRelPacie);
 		
 		painelRelItens = new Panel();
 		painelRelItens.setLayout(null);
 		painelRelItens.setBackground(new Color(23,58,102));
-		painelRelItens.setBounds(0, 253, 239, 35);
+		painelRelItens.setBounds(0, 291, 239, 35);
 		painelMenuRapido.add(painelRelItens);
 		
 		label = new Label("MENU R\u00C1PIDO");
@@ -243,6 +243,19 @@ public class TelaPrincipalClassic extends JFrame {
 		rotuloRelItens.setAlignment(Label.CENTER);
 		rotuloRelItens.setBounds(5, 5, 130, 30);
 		painelRelItens.add(rotuloRelItens);
+		
+		Panel panel = new Panel();
+		panel.setLayout(null);
+		panel.setBackground(new Color(23, 58, 102));
+		panel.setBounds(0, 101, 239, 35);
+		painelMenuRapido.add(panel);
+		
+		Label label_1 = new Label("Relatório de Pacientes");
+		label_1.setForeground(Color.WHITE);
+		label_1.setFont(new Font("Segoe UI", Font.BOLD, 14));
+		label_1.setAlignment(Label.CENTER);
+		label_1.setBounds(0, 5, 167, 30);
+		panel.add(label_1);
 	}
 	
 	

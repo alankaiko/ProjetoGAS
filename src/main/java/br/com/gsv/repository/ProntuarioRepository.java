@@ -67,4 +67,20 @@ public class ProntuarioRepository {
 	}
 	
 	
+	public void Remover(Prontuario prontuario) {
+		sessao = HibernateUtil.getSessionFactory().openSession();
+		
+		try {
+			transacao = sessao.beginTransaction();
+			sessao.delete(prontuario);
+			transacao.commit();
+		} catch (RuntimeException e) {
+			if (transacao != null)
+				transacao.rollback();
+			throw e;
+		} finally {
+			sessao.close();
+		}
+	}
+	
 }
