@@ -110,7 +110,7 @@ public class GerenciaTelaUsuarioListener implements ActionListener{
 	
 	private void ExecutaInclusao(){
 		IncluirUsuarioForm inclui = new IncluirUsuarioForm();
-		//inclui.CriarTelaGeralGrafic();
+		inclui.getListener().IniciaObjetos();
 		inclui.setLocationRelativeTo(this.formulario.getTela());
 		inclui.setVisible(true);		
 		TabelaDeUsuarios();
@@ -119,7 +119,7 @@ public class GerenciaTelaUsuarioListener implements ActionListener{
 	private void ExecutaExclusao(String login){
 		UsuarioController controller = new UsuarioController();
 		
-		ExcluirUsuarioDialog telaExc = new ExcluirUsuarioDialog(controller.BuscarPelaID(login));
+		ExcluirUsuarioDialog telaExc = new ExcluirUsuarioDialog(controller.BuscarPeloLogin(login));
 		telaExc.setLocationRelativeTo(this.formulario.getTela());
 		telaExc.setVisible(true);
 		TabelaDeUsuarios();	
@@ -129,7 +129,7 @@ public class GerenciaTelaUsuarioListener implements ActionListener{
 		UsuarioController controller = new UsuarioController();
 		IncluirUsuarioForm edita = new IncluirUsuarioForm();
 		
-		edita.getListener().setUsuario((controller.BuscarPelaID(login)));
+		edita.getListener().setUsuario((controller.BuscarPeloLogin(login)));
 		edita.getListener().AlterandoObjetos();
 		
 		edita.setLocationRelativeTo(this.formulario.getTela());
@@ -142,7 +142,7 @@ public class GerenciaTelaUsuarioListener implements ActionListener{
 		UsuarioController controller = new UsuarioController();
 		DetalhesUsuarioDialog detalhes = new DetalhesUsuarioDialog();
 		
-		detalhes.getListener().setUsuario(controller.BuscarPelaID(login));
+		detalhes.getListener().setUsuario(controller.BuscarPeloLogin(login));
 		detalhes.getListener().Detalhar();
 		
 		detalhes.setLocationRelativeTo(this.formulario.getTela());

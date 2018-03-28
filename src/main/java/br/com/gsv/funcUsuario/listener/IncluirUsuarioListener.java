@@ -31,6 +31,7 @@ public class IncluirUsuarioListener implements ActionListener{
 		AdicionaListener();
 		UsandoTAB();
 		TeclaEsc();
+		UpCase();
 	}
 
 	private void AdicionaListener(){
@@ -47,13 +48,15 @@ public class IncluirUsuarioListener implements ActionListener{
 		this.formulario.getTCpf().setText(this.formulario.getJCpf().getText());
 		this.formulario.getTRg().setText(this.usuario.getFuncionario().getRg());
 		
-		this.formulario.getTLogin().setText(this.usuario.getFuncionario().getNome());
+		this.formulario.getTLogin().setText(this.usuario.getLogin());
 	}
 
+	public void IniciaObjetos(){
+		this.usuario = new Usuario();
+	}
 	
 	
 	private void FormToUsuario(){
-		usuario = new Usuario();
 		usuario.setFuncionario(this.funcionario);
 		usuario.setLogin(this.formulario.getTLogin().getText());
 		usuario.setSenha(this.formulario.getTSenha().getText());
@@ -116,6 +119,21 @@ public class IncluirUsuarioListener implements ActionListener{
 		});
 	}
 
+	
+	
+	private void UpCase(){
+		this.formulario.getTLogin().addKeyListener(new KeyAdapter() {  
+			public void keyReleased(KeyEvent ke) {  
+				if (ke.getKeyCode() != KeyEvent.VK_HOME) {  
+					String s = formulario.getTLogin().getText();  
+					formulario.getTLogin().setText(s.toUpperCase());  
+				}  
+			}  
+		}); 	
+	}
+	
+	
+	
 	
 	public void TeclaEsc() {
 		JRootPane meurootpane = this.formulario.getRootPane();

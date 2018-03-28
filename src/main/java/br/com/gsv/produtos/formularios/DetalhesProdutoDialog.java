@@ -23,8 +23,8 @@ public class DetalhesProdutoDialog extends JDialog {
 		CriaVariaveis();
 		InicializaComponentes();
 		
-		listenerClassic = new DetalheProdutoClassic(this);
 		listener = new DetalhesProdutoListener(this);
+		listenerClassic = new DetalheProdutoClassic(this);
 	}
 	
 	private void CriaVariaveis() {
@@ -41,16 +41,16 @@ public class DetalhesProdutoDialog extends JDialog {
 	}
 
 	private void InicializaComponentes() {
-		tela.add(LDados);
-		tela.add(LCodigo);
-		tela.add(TCodigo);
-		tela.add(LDescricao);
-		tela.add(TDescricao);
-		tela.add(LQuantidade);
-		tela.add(LFabricante);
-		tela.add(TFabricante);
-		tela.add(BTCancelar);
-		tela.add(TQuantidade);
+		tela.add(this.LDados);
+		tela.add(this.LCodigo);
+		tela.add(this.TCodigo);
+		tela.add(this.LDescricao);
+		tela.add(this.TDescricao);
+		tela.add(this.LQuantidade);
+		tela.add(this.LFabricante);
+		tela.add(this.TFabricante);
+		tela.add(this.BTCancelar);
+		tela.add(this.TQuantidade);
 	}
 
 	public DetalhesProdutoListener getListener() {

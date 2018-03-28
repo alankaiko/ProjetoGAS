@@ -50,22 +50,6 @@ public class UsuarioRepository {
 	
 	
 	
-	public Usuario BuscarPorId(String login){
-		sessao = HibernateUtil.getSessionFactory().openSession();
-		Usuario usuario = null;
-		
-		try {
-			Query consulta = sessao.getNamedQuery("Usuario.buscarPorLogin");
-			consulta.setString("login", login);
-			usuario = (Usuario) consulta.uniqueResult();
-		} catch (RuntimeException e) {
-			throw e;
-		}finally{
-			sessao.close();
-		}		
-		return usuario;
-	}
-	
 	
 	public Usuario BuscarPorId(Long id){
 		sessao = HibernateUtil.getSessionFactory().openSession();
@@ -104,13 +88,33 @@ public class UsuarioRepository {
 	
 	
 	@SuppressWarnings("unchecked")
+	public Usuario BuscarPeloLogin(String login){
+		sessao = HibernateUtil.getSessionFactory().openSession();
+		Usuario usuario = null;
+		
+		try {
+			Query consulta = sessao.getNamedQuery("Usuario.buscarPeloLogin");
+			consulta.setString("login", login);
+			usuario = (Usuario) consulta.uniqueResult();
+		} catch (RuntimeException e) {
+			throw e;
+		}finally{
+			sessao.close();
+		}
+		
+		return usuario;
+	}
+	
+	
+	@SuppressWarnings("unchecked")
 	public List<Usuario> BuscarPeloNome(String nome){
 		sessao = HibernateUtil.getSessionFactory().openSession();
 		List<Usuario> lista = null;
 		
 		try {
-			Query consulta = sessao.getNamedQuery("Usuario.buscarPeloNome");
-			consulta.setString("nome", "%"+nome+"%");
+			
+			Query consulta = sessao.getNamedQuery("Usuario.buscarPorNome");
+			consulta.setString("nome", nome);
 			lista = consulta.list();
 		} catch (RuntimeException e) {
 			throw e;
@@ -120,8 +124,6 @@ public class UsuarioRepository {
 		
 		return lista;
 	}
-	
-	
 	
 
 }

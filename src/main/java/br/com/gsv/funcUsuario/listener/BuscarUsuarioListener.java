@@ -4,6 +4,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.AbstractAction;
 import javax.swing.JComponent;
@@ -12,6 +14,7 @@ import javax.swing.KeyStroke;
 import javax.swing.ListSelectionModel;
 
 import br.com.gsv.convenio.formularios.BuscarConvenioDialog;
+import br.com.gsv.funcUsuario.domain.Usuario;
 import br.com.gsv.funcUsuario.formularios.BuscarUsuarioDialog;
 import br.com.projeto.gsv.controller.ConvenioController;
 import br.com.projeto.gsv.controller.UsuarioController;
@@ -29,7 +32,7 @@ public class BuscarUsuarioListener implements ActionListener{
 		TabelaUsuarios();
 		AdicionaListener();
 		UsandoTAB();
-		UpCase();
+		//UpCase();
 		TeclaEsc();
 	}
 	
@@ -142,24 +145,34 @@ public class BuscarUsuarioListener implements ActionListener{
 	
 	private void BuscarLogin(){
 		UsuarioController control = new UsuarioController();
-		String login =  control.BuscarPelaID(this.formulario.getTextoBuscar().getText());
-		tabela = new TabelaBuscarUsuarioUtil(control.BuscarPelaID(this.formulario.getTextoBuscar().getText()));
+		List<Usuario> lista = new ArrayList<Usuario>();
+		lista.add(control.BuscarPeloLogin(this.formulario.getTextoBuscar().getText()));
+		
+		if(lista.get(0) != null)
+			TabelaBusca(lista);
+		
+	}
+		
+		
+	private void BuscarNome(){
+		UsuarioController control = new UsuarioController();
+		List<Usuario> lista = control.ListinhaPelosNomes(this.formulario.getTextoBuscar().getText());
+		
+		if(lista.get(0) != null)
+			TabelaBusca(lista);	
+		
+	}
+	
+	private void TabelaBusca(List<Usuario> lista){
+		tabela = new TabelaBuscarUsuarioUtil(lista);
 		this.formulario.getTable().setModel(tabela);
 		this.formulario.getTable().getColumnModel().getColumn(0).setPreferredWidth(30);
 		this.formulario.getTable().getColumnModel().getColumn(1).setPreferredWidth(180);
 		this.formulario.getTable().getColumnModel().getColumn(2).setPreferredWidth(180);
 		this.formulario.getTable().changeSelection(0, 1, false, false);
 	}
-		
-		
-	private void BuscarNome(){
-		UsuarioController control = new UsuarioController();
-		tabela = new TabelaBuscarUsuarioUtil(control.BuscarPeloNome(this.formulario.getTextoBuscar().getText()));
-		this.formulario.getTable().setModel(tabela);
-		this.formulario.getTable().getColumnModel().getColumn(0).setPreferredWidth(30);
-		this.formulario.getTable().getColumnModel().getColumn(1).setPreferredWidth(180);
-		this.formulario.getTable().changeSelection(0, 1, false, false);
-	}
+	
+	
 
 	public String getLogin() {
 		return login;

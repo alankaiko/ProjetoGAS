@@ -26,12 +26,14 @@ public class UsuarioController {
 		return cadastroService.ListandoUsuarios();
 	}
 
-	public Usuario BuscarPelaID(String login) {
-		return this.cadastroService.BuscandoId(login);
-	}
+	
 
-	public List<Usuario> BuscarPeloNome(String nome) {
-		return this.cadastroService.BuscandoPeloNome(nome);
+	public Usuario BuscarPeloLogin(String login) {
+		return this.cadastroService.BuscandoPeloLogin(login);
+	}
+	
+	public List<Usuario> ListinhaPelosNomes(String nome) {
+		return cadastroService.ListandoPorNome(nome);
 	}
 	
 	

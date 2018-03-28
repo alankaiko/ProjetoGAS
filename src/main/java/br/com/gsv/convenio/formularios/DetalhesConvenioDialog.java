@@ -12,7 +12,7 @@ import br.com.gsv.convenio.grafico.DetalheConvenioClassic;
 import br.com.gsv.convenio.listeners.DetalhesConvenioListener;
 
 public class DetalhesConvenioDialog extends JDialog {
-	private final JPanel panel = new JPanel();
+	private JPanel panel = new JPanel();
 	private Container tela = getContentPane();
 	private JLabel LId, LConvenio;
 	private JLabel TId, TConvenio;

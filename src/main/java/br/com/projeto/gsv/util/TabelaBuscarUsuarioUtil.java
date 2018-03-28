@@ -19,6 +19,7 @@ public class TabelaBuscarUsuarioUtil extends AbstractTableModel{
         linhas = new ArrayList<Usuario>();
        
     }
+    
  
     
     public TabelaBuscarUsuarioUtil(List<Usuario> usuario) {

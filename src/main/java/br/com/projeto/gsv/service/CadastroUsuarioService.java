@@ -21,12 +21,13 @@ public class CadastroUsuarioService {
 		return repositorio.ListarUsuario();
 	}
 	
-	public Usuario BuscandoId(String login){
-		return this.repositorio.BuscarPorId(login);
+	
+	public Usuario BuscandoPeloLogin(String login){
+		return this.repositorio.BuscarPeloLogin(login);
 	}
 	
-	public List<Usuario> BuscandoPeloNome(String nome){
-		return this.repositorio.BuscarPeloNome(nome);
+	public List<Usuario> ListandoPorNome(String nome){
+		return repositorio.BuscarPeloNome(nome);
 	}
 	
 

@@ -17,7 +17,6 @@ public class DetalheProdutoClassic {
 	}
 	
 
-	//cria e tela geral onde todos os componentes serao inseridos, é a tela geral do sistema
 	private void CriarTelaGeral(){
 		this.formulario.setTitle("Inserir Dados de Produtos");
 		this.formulario.setModal(true);
@@ -29,6 +28,7 @@ public class DetalheProdutoClassic {
 		
 		this.formulario.getPanel().setLayout(null);
 		this.formulario.getPanel().setBorder(new EmptyBorder(5, 5, 5, 5));
+		
 		
 	}
 		
