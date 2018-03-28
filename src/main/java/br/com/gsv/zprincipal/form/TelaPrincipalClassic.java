@@ -23,7 +23,7 @@ public class TelaPrincipalClassic extends JFrame {
 	private JMenu menuArquivo,menuAtendimento, menuCadastro, menuUsuario, menuFarmacia, menuRelatorio, menuSair;
 	private JMenuItem arquivoAgCli, arquivoConAte, arquivoAcomodacoes, cadastroConvenio;
 	private JMenuItem cadastroClinica, cadastroPaciente, relatorioFuncionario;
-	private JMenuItem usuarioFuncionario, usuarioConFun;
+	private JMenuItem usuarioFuncionario, usuarioConFun, usuarioUser;
 	private JMenuItem farmaciaFabricante, farmaciaGruProduto, relatorioClinica;
 	private JMenuItem farmaciaProduto, farmaciaDevolucoes, relatorioItens, relatorioFornecedores;
 	private JMenuItem relatorioGruItens, relatorioPaciente, atendimentoAnotacoes,atendimentoProntuario;
@@ -58,6 +58,7 @@ public class TelaPrincipalClassic extends JFrame {
 		tela.setLayout(null);
 		
 		panelPrincipal = new JPanel();
+		panelPrincipal.setBackground(Color.WHITE);
 		panelPrincipal.setBounds(0, 0, 884, 552);
 		tela.add(panelPrincipal);
 		panelPrincipal.setLayout(null);
@@ -116,6 +117,9 @@ public class TelaPrincipalClassic extends JFrame {
 		
 		usuarioConFun = new JMenuItem("Consulta Funcionários");
 		menuUsuario.add(usuarioConFun);
+		
+		usuarioUser = new JMenuItem("Usuários");
+		menuUsuario.add(usuarioUser);
 		
 		menuFarmacia = new JMenu("Farmácia");
 		menuBar.add(menuFarmacia);
@@ -548,10 +552,18 @@ public class TelaPrincipalClassic extends JFrame {
 	public void setTela(JPanel tela) {
 		this.tela = tela;
 	}
-	
-	
-	
-	
+
+
+
+	public JMenuItem getUsuarioUser() {
+		return usuarioUser;
+	}
+
+
+
+	public void setUsuarioUser(JMenuItem usuarioUser) {
+		this.usuarioUser = usuarioUser;
+	}
 	
 	
 }

@@ -50,6 +50,23 @@ public class UsuarioRepository {
 	
 	
 	
+	public Usuario BuscarPorId(String login){
+		sessao = HibernateUtil.getSessionFactory().openSession();
+		Usuario usuario = null;
+		
+		try {
+			Query consulta = sessao.getNamedQuery("Usuario.buscarPorLogin");
+			consulta.setString("login", login);
+			usuario = (Usuario) consulta.uniqueResult();
+		} catch (RuntimeException e) {
+			throw e;
+		}finally{
+			sessao.close();
+		}		
+		return usuario;
+	}
+	
+	
 	public Usuario BuscarPorId(Long id){
 		sessao = HibernateUtil.getSessionFactory().openSession();
 		Usuario usuario = null;

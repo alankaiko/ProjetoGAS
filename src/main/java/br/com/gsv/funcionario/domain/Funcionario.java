@@ -38,6 +38,7 @@ public class Funcionario implements Serializable{
 
 	@Id
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
+	@Column(name = "fun_id")
 	public Long getId() {
 		return id;
 	}

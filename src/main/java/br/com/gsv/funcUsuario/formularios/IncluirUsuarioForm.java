@@ -32,19 +32,10 @@ public class IncluirUsuarioForm extends JDialog {
 	private JFormattedTextField JCpf;
 	private IncluirUsuarioListener listener;
 
-	public static void main(String[] args) {
-		try {
-			IncluirUsuarioForm dialog = new IncluirUsuarioForm();
-			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-			dialog.setVisible(true);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
+	
 
 	public IncluirUsuarioForm() {
 		CriaTelaGeral();
-		CriarTela();
 		AdicionaNaTela();
 		listener = new IncluirUsuarioListener(this);
 	}
@@ -68,6 +59,8 @@ public class IncluirUsuarioForm extends JDialog {
 		TFuncionario.setBorder(new LineBorder(Color.BLACK));
 		TFuncionario.setBounds(39, 48, 375, 20);
 		TFuncionario.setColumns(10);
+		TFuncionario.setEditable(false);
+		TFuncionario.setToolTipText("Clique no Botão Pesquisar");
 		
 		LCpf = new JLabel("CPF");
 		LCpf.setFont(new Font("Segoe UI Light", Font.PLAIN, 12));
@@ -77,6 +70,8 @@ public class IncluirUsuarioForm extends JDialog {
 		TCpf.setBorder(new LineBorder(Color.BLACK));
 		TCpf.setBounds(40, 93, 229, 20);
 		TCpf.setColumns(10);
+		TCpf.setEditable(false);
+		TCpf.setToolTipText("Clique no Botão Pesquisar");
 		
 		LRg = new JLabel("RG");
 		LRg.setFont(new Font("Segoe UI Light", Font.PLAIN, 12));
@@ -86,8 +81,10 @@ public class IncluirUsuarioForm extends JDialog {
 		TRg.setBorder(new LineBorder(Color.BLACK));
 		TRg.setBounds(293, 93, 121, 20);
 		TRg.setColumns(10);
+		TRg.setEditable(false);
+		TRg.setToolTipText("Clique no Botão Pesquisar");
 		
-		LAdicionar = new JLabel("Adicionar LOGIN DE Usuário");
+		LAdicionar = new JLabel("Adicionar Login de Usuário");
 		LAdicionar.setFont(new Font("Segoe UI Symbol", Font.PLAIN, 12));
 		LAdicionar.setBounds(39, 147, 205, 14);
 		
@@ -96,7 +93,6 @@ public class IncluirUsuarioForm extends JDialog {
 	
 		LSenha = new JLabel("Senha");
 		LSenha.setBounds(293, 172, 46, 14);
-		
 		
 		TLogin = new JTextField();
 		TLogin.setBorder(new LineBorder(Color.BLACK));
@@ -125,12 +121,6 @@ public class IncluirUsuarioForm extends JDialog {
 	
 	
 	
-	
-
-	public void CriarTela() {
-
-	}
-
 	public void AdicionaNaTela() {
 		tela.add(TFuncionario);
 		tela.add(LFuncionario);
@@ -284,6 +274,14 @@ public class IncluirUsuarioForm extends JDialog {
 
 	public void setJCpf(JFormattedTextField jCpf) {
 		JCpf = jCpf;
+	}
+
+	public IncluirUsuarioListener getListener() {
+		return listener;
+	}
+
+	public void setListener(IncluirUsuarioListener listener) {
+		this.listener = listener;
 	}
 	
 	

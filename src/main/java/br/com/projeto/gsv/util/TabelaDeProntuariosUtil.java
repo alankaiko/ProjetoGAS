@@ -6,7 +6,7 @@ import java.util.List;
 import javax.swing.table.AbstractTableModel;
 import br.com.gsv.prontuario.domain.Prontuario;
 
-public class TabelaDeProntuarios extends AbstractTableModel{
+public class TabelaDeProntuariosUtil extends AbstractTableModel{
 	private String[] colunas = new String[] { "DATA", "HORA", "NOME", "CPF", "ALERTA", "ESTADO" };
 	private List<Prontuario> linhas;
 	private static final int DATA = 0;
@@ -17,13 +17,13 @@ public class TabelaDeProntuarios extends AbstractTableModel{
     private static final int ESTADO = 5;
 	 
     
-    public TabelaDeProntuarios() {
+    public TabelaDeProntuariosUtil() {
         linhas = new ArrayList<Prontuario>();
        
     }
  
     
-    public TabelaDeProntuarios(List<Prontuario> dadosProntuario) {
+    public TabelaDeProntuariosUtil(List<Prontuario> dadosProntuario) {
         linhas = new ArrayList<Prontuario>(dadosProntuario);
     }
 	

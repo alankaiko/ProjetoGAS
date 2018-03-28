@@ -26,8 +26,8 @@ public class UsuarioController {
 		return cadastroService.ListandoUsuarios();
 	}
 
-	public Usuario BuscarPelaID(Long id) {
-		return this.cadastroService.BuscandoId(id);
+	public Usuario BuscarPelaID(String login) {
+		return this.cadastroService.BuscandoId(login);
 	}
 
 	public List<Usuario> BuscarPeloNome(String nome) {

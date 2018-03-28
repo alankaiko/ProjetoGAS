@@ -2,6 +2,13 @@ package br.com.gsv.funcUsuario.listener;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+
+import javax.swing.AbstractAction;
+import javax.swing.JComponent;
+import javax.swing.JRootPane;
+import javax.swing.KeyStroke;
 
 import br.com.gsv.funcUsuario.domain.Usuario;
 import br.com.gsv.funcUsuario.formularios.IncluirUsuarioForm;
@@ -16,10 +23,14 @@ public class IncluirUsuarioListener implements ActionListener{
 	private IncluirUsuarioForm formulario;
 	private Usuario usuario;
 	private Funcionario funcionario;
+	private UsuarioController control;
 	
 	public IncluirUsuarioListener(IncluirUsuarioForm formulario) {
 		this.formulario = formulario;
+		control = new UsuarioController();
 		AdicionaListener();
+		UsandoTAB();
+		TeclaEsc();
 	}
 
 	private void AdicionaListener(){
@@ -28,8 +39,25 @@ public class IncluirUsuarioListener implements ActionListener{
 		this.formulario.getBPesquisar().addActionListener(this);
 	}
 	
+	/*-----------------------------------------------------------------------------------------------------------------*/
+	/*---------------------------------------CLASSES PARA EDICAO DOS OBJETOS-------------------------------------------*/
+	public void AlterandoObjetos() {
+		this.formulario.getTFuncionario().setText(this.usuario.getFuncionario().getNome());
+		this.formulario.getJCpf().setText(this.usuario.getFuncionario().getCpf());
+		this.formulario.getTCpf().setText(this.formulario.getJCpf().getText());
+		this.formulario.getTRg().setText(this.usuario.getFuncionario().getRg());
+		
+		this.formulario.getTLogin().setText(this.usuario.getFuncionario().getNome());
+	}
+
 	
 	
+	private void FormToUsuario(){
+		usuario = new Usuario();
+		usuario.setFuncionario(this.funcionario);
+		usuario.setLogin(this.formulario.getTLogin().getText());
+		usuario.setSenha(this.formulario.getTSenha().getText());
+	}
 	
 	
 	
@@ -40,6 +68,18 @@ public class IncluirUsuarioListener implements ActionListener{
 			dialog.setLocationRelativeTo(this.formulario.getTela());
 			dialog.setVisible(true);
 			BuscarFuncionario(dialog.getListener().getCodigo());
+		}
+		
+		if(event.getSource().equals(this.formulario.getBGravar())){
+			FormToUsuario();
+			control.setUsuario(this.usuario);
+			control.SalvarUsuario();
+			
+			this.formulario.dispose();
+		}
+		
+		if(event.getSource().equals(this.formulario.getBCancelar())){
+			this.formulario.dispose();
 		}
 		
 	}
@@ -54,6 +94,47 @@ public class IncluirUsuarioListener implements ActionListener{
 		this.formulario.getTCpf().setText(this.formulario.getJCpf().getText());
 		this.formulario.getTRg().setText(this.funcionario.getRg());
 	}
+	
+	
+	private void UsandoTAB() {
+		this.formulario.getRootPane().setDefaultButton(
+				this.formulario.getBGravar());
+		this.formulario.getBGravar().addKeyListener(new KeyAdapter() {
+			public void keyPressed(KeyEvent e) {
+				if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+					formulario.getBGravar().doClick();
+				}
+			}
+		});
+
+		this.formulario.getBCancelar().addKeyListener(new KeyAdapter() {
+			public void keyPressed(KeyEvent e) {
+				if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+					formulario.getBCancelar().doClick();
+				}
+			}
+		});
+	}
+
+	
+	public void TeclaEsc() {
+		JRootPane meurootpane = this.formulario.getRootPane();
+		meurootpane.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), "ESCAPE");
+		meurootpane.getRootPane().getActionMap().put("ESCAPE", new AbstractAction("ESCAPE") {
+			public void actionPerformed(ActionEvent e) {
+				formulario.dispose();
+			}
+		});
+	}
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+	
 	
 	
 	

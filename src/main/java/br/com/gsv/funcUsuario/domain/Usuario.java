@@ -6,6 +6,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -13,11 +15,16 @@ import br.com.gsv.funcionario.domain.Funcionario;
 
 @Table
 @Entity
+@NamedQueries({
+	@NamedQuery(name="Usuario.listar", query="SELECT usuario FROM Usuario usuario order by login"),
+	@NamedQuery(name="Usuario.buscarPorId", query="SELECT usuario FROM Usuario usuario WHERE usuario.id = :id"),
+	@NamedQuery(name="Usuario.buscarPorLogin", query="SELECT usuario FROM Usuario usuario WHERE usuario.login LIKE :login"),
+})
 public class Usuario {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "conv_id")
+	@Column(name = "usu_id")
 	private Long id;
 
 	@OneToOne

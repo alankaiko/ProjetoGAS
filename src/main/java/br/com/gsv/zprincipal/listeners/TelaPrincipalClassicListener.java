@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 
 import br.com.gsv.convenio.formularios.GerenciaTelaConvenio;
 import br.com.gsv.fabricantes.formularios.GerenciaTelaFabricante;
+import br.com.gsv.funcUsuario.formularios.GerenciaTelaUsuario;
 import br.com.gsv.funcionario.formularios.GerenciaTelaFuncionario;
 import br.com.gsv.funcionario.formularios.IncluirFuncionariosForm;
 import br.com.gsv.paciente.formularios.GerenciaTelaPaciente;
@@ -46,6 +47,7 @@ public class TelaPrincipalClassicListener implements ActionListener{
 		
 		this.tela.getUsuarioConFun().addActionListener(this);
 		this.tela.getUsuarioFuncionario().addActionListener(this);
+		this.tela.getUsuarioUser().addActionListener(this);
 	
 		this.tela.getFarmaciaFabricante().addActionListener(this);
 		this.tela.getFarmaciaGruProduto().addActionListener(this);
@@ -103,6 +105,10 @@ public class TelaPrincipalClassicListener implements ActionListener{
 			AbreCadProdutos();
 		}
 		
+		if(event.getSource().equals(this.tela.getUsuarioUser())){
+			AbreCadUsuarios();
+		}
+		
 	}
 	
 	private void AbreProntuarios(){
@@ -155,6 +161,11 @@ public class TelaPrincipalClassicListener implements ActionListener{
 		produtos.setVisible(true);
 	}
 	
+	private void AbreCadUsuarios(){
+		GerenciaTelaUsuario user = new GerenciaTelaUsuario();
+		user.setLocationRelativeTo(this.tela.getTela());
+		user.setVisible(true);
+	}
 	
 
 }

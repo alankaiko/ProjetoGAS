@@ -22,10 +22,10 @@ import br.com.projeto.gsv.controller.PacienteController;
 import br.com.projeto.gsv.controller.ProdutoController;
 import br.com.projeto.gsv.controller.ProntuarioController;
 import br.com.projeto.gsv.util.TabelaDeProdutosUtil;
-import br.com.projeto.gsv.util.TabelaDeProntuarios;
+import br.com.projeto.gsv.util.TabelaDeProntuariosUtil;
 
 public class GerenciarProntuarioListener implements ActionListener{
-	private TabelaDeProntuarios tabela;
+	private TabelaDeProntuariosUtil tabela;
 	private GerenciaProntuarios gerenciamento;
 	private List<Prontuario> listaProntuarios;
 	
@@ -50,7 +50,7 @@ public class GerenciarProntuarioListener implements ActionListener{
 		ProntuarioController control = new ProntuarioController();
 		listaProntuarios = control.ListaCompletaDeProntuarios();
 		
-		tabela = new TabelaDeProntuarios(listaProntuarios);
+		tabela = new TabelaDeProntuariosUtil(listaProntuarios);
 		this.gerenciamento.getTable().setModel(tabela);
 		this.gerenciamento.getTable().getColumnModel().getColumn(0).setPreferredWidth(20);
 		this.gerenciamento.getTable().getColumnModel().getColumn(1).setPreferredWidth(20);

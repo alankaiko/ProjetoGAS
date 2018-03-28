@@ -21,8 +21,8 @@ public class CadastroUsuarioService {
 		return repositorio.ListarUsuario();
 	}
 	
-	public Usuario BuscandoId(Long id){
-		return this.repositorio.BuscarPorId(id);
+	public Usuario BuscandoId(String login){
+		return this.repositorio.BuscarPorId(login);
 	}
 	
 	public List<Usuario> BuscandoPeloNome(String nome){
