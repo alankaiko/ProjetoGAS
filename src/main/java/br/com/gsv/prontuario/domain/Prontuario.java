@@ -137,7 +137,7 @@ public class Prontuario implements Serializable{
 	}
 
 	public String getAnotConsciencia() {
-		return anotConsciencia;
+		return anotConsciencia+"";
 	}
 
 	public void setAnotConsciencia(String anotConsciencia) {
@@ -145,7 +145,7 @@ public class Prontuario implements Serializable{
 	}
 
 	public String getAnotMental() {
-		return anotMental;
+		return anotMental+"";
 	}
 
 	public void setAnotMental(String anotMental) {
@@ -161,7 +161,7 @@ public class Prontuario implements Serializable{
 	}
 
 	public String getCondDeambulacao() {
-		return condDeambulacao;
+		return condDeambulacao+"";
 	}
 
 	public void setCondDeambulacao(String condDeambulacao) {
@@ -177,7 +177,7 @@ public class Prontuario implements Serializable{
 	}
 
 	public String getCondRepouso() {
-		return condRepouso;
+		return condRepouso+"";
 	}
 
 	public void setCondRepouso(String condRepouso) {
@@ -185,7 +185,7 @@ public class Prontuario implements Serializable{
 	}
 
 	public String getCondSono() {
-		return condSono;
+		return condSono+"";
 	}
 
 	public void setCondSono(String condSono) {
