@@ -113,6 +113,7 @@ public class TelaPrincipalClassicListener implements ActionListener{
 	
 	private void AbreProntuarios(){
 		ProntuarioForm formulario = new ProntuarioForm();
+		formulario.getListener().InicializaObjetos();
 		formulario.setLocationRelativeTo(this.tela.getTela());
 		formulario.setVisible(true);
 	}
