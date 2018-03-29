@@ -158,6 +158,9 @@ public class ProntuarioListener implements ActionListener{
 	/*-----------------------------------------------------ALTERA OBJETO-----------------------------------------*/
 	/*-----------------------------------------------------------------------------------------------------------*/
 	public void PreencheCamposParaEdicao(){
+		this.paciente = this.prontuario.getPaciente();
+		this.equiCheckbox = this.prontuario.getEquipCheckbox();
+		
 		this.formulario.getTDataCad().setText(ConverteDadosUtil.TransformandoEmString(this.prontuario.getData()));
 		this.formulario.getTHora().setText(this.prontuario.getHora());
 		this.formulario.getTextoAreaAnotacao().setText(this.prontuario.getAnotObservacao());
@@ -194,7 +197,7 @@ public class ProntuarioListener implements ActionListener{
 			this.controller = new ProntuarioController();
 			this.controller.setProntuario(prontuario);
 			this.controller.SalvarProntuario();
-			//this.formulario.dispose();
+			this.formulario.dispose();
 		}
 		
 		if(event.getSource().equals(this.formulario.getBTCancelar())){
@@ -205,7 +208,9 @@ public class ProntuarioListener implements ActionListener{
 			BuscarPacienteDialog dialog = new BuscarPacienteDialog();
 			dialog.setLocationRelativeTo(this.formulario.getContentPane());
 			dialog.setVisible(true);
-			BuscarCliente(dialog.getListener().getCodigo());
+			
+			if(dialog.getListener().getCodigo() != null)
+				BuscarCliente(dialog.getListener().getCodigo());
 		}
 		
 	}

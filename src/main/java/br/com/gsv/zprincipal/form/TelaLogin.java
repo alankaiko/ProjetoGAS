@@ -23,7 +23,6 @@ public class TelaLogin extends JFrame {
 	private JTextField campoTexto;
 	private JLabel labelGas, usuario, senha, botaoFechar;
 	private JButton botaoEntrar;
-	private JTextPane esqueciSenha;
 	private JPasswordField campoSenha;
 	private TelaLoginListener listener;
 
@@ -106,12 +105,6 @@ public class TelaLogin extends JFrame {
 		senha.setBounds(243, 112, 58, 14);
 		PainelPrincipal.add(senha);
 
-		esqueciSenha = new JTextPane();
-		esqueciSenha.setFont(new Font("Segoe UI", Font.PLAIN, 12));
-		esqueciSenha.setText("Esqueci a Senha");
-		esqueciSenha.setBounds(363, 247, 107, 20);
-		PainelPrincipal.add(esqueciSenha);
-
 		botaoFechar = new JLabel();
 		botaoFechar.setIcon(new ImageIcon(TelaLogin.class
 				.getResource("/imagens/close.png")));
@@ -160,13 +153,6 @@ public class TelaLogin extends JFrame {
 		this.botaoEntrar = botaoEntrar;
 	}
 
-	public JTextPane getEsqueciSenha() {
-		return esqueciSenha;
-	}
-
-	public void setEsqueciSenha(JTextPane esqueciSenha) {
-		this.esqueciSenha = esqueciSenha;
-	}
 
 	public JPasswordField getCampoSenha() {
 		return campoSenha;

@@ -127,9 +127,7 @@ public class IncluirFabricantesListener implements ActionListener {
 					formulario.getTFabricante().setText(s.toUpperCase());  
 				}  
 			}  
-		}); 	
-		
-
+		});
 	}
 	
 	

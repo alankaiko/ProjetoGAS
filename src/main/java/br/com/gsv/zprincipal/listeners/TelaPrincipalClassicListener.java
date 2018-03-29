@@ -74,11 +74,11 @@ public class TelaPrincipalClassicListener implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent event) {
 		if(event.getSource().equals(this.tela.getAtendimentoAnotacoes())){
-			AbreAgendaProntuario();
+			AbreProntuarios();
 		}
 		
 		if(event.getSource().equals(this.tela.getAtendimentoProntuario())){
-			AbreProntuarios();
+			AbreAgendaProntuario();
 		}
 		
 		if(event.getSource().equals(this.tela.getCadastroConvenio())){

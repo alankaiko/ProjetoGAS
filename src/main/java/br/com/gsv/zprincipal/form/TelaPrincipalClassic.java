@@ -91,11 +91,11 @@ public class TelaPrincipalClassic extends JFrame {
 		menuAtendimento = new JMenu("Atendimento");
 		menuBar.add(menuAtendimento);
 		
-		atendimentoAnotacoes = new JMenuItem("Agendar Anotações");
-		menuAtendimento.add(atendimentoAnotacoes);
-		
 		atendimentoProntuario = new JMenuItem("Gerenciar Prontuários");
 		menuAtendimento.add(atendimentoProntuario);
+		
+		atendimentoAnotacoes = new JMenuItem("Agendar Anotações");
+		menuAtendimento.add(atendimentoAnotacoes);
 		
 		menuCadastro = new JMenu("Cadastro");
 		menuBar.add(menuCadastro);

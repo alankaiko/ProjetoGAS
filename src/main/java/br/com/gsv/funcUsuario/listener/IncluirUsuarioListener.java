@@ -43,6 +43,7 @@ public class IncluirUsuarioListener implements ActionListener{
 	/*-----------------------------------------------------------------------------------------------------------------*/
 	/*---------------------------------------CLASSES PARA EDICAO DOS OBJETOS-------------------------------------------*/
 	public void AlterandoObjetos() {
+		this.funcionario = this.usuario.getFuncionario();
 		this.formulario.getTFuncionario().setText(this.usuario.getFuncionario().getNome());
 		this.formulario.getJCpf().setText(this.usuario.getFuncionario().getCpf());
 		this.formulario.getTCpf().setText(this.formulario.getJCpf().getText());
