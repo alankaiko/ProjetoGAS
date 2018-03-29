@@ -3,7 +3,9 @@ package br.com.projeto.gsv.util;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+
 import javax.swing.table.AbstractTableModel;
+
 import br.com.gsv.prontuario.domain.Prontuario;
 
 public class TabelaDeProntuariosUtil extends AbstractTableModel{

@@ -113,6 +113,7 @@ public class ProntuarioListener implements ActionListener{
 			this.prontuario.setAnotMental(this.formulario.getRadioAgitado().getText());
 		
 		
+		
 		if(this.formulario.getRadioDeambulante().isSelected())
 			this.prontuario.setCondDeambulacao(this.formulario.getRadioDeambulante().getText());
 		
@@ -160,6 +161,7 @@ public class ProntuarioListener implements ActionListener{
 	public void PreencheCamposParaEdicao(){
 		this.paciente = this.prontuario.getPaciente();
 		this.equiCheckbox = this.prontuario.getEquipCheckbox();
+		SetarRadioButtons();
 		
 		this.formulario.getTDataCad().setText(ConverteDadosUtil.TransformandoEmString(this.prontuario.getData()));
 		this.formulario.getTHora().setText(this.prontuario.getHora());
@@ -186,8 +188,64 @@ public class ProntuarioListener implements ActionListener{
 		
 	}
 	
+	private void SetarRadioButtons(){
+		if(this.prontuario.getAnotConsciencia().equals(this.formulario.getRadioNivNormal().getText()))
+			this.formulario.getRadioNivNormal().setSelected(true);
+		
+		if(this.prontuario.getAnotConsciencia().equals(this.formulario.getRadioAlerta().getText()))
+			this.formulario.getRadioAlerta().setSelected(true);
+		
+		if(this.prontuario.getAnotConsciencia().equals(this.formulario.getRadioLetargico().getText()))
+			this.formulario.getRadioLetargico().setSelected(true);
+		
+		if(this.prontuario.getAnotConsciencia().equals(this.formulario.getRadioObnubilado().getText()))
+			this.formulario.getRadioObnubilado().setSelected(true);
+		
+		if(this.prontuario.getAnotConsciencia().equals(this.formulario.getRadioTorporoso().getText()))
+			this.formulario.getRadioTorporoso().setSelected(true);
+		
+		if(this.prontuario.getAnotConsciencia().equals(this.formulario.getRadioComatoso().getText()))
+			this.formulario.getRadioComatoso().setSelected(true);
+	
+		
+		
+		
+		if(this.prontuario.getAnotMental().equals(this.formulario.getRadioEstNormal().getText()))
+			this.formulario.getRadioEstNormal().setSelected(true);
+		
+		if(this.prontuario.getAnotMental().equals(this.formulario.getRadioCalmo().getText()))
+			this.formulario.getRadioCalmo().setSelected(true);
+		
+		if(this.prontuario.getAnotMental().equals(this.formulario.getRadioApatico().getText()))
+			this.formulario.getRadioApatico().setSelected(true);
+		
+		if(this.prontuario.getAnotMental().equals(this.formulario.getRadioAlegre().getText()))
+			this.formulario.getRadioAlegre().setSelected(true);
+		
+		if(this.prontuario.getAnotMental().equals(this.formulario.getRadioTriste().getText()))
+			this.formulario.getRadioTriste().setSelected(true);
+		
+		if(this.prontuario.getAnotMental().equals(this.formulario.getRadioAgitado().getText()))
+			this.formulario.getRadioAgitado().setSelected(true);
+		
+		
+		
+		if(this.prontuario.getCondDeambulacao().equals(this.formulario.getRadioDeambulante().getText()))
+			this.formulario.getRadioDeambulante().setSelected(true);
+		
+		if(this.prontuario.getCondDeambulacao().equals(this.formulario.getRadioUtilizaCadeira().getText()))
+			this.formulario.getRadioUtilizaCadeira().setSelected(true);
 	
 	
+		
+		if(this.prontuario.getCondRepouso().equals(this.formulario.getRadioRelativo().getText()))
+			this.formulario.getRadioRelativo().setSelected(true);
+		
+		if(this.prontuario.getCondRepouso().equals(this.formulario.getRadioAbsoluto().getText()))
+			this.formulario.getRadioAbsoluto().setSelected(true);
+	}
+	/*-----------------------------------------------------------------------------------------------------------*/
+	/*-----------------------------------------------------------------------------------------------------------*/
 	
 
 	@Override
