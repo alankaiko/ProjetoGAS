@@ -35,37 +35,26 @@ public class Prontuario implements Serializable{
 	private Long id;
 	
 	
-	@Column
 	private Date data;
-	
-	@Column
 	private String hora;
-	
-	@Column
 	private Paciente paciente;
-	
-	@Column
 	private String anotConsciencia;
-	
-	@Column
 	private String anotMental;
-	
-	@Column
 	private String anotObservacao;
-
-	@Column
 	private String condDeambulacao;
-	
-	@Column
 	private String condDeamObservacao;
-	
-	@Column
 	private String condRepouso;
-	
-	@Column
 	private String condSono;
 	
-	
+	public Prontuario() {
+		this.anotConsciencia = new String();
+		this.anotMental = new String();
+		this.anotObservacao = new String();
+		this.condDeambulacao = new String();
+		this.condDeamObservacao = new String();
+		this.condRepouso = new String();
+		this.condSono = new String();
+	}
 
 	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinColumn(name = "tab_pront_equip_id", referencedColumnName = "equip_id")
@@ -133,7 +122,7 @@ public class Prontuario implements Serializable{
 	}
 
 	public String getAnotConsciencia() {
-		return anotConsciencia+"";
+		return anotConsciencia;
 	}
 
 	public void setAnotConsciencia(String anotConsciencia) {
@@ -141,7 +130,7 @@ public class Prontuario implements Serializable{
 	}
 
 	public String getAnotMental() {
-		return anotMental+"";
+		return anotMental;
 	}
 
 	public void setAnotMental(String anotMental) {
@@ -157,7 +146,7 @@ public class Prontuario implements Serializable{
 	}
 
 	public String getCondDeambulacao() {
-		return condDeambulacao+"";
+		return condDeambulacao;
 	}
 
 	public void setCondDeambulacao(String condDeambulacao) {
@@ -173,7 +162,7 @@ public class Prontuario implements Serializable{
 	}
 
 	public String getCondRepouso() {
-		return condRepouso+"";
+		return condRepouso;
 	}
 
 	public void setCondRepouso(String condRepouso) {
@@ -181,7 +170,7 @@ public class Prontuario implements Serializable{
 	}
 
 	public String getCondSono() {
-		return condSono+"";
+		return condSono;
 	}
 
 	public void setCondSono(String condSono) {

@@ -19,14 +19,16 @@ public class SintomasMembrosCheckbox implements Serializable{
 	@Column(name="memb_id")
 	private Long id;
 	
-	@Column
+
 	private String checkColoracao;
-	
-	@Column
 	private String checkPerfusao;
-	
-	@Column
 	private String LPulso;
+	
+	public SintomasMembrosCheckbox() {
+		this.checkColoracao = new String();
+		this.checkPerfusao = new String();
+		this.LPulso = new String();
+	}
 
 	public Long getId() {
 		return id;

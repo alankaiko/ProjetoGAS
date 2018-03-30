@@ -8,6 +8,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import br.com.gsv.produtos.grafico.DetalheProdutoClassic;
+import br.com.gsv.produtos.grafico.DetalheProdutoGrafic;
 import br.com.gsv.produtos.listeners.DetalhesProdutoListener;
 
 public class DetalhesProdutoDialog extends JDialog {
@@ -18,6 +19,7 @@ public class DetalhesProdutoDialog extends JDialog {
 	private JLabel TCodigo, TDescricao, TFabricante, TQuantidade;
 	private JLabel LDados, LCodigo, LDescricao, LQuantidade, LFabricante;
 	private DetalheProdutoClassic listenerClassic;
+	
 
 	public DetalhesProdutoDialog() {
 		CriaVariaveis();

@@ -244,6 +244,10 @@ public class ProntuarioListener implements ActionListener{
 		
 		SetarRadioButtons();
 		SetarCheckBoxes();
+		this.equiCheckbox = new EquipamentoCheckBox();
+		this.integCheckbox = new IntegridadeHemorragia();
+		this.sintCheckbox = new SintomasCheckbox();
+		this.sintMenCheckbox = new SintomasMembrosCheckbox();
 		
 		this.formulario.getTDataCad().setText(ConverteDadosUtil.TransformandoEmString(this.prontuario.getData()));
 		this.formulario.getTHora().setText(this.prontuario.getHora());
@@ -409,6 +413,7 @@ public class ProntuarioListener implements ActionListener{
 			
 			PegarRadioButtons();
 			PegarCheckboxes();
+			
 			this.prontuario.setPaciente(this.paciente);
 			
 			this.controller = new ProntuarioController();

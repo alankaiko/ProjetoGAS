@@ -71,7 +71,9 @@ public class IncluirUsuarioListener implements ActionListener{
 			BuscarFuncionarioDialog dialog = new BuscarFuncionarioDialog();
 			dialog.setLocationRelativeTo(this.formulario.getTela());
 			dialog.setVisible(true);
-			BuscarFuncionario(dialog.getListener().getCodigo());
+			
+			if(dialog.getListener().getCodigo() != null)
+				BuscarFuncionario(dialog.getListener().getCodigo());
 		}
 		
 		if(event.getSource().equals(this.formulario.getBGravar())){

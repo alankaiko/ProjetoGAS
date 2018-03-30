@@ -29,7 +29,15 @@ public class EquipamentoCheckBox implements Serializable{
 	private String checkVenoclise;
 	private String checkOutros;
 
-	
+	public EquipamentoCheckBox() {
+		this.checkCateter = new String();
+		this.checkSonda = new String();
+		this.checkUripen = new String();
+		this.checkDreno = new String();
+		this.checkCurativos = new String();
+		this.checkVenoclise = new String();
+		this.checkOutros = new String();
+	}
 	
 	public Long getId() {
 		return id;

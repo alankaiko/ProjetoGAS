@@ -19,26 +19,25 @@ public class IntegridadeHemorragia implements Serializable{
 	@Column(name="integ_id")
 	private Long id;
 	
-	@Column
+
 	private String checkHemorragia;
-	
-	@Column
 	private String checkDispneia;
-	
-	@Column
 	private String checkEdema;
-	
-	@Column
 	private String checkDescamacao;
-	
-	@Column
 	private String checkHematoma;
-	
-	@Column
 	private String checkCicatriz;
-	
-	@Column
 	private String checkOutroInt;
+	
+
+	public IntegridadeHemorragia() {
+		this.checkHemorragia = new String();
+		this.checkDispneia = new String();
+		this.checkEdema = new String();
+		this.checkDescamacao = new String();
+		this.checkHematoma = new String();
+		this.checkCicatriz = new String();
+		this.checkOutroInt = new String();
+	}
 
 	public Long getId() {
 		return id;

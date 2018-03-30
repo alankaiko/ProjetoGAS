@@ -18,10 +18,22 @@ public class DetalheProdutoClassic {
 	
 
 	private void CriarTelaGeral(){
+		this.formulario.setBounds(100, 100, 650, 460);
 		this.formulario.setTitle("Inserir Dados de Produtos");
 		this.formulario.setModal(true);
 		this.formulario.setResizable(false);
-		this.formulario.setBounds(100, 100, 650, 460);
+		
+		
+		this.formulario.getTela().setLayout(null);		
+		this.formulario.getTela().add(this.formulario.getPanel(), BorderLayout.CENTER);
+		
+		this.formulario.getPanel().setLayout(null);
+		this.formulario.getPanel().setBorder(new EmptyBorder(5, 5, 5, 5));
+		
+		this.formulario.setTitle("Inserir Dados de Produtos");
+		this.formulario.setModal(true);
+		this.formulario.setResizable(false);
+		this.formulario.setBounds(100, 100, 489, 356);
 		
 		this.formulario.getTela().setLayout(null);		
 		this.formulario.getTela().add(this.formulario.getPanel(), BorderLayout.CENTER);
