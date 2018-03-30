@@ -1,11 +1,17 @@
 package br.com.gsv.prontuario.listeners;
 
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
+import javax.persistence.CascadeType;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.swing.AbstractAction;
+import javax.swing.JCheckBox;
 import javax.swing.JComponent;
 import javax.swing.JRootPane;
 import javax.swing.KeyStroke;
@@ -13,7 +19,10 @@ import javax.swing.KeyStroke;
 import br.com.gsv.paciente.domain.Paciente;
 import br.com.gsv.paciente.formularios.BuscarPacienteDialog;
 import br.com.gsv.prontuario.domain.EquipamentoCheckBox;
+import br.com.gsv.prontuario.domain.IntegridadeHemorragia;
 import br.com.gsv.prontuario.domain.Prontuario;
+import br.com.gsv.prontuario.domain.SintomasCheckbox;
+import br.com.gsv.prontuario.domain.SintomasMembrosCheckbox;
 import br.com.gsv.prontuario.formularios.ProntuarioForm;
 import br.com.projeto.gsv.controller.PacienteController;
 import br.com.projeto.gsv.controller.ProntuarioController;
@@ -25,6 +34,9 @@ public class ProntuarioListener implements ActionListener{
 	private ProntuarioController controller;
 	private Paciente paciente;
 	private EquipamentoCheckBox equiCheckbox;
+	private IntegridadeHemorragia integCheckbox;
+	private SintomasCheckbox sintCheckbox;
+	private SintomasMembrosCheckbox sintMenCheckbox;
 
 	public ProntuarioListener(ProntuarioForm formulario) {
 		this.formulario = formulario;
@@ -46,6 +58,9 @@ public class ProntuarioListener implements ActionListener{
 	public void InicializaObjetos(){
 		this.prontuario = new Prontuario();
 		this.equiCheckbox = new EquipamentoCheckBox();
+		this.integCheckbox = new IntegridadeHemorragia();
+		this.sintCheckbox = new SintomasCheckbox();
+		this.sintMenCheckbox = new SintomasMembrosCheckbox();
 	}
 	
 	
@@ -69,9 +84,7 @@ public class ProntuarioListener implements ActionListener{
 		this.prontuario.setInteOutrosText(this.formulario.getTOutrosInt().getText());
 		this.prontuario.setSintomasEspText(this.formulario.getTextoSintomas().getText());
 		this.prontuario.setSintomasMembText(this.formulario.getTextoMembros().getText());	
-		PegarRadioButtons();
-		PegarCheckboxes();
-		this.prontuario.setPaciente(this.paciente);
+		
 	}
 	
 	private void PegarRadioButtons(){
@@ -92,6 +105,7 @@ public class ProntuarioListener implements ActionListener{
 		
 		if(this.formulario.getRadioComatoso().isSelected())
 			this.prontuario.setAnotConsciencia(this.formulario.getRadioComatoso().getText());
+		
 		
 		
 		if(this.formulario.getRadioEstNormal().isSelected())
@@ -152,16 +166,84 @@ public class ProntuarioListener implements ActionListener{
 			this.equiCheckbox.setCheckOutros(this.formulario.getCheckOutros().getText());
 		
 		this.prontuario.setEquipCheckbox(this.equiCheckbox);
+		
+		
+		
+		if(this.formulario.getCheckHemorragia().isSelected())
+			this.integCheckbox.setCheckHemorragia(this.formulario.getCheckHemorragia().getText());
+		
+		if(this.formulario.getCheckDispneia().isSelected())
+			this.integCheckbox.setCheckDispneia(this.formulario.getCheckDispneia().getText());
+		
+		if(this.formulario.getCheckEdema().isSelected())
+			this.integCheckbox.setCheckEdema(this.formulario.getCheckEdema().getText());
+		
+		if(this.formulario.getCheckDescamacao().isSelected())
+			this.integCheckbox.setCheckDescamacao(this.formulario.getCheckDescamacao().getText());
+		
+		if(this.formulario.getCheckHematoma().isSelected())
+			this.integCheckbox.setCheckHematoma(this.formulario.getCheckHematoma().getText());
+		
+		if(this.formulario.getCheckCicatriz().isSelected())
+			this.integCheckbox.setCheckCicatriz(this.formulario.getCheckCicatriz().getText());
+		
+		if(this.formulario.getCheckOutroInt().isSelected())
+			this.integCheckbox.setCheckOutroInt(this.formulario.getCheckOutroInt().getText());
+		
+		this.prontuario.setIntegHemorragia(this.integCheckbox);
+		
+		
+		
+		if(this.formulario.getCheckNauseas().isSelected())
+			this.sintCheckbox.setCheckNauseas(this.formulario.getCheckNauseas().getText());
+		
+		if(this.formulario.getCheckMalEstar().isSelected())
+			this.sintCheckbox.setCheckMalEstar(this.formulario.getCheckMalEstar().getText());
+		
+		if(this.formulario.getCheckInsonia().isSelected())
+			this.sintCheckbox.setCheckInsonia(this.formulario.getCheckInsonia().getText());
+		
+		if(this.formulario.getCheckPrurido().isSelected())
+			this.sintCheckbox.setCheckPrurido(this.formulario.getCheckPrurido().getText());
+		
+		this.prontuario.setSintomasEsp(this.sintCheckbox);
+		
+		
+		
+		
+		if(this.formulario.getCheckColoracao().isSelected())
+			this.sintMenCheckbox.setCheckColoracao(this.formulario.getCheckColoracao().getText());
+		
+		if(this.formulario.getCheckPerfusao().isSelected())
+			this.sintMenCheckbox.setCheckPerfusao(this.formulario.getCheckPerfusao().getText());
+		
+		if(this.formulario.getLPulso().isSelected())
+			this.sintMenCheckbox.setLPulso(this.formulario.getLPulso().getText());
+
+		this.prontuario.setSintomasMembros(this.sintMenCheckbox);
+		
+	
+
 	}
 	/*-----------------------------------------------------------------------------------------------------------*/
 	/*-----------------------------------------------------------------------------------------------------------*/
+	
+	
+	
+	
 	
 	/*-----------------------------------------------------ALTERA OBJETO-----------------------------------------*/
 	/*-----------------------------------------------------------------------------------------------------------*/
 	public void PreencheCamposParaEdicao(){
 		this.paciente = this.prontuario.getPaciente();
 		this.equiCheckbox = this.prontuario.getEquipCheckbox();
+		this.sintCheckbox = this.prontuario.getSintomasEsp();
+		this.sintMenCheckbox = this.prontuario.getSintomasMembros();
+		this.integCheckbox = this.prontuario.getIntegHemorragia();
+		
+		
 		SetarRadioButtons();
+		SetarCheckBoxes();
 		
 		this.formulario.getTDataCad().setText(ConverteDadosUtil.TransformandoEmString(this.prontuario.getData()));
 		this.formulario.getTHora().setText(this.prontuario.getHora());
@@ -244,6 +326,78 @@ public class ProntuarioListener implements ActionListener{
 		if(this.prontuario.getCondRepouso().equals(this.formulario.getRadioAbsoluto().getText()))
 			this.formulario.getRadioAbsoluto().setSelected(true);
 	}
+	
+	private void SetarCheckBoxes(){
+		if(this.prontuario.getEquipCheckbox().getCheckCateter().equals(this.formulario.getCheckCateter().getText()))
+			this.formulario.getCheckCateter().setSelected(true);
+		
+		if(this.prontuario.getEquipCheckbox().getCheckSonda().equals(this.formulario.getCheckSonda().getText()))
+			this.formulario.getCheckSonda().setSelected(true);
+		
+		if(this.prontuario.getEquipCheckbox().getCheckUripen().equals(this.formulario.getCheckUripen().getText()))
+			this.formulario.getCheckUripen().setSelected(true);
+		
+		if(this.prontuario.getEquipCheckbox().getCheckDreno().equals(this.formulario.getCheckDreno().getText()))
+			this.formulario.getCheckDreno().setSelected(true);
+
+		if(this.prontuario.getEquipCheckbox().getCheckCurativos().equals(this.formulario.getCheckCurativos().getText()))
+			this.formulario.getCheckCurativos().setSelected(true);
+
+		if(this.prontuario.getEquipCheckbox().getCheckVenoclise().equals(this.formulario.getCheckVenoclise().getText()))
+			this.formulario.getCheckVenoclise().setSelected(true);
+
+		if(this.prontuario.getEquipCheckbox().getCheckOutros().equals(this.formulario.getCheckOutros().getText()))
+			this.formulario.getCheckOutros().setSelected(true);
+	
+			
+		
+		if(this.prontuario.getIntegHemorragia().getCheckHemorragia().equals(this.formulario.getCheckHemorragia().getText()))
+			this.formulario.getCheckHemorragia().setSelected(true);
+		
+		if(this.prontuario.getIntegHemorragia().getCheckDispneia().equals(this.formulario.getCheckDispneia().getText()))
+			this.formulario.getCheckDispneia().setSelected(true);
+
+		if(this.prontuario.getIntegHemorragia().getCheckEdema().equals(this.formulario.getCheckEdema().getText()))
+			this.formulario.getCheckEdema().setSelected(true);
+		
+		if(this.prontuario.getIntegHemorragia().getCheckDescamacao().equals(this.formulario.getCheckDescamacao().getText()))
+			this.formulario.getCheckDescamacao().setSelected(true);
+
+		if(this.prontuario.getIntegHemorragia().getCheckHematoma().equals(this.formulario.getCheckHematoma().getText()))
+			this.formulario.getCheckHematoma().setSelected(true);
+		
+		if(this.prontuario.getIntegHemorragia().getCheckCicatriz().equals(this.formulario.getCheckCicatriz().getText()))
+			this.formulario.getCheckCicatriz().setSelected(true);
+		
+		if(this.prontuario.getIntegHemorragia().getCheckOutroInt().equals(this.formulario.getCheckOutroInt().getText()))
+			this.formulario.getCheckOutroInt().setSelected(true);
+	
+	
+		
+		if(this.prontuario.getSintomasEsp().getCheckNauseas().equals(this.formulario.getCheckNauseas().getText()))
+			this.formulario.getCheckNauseas().setSelected(true);
+		
+		if(this.prontuario.getSintomasEsp().getCheckMalEstar().equals(this.formulario.getCheckMalEstar().getText()))
+			this.formulario.getCheckMalEstar().setSelected(true);
+		
+		if(this.prontuario.getSintomasEsp().getCheckInsonia().equals(this.formulario.getCheckInsonia().getText()))
+			this.formulario.getCheckInsonia().setSelected(true);
+		
+		if(this.prontuario.getSintomasEsp().getCheckPrurido().equals(this.formulario.getCheckPrurido().getText()))
+			this.formulario.getCheckPrurido().setSelected(true);
+		
+	
+		
+		if(this.prontuario.getSintomasMembros().getCheckColoracao().equals(this.formulario.getCheckColoracao().getText()))
+			this.formulario.getCheckColoracao().setSelected(true);
+		
+		if(this.prontuario.getSintomasMembros().getCheckPerfusao().equals(this.formulario.getCheckPerfusao().getText()))
+			this.formulario.getCheckPerfusao().setSelected(true);
+	
+		if(this.prontuario.getSintomasMembros().getLPulso().equals(this.formulario.getLPulso().getText()))
+			this.formulario.getLPulso().setSelected(true);	
+
+	}
 	/*-----------------------------------------------------------------------------------------------------------*/
 	/*-----------------------------------------------------------------------------------------------------------*/
 	
@@ -252,6 +406,11 @@ public class ProntuarioListener implements ActionListener{
 	public void actionPerformed(ActionEvent event) {
 		if(event.getSource().equals(this.formulario.getBTGravar())){
 			FormToProntuario();
+			
+			PegarRadioButtons();
+			PegarCheckboxes();
+			this.prontuario.setPaciente(this.paciente);
+			
 			this.controller = new ProntuarioController();
 			this.controller.setProntuario(prontuario);
 			this.controller.SalvarProntuario();

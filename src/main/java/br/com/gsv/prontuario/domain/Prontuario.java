@@ -44,7 +44,6 @@ public class Prontuario implements Serializable{
 	@Column
 	private Paciente paciente;
 	
-	
 	@Column
 	private String anotConsciencia;
 	
@@ -66,8 +65,6 @@ public class Prontuario implements Serializable{
 	@Column
 	private String condSono;
 	
-	@Enumerated(EnumType.STRING)
-	private EnumSintomasCheckBox enumSintomas;
 	
 
 	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
@@ -312,12 +309,6 @@ public class Prontuario implements Serializable{
 	}
 	public void setHora(String hora) {
 		this.hora = hora;
-	}
-	public EnumSintomasCheckBox getEnumSintomas() {
-		return enumSintomas;
-	}
-	public void setEnumSintomas(EnumSintomasCheckBox enumSintomas) {
-		this.enumSintomas = enumSintomas;
 	}
 	
 	
