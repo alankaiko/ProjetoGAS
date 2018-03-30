@@ -10,12 +10,16 @@ import javax.swing.border.EmptyBorder;
 
 import br.com.gsv.funcionario.formularios.IncluirFuncionariosForm;
 import br.com.projeto.gsv.util.ListasUtil;
+import br.com.projeto.gsv.util.SomenteNumerosUtil;
 
 public class IncluirFuncionarioClassic {
 	private IncluirFuncionariosForm formulario;
+	private SomenteNumerosUtil soNumeros;
 	
 	public IncluirFuncionarioClassic(IncluirFuncionariosForm formulario) {
 		this.formulario = formulario;
+		soNumeros = new SomenteNumerosUtil();	
+		
 		CriarTelaGeral();
 		DadosFuncionario();
 	}
@@ -67,7 +71,8 @@ public class IncluirFuncionarioClassic {
 			this.formulario.getLRg().setBounds(456,60,29,20);
 			this.formulario.getLRg().setFont(new Font("Arial" , Font.BOLD,11));;
 				this.formulario.getTRg().setBounds(489,61,120,19);
-				this.formulario.getTRg().setFont(new Font("Arial",Font.BOLD,10));	
+				this.formulario.getTRg().setFont(new Font("Arial",Font.BOLD,10));
+				this.formulario.getTRg().addKeyListener(soNumeros);
 	
 					
 			this.formulario.getLNome().setText("*Nome:");
@@ -99,6 +104,7 @@ public class IncluirFuncionarioClassic {
 			this.formulario.getLNumero().setBounds(57, 228, 58, 14);
 				this.formulario.getTNumero().setBounds(111, 225, 106, 20);
 				this.formulario.getTNumero().setColumns(10);
+				this.formulario.getTNumero().addKeyListener(soNumeros);
 					
 			this.formulario.getLBairro().setText("Bairro: ");
 			this.formulario.getLBairro().setFont(new Font("Arial", Font.BOLD, 11));

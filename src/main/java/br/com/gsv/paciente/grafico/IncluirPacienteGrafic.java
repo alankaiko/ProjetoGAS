@@ -17,15 +17,19 @@ import br.com.gsv.paciente.formularios.IncluirPacienteForm;
 import br.com.projeto.gsv.util.ConverteDadosUtil;
 import br.com.projeto.gsv.util.FieldListener;
 import br.com.projeto.gsv.util.ListasUtil;
+import br.com.projeto.gsv.util.SomenteNumerosUtil;
 
 
 public class IncluirPacienteGrafic {
 	private IncluirPacienteForm formulario;
 	private FieldListener field;
+	private SomenteNumerosUtil soNumeros;
 	
 	public IncluirPacienteGrafic(IncluirPacienteForm formulario) {
 		this.formulario = formulario;
 		field = new FieldListener();
+		soNumeros = new SomenteNumerosUtil();
+		
 		CriaTela();
 		OrganizaTela();
 	}
@@ -96,6 +100,7 @@ public class IncluirPacienteGrafic {
 		this.formulario.getTRg().setBorder(new LineBorder(new Color(71,120,197)));
 		this.formulario.getTRg().addFocusListener(field);
 		this.formulario.getTRg().setColumns(10);
+		this.formulario.getTRg().addKeyListener(soNumeros);
 		
 		this.formulario.getJCpf().setBorder(new LineBorder(new Color(71,120,197)));
 		this.formulario.getJCpf().setColumns(10);
@@ -132,6 +137,7 @@ public class IncluirPacienteGrafic {
 		this.formulario.getTNumero().setBorder(new LineBorder(new Color(71,120,197)));
 		this.formulario.getTNumero().addFocusListener(field);
 		this.formulario.getTNumero().setColumns(10);
+		this.formulario.getTNumero().addKeyListener(soNumeros);
 		
 		this.formulario.getLComplemento().setText("Complemento");
 		this.formulario.getLComplemento().setFont(new Font("Segoe UI", Font.PLAIN, 11));

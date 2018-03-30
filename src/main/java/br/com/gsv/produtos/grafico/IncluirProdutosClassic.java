@@ -7,12 +7,16 @@ import java.awt.Font;
 import javax.swing.border.EmptyBorder;
 
 import br.com.gsv.produtos.formularios.IncluirProdutosForm;
+import br.com.projeto.gsv.util.SomenteNumerosUtil;
 
 public class IncluirProdutosClassic {
 	private IncluirProdutosForm formulario;
+	private SomenteNumerosUtil soNumeros;
 	
 	public IncluirProdutosClassic(IncluirProdutosForm formulario) {
 		this.formulario = formulario;
+		soNumeros = new SomenteNumerosUtil();
+		
 		CriarTelaGeral();
 		CriaComponentes();
 	}
@@ -52,6 +56,7 @@ public class IncluirProdutosClassic {
 		this.formulario.getLQuantidade().setBounds(38, 145, 94, 14);
 			this.formulario.getTQuantidade().setBounds(109, 142, 124, 20);
 			this.formulario.getTQuantidade().setColumns(10);
+			this.formulario.getTQuantidade().addKeyListener(soNumeros);
 		
 		
 		this.formulario.getLFabricante().setText("Fabricante");

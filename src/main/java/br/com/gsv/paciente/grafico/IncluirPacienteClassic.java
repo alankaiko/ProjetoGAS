@@ -11,12 +11,16 @@ import javax.swing.border.EmptyBorder;
 import br.com.gsv.paciente.formularios.IncluirPacienteForm;
 import br.com.projeto.gsv.util.ConverteDadosUtil;
 import br.com.projeto.gsv.util.ListasUtil;
+import br.com.projeto.gsv.util.SomenteNumerosUtil;
 
 public class IncluirPacienteClassic {
 	private IncluirPacienteForm formulario;
+	private SomenteNumerosUtil soNumeros;
 	
 	public IncluirPacienteClassic(IncluirPacienteForm formulario) {
 		this.formulario = formulario;
+		soNumeros = new SomenteNumerosUtil();
+		
 		CriarTelaGeral();
 		OrganizaDados();
 	}
@@ -73,6 +77,7 @@ public class IncluirPacienteClassic {
 			this.formulario.getLRg().setFont(new Font("Arial" , Font.BOLD,11));;
 				this.formulario.getTRg().setBounds(489,61,120,19);
 				this.formulario.getTRg() .setFont(new Font("Arial",Font.BOLD,10));
+				this.formulario.getTRg().addKeyListener(soNumeros);
 					
 			this.formulario.getLNome().setText("*Nome:");
 			this.formulario.getLNome().setBounds(65,90,50,20);
@@ -125,6 +130,7 @@ public class IncluirPacienteClassic {
 			this.formulario.getLNumero().setBounds(57, 228, 58, 14);
 				this.formulario.getTNumero().setBounds(111, 225, 106, 20);
 				this.formulario.getTNumero().setColumns(10);
+				this.formulario.getTNumero().addKeyListener(soNumeros);
 					
 			this.formulario.getLBairro().setText("Bairro: ");
 			this.formulario.getLBairro().setFont(new Font("Arial", Font.BOLD, 11));

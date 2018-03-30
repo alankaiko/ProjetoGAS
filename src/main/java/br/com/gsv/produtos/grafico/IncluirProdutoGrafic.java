@@ -1,29 +1,26 @@
 package br.com.gsv.produtos.grafico;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
 
 import javax.swing.GroupLayout;
-import javax.swing.JButton;
-import javax.swing.JComboBox;
+import javax.swing.GroupLayout.Alignment;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
-import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
-import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 
-import org.jboss.weld.security.GetProtectionDomainAction;
-
 import br.com.gsv.produtos.formularios.IncluirProdutosForm;
+import br.com.projeto.gsv.util.SomenteNumerosUtil;
 
 public class IncluirProdutoGrafic {
-private IncluirProdutosForm formulario;
+	private IncluirProdutosForm formulario;
+	private SomenteNumerosUtil soNumero;
 	
 	public IncluirProdutoGrafic(IncluirProdutosForm formulario) {
 		this.formulario = formulario;
+		soNumero = new SomenteNumerosUtil();
+		
 		CriarTelaGeral();
 		CriaComponentes();
 	}
@@ -43,8 +40,8 @@ private IncluirProdutosForm formulario;
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
-					.addComponent(this.formulario.getPanel(), GroupLayout.PREFERRED_SIZE, 470, Short.MAX_VALUE)
-					.addContainerGap())
+				.addComponent(this.formulario.getPanel(), GroupLayout.PREFERRED_SIZE, 470, Short.MAX_VALUE)
+				.addContainerGap())
 		);
 		groupLayout.setVerticalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
@@ -75,6 +72,7 @@ private IncluirProdutosForm formulario;
 		this.formulario.getTQuantidade().setBorder(new LineBorder(new Color(71,120,197)));
 		this.formulario.getTQuantidade().setFont(new Font("Segoe UI Light", Font.PLAIN, 12));
 		this.formulario.getTQuantidade().setColumns(10);
+		this.formulario.getTQuantidade().addKeyListener(soNumero);
 		
 		this.formulario.getLFabricante().setText("Fabricante");
 		this.formulario.getLFabricante().setFont(new Font("Segoe UI Symbol", Font.PLAIN, 13));

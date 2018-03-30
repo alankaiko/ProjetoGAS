@@ -8,60 +8,66 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import br.com.gsv.produtos.grafico.DetalheProdutoClassic;
-import br.com.gsv.produtos.grafico.DetalheProdutoGrafic;
 import br.com.gsv.produtos.listeners.DetalhesProdutoListener;
 
 public class DetalhesProdutoDialog extends JDialog {
-	private DetalhesProdutoListener listener;
 	private JPanel panel = new JPanel();
 	private Container tela = getContentPane();
 	private JButton BTCancelar;
-	private JLabel TCodigo, TDescricao, TFabricante, TQuantidade;
-	private JLabel LDados, LCodigo, LDescricao, LQuantidade, LFabricante;
+	private JLabel TCodigo, TDescricao, TQuantidade;
+	private JLabel LDados, LCodigo, LDescricao, LQuantidade, LFabricante, TFabricante;
+	private DetalhesProdutoListener listener;
 	private DetalheProdutoClassic listenerClassic;
-	
 
 	public DetalhesProdutoDialog() {
-		CriaVariaveis();
 		InicializaComponentes();
-		
+		AdicionaNaTela();
 		listener = new DetalhesProdutoListener(this);
 		listenerClassic = new DetalheProdutoClassic(this);
 	}
-	
-	private void CriaVariaveis() {
-		LDados = new JLabel(); 
-		LCodigo = new JLabel(); 
-		TCodigo = new JLabel(); 
-		LDescricao = new JLabel(); 
-		TDescricao = new JLabel(); 
-		LQuantidade = new JLabel(); 
-		LFabricante = new JLabel(); 
-		TFabricante = new JLabel(); 
-		BTCancelar = new JButton(); 
-		TQuantidade = new JLabel(); 
+
+	private void InicializaComponentes(){
+		LDados = new JLabel();
+		LCodigo = new JLabel();
+		TCodigo = new JLabel();
+		LDescricao = new JLabel();
+		TDescricao = new JLabel();
+		LQuantidade = new JLabel();
+		LFabricante = new JLabel();
+		BTCancelar = new JButton();
+		TQuantidade = new JLabel();
+		TFabricante = new JLabel();
 	}
 
-	private void InicializaComponentes() {
-		tela.add(this.LDados);
-		tela.add(this.LCodigo);
-		tela.add(this.TCodigo);
-		tela.add(this.LDescricao);
-		tela.add(this.TDescricao);
-		tela.add(this.LQuantidade);
-		tela.add(this.LFabricante);
-		tela.add(this.TFabricante);
-		tela.add(this.BTCancelar);
-		tela.add(this.TQuantidade);
+	private void AdicionaNaTela() {
+		tela.add(LDados);
+		tela.add(LCodigo);
+		tela.add(TCodigo);
+		tela.add(LDescricao);
+		tela.add(TDescricao);
+		tela.add(LQuantidade);
+		tela.add(LFabricante);
+		tela.add(BTCancelar);
+		tela.add(TQuantidade);
+		tela.add(TFabricante);
 	}
 
-	public DetalhesProdutoListener getListener() {
-		return listener;
+	public JPanel getPanel() {
+		return panel;
 	}
 
-	public void setListener(DetalhesProdutoListener listener) {
-		this.listener = listener;
+	public void setPanel(JPanel panel) {
+		this.panel = panel;
 	}
+
+	public Container getTela() {
+		return tela;
+	}
+
+	public void setTela(Container tela) {
+		this.tela = tela;
+	}
+
 
 	public JButton getBTCancelar() {
 		return BTCancelar;
@@ -87,36 +93,12 @@ public class DetalhesProdutoDialog extends JDialog {
 		TDescricao = tDescricao;
 	}
 
-	public JLabel getTFabricante() {
-		return TFabricante;
-	}
-
-	public void setTFabricante(JLabel tFabricante) {
-		TFabricante = tFabricante;
-	}
-
 	public JLabel getTQuantidade() {
 		return TQuantidade;
 	}
 
 	public void setTQuantidade(JLabel tQuantidade) {
 		TQuantidade = tQuantidade;
-	}
-
-	public JPanel getPanel() {
-		return panel;
-	}
-
-	public void setPanel(JPanel panel) {
-		this.panel = panel;
-	}
-
-	public Container getTela() {
-		return tela;
-	}
-
-	public void setTela(Container tela) {
-		this.tela = tela;
 	}
 
 	public JLabel getLDados() {
@@ -159,4 +141,21 @@ public class DetalhesProdutoDialog extends JDialog {
 		LFabricante = lFabricante;
 	}
 
+	public JLabel getTFabricante() {
+		return TFabricante;
+	}
+
+	public void setTFabricante(JLabel tFabricante) {
+		TFabricante = tFabricante;
+	}
+
+	public DetalhesProdutoListener getListener() {
+		return listener;
+	}
+
+	public void setListener(DetalhesProdutoListener listener) {
+		this.listener = listener;
+	}
+
+	
 }
