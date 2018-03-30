@@ -16,8 +16,8 @@ import com.toedter.calendar.JDateChooser;
 public class GerenciaProntuarios extends JDialog {
 	private JLabel LGerenciar;
 	private JPanel panel = new JPanel();
-	private JDateChooser dateChooser;
-	private JButton BFiltrar, BCancelar, BAgendar, 	BModificar,BExcluir;;
+	private JDateChooser dataFiltrar;
+	private JButton BFiltrar, BCancelar, BAgendar, 	BModificar,BExcluir, BPesquisar;
 	private JScrollPane scrollPane;
 	private JTable table;
 	private GerenciarProntuarioListener listener;
@@ -47,6 +47,9 @@ public class GerenciaProntuarios extends JDialog {
 		LGerenciar = new JLabel("Gerenciar Prontuários");
 		LGerenciar.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 14));
 		LGerenciar.setBounds(10, 11, 162, 14);
+		
+		BPesquisar = new JButton("Pesquisar");
+		BPesquisar.setBounds(118, 386, 96, 23);
 
 		BAgendar = new JButton("Agendar");
 		BAgendar.setBounds(222, 386, 89, 23);
@@ -63,8 +66,8 @@ public class GerenciaProntuarios extends JDialog {
 		BExcluir = new JButton("Excluir");
 		BExcluir.setBounds(429, 386, 96, 23);
 
-		dateChooser = new JDateChooser();
-		dateChooser.setBounds(380, 41, 104, 20);
+		dataFiltrar = new JDateChooser();
+		dataFiltrar.setBounds(380, 41, 104, 20);
 
 	}
 
@@ -73,9 +76,10 @@ public class GerenciaProntuarios extends JDialog {
 		panel.add(BAgendar);
 		panel.add(BCancelar);
 		panel.add(BFiltrar);
-		panel.add(dateChooser);
+		panel.add(dataFiltrar);
 		panel.add(BModificar);
 		panel.add(BExcluir);
+		panel.add(BPesquisar);
 		
 		
 	}
@@ -96,12 +100,13 @@ public class GerenciaProntuarios extends JDialog {
 		this.panel = panel;
 	}
 
-	public JDateChooser getDateChooser() {
-		return dateChooser;
+	
+	public JDateChooser getDataFiltrar() {
+		return dataFiltrar;
 	}
 
-	public void setDateChooser(JDateChooser dateChooser) {
-		this.dateChooser = dateChooser;
+	public void setDataFiltrar(JDateChooser dataFiltrar) {
+		this.dataFiltrar = dataFiltrar;
 	}
 
 	public JButton getBFiltrar() {
@@ -159,6 +164,22 @@ public class GerenciaProntuarios extends JDialog {
 
 	public void setBExcluir(JButton bExcluir) {
 		BExcluir = bExcluir;
+	}
+
+	public GerenciarProntuarioListener getListener() {
+		return listener;
+	}
+
+	public void setListener(GerenciarProntuarioListener listener) {
+		this.listener = listener;
+	}
+
+	public JButton getBPesquisar() {
+		return BPesquisar;
+	}
+
+	public void setBPesquisar(JButton bPesquisar) {
+		BPesquisar = bPesquisar;
 	}
 	
 	

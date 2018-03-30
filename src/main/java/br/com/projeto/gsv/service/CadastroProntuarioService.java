@@ -1,5 +1,6 @@
 package br.com.projeto.gsv.service;
 
+import java.util.Date;
 import java.util.List;
 
 import br.com.gsv.prontuario.domain.Prontuario;
@@ -21,8 +22,16 @@ public class CadastroProntuarioService {
 		return this.repositorio.BuscarPorId(id);
 	}
 	
+	public List<Prontuario> BuscaPelaIdPaciente(Long id){
+		return this.repositorio.BuscarPorIdPaciente(id);
+	}
+	
 	public void Remover(Prontuario prontuario){
 		this.repositorio.Remover(prontuario);
+	}
+	
+	public List<Prontuario> PegandoPelaData(Date data){
+		return this.repositorio.PegarPelaData(data);
 	}
 	
 }

@@ -11,29 +11,33 @@ import javax.swing.JRootPane;
 import javax.swing.KeyStroke;
 import javax.swing.ListSelectionModel;
 
-import br.com.gsv.convenio.formularios.IncluirConvenioForm;
-import br.com.gsv.paciente.formularios.ExcluirPacienteDialog;
+import br.com.gsv.paciente.formularios.BuscarPacienteDialog;
 import br.com.gsv.prontuario.domain.Prontuario;
 import br.com.gsv.prontuario.formularios.ExcluirProntuarioDialog;
 import br.com.gsv.prontuario.formularios.GerenciaProntuarios;
 import br.com.gsv.prontuario.formularios.ProntuarioForm;
-import br.com.projeto.gsv.controller.ConvenioController;
 import br.com.projeto.gsv.controller.PacienteController;
-import br.com.projeto.gsv.controller.ProdutoController;
 import br.com.projeto.gsv.controller.ProntuarioController;
-import br.com.projeto.gsv.util.TabelaDeProdutosUtil;
+import br.com.projeto.gsv.util.ConverteDadosUtil;
 import br.com.projeto.gsv.util.TabelaDeProntuariosUtil;
 
 public class GerenciarProntuarioListener implements ActionListener{
 	private TabelaDeProntuariosUtil tabela;
 	private GerenciaProntuarios gerenciamento;
 	private List<Prontuario> listaProntuarios;
+	private ProntuarioController control;
 	
 	public GerenciarProntuarioListener(GerenciaProntuarios gerenciamento) {
 		this.gerenciamento = gerenciamento;
+		this.control = new ProntuarioController();
 		AdicionaListener();
-		TabelaDeProdutos();
 		TeclaEsc();
+	}
+	
+	public void ResetarLista(){
+		this.listaProntuarios = control.ListaCompletaDeProntuarios();
+		
+		TabelaDeProdutos();
 	}
 	
 	
@@ -43,16 +47,17 @@ public class GerenciarProntuarioListener implements ActionListener{
 		this.gerenciamento.getBFiltrar().addActionListener(this);
 		this.gerenciamento.getBModificar().addActionListener(this);
 		this.gerenciamento.getBExcluir().addActionListener(this);
+		this.gerenciamento.getBPesquisar().addActionListener(this);
 	}
 	
 	
-	private void TabelaDeProdutos(){
-		ProntuarioController control = new ProntuarioController();
-		listaProntuarios = control.ListaCompletaDeProntuarios();
-		
+			
+	
+	
+	private void TabelaDeProdutos(){		
 		tabela = new TabelaDeProntuariosUtil(listaProntuarios);
 		this.gerenciamento.getTable().setModel(tabela);
-		this.gerenciamento.getTable().getColumnModel().getColumn(0).setPreferredWidth(20);
+		this.gerenciamento.getTable().getColumnModel().getColumn(0).setPreferredWidth(60);
 		this.gerenciamento.getTable().getColumnModel().getColumn(1).setPreferredWidth(20);
 		this.gerenciamento.getTable().getColumnModel().getColumn(2).setPreferredWidth(150);
 		this.gerenciamento.getTable().getColumnModel().getColumn(3).setPreferredWidth(40);
@@ -71,24 +76,22 @@ public class GerenciarProntuarioListener implements ActionListener{
 	
 	
 	
-	
 	@Override
 	public void actionPerformed(ActionEvent event) {
+		if(event.getSource().equals(this.gerenciamento.getBPesquisar())){
+			ExecutaPesquisar();
+		}
+		
 		if(event.getSource().equals(this.gerenciamento.getBAgendar())){
-			ProntuarioForm formulario = new ProntuarioForm();
-			formulario.getListener().InicializaObjetos();
-			formulario.setLocationRelativeTo(this.gerenciamento.getContentPane());
-			formulario.setVisible(true);
-			
-			TabelaDeProdutos();
+			ExecutaAgendar();
 		}
 		
 		if(event.getSource().equals(this.gerenciamento.getBModificar()) && this.gerenciamento.getTable().getRowCount() != 0){
 			ExecutaEdicao(SelecionaLinha());
 		}
 		
-		if(event.getSource().equals(this.gerenciamento.getBFiltrar()) && this.gerenciamento.getTable().getRowCount() != 0){
-			
+		if(event.getSource().equals(this.gerenciamento.getBFiltrar())){
+			ExecutaFiltragem();
 		}
 		
 		if(event.getSource().equals(this.gerenciamento.getBExcluir())  && this.gerenciamento.getTable().getRowCount() != 0){
@@ -101,6 +104,36 @@ public class GerenciarProntuarioListener implements ActionListener{
 		
 	}
 	
+	private void ExecutaPesquisar(){
+		BuscarPacienteDialog dialog = new BuscarPacienteDialog();
+		dialog.setLocationRelativeTo(this.gerenciamento.getContentPane());
+		dialog.setVisible(true);
+		
+		if(dialog.getListener().getCodigo() != null)
+			BuscarCliente(dialog.getListener().getCodigo());
+	}
+	
+	private void BuscarCliente(Long id){
+		listaProntuarios = control.BuscandoPelaIdPaciente(id);
+		TabelaDeProdutos();
+	}
+	
+	private void ExecutaAgendar(){
+		ProntuarioForm formulario = new ProntuarioForm();
+		formulario.getListener().InicializaObjetos();
+		formulario.setLocationRelativeTo(this.gerenciamento.getContentPane());
+		formulario.setVisible(true);
+		
+		TabelaDeProdutos();
+	}
+	
+	private void ExecutaFiltragem(){
+		if(this.gerenciamento.getDataFiltrar().getDate() != null)
+			listaProntuarios = control.BuscandoPelaData(this.gerenciamento.getDataFiltrar().getDate());
+		else
+			listaProntuarios = control.ListaCompletaDeProntuarios();
+		TabelaDeProdutos();
+	}
 	
 	private Long SelecionaLinha(){
 		int linha = this.gerenciamento.getTable().getSelectedRow();
@@ -108,8 +141,7 @@ public class GerenciarProntuarioListener implements ActionListener{
 
 		return valor;
 	}
-	
-	
+		
 	private void ExecutaEdicao(Long id){
 		ProntuarioController controller = new ProntuarioController();
 		ProntuarioForm form = new ProntuarioForm();
@@ -120,7 +152,7 @@ public class GerenciarProntuarioListener implements ActionListener{
 		form.setLocationRelativeTo(this.gerenciamento.getContentPane());
 		form.setVisible(true);
 		
-		TabelaDeProdutos();
+		ResetarLista();
 	}
 	
 	private void ExecutaExclusao(Long id){
@@ -129,7 +161,8 @@ public class GerenciarProntuarioListener implements ActionListener{
 		
 		dialog.setLocationRelativeTo(this.gerenciamento.getContentPane());
 		dialog.setVisible(true);
-		TabelaDeProdutos();	
+		
+		ResetarLista();	
 	}
 	
 	

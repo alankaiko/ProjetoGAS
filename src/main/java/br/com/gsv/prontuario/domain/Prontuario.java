@@ -17,6 +17,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import br.com.gsv.paciente.domain.Paciente;
 
@@ -24,7 +26,9 @@ import br.com.gsv.paciente.domain.Paciente;
 @Entity
 @NamedQueries({
 	@NamedQuery(name="Prontuario.listar", query="SELECT prontuario FROM Prontuario prontuario"),
-	@NamedQuery(name="Prontuario.buscarPorId", query="SELECT prontuario FROM Prontuario prontuario WHERE prontuario.id= :id")
+	@NamedQuery(name="Prontuario.buscarPorIdPaciente", query="SELECT prontuario FROM Prontuario prontuario WHERE prontuario.paciente.id= :id"),
+	@NamedQuery(name="Prontuario.buscarPorId", query="SELECT prontuario FROM Prontuario prontuario WHERE prontuario.id= :id"),
+	@NamedQuery(name="Prontuario.BuscarPelaData", query="SELECT prontuario FROM Prontuario prontuario WHERE prontuario.data= :data")
 })
 public class Prontuario implements Serializable{
 	private static final long serialVersionUID = 1L;
@@ -34,7 +38,7 @@ public class Prontuario implements Serializable{
 	@Column(name="conv_id")
 	private Long id;
 	
-	
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date data;
 	private String hora;
 	private Paciente paciente;

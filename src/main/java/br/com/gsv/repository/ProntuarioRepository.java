@@ -1,5 +1,6 @@
 package br.com.gsv.repository;
 
+import java.util.Date;
 import java.util.List;
 
 import org.hibernate.Query;
@@ -83,4 +84,46 @@ public class ProntuarioRepository {
 		}
 	}
 	
+	
+	@SuppressWarnings("unchecked")
+	public List<Prontuario> PegarPelaData(Date data){
+		sessao = HibernateUtil.getSessionFactory().openSession();
+		List<Prontuario> lista = null;
+		
+		try {
+			Query consulta = sessao.getNamedQuery("Prontuario.BuscarPelaData");
+			consulta.setDate("data", data);
+			lista = consulta.list();
+		} catch (RuntimeException e) {
+			throw e;
+		}finally{
+			sessao.close();
+		}
+		
+		return lista;
+	}
+	
+	
+	public List<Prontuario> BuscarPorIdPaciente(Long id){
+		sessao = HibernateUtil.getSessionFactory().openSession();
+		List<Prontuario> lista = null;
+		
+		try {
+			Query consulta = sessao.getNamedQuery("Prontuario.buscarPorIdPaciente");
+			consulta.setLong("id", id);
+			lista = consulta.list();
+		} catch (RuntimeException e) {
+			throw e;
+		}finally{
+			sessao.close();
+		}
+		
+		return lista;
+	}
+	
+	
 }
+
+
+
+

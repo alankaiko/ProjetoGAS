@@ -120,6 +120,7 @@ public class TelaPrincipalClassicListener implements ActionListener{
 	
 	private void AbreAgendaProntuario(){
 		GerenciaProntuarios formulario = new GerenciaProntuarios();
+		formulario.getListener().ResetarLista();
 		formulario.setLocationRelativeTo(this.tela.getTela());
 		formulario.setVisible(true);
 	}

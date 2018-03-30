@@ -9,7 +9,7 @@ import javax.swing.table.AbstractTableModel;
 import br.com.gsv.prontuario.domain.Prontuario;
 
 public class TabelaDeProntuariosUtil extends AbstractTableModel{
-	private String[] colunas = new String[] { "DATA", "HORA", "NOME", "CPF", "ALERTA", "ESTADO" };
+	private String[] colunas = new String[] { "AGENDAMENTO", "HORA", "NOME", "CPF", "ALERTA", "ESTADO" };
 	private List<Prontuario> linhas;
 	private static final int DATA = 0;
     private static final int HORA = 1;

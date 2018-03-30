@@ -1,5 +1,6 @@
 package br.com.projeto.gsv.controller;
 
+import java.util.Date;
 import java.util.List;
 
 import br.com.gsv.prontuario.domain.Prontuario;
@@ -27,8 +28,16 @@ public class ProntuarioController {
 		return this.cadastroService.BuscandoId(id);
 	}
 	
+	public List<Prontuario> BuscandoPelaIdPaciente(Long id){
+		return this.cadastroService.BuscaPelaIdPaciente(id);
+	}
+	
 	public void RemoverProntuario() {
 		this.cadastroService.Remover(this.prontuario);
+	}
+	
+	public List<Prontuario> BuscandoPelaData(Date data){
+		return this.cadastroService.PegandoPelaData(data);
 	}
 	
 	
