@@ -106,6 +106,9 @@ public class ProntuarioListener implements ActionListener{
 		if(this.formulario.getRadioComatoso().isSelected())
 			this.prontuario.setAnotConsciencia(this.formulario.getRadioComatoso().getText());
 		
+		if(this.formulario.getRadioConscOutros().isSelected())
+			this.prontuario.setAnotConsciencia(this.formulario.getRadioConscOutros().getText());
+		
 		
 		
 		if(this.formulario.getRadioEstNormal().isSelected())
@@ -126,6 +129,9 @@ public class ProntuarioListener implements ActionListener{
 		if(this.formulario.getRadioAgitado().isSelected())
 			this.prontuario.setAnotMental(this.formulario.getRadioAgitado().getText());
 		
+		if(this.formulario.getRadioMenOutros().isSelected())
+			this.prontuario.setAnotMental(this.formulario.getRadioMenOutros().getText());
+		
 		
 		
 		if(this.formulario.getRadioDeambulante().isSelected())
@@ -133,6 +139,9 @@ public class ProntuarioListener implements ActionListener{
 		
 		if(this.formulario.getRadioUtilizaCadeira().isSelected())
 			this.prontuario.setCondDeambulacao(this.formulario.getRadioUtilizaCadeira().getText());
+		
+		if(this.formulario.getRadioVerbaliza().isSelected())
+			this.prontuario.setCondDeambulacao(this.formulario.getRadioVerbaliza().getText());
 		
 	
 		
@@ -292,6 +301,9 @@ public class ProntuarioListener implements ActionListener{
 		
 		if(this.prontuario.getAnotConsciencia().equals(this.formulario.getRadioComatoso().getText()))
 			this.formulario.getRadioComatoso().setSelected(true);
+		
+		if(this.prontuario.getAnotConsciencia().equals(this.formulario.getRadioConscOutros().getText()))
+			this.formulario.getRadioConscOutros().setSelected(true);
 	
 		
 		
@@ -314,6 +326,9 @@ public class ProntuarioListener implements ActionListener{
 		if(this.prontuario.getAnotMental().equals(this.formulario.getRadioAgitado().getText()))
 			this.formulario.getRadioAgitado().setSelected(true);
 		
+		if(this.prontuario.getAnotMental().equals(this.formulario.getRadioMenOutros().getText()))
+			this.formulario.getRadioMenOutros().setSelected(true);
+		
 		
 		
 		if(this.prontuario.getCondDeambulacao().equals(this.formulario.getRadioDeambulante().getText()))
@@ -321,6 +336,9 @@ public class ProntuarioListener implements ActionListener{
 		
 		if(this.prontuario.getCondDeambulacao().equals(this.formulario.getRadioUtilizaCadeira().getText()))
 			this.formulario.getRadioUtilizaCadeira().setSelected(true);
+		
+		if(this.prontuario.getCondDeambulacao().equals(this.formulario.getRadioVerbaliza().getText()))
+			this.formulario.getRadioVerbaliza().setSelected(true);
 	
 	
 		

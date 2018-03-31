@@ -84,6 +84,7 @@ public class GerenciarProntuarioListener implements ActionListener{
 		
 		if(event.getSource().equals(this.gerenciamento.getBAgendar())){
 			ExecutaAgendar();
+			ResetarLista();
 		}
 		
 		if(event.getSource().equals(this.gerenciamento.getBModificar()) && this.gerenciamento.getTable().getRowCount() != 0){

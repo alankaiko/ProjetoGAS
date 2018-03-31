@@ -36,7 +36,9 @@ import br.com.gsv.convenio.domain.Convenio;
 public class Paciente implements Serializable {
 	private static final long serialVersionUID = 1L;
 
+	
 	private Long id;
+	
 	private String nome;
 	private String cpf;
 	private String rg;

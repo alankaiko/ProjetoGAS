@@ -112,16 +112,12 @@ public class ProntuarioRepository {
 		
 		try {
 			Query consulta = sessao.getNamedQuery("Prontuario.buscarPorIdPaciente");
-			consulta.setLong("id", id);
+			consulta.setLong("id",id);
 			lista = consulta.list();
 		} catch (RuntimeException e) {
 			throw e;
 		}finally{
 			sessao.close();
-		}
-		
-		for(Prontuario prontuario : lista){
-			System.out.println(prontuario.getPaciente().getNome());
 		}
 		
 		return lista;
