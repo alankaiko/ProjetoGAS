@@ -116,6 +116,7 @@ public class GerenciarProntuarioListener implements ActionListener{
 	private void BuscarCliente(Long id){
 		listaProntuarios = control.BuscandoPelaIdPaciente(id);
 		TabelaDeProdutos();
+	
 	}
 	
 	private void ExecutaAgendar(){

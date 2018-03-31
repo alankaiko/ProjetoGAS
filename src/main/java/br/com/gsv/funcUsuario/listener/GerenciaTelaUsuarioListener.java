@@ -159,6 +159,7 @@ public class GerenciaTelaUsuarioListener implements ActionListener{
 	
 	private void ExecutaTelaBuscar(){
 		BuscarUsuarioDialog busca = new BuscarUsuarioDialog();
+		busca.getListener().ResetarLista();
 		busca.setLocationRelativeTo(this.formulario.getTela());
 		busca.setVisible(true);
 		pegaLinha(busca.getListener().getLogin());

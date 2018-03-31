@@ -100,13 +100,13 @@ public class TelaPrincipalClassic extends JFrame {
 		menuCadastro = new JMenu("Cadastro");
 		menuBar.add(menuCadastro);
 		
-		cadastroConvenio = new JMenuItem("Cadastro de Convênios");
+		cadastroConvenio = new JMenuItem("Gerenciar Convênios");
 		menuCadastro.add(cadastroConvenio);
 		
-		cadastroClinica = new JMenuItem("Cadastro de Clínicas");
+		cadastroClinica = new JMenuItem("Gerenciar Clínicas");
 		menuCadastro.add(cadastroClinica);
 		
-		cadastroPaciente = new JMenuItem("Cadastro de Pacientes");
+		cadastroPaciente = new JMenuItem("Gerenciar Pacientes");
 		menuCadastro.add(cadastroPaciente);
 		
 		menuUsuario = new JMenu("Usuário");
@@ -118,7 +118,7 @@ public class TelaPrincipalClassic extends JFrame {
 		usuarioConFun = new JMenuItem("Consulta Funcionários");
 		menuUsuario.add(usuarioConFun);
 		
-		usuarioUser = new JMenuItem("Usuários");
+		usuarioUser = new JMenuItem("Gerenciar Usuários");
 		menuUsuario.add(usuarioUser);
 		
 		menuFarmacia = new JMenu("Farmácia");

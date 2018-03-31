@@ -52,7 +52,6 @@ public class DetalhesUsuarioDialog extends JDialog {
 		LFuncionario.setBounds(39, 34, 112, 14);
 
 		TFuncionario = new JLabel();
-		TFuncionario.setBorder(new LineBorder(Color.BLACK));
 		TFuncionario.setBounds(39, 48, 375, 20);
 
 		LCpf = new JLabel("CPF");
@@ -60,7 +59,6 @@ public class DetalhesUsuarioDialog extends JDialog {
 		LCpf.setBounds(39, 79, 46, 14);
 
 		TCpf = new JLabel();
-		TCpf.setBorder(new LineBorder(Color.BLACK));
 		TCpf.setBounds(40, 93, 229, 20);
 
 		LRg = new JLabel("RG");
@@ -68,18 +66,16 @@ public class DetalhesUsuarioDialog extends JDialog {
 		LRg.setBounds(293, 79, 46, 14);
 
 		TRg = new JLabel();
-		TRg.setBorder(new LineBorder(Color.BLACK));
 		TRg.setBounds(293, 93, 121, 20);
 
 		LAdicionar = new JLabel("Detalhe Login");
-		LAdicionar.setFont(new Font("Segoe UI Symbol", Font.PLAIN, 12));
+		LAdicionar.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 14));
 		LAdicionar.setBounds(39, 147, 205, 20);
 
 		LLogin = new JLabel("Login");
 		LLogin.setBounds(39, 172, 46, 14);
 
 		TLogin = new JLabel();
-		TLogin.setBorder(new LineBorder(Color.BLACK));
 		TLogin.setBounds(39, 188, 230, 20);
 		
 		BCancelar = new JButton("Cancelar");

@@ -6,7 +6,6 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-import br.com.gsv.convenio.domain.Convenio;
 import br.com.gsv.funcUsuario.domain.Usuario;
 import br.com.projeto.gsv.util.HibernateUtil;
 
@@ -114,7 +113,7 @@ public class UsuarioRepository {
 		try {
 			
 			Query consulta = sessao.getNamedQuery("Usuario.buscarPorNome");
-			consulta.setString("nome", nome);
+			consulta.setString("nome","%"+nome+"%");
 			lista = consulta.list();
 		} catch (RuntimeException e) {
 			throw e;

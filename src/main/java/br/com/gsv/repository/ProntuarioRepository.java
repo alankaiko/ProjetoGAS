@@ -7,6 +7,7 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import br.com.gsv.funcUsuario.domain.Usuario;
 import br.com.gsv.prontuario.domain.Prontuario;
 import br.com.projeto.gsv.util.HibernateUtil;
 
@@ -104,6 +105,7 @@ public class ProntuarioRepository {
 	}
 	
 	
+	@SuppressWarnings("unchecked")
 	public List<Prontuario> BuscarPorIdPaciente(Long id){
 		sessao = HibernateUtil.getSessionFactory().openSession();
 		List<Prontuario> lista = null;
@@ -118,7 +120,12 @@ public class ProntuarioRepository {
 			sessao.close();
 		}
 		
+		for(Prontuario prontuario : lista){
+			System.out.println(prontuario.getPaciente().getNome());
+		}
+		
 		return lista;
+		
 	}
 	
 	

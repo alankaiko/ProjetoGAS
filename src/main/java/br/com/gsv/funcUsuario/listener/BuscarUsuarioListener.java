@@ -13,27 +13,32 @@ import javax.swing.JRootPane;
 import javax.swing.KeyStroke;
 import javax.swing.ListSelectionModel;
 
-import br.com.gsv.convenio.formularios.BuscarConvenioDialog;
 import br.com.gsv.funcUsuario.domain.Usuario;
 import br.com.gsv.funcUsuario.formularios.BuscarUsuarioDialog;
-import br.com.projeto.gsv.controller.ConvenioController;
 import br.com.projeto.gsv.controller.UsuarioController;
-import br.com.projeto.gsv.util.TabelaBuscarConvenioUtil;
 import br.com.projeto.gsv.util.TabelaBuscarUsuarioUtil;
 
 public class BuscarUsuarioListener implements ActionListener{
 	private BuscarUsuarioDialog formulario;
 	private TabelaBuscarUsuarioUtil tabela;
 	private String login;
+	private UsuarioController control;
+	private List<Usuario> lista;
 	
 	
 	public BuscarUsuarioListener(BuscarUsuarioDialog formulario) {
 		this.formulario = formulario;
-		TabelaUsuarios();
+		control = new UsuarioController();
 		AdicionaListener();
 		UsandoTAB();
-		//UpCase();
+		UpCase();
 		TeclaEsc();
+	}
+	
+	public void ResetarLista(){
+		lista = control.listaCompletaUsuario();
+		
+		TabelaUsuarios();
 	}
 	
 	private void AdicionaListener(){
@@ -44,21 +49,17 @@ public class BuscarUsuarioListener implements ActionListener{
 	
 	
 	private void TabelaUsuarios(){
-		UsuarioController control = new UsuarioController();
-		tabela = new TabelaBuscarUsuarioUtil(control.listaCompletaUsuario());
+		tabela = new TabelaBuscarUsuarioUtil(lista);
 		this.formulario.getTable().setModel(tabela);
-		this.formulario.getTable().getColumnModel().getColumn(0).setPreferredWidth(30);
+		this.formulario.getTable().getColumnModel().getColumn(0).setPreferredWidth(100);
 		this.formulario.getTable().getColumnModel().getColumn(1).setPreferredWidth(180);
-		this.formulario.getTable().getColumnModel().getColumn(2).setPreferredWidth(180);
+		this.formulario.getTable().getColumnModel().getColumn(2).setPreferredWidth(80);
 		
 		this.formulario.getTable().setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		this.formulario.getTable().changeSelection(0, 0, false, false);
 		//this.formulario.getTable().setRowSelectionInterval(0, 0);
 		this.formulario.getTable().setFocusable(false);
-		this.formulario.getScrollPane().setViewportView(this.formulario.getTable());
-		
-		
-		
+		this.formulario.getScrollPane().setViewportView(this.formulario.getTable());		
 	}
 	
 	
@@ -144,33 +145,19 @@ public class BuscarUsuarioListener implements ActionListener{
 	
 	
 	private void BuscarLogin(){
-		UsuarioController control = new UsuarioController();
-		List<Usuario> lista = new ArrayList<Usuario>();
-		lista.add(control.BuscarPeloLogin(this.formulario.getTextoBuscar().getText()));
-		
-		if(lista.get(0) != null)
-			TabelaBusca(lista);
-		
+		this.lista = new ArrayList<Usuario>();
+		Usuario usuario = control.BuscarPeloLogin(this.formulario.getTextoBuscar().getText());
+		this.lista.add(usuario);
+		TabelaUsuarios();
 	}
 		
 		
 	private void BuscarNome(){
-		UsuarioController control = new UsuarioController();
-		List<Usuario> lista = control.ListinhaPelosNomes(this.formulario.getTextoBuscar().getText());
-		
-		if(lista.get(0) != null)
-			TabelaBusca(lista);	
-		
+		this.lista = control.ListinhaPelosNomes(this.formulario.getTextoBuscar().getText());
+		TabelaUsuarios();
 	}
 	
-	private void TabelaBusca(List<Usuario> lista){
-		tabela = new TabelaBuscarUsuarioUtil(lista);
-		this.formulario.getTable().setModel(tabela);
-		this.formulario.getTable().getColumnModel().getColumn(0).setPreferredWidth(30);
-		this.formulario.getTable().getColumnModel().getColumn(1).setPreferredWidth(180);
-		this.formulario.getTable().getColumnModel().getColumn(2).setPreferredWidth(180);
-		this.formulario.getTable().changeSelection(0, 1, false, false);
-	}
+
 	
 	
 
