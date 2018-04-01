@@ -56,17 +56,21 @@ public class Prontuario implements Serializable{
 	private String condDeamObservacao;
 	private String condRepouso;
 	private String condSono;
+	private String equipObservacao;
+	private String inteHemoText;
+	private String inteDispText;
+	private String inteEdemaText;
+	private String inteDescText;
+	private String inteHemaText;
+	private String inteCicaText;
+	private String inteOutrosText;
+	private String sintomasEspText;
+	private String sintomasMembText;
+	private String textoAreachegada;
+	private String avaliCefaloMental;
+	private String avaliCefaloTexto;
+	private String avaliIntercorrencias;
 	
-	public Prontuario() {
-		this.anotConsciencia = new String();
-		this.anotMental = new String();
-		this.anotObservacao = new String();
-		this.condDeambulacao = new String();
-		this.condDeamObservacao = new String();
-		this.condRepouso = new String();
-		this.condSono = new String();
-	}
-
 	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinColumn(name = "tab_pront_equip_id", referencedColumnName = "equip_id")
 	private EquipamentoCheckBox equipCheckbox;
@@ -83,36 +87,22 @@ public class Prontuario implements Serializable{
 	@JoinColumn(name = "tab_pront_integ_id", referencedColumnName = "integ_id")
 	private IntegridadeHemorragia integHemorragia;
 	
-	@Column
-	private String equipObservacao;
+	
+	
+	
+	
+	
+	
+	public Prontuario() {
+		this.anotConsciencia = new String();
+		this.anotMental = new String();
+		this.anotObservacao = new String();
+		this.condDeambulacao = new String();
+		this.condDeamObservacao = new String();
+		this.condRepouso = new String();
+		this.condSono = new String();
+	}
 
-	@Column
-	private String inteHemoText;
-	
-	@Column
-	private String inteDispText;
-	
-	@Column
-	private String inteEdemaText;
-	
-	@Column
-	private String inteDescText;
-	
-	@Column
-	private String inteHemaText;
-	
-	@Column
-	private String inteCicaText;
-	
-	@Column
-	private String inteOutrosText;
-
-	
-	@Column
-	private String sintomasEspText;
-	
-	@Column
-	private String sintomasMembText;
 	
 	
 	
@@ -309,6 +299,38 @@ public class Prontuario implements Serializable{
 	}
 	public void setHora(String hora) {
 		this.hora = hora;
+	}
+
+	public String getTextoAreachegada() {
+		return textoAreachegada;
+	}
+
+	public void setTextoAreachegada(String textoAreachegada) {
+		this.textoAreachegada = textoAreachegada;
+	}
+
+	public String getAvaliCefaloMental() {
+		return avaliCefaloMental;
+	}
+
+	public void setAvaliCefaloMental(String avaliCefaloMental) {
+		this.avaliCefaloMental = avaliCefaloMental;
+	}
+
+	public String getAvaliCefaloTexto() {
+		return avaliCefaloTexto;
+	}
+
+	public void setAvaliCefaloTexto(String avaliCefaloTexto) {
+		this.avaliCefaloTexto = avaliCefaloTexto;
+	}
+
+	public String getAvaliIntercorrencias() {
+		return avaliIntercorrencias;
+	}
+
+	public void setAvaliIntercorrencias(String avaliIntercorrencias) {
+		this.avaliIntercorrencias = avaliIntercorrencias;
 	}
 	
 	

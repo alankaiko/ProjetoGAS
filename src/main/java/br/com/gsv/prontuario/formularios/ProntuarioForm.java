@@ -39,7 +39,8 @@ public class ProntuarioForm extends JDialog {
 	private JLayeredPane dadosCliente,  dadosAnotacao, dadosCondicao,dadosIntegridade, dadosSintomas,dadosEquipamentoCli;
 	private JRadioButton radioAlerta, radioLetargico, radioObnubilado,radioComatoso;
 	private JRadioButton radioAgitado, radioRelativo, radioAbsoluto, radioNivNormal, radioMenOutros;
-	private JRadioButton radioTorporoso, radioCalmo, radioApatico, radioAlegre, radioEstNormal;
+	private JRadioButton radioTorporoso, radioCalmo, radioApatico, radioAlegre, radioEstNormal, radioCardiologico;
+	private JRadioButton radioNeurologico, radioRespiratorio, radioTegumentar, radioGastrintestinal, radioGenito;
 	private JRadioButton radioTriste, radioDeambulante, radioUtilizaCadeira, radioConscOutros;
 	private JCheckBox checkHemorragia, checkDispneia, checkEdema,checkDescamacao,checkHematoma,checkCicatriz;
 	private JCheckBox checkOutroInt, checkNauseas,checkMalEstar, checkInsonia,checkPrurido, checkColoracao;
@@ -50,18 +51,22 @@ public class ProntuarioForm extends JDialog {
 	private ButtonGroup grupoBotao2 = new ButtonGroup();
 	private ButtonGroup grupoBotao3 = new ButtonGroup();
 	private ButtonGroup grupoBotao4 = new ButtonGroup();
+	private ButtonGroup grupoBotao5 = new ButtonGroup();
 	private JTextArea textoSintomas, textoAreaAnotacao, textoEquipamento;
 	private JTextArea textoMembros, textoAreaDeam, textoAreaSono;
-	private JSeparator separator_2, separator, separator_1;
+	private JSeparator separator_2, separaAvaliacao, separaRepouso;
 	private ProntuarioListener listener;
 	private JFormattedTextField JCpf, JDatanascimento;
 	private JRadioButton radioVerbaliza;
+	private JLabel LAvaliacaoCefalo;
+	private JLabel LIntercorrencias;
+	private JTextArea textoAreaAvaliacaoCef, textoAreaChegada, textoAreaAvaliacaoInt;
 		
 
 
 
 	public ProntuarioForm() {
-		setBounds(100, 100, 772, 482);
+		setBounds(100, 100, 775, 482);
 		getContentPane().setLayout(new BorderLayout());
 		panel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(panel, BorderLayout.CENTER);
@@ -70,16 +75,16 @@ public class ProntuarioForm extends JDialog {
 		panel.setLayout(null);
 
 		BTGravar = new JButton("Gravar");
-		BTGravar.setBounds(375, 420, 89, 23);
+		BTGravar.setBounds(276, 420, 89, 23);
 		panel.add(BTGravar);
 
 		BTCancelar = new JButton("Cancelar");
-		BTCancelar.setBounds(474, 420, 89, 23);
+		BTCancelar.setBounds(375, 420, 89, 23);
 		panel.add(BTCancelar);
 
-		tabGeral = new JTabbedPane(JTabbedPane.TOP);
+		tabGeral = new JTabbedPane(JTabbedPane.RIGHT);
 		tabGeral.setBackground(Color.WHITE);
-		tabGeral.setBounds(15, 34, 741, 375);
+		tabGeral.setBounds(15, 34, 744, 375);
 		panel.add(tabGeral);
 
 		TabCliente();
@@ -108,9 +113,6 @@ public class ProntuarioForm extends JDialog {
 		tabGeral.addTab("Condição", null, dadosCondicao, null);
 		dadosCondicao.setLayout(null);
 		
-		dadosEquipamentoCli = new JLayeredPane();
-		tabGeral.addTab("Equipamentos Cliente", null, dadosEquipamentoCli, null);
-		
 		dadosIntegridade = new JLayeredPane();
 		tabGeral.addTab("Integridade", null, dadosIntegridade, null);
 		
@@ -119,74 +121,6 @@ public class ProntuarioForm extends JDialog {
 		
 		dadosCliente();
 		dadosAnotacao();
-		
-		
-
-		
-
-		painelEquipamentos = new JPanel();
-		painelEquipamentos.setBackground(Color.WHITE);
-		painelEquipamentos.setBounds(0, 0, 604, 314);
-		dadosEquipamentoCli.add(painelEquipamentos);
-		painelEquipamentos.setLayout(null);
-
-		LEquipamentocli = new JLabel("Equipamentos que o paciente utiliza");
-		LEquipamentocli.setFont(new Font("Arial", Font.PLAIN, 14));
-		LEquipamentocli.setBounds(10, 11, 400, 14);
-		painelEquipamentos.add(LEquipamentocli);
-
-		checkCateter = new JCheckBox("Catéter");
-		checkCateter.setFont(new Font("Arial", Font.PLAIN, 13));
-		checkCateter.setBackground(Color.WHITE);
-		checkCateter.setBounds(20, 38, 97, 23);
-		painelEquipamentos.add(checkCateter);
-		
-		checkSonda = new JCheckBox("Sonda");
-		checkSonda.setFont(new Font("Arial", Font.PLAIN, 13));
-		checkSonda.setBackground(Color.WHITE);
-		checkSonda.setBounds(20, 69, 97, 23);
-		painelEquipamentos.add(checkSonda);
-
-		checkUripen = new JCheckBox("Uripen");
-		checkUripen.setFont(new Font("Arial", Font.PLAIN, 13));
-		checkUripen.setBackground(Color.WHITE);
-		checkUripen.setBounds(20, 105, 97, 23);
-		painelEquipamentos.add(checkUripen);
-
-		checkDreno = new JCheckBox("Dreno");
-		checkDreno.setFont(new Font("Arial", Font.PLAIN, 13));
-		checkDreno.setBackground(Color.WHITE);
-		checkDreno.setBounds(20, 142, 97, 23);
-		painelEquipamentos.add(checkDreno);
-
-		checkCurativos = new JCheckBox("Curativos");
-		checkCurativos.setFont(new Font("Arial", Font.PLAIN, 13));
-		checkCurativos.setBackground(Color.WHITE);
-		checkCurativos.setBounds(20, 177, 97, 23);
-		painelEquipamentos.add(checkCurativos);
-
-		checkVenoclise = new JCheckBox("Venóclise");
-		checkVenoclise.setFont(new Font("Arial", Font.PLAIN, 13));
-		checkVenoclise.setBackground(Color.WHITE);
-		checkVenoclise.setBounds(20, 214, 97, 23);
-		painelEquipamentos.add(checkVenoclise);
-		
-		checkOutros = new JCheckBox("Outros");
-		checkOutros.setFont(new Font("Arial", Font.PLAIN, 13));
-		checkOutros.setBackground(Color.WHITE);
-		checkOutros.setBounds(20, 253, 97, 23);
-		painelEquipamentos.add(checkOutros);
-
-		textoEquipamento = new JTextArea();
-		textoEquipamento.setRows(10);
-		textoEquipamento.setBorder(new LineBorder(Color.BLACK));
-		textoEquipamento.setBounds(163, 96, 431, 180);
-		painelEquipamentos.add(textoEquipamento);
-
-		LInfoEquip = new JLabel("Informações sobre aparelhos que o paciente utiliza");
-		LInfoEquip.setFont(new Font("Arial", Font.BOLD, 13));
-		LInfoEquip.setBounds(163, 69, 357, 14);
-		painelEquipamentos.add(LInfoEquip);
 
 		
 		
@@ -196,7 +130,7 @@ public class ProntuarioForm extends JDialog {
 
 		painelIntegridade = new JPanel();
 		painelIntegridade.setBackground(Color.WHITE);
-		painelIntegridade.setBounds(0, 0, 604, 314);
+		painelIntegridade.setBounds(0, 0, 620, 370);
 		dadosIntegridade.add(painelIntegridade);
 		painelIntegridade.setLayout(null);
 
@@ -291,7 +225,7 @@ public class ProntuarioForm extends JDialog {
 
 		painelSintomas = new JPanel();
 		painelSintomas.setBackground(Color.WHITE);
-		painelSintomas.setBounds(0, 0, 604, 314);
+		painelSintomas.setBounds(0, 0, 620, 370);
 		dadosSintomas.add(painelSintomas);
 		painelSintomas.setLayout(null);
 
@@ -323,7 +257,7 @@ public class ProntuarioForm extends JDialog {
 		textoSintomas = new JTextArea();
 		textoSintomas.setRows(6);
 		textoSintomas.setBorder(new LineBorder(Color.BLACK));
-		textoSintomas.setBounds(163, 54, 431, 110);
+		textoSintomas.setBounds(163, 54, 390, 110);
 		painelSintomas.add(textoSintomas);
 
 		LTipoSintomas = new JLabel("Tipo, localização, intensidade e outras característica");
@@ -332,7 +266,7 @@ public class ProntuarioForm extends JDialog {
 		painelSintomas.add(LTipoSintomas);
 
 		separator_2 = new JSeparator();
-		separator_2.setBounds(10, 185, 584, 2);
+		separator_2.setBounds(10, 185, 564, 2);
 		painelSintomas.add(separator_2);
 
 		LMembros = new JLabel("Membros superiores e inferiores");
@@ -358,12 +292,12 @@ public class ProntuarioForm extends JDialog {
 		textoMembros = new JTextArea();
 		textoMembros.setRows(4);
 		textoMembros.setBorder(new LineBorder(Color.BLACK));
-		textoMembros.setBounds(163, 233, 431, 70);
+		textoMembros.setBounds(163, 233, 390, 70);
 		painelSintomas.add(textoMembros);
 
 		painelCondicao = new JPanel();
 		painelCondicao.setBackground(Color.WHITE);
-		painelCondicao.setBounds(0, 0, 604, 314);
+		painelCondicao.setBounds(0, 0, 620, 370);
 		dadosCondicao.add(painelCondicao);
 		painelCondicao.setLayout(null);
 
@@ -404,9 +338,9 @@ public class ProntuarioForm extends JDialog {
 		
 		
 
-		separator = new JSeparator();
-		separator.setBounds(10, 107, 584, 2);
-		painelCondicao.add(separator);
+		separaAvaliacao = new JSeparator();
+		separaAvaliacao.setBounds(10, 107, 564, 2);
+		painelCondicao.add(separaAvaliacao);
 		
 		LRepouso = new JLabel("Repouso no Leito");
 		LRepouso.setFont(new Font("Arial", Font.PLAIN, 14));
@@ -430,9 +364,9 @@ public class ProntuarioForm extends JDialog {
 		grupoBotao4.add(radioRelativo);
 		grupoBotao4.add(radioAbsoluto);
 
-		separator_1 = new JSeparator();
-		separator_1.setBounds(10, 185, 584, 2);
-		painelCondicao.add(separator_1);
+		separaRepouso = new JSeparator();
+		separaRepouso.setBounds(10, 185, 564, 2);
+		painelCondicao.add(separaRepouso);
 		
 		LSonoCond = new JLabel("Sono e Repouso");
 		LSonoCond.setFont(new Font("Arial", Font.PLAIN, 14));
@@ -453,13 +387,28 @@ public class ProntuarioForm extends JDialog {
 		textoAreaSono = new JTextArea();
 		textoAreaSono.setRows(4);
 		textoAreaSono.setBorder(new LineBorder(Color.BLACK));
-		textoAreaSono.setBounds(132, 221, 433, 82);
+		textoAreaSono.setBounds(132, 221, 433, 44);
 		painelCondicao.add(textoAreaSono);
+		
+		JSeparator separaSono = new JSeparator();
+		separaSono.setBounds(10, 276, 564, 2);
+		painelCondicao.add(separaSono);
+		
+		JLabel LChegadaCond = new JLabel("Condição de Chegada");
+		LChegadaCond.setFont(new Font("Arial", Font.PLAIN, 14));
+		LChegadaCond.setBounds(10, 284, 169, 23);
+		painelCondicao.add(LChegadaCond);
+		
+		textoAreaChegada = new JTextArea();
+		textoAreaChegada.setRows(4);
+		textoAreaChegada.setBorder(new LineBorder(Color.BLACK));
+		textoAreaChegada.setBounds(132, 309, 433, 44);
+		painelCondicao.add(textoAreaChegada);
 		
 
 		painelAnotacao = new JPanel();
 		painelAnotacao.setBackground(Color.WHITE);
-		painelAnotacao.setBounds(0, 0, 604, 314);
+		painelAnotacao.setBounds(0, 0, 620, 370);
 		dadosAnotacao.add(painelAnotacao);
 		painelAnotacao.setLayout(null);
 
@@ -595,7 +544,149 @@ public class ProntuarioForm extends JDialog {
 		LObservacaoAnot.setBounds(10, 168, 98, 14);
 		painelAnotacao.add(LObservacaoAnot);
 		LObservacaoAnot.setFont(new Font("Arial", Font.PLAIN, 14));
-	}
+		
+		JLayeredPane dadosAvaliacao = new JLayeredPane();
+		tabGeral.addTab("Avaliação", null, dadosAvaliacao, null);
+		
+		JPanel painelAvaliacao = new JPanel();
+		painelAvaliacao.setBackground(Color.WHITE);
+		painelAvaliacao.setBounds(0, 0, 620, 370);
+		dadosAvaliacao.add(painelAvaliacao);
+		painelAvaliacao.setLayout(null);
+		
+		LAvaliacaoCefalo = new JLabel("Avaliação Céfalo Caudal");
+		LAvaliacaoCefalo.setFont(new Font("Arial", Font.PLAIN, 14));
+		LAvaliacaoCefalo.setBounds(10, 11, 169, 14);
+		painelAvaliacao.add(LAvaliacaoCefalo);
+		
+		radioNeurologico = new JRadioButton("Neurológico");
+		radioNeurologico.setFont(new Font("Arial", Font.PLAIN, 13));
+		radioNeurologico.setBounds(10, 32, 129, 23);
+		painelAvaliacao.add(radioNeurologico);
+		grupoBotao5.add(radioNeurologico);
+		
+		radioRespiratorio = new JRadioButton("Respiratório");
+		radioRespiratorio.setFont(new Font("Arial", Font.PLAIN, 13));
+		radioRespiratorio.setBounds(10, 60, 142, 23);
+		painelAvaliacao.add(radioRespiratorio);
+		grupoBotao5.add(radioRespiratorio);
+		
+		radioCardiologico = new JRadioButton("Cardiológico");
+		radioCardiologico.setFont(new Font("Arial", Font.PLAIN, 13));
+		radioCardiologico.setBounds(10, 86, 142, 23);
+		painelAvaliacao.add(radioCardiologico);
+		grupoBotao5.add(radioCardiologico);
+		
+		radioTegumentar = new JRadioButton("Tegumentar");
+		radioTegumentar.setFont(new Font("Arial", Font.PLAIN, 13));
+		radioTegumentar.setBounds(10, 112, 142, 23);
+		painelAvaliacao.add(radioTegumentar);
+		grupoBotao5.add(radioTegumentar);
+		
+		radioGastrintestinal = new JRadioButton("Gastrintestinal");
+		radioGastrintestinal.setFont(new Font("Arial", Font.PLAIN, 13));
+		radioGastrintestinal.setBounds(10, 138, 142, 23);
+		painelAvaliacao.add(radioGastrintestinal);
+		grupoBotao5.add(radioGastrintestinal);
+		
+		radioGenito = new JRadioButton("Gênito Urinário");
+		radioGenito.setFont(new Font("Arial", Font.PLAIN, 13));
+		radioGenito.setBounds(10, 164, 142, 23);
+		painelAvaliacao.add(radioGenito);
+		grupoBotao5.add(radioGenito);
+		
+		JSeparator separator = new JSeparator();
+		separator.setBounds(10, 197, 564, 2);
+		painelAvaliacao.add(separator);
+		
+		LIntercorrencias = new JLabel("Intercorrências/Alergias");
+		LIntercorrencias.setFont(new Font("Arial", Font.PLAIN, 14));
+		LIntercorrencias.setBounds(10, 207, 191, 23);
+		painelAvaliacao.add(LIntercorrencias);
+		
+		textoAreaAvaliacaoCef = new JTextArea();
+		textoAreaAvaliacaoCef.setRows(10);
+		textoAreaAvaliacaoCef.setBorder(new LineBorder(Color.BLACK));
+		textoAreaAvaliacaoCef.setBounds(182, 79, 392, 100);
+		painelAvaliacao.add(textoAreaAvaliacaoCef);
+		
+		textoAreaAvaliacaoInt = new JTextArea();
+		textoAreaAvaliacaoInt.setRows(10);
+		textoAreaAvaliacaoInt.setBorder(new LineBorder(Color.BLACK));
+		textoAreaAvaliacaoInt.setBounds(10, 231, 564, 112);
+		painelAvaliacao.add(textoAreaAvaliacaoInt);
+		
+		dadosEquipamentoCli = new JLayeredPane();
+		tabGeral.addTab("Equipamentos Cliente", null, dadosEquipamentoCli, null);
+		
+		
+
+		
+
+		painelEquipamentos = new JPanel();
+		painelEquipamentos.setBackground(Color.WHITE);
+		painelEquipamentos.setBounds(0, 0, 620, 370);
+		dadosEquipamentoCli.add(painelEquipamentos);
+		painelEquipamentos.setLayout(null);
+		
+		LEquipamentocli = new JLabel("Equipamentos que o paciente utiliza");
+		LEquipamentocli.setFont(new Font("Arial", Font.PLAIN, 14));
+		LEquipamentocli.setBounds(10, 11, 400, 14);
+		painelEquipamentos.add(LEquipamentocli);
+		
+		checkCateter = new JCheckBox("Catéter");
+		checkCateter.setFont(new Font("Arial", Font.PLAIN, 13));
+		checkCateter.setBackground(Color.WHITE);
+		checkCateter.setBounds(20, 38, 97, 23);
+		painelEquipamentos.add(checkCateter);
+		
+		checkSonda = new JCheckBox("Sonda");
+		checkSonda.setFont(new Font("Arial", Font.PLAIN, 13));
+		checkSonda.setBackground(Color.WHITE);
+		checkSonda.setBounds(20, 69, 97, 23);
+		painelEquipamentos.add(checkSonda);
+		
+		checkUripen = new JCheckBox("Uripen");
+		checkUripen.setFont(new Font("Arial", Font.PLAIN, 13));
+		checkUripen.setBackground(Color.WHITE);
+		checkUripen.setBounds(20, 105, 97, 23);
+		painelEquipamentos.add(checkUripen);
+				
+		checkDreno = new JCheckBox("Dreno");
+		checkDreno.setFont(new Font("Arial", Font.PLAIN, 13));
+		checkDreno.setBackground(Color.WHITE);
+		checkDreno.setBounds(20, 142, 97, 23);
+		painelEquipamentos.add(checkDreno);
+
+		checkCurativos = new JCheckBox("Curativos");
+		checkCurativos.setFont(new Font("Arial", Font.PLAIN, 13));
+		checkCurativos.setBackground(Color.WHITE);
+		checkCurativos.setBounds(20, 177, 97, 23);
+		painelEquipamentos.add(checkCurativos);
+		
+		checkVenoclise = new JCheckBox("Venóclise");
+		checkVenoclise.setFont(new Font("Arial", Font.PLAIN, 13));
+		checkVenoclise.setBackground(Color.WHITE);
+		checkVenoclise.setBounds(20, 214, 97, 23);
+		painelEquipamentos.add(checkVenoclise);
+		
+		checkOutros = new JCheckBox("Outros");
+		checkOutros.setFont(new Font("Arial", Font.PLAIN, 13));
+		checkOutros.setBackground(Color.WHITE);
+		checkOutros.setBounds(20, 253, 97, 23);
+		painelEquipamentos.add(checkOutros);
+						
+		textoEquipamento = new JTextArea();
+		textoEquipamento.setRows(10);
+		textoEquipamento.setBorder(new LineBorder(Color.BLACK));
+		textoEquipamento.setBounds(163, 96, 392, 180);
+		painelEquipamentos.add(textoEquipamento);
+						
+		LInfoEquip = new JLabel("Informações sobre aparelhos que o paciente utiliza");
+		LInfoEquip.setFont(new Font("Arial", Font.BOLD, 13));
+		LInfoEquip.setBounds(163, 69, 357, 14);
+		painelEquipamentos.add(LInfoEquip);
+}
 	
 	private void dadosCliente(){
 		LPaciente = new JLabel("Paciente");
@@ -666,7 +757,7 @@ public class ProntuarioForm extends JDialog {
 
 		painelDadosCliente = new JPanel();
 		painelDadosCliente.setBackground(Color.WHITE);
-		painelDadosCliente.setBounds(0, 0, 736, 347);
+		painelDadosCliente.setBounds(0, 0, 620, 370);
 		dadosCliente.add(painelDadosCliente);
 		painelDadosCliente.setLayout(null);
 		
@@ -1541,4 +1632,126 @@ public class ProntuarioForm extends JDialog {
 	public void setRadioVerbaliza(JRadioButton radioVerbaliza) {
 		this.radioVerbaliza = radioVerbaliza;
 	}
+
+	public JTextArea getTextoAreaChegada() {
+		return textoAreaChegada;
+	}
+
+	public void setTextoAreaChegada(JTextArea textoAreaChegada) {
+		this.textoAreaChegada = textoAreaChegada;
+	}
+
+	public ButtonGroup getGrupoBotao5() {
+		return grupoBotao5;
+	}
+
+	public void setGrupoBotao5(ButtonGroup grupoBotao5) {
+		this.grupoBotao5 = grupoBotao5;
+	}
+
+	public JSeparator getSeparator_2() {
+		return separator_2;
+	}
+
+	public void setSeparator_2(JSeparator separator_2) {
+		this.separator_2 = separator_2;
+	}
+
+	public JSeparator getSeparaAvaliacao() {
+		return separaAvaliacao;
+	}
+
+	public void setSeparaAvaliacao(JSeparator separaAvaliacao) {
+		this.separaAvaliacao = separaAvaliacao;
+	}
+
+	public JSeparator getSeparaRepouso() {
+		return separaRepouso;
+	}
+
+	public void setSeparaRepouso(JSeparator separaRepouso) {
+		this.separaRepouso = separaRepouso;
+	}
+
+	public JLabel getLAvaliacaoCefalo() {
+		return LAvaliacaoCefalo;
+	}
+
+	public void setLAvaliacaoCefalo(JLabel lAvaliacaoCefalo) {
+		LAvaliacaoCefalo = lAvaliacaoCefalo;
+	}
+
+	public JLabel getLIntercorrencias() {
+		return LIntercorrencias;
+	}
+
+	public void setLIntercorrencias(JLabel lIntercorrencias) {
+		LIntercorrencias = lIntercorrencias;
+	}
+
+	public JTextArea getTextoAreaAvaliacaoCef() {
+		return textoAreaAvaliacaoCef;
+	}
+
+	public void setTextoAreaAvaliacaoCef(JTextArea textoAreaAvaliacaoCef) {
+		this.textoAreaAvaliacaoCef = textoAreaAvaliacaoCef;
+	}
+
+	public JTextArea getTextoAreaAvaliacaoInt() {
+		return textoAreaAvaliacaoInt;
+	}
+
+	public void setTextoAreaAvaliacaoInt(JTextArea textoAreaAvaliacaoInt) {
+		this.textoAreaAvaliacaoInt = textoAreaAvaliacaoInt;
+	}
+
+	public JRadioButton getRadioCardiologico() {
+		return radioCardiologico;
+	}
+
+	public void setRadioCardiologico(JRadioButton radioCardiologico) {
+		this.radioCardiologico = radioCardiologico;
+	}
+
+	public JRadioButton getRadioNeurologico() {
+		return radioNeurologico;
+	}
+
+	public void setRadioNeurologico(JRadioButton radioNeurologico) {
+		this.radioNeurologico = radioNeurologico;
+	}
+
+	public JRadioButton getRadioRespiratorio() {
+		return radioRespiratorio;
+	}
+
+	public void setRadioRespiratorio(JRadioButton radioRespiratorio) {
+		this.radioRespiratorio = radioRespiratorio;
+	}
+
+	public JRadioButton getRadioTegumentar() {
+		return radioTegumentar;
+	}
+
+	public void setRadioTegumentar(JRadioButton radioTegumentar) {
+		this.radioTegumentar = radioTegumentar;
+	}
+
+	public JRadioButton getRadioGastrintestinal() {
+		return radioGastrintestinal;
+	}
+
+	public void setRadioGastrintestinal(JRadioButton radioGastrintestinal) {
+		this.radioGastrintestinal = radioGastrintestinal;
+	}
+
+	public JRadioButton getRadioGenito() {
+		return radioGenito;
+	}
+
+	public void setRadioGenito(JRadioButton radioGenito) {
+		this.radioGenito = radioGenito;
+	}
+	
+	
 }

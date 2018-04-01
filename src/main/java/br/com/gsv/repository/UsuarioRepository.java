@@ -124,5 +124,26 @@ public class UsuarioRepository {
 		return lista;
 	}
 	
+	@SuppressWarnings("unchecked")
+	public Usuario Autenticar(String login, String senha){
+		sessao = HibernateUtil.getSessionFactory().openSession();
+		Usuario usuario = null;
+		
+		try {
+			Query consulta = sessao.getNamedQuery("Usuario.Autenticar");
+			consulta.setParameter("login", login);
+			consulta.setString("senha", senha);
+			usuario = (Usuario) consulta.uniqueResult();
+		} catch (RuntimeException e) {
+			throw e;
+		}finally{
+			sessao.close();
+		}
+		
+		
+		System.out.println(usuario.getLogin());
+		return usuario;
+	}
+	
 
 }

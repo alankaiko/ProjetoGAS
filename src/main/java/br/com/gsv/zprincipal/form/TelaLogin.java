@@ -3,7 +3,6 @@ package br.com.gsv.zprincipal.form;
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
-import java.awt.SystemColor;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -12,12 +11,12 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
-import javax.swing.JTextPane;
 import javax.swing.border.LineBorder;
 
 import br.com.gsv.zprincipal.listeners.TelaLoginListener;
+import br.com.projeto.gsv.util.HibernateUtil;
 
-public class TelaLogin extends JFrame {
+public class TelaLogin extends JFrame{
 
 	private JPanel PainelPrincipal, PainelLogo;
 	private JTextField campoTexto;
@@ -25,9 +24,14 @@ public class TelaLogin extends JFrame {
 	private JButton botaoEntrar;
 	private JPasswordField campoSenha;
 	private TelaLoginListener listener;
+	private JPanel painelDrag;
+	private int xx,xy;
+
+	
 
 	
 	
+
 	
 	
 	
@@ -51,6 +55,8 @@ public class TelaLogin extends JFrame {
 		CriaTela();
 		CriaComponentes();
 		listener = new TelaLoginListener(this);
+		HibernateUtil.getSessionFactory();
+	
 	}
 
 	private void CriaTela() {
@@ -61,15 +67,15 @@ public class TelaLogin extends JFrame {
 		this.setLocationRelativeTo(null);
 		PainelPrincipal = new JPanel();
 		PainelPrincipal.setBackground(Color.WHITE);
-		PainelPrincipal.setBorder(new LineBorder(new Color(0, 0, 0)));
+		PainelPrincipal.setBorder(new LineBorder(new Color(71,120,197)));
 		setContentPane(PainelPrincipal);
 		PainelPrincipal.setLayout(null);
 	}
 
 	private void CriaComponentes() {
 		PainelLogo = new JPanel();
-		PainelLogo.setBackground(SystemColor.textHighlight);
-		PainelLogo.setBounds(0, 0, 233, 324);
+		PainelLogo.setBackground(new Color(71,120,197));
+		PainelLogo.setBounds(0, 0, 233, 300);
 		PainelPrincipal.add(PainelLogo);
 		PainelLogo.setLayout(null);
 
@@ -106,13 +112,19 @@ public class TelaLogin extends JFrame {
 		PainelPrincipal.add(senha);
 
 		botaoFechar = new JLabel();
-		botaoFechar.setIcon(new ImageIcon(TelaLogin.class
-				.getResource("/imagens/close.png")));
+		botaoFechar.setIcon(new ImageIcon(TelaLogin.class.getResource("/imagens/close.png")));
 		botaoFechar.setBounds(445, 0, 25, 31);
 		PainelPrincipal.add(botaoFechar);
-
+		
+		painelDrag = new JPanel();
+		painelDrag.setBounds(1, 1, 477, 25);
+		PainelPrincipal.add(painelDrag);
+		
 	}
 
+	
+	
+	
 	public JTextField getCampoTexto() {
 		return campoTexto;
 	}
@@ -161,5 +173,30 @@ public class TelaLogin extends JFrame {
 	public void setCampoSenha(JPasswordField campoSenha) {
 		this.campoSenha = campoSenha;
 	}
+
+	public JPanel getPainelDrag() {
+		return painelDrag;
+	}
+
+	public void setPainelDrag(JPanel painelDrag) {
+		this.painelDrag = painelDrag;
+	}
+	public int getXx() {
+		return xx;
+	}
+
+	public void setXx(int xx) {
+		this.xx = xx;
+	}
+	
+	public int getXy() {
+		return xy;
+	}
+
+	public void setXy(int xy) {
+		this.xy = xy;
+	}
+	
+	
 
 }

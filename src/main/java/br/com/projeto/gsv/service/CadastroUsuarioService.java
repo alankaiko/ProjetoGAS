@@ -18,9 +18,12 @@ public class CadastroUsuarioService {
 	}
 	
 	public List<Usuario> ListandoUsuarios(){
-		return repositorio.ListarUsuario();
+		return this.repositorio.ListarUsuario();
 	}
 	
+	public Usuario Autenticando(String login, String senha){
+		return this.repositorio.Autenticar(login, senha);
+	}
 	
 	public Usuario BuscandoPeloLogin(String login){
 		return this.repositorio.BuscarPeloLogin(login);

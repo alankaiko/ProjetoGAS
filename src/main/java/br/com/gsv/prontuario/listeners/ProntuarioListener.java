@@ -78,6 +78,9 @@ public class ProntuarioListener implements ActionListener{
 		this.prontuario.setInteOutrosText(this.formulario.getTOutrosInt().getText());
 		this.prontuario.setSintomasEspText(this.formulario.getTextoSintomas().getText());
 		this.prontuario.setSintomasMembText(this.formulario.getTextoMembros().getText());	
+		this.prontuario.setTextoAreachegada(this.formulario.getTextoAreaChegada().getText());
+		this.prontuario.setAvaliCefaloTexto(this.formulario.getTextoAreaAvaliacaoCef().getText());
+		this.prontuario.setAvaliIntercorrencias(this.formulario.getTextoAreaAvaliacaoInt().getText());
 		
 	}
 	
@@ -144,6 +147,28 @@ public class ProntuarioListener implements ActionListener{
 		
 		if(this.formulario.getRadioAbsoluto().isSelected())
 			this.prontuario.setCondRepouso(this.formulario.getRadioAbsoluto().getText());	
+		
+		
+		
+		
+		
+		if(this.formulario.getRadioNeurologico().isSelected())
+			this.prontuario.setAvaliCefaloMental(this.formulario.getRadioNeurologico().getText());
+		
+		if(this.formulario.getRadioRespiratorio().isSelected())
+			this.prontuario.setAvaliCefaloMental(this.formulario.getRadioRespiratorio().getText());
+		
+		if(this.formulario.getRadioTegumentar().isSelected())
+			this.prontuario.setAvaliCefaloMental(this.formulario.getRadioTegumentar().getText());
+		
+		if(this.formulario.getRadioGastrintestinal().isSelected())
+			this.prontuario.setAvaliCefaloMental(this.formulario.getRadioGastrintestinal().getText());
+		
+		if(this.formulario.getRadioGenito().isSelected())
+			this.prontuario.setAvaliCefaloMental(this.formulario.getRadioGenito().getText());
+		
+		if(this.formulario.getRadioCardiologico().isSelected())
+			this.prontuario.setAvaliCefaloMental(this.formulario.getRadioCardiologico().getText());
 	}
 	
 	private void PegarCheckboxes(){
@@ -267,6 +292,9 @@ public class ProntuarioListener implements ActionListener{
 		this.formulario.getTOutrosInt().setText(this.prontuario.getInteOutrosText());
 		this.formulario.getTextoSintomas().setText(this.prontuario.getSintomasEspText());
 		this.formulario.getTextoMembros().setText(this.prontuario.getSintomasMembText());
+		this.formulario.getTextoAreaChegada().setText(this.prontuario.getTextoAreachegada());
+		this.formulario.getTextoAreaAvaliacaoCef().setText(this.prontuario.getAvaliCefaloTexto());
+		this.formulario.getTextoAreaAvaliacaoInt().setText(this.prontuario.getAvaliIntercorrencias());
 		
 		this.formulario.getTCodigo().setText(String.valueOf(this.prontuario.getPaciente().getId()));
 		this.formulario.getTPaciente().setText(this.prontuario.getPaciente().getNome());
@@ -341,6 +369,26 @@ public class ProntuarioListener implements ActionListener{
 		
 		if(this.prontuario.getCondRepouso().equals(this.formulario.getRadioAbsoluto().getText()))
 			this.formulario.getRadioAbsoluto().setSelected(true);
+		
+		
+		
+		if(this.prontuario.getAvaliCefaloMental().equals(this.formulario.getRadioNeurologico().getText()))
+			this.formulario.getRadioNeurologico().setSelected(true);
+		
+		if(this.prontuario.getAvaliCefaloMental().equals(this.formulario.getRadioRespiratorio().getText()))
+			this.formulario.getRadioRespiratorio().setSelected(true);
+		
+		if(this.prontuario.getAvaliCefaloMental().equals(this.formulario.getRadioTegumentar().getText()))
+			this.formulario.getRadioTegumentar().setSelected(true);
+		
+		if(this.prontuario.getAvaliCefaloMental().equals(this.formulario.getRadioGastrintestinal().getText()))
+			this.formulario.getRadioGastrintestinal().setSelected(true);
+		
+		if(this.prontuario.getAvaliCefaloMental().equals(this.formulario.getRadioGenito().getText()))
+			this.formulario.getRadioGenito().setSelected(true);
+		
+		if(this.prontuario.getAvaliCefaloMental().equals(this.formulario.getRadioCardiologico().getText()))
+			this.formulario.getRadioCardiologico().setSelected(true);
 	}
 	
 	private void SetarCheckBoxes(){

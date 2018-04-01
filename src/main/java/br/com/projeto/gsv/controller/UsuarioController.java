@@ -23,7 +23,11 @@ public class UsuarioController {
 	}
 
 	public List<Usuario> listaCompletaUsuario() {
-		return cadastroService.ListandoUsuarios();
+		return this.cadastroService.ListandoUsuarios();
+	}
+	
+	public Usuario AutenticaLogin(String login, String senha){
+		return this.cadastroService.Autenticando(login, senha);
 	}
 
 	
