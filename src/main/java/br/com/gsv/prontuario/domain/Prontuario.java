@@ -21,6 +21,7 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import br.com.gsv.funcionario.domain.RegistroCoren;
 import br.com.gsv.paciente.domain.Paciente;
 
 @Table
@@ -46,6 +47,8 @@ public class Prontuario implements Serializable{
 	@OneToOne
 	@JoinColumn(name = "tbl_paciente_id", referencedColumnName = "id")
 	private Paciente paciente;
+	
+	
 	private String anotConsciencia;
 	private String anotMental;
 	private String anotObservacao;
@@ -307,7 +310,6 @@ public class Prontuario implements Serializable{
 	public void setHora(String hora) {
 		this.hora = hora;
 	}
-	
 	
 	
 }

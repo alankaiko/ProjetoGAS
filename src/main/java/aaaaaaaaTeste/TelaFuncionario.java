@@ -1,7 +1,12 @@
-package br.com.gsv.funcionario.formularios;
+package aaaaaaaaTeste;
 
+import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Container;
+import java.awt.Font;
+import java.util.Vector;
 
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
@@ -9,13 +14,12 @@ import javax.swing.JFormattedTextField;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.border.EmptyBorder;
 
-import br.com.gsv.funcionario.grafico.IncluirFuncionarioClassic;
-import br.com.gsv.funcionarios.listeners.IncluirFuncionarioListener;
 import br.com.projeto.gsv.util.ConverteDadosUtil;
+import br.com.projeto.gsv.util.ListasUtil;
 
-public class IncluirFuncionariosForm extends JDialog {
-	private IncluirFuncionarioListener listener;
+public class TelaFuncionario extends JDialog {
 	private JPanel panel = new JPanel();
 	private Container tela = getContentPane();
 	private JLabel LId, LNome, LCpf, LRg;
@@ -26,20 +30,25 @@ public class IncluirFuncionariosForm extends JDialog {
 	private JFormattedTextField JCpf, JCep;
 	private JButton BTGravar, BTCancelar;
 	private JComboBox ComboEstado, comboCoren,comboCorenEst;
-	private IncluirFuncionarioClassic listenerClassic;
-	//private IncluirFuncionarioGrafic listenerGrafic;
 	
 	
 	//metodo construtor que inicia tudo
-	public IncluirFuncionariosForm() {
+	public TelaFuncionario() {
 		InicializaVariaveis();
 		InicializaCompomentes();
-		listenerClassic = new IncluirFuncionarioClassic(this);
-		//listenerGrafic = new IncluirFuncionarioGrafic(this);
-		listener = new IncluirFuncionarioListener(this);
+		
+		setTitle("Inserir Dados de Funcionário");
+		setModal(true);
+		setResizable(false);
+		setBounds(100, 100, 649, 465);
+		
+		getTela().setLayout(null);		
+		getTela().add(panel, BorderLayout.CENTER);
+		
+		panel.setLayout(null);
+		panel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		
 	}
-	
 	
 	private void InicializaVariaveis(){
 		LId = new JLabel();
@@ -73,12 +82,132 @@ public class IncluirFuncionariosForm extends JDialog {
 		JCpf = new JFormattedTextField(ConverteDadosUtil.FormataCPF());
 		JCep = new JFormattedTextField(ConverteDadosUtil.FormataCep());
 		BTGravar = new JButton();
-		TCoren = new JTextField();
 		BTCancelar = new JButton();
 		ComboEstado = new JComboBox();
-		comboCoren = new JComboBox();
-		comboCoren = new JComboBox();
-		comboCorenEst = new JComboBox();
+		
+		
+		LIndentif.setText("DADOS PESSOAIS");
+		LIndentif.setBounds(15,10,300,20);
+		LIndentif.setFont(new Font("Calibri", Font.BOLD, 13));
+		LIndentif.setForeground(Color.black);
+									
+					
+			LId.setText("Código:");
+			LId.setBounds(15,41,50,20);
+			LId.setFont(new Font("Arial",Font.BOLD,11));
+				TId.setBounds(61,42,50,20);
+				TId.setBackground(new Color(255,255,204));
+				TId.setFont(new Font("Arial",Font.BOLD,10));
+				TId.setForeground(Color.black);
+				TId.setEditable(false);
+				
+			comboCoren = new JComboBox();
+			comboCoren.setBounds(370, 42, 74, 20);
+			
+			TCoren = new JTextField();
+			TCoren.setBounds(448, 42, 120, 20);
+			TCoren.setColumns(10);
+			
+			comboCorenEst = new JComboBox();
+			comboCorenEst.setBounds(571, 42, 46, 20);
+				
+					
+			LCpf.setText("CPF:");
+			LCpf.setFont(new Font("Arial", Font.BOLD, 11));
+			LCpf.setBounds(15, 73, 50, 20);			
+				JCpf.setBounds(61,73,140,19);		
+				
+								
+			LRg.setText("*RG:");
+			LRg.setBounds(419,73,29,20);
+			LRg.setFont(new Font("Arial" , Font.BOLD,11));;
+				TRg.setBounds(448,74,169,19);
+				TRg.setFont(new Font("Arial",Font.BOLD,10));
+	
+					
+			LNome.setText("*Nome:");
+			LNome.setBounds(15,104,602,20);
+			LNome.setFont(new Font("Arial" , Font.BOLD,11));;
+				TNome.setBounds(61,105,556,19);
+				TNome.setFont(new Font("Arial",Font.BOLD,10));		
+				
+				
+		LEndereco.setText("ENDEREÇO");
+		LEndereco.setFont(new Font("Calibri", Font.BOLD, 13));
+		LEndereco.setBounds(15, 135, 64, 14);
+		
+				
+			LLogradouro.setText("Logradouro: ");
+			LLogradouro.setFont(new Font("Arial", Font.BOLD, 11));
+			LLogradouro.setBounds(15, 160, 84, 14);
+				TLogradouro.setBounds(111, 157, 506, 20);
+				TLogradouro.setColumns(10);
+					
+			LComplemento.setText("Complemento: ");
+			LComplemento.setFont(new Font("Arial", Font.BOLD, 11));
+			LComplemento.setBounds(15, 191, 100, 14);
+				TComplemento.setColumns(10);
+				TComplemento.setBounds(111, 188, 506, 20);
+					
+			LNumero.setText("Numero:");
+			LNumero.setFont(new Font("Arial", Font.BOLD, 11));
+			LNumero.setBounds(15, 222, 58, 14);
+				TNumero.setBounds(111, 219, 106, 20);
+				TNumero.setColumns(10);
+					
+			LBairro.setText("Bairro: ");
+			LBairro.setFont(new Font("Arial", Font.BOLD, 11));
+			LBairro.setBounds(363, 219, 46, 14);
+				TBairro.setBounds(419, 216, 198, 20);
+				TBairro.setColumns(10);
+						
+			LCidade.setText("Cidade: ");
+			LCidade.setFont(new Font("Arial", Font.BOLD, 11));
+			LCidade.setBounds(15, 247, 46, 14);
+				TCidade.setBounds(111, 244, 208, 20);
+				TCidade.setColumns(10);
+		
+			LEstado.setText("UF: ");
+			LEstado.setBounds(419, 250, 46, 14);
+				ComboEstado.setBounds(475, 247, 142, 20);
+				ComboEstado.setModel(new DefaultComboBoxModel(new Vector(ListasUtil.Estados())));
+				
+						
+			LCep.setText("CEP:");
+			LCep.setFont(new Font("Arial", Font.BOLD, 11));
+			LCep.setBounds(15, 278, 35, 14);
+				JCep.setBounds(111, 275, 86, 20);
+					
+				
+		LContato.setText("CONTATO");
+		LContato.setFont(new Font("Calibri", Font.BOLD, 13));
+		LContato.setBounds(15, 317, 72, 14);
+		
+			LEmail.setText("Email:");
+			LEmail.setFont(new Font("Arial", Font.BOLD, 11));
+			LEmail.setBounds(50, 334, 46, 14);
+				TEmail.setBounds(109, 331, 252, 20);
+				TEmail.setColumns(10);
+			
+			LCelular.setText("Celular:");
+			LCelular.setFont(new Font("Arial", Font.BOLD, 11));
+			LCelular.setBounds(404, 359, 46, 14);
+				TCelular.setBounds(456, 359, 161, 20);
+				TCelular.setColumns(10);
+			
+			LTelefone.setText("Telefone:");
+			LTelefone.setFont(new Font("Arial", Font.BOLD, 11));
+			LTelefone.setBounds(394, 334, 72, 14);
+				TTelefone.setBounds(456, 331, 161, 20);
+				TTelefone.setColumns(10);	
+	
+		BTGravar.setText("Gravar");
+		BTGravar.setFont(new Font("Calibri", Font.PLAIN, 12));
+		BTGravar.setBounds(222, 403, 89, 23);
+		
+		BTCancelar.setText("Cancelar");
+		BTCancelar.setFont(new Font("Calibri", Font.PLAIN, 12));
+		BTCancelar.setBounds(321, 403, 89, 23);
 	}
 	
 	//classe que adiciona os componentes criados no metodo anterior à tela geral
@@ -465,35 +594,4 @@ public class IncluirFuncionariosForm extends JDialog {
 	public void setComboEstado(JComboBox comboEstado) {
 		ComboEstado = comboEstado;
 	}
-
-	public IncluirFuncionarioListener getListener() {
-		return listener;
-	}
-
-	public JTextField getTCoren() {
-		return TCoren;
-	}
-
-	public void setTCoren(JTextField tCoren) {
-		TCoren = tCoren;
-	}
-
-	public JComboBox getComboCoren() {
-		return comboCoren;
-	}
-
-	public void setComboCoren(JComboBox comboCoren) {
-		this.comboCoren = comboCoren;
-	}
-
-	public JComboBox getComboCorenEst() {
-		return comboCorenEst;
-	}
-
-	public void setComboCorenEst(JComboBox comboCorenEst) {
-		this.comboCorenEst = comboCorenEst;
-	}
-
-
-	
 }

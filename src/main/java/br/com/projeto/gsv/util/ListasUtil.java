@@ -69,4 +69,48 @@ public class ListasUtil {
 		
 		return lista;
 	}
+	
+	public static List<String> Coren(){
+		List<String> lista = new ArrayList<String>();
+		lista.add("");
+		lista.add("Coren");
+		lista.add("CRM");
+		lista.add("CRF");
+		
+		return lista;
+	}
+	
+	
+	public static List<String> EstadosAbrev(){
+		List<String> lista = new ArrayList<String>();
+		lista.add("AC");
+		lista.add("AL");
+		lista.add("AP");
+		lista.add("AM");
+		lista.add("BA");
+		lista.add("CE");
+		lista.add("DF");
+		lista.add("ES");
+		lista.add("GO");
+		lista.add("MA");
+		lista.add("MT");
+		lista.add("MS");
+		lista.add("MG");
+		lista.add("PA");
+		lista.add("PB");
+		lista.add("PR");
+		lista.add("PE");	
+		lista.add("PI");
+		lista.add("RJ");
+		lista.add("RN");
+		lista.add("RS");
+		lista.add("RO");
+		lista.add("RR");
+		lista.add("SC");
+		lista.add("SP");
+		lista.add("SE");
+		lista.add("TO");
+		
+		return lista;
+	}
 }

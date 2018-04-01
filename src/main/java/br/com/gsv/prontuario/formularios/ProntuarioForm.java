@@ -61,7 +61,7 @@ public class ProntuarioForm extends JDialog {
 
 
 	public ProntuarioForm() {
-		setBounds(100, 100, 650, 460);
+		setBounds(100, 100, 772, 482);
 		getContentPane().setLayout(new BorderLayout());
 		panel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(panel, BorderLayout.CENTER);
@@ -70,16 +70,16 @@ public class ProntuarioForm extends JDialog {
 		panel.setLayout(null);
 
 		BTGravar = new JButton("Gravar");
-		BTGravar.setBounds(211, 387, 89, 23);
+		BTGravar.setBounds(375, 420, 89, 23);
 		panel.add(BTGravar);
 
 		BTCancelar = new JButton("Cancelar");
-		BTCancelar.setBounds(310, 387, 89, 23);
+		BTCancelar.setBounds(474, 420, 89, 23);
 		panel.add(BTCancelar);
 
 		tabGeral = new JTabbedPane(JTabbedPane.TOP);
 		tabGeral.setBackground(Color.WHITE);
-		tabGeral.setBounds(15, 34, 609, 342);
+		tabGeral.setBounds(15, 34, 741, 375);
 		panel.add(tabGeral);
 
 		TabCliente();
@@ -367,9 +367,9 @@ public class ProntuarioForm extends JDialog {
 		dadosCondicao.add(painelCondicao);
 		painelCondicao.setLayout(null);
 
-		LDeambulacao = new JLabel("Deâmbulação");
+		LDeambulacao = new JLabel("Avaliação do Paciente");
 		LDeambulacao.setFont(new Font("Arial", Font.PLAIN, 14));
-		LDeambulacao.setBounds(10, 11, 127, 14);
+		LDeambulacao.setBounds(10, 11, 169, 14);
 		painelCondicao.add(LDeambulacao);
 
 		radioDeambulante = new JRadioButton("Deâmbulante");
@@ -666,7 +666,7 @@ public class ProntuarioForm extends JDialog {
 
 		painelDadosCliente = new JPanel();
 		painelDadosCliente.setBackground(Color.WHITE);
-		painelDadosCliente.setBounds(0, 0, 604, 314);
+		painelDadosCliente.setBounds(0, 0, 736, 347);
 		dadosCliente.add(painelDadosCliente);
 		painelDadosCliente.setLayout(null);
 		
@@ -1541,6 +1541,4 @@ public class ProntuarioForm extends JDialog {
 	public void setRadioVerbaliza(JRadioButton radioVerbaliza) {
 		this.radioVerbaliza = radioVerbaliza;
 	}
-	
-	
 }

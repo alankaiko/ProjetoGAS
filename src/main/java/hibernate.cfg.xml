@@ -48,6 +48,7 @@
       	<mapping class="br.com.gsv.prontuario.domain.SintomasCheckbox"/>
       	<mapping class="br.com.gsv.prontuario.domain.SintomasMembrosCheckbox"/>
       	<mapping class="br.com.gsv.funcUsuario.domain.Usuario"/>
+      	<mapping class="br.com.gsv.funcionario.domain.RegistroCoren"/>
     </session-factory>
 
 </hibernate-configuration>

@@ -13,6 +13,7 @@ import javax.swing.KeyStroke;
 import br.com.gsv.funcionario.domain.Contato_fun;
 import br.com.gsv.funcionario.domain.Endereco_fun;
 import br.com.gsv.funcionario.domain.Funcionario;
+import br.com.gsv.funcionario.domain.RegistroCoren;
 import br.com.gsv.funcionario.formularios.IncluirFuncionariosForm;
 import br.com.projeto.gsv.controller.FuncionarioController;
 import br.com.projeto.gsv.util.ConverteDadosUtil;
@@ -25,6 +26,7 @@ public class IncluirFuncionarioListener implements ActionListener{
 	private Funcionario funcionario;
 	private Contato_fun contato;
 	private Endereco_fun endereco;
+	private RegistroCoren coren;
 	
 	
 	public IncluirFuncionarioListener(IncluirFuncionariosForm formulario) {
@@ -39,6 +41,7 @@ public class IncluirFuncionarioListener implements ActionListener{
 	
 	private void Salvar(){
 		FormToFuncionario();
+		FormToRegistro();
 		FormToContato();
 		FormToEndereco();
 		AtrelarObjetos();
@@ -95,9 +98,16 @@ public class IncluirFuncionarioListener implements ActionListener{
 		endereco.setCep(this.formulario.getJCep().getText().replaceAll("[_.-]", ""));
 	}
 	
+	private void FormToRegistro(){
+		coren = new RegistroCoren();
+		coren.setCoren((String) this.formulario.getComboCoren().getSelectedItem());
+		coren.setInscricao(this.formulario.getTCoren().getText());
+		coren.setUf((String) this.formulario.getComboCorenEst().getSelectedItem());
+	}
+	
 	//Método que mapeia os objetos contato e endereco dentro do objeto cliente
 	private void AtrelarObjetos(){
-		
+		this.funcionario.setRegistroCoren(this.coren);
 		this.funcionario.getContato().add(this.contato);
 		this.funcionario.getEndereco().add(this.endereco);
 		
@@ -130,6 +140,9 @@ public class IncluirFuncionarioListener implements ActionListener{
 		this.formulario.getTEmail().setText(this.funcionario.getContato().get(0).getEmail());
 		this.formulario.getTCelular().setText(this.funcionario.getContato().get(0).getCelular());
 		this.formulario.getTTelefone().setText(this.funcionario.getContato().get(0).getTelefone());
+		this.formulario.getComboCoren().setSelectedItem(this.funcionario.getRegistroCoren().getCoren());
+		this.formulario.getTCoren().setText(this.funcionario.getRegistroCoren().getInscricao());
+		this.formulario.getComboCorenEst().setSelectedItem(this.funcionario.getRegistroCoren().getUf());
 	}
 
 	
@@ -149,33 +162,13 @@ public class IncluirFuncionarioListener implements ActionListener{
 			funcionario.getContato().get(0).setEmail(this.formulario.getTEmail().getText());
 			funcionario.getContato().get(0).setCelular(this.formulario.getTCelular().getText());
 			funcionario.getContato().get(0).setTelefone(this.formulario.getTTelefone().getText());
+			funcionario.getRegistroCoren().setCoren((String) this.formulario.getComboCoren().getSelectedItem());
+			funcionario.getRegistroCoren().setInscricao(this.formulario.getTCoren().getText());
+			funcionario.getRegistroCoren().setUf((String) this.formulario.getComboCorenEst().getSelectedItem());
 		}
 		
 		
 		
-	
-	
-	
-	/*-----------------------------------------------------------------------------------------------------------------*/
-	/*---------------------------------------CLASSES PARA DETALHAR OBJETOS-------------------------------------------*/
-	public void DetalhandoObjetos(){
-		this.formulario.getTId().setEditable(false);
-		this.formulario.getTNome().setEditable(false);
-		this.formulario.getTRg().setEditable(false);
-		this.formulario.getJCpf().setEditable(false);
-		this.formulario.getTLogradouro().setEditable(false);
-		this.formulario.getTComplemento().setEditable(false);
-		this.formulario.getTNumero().setEditable(false);
-		this.formulario.getTBairro().setEditable(false);
-		this.formulario.getTCidade().setEditable(false);
-		this.formulario.getJCep().setEditable(false);
-		this.formulario.getTEmail().setEditable(false);
-		this.formulario.getTTelefone().setEditable(false);
-		this.formulario.getTCelular().setEditable(false);
-				
-	}
-	
-	
 	
 	/*-----------------------------------------------------------------------------------------------------------------*/
 	/*-------------------CLASSES QUE POSSUI AS ACOES DOS BOTOES ---------------*/

@@ -45,11 +45,11 @@ public class Produto implements Serializable{
 	public Long getId() {
 		return id;
 	}
+	
 	public void setId(Long id) {
 		this.id = id;
 	}
 	
-	@Column(nullable=false)
 	public String getDescricao() {
 		return descricao;
 	}
@@ -57,7 +57,6 @@ public class Produto implements Serializable{
 		this.descricao = descricao;
 	}
 	
-	@Column
 	public String getCodigo() {
 		return codigo;
 	}
@@ -65,7 +64,6 @@ public class Produto implements Serializable{
 		this.codigo = codigo;
 	}
 	
-	@Column
 	public Integer getQuantidade() {
 		return quantidade;
 	}
@@ -77,6 +75,7 @@ public class Produto implements Serializable{
 	public Fabricante getFabricante() {
 		return fabricante;
 	}
+	
 	public void setFabricante(Fabricante fabricante) {
 		this.fabricante = fabricante;
 	}

@@ -11,9 +11,11 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 
@@ -29,13 +31,19 @@ import javax.persistence.Table;
 public class Funcionario implements Serializable{
 	private static final long serialVersionUID = 1L;
 
+	
+	
 	private Long id;
 	private String nome;
 	private String cpf;
 	private String rg;
 	private List<Contato_fun> contato = new ArrayList<Contato_fun>();
 	private List<Endereco_fun> endereco = new ArrayList<Endereco_fun>();
+	
+	
+	private RegistroCoren registroCoren;
 
+	
 	@Id
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	@Column(name = "fun_id")
@@ -75,9 +83,6 @@ public class Funcionario implements Serializable{
 	}
 
 	
-	/* NotNull= o contato não pode ser nulo, OneToMany= um para muitos mappedby
-	 * campo da outra classe que está sendo mapeado CascadeType.ALL= quando um
-	 * cliente for excluído ocontato é excluído junto com ele.*/
 	@OneToMany(mappedBy = "funcionario", cascade = CascadeType.ALL, fetch=FetchType.EAGER)
 	public List<Contato_fun> getContato() {
 		return contato;
@@ -88,10 +93,6 @@ public class Funcionario implements Serializable{
 	}
 	
 	
-
-	/* NotNull= o contato não pode ser nulo, OneToMany= um para muitos mappedby campo 
-	 * da outra classe que está sendo mapeado CascadeType.ALL= quando um cliente for 
-	 * excluído o contato é excluído junto com ele.	 */
 	@OneToMany(mappedBy="funcionario", cascade= CascadeType.ALL, fetch=FetchType.EAGER)	
 	public List<Endereco_fun> getEndereco() {
 		return endereco;
@@ -100,11 +101,18 @@ public class Funcionario implements Serializable{
 	public void setEndereco(List<Endereco_fun> endereco) {
 		this.endereco = endereco;
 	}
+	
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "tbl_registrocoren_id", referencedColumnName = "reg_id")
+	public RegistroCoren getRegistroCoren() {
+		return registroCoren;
+	}
 
+	public void setRegistroCoren(RegistroCoren registroCoren) {
+		this.registroCoren = registroCoren;
+	}
 	
-	
-	
-	
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;

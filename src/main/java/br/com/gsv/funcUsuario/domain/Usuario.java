@@ -21,10 +21,6 @@ import br.com.gsv.funcionario.domain.Funcionario;
 	@NamedQuery(name="Usuario.buscarPeloLogin", query="SELECT usuario FROM Usuario usuario WHERE usuario.login = :login"),
 	@NamedQuery(name="Usuario.buscarPorNome", query="SELECT usuario FROM Usuario usuario WHERE usuario.funcionario.nome LIKE :nome")
 })
-
-
-
-
 public class Usuario {
 
 	@Id
