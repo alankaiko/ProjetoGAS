@@ -26,12 +26,6 @@ public class TelaLogin extends JFrame{
 	private TelaLoginListener listener;
 	private JPanel painelDrag;
 	private int xx,xy;
-
-	
-
-	
-	
-
 	
 	
 	
@@ -117,6 +111,7 @@ public class TelaLogin extends JFrame{
 		PainelPrincipal.add(botaoFechar);
 		
 		painelDrag = new JPanel();
+		painelDrag.setBackground(Color.WHITE);
 		painelDrag.setBounds(1, 1, 477, 25);
 		PainelPrincipal.add(painelDrag);
 		

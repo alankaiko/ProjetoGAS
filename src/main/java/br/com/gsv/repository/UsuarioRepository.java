@@ -86,7 +86,7 @@ public class UsuarioRepository {
 	}
 	
 	
-	@SuppressWarnings("unchecked")
+	
 	public Usuario BuscarPeloLogin(String login){
 		sessao = HibernateUtil.getSessionFactory().openSession();
 		Usuario usuario = null;
@@ -124,14 +124,14 @@ public class UsuarioRepository {
 		return lista;
 	}
 	
-	@SuppressWarnings("unchecked")
+
 	public Usuario Autenticar(String login, String senha){
 		sessao = HibernateUtil.getSessionFactory().openSession();
 		Usuario usuario = null;
 		
 		try {
-			Query consulta = sessao.getNamedQuery("Usuario.Autenticar");
-			consulta.setParameter("login", login);
+			Query consulta = sessao.getNamedQuery("Usuario.autenticar");
+			consulta.setString("login", login);
 			consulta.setString("senha", senha);
 			usuario = (Usuario) consulta.uniqueResult();
 		} catch (RuntimeException e) {
@@ -140,8 +140,6 @@ public class UsuarioRepository {
 			sessao.close();
 		}
 		
-		
-		System.out.println(usuario.getLogin());
 		return usuario;
 	}
 	

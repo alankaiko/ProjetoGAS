@@ -94,13 +94,27 @@ public class Prontuario implements Serializable{
 	
 	
 	public Prontuario() {
-		this.anotConsciencia = new String();
-		this.anotMental = new String();
-		this.anotObservacao = new String();
-		this.condDeambulacao = new String();
-		this.condDeamObservacao = new String();
-		this.condRepouso = new String();
-		this.condSono = new String();
+		anotConsciencia = new String();
+		anotMental = new String();
+		anotObservacao = new String();
+		condDeambulacao = new String();
+		condDeamObservacao = new String();
+		condRepouso = new String();
+		condSono = new String();
+		equipObservacao = new String();
+		inteHemoText = new String();
+		inteDispText = new String();
+		inteEdemaText = new String();
+		inteDescText = new String();
+		inteHemaText = new String();
+		inteCicaText = new String();
+		inteOutrosText = new String();
+		sintomasEspText = new String();
+		sintomasMembText = new String();
+		textoAreachegada = new String();
+		avaliCefaloMental = new String();
+		avaliCefaloTexto = new String();
+		avaliIntercorrencias = new String();
 	}
 
 	

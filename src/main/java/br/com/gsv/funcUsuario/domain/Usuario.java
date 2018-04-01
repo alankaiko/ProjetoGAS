@@ -18,9 +18,9 @@ import br.com.gsv.funcionario.domain.Funcionario;
 @NamedQueries({
 	@NamedQuery(name="Usuario.listar", query="SELECT usuario FROM Usuario usuario order by login"),
 	@NamedQuery(name="Usuario.buscarPorId", query="SELECT usuario FROM Usuario usuario WHERE usuario.id = :id"),
-	@NamedQuery(name="Usuario.buscarPeloLogin", query="SELECT usuario FROM Usuario usuario WHERE usuario.login = :login"),
 	@NamedQuery(name="Usuario.buscarPorNome", query="SELECT usuario FROM Usuario usuario WHERE usuario.funcionario.nome LIKE :nome"),
-	@NamedQuery(name="Usuario.Autenticar", query="SELECT usuario FROM Usuario usuario WHERE usuario.login= :login AND usuario.senha= :senha")
+	@NamedQuery(name="Usuario.buscarPeloLogin", query="SELECT usuario FROM Usuario usuario WHERE usuario.login = :login"),
+	@NamedQuery(name="Usuario.autenticar", query="SELECT usuario FROM Usuario usuario WHERE usuario.login = :login AND usuario.senha= :senha")
 })
 public class Usuario {
 

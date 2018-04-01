@@ -18,6 +18,7 @@ import br.com.gsv.funcUsuario.domain.Usuario;
 import br.com.gsv.zprincipal.form.TelaLogin;
 import br.com.gsv.zprincipal.form.TelaPrincipalClassic;
 import br.com.projeto.gsv.controller.UsuarioController;
+import br.com.projeto.gsv.util.MensagemPainelUtil;
 
 public class TelaLoginListener implements ActionListener, MouseListener{
 	private TelaLogin formulario;
@@ -27,6 +28,7 @@ public class TelaLoginListener implements ActionListener, MouseListener{
 		this.formulario = formulario;
 		AdicionarListener();
 		UpCase();
+		UsandoTAB();
 		ArrastandoPainel();
 	}
 
@@ -35,6 +37,18 @@ public class TelaLoginListener implements ActionListener, MouseListener{
 		this.formulario.getBotaoFechar().addMouseListener(this);
 	}
 	
+	private void VerificarLogin(){
+		Autenticando();
+		
+		if(this.usuario != null){
+			this.formulario.dispose();
+			TelaPrincipalClassic classic = new TelaPrincipalClassic();
+			classic.setLocationRelativeTo(this.formulario.getContentPane());
+			classic.setVisible(true);
+		}else{
+			MensagemPainelUtil.AutenticaUsuario();
+		}
+	}
 	
 	
 	private void Autenticando(){
@@ -75,15 +89,7 @@ public class TelaLoginListener implements ActionListener, MouseListener{
 	@Override
 	public void actionPerformed(ActionEvent event) {
 		if(event.getSource().equals(this.formulario.getBotaoEntrar())){
-			Autenticando();
-			
-			if(this.usuario != null){
-				this.formulario.dispose();
-				TelaPrincipalClassic classic = new TelaPrincipalClassic();
-				classic.setLocationRelativeTo(this.formulario.getContentPane());
-				classic.setVisible(true);
-			}
-			
+			VerificarLogin();			
 		}
 		
 	}
@@ -100,6 +106,21 @@ public class TelaLoginListener implements ActionListener, MouseListener{
 			}  
 		}); 	
 	}
+	
+	
+	private void UsandoTAB(){
+		this.formulario.getRootPane().setDefaultButton(this.formulario.getBotaoEntrar());
+		this.formulario.getBotaoEntrar().addKeyListener(new KeyAdapter() {  
+            public void keyPressed(KeyEvent e) {  
+                if (e.getKeyCode() == KeyEvent.VK_ENTER) {  
+                	formulario.getBotaoEntrar().doClick();
+                }  
+            }  
+        });
+	}
+	
+	
+	
 	
 	private void ArrastandoPainel(){
 		

@@ -67,7 +67,6 @@ public class TelaPrincipalClassic extends JFrame {
 		CriaComponentes();	
 		listener = new TelaPrincipalClassicListener(this);
 		BarraStatusListener teste = new BarraStatusListener(this);
-		HibernateUtil.getSessionFactory();
 	}
 	
 	
