@@ -55,6 +55,7 @@ public class TelaPrincipalClassic extends JFrame {
 		tela = new JPanel();
 		tela.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(tela);
+		setResizable(false);
 		tela.setLayout(null);
 		
 		panelPrincipal = new JPanel();
@@ -115,7 +116,7 @@ public class TelaPrincipalClassic extends JFrame {
 		usuarioFuncionario = new JMenuItem("Cadastro de Funcionários");
 		menuUsuario.add(usuarioFuncionario);
 		
-		usuarioConFun = new JMenuItem("Consulta Funcionários");
+		usuarioConFun = new JMenuItem("Gerenciar Funcionários");
 		menuUsuario.add(usuarioConFun);
 		
 		usuarioUser = new JMenuItem("Gerenciar Usuários");
