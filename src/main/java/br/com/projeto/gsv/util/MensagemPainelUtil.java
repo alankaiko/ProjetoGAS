@@ -15,6 +15,13 @@ public class MensagemPainelUtil {
 		mensagem.showMessageDialog(mensagem, "Usuário inexistente");
 	}
 	
+	@SuppressWarnings("static-access")
+	public static void ErroDuplicacao(String msg){
+		mensagem.showMessageDialog(mensagem, msg);
+	}
 	
-	
+	@SuppressWarnings("static-access")
+	public static void CampoVazio(String msg){
+		mensagem.showMessageDialog(mensagem, msg);
+	}
 }

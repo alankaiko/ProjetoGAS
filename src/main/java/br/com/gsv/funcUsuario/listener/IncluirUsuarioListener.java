@@ -18,6 +18,7 @@ import br.com.projeto.gsv.controller.FuncionarioController;
 import br.com.projeto.gsv.controller.PacienteController;
 import br.com.projeto.gsv.controller.UsuarioController;
 import br.com.projeto.gsv.util.ConverteDadosUtil;
+import br.com.projeto.gsv.util.SomenteNumerosUtil;
 
 public class IncluirUsuarioListener implements ActionListener{
 	private IncluirUsuarioForm formulario;
@@ -32,6 +33,7 @@ public class IncluirUsuarioListener implements ActionListener{
 		UsandoTAB();
 		TeclaEsc();
 		UpCase();
+	
 	}
 
 	private void AdicionaListener(){
@@ -78,6 +80,7 @@ public class IncluirUsuarioListener implements ActionListener{
 		
 		if(event.getSource().equals(this.formulario.getBGravar())){
 			FormToUsuario();
+			
 			control.setUsuario(this.usuario);
 			control.SalvarUsuario();
 			

@@ -8,6 +8,7 @@ import org.hibernate.Transaction;
 
 import br.com.gsv.funcionario.domain.Funcionario;
 import br.com.projeto.gsv.util.HibernateUtil;
+import br.com.projeto.gsv.util.MensagemPainelUtil;
 
 public class FuncionarioRepository {
 	Session sessao;
@@ -24,6 +25,8 @@ public class FuncionarioRepository {
 			} catch (RuntimeException e) {
 				if (transacao != null)
 					transacao.rollback();
+				
+				MensagemPainelUtil.ErroDuplicacao("Nome/Cpf não pode ser duplicado");
 				throw e;
 			} finally {
 				sessao.close();

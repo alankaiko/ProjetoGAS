@@ -92,7 +92,6 @@ public class Paciente implements Serializable {
 	}
 
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(nullable=false)
 	public Date getDataNasc() {
 		return dataNasc;
 	}

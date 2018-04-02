@@ -9,6 +9,7 @@ import org.hibernate.Transaction;
 import br.com.gsv.fabricantes.domain.Fabricante;
 import br.com.gsv.funcionario.domain.Funcionario;
 import br.com.projeto.gsv.util.HibernateUtil;
+import br.com.projeto.gsv.util.MensagemPainelUtil;
 
 public class FabricanteRepository {
 	Session sessao;
@@ -25,6 +26,7 @@ public class FabricanteRepository {
 		} catch (RuntimeException e) {
 			if (transacao != null)
 				transacao.rollback();
+			MensagemPainelUtil.ErroDuplicacao("Descrição do Fabricante não pode ser duplicado");
 			throw e;
 		} finally {
 			sessao.close();

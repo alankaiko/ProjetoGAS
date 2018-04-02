@@ -27,14 +27,15 @@ import br.com.projeto.gsv.util.ConverteDadosUtil;
 public class ProntuarioForm extends JDialog {
 
 	private JPanel panel = new JPanel();
-	private JButton BTGravar, BTCancelar, BTPesquisar;
+	private JButton BTGravar, BTCancelar, BTPesquisar, BTPesquiFuncionario;
 	private JPanel painelIntegridade,painelCondicao, painelDadosCliente, painelAnotacao, painelSintomas;
 	private JPanel painelEquipamentos;
 	private JTextField TPaciente, TCodigo, TRg, TCpf, TDataNasc, TDataCad, THemorragia, TDispneia, TEdema;
 	private JTextField TDEscamacao, THematoma, TCicatriz, TOutrosInt, THora;
+	private JTextField TAtendCodigo,TAtendFuncionario,TAtendRegistro;
 	private JLabel LProntuario, LPaciente, LCodigo, LRg, LCpf,LDataNasc, LDataCad;
-	private JLabel LInfoEquip, LSonoCond, LEquipamentocli, LHora;
-	private JLabel LMembros, LTipoSintomas, LSintomas,LEspecifIntegridade, LDeambulacao;
+	private JLabel LInfoEquip, LSonoCond, LEquipamentocli, LHora, LDadosCliente, LDadosFun, LAtendFun, LAtendRegistro;
+	private JLabel LMembros, LTipoSintomas, LSintomas,LEspecifIntegridade, LDeambulacao, LAtendiCodigo;
 	private JLabel LObservacaoCond, LRepouso, LObservacaoSono, LNivelConsc, LEstadoMental, LObservacaoAnot;
 	private JLayeredPane dadosCliente,  dadosAnotacao, dadosCondicao,dadosIntegridade, dadosSintomas,dadosEquipamentoCli;
 	private JRadioButton radioAlerta, radioLetargico, radioObnubilado,radioComatoso;
@@ -54,13 +55,15 @@ public class ProntuarioForm extends JDialog {
 	private ButtonGroup grupoBotao5 = new ButtonGroup();
 	private JTextArea textoSintomas, textoAreaAnotacao, textoEquipamento;
 	private JTextArea textoMembros, textoAreaDeam, textoAreaSono;
+	private JTextArea textoAreaAvaliacaoCef, textoAreaChegada, textoAreaAvaliacaoInt;
 	private JSeparator separator_2, separaAvaliacao, separaRepouso;
 	private ProntuarioListener listener;
 	private JFormattedTextField JCpf, JDatanascimento;
 	private JRadioButton radioVerbaliza;
 	private JLabel LAvaliacaoCefalo;
 	private JLabel LIntercorrencias;
-	private JTextArea textoAreaAvaliacaoCef, textoAreaChegada, textoAreaAvaliacaoInt;
+	
+	
 		
 
 
@@ -689,71 +692,6 @@ public class ProntuarioForm extends JDialog {
 }
 	
 	private void dadosCliente(){
-		LPaciente = new JLabel("Paciente");
-		LPaciente.setBounds(10, 55, 55, 14);
-		dadosCliente.add(LPaciente);
-
-		TPaciente = new JTextField();
-		TPaciente.setBorder(new LineBorder(Color.BLACK));
-		TPaciente.setBounds(62, 52, 376, 20);
-		TPaciente.setEditable(false);
-		dadosCliente.add(TPaciente);
-		TPaciente.setColumns(10);
-
-		LCodigo = new JLabel("Código");
-		LCodigo.setBounds(10, 21, 46, 14);
-		dadosCliente.add(LCodigo);
-
-		TCodigo = new JTextField();
-		TCodigo.setBorder(new LineBorder(Color.BLACK));
-		TCodigo.setBounds(60, 18, 128, 20);
-		TCodigo.setEditable(false);
-		dadosCliente.add(TCodigo);
-		TCodigo.setColumns(10);
-
-		LRg = new JLabel("RG");
-		LRg.setBounds(10, 87, 46, 14);
-		dadosCliente.add(LRg);
-
-		TRg = new JTextField();
-		TRg.setBorder(new LineBorder(Color.BLACK));
-		TRg.setBounds(60, 84, 128, 20);
-		TRg.setEditable(false);
-		dadosCliente.add(TRg);
-		TRg.setColumns(10);
-
-		LCpf = new JLabel("CPF");
-		LCpf.setBounds(227, 87, 46, 14);
-		dadosCliente.add(LCpf);
-
-		TCpf = new JTextField();
-		TCpf.setBorder(new LineBorder(Color.BLACK));
-		TCpf.setBounds(283, 84, 155, 20);
-		TCpf.setEditable(false);
-		dadosCliente.add(TCpf);
-		TCpf.setColumns(10);
-
-		LDataNasc = new JLabel("Data Nasc.");
-		LDataNasc.setBounds(10, 126, 67, 14);
-		dadosCliente.add(LDataNasc);
-
-		TDataNasc = new JTextField();
-		TDataNasc.setBorder(new LineBorder(Color.BLACK));
-		TDataNasc.setBounds(87, 123, 101, 20);
-		TDataNasc.setEditable(false);
-		dadosCliente.add(TDataNasc);
-		TDataNasc.setColumns(10);
-
-		LDataCad = new JLabel("Data Cadastro ");
-		LDataCad.setBounds(238, 21, 89, 14);
-		dadosCliente.add(LDataCad);
-
-		TDataCad = new JTextField();
-		TDataCad.setBorder(new LineBorder(Color.BLACK));
-		TDataCad.setColumns(10);
-		TDataCad.setEditable(false);
-		TDataCad.setBounds(337, 18, 101, 20);
-		dadosCliente.add(TDataCad);
 
 		painelDadosCliente = new JPanel();
 		painelDadosCliente.setBackground(Color.WHITE);
@@ -766,19 +704,135 @@ public class ProntuarioForm extends JDialog {
 		BTPesquisar.setBackground(Color.WHITE);
 		BTPesquisar.setFont(new Font("Segoe UI Light", Font.PLAIN, 10));
 		BTPesquisar.setIcon(new ImageIcon(ProntuarioForm.class.getResource("/imagens/icons8-pesquisar-15.png")));
-		BTPesquisar.setBounds(444, 50, 116, 23);
+		BTPesquisar.setBounds(443, 111, 116, 23);
 		painelDadosCliente.add(BTPesquisar);
 		
 		LHora = new JLabel("Hora Registro");
-		LHora.setBounds(239, 125, 89, 14);
+		LHora.setBounds(238, 186, 89, 14);
 		painelDadosCliente.add(LHora);
 		
 		THora = new JTextField();
 		THora.setEditable(false);
 		THora.setColumns(10);
 		THora.setBorder(new LineBorder(Color.BLACK));
-		THora.setBounds(338, 122, 101, 20);
+		THora.setBounds(337, 183, 101, 20);
 		painelDadosCliente.add(THora);
+		
+		JSeparator separator = new JSeparator();
+		separator.setBounds(10, 214, 564, 2);
+		painelDadosCliente.add(separator);
+		LPaciente = new JLabel("Paciente");
+		LPaciente.setBounds(5, 112, 55, 14);
+		painelDadosCliente.add(LPaciente);
+		
+		TPaciente = new JTextField();
+		TPaciente.setBounds(57, 109, 376, 20);
+		painelDadosCliente.add(TPaciente);
+		TPaciente.setBorder(new LineBorder(Color.BLACK));
+		TPaciente.setEditable(false);
+		TPaciente.setColumns(10);
+		
+		LCodigo = new JLabel("Código");
+		LCodigo.setBounds(5, 78, 46, 14);
+		painelDadosCliente.add(LCodigo);
+						
+		TCodigo = new JTextField();
+		TCodigo.setBounds(55, 75, 128, 20);
+		painelDadosCliente.add(TCodigo);
+		TCodigo.setBorder(new LineBorder(Color.BLACK));
+		TCodigo.setEditable(false);
+		TCodigo.setColumns(10);
+		
+		LRg = new JLabel("RG");
+		LRg.setBounds(5, 144, 46, 14);
+		painelDadosCliente.add(LRg);
+		
+		TRg = new JTextField();
+		TRg.setBounds(55, 141, 128, 20);
+		painelDadosCliente.add(TRg);
+		TRg.setBorder(new LineBorder(Color.BLACK));
+		TRg.setEditable(false);
+		TRg.setColumns(10);
+		
+		LCpf = new JLabel("CPF");
+		LCpf.setBounds(222, 144, 46, 14);
+		painelDadosCliente.add(LCpf);
+													
+		TCpf = new JTextField();
+		TCpf.setBounds(278, 141, 155, 20);
+		painelDadosCliente.add(TCpf);
+		TCpf.setBorder(new LineBorder(Color.BLACK));
+		TCpf.setEditable(false);
+		TCpf.setColumns(10);
+			
+		LDataNasc = new JLabel("Data Nasc.");
+		LDataNasc.setBounds(5, 183, 67, 14);
+		painelDadosCliente.add(LDataNasc);
+		
+		TDataNasc = new JTextField();
+		TDataNasc.setBounds(82, 180, 101, 20);
+		painelDadosCliente.add(TDataNasc);
+		TDataNasc.setBorder(new LineBorder(Color.BLACK));
+		TDataNasc.setEditable(false);
+		TDataNasc.setColumns(10);
+																				
+		LDataCad = new JLabel("Data Cadastro ");
+		LDataCad.setBounds(233, 78, 89, 14);
+		painelDadosCliente.add(LDataCad);
+		
+		TDataCad = new JTextField();
+		TDataCad.setBounds(332, 75, 101, 20);
+		painelDadosCliente.add(TDataCad);
+		TDataCad.setBorder(new LineBorder(Color.BLACK));
+		TDataCad.setColumns(10);
+		TDataCad.setEditable(false);
+		
+		LDadosCliente = new JLabel("Nível de Consciência");
+		LDadosCliente.setFont(new Font("Arial", Font.PLAIN, 14));
+		LDadosCliente.setBounds(5, 11, 160, 14);
+		painelDadosCliente.add(LDadosCliente);
+		
+		LDadosFun = new JLabel("Atendido Por");
+		LDadosFun.setFont(new Font("Arial", Font.PLAIN, 14));
+		LDadosFun.setBounds(5, 267, 160, 14);
+		painelDadosCliente.add(LDadosFun);
+		
+		LAtendiCodigo = new JLabel("Código");
+		LAtendiCodigo.setBounds(10, 292, 46, 14);
+		painelDadosCliente.add(LAtendiCodigo);
+		
+		TAtendCodigo = new JTextField();
+		TAtendCodigo.setBorder(new LineBorder(Color.BLACK));
+		TAtendCodigo.setBounds(10, 317, 46, 20);
+		painelDadosCliente.add(TAtendCodigo);
+		TAtendCodigo.setColumns(10);
+		
+		LAtendFun = new JLabel("Funcionário");
+		LAtendFun.setBounds(82, 292, 89, 14);
+		painelDadosCliente.add(LAtendFun);
+		
+		TAtendFuncionario = new JTextField();
+		TAtendFuncionario.setBorder(new LineBorder(Color.BLACK));
+		TAtendFuncionario.setBounds(82, 317, 251, 20);
+		painelDadosCliente.add(TAtendFuncionario);
+		TAtendFuncionario.setColumns(10);
+		
+		LAtendRegistro = new JLabel("Registro");
+		LAtendRegistro.setBounds(357, 292, 55, 14);
+		painelDadosCliente.add(LAtendRegistro);
+		
+		TAtendRegistro = new JTextField();
+		TAtendRegistro.setBorder(new LineBorder(Color.BLACK));
+		TAtendRegistro.setBounds(357, 317, 179, 20);
+		painelDadosCliente.add(TAtendRegistro);
+		TAtendRegistro.setColumns(10);
+		
+		BTPesquiFuncionario = new JButton("Pesquisar");
+		BTPesquiFuncionario.setFont(new Font("Segoe UI Light", Font.PLAIN, 10));
+		BTPesquiFuncionario.setBorder(null);
+		BTPesquiFuncionario.setBackground(Color.WHITE);
+		BTPesquiFuncionario.setBounds(443, 264, 116, 23);
+		painelDadosCliente.add(BTPesquiFuncionario);
 	}
 	
 	
@@ -1751,6 +1805,78 @@ public class ProntuarioForm extends JDialog {
 
 	public void setRadioGenito(JRadioButton radioGenito) {
 		this.radioGenito = radioGenito;
+	}
+
+	public JTextField getTAtendCodigo() {
+		return TAtendCodigo;
+	}
+
+	public void setTAtendCodigo(JTextField tAtendCodigo) {
+		TAtendCodigo = tAtendCodigo;
+	}
+
+	public JTextField getTAtendFuncionario() {
+		return TAtendFuncionario;
+	}
+
+	public void setTAtendFuncionario(JTextField tAtendFuncionario) {
+		TAtendFuncionario = tAtendFuncionario;
+	}
+
+	public JTextField getTAtendRegistro() {
+		return TAtendRegistro;
+	}
+
+	public void setTAtendRegistro(JTextField tAtendRegistro) {
+		TAtendRegistro = tAtendRegistro;
+	}
+
+	public JLabel getLDadosCliente() {
+		return LDadosCliente;
+	}
+
+	public void setLDadosCliente(JLabel lDadosCliente) {
+		LDadosCliente = lDadosCliente;
+	}
+
+	public JLabel getLDadosFun() {
+		return LDadosFun;
+	}
+
+	public void setLDadosFun(JLabel lDadosFun) {
+		LDadosFun = lDadosFun;
+	}
+
+	public JLabel getLAtendFun() {
+		return LAtendFun;
+	}
+
+	public void setLAtendFun(JLabel lAtendFun) {
+		LAtendFun = lAtendFun;
+	}
+
+	public JLabel getLAtendRegistro() {
+		return LAtendRegistro;
+	}
+
+	public void setLAtendRegistro(JLabel lAtendRegistro) {
+		LAtendRegistro = lAtendRegistro;
+	}
+
+	public JLabel getLAtendiCodigo() {
+		return LAtendiCodigo;
+	}
+
+	public void setLAtendiCodigo(JLabel lAtendiCodigo) {
+		LAtendiCodigo = lAtendiCodigo;
+	}
+
+	public JButton getBTPesquiFuncionario() {
+		return BTPesquiFuncionario;
+	}
+
+	public void setBTPesquiFuncionario(JButton bTPesquiFuncionario) {
+		BTPesquiFuncionario = bTPesquiFuncionario;
 	}
 	
 	

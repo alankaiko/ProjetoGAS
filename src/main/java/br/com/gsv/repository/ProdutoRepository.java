@@ -9,6 +9,7 @@ import org.hibernate.Transaction;
 import br.com.gsv.funcionario.domain.Funcionario;
 import br.com.gsv.produtos.domain.Produto;
 import br.com.projeto.gsv.util.HibernateUtil;
+import br.com.projeto.gsv.util.MensagemPainelUtil;
 
 
 
@@ -28,6 +29,8 @@ public class ProdutoRepository {
 			} catch (RuntimeException e) {
 				if (transacao != null)
 					transacao.rollback();
+				
+				MensagemPainelUtil.ErroDuplicacao("Código/Descrição não pode ser duplicado");
 				throw e;
 			} finally {
 				sessao.close();

@@ -8,6 +8,7 @@ import org.hibernate.Transaction;
 
 import br.com.gsv.funcUsuario.domain.Usuario;
 import br.com.projeto.gsv.util.HibernateUtil;
+import br.com.projeto.gsv.util.MensagemPainelUtil;
 
 public class UsuarioRepository {
 	Session sessao;
@@ -25,6 +26,7 @@ public class UsuarioRepository {
 			if (transacao != null)
 				transacao.rollback();
 			
+			MensagemPainelUtil.ErroDuplicacao("Login/Funcionário não pode ser duplicado");
 			throw e;
 		} finally {
 			sessao.close();

@@ -58,6 +58,7 @@ public class Produto implements Serializable{
 		this.descricao = descricao;
 	}
 	
+	@Column(nullable=false, unique=true)
 	public String getCodigo() {
 		return codigo;
 	}

@@ -20,4 +20,6 @@ public class SomenteNumerosUtil extends KeyAdapter{
 			evt.consume();//aciona esse propriedade para eliminar a ação do evento
 		}
 	}
+	
+	
 }

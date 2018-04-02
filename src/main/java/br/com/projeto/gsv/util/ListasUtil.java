@@ -83,6 +83,7 @@ public class ListasUtil {
 	
 	public static List<String> EstadosAbrev(){
 		List<String> lista = new ArrayList<String>();
+		lista.add("");
 		lista.add("AC");
 		lista.add("AL");
 		lista.add("AP");

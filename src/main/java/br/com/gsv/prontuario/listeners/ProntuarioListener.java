@@ -10,6 +10,8 @@ import javax.swing.JComponent;
 import javax.swing.JRootPane;
 import javax.swing.KeyStroke;
 
+import br.com.gsv.funcionario.domain.Funcionario;
+import br.com.gsv.funcionario.formularios.BuscarFuncionarioDialog;
 import br.com.gsv.paciente.domain.Paciente;
 import br.com.gsv.paciente.formularios.BuscarPacienteDialog;
 import br.com.gsv.prontuario.domain.EquipamentoCheckBox;
@@ -18,6 +20,7 @@ import br.com.gsv.prontuario.domain.Prontuario;
 import br.com.gsv.prontuario.domain.SintomasCheckbox;
 import br.com.gsv.prontuario.domain.SintomasMembrosCheckbox;
 import br.com.gsv.prontuario.formularios.ProntuarioForm;
+import br.com.projeto.gsv.controller.FuncionarioController;
 import br.com.projeto.gsv.controller.PacienteController;
 import br.com.projeto.gsv.controller.ProntuarioController;
 import br.com.projeto.gsv.util.ConverteDadosUtil;
@@ -27,6 +30,7 @@ public class ProntuarioListener implements ActionListener{
 	private Prontuario prontuario;
 	private ProntuarioController controller;
 	private Paciente paciente;
+	private Funcionario funcionario;
 	private EquipamentoCheckBox equiCheckbox;
 	private IntegridadeHemorragia integCheckbox;
 	private SintomasCheckbox sintCheckbox;
@@ -46,6 +50,7 @@ public class ProntuarioListener implements ActionListener{
 		this.formulario.getBTGravar().addActionListener(this);
 		this.formulario.getBTCancelar().addActionListener(this);
 		this.formulario.getBTPesquisar().addActionListener(this);
+		this.formulario.getBTPesquiFuncionario().addActionListener(this);
 	}
 	
 	
@@ -55,6 +60,7 @@ public class ProntuarioListener implements ActionListener{
 		this.integCheckbox = new IntegridadeHemorragia();
 		this.sintCheckbox = new SintomasCheckbox();
 		this.sintMenCheckbox = new SintomasMembrosCheckbox();
+		this.funcionario = new Funcionario();
 	}
 	
 	
@@ -81,6 +87,7 @@ public class ProntuarioListener implements ActionListener{
 		this.prontuario.setTextoAreachegada(this.formulario.getTextoAreaChegada().getText());
 		this.prontuario.setAvaliCefaloTexto(this.formulario.getTextoAreaAvaliacaoCef().getText());
 		this.prontuario.setAvaliIntercorrencias(this.formulario.getTextoAreaAvaliacaoInt().getText());
+		
 		
 	}
 	
@@ -302,7 +309,9 @@ public class ProntuarioListener implements ActionListener{
 		this.formulario.getTCpf().setText(this.prontuario.getPaciente().getCpf());
 		this.formulario.getTDataNasc().setText(ConverteDadosUtil.TransformandoEmString(this.prontuario.getPaciente().getDataNasc()));
 		
-		
+		this.formulario.getTAtendCodigo().setText(String.valueOf(this.prontuario.getFuncionario().getId()));
+		this.formulario.getTAtendFuncionario().setText(this.prontuario.getFuncionario().getNome());
+		this.formulario.getTAtendRegistro().setText(ConcatenarRegistro());
 	}
 	
 	private void SetarRadioButtons(){
@@ -495,6 +504,16 @@ public class ProntuarioListener implements ActionListener{
 				BuscarCliente(dialog.getListener().getCodigo());
 		}
 		
+		if(event.getSource().equals(this.formulario.getBTPesquiFuncionario())){
+			BuscarFuncionarioDialog dialog = new BuscarFuncionarioDialog();
+			dialog.setLocationRelativeTo(this.formulario.getContentPane());
+			dialog.setVisible(true);
+			
+			if(dialog.getListener().getCodigo() != null){
+				BuscarFuncionario(dialog.getListener().getCodigo());
+			}
+		}
+		
 	}
 	
 	
@@ -515,6 +534,24 @@ public class ProntuarioListener implements ActionListener{
 		this.formulario.getJDatanascimento().setText(ConverteDadosUtil.TransformandoEmString(this.paciente.getDataNasc()));
 		this.formulario.getTDataNasc().setText(this.formulario.getJDatanascimento().getText());
 		
+	}
+	
+	private void BuscarFuncionario(Long id){
+		FuncionarioController controller = new FuncionarioController();
+		this.funcionario = controller.BuscarPelaID(id);	
+		this.formulario.getTAtendCodigo().setText(String.valueOf(this.funcionario.getId()));
+		this.formulario.getTAtendFuncionario().setText(this.funcionario.getNome());
+		this.formulario.getTAtendRegistro().setText(ConcatenarRegistro());
+	}
+	
+	private String ConcatenarRegistro(){
+		String concatena = this.funcionario.getRegistroCoren().getCoren()
+				+" "
+				+this.funcionario.getRegistroCoren().getInscricao()
+				+" "
+				+this.funcionario.getRegistroCoren().getUf();
+		
+		return concatena;
 	}
 	
 	

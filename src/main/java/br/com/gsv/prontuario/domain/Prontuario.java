@@ -21,6 +21,7 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import br.com.gsv.funcionario.domain.Funcionario;
 import br.com.gsv.funcionario.domain.RegistroCoren;
 import br.com.gsv.paciente.domain.Paciente;
 
@@ -47,6 +48,10 @@ public class Prontuario implements Serializable{
 	@OneToOne
 	@JoinColumn(name = "tbl_paciente_id", referencedColumnName = "id")
 	private Paciente paciente;
+	
+	@OneToOne
+	@JoinColumn(name = "tbl_funcionario_id", referencedColumnName = "fun_id")
+	private Funcionario funcionario;
 	
 	
 	private String anotConsciencia;
@@ -345,6 +350,14 @@ public class Prontuario implements Serializable{
 
 	public void setAvaliIntercorrencias(String avaliIntercorrencias) {
 		this.avaliIntercorrencias = avaliIntercorrencias;
+	}
+
+	public Funcionario getFuncionario() {
+		return funcionario;
+	}
+	
+	public void setFuncionario(Funcionario funcionario) {
+		this.funcionario = funcionario;
 	}
 	
 	

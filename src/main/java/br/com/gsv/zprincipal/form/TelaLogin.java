@@ -51,7 +51,7 @@ public class TelaLogin extends JFrame{
 		CriaComponentes();
 		listener = new TelaLoginListener(this);
 		HibernateUtil.getSessionFactory();
-		CriaUsuarioAdmin admin = new CriaUsuarioAdmin();
+		//CriaUsuarioAdmin admin = new CriaUsuarioAdmin();
 	
 	}
 

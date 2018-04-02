@@ -29,6 +29,8 @@ public class Fabricante implements Serializable {
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	@Column(name="fab_codigo")
 	private Long id;
+	
+	@Column(nullable=false, unique=true)
 	private String descricao;
 	
 	
@@ -40,7 +42,7 @@ public class Fabricante implements Serializable {
 		this.id = id;
 	}
 
-	@Column(nullable=false, unique=true)
+	
 	public String getDescricao() {
 		return descricao;
 	}
