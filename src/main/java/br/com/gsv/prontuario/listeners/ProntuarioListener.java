@@ -60,7 +60,6 @@ public class ProntuarioListener implements ActionListener{
 		this.integCheckbox = new IntegridadeHemorragia();
 		this.sintCheckbox = new SintomasCheckbox();
 		this.sintMenCheckbox = new SintomasMembrosCheckbox();
-		this.funcionario = new Funcionario();
 	}
 	
 	
@@ -271,6 +270,7 @@ public class ProntuarioListener implements ActionListener{
 	/*-----------------------------------------------------------------------------------------------------------*/
 	public void PreencheCamposParaEdicao(){
 		this.paciente = this.prontuario.getPaciente();
+		this.funcionario = this.prontuario.getFuncionario();
 		this.equiCheckbox = this.prontuario.getEquipCheckbox();
 		this.sintCheckbox = this.prontuario.getSintomasEsp();
 		this.sintMenCheckbox = this.prontuario.getSintomasMembros();
@@ -484,6 +484,7 @@ public class ProntuarioListener implements ActionListener{
 			PegarCheckboxes();
 			
 			this.prontuario.setPaciente(this.paciente);
+			this.prontuario.setFuncionario(this.funcionario);
 			
 			this.controller = new ProntuarioController();
 			this.controller.setProntuario(prontuario);

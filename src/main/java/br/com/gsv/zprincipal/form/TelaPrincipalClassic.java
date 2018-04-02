@@ -51,7 +51,7 @@ public class TelaPrincipalClassic extends JFrame {
 
 	public TelaPrincipalClassic() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 900, 590);
+		setBounds(100, 100, 890, 580);
 		
 		tela = new JPanel();
 		tela.setBorder(new EmptyBorder(5, 5, 5, 5));
