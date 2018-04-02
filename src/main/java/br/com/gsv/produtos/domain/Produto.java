@@ -50,6 +50,7 @@ public class Produto implements Serializable{
 		this.id = id;
 	}
 	
+	@Column(nullable=false, unique=true)
 	public String getDescricao() {
 		return descricao;
 	}

@@ -36,6 +36,8 @@ public class GerenciaProntuarios extends JDialog {
 		panel.setBounds(0, 0, 634, 422);
 		getContentPane().add(panel);
 		panel.setLayout(null);
+		setModal(true);
+		setResizable(false);
 
 		scrollPane = new JScrollPane();
 		scrollPane.setBounds(10, 72, 614, 303);

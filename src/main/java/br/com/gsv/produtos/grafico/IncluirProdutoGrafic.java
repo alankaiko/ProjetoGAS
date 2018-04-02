@@ -28,6 +28,7 @@ public class IncluirProdutoGrafic {
 	
 	private void CriarTelaGeral(){
 		this.formulario.setModal(true);
+		this.formulario.setResizable(false);
 		this.formulario.setBounds(100, 100, 471, 312);
 		this.formulario.setUndecorated(true);
 		this.formulario.getPanel().setBorder(new LineBorder(new Color(71,120,197)));

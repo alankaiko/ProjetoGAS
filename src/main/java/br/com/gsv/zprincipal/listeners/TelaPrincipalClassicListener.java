@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 
 import br.com.gsv.convenio.formularios.GerenciaTelaConvenio;
 import br.com.gsv.fabricantes.formularios.GerenciaTelaFabricante;
+import br.com.gsv.funcUsuario.domain.Usuario;
 import br.com.gsv.funcUsuario.formularios.GerenciaTelaUsuario;
 import br.com.gsv.funcionario.formularios.GerenciaTelaFuncionario;
 import br.com.gsv.funcionario.formularios.IncluirFuncionariosForm;
@@ -16,6 +17,7 @@ import br.com.gsv.zprincipal.form.TelaPrincipalClassic;
 
 public class TelaPrincipalClassicListener implements ActionListener{
 	private TelaPrincipalClassic tela;
+	
 	
 	
 	

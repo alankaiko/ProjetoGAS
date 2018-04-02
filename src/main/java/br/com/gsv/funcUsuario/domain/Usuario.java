@@ -1,15 +1,19 @@
 package br.com.gsv.funcUsuario.domain;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.MapsId;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 import br.com.gsv.funcionario.domain.Funcionario;
 
@@ -29,11 +33,15 @@ public class Usuario {
 	@Column(name = "usu_id")
 	private Long id;
 
-	@OneToOne
+	@MapsId
+	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinColumn(name = "tbl_funcionario_fun_id", referencedColumnName = "fun_id")
 	private Funcionario funcionario;
 	
+	@Column(nullable=false, unique=true)
 	private String login;
+	
+	@Column(nullable=false)
 	private String senha;
 
 	public Long getId() {
@@ -43,6 +51,7 @@ public class Usuario {
 	public void setId(Long id) {
 		this.id = id;
 	}
+
 
 	public Funcionario getFuncionario() {
 		return funcionario;

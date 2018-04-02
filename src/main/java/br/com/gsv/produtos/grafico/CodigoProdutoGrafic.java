@@ -27,6 +27,7 @@ public class CodigoProdutoGrafic {
 	
 	private void CriarTelaGeralGrafic(){
 		this.formulario.setModal(true);
+		this.formulario.setResizable(false);
 		this.formulario.setBounds(100, 100, 316, 171);
 		this.formulario.setUndecorated(true);
 		this.formulario.getPanel().setBorder(new LineBorder(new Color(71,120,197)));

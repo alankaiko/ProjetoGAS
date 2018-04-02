@@ -24,6 +24,7 @@ public class UsuarioRepository {
 		} catch (RuntimeException e) {
 			if (transacao != null)
 				transacao.rollback();
+			
 			throw e;
 		} finally {
 			sessao.close();
@@ -41,6 +42,7 @@ public class UsuarioRepository {
 		} catch (RuntimeException e) {
 			if (transacao != null)
 				transacao.rollback();
+			
 			throw e;
 		} finally {
 			sessao.close();
@@ -59,6 +61,7 @@ public class UsuarioRepository {
 			consulta.setLong("id", id);
 			usuario = (Usuario) consulta.uniqueResult();
 		} catch (RuntimeException e) {
+			
 			throw e;
 		}finally{
 			sessao.close();
@@ -77,6 +80,7 @@ public class UsuarioRepository {
 			Query consulta = sessao.getNamedQuery("Usuario.listar");
 			lista = consulta.list();
 		} catch (RuntimeException e) {
+		
 			throw e;
 		}finally{
 			sessao.close();
@@ -96,6 +100,7 @@ public class UsuarioRepository {
 			consulta.setString("login", login);
 			usuario = (Usuario) consulta.uniqueResult();
 		} catch (RuntimeException e) {
+			
 			throw e;
 		}finally{
 			sessao.close();
@@ -116,6 +121,7 @@ public class UsuarioRepository {
 			consulta.setString("nome","%"+nome+"%");
 			lista = consulta.list();
 		} catch (RuntimeException e) {
+			
 			throw e;
 		}finally{
 			sessao.close();
@@ -135,6 +141,7 @@ public class UsuarioRepository {
 			consulta.setString("senha", senha);
 			usuario = (Usuario) consulta.uniqueResult();
 		} catch (RuntimeException e) {
+		
 			throw e;
 		}finally{
 			sessao.close();

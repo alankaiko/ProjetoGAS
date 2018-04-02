@@ -23,6 +23,8 @@ private DetalhesFabricanteDialog formulario;
 	
 	public void CriarTelaGeralGrafic() {
 		this.formulario.setBounds(100, 100, 401, 215);
+		this.formulario.setModal(true);
+		this.formulario.setResizable(false);
 		this.formulario.setUndecorated(true);
 		this.formulario.getPanel().setBorder(new LineBorder(new Color(71, 120, 197)));
 		this.formulario.getPanel().setBackground(Color.WHITE);

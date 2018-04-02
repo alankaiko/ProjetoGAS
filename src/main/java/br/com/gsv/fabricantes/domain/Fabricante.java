@@ -40,7 +40,7 @@ public class Fabricante implements Serializable {
 		this.id = id;
 	}
 
-	@Column
+	@Column(nullable=false, unique=true)
 	public String getDescricao() {
 		return descricao;
 	}

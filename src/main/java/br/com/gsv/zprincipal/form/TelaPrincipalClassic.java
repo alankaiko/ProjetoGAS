@@ -12,9 +12,9 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 
+import br.com.gsv.funcUsuario.domain.Usuario;
 import br.com.gsv.zprincipal.listeners.BarraStatusListener;
 import br.com.gsv.zprincipal.listeners.TelaPrincipalClassicListener;
-import br.com.projeto.gsv.util.HibernateUtil;
 
 public class TelaPrincipalClassic extends JFrame {
 
@@ -30,6 +30,7 @@ public class TelaPrincipalClassic extends JFrame {
 	private JLabel LStatusUsuario, LStatusData, LStatusHora;
 	private JPanel panelStatus;
 	private TelaPrincipalClassicListener listener;
+	private Usuario usuario;
 
 
 	public static void main(String[] args) {
@@ -64,11 +65,14 @@ public class TelaPrincipalClassic extends JFrame {
 		tela.add(panelPrincipal);
 		panelPrincipal.setLayout(null);
 		
+		
+	}
+	
+	public void IniciaComponentesSecundarios(){
 		CriaComponentes();	
 		listener = new TelaPrincipalClassicListener(this);
 		BarraStatusListener teste = new BarraStatusListener(this);
 	}
-	
 	
 	
 	private void CriaComponentes(){
@@ -563,6 +567,30 @@ public class TelaPrincipalClassic extends JFrame {
 
 	public void setUsuarioUser(JMenuItem usuarioUser) {
 		this.usuarioUser = usuarioUser;
+	}
+
+
+
+	public TelaPrincipalClassicListener getListener() {
+		return listener;
+	}
+
+
+
+	public void setListener(TelaPrincipalClassicListener listener) {
+		this.listener = listener;
+	}
+
+
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
 	
 	

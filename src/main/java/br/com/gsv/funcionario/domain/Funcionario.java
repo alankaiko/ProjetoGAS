@@ -55,7 +55,7 @@ public class Funcionario implements Serializable{
 		this.id = id;
 	}
 
-	@Column(length = 100)
+	@Column(nullable=false, unique=true, length=100)
 	public String getNome() {
 		return nome;
 	}
@@ -64,7 +64,7 @@ public class Funcionario implements Serializable{
 		this.nome = nome;
 	}
 
-	@Column(length = 15)
+	@Column(nullable=false, unique=true, length=15)
 	public String getCpf() {
 		return cpf;
 	}
@@ -73,7 +73,7 @@ public class Funcionario implements Serializable{
 		this.cpf = cpf;
 	}
 
-	@Column(length = 9)
+
 	public String getRg() {
 		return rg;
 	}

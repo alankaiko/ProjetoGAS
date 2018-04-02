@@ -32,6 +32,7 @@ public class DetalheConvenioGrafic {
 		this.formulario.getTela().add(this.formulario.getPanel(), BorderLayout.CENTER);
 		
 		this.formulario.setModal(true);
+		this.formulario.setResizable(false);
 		
 	}
 	

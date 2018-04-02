@@ -26,6 +26,7 @@ public class Convenio implements Serializable {
 	@Column(name="conv_id")
 	private Long id;
 	
+	@Column(nullable=false, unique=true)
 	private String nome;
 
 	

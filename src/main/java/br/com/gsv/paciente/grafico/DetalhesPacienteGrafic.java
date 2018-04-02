@@ -29,6 +29,7 @@ public class DetalhesPacienteGrafic {
 	//cria e tela geral onde todos os componentes serao inseridos, é a tela geral do sistema
 	private void CriarTelaGeral(){
 		this.formulario.setModal(true);
+		this.formulario.setResizable(false);
 		this.formulario.setBounds(100, 100, 680, 505);
 		this.formulario.setUndecorated(true);
 		

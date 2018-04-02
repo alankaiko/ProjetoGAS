@@ -43,7 +43,7 @@ private TelaPrincipalClassic tela;
 	    this.tela.getLStatusData().setForeground(Color.BLACK);
 	    this.tela.getLStatusData().setPreferredSize(new Dimension(260, 20));
 	    
-	    this.tela.getLStatusUsuario().setText("Usuário: ");
+	    this.tela.getLStatusUsuario().setText("Usuário: "+this.tela.getUsuario().getFuncionario().getNome());
 	    this.tela.getLStatusUsuario().setForeground(Color.BLACK);
 	    this.tela.getLStatusUsuario().setFont(new Font("Segoe UI", Font.PLAIN, 13));
 	    this.tela.getLStatusUsuario().setPreferredSize(new Dimension(400, 20));

@@ -64,7 +64,7 @@ public class Paciente implements Serializable {
 		this.id = id;
 	}
 
-	@Column(length = 100)
+	@Column(nullable=false, unique=true)
 	public String getNome() {
 		return nome;
 	}
@@ -73,7 +73,7 @@ public class Paciente implements Serializable {
 		this.nome = nome;
 	}
 
-	@Column(length = 15)
+	@Column(nullable=false, unique=true, length=15)
 	public String getCpf() {
 		return cpf;
 	}
@@ -92,7 +92,7 @@ public class Paciente implements Serializable {
 	}
 
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(nullable=true)
+	@Column(nullable=false)
 	public Date getDataNasc() {
 		return dataNasc;
 	}

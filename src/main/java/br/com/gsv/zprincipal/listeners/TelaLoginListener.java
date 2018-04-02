@@ -9,11 +9,6 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionAdapter;
 
-import javax.swing.JFrame;
-import javax.swing.WindowConstants;
-
-import org.postgresql.util.MD5Digest;
-
 import br.com.gsv.funcUsuario.domain.Usuario;
 import br.com.gsv.zprincipal.form.TelaLogin;
 import br.com.gsv.zprincipal.form.TelaPrincipalClassic;
@@ -43,6 +38,8 @@ public class TelaLoginListener implements ActionListener, MouseListener{
 		if(this.usuario != null){
 			this.formulario.dispose();
 			TelaPrincipalClassic classic = new TelaPrincipalClassic();
+			classic.setUsuario(this.usuario);
+			classic.IniciaComponentesSecundarios();
 			classic.setLocationRelativeTo(this.formulario.getContentPane());
 			classic.setVisible(true);
 		}else{
