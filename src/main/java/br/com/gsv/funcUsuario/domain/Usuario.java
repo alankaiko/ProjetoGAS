@@ -13,7 +13,6 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
 
 import br.com.gsv.funcionario.domain.Funcionario;
 
@@ -21,6 +20,7 @@ import br.com.gsv.funcionario.domain.Funcionario;
 @Entity
 @NamedQueries({
 	@NamedQuery(name="Usuario.listar", query="SELECT usuario FROM Usuario usuario order by login"),
+	@NamedQuery(name="Usuario.verificaQtd", query="SELECT COUNT(*) FROM Usuario usuario"),
 	@NamedQuery(name="Usuario.buscarPorId", query="SELECT usuario FROM Usuario usuario WHERE usuario.id = :id"),
 	@NamedQuery(name="Usuario.buscarPorNome", query="SELECT usuario FROM Usuario usuario WHERE usuario.funcionario.nome LIKE :nome"),
 	@NamedQuery(name="Usuario.buscarPeloLogin", query="SELECT usuario FROM Usuario usuario WHERE usuario.login = :login"),

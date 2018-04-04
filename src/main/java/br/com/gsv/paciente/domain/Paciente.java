@@ -30,6 +30,7 @@ import br.com.gsv.convenio.domain.Convenio;
 @Table
 @NamedQueries({
 	@NamedQuery(name="Paciente.listar", query="SELECT paciente FROM Paciente paciente order by id"),
+	@NamedQuery(name="Paciente.verificaQtd", query="SELECT COUNT(*) FROM Paciente paciente"),
 	@NamedQuery(name="Paciente.buscarPorId", query="SELECT paciente FROM Paciente paciente WHERE paciente.id= :id"),
 	@NamedQuery(name="Paciente.buscarPeloNome", query="SELECT paciente FROM Paciente paciente WHERE paciente.nome LIKE :nome")
 })

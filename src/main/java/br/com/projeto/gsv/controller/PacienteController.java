@@ -5,6 +5,7 @@ import java.util.List;
 import br.com.gsv.convenio.domain.Convenio;
 import br.com.gsv.paciente.domain.Paciente;
 import br.com.projeto.gsv.service.CadastroPacienteService;
+import br.com.projeto.gsv.util.MensagemPainelUtil;
 
 public class PacienteController {
 	private Paciente paciente;
@@ -18,7 +19,10 @@ public class PacienteController {
 	
 	
 	public void SalvarPaciente(){
-		this.cadastroService.Salvar(this.paciente);
+		if(this.cadastroService.VerificaQtd() < 3L)
+			this.cadastroService.Salvar(this.paciente);
+		else
+			MensagemPainelUtil.ErroDuplicacao("Atenção! Só é permitido registrar 100 pacientes");
 	}
 	
 	

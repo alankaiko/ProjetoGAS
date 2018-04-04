@@ -21,6 +21,10 @@ public class CadastroUsuarioService {
 		return this.repositorio.ListarUsuario();
 	}
 	
+	public Long VerificaQtdReg(){
+		return this.repositorio.VerificaQTDRegistro();
+	}
+	
 	public Usuario Autenticando(String login, String senha){
 		return this.repositorio.Autenticar(login, senha);
 	}

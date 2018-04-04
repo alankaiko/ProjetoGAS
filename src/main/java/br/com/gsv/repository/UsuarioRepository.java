@@ -152,5 +152,25 @@ public class UsuarioRepository {
 		return usuario;
 	}
 	
+	@SuppressWarnings("unchecked")
+	public Long VerificaQTDRegistro(){
+		sessao = HibernateUtil.getSessionFactory().openSession();
+		List<Long> lista = null;
+		Long resultado;
+		
+		try {
+			Query consulta = sessao.getNamedQuery("Usuario.verificaQtd");
+			lista = consulta.list();
+		} catch (RuntimeException e) {
+		
+			throw e;
+		}finally{
+			sessao.close();
+		}
+		resultado = lista.get(0);
+		
+		return resultado;
+	}
+	
 
 }

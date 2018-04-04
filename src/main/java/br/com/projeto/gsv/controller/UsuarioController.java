@@ -4,6 +4,7 @@ import java.util.List;
 
 import br.com.gsv.funcUsuario.domain.Usuario;
 import br.com.projeto.gsv.service.CadastroUsuarioService;
+import br.com.projeto.gsv.util.MensagemPainelUtil;
 
 public class UsuarioController {
 	private Usuario usuario;
@@ -15,7 +16,10 @@ public class UsuarioController {
 	}
 
 	public void SalvarUsuario() {
-		this.cadastroService.Salvar(this.usuario);
+		if(this.cadastroService.VerificaQtdReg() < 6L)
+			this.cadastroService.Salvar(this.usuario);
+		else
+			MensagemPainelUtil.ErroDuplicacao("Máximo de Usuários cadastrados nao pode ultrapassar a 6");
 	}
 
 	public void RemoverUsuario() {

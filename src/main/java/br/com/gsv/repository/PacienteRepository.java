@@ -107,4 +107,20 @@ public class PacienteRepository {
 	}
 	
 	
+	public Long VerificaQTDRegistro(){
+		sessao = HibernateUtil.getSessionFactory().openSession();
+		List<Long> lista = null;
+		
+		try {
+			Query consulta = sessao.getNamedQuery("Paciente.verificaQtd");
+			lista = consulta.list();
+		} catch (RuntimeException e) {
+			throw e;
+		}finally{
+			sessao.close();
+		}
+		
+		return lista.get(0);
+	}
+	
 }

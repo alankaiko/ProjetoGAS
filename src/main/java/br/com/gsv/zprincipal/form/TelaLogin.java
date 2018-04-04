@@ -11,14 +11,12 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
+import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
 
 import br.com.gsv.zprincipal.listeners.TelaLoginListener;
 import br.com.projeto.gsv.util.HibernateUtil;
-import bz.com.gsv.banco.CriaUsuarioAdmin;
-
-import javax.swing.JRadioButton;
 
 public class TelaLogin extends JFrame{
 
@@ -56,7 +54,7 @@ public class TelaLogin extends JFrame{
 		CriaComponentes();
 		listener = new TelaLoginListener(this);
 		HibernateUtil.getSessionFactory();
-		CriaUsuarioAdmin admin = new CriaUsuarioAdmin();
+		//CriaUsuarioAdmin admin = new CriaUsuarioAdmin();
 	
 	}
 

@@ -22,6 +22,10 @@ public class CadastroPacienteService {
 		return repositorio.ListarPacientes();
 	}
 	
+	public Long VerificaQtd(){
+		return this.repositorio.VerificaQTDRegistro();
+	}
+	
 	public Paciente BuscandoId(Long id){
 		return this.repositorio.BuscarPorId(id);
 	}
