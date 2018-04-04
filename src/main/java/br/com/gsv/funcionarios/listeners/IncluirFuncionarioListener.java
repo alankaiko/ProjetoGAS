@@ -17,6 +17,8 @@ import br.com.gsv.funcionario.domain.RegistroCoren;
 import br.com.gsv.funcionario.formularios.IncluirFuncionariosForm;
 import br.com.projeto.gsv.controller.FuncionarioController;
 import br.com.projeto.gsv.util.ConverteDadosUtil;
+import br.com.projeto.gsv.util.MensagemPainelUtil;
+import br.com.projeto.gsv.util.ValidaCampos;
 
 
 public class IncluirFuncionarioListener implements ActionListener{
@@ -174,24 +176,28 @@ public class IncluirFuncionarioListener implements ActionListener{
 	/*-------------------CLASSES QUE POSSUI AS ACOES DOS BOTOES ---------------*/
 	
 	//Classe que possui eventos dos botoes da TELA
-	public void actionPerformed(ActionEvent event) {
-		if(event.getActionCommand().equals("Novo")){
-			//this.formulario = new IncluirFuncionariosForm();
-		}
+	public void actionPerformed(ActionEvent event) {		
 		
-		if(event.getActionCommand().equals("Gravar")){
+		if(event.getSource().equals(this.formulario.getBTGravar()) && Validando()){
 			if(this.formulario.getTId().getText().isEmpty())
 				Salvar();
 			else
 				Editar();
 			
 			this.formulario.dispose();
-		}
+		}else
+			MensagemPainelUtil.ErroDuplicacao("Campos Nome, Cpf e Rg devem ser preenchido");
 		
 		if(event.getActionCommand().equals("Cancelar")){
 			this.formulario.dispose();
 		}
-		
+	}
+	
+	
+	private boolean Validando(){
+		return ValidaCampos.Validar(this.formulario.getTNome().getText())
+				&& ValidaCampos.Validar(this.formulario.getTRg().getText())
+				&& ValidaCampos.Validar(this.formulario.getJCpf().getText());
 	}
 	
 	

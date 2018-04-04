@@ -17,14 +17,14 @@ import javax.swing.KeyStroke;
 
 import br.com.gsv.convenio.domain.Convenio;
 import br.com.gsv.convenio.formularios.IncluirConvenioForm;
-import br.com.gsv.fabricantes.domain.Fabricante;
-import br.com.gsv.fabricantes.formularios.IncluirFabricantesForm;
 import br.com.gsv.paciente.domain.Contato_cli;
 import br.com.gsv.paciente.domain.Endereco_cli;
 import br.com.gsv.paciente.domain.Paciente;
 import br.com.gsv.paciente.formularios.IncluirPacienteForm;
 import br.com.projeto.gsv.controller.PacienteController;
 import br.com.projeto.gsv.util.ConverteDadosUtil;
+import br.com.projeto.gsv.util.MensagemPainelUtil;
+import br.com.projeto.gsv.util.ValidaCampos;
 
 public class IncluirPacienteListener implements ActionListener{
 
@@ -194,23 +194,28 @@ public class IncluirPacienteListener implements ActionListener{
 	
 	//Classe que possui eventos dos botoes da TELA
 	public void actionPerformed(ActionEvent event) {
-		if(event.getActionCommand().equals("Novo")){
-			//this.formulario = new IncluirPacienteForm();
-		}
-		
-		if(event.getActionCommand().equals("Gravar")){
+				
+		if(event.getSource().equals(this.formulario.getBTGravar()) && ValidandoField()){
 			if(this.formulario.getTId().getText().isEmpty())
 				Salvar();
 			else
 				Editar();
 			
 			this.formulario.dispose();
+		}else{
+			MensagemPainelUtil.ErroDuplicacao("Nome, Cpf e Rg devem ser preenchidos");
 		}
 		
 		if(event.getActionCommand().equals("Cancelar")){
 			this.formulario.dispose();
 		}
 		
+	}
+	
+	private boolean ValidandoField(){
+		return ValidaCampos.Validar(this.formulario.getTNome().getText())
+				&& ValidaCampos.Validar(this.formulario.getTRg().getText())
+				&& ValidaCampos.Validar(this.formulario.getJCpf().getText());
 	}
 	
 	

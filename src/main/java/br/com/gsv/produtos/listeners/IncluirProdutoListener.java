@@ -20,6 +20,8 @@ import br.com.gsv.produtos.domain.Produto;
 import br.com.gsv.produtos.formularios.IncluirProdutosForm;
 import br.com.projeto.gsv.controller.ProdutoController;
 import br.com.projeto.gsv.util.ConverteDadosUtil;
+import br.com.projeto.gsv.util.MensagemPainelUtil;
+import br.com.projeto.gsv.util.ValidaCampos;
 
 public class IncluirProdutoListener implements ActionListener {
 	private IncluirProdutosForm formulario;
@@ -95,10 +97,11 @@ public class IncluirProdutoListener implements ActionListener {
 	
 	@Override
 	public void actionPerformed(ActionEvent event) {
-		if(event.getSource().equals(this.formulario.getBTGravar())){
+		if(event.getSource().equals(this.formulario.getBTGravar()) && Validando()){
 			Salvar();
 			this.formulario.dispose();
-		}
+		}else
+			MensagemPainelUtil.ErroDuplicacao("Campo Código/ Descrição deverá ser preenchido");
 		
 
 		
@@ -109,8 +112,10 @@ public class IncluirProdutoListener implements ActionListener {
 	}
 	
 	
-	
-	
+	private boolean Validando(){
+		return ValidaCampos.Validar(this.formulario.getTCodigo().getText())
+				&& ValidaCampos.Validar(this.formulario.getTDescricao().getText());
+	}
 	
 	
 	

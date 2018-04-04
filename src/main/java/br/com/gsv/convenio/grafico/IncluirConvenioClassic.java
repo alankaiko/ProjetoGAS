@@ -48,6 +48,7 @@ public class IncluirConvenioClassic {
 		this.formulario.getLConvenio().setFont(new Font("Arial", Font.BOLD, 11));
 			this.formulario.getTConvenio().setBounds(83, 63, 239, 19);
 			this.formulario.getTConvenio().setFont(new Font("Arial", Font.BOLD, 10));
+			this.formulario.getTConvenio().setToolTipText("Ex: IPASGO / UNIMED");
 
 		this.formulario.getBTGravar().setText("Gravar");
 		this.formulario.getBTGravar().setFont(new Font("Calibri", Font.PLAIN, 12));

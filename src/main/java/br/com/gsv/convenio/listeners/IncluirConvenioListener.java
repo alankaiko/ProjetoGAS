@@ -13,6 +13,8 @@ import javax.swing.KeyStroke;
 import br.com.gsv.convenio.domain.Convenio;
 import br.com.gsv.convenio.formularios.IncluirConvenioForm;
 import br.com.projeto.gsv.controller.ConvenioController;
+import br.com.projeto.gsv.util.MensagemPainelUtil;
+import br.com.projeto.gsv.util.ValidaCampos;
 
 public class IncluirConvenioListener implements ActionListener{
 	private IncluirConvenioForm formulario;
@@ -82,21 +84,32 @@ public class IncluirConvenioListener implements ActionListener{
 
 	// Classe que possui eventos dos botoes da TELA
 	public void actionPerformed(ActionEvent event) {
-		if (event.getSource().equals(this.formulario.getBTGravar())) {
+		if (event.getSource().equals(this.formulario.getBTGravar()) && Validando()) {
 			if (this.formulario.getTId().getText().isEmpty()){
 				Salvar();
 			}else{
 				Editar();
 			}
 			this.formulario.dispose();
-		}
+		}else
+			MensagemPainelUtil.ErroDuplicacao("Campo Convênio deve ser preenchido");
 
 		if (event.getSource().equals(this.formulario.getBTCancelar())) {
 			this.formulario.dispose();
 		}
-
 	}
 
+	
+	
+	private boolean Validando(){
+		return ValidaCampos.Validar(this.formulario.getTConvenio().getText());
+	}
+	
+	
+	
+	
+	
+	
 	private void UsandoTAB() {
 		this.formulario.getRootPane().setDefaultButton(
 				this.formulario.getBTGravar());

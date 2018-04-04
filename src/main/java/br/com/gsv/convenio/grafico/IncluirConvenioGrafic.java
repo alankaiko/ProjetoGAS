@@ -58,6 +58,7 @@ public class IncluirConvenioGrafic {
 			this.formulario.getTConvenio().setColumns(10);
 			this.formulario.getTConvenio().setBorder(new LineBorder(new Color(71, 120, 197)));
 			this.formulario.getTConvenio().addFocusListener(field);
+			this.formulario.getTConvenio().setToolTipText("Ex: IPASGO / UNIMED");
 		
 		this.formulario.getBTGravar().setText("Cadastrar");
 		this.formulario.getBTGravar().setBounds(215, 381, 84, 23);

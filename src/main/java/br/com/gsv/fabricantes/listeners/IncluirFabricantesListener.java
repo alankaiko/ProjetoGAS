@@ -13,6 +13,8 @@ import javax.swing.KeyStroke;
 import br.com.gsv.fabricantes.domain.Fabricante;
 import br.com.gsv.fabricantes.formularios.IncluirFabricantesForm;
 import br.com.projeto.gsv.controller.FabricanteController;
+import br.com.projeto.gsv.util.MensagemPainelUtil;
+import br.com.projeto.gsv.util.ValidaCampos;
 
 public class IncluirFabricantesListener implements ActionListener {
 	private IncluirFabricantesForm formulario;
@@ -82,19 +84,25 @@ public class IncluirFabricantesListener implements ActionListener {
 
 	// Classe que possui eventos dos botoes da TELA
 	public void actionPerformed(ActionEvent event) {
-		if (event.getSource().equals(this.formulario.getBTGravar())) {
+		if (event.getSource().equals(this.formulario.getBTGravar()) && Validando()) {
 			if (this.formulario.getTId().getText().isEmpty()){
 				Salvar();
 			}else{
 				Editar();
 			}
 			 this.formulario.dispose();
-		}
+		}else
+			MensagemPainelUtil.ErroDuplicacao("Campo Fabricante deve ser preenchido");
 
 		if (event.getSource().equals(this.formulario.getBTCancelar())) {
 			this.formulario.dispose();
 		}
 
+	}
+	
+	
+	private boolean Validando(){
+		return ValidaCampos.Validar(this.formulario.getTFabricante().getText());
 	}
 
 	private void UsandoTAB(){
