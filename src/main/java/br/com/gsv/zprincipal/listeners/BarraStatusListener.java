@@ -3,7 +3,6 @@ package br.com.gsv.zprincipal.listeners;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -13,7 +12,6 @@ import java.util.Calendar;
 import javax.swing.BorderFactory;
 import javax.swing.border.Border;
 
-import aaaTeste.TelaPrincipalClassicOBsoleto;
 import br.com.gsv.zprincipal.form.TelaPrincipalClassic;
 import br.com.projeto.gsv.util.ListasUtil;
 
