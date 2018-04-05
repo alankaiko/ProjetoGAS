@@ -45,6 +45,7 @@ public class IncluirPacienteListener implements ActionListener{
 		UsandoTAB();
 		HiperlinkAdicionarFab();
 		UpCase();
+		LimitaCaracteres();
 	}
 	
 	
@@ -271,6 +272,17 @@ public class IncluirPacienteListener implements ActionListener{
 		         formu.setVisible(true);
 		         ListaConvenios();
 		    }
+		});
+	}
+	
+	
+	private void LimitaCaracteres(){
+		this.formulario.getTRg().addKeyListener(new KeyAdapter() {
+			public void keyTyped(KeyEvent e) {			    
+                if ((formulario.getTRg().getText().length() > 8)) {
+                	e.setKeyChar((char) KeyEvent.VK_CLEAR);      
+			    } 
+			}
 		});
 	}
 	

@@ -38,6 +38,7 @@ public class IncluirFuncionarioListener implements ActionListener{
 		TeclaEsc();
 		UsandoTAB();
 		UpCase();
+		LimitaCaracteres();
 	}
 	
 	
@@ -220,6 +221,18 @@ public class IncluirFuncionarioListener implements ActionListener{
                 }  
             }  
         });
+	}
+	
+	
+	
+	private void LimitaCaracteres(){
+		this.formulario.getTRg().addKeyListener(new KeyAdapter() {
+			public void keyTyped(KeyEvent e) {			    
+                if ((formulario.getTRg().getText().length() > 8)) {
+                	e.setKeyChar((char) KeyEvent.VK_CLEAR);      
+			    } 
+			}
+		});
 	}
 	
 	

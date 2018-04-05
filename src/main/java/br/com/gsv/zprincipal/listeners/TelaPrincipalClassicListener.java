@@ -5,7 +5,6 @@ import java.awt.event.ActionListener;
 
 import br.com.gsv.convenio.formularios.GerenciaTelaConvenio;
 import br.com.gsv.fabricantes.formularios.GerenciaTelaFabricante;
-import br.com.gsv.funcUsuario.domain.Usuario;
 import br.com.gsv.funcUsuario.formularios.GerenciaTelaUsuario;
 import br.com.gsv.funcionario.formularios.GerenciaTelaFuncionario;
 import br.com.gsv.funcionario.formularios.IncluirFuncionariosForm;
@@ -34,7 +33,6 @@ public class TelaPrincipalClassicListener implements ActionListener{
 		this.tela.getMenuUsuario().addActionListener(this);
 		this.tela.getMenuFarmacia().addActionListener(this);
 		this.tela.getMenuRelatorio().addActionListener(this);
-		this.tela.getMenuSair().addActionListener(this);
 		
 		this.tela.getAtendimentoAnotacoes().addActionListener(this);
 		this.tela.getAtendimentoProntuario().addActionListener(this);

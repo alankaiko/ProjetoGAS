@@ -19,7 +19,7 @@ public class PacienteController {
 	
 	
 	public void SalvarPaciente(){
-		if(this.cadastroService.VerificaQtd() < 3L)
+		if(this.cadastroService.VerificaQtd() < 100L)
 			this.cadastroService.Salvar(this.paciente);
 		else
 			MensagemPainelUtil.ErroDuplicacao("Atenção! Só é permitido registrar 100 pacientes");

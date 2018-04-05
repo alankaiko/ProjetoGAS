@@ -20,7 +20,7 @@ public class TelaPrincipalClassic extends JFrame {
 
 	private JPanel tela, panelPrincipal;
 	private JMenuBar menuBar;
-	private JMenu menuArquivo,menuAtendimento, menuCadastro, menuUsuario, menuFarmacia, menuRelatorio, menuSair;
+	private JMenu menuArquivo,menuAtendimento, menuCadastro, menuUsuario, menuFarmacia, menuRelatorio;
 	private JMenuItem arquivoAgCli, arquivoConAte, arquivoAcomodacoes, cadastroConvenio;
 	private JMenuItem cadastroClinica, cadastroPaciente, relatorioFuncionario;
 	private JMenuItem usuarioFuncionario, usuarioConFun, usuarioUser;
@@ -161,8 +161,6 @@ public class TelaPrincipalClassic extends JFrame {
 		relatorioClinica = new JMenuItem("Relatório de Clínicas");
 		menuRelatorio.add(relatorioClinica);
 		
-		menuSair = new JMenu("Sair");
-		menuBar.add(menuSair);
 		
 		panelStatus = new JPanel();
 		panelStatus.setBorder(new LineBorder(new Color(0, 0, 0)));
@@ -292,17 +290,6 @@ public class TelaPrincipalClassic extends JFrame {
 		this.menuRelatorio = menuRelatorio;
 	}
 
-
-
-	public JMenu getMenuSair() {
-		return menuSair;
-	}
-
-
-
-	public void setMenuSair(JMenu menuSair) {
-		this.menuSair = menuSair;
-	}
 
 
 

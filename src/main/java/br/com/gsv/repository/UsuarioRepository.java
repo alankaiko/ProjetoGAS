@@ -156,7 +156,6 @@ public class UsuarioRepository {
 	public Long VerificaQTDRegistro(){
 		sessao = HibernateUtil.getSessionFactory().openSession();
 		List<Long> lista = null;
-		Long resultado;
 		
 		try {
 			Query consulta = sessao.getNamedQuery("Usuario.verificaQtd");
@@ -167,9 +166,9 @@ public class UsuarioRepository {
 		}finally{
 			sessao.close();
 		}
-		resultado = lista.get(0);
+	
 		
-		return resultado;
+		return lista.get(0);
 	}
 	
 
