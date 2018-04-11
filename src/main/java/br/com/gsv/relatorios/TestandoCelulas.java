@@ -13,15 +13,12 @@ import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Element;
 import com.itextpdf.text.Font;
-import com.itextpdf.text.PageSize;
-import com.itextpdf.text.Paragraph;
-import com.itextpdf.text.Phrase;
 import com.itextpdf.text.Font.FontFamily;
+import com.itextpdf.text.PageSize;
+import com.itextpdf.text.Phrase;
 import com.itextpdf.text.pdf.GrayColor;
-import com.itextpdf.text.pdf.PdfContentByte;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
-import com.itextpdf.text.pdf.PdfTemplate;
 import com.itextpdf.text.pdf.PdfWriter;
 
 public class TestandoCelulas {
@@ -29,62 +26,67 @@ public class TestandoCelulas {
 	//public static final String DEST = "results/tables/table_template.pdf";
 	private List<Paciente> listaPaciente;
 	private PacienteController controller;
+	private Document doc;
 	
 	
 	public TestandoCelulas() {
 		controller = new  PacienteController();
 		listaPaciente = controller.ListaCompletaDePaciente();
 	}
-	
-	/*PdfPCell celula1 = new PdfPCell(new Paragraph("Código"));
-	PdfPCell celula12 = new PdfPCell(new Paragraph(""));
-	PdfPCell celula2 = new PdfPCell(new Paragraph("Nome"));
-	PdfPCell celula13 = new PdfPCell(new Paragraph(""));
-	PdfPCell celula3 = new PdfPCell(new Paragraph("RG"));
-	PdfPCell celula14= new PdfPCell(new Paragraph(""));
-	PdfPCell celula4 = new PdfPCell(new Paragraph("Convênio"));
-	PdfPCell celula15 = new PdfPCell(new Paragraph(""));
-	PdfPCell celula5 = new PdfPCell(new Paragraph("Cidade"));*/
-	
+
 	
 	public void CriarPdf()throws IOException, DocumentException{
-		Document doc = new Document(PageSize.A4);
+		doc = new Document(PageSize.A4);
 		PdfWriter.getInstance(doc, new FileOutputStream(nome));
 		
 		doc.open();
+		
+		
 		
 		float [ ] colunaLargura = { 2 , 5 , 3, 3, 3 } ;
 		PdfPTable tabela = new PdfPTable(colunaLargura);
 		tabela.setWidthPercentage(100);
 		tabela.getDefaultCell().setUseAscender(true);
 		tabela.getDefaultCell().setUseDescender(true);
-		Font fonte = new Font(FontFamily.HELVETICA, 13, Font.NORMAL, GrayColor.GRAYWHITE);
+		Font fonteCabecalho = new Font(FontFamily.COURIER, 12, Font.BOLD, GrayColor.GRAYBLACK);
+		Font fonte = new Font(FontFamily.COURIER, 8, Font.NORMAL, GrayColor.GRAYWHITE);
 		
 		
-		PdfPCell celula = new PdfPCell(new Phrase("Este é o cabecalho", fonte));
-		celula.setBackgroundColor(GrayColor.GRAYBLACK);
-		celula.setHorizontalAlignment(Element.ALIGN_CENTER);
-		celula.setColspan(5);
+		
+		PdfPCell celulaCodigo = new PdfPCell(new Phrase("CÓDIGO", fonteCabecalho));
+		celulaCodigo.setHorizontalAlignment(Element.ALIGN_CENTER);
+		celulaCodigo.setBorder(PdfPCell.NO_BORDER);
+		PdfPCell celulaNome = new PdfPCell(new Phrase("NOME", fonteCabecalho));
+		celulaNome.setHorizontalAlignment(Element.ALIGN_CENTER);
+		celulaNome.setBorder(PdfPCell.NO_BORDER);
+		PdfPCell celulaTelefone = new PdfPCell(new Phrase("TELEFONE", fonteCabecalho));
+		celulaTelefone.setHorizontalAlignment(Element.ALIGN_CENTER);
+		celulaTelefone.setBorder(PdfPCell.NO_BORDER);
+		PdfPCell celulaConvenio = new PdfPCell(new Phrase("CONVÊNIO", fonteCabecalho));
+		celulaConvenio.setHorizontalAlignment(Element.ALIGN_CENTER);
+		celulaConvenio.setBorder(PdfPCell.NO_BORDER);
+		PdfPCell celulaCidade = new PdfPCell(new Phrase("CIDADE", fonteCabecalho));
+		celulaCidade.setHorizontalAlignment(Element.ALIGN_CENTER);
+		celulaCidade.setBorder(PdfPCell.NO_BORDER);
+		//celula.setBackgroundColor(GrayColor.GRAYBLACK);
+		//celula.setHorizontalAlignment(Element.ALIGN_CENTER);
+		//celula.setColspan(5);
+		
+		tabela.addCell(celulaCodigo);
+		tabela.addCell(celulaNome);
+		tabela.addCell(celulaTelefone);
+		tabela.addCell(celulaConvenio);
+		tabela.addCell(celulaCidade);
 		
 		
-		tabela.addCell(celula);
-		tabela.getDefaultCell().setBackgroundColor(new GrayColor(0.75f));
+		//tabela.getDefaultCell().setBackgroundColor(new GrayColor(0.75f));
 		tabela.getDefaultCell().setBorder(PdfPCell.NO_BORDER);
-		
-		//for(int i=0; i<2; i++){
-			tabela.addCell("codigo");
-			tabela.addCell("nome");
-			tabela.addCell("rg");
-			tabela.addCell("convenio");
-			tabela.addCell("cidade");
-		//}
-		
-		
-	
-		tabela.setHeaderRows(3);
-		tabela.setFooterRows(1);
+		tabela.setHeaderRows(8);
+		tabela.setFooterRows(4);
 		tabela.getDefaultCell().setBackgroundColor(GrayColor.GRAYWHITE);
-		tabela.getDefaultCell().setHorizontalAlignment(Element.ALIGN_CENTER);
+		//tabela.getDefaultCell().setHorizontalAlignment(Element.ALIGN_CENTER);
+	
+		
 		
 		for(int con =1; con < 101; con++){
 			tabela.addCell("codigo ");
@@ -93,7 +95,6 @@ public class TestandoCelulas {
 			tabela.addCell("convenio ");
 			tabela.addCell("cidade ");
 		}
-		
 		
 		doc.add(tabela);
 		doc.close();
