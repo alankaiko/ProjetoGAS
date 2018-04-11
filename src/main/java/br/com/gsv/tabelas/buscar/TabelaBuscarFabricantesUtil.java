@@ -1,31 +1,31 @@
-package br.com.projeto.gsv.util;
+package br.com.gsv.tabelas.buscar;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.table.AbstractTableModel;
 
-import br.com.gsv.produtos.domain.Produto;
+import br.com.gsv.fabricantes.domain.Fabricante;
+import br.com.gsv.funcionario.domain.Funcionario;
 
-public class TabelaDeProdutosUtil extends AbstractTableModel{
-	private String[] colunas = new String[] { "CODIGO", "DESCRICAO", "FABRICANTE" };
-	private List<Produto> linhas;
+public class TabelaBuscarFabricantesUtil extends AbstractTableModel{
+	private String[] colunas = new String[] { "CÓDIGO", "DESCRICAO"};
+	private List<Fabricante> linhas;
 	private static final int CODIGO = 0;
     private static final int DESCRICAO = 1;
-    private static final int FABRICANTE = 2;
-	 
+  
     
-    public TabelaDeProdutosUtil() {
-        linhas = new ArrayList<Produto>();
+    public TabelaBuscarFabricantesUtil() {
+        linhas = new ArrayList<Fabricante>();
        
     }
  
     
-    public TabelaDeProdutosUtil(List<Produto> dadosProduto) {
-        linhas = new ArrayList<Produto>(dadosProduto);
+    public TabelaBuscarFabricantesUtil(List<Fabricante> fabricante) {
+        linhas = new ArrayList<Fabricante>(fabricante);
     }
 	
-    
+	
     @Override
     public int getColumnCount() {
         return colunas.length;
@@ -40,42 +40,39 @@ public class TabelaDeProdutosUtil extends AbstractTableModel{
     public Class<?> getColumnClass(int columnIndex) {
         switch (columnIndex) {
         case CODIGO:
-            return Long.class;
+            return Integer.class;
         case DESCRICAO:
             return String.class;
-        case FABRICANTE:
-            return String.class;
         default:
-           
             throw new IndexOutOfBoundsException("columnIndex out of bounds");
         }
     }
     
-    @Override
+	@Override
 	public int getRowCount() {
 	    return linhas.size();
 	}
 
 	@Override
-	public Object getValueAt(int rowIndex, int columnIndex) {
+    public Object getValueAt(int rowIndex, int columnIndex) {
         
-		Produto dados = linhas.get(rowIndex);
+		Fabricante dados = linhas.get(rowIndex);
  
         switch (columnIndex) {
         case CODIGO:
-            return dados.getCodigo();
+            return dados.getId();
         case DESCRICAO:
             return dados.getDescricao();
-        case FABRICANTE:
-        	return dados.getFabricante().getDescricao();
         default:
+           
             throw new IndexOutOfBoundsException("columnIndex out of bounds");
         }
     }
 	
 	 
 	
-	public void addSocio(Produto dados) {
+	public void addUsuario(Fabricante dados) {
+	  
 	    linhas.add(dados);
 	    int ultimoIndice = getRowCount() - 1;
 	    fireTableRowsInserted(ultimoIndice, ultimoIndice);
@@ -83,7 +80,8 @@ public class TabelaDeProdutosUtil extends AbstractTableModel{
 	 
 	 
 	
-	public void addListaDeSocios(List<Produto> dados) {
+	public void addListaDeUsuario(List<Fabricante> dados) {
+	    
 	    int indice = getRowCount();
 	    linhas.addAll(dados);
 	    fireTableRowsInserted(indice, indice + dados.size());
@@ -91,29 +89,24 @@ public class TabelaDeProdutosUtil extends AbstractTableModel{
 	 
 
 	public void limpar() {
+	   
 	    linhas.clear();
 	    fireTableDataChanged();
 	}
 	
-	
-	
-	
-	
+
 	
 	@Override
     public void setValueAt(Object aValue, int rowIndex, int columnIndex) {
        
-		Produto dados = linhas.get(rowIndex);
+		Fabricante dados = linhas.get(rowIndex);
  
         switch (columnIndex) {
         case CODIGO:
-        	dados.setCodigo((String) aValue);
+        	dados.setId((Long) aValue);
             break;
         case DESCRICAO:
         	dados.setDescricao((String) aValue);
-            break;
-        case FABRICANTE:
-        	dados.getFabricante().setDescricao((String) aValue);
             break;
         default:
             throw new IndexOutOfBoundsException("columnIndex out of bounds");

@@ -16,8 +16,8 @@ import br.com.gsv.funcUsuario.formularios.DetalhesUsuarioDialog;
 import br.com.gsv.funcUsuario.formularios.ExcluirUsuarioDialog;
 import br.com.gsv.funcUsuario.formularios.GerenciaTelaUsuario;
 import br.com.gsv.funcUsuario.formularios.IncluirUsuarioForm;
+import br.com.gsv.tabelas.TabelaDeUsuariosUtil;
 import br.com.projeto.gsv.controller.UsuarioController;
-import br.com.projeto.gsv.util.TabelaDeUsuariosUtil;
 
 public class GerenciaTelaUsuarioListener implements ActionListener{
 	private GerenciaTelaUsuario formulario;

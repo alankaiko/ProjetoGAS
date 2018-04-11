@@ -1,31 +1,34 @@
-package br.com.projeto.gsv.util;
+package br.com.gsv.tabelas;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.table.AbstractTableModel;
 
-import br.com.gsv.fabricantes.domain.Fabricante;
-import br.com.gsv.funcionario.domain.Funcionario;
+import br.com.gsv.paciente.domain.Paciente;
 
-public class TabelaBuscarFabricantesUtil extends AbstractTableModel{
-	private String[] colunas = new String[] { "CÓDIGO", "DESCRICAO"};
-	private List<Fabricante> linhas;
+public class TabelaDePacientesUtil extends AbstractTableModel{
+
+	private String[] colunas = new String[] { "CODIGO", "NOME", "CPF" };
+	private List<Paciente> linhas;
 	private static final int CODIGO = 0;
-    private static final int DESCRICAO = 1;
-  
+    private static final int NOME = 1;
+    private static final int CPF = 2;
+	 
     
-    public TabelaBuscarFabricantesUtil() {
-        linhas = new ArrayList<Fabricante>();
+    public TabelaDePacientesUtil() {
+        linhas = new ArrayList<Paciente>();
        
     }
  
     
-    public TabelaBuscarFabricantesUtil(List<Fabricante> fabricante) {
-        linhas = new ArrayList<Fabricante>(fabricante);
+    public TabelaDePacientesUtil(List<Paciente> dadosPaciente) {
+        linhas = new ArrayList<Paciente>(dadosPaciente);
+	
+	
     }
 	
-	
+    
     @Override
     public int getColumnCount() {
         return colunas.length;
@@ -40,29 +43,34 @@ public class TabelaBuscarFabricantesUtil extends AbstractTableModel{
     public Class<?> getColumnClass(int columnIndex) {
         switch (columnIndex) {
         case CODIGO:
-            return Integer.class;
-        case DESCRICAO:
+            return Long.class;
+        case NOME:
+            return String.class;
+        case CPF:
             return String.class;
         default:
+           
             throw new IndexOutOfBoundsException("columnIndex out of bounds");
         }
     }
     
-	@Override
+    @Override
 	public int getRowCount() {
 	    return linhas.size();
 	}
 
 	@Override
-    public Object getValueAt(int rowIndex, int columnIndex) {
+	public Object getValueAt(int rowIndex, int columnIndex) {
         
-		Fabricante dados = linhas.get(rowIndex);
+        Paciente dados = linhas.get(rowIndex);
  
         switch (columnIndex) {
         case CODIGO:
             return dados.getId();
-        case DESCRICAO:
-            return dados.getDescricao();
+        case NOME:
+            return dados.getNome();
+        case CPF:
+            return dados.getCpf();
         default:
            
             throw new IndexOutOfBoundsException("columnIndex out of bounds");
@@ -71,8 +79,7 @@ public class TabelaBuscarFabricantesUtil extends AbstractTableModel{
 	
 	 
 	
-	public void addUsuario(Fabricante dados) {
-	  
+	public void addSocio(Paciente dados) {
 	    linhas.add(dados);
 	    int ultimoIndice = getRowCount() - 1;
 	    fireTableRowsInserted(ultimoIndice, ultimoIndice);
@@ -80,8 +87,7 @@ public class TabelaBuscarFabricantesUtil extends AbstractTableModel{
 	 
 	 
 	
-	public void addListaDeUsuario(List<Fabricante> dados) {
-	    
+	public void addListaDeSocios(List<Paciente> dados) {
 	    int indice = getRowCount();
 	    linhas.addAll(dados);
 	    fireTableRowsInserted(indice, indice + dados.size());
@@ -89,24 +95,29 @@ public class TabelaBuscarFabricantesUtil extends AbstractTableModel{
 	 
 
 	public void limpar() {
-	   
 	    linhas.clear();
 	    fireTableDataChanged();
 	}
 	
-
+	
+	
+	
+	
 	
 	@Override
     public void setValueAt(Object aValue, int rowIndex, int columnIndex) {
        
-		Fabricante dados = linhas.get(rowIndex);
+        Paciente dados = linhas.get(rowIndex);
  
         switch (columnIndex) {
         case CODIGO:
         	dados.setId((Long) aValue);
             break;
-        case DESCRICAO:
-        	dados.setDescricao((String) aValue);
+        case NOME:
+        	dados.setNome((String) aValue);
+            break;
+        case CPF:
+        	dados.setCpf((String) aValue);
             break;
         default:
             throw new IndexOutOfBoundsException("columnIndex out of bounds");

@@ -17,9 +17,9 @@ import br.com.gsv.paciente.formularios.ExcluirPacienteDialog;
 import br.com.gsv.paciente.formularios.GerenciaTelaPaciente;
 import br.com.gsv.paciente.formularios.IncluirPacienteForm;
 import br.com.gsv.produtos.formularios.DetalhesProdutoDialog;
+import br.com.gsv.tabelas.TabelaDePacientesUtil;
 import br.com.projeto.gsv.controller.PacienteController;
 import br.com.projeto.gsv.controller.ProdutoController;
-import br.com.projeto.gsv.util.TabelaDePacientesUtil;
 
 public class GerenciarPacienteListener implements ActionListener{
 	private GerenciaTelaPaciente gerenciamento;

@@ -1,30 +1,28 @@
-package br.com.projeto.gsv.util;
+package br.com.gsv.tabelas;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.table.AbstractTableModel;
 
-import br.com.gsv.fabricantes.domain.Fabricante;
-import br.com.gsv.funcionario.domain.Funcionario;
+import br.com.gsv.produtos.domain.Produto;
 
-public class TabelaDeFabricanteUtil extends AbstractTableModel {
-	private String[] colunas = new String[] { "CODIGO", "DESCRICAO"};
-	private List<Fabricante> linhas;
+public class TabelaDeProdutosUtil extends AbstractTableModel{
+	private String[] colunas = new String[] { "CODIGO", "DESCRICAO", "FABRICANTE" };
+	private List<Produto> linhas;
 	private static final int CODIGO = 0;
     private static final int DESCRICAO = 1;
+    private static final int FABRICANTE = 2;
 	 
     
-    public TabelaDeFabricanteUtil() {
-        linhas = new ArrayList<Fabricante>();
+    public TabelaDeProdutosUtil() {
+        linhas = new ArrayList<Produto>();
        
     }
  
     
-    public TabelaDeFabricanteUtil(List<Fabricante> dadosFabricante) {
-        linhas = new ArrayList<Fabricante>(dadosFabricante);
-	
-	
+    public TabelaDeProdutosUtil(List<Produto> dadosProduto) {
+        linhas = new ArrayList<Produto>(dadosProduto);
     }
 	
     
@@ -45,6 +43,8 @@ public class TabelaDeFabricanteUtil extends AbstractTableModel {
             return Long.class;
         case DESCRICAO:
             return String.class;
+        case FABRICANTE:
+            return String.class;
         default:
            
             throw new IndexOutOfBoundsException("columnIndex out of bounds");
@@ -59,22 +59,23 @@ public class TabelaDeFabricanteUtil extends AbstractTableModel {
 	@Override
 	public Object getValueAt(int rowIndex, int columnIndex) {
         
-        Fabricante dados = linhas.get(rowIndex);
+		Produto dados = linhas.get(rowIndex);
  
         switch (columnIndex) {
         case CODIGO:
-            return dados.getId();
+            return dados.getCodigo();
         case DESCRICAO:
             return dados.getDescricao();
+        case FABRICANTE:
+        	return dados.getFabricante().getDescricao();
         default:
-           
             throw new IndexOutOfBoundsException("columnIndex out of bounds");
         }
     }
 	
 	 
 	
-	public void addSocio(Fabricante dados) {
+	public void addSocio(Produto dados) {
 	    linhas.add(dados);
 	    int ultimoIndice = getRowCount() - 1;
 	    fireTableRowsInserted(ultimoIndice, ultimoIndice);
@@ -82,7 +83,7 @@ public class TabelaDeFabricanteUtil extends AbstractTableModel {
 	 
 	 
 	
-	public void addListaDeSocios(List<Fabricante> dados) {
+	public void addListaDeSocios(List<Produto> dados) {
 	    int indice = getRowCount();
 	    linhas.addAll(dados);
 	    fireTableRowsInserted(indice, indice + dados.size());
@@ -102,14 +103,17 @@ public class TabelaDeFabricanteUtil extends AbstractTableModel {
 	@Override
     public void setValueAt(Object aValue, int rowIndex, int columnIndex) {
        
-        Fabricante dados = linhas.get(rowIndex);
+		Produto dados = linhas.get(rowIndex);
  
         switch (columnIndex) {
         case CODIGO:
-        	dados.setId((Long) aValue);
+        	dados.setCodigo((String) aValue);
             break;
         case DESCRICAO:
         	dados.setDescricao((String) aValue);
+            break;
+        case FABRICANTE:
+        	dados.getFabricante().setDescricao((String) aValue);
             break;
         default:
             throw new IndexOutOfBoundsException("columnIndex out of bounds");
@@ -117,4 +121,5 @@ public class TabelaDeFabricanteUtil extends AbstractTableModel {
          
         fireTableCellUpdated(rowIndex, columnIndex); 
     }
+    
 }

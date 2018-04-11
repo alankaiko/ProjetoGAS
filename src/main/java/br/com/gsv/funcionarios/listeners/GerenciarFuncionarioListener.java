@@ -16,8 +16,8 @@ import br.com.gsv.funcionario.formularios.DetalhesFuncionarioDialog;
 import br.com.gsv.funcionario.formularios.ExcluirFuncionarioDialog;
 import br.com.gsv.funcionario.formularios.GerenciaTelaFuncionario;
 import br.com.gsv.funcionario.formularios.IncluirFuncionariosForm;
+import br.com.gsv.tabelas.TabelaDeFuncionariosUtil;
 import br.com.projeto.gsv.controller.FuncionarioController;
-import br.com.projeto.gsv.util.TabelaDeFuncionariosUtil;
 
 public class GerenciarFuncionarioListener implements ActionListener{
 	private GerenciaTelaFuncionario gerenciamento;

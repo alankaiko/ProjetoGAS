@@ -16,8 +16,8 @@ import br.com.gsv.convenio.formularios.DetalhesConvenioDialog;
 import br.com.gsv.convenio.formularios.ExcluirConvenioDialog;
 import br.com.gsv.convenio.formularios.GerenciaTelaConvenio;
 import br.com.gsv.convenio.formularios.IncluirConvenioForm;
+import br.com.gsv.tabelas.TabelaDeConveniosUtil;
 import br.com.projeto.gsv.controller.ConvenioController;
-import br.com.projeto.gsv.util.TabelaDeConveniosUtil;
 
 public class GerenciaConvenioListener implements ActionListener{
 	private GerenciaTelaConvenio gerenciamento;

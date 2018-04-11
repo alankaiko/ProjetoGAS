@@ -1,32 +1,32 @@
-package br.com.projeto.gsv.util;
+package br.com.gsv.tabelas;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.table.AbstractTableModel;
 
-import br.com.gsv.funcUsuario.domain.Usuario;
+import br.com.gsv.convenio.domain.Convenio;
 
-public class TabelaBuscarUsuarioUtil extends AbstractTableModel{
-	private String[] colunas = new String[] { "LOGIN", "NOME FUNCIONÁRIO", "CPF"};
-	private List<Usuario> linhas;
-	private static final int LOGIN = 0;
-    private static final int NOME = 1;
-    private static final int CPF = 2;
-  
+public class TabelaDeConveniosUtil extends AbstractTableModel{
+	private String[] colunas = new String[] { "CODIGO", "CONVENIO"};
+	private List<Convenio> linhas;
+	private static final int CODIGO = 0;
+    private static final int CONVENIO = 1;
+	 
     
-    public TabelaBuscarUsuarioUtil() {
-        linhas = new ArrayList<Usuario>();
+    public TabelaDeConveniosUtil() {
+        linhas = new ArrayList<Convenio>();
        
     }
-    
  
     
-    public TabelaBuscarUsuarioUtil(List<Usuario> usuario) {
-        linhas = new ArrayList<Usuario>(usuario);
+    public TabelaDeConveniosUtil(List<Convenio> dadosConvenio) {
+        linhas = new ArrayList<Convenio>(dadosConvenio);
+	
+	
     }
 	
-	
+    
     @Override
     public int getColumnCount() {
         return colunas.length;
@@ -40,34 +40,31 @@ public class TabelaBuscarUsuarioUtil extends AbstractTableModel{
     @Override
     public Class<?> getColumnClass(int columnIndex) {
         switch (columnIndex) {
-        case LOGIN:
-            return String.class;
-        case NOME:
-            return String.class;
-        case CPF:
+        case CODIGO:
+            return Long.class;
+        case CONVENIO:
             return String.class;
         default:
+           
             throw new IndexOutOfBoundsException("columnIndex out of bounds");
         }
     }
     
-	@Override
+    @Override
 	public int getRowCount() {
 	    return linhas.size();
 	}
 
 	@Override
-    public Object getValueAt(int rowIndex, int columnIndex) {
+	public Object getValueAt(int rowIndex, int columnIndex) {
         
-		Usuario dados = linhas.get(rowIndex);
+        Convenio dados = linhas.get(rowIndex);
  
         switch (columnIndex) {
-        case LOGIN:
-            return dados.getLogin();
-        case NOME:
-            return dados.getFuncionario().getNome();
-        case CPF:
-            return dados.getFuncionario().getCpf();
+        case CODIGO:
+            return dados.getId();
+        case CONVENIO:
+            return dados.getNome();
         default:
            
             throw new IndexOutOfBoundsException("columnIndex out of bounds");
@@ -76,8 +73,7 @@ public class TabelaBuscarUsuarioUtil extends AbstractTableModel{
 	
 	 
 	
-	public void addUsuario(Usuario dados) {
-	  
+	public void addSocio(Convenio dados) {
 	    linhas.add(dados);
 	    int ultimoIndice = getRowCount() - 1;
 	    fireTableRowsInserted(ultimoIndice, ultimoIndice);
@@ -85,8 +81,7 @@ public class TabelaBuscarUsuarioUtil extends AbstractTableModel{
 	 
 	 
 	
-	public void addListaDeUsuario(List<Usuario> dados) {
-	    
+	public void addListaDeSocios(List<Convenio> dados) {
 	    int indice = getRowCount();
 	    linhas.addAll(dados);
 	    fireTableRowsInserted(indice, indice + dados.size());
@@ -94,27 +89,26 @@ public class TabelaBuscarUsuarioUtil extends AbstractTableModel{
 	 
 
 	public void limpar() {
-	   
 	    linhas.clear();
 	    fireTableDataChanged();
 	}
 	
-
+	
+	
+	
+	
 	
 	@Override
     public void setValueAt(Object aValue, int rowIndex, int columnIndex) {
        
-		Usuario dados = linhas.get(rowIndex);
+        Convenio dados = linhas.get(rowIndex);
  
         switch (columnIndex) {
-        case LOGIN:
-        	dados.setLogin((String) aValue);
+        case CODIGO:
+        	dados.setId((Long) aValue);
             break;
-        case NOME:
-        	dados.getFuncionario().setNome((String) aValue);
-            break;
-        case CPF:
-        	dados.getFuncionario().setCpf((String) aValue);
+        case CONVENIO:
+        	dados.setNome((String) aValue);
             break;
         default:
             throw new IndexOutOfBoundsException("columnIndex out of bounds");

@@ -16,10 +16,10 @@ import br.com.gsv.prontuario.domain.Prontuario;
 import br.com.gsv.prontuario.formularios.ExcluirProntuarioDialog;
 import br.com.gsv.prontuario.formularios.GerenciaProntuarios;
 import br.com.gsv.prontuario.formularios.ProntuarioForm;
+import br.com.gsv.tabelas.TabelaDeProntuariosUtil;
 import br.com.projeto.gsv.controller.PacienteController;
 import br.com.projeto.gsv.controller.ProntuarioController;
 import br.com.projeto.gsv.util.ConverteDadosUtil;
-import br.com.projeto.gsv.util.TabelaDeProntuariosUtil;
 
 public class GerenciarProntuarioListener implements ActionListener{
 	private TabelaDeProntuariosUtil tabela;

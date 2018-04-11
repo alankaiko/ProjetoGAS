@@ -1,32 +1,36 @@
-package br.com.projeto.gsv.util;
+package br.com.gsv.tabelas.buscar;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.table.AbstractTableModel;
 
-import br.com.gsv.convenio.domain.Convenio;
+import br.com.gsv.funcionario.domain.Funcionario;
 
-public class TabelaDeConveniosUtil extends AbstractTableModel{
-	private String[] colunas = new String[] { "CODIGO", "CONVENIO"};
-	private List<Convenio> linhas;
+
+
+public class TabelaBuscarFuncionariosUtil extends AbstractTableModel{
+	private String[] colunas = new String[] { "CÓDIGO", "NOME", "CPF","RG" };
+	private List<Funcionario> linhas;
 	private static final int CODIGO = 0;
-    private static final int CONVENIO = 1;
+    private static final int NOME = 1;
+    private static final int CPF = 2;
+    private static final int RG = 3;
 	 
     
-    public TabelaDeConveniosUtil() {
-        linhas = new ArrayList<Convenio>();
+    public TabelaBuscarFuncionariosUtil() {
+        linhas = new ArrayList<Funcionario>();
        
     }
  
     
-    public TabelaDeConveniosUtil(List<Convenio> dadosConvenio) {
-        linhas = new ArrayList<Convenio>(dadosConvenio);
+    public TabelaBuscarFuncionariosUtil(List<Funcionario> funcionario) {
+        linhas = new ArrayList<Funcionario>(funcionario);
 	
 	
     }
 	
-    
+	
     @Override
     public int getColumnCount() {
         return colunas.length;
@@ -41,30 +45,37 @@ public class TabelaDeConveniosUtil extends AbstractTableModel{
     public Class<?> getColumnClass(int columnIndex) {
         switch (columnIndex) {
         case CODIGO:
-            return Long.class;
-        case CONVENIO:
+            return Integer.class;
+        case NOME:
             return String.class;
+        case CPF:
+            return String.class;
+        case RG:
+        	return String.class;
         default:
-           
             throw new IndexOutOfBoundsException("columnIndex out of bounds");
         }
     }
     
-    @Override
+	@Override
 	public int getRowCount() {
 	    return linhas.size();
 	}
 
 	@Override
-	public Object getValueAt(int rowIndex, int columnIndex) {
+    public Object getValueAt(int rowIndex, int columnIndex) {
         
-        Convenio dados = linhas.get(rowIndex);
+		Funcionario dados = linhas.get(rowIndex);
  
         switch (columnIndex) {
         case CODIGO:
             return dados.getId();
-        case CONVENIO:
+        case NOME:
             return dados.getNome();
+        case CPF:
+            return dados.getCpf();
+        case RG:
+        	return dados.getRg();
         default:
            
             throw new IndexOutOfBoundsException("columnIndex out of bounds");
@@ -73,7 +84,8 @@ public class TabelaDeConveniosUtil extends AbstractTableModel{
 	
 	 
 	
-	public void addSocio(Convenio dados) {
+	public void addUsuario(Funcionario dados) {
+	  
 	    linhas.add(dados);
 	    int ultimoIndice = getRowCount() - 1;
 	    fireTableRowsInserted(ultimoIndice, ultimoIndice);
@@ -81,7 +93,8 @@ public class TabelaDeConveniosUtil extends AbstractTableModel{
 	 
 	 
 	
-	public void addListaDeSocios(List<Convenio> dados) {
+	public void addListaDeUsuario(List<Funcionario> dados) {
+	    
 	    int indice = getRowCount();
 	    linhas.addAll(dados);
 	    fireTableRowsInserted(indice, indice + dados.size());
@@ -89,26 +102,29 @@ public class TabelaDeConveniosUtil extends AbstractTableModel{
 	 
 
 	public void limpar() {
+	   
 	    linhas.clear();
 	    fireTableDataChanged();
 	}
 	
-	
-	
-	
-	
+
 	
 	@Override
     public void setValueAt(Object aValue, int rowIndex, int columnIndex) {
        
-        Convenio dados = linhas.get(rowIndex);
+		Funcionario dados = linhas.get(rowIndex);
  
         switch (columnIndex) {
         case CODIGO:
         	dados.setId((Long) aValue);
             break;
-        case CONVENIO:
+        case NOME:
         	dados.setNome((String) aValue);
+            break;
+        case CPF:
+        	dados.setCpf((String) aValue);
+        case RG:
+        	dados.setRg((String) aValue);
             break;
         default:
             throw new IndexOutOfBoundsException("columnIndex out of bounds");
@@ -116,4 +132,5 @@ public class TabelaDeConveniosUtil extends AbstractTableModel{
          
         fireTableCellUpdated(rowIndex, columnIndex); 
     }
+    
 }

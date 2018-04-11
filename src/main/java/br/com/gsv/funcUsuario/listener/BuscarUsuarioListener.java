@@ -15,8 +15,8 @@ import javax.swing.ListSelectionModel;
 
 import br.com.gsv.funcUsuario.domain.Usuario;
 import br.com.gsv.funcUsuario.formularios.BuscarUsuarioDialog;
+import br.com.gsv.tabelas.buscar.TabelaBuscarUsuarioUtil;
 import br.com.projeto.gsv.controller.UsuarioController;
-import br.com.projeto.gsv.util.TabelaBuscarUsuarioUtil;
 
 public class BuscarUsuarioListener implements ActionListener{
 	private BuscarUsuarioDialog formulario;

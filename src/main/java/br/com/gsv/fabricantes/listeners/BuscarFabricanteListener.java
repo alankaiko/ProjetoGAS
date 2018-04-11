@@ -15,9 +15,9 @@ import javax.swing.KeyStroke;
 import javax.swing.ListSelectionModel;
 
 import br.com.gsv.fabricantes.formularios.BuscarFabricanteDialog;
+import br.com.gsv.tabelas.buscar.TabelaBuscarFabricantesUtil;
 import br.com.projeto.gsv.controller.FabricanteController;
 import br.com.projeto.gsv.util.ConverteDadosUtil;
-import br.com.projeto.gsv.util.TabelaBuscarFabricantesUtil;
 
 public class BuscarFabricanteListener implements ActionListener{
 	private BuscarFabricanteDialog formulario;

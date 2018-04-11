@@ -24,11 +24,11 @@ import br.com.gsv.produtos.formularios.DetalhesProdutoDialog;
 import br.com.gsv.produtos.formularios.ExcluirProdutoDialog;
 import br.com.gsv.produtos.formularios.GerenciaTelaProdutos;
 import br.com.gsv.produtos.formularios.IncluirProdutosForm;
+import br.com.gsv.tabelas.TabelaDeFuncionariosUtil;
+import br.com.gsv.tabelas.TabelaDeProdutosUtil;
 import br.com.projeto.gsv.controller.FuncionarioController;
 import br.com.projeto.gsv.controller.PacienteController;
 import br.com.projeto.gsv.controller.ProdutoController;
-import br.com.projeto.gsv.util.TabelaDeFuncionariosUtil;
-import br.com.projeto.gsv.util.TabelaDeProdutosUtil;
 
 public class GerenciarProdutosListener implements ActionListener{
 	private GerenciaTelaProdutos gerenciamento;

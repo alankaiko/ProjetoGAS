@@ -12,10 +12,10 @@ import javax.swing.KeyStroke;
 import javax.swing.ListSelectionModel;
 
 import br.com.gsv.produtos.formularios.BuscarProdutoDialog;
+import br.com.gsv.tabelas.buscar.TabelaBuscarPacientesUtil;
+import br.com.gsv.tabelas.buscar.TabelaBuscarProdutoUtil;
 import br.com.projeto.gsv.controller.PacienteController;
 import br.com.projeto.gsv.controller.ProdutoController;
-import br.com.projeto.gsv.util.TabelaBuscarPacientesUtil;
-import br.com.projeto.gsv.util.TabelaBuscarProdutoUtil;
 
 public class BuscarProdutoListener implements ActionListener{
 	private BuscarProdutoDialog formulario;

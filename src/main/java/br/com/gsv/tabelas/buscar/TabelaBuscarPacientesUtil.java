@@ -1,27 +1,33 @@
-package br.com.projeto.gsv.util;
+package br.com.gsv.tabelas.buscar;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.table.AbstractTableModel;
 
-import br.com.gsv.convenio.domain.Convenio;
+import br.com.gsv.paciente.domain.Paciente;
 
-public class TabelaBuscarConvenioUtil extends AbstractTableModel{
-	private String[] colunas = new String[] { "CÓDIGO", "CONVENIO"};
-	private List<Convenio> linhas;
+
+
+public class TabelaBuscarPacientesUtil extends AbstractTableModel{
+	private String[] colunas = new String[] { "CÓDIGO", "NOME", "CPF","RG" };
+	private List<Paciente> linhas;
 	private static final int CODIGO = 0;
-    private static final int CONVENIO = 1;
-  
+    private static final int NOME = 1;
+    private static final int CPF = 2;
+    private static final int RG = 3;
+	 
     
-    public TabelaBuscarConvenioUtil() {
-        linhas = new ArrayList<Convenio>();
+    public TabelaBuscarPacientesUtil() {
+        linhas = new ArrayList<Paciente>();
        
     }
  
     
-    public TabelaBuscarConvenioUtil(List<Convenio> convenio) {
-        linhas = new ArrayList<Convenio>(convenio);
+    public TabelaBuscarPacientesUtil(List<Paciente> paciente) {
+        linhas = new ArrayList<Paciente>(paciente);
+	
+	
     }
 	
 	
@@ -40,8 +46,12 @@ public class TabelaBuscarConvenioUtil extends AbstractTableModel{
         switch (columnIndex) {
         case CODIGO:
             return Integer.class;
-        case CONVENIO:
+        case NOME:
             return String.class;
+        case CPF:
+            return String.class;
+        case RG:
+        	return String.class;
         default:
             throw new IndexOutOfBoundsException("columnIndex out of bounds");
         }
@@ -55,13 +65,17 @@ public class TabelaBuscarConvenioUtil extends AbstractTableModel{
 	@Override
     public Object getValueAt(int rowIndex, int columnIndex) {
         
-		Convenio dados = linhas.get(rowIndex);
+		Paciente dados = linhas.get(rowIndex);
  
         switch (columnIndex) {
         case CODIGO:
             return dados.getId();
-        case CONVENIO:
+        case NOME:
             return dados.getNome();
+        case CPF:
+            return dados.getCpf();
+        case RG:
+        	return dados.getRg();
         default:
            
             throw new IndexOutOfBoundsException("columnIndex out of bounds");
@@ -70,7 +84,7 @@ public class TabelaBuscarConvenioUtil extends AbstractTableModel{
 	
 	 
 	
-	public void addUsuario(Convenio dados) {
+	public void addUsuario(Paciente dados) {
 	  
 	    linhas.add(dados);
 	    int ultimoIndice = getRowCount() - 1;
@@ -79,7 +93,7 @@ public class TabelaBuscarConvenioUtil extends AbstractTableModel{
 	 
 	 
 	
-	public void addListaDeUsuario(List<Convenio> dados) {
+	public void addListaDeUsuario(List<Paciente> dados) {
 	    
 	    int indice = getRowCount();
 	    linhas.addAll(dados);
@@ -98,14 +112,19 @@ public class TabelaBuscarConvenioUtil extends AbstractTableModel{
 	@Override
     public void setValueAt(Object aValue, int rowIndex, int columnIndex) {
        
-		Convenio dados = linhas.get(rowIndex);
+		Paciente dados = linhas.get(rowIndex);
  
         switch (columnIndex) {
         case CODIGO:
         	dados.setId((Long) aValue);
             break;
-        case CONVENIO:
+        case NOME:
         	dados.setNome((String) aValue);
+            break;
+        case CPF:
+        	dados.setCpf((String) aValue);
+        case RG:
+        	dados.setRg((String) aValue);
             break;
         default:
             throw new IndexOutOfBoundsException("columnIndex out of bounds");
@@ -113,4 +132,5 @@ public class TabelaBuscarConvenioUtil extends AbstractTableModel{
          
         fireTableCellUpdated(rowIndex, columnIndex); 
     }
+    
 }

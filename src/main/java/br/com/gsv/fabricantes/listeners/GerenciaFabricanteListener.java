@@ -16,8 +16,8 @@ import br.com.gsv.fabricantes.formularios.DetalhesFabricanteDialog;
 import br.com.gsv.fabricantes.formularios.ExcluirFabricanteDialog;
 import br.com.gsv.fabricantes.formularios.GerenciaTelaFabricante;
 import br.com.gsv.fabricantes.formularios.IncluirFabricantesForm;
+import br.com.gsv.tabelas.TabelaDeFabricanteUtil;
 import br.com.projeto.gsv.controller.FabricanteController;
-import br.com.projeto.gsv.util.TabelaDeFabricanteUtil;
 
 public class GerenciaFabricanteListener implements ActionListener{
 	private GerenciaTelaFabricante gerenciamento;
