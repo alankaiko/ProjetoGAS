@@ -25,7 +25,7 @@ public class TelaPrincipalClassic extends JFrame {
 	private JMenuItem cadastroClinica, cadastroPaciente, relatorioFuncionario;
 	private JMenuItem usuarioFuncionario, usuarioConFun, usuarioUser;
 	private JMenuItem farmaciaFabricante, farmaciaGruProduto, relatorioClinica;
-	private JMenuItem farmaciaProduto, farmaciaDevolucoes, relatorioItens, relatorioFornecedores;
+	private JMenuItem farmaciaProduto, farmaciaDevolucoes, relatorioItens, relatorioFornecedores, relatorioConvenio;
 	private JMenuItem relatorioGruItens, relatorioPaciente, atendimentoAnotacoes,atendimentoProntuario;
 	private JLabel LStatusUsuario, LStatusData, LStatusHora;
 	private JPanel panelStatus;
@@ -145,6 +145,9 @@ public class TelaPrincipalClassic extends JFrame {
 		
 		relatorioItens = new JMenuItem("Relatório de Itens");
 		menuRelatorio.add(relatorioItens);
+		
+		relatorioConvenio = new JMenuItem("Relatório de Convênios/Planos");
+		menuRelatorio.add(relatorioConvenio);
 		
 		relatorioFornecedores = new JMenuItem("Relatório de Fornecedores");
 		menuRelatorio.add(relatorioFornecedores);

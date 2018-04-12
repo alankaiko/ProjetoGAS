@@ -21,8 +21,7 @@ public class RelatorioPaciente extends AbstractRelatorios{
 
 	public RelatorioPaciente(){
 		controller = new PacienteController();
-		this.lista = controller.ListaCompletaDePaciente();
-		
+		this.lista = controller.ListaCompletaDePaciente();		
 	}
 	
 	
@@ -33,8 +32,7 @@ public class RelatorioPaciente extends AbstractRelatorios{
 		this.CriarTabela(colunaLargura);
 		this.CriaTitulos();
 		PopularTabela();
-		this.CriaDocumento();
-		
+		this.CriaDocumento();		
 	}
 	
 	
@@ -64,8 +62,7 @@ public class RelatorioPaciente extends AbstractRelatorios{
 		tabela.addCell(celulaTelefone);
 		tabela.addCell(celulaConvenio);
 		tabela.addCell(celulaCidade);
-		tabela.addCell(espaco);
-		
+		tabela.addCell(espaco);		
 	}
 
 
@@ -90,8 +87,7 @@ public class RelatorioPaciente extends AbstractRelatorios{
 			this.tabela.addCell(celulaTelefone);
 			this.tabela.addCell(celulaConvenio);
 			this.tabela.addCell(celulaCidade);
-		}
-		
+		}		
 	}
 
 
