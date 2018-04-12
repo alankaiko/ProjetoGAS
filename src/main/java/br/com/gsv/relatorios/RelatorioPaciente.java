@@ -3,13 +3,13 @@ package br.com.gsv.relatorios;
 import java.io.IOException;
 import java.util.List;
 
+import br.com.gsv.paciente.domain.Paciente;
+import br.com.projeto.gsv.controller.PacienteController;
+
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Element;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfPCell;
-
-import br.com.gsv.paciente.domain.Paciente;
-import br.com.projeto.gsv.controller.PacienteController;
 
 public class RelatorioPaciente extends AbstractRelatorios{
 	private PacienteController controller;

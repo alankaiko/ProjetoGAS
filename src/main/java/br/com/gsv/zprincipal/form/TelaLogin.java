@@ -84,21 +84,7 @@ public class TelaLogin extends JFrame{
 		labelGas.setBounds(44, 27, 142, 35);
 		PainelLogo.add(labelGas);
 		
-		radioClassic = new JRadioButton("Versão Clássica");
-		radioClassic.setFont(new Font("Segoe UI", Font.PLAIN, 12));
-		radioClassic.setForeground(Color.WHITE);
-		radioClassic.setBackground(new Color(71,120,197));
-		radioClassic.setBounds(104, 186, 129, 23);
-		grupoBotao.add(radioClassic);
-		PainelLogo.add(radioClassic);
 		
-		radioAzul = new JRadioButton("Versão Azul");
-		radioAzul.setFont(new Font("Segoe UI", Font.PLAIN, 12));
-		radioAzul.setForeground(Color.WHITE);
-		radioAzul.setBackground(new Color(71,120,197));
-		radioAzul.setBounds(104, 217, 129, 23);
-		grupoBotao.add(radioAzul);
-		PainelLogo.add(radioAzul);
 
 		botaoEntrar = new JButton("Entrar");
 		botaoEntrar.setFont(new Font("Segoe UI", Font.PLAIN, 12));
@@ -118,6 +104,8 @@ public class TelaLogin extends JFrame{
 		campoSenha.setBounds(243, 137, 209, 20);
 		PainelPrincipal.add(campoSenha);
 		campoSenha.setColumns(10);
+		
+		
 
 		usuario = new JLabel("USU\u00C1RIO");
 		usuario.setFont(new Font("Segoe UI", Font.PLAIN, 12));
@@ -138,6 +126,25 @@ public class TelaLogin extends JFrame{
 		painelDrag.setBackground(Color.WHITE);
 		painelDrag.setBounds(1, 1, 477, 25);
 		PainelPrincipal.add(painelDrag);
+		
+		
+		
+		radioClassic = new JRadioButton("Versão Clássica");
+		radioClassic.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+		radioClassic.setForeground(Color.WHITE);
+		radioClassic.setBackground(new Color(71,120,197));
+		radioClassic.setBounds(104, 186, 129, 23);
+		grupoBotao.add(radioClassic);
+		PainelLogo.add(radioClassic);
+		
+		radioAzul = new JRadioButton("Versão Azul");
+		radioAzul.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+		radioAzul.setForeground(Color.WHITE);
+		radioAzul.setBackground(new Color(71,120,197));
+		radioAzul.setBounds(104, 217, 129, 23);
+		grupoBotao.add(radioAzul);
+		PainelLogo.add(radioAzul);
+		
 		
 	}
 

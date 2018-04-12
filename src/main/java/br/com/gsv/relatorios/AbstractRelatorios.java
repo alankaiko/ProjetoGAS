@@ -20,9 +20,9 @@ import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 
 public abstract class AbstractRelatorios {
-	protected abstract void PopularTabela();
 	public abstract void Iniciar() throws IOException, DocumentException;
 	protected abstract void CriaTitulos();
+	protected abstract void PopularTabela();
 	protected String nome;
 	private String titulo;
 	private Document documento;
@@ -63,9 +63,6 @@ public abstract class AbstractRelatorios {
 		Paragraph paragrafo = new Paragraph(this.titulo, fonteTitulo);
 		//paragrafo.setAlignment(1);
 		documento.add(paragrafo);
-		
-		
-		
 		
 		paragrafo = new Paragraph("     ");
 		documento.add(paragrafo);		
