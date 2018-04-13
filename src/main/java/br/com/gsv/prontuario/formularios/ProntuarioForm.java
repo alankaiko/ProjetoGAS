@@ -565,36 +565,42 @@ public class ProntuarioForm extends JDialog {
 		radioNeurologico = new JRadioButton("Neurológico");
 		radioNeurologico.setFont(new Font("Arial", Font.PLAIN, 13));
 		radioNeurologico.setBounds(10, 32, 129, 23);
+		radioNeurologico.setBackground(Color.WHITE);
 		painelAvaliacao.add(radioNeurologico);
 		grupoBotao5.add(radioNeurologico);
 		
 		radioRespiratorio = new JRadioButton("Respiratório");
 		radioRespiratorio.setFont(new Font("Arial", Font.PLAIN, 13));
 		radioRespiratorio.setBounds(10, 60, 142, 23);
+		radioRespiratorio.setBackground(Color.WHITE);
 		painelAvaliacao.add(radioRespiratorio);
 		grupoBotao5.add(radioRespiratorio);
 		
 		radioCardiologico = new JRadioButton("Cardiológico");
 		radioCardiologico.setFont(new Font("Arial", Font.PLAIN, 13));
 		radioCardiologico.setBounds(10, 86, 142, 23);
+		radioCardiologico.setBackground(Color.WHITE);
 		painelAvaliacao.add(radioCardiologico);
 		grupoBotao5.add(radioCardiologico);
 		
 		radioTegumentar = new JRadioButton("Tegumentar");
 		radioTegumentar.setFont(new Font("Arial", Font.PLAIN, 13));
 		radioTegumentar.setBounds(10, 112, 142, 23);
+		radioTegumentar.setBackground(Color.WHITE);
 		painelAvaliacao.add(radioTegumentar);
 		grupoBotao5.add(radioTegumentar);
 		
 		radioGastrintestinal = new JRadioButton("Gastrintestinal");
 		radioGastrintestinal.setFont(new Font("Arial", Font.PLAIN, 13));
 		radioGastrintestinal.setBounds(10, 138, 142, 23);
+		radioGastrintestinal.setBackground(Color.WHITE);
 		painelAvaliacao.add(radioGastrintestinal);
 		grupoBotao5.add(radioGastrintestinal);
 		
 		radioGenito = new JRadioButton("Gênito Urinário");
 		radioGenito.setFont(new Font("Arial", Font.PLAIN, 13));
 		radioGenito.setBounds(10, 164, 142, 23);
+		radioGenito.setBackground(Color.WHITE);
 		painelAvaliacao.add(radioGenito);
 		grupoBotao5.add(radioGenito);
 		
@@ -804,6 +810,7 @@ public class ProntuarioForm extends JDialog {
 		TAtendCodigo = new JTextField();
 		TAtendCodigo.setBorder(new LineBorder(Color.BLACK));
 		TAtendCodigo.setBounds(10, 317, 46, 20);
+		TAtendCodigo.setEditable(false);
 		painelDadosCliente.add(TAtendCodigo);
 		TAtendCodigo.setColumns(10);
 		
@@ -814,6 +821,7 @@ public class ProntuarioForm extends JDialog {
 		TAtendFuncionario = new JTextField();
 		TAtendFuncionario.setBorder(new LineBorder(Color.BLACK));
 		TAtendFuncionario.setBounds(82, 317, 251, 20);
+		TAtendFuncionario.setEditable(false);
 		painelDadosCliente.add(TAtendFuncionario);
 		TAtendFuncionario.setColumns(10);
 		
@@ -824,10 +832,12 @@ public class ProntuarioForm extends JDialog {
 		TAtendRegistro = new JTextField();
 		TAtendRegistro.setBorder(new LineBorder(Color.BLACK));
 		TAtendRegistro.setBounds(357, 317, 179, 20);
+		TAtendRegistro.setEditable(false);
 		painelDadosCliente.add(TAtendRegistro);
 		TAtendRegistro.setColumns(10);
 		
 		BTPesquiFuncionario = new JButton("Pesquisar");
+		BTPesquiFuncionario.setIcon(new ImageIcon(ProntuarioForm.class.getResource("/imagens/icons8-pesquisar-15.png")));
 		BTPesquiFuncionario.setFont(new Font("Segoe UI Light", Font.PLAIN, 10));
 		BTPesquiFuncionario.setBorder(null);
 		BTPesquiFuncionario.setBackground(Color.WHITE);

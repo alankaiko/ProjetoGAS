@@ -36,7 +36,8 @@ public class ProdutoController {
 	public List<Produto> BuscarPelaDescricao(String descricao) {
 		return this.cadastroService.BuscandoPelaDescricao(descricao);
 	}
-
+	
+	
 	public List<Fabricante> RetornaFabricante(){
 		return this.cadastroService.FabricanteListaCompleta();
 	}
