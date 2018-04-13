@@ -90,13 +90,5 @@ public class RelatorioPaciente extends AbstractRelatorios{
 		}		
 	}
 
-
-	
-
-
-
-	
-	
-	
 	
 }

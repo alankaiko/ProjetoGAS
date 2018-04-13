@@ -30,6 +30,7 @@ public abstract class AbstractRelatorios {
 	protected Font fonteCabecalho = new Font(FontFamily.COURIER, 8, Font.BOLD, GrayColor.GRAYBLACK);
 	protected Font fonteTitulo = new Font(FontFamily.HELVETICA, 14, Font.BOLD, GrayColor.GRAYBLACK);
 	protected Font fonte = new Font(FontFamily.COURIER, 7, Font.NORMAL, GrayColor.GRAYBLACK);
+	protected Font fonteProntuario = new Font(FontFamily.TIMES_ROMAN, 6, Font.NORMAL, GrayColor.GRAYBLACK);
 	
 	
 	
