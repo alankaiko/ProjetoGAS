@@ -32,6 +32,10 @@ public class FuncionarioController {
 	public Funcionario BuscarPelaID(Long id) {
 		return this.cadastroService.BuscandoId(id);
 	}
+	
+	public List<Funcionario> BuscandoPeloRegistro(String coren){
+		return this.cadastroService.BuscaRegistroCoren(coren);
+	}
 
 	public List<Funcionario> BuscarPeloNome(String nome) {
 		return this.cadastroService.BuscandoPeloNome(nome);

@@ -30,4 +30,8 @@ public class CadastroFuncionarioService {
 	public List<Funcionario> BuscandoPeloNome(String nome){
 		return this.repositorio.BuscarPeloNome(nome);
 	}
+	
+	public List<Funcionario> BuscaRegistroCoren(String coren){
+		return this.repositorio.BuscarPeloRegistroCoren(coren);
+	}
 }

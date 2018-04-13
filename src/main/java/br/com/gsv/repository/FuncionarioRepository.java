@@ -106,7 +106,24 @@ public class FuncionarioRepository {
 			return lista;
 		}
 	
-	
+		
+		@SuppressWarnings("unchecked")
+		public List<Funcionario> BuscarPeloRegistroCoren(String coren){
+			sessao = HibernateUtil.getSessionFactory().openSession();
+			List<Funcionario> lista = null;
+			
+			try {
+				Query consulta = sessao.getNamedQuery("Funcionario.buscarCrm");
+				consulta.setString("coren",coren);
+				lista = consulta.list();
+			} catch (RuntimeException e) {
+				throw e;
+			}finally{
+				sessao.close();
+			}
+			
+			return lista;
+		}
 	
 	
 }
