@@ -2,6 +2,9 @@ package br.tela.principal.listeners;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
+
+import com.itextpdf.text.DocumentException;
 
 import br.com.gsv.formularios.GerenciaTelaConvenio;
 import br.com.gsv.formularios.GerenciaTelaFabricante;
@@ -10,8 +13,14 @@ import br.com.gsv.formularios.GerenciaTelaPaciente;
 import br.com.gsv.formularios.GerenciaTelaProdutos;
 import br.com.gsv.formularios.GerenciaTelaUsuario;
 import br.com.gsv.formularios.IncluirFuncionariosForm;
+import br.com.gsv.grafico.RelatorioFuncionarioClassic;
+import br.com.gsv.grafico.RelatorioProntuarioClassic;
 import br.com.gsv.prontuario.formularios.GerenciaProntuarios;
 import br.com.gsv.prontuario.formularios.ProntuarioForm;
+import br.com.gsv.relatorios.RelatorioConvenio;
+import br.com.gsv.relatorios.RelatorioFornecedores;
+import br.com.gsv.relatorios.RelatorioPaciente;
+import br.com.gsv.relatorios.RelatorioProdutos;
 import br.tela.principal.form.TelaPrincipalClassic;
 
 public class TelaPrincipalClassicListener implements ActionListener{
@@ -60,6 +69,8 @@ public class TelaPrincipalClassicListener implements ActionListener{
 		this.tela.getRelatorioPaciente().addActionListener(this);
 		this.tela.getRelatorioFuncionario().addActionListener(this);
 		this.tela.getRelatorioClinica().addActionListener(this);
+		this.tela.getRelatorioConvenio().addActionListener(this);
+		this.tela.getRelatorioProntuario().addActionListener(this);
 				
 	}
 	
@@ -109,6 +120,30 @@ public class TelaPrincipalClassicListener implements ActionListener{
 			AbreCadUsuarios();
 		}
 		
+		if(event.getSource().equals(this.tela.getRelatorioFuncionario())){
+			AbreRelatorioFuncionario();
+		}
+		
+		if(event.getSource().equals(this.tela.getRelatorioProntuario())){
+			AbreRelatorioProntuario();
+		}
+		
+		if(event.getSource().equals(this.tela.getRelatorioItens())){
+			AbreRelatorioItens();
+		}
+		
+		if(event.getSource().equals(this.tela.getRelatorioConvenio())){
+			AbreRelatorioConvenio();
+		}
+			
+		if(event.getSource().equals(this.tela.getRelatorioFornecedores())){
+			AbreRelatorioFornecedor();
+		}
+			
+		if(event.getSource().equals(this.tela.getRelatorioPaciente())){
+			AbreRelatorioPaciente();
+		}				
+			
 	}
 	
 	private void AbreProntuarios(){
@@ -169,7 +204,54 @@ public class TelaPrincipalClassicListener implements ActionListener{
 		user.setVisible(true);
 	}
 	
+	private void AbreRelatorioFuncionario(){
+		RelatorioFuncionarioClassic rel = new RelatorioFuncionarioClassic();
+		rel.setLocationRelativeTo(this.tela.getTela());
+		rel.setVisible(true);
+	}
+	
+	private void AbreRelatorioProntuario(){
+		RelatorioProntuarioClassic rel = new RelatorioProntuarioClassic();
+		rel.setLocationRelativeTo(this.tela.getTela());
+		rel.setVisible(true);
+	}
+	
+	private void AbreRelatorioItens(){
+		try {
+			RelatorioProdutos rel = new RelatorioProdutos();
+			rel.Iniciar();
+		} catch (IOException | DocumentException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	private void AbreRelatorioConvenio(){
+		try {
+			RelatorioConvenio rel = new RelatorioConvenio();
+			rel.Iniciar();
+		} catch (IOException | DocumentException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	private void AbreRelatorioFornecedor(){
+		try {
+			RelatorioFornecedores rel = new RelatorioFornecedores();
+			rel.Iniciar();
+		} catch (IOException | DocumentException e) {
+			e.printStackTrace();
+		}
+	}
 
+	private void AbreRelatorioPaciente(){
+		try {
+			RelatorioPaciente rel = new RelatorioPaciente();
+			rel.Iniciar();
+		} catch (IOException | DocumentException e) {
+			e.printStackTrace();
+		}
+	}
+	
 }
 
 

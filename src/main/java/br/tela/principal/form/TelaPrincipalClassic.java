@@ -22,7 +22,7 @@ public class TelaPrincipalClassic extends JFrame {
 	private JMenuBar menuBar;
 	private JMenu menuArquivo,menuAtendimento, menuCadastro, menuUsuario, menuFarmacia, menuRelatorio;
 	private JMenuItem arquivoAgCli, arquivoConAte, arquivoAcomodacoes, cadastroConvenio;
-	private JMenuItem cadastroClinica, cadastroPaciente, relatorioFuncionario;
+	private JMenuItem cadastroClinica, cadastroPaciente, relatorioFuncionario, relatorioProntuario;
 	private JMenuItem usuarioFuncionario, usuarioConFun, usuarioUser;
 	private JMenuItem farmaciaFabricante, farmaciaGruProduto, relatorioClinica;
 	private JMenuItem farmaciaProduto, farmaciaDevolucoes, relatorioItens, relatorioFornecedores, relatorioConvenio;
@@ -31,21 +31,6 @@ public class TelaPrincipalClassic extends JFrame {
 	private JPanel panelStatus;
 	private TelaPrincipalClassicListener listener;
 	private Usuario usuario;
-
-
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					TelaPrincipalClassic frame = new TelaPrincipalClassic();
-					frame.setVisible(true);
-					frame.setLocationRelativeTo(null);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 
 
@@ -164,6 +149,8 @@ public class TelaPrincipalClassic extends JFrame {
 		relatorioClinica = new JMenuItem("Relatório de Clínicas");
 		menuRelatorio.add(relatorioClinica);
 		
+		relatorioProntuario = new JMenuItem("Relatório de Prontuários");
+		menuRelatorio.add(relatorioProntuario);
 		
 		panelStatus = new JPanel();
 		panelStatus.setBorder(new LineBorder(new Color(0, 0, 0)));
@@ -582,6 +569,23 @@ public class TelaPrincipalClassic extends JFrame {
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
 	}
+
+	public JMenuItem getRelatorioProntuario() {
+		return relatorioProntuario;
+	}
+
+	public void setRelatorioProntuario(JMenuItem relatorioProntuario) {
+		this.relatorioProntuario = relatorioProntuario;
+	}
+
+	public JMenuItem getRelatorioConvenio() {
+		return relatorioConvenio;
+	}
+
+	public void setRelatorioConvenio(JMenuItem relatorioConvenio) {
+		this.relatorioConvenio = relatorioConvenio;
+	}
+	
 	
 	
 }
