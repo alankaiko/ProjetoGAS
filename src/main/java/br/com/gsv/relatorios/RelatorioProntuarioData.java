@@ -12,16 +12,16 @@ import com.itextpdf.text.Element;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfPCell;
 
-public class RelatorioProntuario extends AbstractRelatorios{
+public class RelatorioProntuarioData extends AbstractRelatorios{
 	private ProntuarioController controller;
 	private List<Prontuario> lista;
 	private String tituloProntuario= "Relatório de Prontuários por Paciente";
 	private PdfPCell celulaCodigoCli, celulaNomeCli, celulaNivCons, celulaEstaMen, celulaAvali, celulaFuncionario, celulaDataCadastro;
-	private float [ ] colunaLargura = { 1.25f , 3.5f , 3, 3, 2,3.5f,3 };
+	private float [ ] colunaLargura = { 1.25f , 4.3f , 2.5f, 2.5f, 2,3.5f,3 };
 	
-	public RelatorioProntuario(){
+	public RelatorioProntuarioData(){
 		controller = new ProntuarioController();
-		this.lista = controller.ListaCompletaDeProntuarios();		
+		this.lista = controller.BuscandoPelaData(ConverteDadosUtil.TransformandoEmDate("13/04/2018"));		
 	}
 	
 	
@@ -102,5 +102,5 @@ public class RelatorioProntuario extends AbstractRelatorios{
 			this.tabela.addCell(celulaDataCadastro);
 		}
 	}
-
+	
 }

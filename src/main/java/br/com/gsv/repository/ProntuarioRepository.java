@@ -100,7 +100,7 @@ public class ProntuarioRepository {
 		}finally{
 			sessao.close();
 		}
-		
+		System.out.println(data);
 		return lista;
 	}
 	

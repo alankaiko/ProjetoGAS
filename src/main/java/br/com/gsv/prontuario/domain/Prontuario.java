@@ -43,6 +43,7 @@ public class Prontuario implements Serializable{
 	
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date data;
+	
 	private String hora;
 	
 	@OneToOne
