@@ -7,6 +7,7 @@ import br.com.gsv.paciente.domain.Paciente;
 import br.com.gsv.prontuario.domain.Prontuario;
 import br.com.projeto.gsv.controller.PacienteController;
 import br.com.projeto.gsv.controller.ProntuarioController;
+import br.com.projeto.gsv.util.ConverteDadosUtil;
 
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Element;
@@ -18,7 +19,7 @@ public class RelatorioProntuario extends AbstractRelatorios{
 	private List<Prontuario> lista;
 	private String tituloProntuario= "Relatório de Prontuários por Paciente";
 	private PdfPCell celulaCodigoCli, celulaNomeCli, celulaNivCons, celulaEstaMen, celulaAvali, celulaFuncionario, celulaDataCadastro;
-	private float [ ] colunaLargura = { 1.20f , 4 , 2, 2, 2,4,2 };
+	private float [ ] colunaLargura = { 1.25f , 3.5f , 3, 3, 2,3.5f,3 };
 	
 	public RelatorioProntuario(){
 		controller = new ProntuarioController();
@@ -60,8 +61,8 @@ public class RelatorioProntuario extends AbstractRelatorios{
 		celulaDataCadastro = new PdfPCell(new Paragraph("DATA DO REGISTRO", fonteCabecalho));
 		celulaDataCadastro.setBorder(PdfPCell.NO_BORDER);
 		
-		//PdfPCell espaco = new PdfPCell();
-		//espaco.setColspan(5);
+		PdfPCell espaco = new PdfPCell();
+		espaco.setColspan(7);
 		
 		tabela.addCell(celulaCodigoCli);
 		tabela.addCell(celulaNomeCli);
@@ -70,7 +71,7 @@ public class RelatorioProntuario extends AbstractRelatorios{
 		tabela.addCell(celulaAvali);
 		tabela.addCell(celulaFuncionario);
 		tabela.addCell(celulaDataCadastro);
-		//tabela.addCell(espaco);		
+		tabela.addCell(espaco);		
 	}
 
 	@Override
@@ -82,10 +83,10 @@ public class RelatorioProntuario extends AbstractRelatorios{
 			celulaEstaMen = new PdfPCell(new Paragraph(prontuario.getAnotMental()+"", fonteProntuario));
 			celulaAvali = new PdfPCell(new Paragraph(prontuario.getAvaliCefaloMental()+"", fonteProntuario));
 			celulaFuncionario = new PdfPCell(new Paragraph(prontuario.getFuncionario().getNome()+"", fonteProntuario));
-			celulaDataCadastro = new PdfPCell(new Paragraph(prontuario.getData()+"", fonteProntuario));
+			celulaDataCadastro = new PdfPCell(new Paragraph(ConverteDadosUtil.TransformandoEmString(prontuario.getData())+"", fonteProntuario));
 			
 			
-			celulaCodigoCli.setHorizontalAlignment(Element.ALIGN_LEFT);
+			//celulaCodigoCli.setHorizontalAlignment(Element.ALIGN_LEFT);
 			celulaCodigoCli.setBorder(PdfPCell.NO_BORDER);
 			celulaNomeCli.setBorder(PdfPCell.NO_BORDER);
 			celulaNivCons.setBorder(PdfPCell.NO_BORDER);
