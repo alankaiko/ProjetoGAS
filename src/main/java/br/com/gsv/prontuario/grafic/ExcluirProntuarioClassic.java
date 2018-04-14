@@ -6,7 +6,7 @@ import java.awt.FlowLayout;
 
 import javax.swing.border.EmptyBorder;
 
-import br.com.gsv.convenio.formularios.ExcluirConvenioDialog;
+import br.com.gsv.formularios.ExcluirConvenioDialog;
 import br.com.gsv.prontuario.formularios.ExcluirProntuarioDialog;
 
 public class ExcluirProntuarioClassic {

@@ -3,7 +3,7 @@ package br.com.projeto.gsv.controller;
 import java.util.Date;
 import java.util.List;
 
-import br.com.gsv.prontuario.domain.Prontuario;
+import br.com.gsv.domain.Prontuario;
 import br.com.projeto.gsv.service.CadastroProntuarioService;
 
 public class ProntuarioController {

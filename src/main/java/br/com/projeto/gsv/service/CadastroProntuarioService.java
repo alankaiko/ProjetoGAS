@@ -3,8 +3,8 @@ package br.com.projeto.gsv.service;
 import java.util.Date;
 import java.util.List;
 
-import br.com.gsv.prontuario.domain.Prontuario;
-import br.com.gsv.repository.ProntuarioRepository;
+import br.com.gsv.domain.Prontuario;
+import br.com.projeto.gsv.repository.ProntuarioRepository;
 
 public class CadastroProntuarioService {
 	ProntuarioRepository repositorio = new ProntuarioRepository();

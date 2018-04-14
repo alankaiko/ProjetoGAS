@@ -5,8 +5,8 @@ import java.util.List;
 
 import javax.swing.table.AbstractTableModel;
 
-import br.com.gsv.fabricantes.domain.Fabricante;
-import br.com.gsv.funcionario.domain.Funcionario;
+import br.com.gsv.domain.Fabricante;
+import br.com.gsv.domain.Funcionario;
 
 public class TabelaDeFabricanteUtil extends AbstractTableModel {
 	private String[] colunas = new String[] { "CODIGO", "DESCRICAO"};

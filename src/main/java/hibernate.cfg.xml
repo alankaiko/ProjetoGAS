@@ -33,22 +33,22 @@
         <property name="hibernate.temp.use_jdbc_metadata_defaults">false</property>
 		
 		
-		<mapping class="br.com.gsv.funcionario.domain.Contato_fun"/>
-      	<mapping class="br.com.gsv.funcionario.domain.Endereco_fun"/>
-      	<mapping class="br.com.gsv.funcionario.domain.Funcionario"/>
-      	<mapping class="br.com.gsv.paciente.domain.Contato_cli"/>
-      	<mapping class="br.com.gsv.paciente.domain.Endereco_cli"/>
-      	<mapping class="br.com.gsv.paciente.domain.Paciente"/>
-      	<mapping class="br.com.gsv.produtos.domain.Produto"/>
-      	<mapping class="br.com.gsv.fabricantes.domain.Fabricante"/>
-      	<mapping class="br.com.gsv.convenio.domain.Convenio"/>
-      	<mapping class="br.com.gsv.prontuario.domain.Prontuario"/>
-      	<mapping class="br.com.gsv.prontuario.domain.EquipamentoCheckBox"/>
-      	<mapping class="br.com.gsv.prontuario.domain.IntegridadeHemorragia"/>
-      	<mapping class="br.com.gsv.prontuario.domain.SintomasCheckbox"/>
-      	<mapping class="br.com.gsv.prontuario.domain.SintomasMembrosCheckbox"/>
-      	<mapping class="br.com.gsv.funcUsuario.domain.Usuario"/>
-      	<mapping class="br.com.gsv.funcionario.domain.RegistroCoren"/>
+		<mapping class="br.com.gsv.domain.sub.Contato_fun"/>
+      	<mapping class="br.com.gsv.domain.sub.Endereco_fun"/>
+      	<mapping class="br.com.gsv.domain.Funcionario"/>
+      	<mapping class="br.com.gsv.domain.sub.Contato_cli"/>
+      	<mapping class="br.com.gsv.domain.sub.Endereco_cli"/>
+      	<mapping class="br.com.gsv.domain.Paciente"/>
+      	<mapping class="br.com.gsv.domain.Produto"/>
+      	<mapping class="br.com.gsv.domain.Fabricante"/>
+      	<mapping class="br.com.gsv.domain.Convenio"/>
+      	<mapping class="br.com.gsv.domain.Prontuario"/>
+      	<mapping class="br.com.gsv.domain.sub.EquipamentoCheckBox"/>
+      	<mapping class="br.com.gsv.domain.sub.IntegridadeHemorragia"/>
+      	<mapping class="br.com.gsv.domain.sub.SintomasCheckbox"/>
+      	<mapping class="br.com.gsv.domain.sub.SintomasMembrosCheckbox"/>
+      	<mapping class="br.com.gsv.domain.Usuario"/>
+      	<mapping class="br.com.gsv.domain.sub.RegistroCoren"/>
     </session-factory>
 
 </hibernate-configuration>

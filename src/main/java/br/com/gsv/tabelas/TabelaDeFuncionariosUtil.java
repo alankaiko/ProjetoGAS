@@ -5,8 +5,8 @@ import java.util.List;
 
 import javax.swing.table.AbstractTableModel;
 
-import br.com.gsv.funcionario.domain.Funcionario;
-import br.com.gsv.paciente.domain.Paciente;
+import br.com.gsv.domain.Funcionario;
+import br.com.gsv.domain.Paciente;
 
 public class TabelaDeFuncionariosUtil extends AbstractTableModel{
 	private String[] colunas = new String[] { "CODIGO", "NOME", "CPF" };

@@ -5,7 +5,7 @@ import java.util.List;
 
 import javax.swing.table.AbstractTableModel;
 
-import br.com.gsv.paciente.domain.Paciente;
+import br.com.gsv.domain.Paciente;
 
 
 

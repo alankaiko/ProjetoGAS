@@ -2,8 +2,8 @@ package br.com.projeto.gsv.service;
 
 import java.util.List;
 
-import br.com.gsv.funcUsuario.domain.Usuario;
-import br.com.gsv.repository.UsuarioRepository;
+import br.com.gsv.domain.Usuario;
+import br.com.projeto.gsv.repository.UsuarioRepository;
 
 public class CadastroUsuarioService {
 	private UsuarioRepository repositorio = new UsuarioRepository();

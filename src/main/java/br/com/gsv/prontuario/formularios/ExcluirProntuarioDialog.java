@@ -8,7 +8,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSeparator;
 
-import br.com.gsv.prontuario.domain.Prontuario;
+import br.com.gsv.domain.Prontuario;
 import br.com.gsv.prontuario.grafic.ExcluirProntuarioClassic;
 import br.com.gsv.prontuario.listeners.ExcluirProntuarioListener;
 

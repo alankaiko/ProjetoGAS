@@ -3,7 +3,7 @@ package br.com.gsv.relatorios;
 import java.io.IOException;
 import java.util.List;
 
-import br.com.gsv.funcUsuario.domain.Usuario;
+import br.com.gsv.domain.Usuario;
 import br.com.projeto.gsv.controller.UsuarioController;
 
 import com.itextpdf.text.DocumentException;

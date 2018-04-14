@@ -2,9 +2,9 @@ package br.com.projeto.gsv.service;
 
 import java.util.List;
 
-import br.com.gsv.convenio.domain.Convenio;
-import br.com.gsv.paciente.domain.Paciente;
-import br.com.gsv.repository.PacienteRepository;
+import br.com.gsv.domain.Convenio;
+import br.com.gsv.domain.Paciente;
+import br.com.projeto.gsv.repository.PacienteRepository;
 
 public class CadastroPacienteService {
 	private PacienteRepository repositorio = new PacienteRepository();

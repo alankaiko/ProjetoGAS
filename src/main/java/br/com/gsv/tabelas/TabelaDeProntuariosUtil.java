@@ -6,8 +6,8 @@ import java.util.List;
 
 import javax.swing.table.AbstractTableModel;
 
-import br.com.gsv.prontuario.domain.Prontuario;
-import br.com.projeto.gsv.util.ConverteDadosUtil;
+import br.com.gsv.domain.Prontuario;
+import br.com.gsv.util.ConverteDadosUtil;
 
 public class TabelaDeProntuariosUtil extends AbstractTableModel{
 	private String[] colunas = new String[] { "AGENDAMENTO", "HORA", "NOME", "CPF", "ALERTA", "ESTADO" };

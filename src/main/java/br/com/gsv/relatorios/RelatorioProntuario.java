@@ -3,9 +3,9 @@ package br.com.gsv.relatorios;
 import java.io.IOException;
 import java.util.List;
 
-import br.com.gsv.prontuario.domain.Prontuario;
+import br.com.gsv.domain.Prontuario;
+import br.com.gsv.util.ConverteDadosUtil;
 import br.com.projeto.gsv.controller.ProntuarioController;
-import br.com.projeto.gsv.util.ConverteDadosUtil;
 
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Element;

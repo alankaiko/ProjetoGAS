@@ -5,7 +5,7 @@ import java.util.List;
 
 import javax.swing.table.AbstractTableModel;
 
-import br.com.gsv.funcUsuario.domain.Usuario;
+import br.com.gsv.domain.Usuario;
 
 public class TabelaBuscarUsuarioUtil extends AbstractTableModel{
 	private String[] colunas = new String[] { "LOGIN", "NOME FUNCIONÁRIO", "CPF"};

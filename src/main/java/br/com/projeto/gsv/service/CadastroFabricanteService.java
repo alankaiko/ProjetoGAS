@@ -2,8 +2,8 @@ package br.com.projeto.gsv.service;
 
 import java.util.List;
 
-import br.com.gsv.fabricantes.domain.Fabricante;
-import br.com.gsv.repository.FabricanteRepository;
+import br.com.gsv.domain.Fabricante;
+import br.com.projeto.gsv.repository.FabricanteRepository;
 
 
 

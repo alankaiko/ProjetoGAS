@@ -2,9 +2,9 @@ package br.com.projeto.gsv.controller;
 
 import java.util.List;
 
-import br.com.gsv.funcUsuario.domain.Usuario;
+import br.com.gsv.domain.Usuario;
+import br.com.gsv.util.MensagemPainelUtil;
 import br.com.projeto.gsv.service.CadastroUsuarioService;
-import br.com.projeto.gsv.util.MensagemPainelUtil;
 
 public class UsuarioController {
 	private Usuario usuario;

@@ -5,7 +5,7 @@ import java.util.List;
 
 import javax.swing.table.AbstractTableModel;
 
-import br.com.gsv.convenio.domain.Convenio;
+import br.com.gsv.domain.Convenio;
 
 public class TabelaBuscarConvenioUtil extends AbstractTableModel{
 	private String[] colunas = new String[] { "CÓDIGO", "CONVENIO"};

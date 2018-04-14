@@ -5,8 +5,8 @@ import java.util.List;
 
 import javax.swing.table.AbstractTableModel;
 
-import br.com.gsv.funcionario.domain.Funcionario;
-import br.com.gsv.produtos.domain.Produto;
+import br.com.gsv.domain.Funcionario;
+import br.com.gsv.domain.Produto;
 
 public class TabelaBuscarProdutoUtil extends AbstractTableModel {
 	private String[] colunas = new String[] { "CODIGO", "DESCRICAO", "FABRICANTE" };

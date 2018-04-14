@@ -3,7 +3,7 @@ package br.com.gsv.relatorios;
 import java.io.IOException;
 import java.util.List;
 
-import br.com.gsv.convenio.domain.Convenio;
+import br.com.gsv.domain.Convenio;
 import br.com.projeto.gsv.controller.ConvenioController;
 
 import com.itextpdf.text.DocumentException;

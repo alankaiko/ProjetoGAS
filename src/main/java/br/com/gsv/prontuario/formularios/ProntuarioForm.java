@@ -22,7 +22,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 
 import br.com.gsv.prontuario.listeners.ProntuarioListener;
-import br.com.projeto.gsv.util.ConverteDadosUtil;
+import br.com.gsv.util.ConverteDadosUtil;
 
 public class ProntuarioForm extends JDialog {
 

@@ -2,7 +2,7 @@ package br.com.projeto.gsv.controller;
 
 import java.util.List;
 
-import br.com.gsv.convenio.domain.Convenio;
+import br.com.gsv.domain.Convenio;
 import br.com.projeto.gsv.service.CadastroConvenioService;
 
 public class ConvenioController {

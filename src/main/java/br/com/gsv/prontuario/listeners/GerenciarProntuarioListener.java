@@ -11,15 +11,15 @@ import javax.swing.JRootPane;
 import javax.swing.KeyStroke;
 import javax.swing.ListSelectionModel;
 
-import br.com.gsv.paciente.formularios.BuscarPacienteDialog;
-import br.com.gsv.prontuario.domain.Prontuario;
+import br.com.gsv.domain.Prontuario;
+import br.com.gsv.formularios.BuscarPacienteDialog;
 import br.com.gsv.prontuario.formularios.ExcluirProntuarioDialog;
 import br.com.gsv.prontuario.formularios.GerenciaProntuarios;
 import br.com.gsv.prontuario.formularios.ProntuarioForm;
 import br.com.gsv.tabelas.TabelaDeProntuariosUtil;
+import br.com.gsv.util.ConverteDadosUtil;
 import br.com.projeto.gsv.controller.PacienteController;
 import br.com.projeto.gsv.controller.ProntuarioController;
-import br.com.projeto.gsv.util.ConverteDadosUtil;
 
 public class GerenciarProntuarioListener implements ActionListener{
 	private TabelaDeProntuariosUtil tabela;

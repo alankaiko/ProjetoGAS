@@ -2,8 +2,8 @@ package br.com.projeto.gsv.service;
 
 import java.util.List;
 
-import br.com.gsv.convenio.domain.Convenio;
-import br.com.gsv.repository.ConvenioRepository;
+import br.com.gsv.domain.Convenio;
+import br.com.projeto.gsv.repository.ConvenioRepository;
 
 public class CadastroConvenioService {
 	private ConvenioRepository repositorio = new ConvenioRepository();

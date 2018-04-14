@@ -2,10 +2,10 @@ package br.com.projeto.gsv.service;
 
 import java.util.List;
 
-import br.com.gsv.fabricantes.domain.Fabricante;
-import br.com.gsv.funcionario.domain.Funcionario;
-import br.com.gsv.produtos.domain.Produto;
-import br.com.gsv.repository.ProdutoRepository;
+import br.com.gsv.domain.Fabricante;
+import br.com.gsv.domain.Funcionario;
+import br.com.gsv.domain.Produto;
+import br.com.projeto.gsv.repository.ProdutoRepository;
 
 public class CadastroProdutoService {
 	private  ProdutoRepository repositorio = new ProdutoRepository();

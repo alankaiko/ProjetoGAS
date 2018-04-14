@@ -10,20 +10,20 @@ import javax.swing.JComponent;
 import javax.swing.JRootPane;
 import javax.swing.KeyStroke;
 
-import br.com.gsv.funcionario.domain.Funcionario;
-import br.com.gsv.funcionario.formularios.BuscarFuncionarioDialog;
-import br.com.gsv.paciente.domain.Paciente;
-import br.com.gsv.paciente.formularios.BuscarPacienteDialog;
-import br.com.gsv.prontuario.domain.EquipamentoCheckBox;
-import br.com.gsv.prontuario.domain.IntegridadeHemorragia;
-import br.com.gsv.prontuario.domain.Prontuario;
-import br.com.gsv.prontuario.domain.SintomasCheckbox;
-import br.com.gsv.prontuario.domain.SintomasMembrosCheckbox;
+import br.com.gsv.domain.Funcionario;
+import br.com.gsv.domain.Paciente;
+import br.com.gsv.domain.Prontuario;
+import br.com.gsv.domain.sub.EquipamentoCheckBox;
+import br.com.gsv.domain.sub.IntegridadeHemorragia;
+import br.com.gsv.domain.sub.SintomasCheckbox;
+import br.com.gsv.domain.sub.SintomasMembrosCheckbox;
+import br.com.gsv.formularios.BuscarFuncionarioDialog;
+import br.com.gsv.formularios.BuscarPacienteDialog;
 import br.com.gsv.prontuario.formularios.ProntuarioForm;
+import br.com.gsv.util.ConverteDadosUtil;
 import br.com.projeto.gsv.controller.FuncionarioController;
 import br.com.projeto.gsv.controller.PacienteController;
 import br.com.projeto.gsv.controller.ProntuarioController;
-import br.com.projeto.gsv.util.ConverteDadosUtil;
 
 public class ProntuarioListener implements ActionListener{
 	private ProntuarioForm formulario;

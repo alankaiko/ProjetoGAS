@@ -2,10 +2,10 @@ package br.com.projeto.gsv.controller;
 
 import java.util.List;
 
-import br.com.gsv.convenio.domain.Convenio;
-import br.com.gsv.paciente.domain.Paciente;
+import br.com.gsv.domain.Convenio;
+import br.com.gsv.domain.Paciente;
+import br.com.gsv.util.MensagemPainelUtil;
 import br.com.projeto.gsv.service.CadastroPacienteService;
-import br.com.projeto.gsv.util.MensagemPainelUtil;
 
 public class PacienteController {
 	private Paciente paciente;
