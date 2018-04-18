@@ -8,8 +8,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import br.com.gsv.grafico.IncluirConvenioClassic;
-import br.com.gsv.grafico.IncluirConvenioGrafic;
+import br.com.gsv.graficoAzul.IncluirConvenioGrafic;
+import br.com.gsv.graficoClassic.IncluirConvenioClassic;
 import br.com.gsv.listeners.IncluirConvenioListener;
 
 public class IncluirConvenioForm extends JDialog{

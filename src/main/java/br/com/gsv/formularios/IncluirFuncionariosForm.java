@@ -10,7 +10,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import br.com.gsv.grafico.IncluirFuncionarioClassic;
+import br.com.gsv.graficoClassic.IncluirFuncionarioClassic;
 import br.com.gsv.listeners.IncluirFuncionarioListener;
 import br.com.gsv.util.ConverteDadosUtil;
 

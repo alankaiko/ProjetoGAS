@@ -9,7 +9,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import br.com.gsv.grafico.IncluirProdutosClassic;
+import br.com.gsv.graficoClassic.IncluirProdutosClassic;
 import br.com.gsv.listeners.IncluirProdutoListener;
 
 public class IncluirProdutosForm extends JDialog {

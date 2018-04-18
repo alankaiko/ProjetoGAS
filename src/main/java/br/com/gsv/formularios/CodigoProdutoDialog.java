@@ -7,7 +7,7 @@ import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import br.com.gsv.grafico.CodigoProdutoClassic;
+import br.com.gsv.graficoClassic.CodigoProdutoClassic;
 import br.com.gsv.listeners.CodigoProdutoListener;
 
 public class CodigoProdutoDialog extends JDialog {

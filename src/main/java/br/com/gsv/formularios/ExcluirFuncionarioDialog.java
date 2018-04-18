@@ -9,7 +9,7 @@ import javax.swing.JPanel;
 import javax.swing.JSeparator;
 
 import br.com.gsv.domain.Funcionario;
-import br.com.gsv.grafico.ExcluirFuncionarioClassic;
+import br.com.gsv.graficoClassic.ExcluirFuncionarioClassic;
 import br.com.gsv.listeners.ExcluirFuncionarioListener;
 
 public class ExcluirFuncionarioDialog extends JDialog {

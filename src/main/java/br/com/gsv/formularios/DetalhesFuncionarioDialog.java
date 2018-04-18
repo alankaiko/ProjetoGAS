@@ -8,7 +8,7 @@ import javax.swing.JFormattedTextField;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import br.com.gsv.grafico.DetalhesFuncionarioClassic;
+import br.com.gsv.graficoClassic.DetalhesFuncionarioClassic;
 import br.com.gsv.listeners.DetalhesFuncionarioListener;
 import br.com.gsv.util.ConverteDadosUtil;
 

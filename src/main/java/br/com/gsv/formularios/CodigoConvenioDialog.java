@@ -7,7 +7,7 @@ import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import br.com.gsv.grafico.CodigoConvenioClassic;
+import br.com.gsv.graficoClassic.CodigoConvenioClassic;
 import br.com.gsv.listeners.CodigoConvenioListener;
 
 public class CodigoConvenioDialog extends JDialog {

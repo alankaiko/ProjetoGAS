@@ -139,20 +139,20 @@ public class telagerenciar extends JDialog {
 				.addContainerGap())
 		);
 		
-		JLabel label = new JLabel("");
-		label.setIcon(new ImageIcon(telagerenciar.class.getResource("/imagens/icons8-não-22.png")));
+		JLabel LFechar = new JLabel("");
+		LFechar.setIcon(new ImageIcon(telagerenciar.class.getResource("/imagens/icons8-não-22.png")));
 		GroupLayout gl_painelTitulo = new GroupLayout(painelTitulo);
 		gl_painelTitulo.setHorizontalGroup(
 			gl_painelTitulo.createParallelGroup(Alignment.LEADING)
 				.addGroup(Alignment.TRAILING, gl_painelTitulo.createSequentialGroup()
 				.addContainerGap(642, Short.MAX_VALUE)
-				.addComponent(label)
+				.addComponent(LFechar)
 				.addContainerGap())
 		);
 		gl_painelTitulo.setVerticalGroup(
 			gl_painelTitulo.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_painelTitulo.createSequentialGroup()
-				.addComponent(label)
+				.addComponent(LFechar)
 				.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
 		);
 		painelTitulo.setLayout(gl_painelTitulo);

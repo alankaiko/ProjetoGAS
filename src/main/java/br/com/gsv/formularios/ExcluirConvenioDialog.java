@@ -9,7 +9,7 @@ import javax.swing.JPanel;
 import javax.swing.JSeparator;
 
 import br.com.gsv.domain.Convenio;
-import br.com.gsv.grafico.ExcluirConvenioClassic;
+import br.com.gsv.graficoClassic.ExcluirConvenioClassic;
 import br.com.gsv.listeners.ExcluirConvenioListener;
 
 public class ExcluirConvenioDialog extends JDialog {

@@ -8,7 +8,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSeparator;
 
-import br.com.gsv.grafico.DetalheConvenioClassic;
+import br.com.gsv.graficoClassic.DetalheConvenioClassic;
 import br.com.gsv.listeners.DetalhesConvenioListener;
 
 public class DetalhesConvenioDialog extends JDialog {

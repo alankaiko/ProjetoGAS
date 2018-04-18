@@ -10,7 +10,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import br.com.gsv.grafico.IncluirPacienteClassic;
+import br.com.gsv.graficoClassic.IncluirPacienteClassic;
 import br.com.gsv.listeners.IncluirPacienteListener;
 import br.com.gsv.util.ConverteDadosUtil;
 

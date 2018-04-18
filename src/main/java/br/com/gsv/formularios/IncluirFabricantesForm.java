@@ -8,7 +8,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import br.com.gsv.grafico.IncluirFabricanteClassic;
+import br.com.gsv.graficoClassic.IncluirFabricanteClassic;
 import br.com.gsv.listeners.IncluirFabricantesListener;
 
 public class IncluirFabricantesForm extends JDialog {

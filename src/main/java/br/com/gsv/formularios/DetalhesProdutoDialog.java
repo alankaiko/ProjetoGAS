@@ -7,7 +7,7 @@ import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import br.com.gsv.grafico.DetalheProdutoClassic;
+import br.com.gsv.graficoClassic.DetalheProdutoClassic;
 import br.com.gsv.listeners.DetalhesProdutoListener;
 
 public class DetalhesProdutoDialog extends JDialog {

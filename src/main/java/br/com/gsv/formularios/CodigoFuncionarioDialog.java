@@ -7,7 +7,7 @@ import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import br.com.gsv.grafico.CodigoFuncionarioClassic;
+import br.com.gsv.graficoClassic.CodigoFuncionarioClassic;
 import br.com.gsv.listeners.CodigoFuncionarioListener;
 
 public class CodigoFuncionarioDialog extends JDialog {

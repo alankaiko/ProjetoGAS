@@ -8,7 +8,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSeparator;
 
-import br.com.gsv.grafico.DetalheFabricanteClassic;
+import br.com.gsv.graficoClassic.DetalheFabricanteClassic;
 import br.com.gsv.listeners.DetalhesFabricanteListener;
 
 public class DetalhesFabricanteDialog extends JDialog {

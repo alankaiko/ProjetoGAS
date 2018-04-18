@@ -9,7 +9,7 @@ import javax.swing.JPanel;
 import javax.swing.JSeparator;
 
 import br.com.gsv.domain.Paciente;
-import br.com.gsv.grafico.ExcluirPacienteClassic;
+import br.com.gsv.graficoClassic.ExcluirPacienteClassic;
 import br.com.gsv.listeners.ExcluirPacienteListener;
 
 public class ExcluirPacienteDialog extends JDialog {
