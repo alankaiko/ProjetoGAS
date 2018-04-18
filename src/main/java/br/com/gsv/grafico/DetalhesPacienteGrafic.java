@@ -48,14 +48,14 @@ public class DetalhesPacienteGrafic {
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
-					.addComponent(this.formulario.getPanel(), GroupLayout.PREFERRED_SIZE, 680, Short.MAX_VALUE)
-					.addContainerGap())
+				.addComponent(this.formulario.getPanel(), GroupLayout.PREFERRED_SIZE, 680, Short.MAX_VALUE)
+				.addContainerGap())
 		);
 		groupLayout.setVerticalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
-					.addComponent(this.formulario.getPanel(), GroupLayout.DEFAULT_SIZE, 519, Short.MAX_VALUE)
-					.addContainerGap())
+				.addComponent(this.formulario.getPanel(), GroupLayout.DEFAULT_SIZE, 519, Short.MAX_VALUE)
+				.addContainerGap())
 		);
 		
 		JPanel painelTitulo = new JPanel();
