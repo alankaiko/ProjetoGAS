@@ -19,11 +19,11 @@ import br.com.gsv.formularios.IncluirUsuarioForm;
 import br.com.gsv.tabelas.TabelaDeUsuariosUtil;
 import br.com.projeto.gsv.controller.UsuarioController;
 
-public class GerenciaTelaUsuarioListener implements ActionListener{
+public class GerenciaUsuarioListener implements ActionListener{
 	private GerenciaTelaUsuario formulario;
 	private TabelaDeUsuariosUtil tabela;
 	
-	public GerenciaTelaUsuarioListener(GerenciaTelaUsuario formulario) {
+	public GerenciaUsuarioListener(GerenciaTelaUsuario formulario) {
 		this.formulario = formulario;
 		AdicionaListener();
 		TabelaDeUsuarios();

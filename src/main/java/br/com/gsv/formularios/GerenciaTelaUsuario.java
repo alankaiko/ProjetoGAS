@@ -10,10 +10,10 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.border.EmptyBorder;
 
-import br.com.gsv.listeners.GerenciaTelaUsuarioListener;
+import br.com.gsv.listeners.GerenciaUsuarioListener;
 
 public class GerenciaTelaUsuario extends JDialog{
-	private GerenciaTelaUsuarioListener listener;
+	private GerenciaUsuarioListener listener;
 	private JPanel panel = new JPanel();
 	private JTable table;
 	private JButton detalhes, codigo, buscar, modificar, incluir, excluir, fim;
@@ -26,7 +26,7 @@ public class GerenciaTelaUsuario extends JDialog{
 		CriaTelaGeral();
 		Dados();
 		InicializaComponentes();
-		this.listener = new GerenciaTelaUsuarioListener(this);
+		this.listener = new GerenciaUsuarioListener(this);
 	}
 	
 	

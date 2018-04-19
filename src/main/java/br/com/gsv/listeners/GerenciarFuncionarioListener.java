@@ -53,7 +53,6 @@ public class GerenciarFuncionarioListener implements ActionListener{
 		this.gerenciamento.getTable().getColumnModel().getColumn(2).setPreferredWidth(150);
 		this.gerenciamento.getTable().setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		
-		this.gerenciamento.getTable().setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		this.gerenciamento.getTable().changeSelection(0, 0, false, false);
 		//this.gerenciamento.getTable().setRowSelectionInterval(0, 0);
 		this.gerenciamento.getTable().setFocusable(false);
