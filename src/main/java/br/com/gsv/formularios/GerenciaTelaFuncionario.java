@@ -21,14 +21,16 @@ public class GerenciaTelaFuncionario extends JDialog {
 	private GerenciarFuncionarioListener listener;
 	private GerenciarFuncionarioClassic listenerClassic;
 	private GerenciarFuncionarioGrafic listenerGrafic;
+	private JPanel painelDrag;
+	private int xx,xy;
 	
 	
 	
 	public GerenciaTelaFuncionario() {
 		CriaTelaGeral();
 		InicializaComponentes();
-		//this.listenerClassic = new GerenciarFuncionarioClassic(this);
-		this.listenerGrafic = new GerenciarFuncionarioGrafic(this);
+		this.listenerClassic = new GerenciarFuncionarioClassic(this);
+		//this.listenerGrafic = new GerenciarFuncionarioGrafic(this);
 		this.listener = new GerenciarFuncionarioListener(this);
 	}
 	
@@ -43,6 +45,7 @@ public class GerenciaTelaFuncionario extends JDialog {
 		fim = new JButton();
 		scrollPane = new JScrollPane();
 		table = new JTable();
+		painelDrag = new JPanel();
 	}
 	
 	private void InicializaComponentes(){
@@ -166,5 +169,35 @@ public class GerenciaTelaFuncionario extends JDialog {
 	}
 
 
+	public JPanel getPainelDrag() {
+		return painelDrag;
+	}
+
+
+	public void setPainelDrag(JPanel painelDrag) {
+		this.painelDrag = painelDrag;
+	}
+
+
+	public int getXx() {
+		return xx;
+	}
+
+
+	public void setXx(int xx) {
+		this.xx = xx;
+	}
+
+
+	public int getXy() {
+		return xy;
+	}
+
+
+	public void setXy(int xy) {
+		this.xy = xy;
+	}
+
+	
 
 }

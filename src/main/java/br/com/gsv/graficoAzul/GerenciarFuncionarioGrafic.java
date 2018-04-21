@@ -2,6 +2,9 @@ package br.com.gsv.graficoAzul;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseMotionAdapter;
 
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
@@ -16,13 +19,14 @@ import br.com.gsv.formularios.GerenciaTelaFuncionario;
 
 public class GerenciarFuncionarioGrafic {
 	private GerenciaTelaFuncionario formulario;
-	private JPanel painelTitulo;
+	//private JPanel painelTitulo;
 	
 	public GerenciarFuncionarioGrafic(GerenciaTelaFuncionario formulario) {
 		this.formulario = formulario;
 		
 		CriarTelaGeral();
 		DadosFuncionario();
+		ArrastandoPainel();
 	}
 	
 	
@@ -49,13 +53,12 @@ public class GerenciarFuncionarioGrafic {
 		this.formulario.getTable().setSelectionBackground(new Color(92,155,255));
 		this.formulario.getTable().setSelectionForeground(Color.WHITE);
 		
-		painelTitulo = new JPanel();
-		painelTitulo.setBackground(new Color(20, 34, 56));
+		this.formulario.getPainelDrag().setBackground(new Color(20, 34, 56));
 		
 		JLabel LFechar = new JLabel("");
 		LFechar.setIcon(new ImageIcon(Gerenciar.class.getResource("/imagens/icons8-não-22.png")));
 		
-		GroupLayout gl_painelTitulo = new GroupLayout(painelTitulo);
+		GroupLayout gl_painelTitulo = new GroupLayout(this.formulario.getPainelDrag());
 		gl_painelTitulo.setHorizontalGroup(
 			gl_painelTitulo.createParallelGroup(Alignment.TRAILING)
 				.addGap(0, 698, Short.MAX_VALUE)
@@ -71,7 +74,7 @@ public class GerenciarFuncionarioGrafic {
 				.addComponent(LFechar)
 				.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
 		);
-		painelTitulo.setLayout(gl_painelTitulo);
+		this.formulario.getPainelDrag().setLayout(gl_painelTitulo);
 		
 		
 		
@@ -113,7 +116,7 @@ public class GerenciarFuncionarioGrafic {
 		GroupLayout gl_panel = new GroupLayout(this.formulario.getPanel());
 		gl_panel.setHorizontalGroup(
 			gl_panel.createParallelGroup(Alignment.LEADING)
-				.addComponent(painelTitulo, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+				.addComponent(this.formulario.getPainelDrag(), GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 				.addGroup(gl_panel.createSequentialGroup()
 				.addGap(10)
 				.addComponent(this.formulario.getScrollPane(), GroupLayout.PREFERRED_SIZE, 511, GroupLayout.PREFERRED_SIZE)
@@ -131,7 +134,7 @@ public class GerenciarFuncionarioGrafic {
 		gl_panel.setVerticalGroup(
 			gl_panel.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_panel.createSequentialGroup()
-				.addComponent(painelTitulo, GroupLayout.PREFERRED_SIZE, 24, GroupLayout.PREFERRED_SIZE)
+				.addComponent(this.formulario.getPainelDrag(), GroupLayout.PREFERRED_SIZE, 24, GroupLayout.PREFERRED_SIZE)
 				.addPreferredGap(ComponentPlacement.UNRELATED)
 				.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
 				.addComponent(this.formulario.getScrollPane(), GroupLayout.DEFAULT_SIZE, 432, Short.MAX_VALUE)
@@ -155,7 +158,34 @@ public class GerenciarFuncionarioGrafic {
 		
 	}
 
+	
+	private void ArrastandoPainel(){
+		
+		this.formulario.getPainelDrag().addMouseMotionListener(new MouseMotionAdapter() {
+            public void mouseDragged(MouseEvent evt) {
+                arrastaPainel(evt);
+            }
+        });
+		
+		this.formulario.getPainelDrag().addMouseListener(new MouseAdapter() {
+            public void mousePressed(MouseEvent evt) {
+                arrastaPressionado(evt);
+            }
+        });
+	}
+	
+	private void arrastaPressionado(MouseEvent evt) {
+		this.formulario.setXx(evt.getX());
+		this.formulario.setXy(evt.getY());
+        //this.formulario.xx = evt.getX();
+        //this.formulario.xy = evt.getY();
+    }
 
+    private void arrastaPainel(MouseEvent evt) {
+        int x = evt.getXOnScreen();
+        int y = evt.getYOnScreen();
+        this.formulario.setLocation(x-this.formulario.getXx(),y-this.formulario.getXy());
+    }
 	
 	
 }
