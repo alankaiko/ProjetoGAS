@@ -18,7 +18,7 @@ public class RelatorioFuncionarioClassic extends JDialog {
 	private RelatorioFuncionarioListener listener;
 	
 	public RelatorioFuncionarioClassic() {
-		setBounds(100, 100, 400, 131);
+		setBounds(100, 100, 382, 131);
 		getContentPane().setLayout(null);
 		
 		panel.setBackground(Color.WHITE);
@@ -34,11 +34,13 @@ public class RelatorioFuncionarioClassic extends JDialog {
 	private void CriaComponentes(){
 		grupo = new ButtonGroup();
 		radioFuncionario = new JRadioButton("Relação de Funcionários");
+		radioFuncionario.setBackground(Color.WHITE);
 		radioFuncionario.setBounds(6, 23, 180, 23);
 		grupo.add(radioFuncionario);
 		
 		radioRegCoren = new JRadioButton("Relação por Registro Coren");
-		radioRegCoren.setBounds(188, 23, 197, 23);
+		radioRegCoren.setBackground(Color.WHITE);
+		radioRegCoren.setBounds(168, 23, 197, 23);
 		grupo.add(radioRegCoren);
 		
 		BTGerar = new JButton("Gerar");

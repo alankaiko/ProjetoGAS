@@ -34,10 +34,12 @@ public class RelatorioProntuarioClassic extends JDialog {
 	private void CriaComponentes(){
 		grupo = new ButtonGroup();
 		radioFuncionario = new JRadioButton("Listar Prontuários");
+		radioFuncionario.setBackground(Color.WHITE);
 		radioFuncionario.setBounds(6, 23, 133, 23);
 		grupo.add(radioFuncionario);
 		
 		radioRegCoren = new JRadioButton("Listar por Data");
+		radioRegCoren.setBackground(Color.WHITE);
 		radioRegCoren.setBounds(142, 23, 133, 23);
 		grupo.add(radioRegCoren);
 		

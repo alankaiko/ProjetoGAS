@@ -143,11 +143,11 @@ public class GerenciaConvenioGrafic {
 					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
 			);
 		
+		this.formulario.getTable().setSelectionBackground(new Color(92,155,255));
 		this.formulario.getTable().setSelectionForeground(Color.WHITE);
-		this.formulario.getTable().setSelectionBackground(Color.BLUE);
 	
 		this.formulario.getTable().setGridColor(new java.awt.Color(255, 255, 255));
-		this.formulario.getTable().setRowHeight(22);
+		this.formulario.getTable().setRowHeight(20);
 		this.formulario.getScrollPane().setColumnHeaderView(this.formulario.getTable());
 		this.formulario.getPanel().setLayout(gl_panel);
 		

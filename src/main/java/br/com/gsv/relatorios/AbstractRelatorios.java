@@ -31,11 +31,11 @@ public abstract class AbstractRelatorios {
 	protected Font fonteTitulo = new Font(FontFamily.HELVETICA, 14, Font.BOLD, GrayColor.GRAYBLACK);
 	protected Font fonte = new Font(FontFamily.COURIER, 7, Font.NORMAL, GrayColor.GRAYBLACK);
 	protected Font fonteProntuario = new Font(FontFamily.TIMES_ROMAN, 6, Font.NORMAL, GrayColor.GRAYBLACK);
-	
+	public static final String destino = "C:/temp/";
 	
 	
 	protected void NomeArquivo(String nome){
-		this.nome= nome+Calendar.getInstance().getTimeInMillis()+".pdf";
+		this.nome= destino+nome+Calendar.getInstance().getTimeInMillis()+".pdf";
 	}
 	
 	
