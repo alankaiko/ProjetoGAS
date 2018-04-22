@@ -17,10 +17,8 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 import java.awt.Font;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 
-public class Gerenciar extends JDialog {
+public class gerenciamenor extends JDialog {
 	private JPanel panel = new JPanel();
 	private Container tela = getContentPane();
 	private JLabel LId, LConvenio;
@@ -34,7 +32,7 @@ public class Gerenciar extends JDialog {
 	
 	public static void main(String[] args) {
 		try {
-			Gerenciar dialog = new Gerenciar();
+			gerenciamenor dialog = new gerenciamenor();
 			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 			dialog.setVisible(true);
 		} catch (Exception e) {
@@ -43,13 +41,13 @@ public class Gerenciar extends JDialog {
 	}
 
 	
-	public Gerenciar() {
-		this.setBounds(100, 100, 542, 372);
+	public gerenciamenor() {
+		this.setBounds(100, 100, 700, 480);
 		tela.setLayout(null);
 		this.setUndecorated(true);
 		panel.setBorder(new LineBorder(new Color(71,120,197)));
 		panel.setBackground(Color.WHITE);
-		panel.setBounds(0, 0, 542, 372);
+		panel.setBounds(0, 0, 700, 480);
 		tela.add(panel);
 		
 		JScrollPane scrollPane = new JScrollPane();
@@ -60,17 +58,22 @@ public class Gerenciar extends JDialog {
 		painelTitulo.setBackground(new Color(20, 34, 56));
 		
 		JLabel LFechar = new JLabel("");
-		LFechar.setIcon(new ImageIcon(Gerenciar.class.getResource("/imagens/icons8-não-22.png")));
+		LFechar.setIcon(new ImageIcon(gerenciamenor.class.getResource("/imagens/icons8-não-22.png")));
 		GroupLayout gl_painelTitulo = new GroupLayout(painelTitulo);
 		gl_painelTitulo.setHorizontalGroup(
 			gl_painelTitulo.createParallelGroup(Alignment.TRAILING)
+				.addGap(0, 698, Short.MAX_VALUE)
 				.addGroup(gl_painelTitulo.createSequentialGroup()
-					.addContainerGap(518, Short.MAX_VALUE)
-					.addComponent(LFechar))
+					.addContainerGap(666, Short.MAX_VALUE)
+					.addComponent(LFechar)
+					.addContainerGap())
 		);
 		gl_painelTitulo.setVerticalGroup(
 			gl_painelTitulo.createParallelGroup(Alignment.LEADING)
-				.addComponent(LFechar, GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE)
+				.addGap(0, 24, Short.MAX_VALUE)
+				.addGroup(gl_painelTitulo.createSequentialGroup()
+					.addComponent(LFechar)
+					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
 		);
 		painelTitulo.setLayout(gl_painelTitulo);
 		
@@ -92,10 +95,6 @@ public class Gerenciar extends JDialog {
 		buscar.setBackground(new Color(71, 120, 197));
 		
 		JButton modificar = new JButton("Modificar");
-		modificar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
 		modificar.setForeground(Color.WHITE);
 		modificar.setFont(new Font("Segoe UI", Font.PLAIN, 14));
 		modificar.setBackground(new Color(71, 120, 197));
@@ -117,43 +116,43 @@ public class Gerenciar extends JDialog {
 		GroupLayout gl_panel = new GroupLayout(panel);
 		gl_panel.setHorizontalGroup(
 			gl_panel.createParallelGroup(Alignment.LEADING)
+				.addComponent(painelTitulo, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 				.addGroup(gl_panel.createSequentialGroup()
-					.addContainerGap()
-					.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 374, GroupLayout.PREFERRED_SIZE)
-					.addGap(18)
-					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING, false)
-						.addComponent(fim, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-						.addComponent(excluir, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-						.addComponent(incluir, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-						.addComponent(modificar, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-						.addComponent(buscar, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-						.addComponent(codigo, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-						.addComponent(detalhes, GroupLayout.DEFAULT_SIZE, 116, Short.MAX_VALUE))
-					.addContainerGap(22, Short.MAX_VALUE))
-				.addComponent(painelTitulo, GroupLayout.DEFAULT_SIZE, 540, Short.MAX_VALUE)
+					.addGap(10)
+					.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 511, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
+						.addComponent(detalhes, GroupLayout.PREFERRED_SIZE, 141, GroupLayout.PREFERRED_SIZE)
+						.addComponent(codigo, GroupLayout.PREFERRED_SIZE, 141, GroupLayout.PREFERRED_SIZE)
+						.addComponent(buscar, GroupLayout.PREFERRED_SIZE, 141, GroupLayout.PREFERRED_SIZE)
+						.addComponent(modificar, GroupLayout.PREFERRED_SIZE, 141, GroupLayout.PREFERRED_SIZE)
+						.addComponent(incluir, GroupLayout.PREFERRED_SIZE, 141, GroupLayout.PREFERRED_SIZE)
+						.addComponent(excluir, GroupLayout.PREFERRED_SIZE, 141, GroupLayout.PREFERRED_SIZE)
+						.addComponent(fim, GroupLayout.PREFERRED_SIZE, 141, GroupLayout.PREFERRED_SIZE))
+					.addContainerGap())
 		);
 		gl_panel.setVerticalGroup(
 			gl_panel.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_panel.createSequentialGroup()
 					.addComponent(painelTitulo, GroupLayout.PREFERRED_SIZE, 24, GroupLayout.PREFERRED_SIZE)
 					.addPreferredGap(ComponentPlacement.UNRELATED)
-					.addGroup(gl_panel.createParallelGroup(Alignment.TRAILING)
-						.addGroup(Alignment.LEADING, gl_panel.createSequentialGroup()
+					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
+						.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 432, Short.MAX_VALUE)
+						.addGroup(gl_panel.createSequentialGroup()
 							.addComponent(detalhes, GroupLayout.PREFERRED_SIZE, 29, GroupLayout.PREFERRED_SIZE)
-							.addPreferredGap(ComponentPlacement.RELATED)
+							.addGap(11)
 							.addComponent(codigo, GroupLayout.PREFERRED_SIZE, 29, GroupLayout.PREFERRED_SIZE)
-							.addPreferredGap(ComponentPlacement.RELATED)
+							.addGap(11)
 							.addComponent(buscar, GroupLayout.PREFERRED_SIZE, 29, GroupLayout.PREFERRED_SIZE)
-							.addPreferredGap(ComponentPlacement.RELATED)
+							.addGap(11)
 							.addComponent(modificar, GroupLayout.PREFERRED_SIZE, 29, GroupLayout.PREFERRED_SIZE)
-							.addPreferredGap(ComponentPlacement.RELATED)
+							.addGap(11)
 							.addComponent(incluir, GroupLayout.PREFERRED_SIZE, 29, GroupLayout.PREFERRED_SIZE)
-							.addPreferredGap(ComponentPlacement.RELATED)
+							.addGap(11)
 							.addComponent(excluir, GroupLayout.PREFERRED_SIZE, 29, GroupLayout.PREFERRED_SIZE)
-							.addPreferredGap(ComponentPlacement.RELATED)
-							.addComponent(fim, GroupLayout.PREFERRED_SIZE, 29, GroupLayout.PREFERRED_SIZE))
-						.addComponent(scrollPane, Alignment.LEADING, GroupLayout.PREFERRED_SIZE, 325, GroupLayout.PREFERRED_SIZE))
-					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+							.addGap(11)
+							.addComponent(fim, GroupLayout.PREFERRED_SIZE, 29, GroupLayout.PREFERRED_SIZE)))
+					.addContainerGap())
 		);
 		
 		table = new JTable();

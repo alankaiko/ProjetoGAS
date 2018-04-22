@@ -8,7 +8,6 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
-import br.com.gsv.graficoAzul.GerenciaConvenioGrafic;
 import br.com.gsv.graficoClassic.GerenciaConvenioClassic;
 import br.com.gsv.listeners.GerenciaConvenioListener;
 
@@ -20,15 +19,17 @@ public class GerenciaTelaConvenio extends JDialog {
 	private JScrollPane scrollPane;
 	private GerenciaConvenioListener listener;
 	private GerenciaConvenioClassic listenerClassic;
-	private GerenciaConvenioGrafic listenerGrafic;
+	//private GerenciaConvenioGrafic listenerGrafic;
+	private JPanel painelDrag;
+	private int xx,xy;
 	
 	
 	public GerenciaTelaConvenio() {
 		CriaTelaGeral();
 		InicializaComponentes();
-		this.listenerGrafic = new GerenciaConvenioGrafic(this);
+		//this.listenerGrafic = new GerenciaConvenioGrafic(this);
 		this.listener = new GerenciaConvenioListener(this);
-		//this.listenerClassic = new GerenciaConvenioClassic(this);
+		this.listenerClassic = new GerenciaConvenioClassic(this);
 		
 	}
 	
@@ -43,6 +44,7 @@ public class GerenciaTelaConvenio extends JDialog {
 		fim = new JButton();
 		table = new JTable();
 		scrollPane = new JScrollPane();
+		painelDrag = new JPanel();
 	}
 	
 
@@ -164,6 +166,36 @@ public class GerenciaTelaConvenio extends JDialog {
 
 	public void setScrollPane(JScrollPane scrollPane) {
 		this.scrollPane = scrollPane;
+	}
+
+
+	public JPanel getPainelDrag() {
+		return painelDrag;
+	}
+
+
+	public void setPainelDrag(JPanel painelDrag) {
+		this.painelDrag = painelDrag;
+	}
+
+
+	public int getXx() {
+		return xx;
+	}
+
+
+	public void setXx(int xx) {
+		this.xx = xx;
+	}
+
+
+	public int getXy() {
+		return xy;
+	}
+
+
+	public void setXy(int xy) {
+		this.xy = xy;
 	}
 	
 	
