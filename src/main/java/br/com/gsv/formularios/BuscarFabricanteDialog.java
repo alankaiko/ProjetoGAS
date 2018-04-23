@@ -20,6 +20,8 @@ import br.com.gsv.listeners.BuscarFabricanteListener;
 import br.com.gsv.listeners.RadioListenerFabricante;
 
 public class BuscarFabricanteDialog extends JDialog {
+	private static final long serialVersionUID = 1L;
+	
 	private final JPanel contentPanel = new JPanel();
 	private Container tela = getContentPane();
 	private JTextField textoBuscar;

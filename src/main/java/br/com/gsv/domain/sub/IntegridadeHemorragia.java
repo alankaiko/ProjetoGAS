@@ -1,7 +1,5 @@
 package br.com.gsv.domain.sub;
 
-import java.io.Serializable;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,8 +9,7 @@ import javax.persistence.Table;
 
 @Table
 @Entity
-public class IntegridadeHemorragia implements Serializable{
-	private static final long serialVersionUID = 1L;
+public class IntegridadeHemorragia{
 	
 	@Id
 	@GeneratedValue(strategy= GenerationType.IDENTITY)

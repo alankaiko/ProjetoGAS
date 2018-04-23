@@ -15,6 +15,8 @@ import br.com.gsv.listeners.IncluirPacienteListener;
 import br.com.gsv.util.ConverteDadosUtil;
 
 public class IncluirPacienteForm extends JDialog {
+	private static final long serialVersionUID = 1L;
+	
 	private IncluirPacienteListener listener;
 	private JPanel panel = new JPanel();
 	private Container tela = getContentPane();

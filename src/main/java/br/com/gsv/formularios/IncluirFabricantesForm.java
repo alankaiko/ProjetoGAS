@@ -12,6 +12,8 @@ import br.com.gsv.graficoClassic.IncluirFabricanteClassic;
 import br.com.gsv.listeners.IncluirFabricantesListener;
 
 public class IncluirFabricantesForm extends JDialog {
+	private static final long serialVersionUID = 1L;
+	
 	private IncluirFabricantesListener listener;
 	private IncluirFabricanteClassic listenerClassic;
 	//private IncluirFabricanteGrafic listenerGrafic;

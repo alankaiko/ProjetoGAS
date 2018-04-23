@@ -11,6 +11,8 @@ import br.com.gsv.graficoClassic.CodigoConvenioClassic;
 import br.com.gsv.listeners.CodigoConvenioListener;
 
 public class CodigoConvenioDialog extends JDialog {
+	private static final long serialVersionUID = 1L;
+	
 	private JPanel panel = new JPanel();
 	private Container tela= getContentPane();
 	private JButton ok, cancelar;

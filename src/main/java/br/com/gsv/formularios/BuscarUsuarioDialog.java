@@ -19,6 +19,8 @@ import javax.swing.border.EmptyBorder;
 import br.com.gsv.listeners.BuscarUsuarioListener;
 
 public class BuscarUsuarioDialog extends JDialog {
+	private static final long serialVersionUID = 1L;
+	
 	private JPanel panel = new JPanel();
 	private Container tela = getContentPane();
 	private JTextField textoBuscar;

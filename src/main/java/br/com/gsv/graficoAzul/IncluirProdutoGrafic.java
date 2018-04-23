@@ -11,16 +11,18 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.border.LineBorder;
 
 import br.com.gsv.formularios.IncluirProdutosForm;
+import br.com.gsv.util.FieldListener;
 import br.com.gsv.util.SomenteNumerosUtil;
 
 public class IncluirProdutoGrafic {
 	private IncluirProdutosForm formulario;
 	private SomenteNumerosUtil soNumero;
+	private FieldListener field;
 	
 	public IncluirProdutoGrafic(IncluirProdutosForm formulario) {
 		this.formulario = formulario;
 		soNumero = new SomenteNumerosUtil();
-		
+		field = new FieldListener();
 		CriarTelaGeral();
 		CriaComponentes();
 	}
@@ -59,6 +61,7 @@ public class IncluirProdutoGrafic {
 		this.formulario.getTCodigo().setFont(new Font("Segoe UI Light", Font.PLAIN, 12));
 		this.formulario.getTCodigo().setToolTipText("Aceita Letras e Números para composição do Código");
 		this.formulario.getTCodigo().setColumns(10);
+		this.formulario.getTCodigo().addFocusListener(field);
 		
 		this.formulario.getLDescricao().setText("Descrição");
 		this.formulario.getLDescricao().setFont(new Font("Segoe UI Symbol", Font.PLAIN, 13));
@@ -66,6 +69,7 @@ public class IncluirProdutoGrafic {
 		this.formulario.getTDescricao().setBorder(new LineBorder(new Color(71,120,197)));
 		this.formulario.getTDescricao().setFont(new Font("Segoe UI Light", Font.PLAIN, 12));
 		this.formulario.getTDescricao().setColumns(10);
+		this.formulario.getTDescricao().addFocusListener(field);
 		
 		this.formulario.getLQuantidade().setText("Quantidade");
 		this.formulario.getLQuantidade().setFont(new Font("Segoe UI Symbol", Font.PLAIN, 13));
@@ -74,6 +78,7 @@ public class IncluirProdutoGrafic {
 		this.formulario.getTQuantidade().setFont(new Font("Segoe UI Light", Font.PLAIN, 12));
 		this.formulario.getTQuantidade().setColumns(10);
 		this.formulario.getTQuantidade().addKeyListener(soNumero);
+		this.formulario.getTQuantidade().addFocusListener(field);
 		
 		this.formulario.getLFabricante().setText("Fabricante");
 		this.formulario.getLFabricante().setFont(new Font("Segoe UI Symbol", Font.PLAIN, 13));

@@ -20,7 +20,7 @@ import br.com.projeto.gsv.banco.CriaUsuarioAdmin;
 import br.tela.principal.listeners.TelaLoginListener;
 
 public class TelaLogin extends JFrame{
-
+	private static final long serialVersionUID = 1L;
 	private JPanel PainelPrincipal, PainelLogo;
 	private JTextField campoTexto;
 	private JLabel labelGas, usuario, senha, botaoFechar;

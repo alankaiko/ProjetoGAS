@@ -98,12 +98,14 @@ public class RelatorioProntuarioListener implements ActionListener{
 	
 	
 	
+	@SuppressWarnings("serial")
 	public void TeclaEsc(){
         JRootPane meurootpane = this.formulario.getRootPane();  
         meurootpane.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), "ESCAPE");  
         meurootpane.getRootPane().getActionMap().put("ESCAPE", new AbstractAction("ESCAPE") {  
   
-            public void actionPerformed(ActionEvent e) {  
+
+			public void actionPerformed(ActionEvent e) {  
             	formulario.dispose();  
             }  
         });  

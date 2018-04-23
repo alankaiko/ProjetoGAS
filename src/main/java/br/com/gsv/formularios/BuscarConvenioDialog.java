@@ -20,6 +20,8 @@ import br.com.gsv.listeners.BuscarConvenioListener;
 import br.com.gsv.listeners.RadioListenerConvenio;
 
 public class BuscarConvenioDialog extends JDialog {
+	private static final long serialVersionUID = 1L;
+	
 	private final JPanel contentPanel = new JPanel();
 	private Container tela = getContentPane();
 	private JTextField textoBuscar;

@@ -13,6 +13,8 @@ import br.com.gsv.graficoClassic.GerenciarPacienteClassic;
 import br.com.gsv.listeners.GerenciarPacienteListener;
 
 public class GerenciaTelaPaciente extends JDialog {
+	private static final long serialVersionUID = 1L;
+	
 	private JPanel panel = new JPanel();
 	private JTable table;
 	private JButton detalhes, codigo, buscar, modificar, incluir, excluir, fim;

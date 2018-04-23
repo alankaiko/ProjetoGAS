@@ -11,6 +11,8 @@ import br.com.gsv.graficoClassic.DetalheProdutoClassic;
 import br.com.gsv.listeners.DetalhesProdutoListener;
 
 public class DetalhesProdutoDialog extends JDialog {
+	private static final long serialVersionUID = 1L;
+	
 	private JPanel panel = new JPanel();
 	private Container tela = getContentPane();
 	private JButton BTCancelar;

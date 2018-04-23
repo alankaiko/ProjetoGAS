@@ -13,6 +13,8 @@ import br.com.gsv.graficoClassic.GerenciaUsuarioClassic;
 import br.com.gsv.listeners.GerenciaUsuarioListener;
 
 public class GerenciaTelaUsuario extends JDialog{
+	private static final long serialVersionUID = 1L;
+	
 	private GerenciaUsuarioListener listener;
 	private JPanel panel = new JPanel();
 	private JTable table;

@@ -4,13 +4,9 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
 
-import javax.swing.JButton;
-import javax.swing.JFormattedTextField;
-import javax.swing.JLabel;
 import javax.swing.border.EmptyBorder;
 
 import br.com.gsv.formularios.DetalhesPacienteDialog;
-import br.com.gsv.util.ConverteDadosUtil;
 
 public class DetalhesPacienteClassic {
 	private DetalhesPacienteDialog formulario;

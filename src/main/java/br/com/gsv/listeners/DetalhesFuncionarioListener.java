@@ -65,6 +65,7 @@ public class DetalhesFuncionarioListener implements ActionListener{
 	}
 	
 	
+	@SuppressWarnings("unused")
 	private void UsandoTAB(){
 		this.formulario.getRootPane().setDefaultButton(this.formulario.getCancelar());
 		this.formulario.getCancelar().addKeyListener(new KeyAdapter() {  
@@ -79,6 +80,7 @@ public class DetalhesFuncionarioListener implements ActionListener{
 	
 	
 	
+	@SuppressWarnings("serial")
 	public void TeclaEsc(){
         JRootPane meurootpane = this.formulario.getRootPane();  
         meurootpane.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), "ESCAPE");  

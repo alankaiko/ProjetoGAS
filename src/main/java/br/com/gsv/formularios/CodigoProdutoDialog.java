@@ -12,6 +12,7 @@ import br.com.gsv.listeners.CodigoProdutoListener;
 
 public class CodigoProdutoDialog extends JDialog {
 	private static final long serialVersionUID = 1L;
+	
 	private CodigoProdutoListener listener;
 	private JPanel panel = new JPanel();
 	private JButton ok, cancelar;

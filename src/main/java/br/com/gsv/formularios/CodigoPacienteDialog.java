@@ -11,6 +11,8 @@ import br.com.gsv.graficoClassic.CodigoPacienteClassic;
 import br.com.gsv.listeners.CodigoPacienteListener;
 
 public class CodigoPacienteDialog extends JDialog {
+	private static final long serialVersionUID = 1L;
+	
 	private JPanel panel = new JPanel();
 	private JButton ok, cancelar;
 	private Container tela = getContentPane();

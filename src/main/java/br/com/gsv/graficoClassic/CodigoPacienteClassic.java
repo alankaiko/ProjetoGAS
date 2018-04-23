@@ -3,8 +3,6 @@ package br.com.gsv.graficoClassic;
 import java.awt.BorderLayout;
 import java.awt.Font;
 
-import javax.swing.JButton;
-import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
 import br.com.gsv.formularios.CodigoPacienteDialog;

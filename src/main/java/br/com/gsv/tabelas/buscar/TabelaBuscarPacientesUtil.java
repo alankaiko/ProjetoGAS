@@ -10,6 +10,8 @@ import br.com.gsv.domain.Paciente;
 
 
 public class TabelaBuscarPacientesUtil extends AbstractTableModel{
+	private static final long serialVersionUID = 1L;
+	
 	private String[] colunas = new String[] { "CÓDIGO", "NOME", "CPF","RG" };
 	private List<Paciente> linhas;
 	private static final int CODIGO = 0;

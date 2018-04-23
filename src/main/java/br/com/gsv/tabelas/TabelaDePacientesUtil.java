@@ -8,7 +8,8 @@ import javax.swing.table.AbstractTableModel;
 import br.com.gsv.domain.Paciente;
 
 public class TabelaDePacientesUtil extends AbstractTableModel{
-
+	private static final long serialVersionUID = 1L;
+	
 	private String[] colunas = new String[] { "CODIGO", "NOME", "CPF" };
 	private List<Paciente> linhas;
 	private static final int CODIGO = 0;

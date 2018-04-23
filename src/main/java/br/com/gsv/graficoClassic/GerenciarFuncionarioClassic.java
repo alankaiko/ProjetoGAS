@@ -1,16 +1,10 @@
 package br.com.gsv.graficoClassic;
 
 import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Font;
 
-import javax.swing.JButton;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
 import javax.swing.border.EmptyBorder;
 
 import br.com.gsv.formularios.GerenciaTelaFuncionario;
-import br.com.gsv.formularios.IncluirConvenioForm;
 
 public class GerenciarFuncionarioClassic {
 	private GerenciaTelaFuncionario formulario;

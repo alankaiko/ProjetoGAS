@@ -15,6 +15,8 @@ import br.com.gsv.domain.Usuario;
 import br.com.gsv.listeners.ExcluirUsuarioListener;
 
 public class ExcluirUsuarioDialog extends JDialog{
+	private static final long serialVersionUID = 1L;
+	
 	private JPanel panel = new JPanel();
 	private Container tela = getContentPane();
 	private JButton ok, cancelar;

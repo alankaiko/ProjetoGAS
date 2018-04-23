@@ -6,8 +6,6 @@ import java.awt.Font;
 import java.util.Vector;
 
 import javax.swing.DefaultComboBoxModel;
-import javax.swing.JComboBox;
-import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
 import br.com.gsv.formularios.IncluirFuncionariosForm;

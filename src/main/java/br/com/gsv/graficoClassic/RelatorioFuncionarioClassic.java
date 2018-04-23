@@ -11,6 +11,8 @@ import javax.swing.JRadioButton;
 import br.com.gsv.listeners.RelatorioFuncionarioListener;
 
 public class RelatorioFuncionarioClassic extends JDialog {
+	private static final long serialVersionUID = 1L;
+	
 	private JPanel panel = new JPanel();
 	private JRadioButton radioFuncionario, radioRegCoren;
 	private JButton BTGerar, BTCancelar;

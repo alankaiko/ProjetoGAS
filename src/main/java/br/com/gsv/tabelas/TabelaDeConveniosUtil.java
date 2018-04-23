@@ -8,6 +8,8 @@ import javax.swing.table.AbstractTableModel;
 import br.com.gsv.domain.Convenio;
 
 public class TabelaDeConveniosUtil extends AbstractTableModel{
+	private static final long serialVersionUID = 1L;
+	
 	private String[] colunas = new String[] { "CODIGO", "CONVENIO"};
 	private List<Convenio> linhas;
 	private static final int CODIGO = 0;

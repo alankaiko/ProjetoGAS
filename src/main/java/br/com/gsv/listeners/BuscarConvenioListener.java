@@ -13,9 +13,7 @@ import javax.swing.ListSelectionModel;
 
 import br.com.gsv.formularios.BuscarConvenioDialog;
 import br.com.gsv.tabelas.buscar.TabelaBuscarConvenioUtil;
-import br.com.gsv.tabelas.buscar.TabelaBuscarProdutoUtil;
 import br.com.projeto.gsv.controller.ConvenioController;
-import br.com.projeto.gsv.controller.ProdutoController;
 
 public class BuscarConvenioListener  implements ActionListener{
 	private BuscarConvenioDialog formulario;
@@ -101,6 +99,7 @@ public class BuscarConvenioListener  implements ActionListener{
 		}); 	
 	}
 	
+	@SuppressWarnings("serial")
 	public void TeclaEsc(){
         JRootPane meurootpane = this.formulario.getRootPane();  
         meurootpane.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), "ESCAPE");  

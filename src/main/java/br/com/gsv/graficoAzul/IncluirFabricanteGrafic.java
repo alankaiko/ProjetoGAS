@@ -15,11 +15,12 @@ import br.com.gsv.util.FieldListener;
 
 public class IncluirFabricanteGrafic {
 	private IncluirFabricantesForm formulario;
-	private FieldListener field = new FieldListener();
+	private FieldListener field;
 	
 	
 	public IncluirFabricanteGrafic(IncluirFabricantesForm formulario) {
 		this.formulario = formulario;
+		field = new FieldListener();
 		CriarTelaGeralGrafic();
 		CriarTelaGeral();
 	}

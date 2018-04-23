@@ -4,13 +4,12 @@ import java.awt.Color;
 import java.awt.Font;
 
 import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.border.LineBorder;
 
-import br.com.gsv.formularios.CodigoConvenioDialog;
 import br.com.gsv.formularios.CodigoFuncionarioDialog;
 import br.com.gsv.util.FieldListener;
 

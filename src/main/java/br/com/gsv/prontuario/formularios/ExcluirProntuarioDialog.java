@@ -13,6 +13,8 @@ import br.com.gsv.prontuario.grafic.ExcluirProntuarioClassic;
 import br.com.gsv.prontuario.listeners.ExcluirProntuarioListener;
 
 public class ExcluirProntuarioDialog extends JDialog {
+	private static final long serialVersionUID = 1L;
+	
 	private JPanel panel = new JPanel();
 	private Container tela = getContentPane();
 	private JButton ok, cancelar;

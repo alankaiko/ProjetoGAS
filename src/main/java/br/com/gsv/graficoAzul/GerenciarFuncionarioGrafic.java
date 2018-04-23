@@ -10,7 +10,6 @@ import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
-import javax.swing.JPanel;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.border.LineBorder;
 
@@ -19,7 +18,6 @@ import br.com.gsv.formularios.GerenciaTelaFuncionario;
 
 public class GerenciarFuncionarioGrafic {
 	private GerenciaTelaFuncionario formulario;
-	//private JPanel painelTitulo;
 	
 	public GerenciarFuncionarioGrafic(GerenciaTelaFuncionario formulario) {
 		this.formulario = formulario;

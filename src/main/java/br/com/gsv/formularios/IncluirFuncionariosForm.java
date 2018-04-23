@@ -15,6 +15,8 @@ import br.com.gsv.listeners.IncluirFuncionarioListener;
 import br.com.gsv.util.ConverteDadosUtil;
 
 public class IncluirFuncionariosForm extends JDialog {
+	private static final long serialVersionUID = 1L;
+	
 	private IncluirFuncionarioListener listener;
 	private JPanel panel = new JPanel();
 	private Container tela = getContentPane();

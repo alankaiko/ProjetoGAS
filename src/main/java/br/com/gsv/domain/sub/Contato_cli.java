@@ -1,11 +1,7 @@
 package br.com.gsv.domain.sub;
 
-import java.io.Serializable;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -19,8 +15,7 @@ import br.com.gsv.domain.Paciente;
 
 @Entity
 @Table(name = "contato_cli")
-public class Contato_cli implements Serializable {
-	private static final long serialVersionUID = 1L;
+public class Contato_cli{
 
 	private Long id;
 	private String email;

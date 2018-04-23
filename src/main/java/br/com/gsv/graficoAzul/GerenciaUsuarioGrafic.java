@@ -18,6 +18,7 @@ import br.com.gsv.formularios.GerenciaTelaUsuario;
 
 public class GerenciaUsuarioGrafic {
 	private GerenciaTelaUsuario formulario;
+
 	
 	public GerenciaUsuarioGrafic(GerenciaTelaUsuario formulario) {
 		this.formulario = formulario;

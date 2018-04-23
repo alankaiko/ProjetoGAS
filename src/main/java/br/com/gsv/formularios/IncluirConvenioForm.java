@@ -8,11 +8,12 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import br.com.gsv.graficoAzul.IncluirConvenioGrafic;
 import br.com.gsv.graficoClassic.IncluirConvenioClassic;
 import br.com.gsv.listeners.IncluirConvenioListener;
 
 public class IncluirConvenioForm extends JDialog{
+	private static final long serialVersionUID = 1L;
+	
 	private JPanel panel = new JPanel();
 	private Container tela = getContentPane();
 	private JLabel LId, LConvenio;

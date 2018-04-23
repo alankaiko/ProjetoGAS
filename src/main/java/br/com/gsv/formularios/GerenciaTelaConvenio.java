@@ -13,6 +13,8 @@ import br.com.gsv.graficoClassic.GerenciaConvenioClassic;
 import br.com.gsv.listeners.GerenciaConvenioListener;
 
 public class GerenciaTelaConvenio extends JDialog {
+	private static final long serialVersionUID = 1L;
+	
 	private JPanel panel = new JPanel();
 	private JTable table;
 	private JButton detalhes, codigo, buscar, modificar, incluir, excluir, fim;

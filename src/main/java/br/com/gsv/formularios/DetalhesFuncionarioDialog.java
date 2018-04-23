@@ -13,6 +13,8 @@ import br.com.gsv.listeners.DetalhesFuncionarioListener;
 import br.com.gsv.util.ConverteDadosUtil;
 
 public class DetalhesFuncionarioDialog extends JDialog {
+	private static final long serialVersionUID = 1L;
+	
 	private DetalhesFuncionarioListener listener;	
 	private JPanel panel = new JPanel();
 	private Container tela = getContentPane();

@@ -1,7 +1,5 @@
 package br.com.gsv.domain.sub;
 
-import java.io.Serializable;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -15,9 +13,8 @@ import br.com.gsv.domain.Funcionario;
 
 @Entity
 @Table(name = "endereco_fun")
-public class Endereco_fun implements Serializable {
-	private static final long serialVersionUID = 1L;
-
+public class Endereco_fun{
+	
 	private Long id;
 	private String logradouro;
 	private String complemento;

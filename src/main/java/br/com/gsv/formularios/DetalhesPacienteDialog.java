@@ -13,6 +13,8 @@ import br.com.gsv.listeners.DetalhesPacienteListener;
 import br.com.gsv.util.ConverteDadosUtil;
 
 public class DetalhesPacienteDialog extends JDialog {
+	private static final long serialVersionUID = 1L;
+	
 	private DetalhesPacienteListener listener;
 	private JPanel panel = new JPanel();
 	private Container tela = getContentPane();

@@ -1,9 +1,12 @@
 package br.com.gsv.formularios;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Container;
 import java.awt.Font;
+import java.awt.SystemColor;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JFormattedTextField;
@@ -12,16 +15,14 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
-import javax.swing.ImageIcon;
 import javax.swing.border.LineBorder;
 
 import br.com.gsv.listeners.IncluirUsuarioListener;
 import br.com.gsv.util.ConverteDadosUtil;
 
-import java.awt.Color;
-import java.awt.SystemColor;
-
-public class IncluirUsuarioForm extends JDialog {
+public class IncluirUsuarioForm extends JDialog{
+	private static final long serialVersionUID = 1L;
+	
 	private JPanel panel = new JPanel();
 	private Container tela = getContentPane();
 	private Long codigo;

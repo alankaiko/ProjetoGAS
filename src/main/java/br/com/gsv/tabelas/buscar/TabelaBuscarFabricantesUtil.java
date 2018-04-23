@@ -6,9 +6,10 @@ import java.util.List;
 import javax.swing.table.AbstractTableModel;
 
 import br.com.gsv.domain.Fabricante;
-import br.com.gsv.domain.Funcionario;
 
 public class TabelaBuscarFabricantesUtil extends AbstractTableModel{
+	private static final long serialVersionUID = 1L;
+	
 	private String[] colunas = new String[] { "CÓDIGO", "DESCRICAO"};
 	private List<Fabricante> linhas;
 	private static final int CODIGO = 0;

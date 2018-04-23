@@ -2,11 +2,8 @@ package br.com.gsv.listeners;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 
 import javax.swing.AbstractAction;
 import javax.swing.JComponent;
@@ -16,7 +13,6 @@ import javax.swing.ListSelectionModel;
 
 import br.com.gsv.formularios.BuscarFabricanteDialog;
 import br.com.gsv.tabelas.buscar.TabelaBuscarFabricantesUtil;
-import br.com.gsv.util.ConverteDadosUtil;
 import br.com.projeto.gsv.controller.FabricanteController;
 
 public class BuscarFabricanteListener implements ActionListener{
@@ -112,6 +108,7 @@ public class BuscarFabricanteListener implements ActionListener{
 	
 
 	
+	@SuppressWarnings("serial")
 	public void TeclaEsc(){
         JRootPane meurootpane = this.formulario.getRootPane();  
         meurootpane.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), "ESCAPE");  
