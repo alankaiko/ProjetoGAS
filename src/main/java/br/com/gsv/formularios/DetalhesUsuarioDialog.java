@@ -1,6 +1,7 @@
 package br.com.gsv.formularios;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Container;
 import java.awt.Font;
 
@@ -10,12 +11,11 @@ import javax.swing.JFormattedTextField;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.border.LineBorder;
 
 import br.com.gsv.listeners.DetalhesUsuarioListener;
 
 public class DetalhesUsuarioDialog extends JDialog {
-	private static final long serialVersionUID = 1L;
-	
 	private DetalhesUsuarioListener listener;
 	private JPanel panel = new JPanel();
 	private Container tela = getContentPane();

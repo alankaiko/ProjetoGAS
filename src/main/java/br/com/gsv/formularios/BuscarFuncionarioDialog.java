@@ -21,8 +21,6 @@ import br.com.gsv.listeners.BuscarFuncionarioListener;
 import br.com.gsv.listeners.RadioListenerFuncionario;
 
 public class BuscarFuncionarioDialog extends JDialog {
-	private static final long serialVersionUID = 1L;
-	
 	private final JPanel contentPanel = new JPanel();
 	private Container tela = getContentPane();
 	private JTextField textoBuscar;

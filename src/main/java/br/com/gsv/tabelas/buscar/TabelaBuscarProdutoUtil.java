@@ -5,11 +5,10 @@ import java.util.List;
 
 import javax.swing.table.AbstractTableModel;
 
+import br.com.gsv.domain.Funcionario;
 import br.com.gsv.domain.Produto;
 
 public class TabelaBuscarProdutoUtil extends AbstractTableModel {
-	private static final long serialVersionUID = 1L;
-	
 	private String[] colunas = new String[] { "CODIGO", "DESCRICAO", "FABRICANTE" };
 	private List<Produto> linhas;
 	private static final int CODIGO = 0;

@@ -14,8 +14,6 @@ import br.com.gsv.prontuario.listeners.GerenciarProntuarioListener;
 import com.toedter.calendar.JDateChooser;
 
 public class GerenciaProntuarios extends JDialog {
-	private static final long serialVersionUID = 1L;
-	
 	private JLabel LGerenciar;
 	private JPanel panel = new JPanel();
 	private JDateChooser dataFiltrar;

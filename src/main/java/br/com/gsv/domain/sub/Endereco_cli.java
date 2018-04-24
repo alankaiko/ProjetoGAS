@@ -1,7 +1,11 @@
 package br.com.gsv.domain.sub;
 
+import java.io.Serializable;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -13,8 +17,9 @@ import br.com.gsv.domain.Paciente;
 
 @Entity
 @Table(name = "endereco_cli")
-public class Endereco_cli{
-	
+public class Endereco_cli implements Serializable {
+	private static final long serialVersionUID = 1L;
+
 	private Long id;
 	private String logradouro;
 	private String complemento;

@@ -10,8 +10,6 @@ import br.com.gsv.domain.Funcionario;
 
 
 public class TabelaBuscarFuncionariosUtil extends AbstractTableModel{
-	private static final long serialVersionUID = 1L;
-	
 	private String[] colunas = new String[] { "CÓDIGO", "NOME", "CPF","RG" };
 	private List<Funcionario> linhas;
 	private static final int CODIGO = 0;

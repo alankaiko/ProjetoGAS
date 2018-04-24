@@ -3,6 +3,7 @@ package br.com.projeto.gsv.controller;
 import java.util.List;
 
 import br.com.gsv.domain.Fabricante;
+import br.com.gsv.domain.Funcionario;
 import br.com.gsv.domain.Produto;
 import br.com.projeto.gsv.service.CadastroProdutoService;
 

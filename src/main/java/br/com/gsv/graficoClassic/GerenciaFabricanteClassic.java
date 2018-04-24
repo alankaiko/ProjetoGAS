@@ -2,8 +2,12 @@ package br.com.gsv.graficoClassic;
 
 import java.awt.BorderLayout;
 
+import javax.swing.JButton;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 import javax.swing.border.EmptyBorder;
 
+import br.com.gsv.formularios.GerenciaTelaConvenio;
 import br.com.gsv.formularios.GerenciaTelaFabricante;
 
 public class GerenciaFabricanteClassic {

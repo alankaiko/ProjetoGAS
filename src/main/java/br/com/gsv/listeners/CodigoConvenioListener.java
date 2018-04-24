@@ -11,6 +11,7 @@ import javax.swing.JRootPane;
 import javax.swing.KeyStroke;
 
 import br.com.gsv.formularios.CodigoConvenioDialog;
+import br.com.gsv.formularios.CodigoFabricanteDialog;
 
 public class CodigoConvenioListener implements ActionListener{
 	private CodigoConvenioDialog formulario;
@@ -68,7 +69,6 @@ public class CodigoConvenioListener implements ActionListener{
 	}
 	
 	
-	@SuppressWarnings("serial")
 	public void TeclaEsc(){
         JRootPane meurootpane = this.formulario.getRootPane();  
         meurootpane.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), "ESCAPE");  

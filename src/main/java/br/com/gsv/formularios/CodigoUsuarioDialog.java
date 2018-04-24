@@ -15,8 +15,6 @@ import javax.swing.border.LineBorder;
 import br.com.gsv.listeners.CodigoUsuarioListener;
 
 public class CodigoUsuarioDialog extends JDialog {
-	private static final long serialVersionUID = 1L;
-	
 	private JPanel panel = new JPanel();
 	private JButton ok, cancelar;
 	private Container tela = getContentPane();

@@ -13,8 +13,6 @@ import br.com.gsv.graficoClassic.ExcluirFabricanteClassic;
 import br.com.gsv.listeners.ExcluirFabricanteListener;
 
 public class ExcluirFabricanteDialog extends JDialog {
-	private static final long serialVersionUID = 1L;
-	
 	private JPanel panel = new JPanel();
 	private Container tela = getContentPane();
 	private JButton ok, cancelar;

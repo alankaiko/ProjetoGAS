@@ -11,8 +11,6 @@ import br.com.gsv.graficoClassic.CodigoFuncionarioClassic;
 import br.com.gsv.listeners.CodigoFuncionarioListener;
 
 public class CodigoFuncionarioDialog extends JDialog {
-	private static final long serialVersionUID = 1L;
-	
 	private JPanel panel = new JPanel();
 	private JButton ok, cancelar;
 	private Container tela = getContentPane();

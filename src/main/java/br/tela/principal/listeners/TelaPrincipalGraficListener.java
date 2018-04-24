@@ -14,6 +14,8 @@ import br.com.gsv.formularios.GerenciaTelaFuncionario;
 import br.com.gsv.formularios.GerenciaTelaPaciente;
 import br.com.gsv.formularios.GerenciaTelaProdutos;
 import br.com.gsv.formularios.IncluirFuncionariosForm;
+import br.com.gsv.formularios.IncluirPacienteForm;
+import br.com.gsv.formularios.IncluirProdutosForm;
 import br.com.gsv.prontuario.formularios.GerenciaProntuarios;
 import br.com.gsv.prontuario.formularios.ProntuarioForm;
 import br.tela.principal.form.TelaPrincipalGrafic;

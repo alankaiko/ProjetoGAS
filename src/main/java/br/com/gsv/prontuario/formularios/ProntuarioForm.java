@@ -25,8 +25,7 @@ import br.com.gsv.prontuario.listeners.ProntuarioListener;
 import br.com.gsv.util.ConverteDadosUtil;
 
 public class ProntuarioForm extends JDialog {
-	private static final long serialVersionUID = 1L;
-	
+
 	private JPanel panel = new JPanel();
 	private JButton BTGravar, BTCancelar, BTPesquisar, BTPesquiFuncionario;
 	private JPanel painelIntegridade,painelCondicao, painelDadosCliente, painelAnotacao, painelSintomas;

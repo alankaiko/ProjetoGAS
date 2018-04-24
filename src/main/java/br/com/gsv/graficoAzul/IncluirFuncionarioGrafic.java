@@ -4,9 +4,9 @@ import java.awt.Color;
 import java.awt.Font;
 import java.util.Vector;
 
-import javax.swing.DefaultComboBoxModel;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSeparator;
@@ -25,7 +25,7 @@ public class IncluirFuncionarioGrafic {
 	
 	public IncluirFuncionarioGrafic(IncluirFuncionariosForm formulario) {
 		this.formulario = formulario;
-		field = new FieldListener();
+		this.field = new FieldListener();
 		soNumeros = new SomenteNumerosUtil();
 		
 		CriarTelaGeral();
@@ -72,29 +72,26 @@ public class IncluirFuncionarioGrafic {
 		this.formulario.getTId().setBorder(new LineBorder(new Color(71,120,197)));
 		this.formulario.getTId().setEditable(false);
 		this.formulario.getTId().setColumns(10);
-		this.formulario.getTId().addFocusListener(field);
 		
 		this.formulario.getLNome().setText("Nome");
 		this.formulario.getLNome().setFont(new Font("Segoe UI", Font.PLAIN, 11));
 		
 		this.formulario.getTNome().setBorder(new LineBorder(new Color(71,120,197)));
 		this.formulario.getTNome().setColumns(10);
-		this.formulario.getTNome().addFocusListener(field);
 		
 		this.formulario.getLRg().setText("RG");
 		this.formulario.getLRg().setFont(new Font("Segoe UI", Font.PLAIN, 11));
-
-		this.formulario.getTRg().setBorder(new LineBorder(new Color(71,120,197)));
-		this.formulario.getTRg().setColumns(10);
-		this.formulario.getTRg().addKeyListener(soNumeros);
-		this.formulario.getTRg().addFocusListener(field);
 		
 		this.formulario.getLCpf().setText("CPF");
 		this.formulario.getLCpf().setFont(new Font("Segoe UI", Font.PLAIN, 11));
 		
+		
+		this.formulario.getTRg().setBorder(new LineBorder(new Color(71,120,197)));
+		this.formulario.getTRg().setColumns(10);
+		this.formulario.getTRg().addKeyListener(soNumeros);
+		
 		this.formulario.getJCpf().setBorder(new LineBorder(new Color(71,120,197)));
 		this.formulario.getJCpf().setColumns(10);
-		this.formulario.getJCpf().addFocusListener(field);
 		
 		JSeparator separaDad = new JSeparator();
 		separaDad.setForeground(new Color(71,120,197));
@@ -108,7 +105,6 @@ public class IncluirFuncionarioGrafic {
 		
 		this.formulario.getTLogradouro().setBorder(new LineBorder(new Color(71,120,197)));
 		this.formulario.getTLogradouro().setColumns(10);
-		this.formulario.getTLogradouro().addFocusListener(field);
 		
 		this.formulario.getLNumero().setText("Número");
 		this.formulario.getLNumero().setFont(new Font("Segoe UI", Font.PLAIN, 11));
@@ -116,28 +112,24 @@ public class IncluirFuncionarioGrafic {
 		this.formulario.getTNumero().setBorder(new LineBorder(new Color(71,120,197)));
 		this.formulario.getTNumero().setColumns(10);
 		this.formulario.getTNumero().addKeyListener(soNumeros);
-		this.formulario.getTNumero().addFocusListener(field);
 		
 		this.formulario.getLComplemento().setText("Complemento");
 		this.formulario.getLComplemento().setFont(new Font("Segoe UI", Font.PLAIN, 11));
 		
 		this.formulario.getTComplemento().setBorder(new LineBorder(new Color(71,120,197)));
 		this.formulario.getTComplemento().setColumns(10);
-		this.formulario.getTComplemento().addFocusListener(field);
 		
 		this.formulario.getLBairro().setText("Bairro");
 		this.formulario.getLBairro().setFont(new Font("Segoe UI", Font.PLAIN, 11));
 		
 		this.formulario.getTBairro().setBorder(new LineBorder(new Color(71,120,197)));
 		this.formulario.getTBairro().setColumns(10);
-		this.formulario.getTBairro().addFocusListener(field);
 		
 		this.formulario.getLCidade().setText("Cidade");
 		this.formulario.getLCidade().setFont(new Font("Segoe UI", Font.PLAIN, 11));
 		
 		this.formulario.getTCidade().setBorder(new LineBorder(new Color(71,120,197)));
 		this.formulario.getTCidade().setColumns(10);
-		this.formulario.getTCidade().addFocusListener(field);
 		
 		this.formulario.getLEstado().setText("Estado");
 		this.formulario.getLEstado().setFont(new Font("Segoe UI", Font.PLAIN, 11));
@@ -150,7 +142,6 @@ public class IncluirFuncionarioGrafic {
 		
 		this.formulario.getJCep().setBorder(new LineBorder(new Color(71,120,197)));
 		this.formulario.getJCep().setColumns(10);
-		this.formulario.getJCep().addFocusListener(field);
 		
 		JSeparator separator_1 = new JSeparator();
 		separator_1.setForeground(new Color(71, 120, 197));
@@ -164,21 +155,18 @@ public class IncluirFuncionarioGrafic {
 		
 		this.formulario.getTEmail().setBorder(new LineBorder(new Color(71,120,197)));
 		this.formulario.getTEmail().setColumns(10);
-		this.formulario.getTEmail().addFocusListener(field);
 		
 		this.formulario.getLTelefone().setText("Telefone");
 		this.formulario.getLTelefone().setFont(new Font("Segoe UI", Font.PLAIN, 11));
 		
 		this.formulario.getTTelefone().setBorder(new LineBorder(new Color(71,120,197)));
 		this.formulario.getTTelefone().setColumns(10);
-		this.formulario.getTTelefone().addFocusListener(field);
 		
 		this.formulario.getLCelular().setText("Celular");
 		this.formulario.getLCelular().setFont(new Font("Segoe UI", Font.PLAIN, 11));
 		
 		this.formulario.getTCelular().setBorder(new LineBorder(new Color(71,120,197)));
 		this.formulario.getTCelular().setColumns(10);
-		this.formulario.getTCelular().addFocusListener(field);
 		
 		this.formulario.getBTGravar().setText("Gravar");
 		this.formulario.getBTGravar().setBounds(215, 381, 84, 23);

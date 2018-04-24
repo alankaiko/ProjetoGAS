@@ -13,8 +13,6 @@ import br.com.gsv.graficoClassic.GerenciaProdutoClassic;
 import br.com.gsv.listeners.GerenciarProdutosListener;
 
 public class GerenciaTelaProdutos extends JDialog {
-	private static final long serialVersionUID = 1L;
-	
 	private JPanel panel = new JPanel();
 	private JTable table;
 	private JButton detalhes, codigo, buscar, modificar, incluir, excluir, fim;

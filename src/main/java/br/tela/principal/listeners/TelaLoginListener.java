@@ -48,7 +48,6 @@ public class TelaLoginListener implements ActionListener, MouseListener{
 	}
 	
 	
-	@SuppressWarnings("deprecation")
 	private void Autenticando(){
 		UsuarioController control = new UsuarioController();
 		

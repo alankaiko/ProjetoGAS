@@ -4,6 +4,8 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
 
+import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.border.EmptyBorder;
 
 import br.com.gsv.formularios.DetalhesFabricanteDialog;
@@ -18,7 +20,7 @@ public class DetalheFabricanteClassic {
 	}
 	
 	
-	
+	//cria e tela geral onde todos os componentes serao inseridos, é a tela geral do sistema
 	private void CriarTelaGeral(){
 		this.formulario.setTitle("Dados de Fabricante ");
 		this.formulario.setModal(true);

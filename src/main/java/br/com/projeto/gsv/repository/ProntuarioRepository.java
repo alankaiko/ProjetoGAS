@@ -8,6 +8,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import br.com.gsv.domain.Prontuario;
+import br.com.gsv.domain.Usuario;
 import br.com.gsv.util.HibernateUtil;
 
 public class ProntuarioRepository {

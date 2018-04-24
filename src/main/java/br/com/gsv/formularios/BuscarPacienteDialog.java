@@ -20,8 +20,6 @@ import br.com.gsv.listeners.BuscarPacienteListener;
 import br.com.gsv.listeners.RadioListenerPaciente;
 
 public class BuscarPacienteDialog extends JDialog {
-	private static final long serialVersionUID = 1L;
-	
 	private final JPanel contentPanel = new JPanel();
 	private Container tela = getContentPane();
 	private JTextField textoBuscar;

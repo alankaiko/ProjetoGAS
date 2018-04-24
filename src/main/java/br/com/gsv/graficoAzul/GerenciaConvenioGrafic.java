@@ -14,6 +14,7 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.border.LineBorder;
 
 import aaaaatelas.Gerenciar;
+import aaaaatelas.gerenciamenor;
 import br.com.gsv.formularios.GerenciaTelaConvenio;
 
 public class GerenciaConvenioGrafic {

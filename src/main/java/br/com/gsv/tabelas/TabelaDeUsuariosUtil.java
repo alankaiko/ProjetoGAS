@@ -8,8 +8,6 @@ import javax.swing.table.AbstractTableModel;
 import br.com.gsv.domain.Usuario;
 
 public class TabelaDeUsuariosUtil extends AbstractTableModel{
-	private static final long serialVersionUID = 1L;
-	
 	private String[] colunas = new String[] { "LOGIN", "NOME USUÁRIO"};
 	private List<Usuario> linhas;
     private static final int LOGIN = 0;

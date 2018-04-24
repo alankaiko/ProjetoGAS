@@ -6,6 +6,7 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import br.com.gsv.domain.Funcionario;
 import br.com.gsv.domain.Produto;
 import br.com.gsv.util.HibernateUtil;
 import br.com.gsv.util.MensagemPainelUtil;

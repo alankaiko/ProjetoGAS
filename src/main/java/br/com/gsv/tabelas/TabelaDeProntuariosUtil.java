@@ -10,8 +10,6 @@ import br.com.gsv.domain.Prontuario;
 import br.com.gsv.util.ConverteDadosUtil;
 
 public class TabelaDeProntuariosUtil extends AbstractTableModel{
-	private static final long serialVersionUID = 1L;
-	
 	private String[] colunas = new String[] { "AGENDAMENTO", "HORA", "NOME", "CPF", "ALERTA", "ESTADO" };
 	private List<Prontuario> linhas;
 	private static final int DATA = 0;

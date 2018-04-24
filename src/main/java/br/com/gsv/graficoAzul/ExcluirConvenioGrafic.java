@@ -9,6 +9,7 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.border.LineBorder;
 
 import br.com.gsv.formularios.ExcluirConvenioDialog;
+import br.com.gsv.util.FieldListener;
 
 public class ExcluirConvenioGrafic {
 	private ExcluirConvenioDialog formulario;

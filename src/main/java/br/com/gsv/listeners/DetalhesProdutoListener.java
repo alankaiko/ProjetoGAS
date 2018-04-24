@@ -10,8 +10,11 @@ import javax.swing.JComponent;
 import javax.swing.JRootPane;
 import javax.swing.KeyStroke;
 
+import br.com.gsv.domain.Funcionario;
 import br.com.gsv.domain.Produto;
+import br.com.gsv.formularios.DetalhesFuncionarioDialog;
 import br.com.gsv.formularios.DetalhesProdutoDialog;
+import br.com.gsv.util.ConverteDadosUtil;
 
 public class DetalhesProdutoListener implements ActionListener{
 	private Produto produto;
@@ -68,12 +71,7 @@ public class DetalhesProdutoListener implements ActionListener{
         meurootpane.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), "ESCAPE");  
         meurootpane.getRootPane().getActionMap().put("ESCAPE", new AbstractAction("ESCAPE") {  
   
-            /**
-			 * 
-			 */
-			private static final long serialVersionUID = 1L;
-
-			public void actionPerformed(ActionEvent e) {  
+            public void actionPerformed(ActionEvent e) {  
             	formulario.dispose();  
             }  
         });  

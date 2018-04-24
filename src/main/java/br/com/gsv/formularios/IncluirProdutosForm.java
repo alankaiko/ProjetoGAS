@@ -14,7 +14,6 @@ import br.com.gsv.listeners.IncluirProdutoListener;
 
 public class IncluirProdutosForm extends JDialog {
 	private static final long serialVersionUID = 1L;
-	
 	private IncluirProdutoListener listener;
 	private JPanel panel = new JPanel();
 	private Container tela = getContentPane();

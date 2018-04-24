@@ -13,11 +13,13 @@ import javax.swing.ListSelectionModel;
 import br.com.gsv.formularios.BuscarPacienteDialog;
 import br.com.gsv.formularios.CodigoPacienteDialog;
 import br.com.gsv.formularios.DetalhesPacienteDialog;
+import br.com.gsv.formularios.DetalhesProdutoDialog;
 import br.com.gsv.formularios.ExcluirPacienteDialog;
 import br.com.gsv.formularios.GerenciaTelaPaciente;
 import br.com.gsv.formularios.IncluirPacienteForm;
 import br.com.gsv.tabelas.TabelaDePacientesUtil;
 import br.com.projeto.gsv.controller.PacienteController;
+import br.com.projeto.gsv.controller.ProdutoController;
 
 public class GerenciarPacienteListener implements ActionListener{
 	private GerenciaTelaPaciente gerenciamento;
@@ -176,7 +178,6 @@ public class GerenciarPacienteListener implements ActionListener{
 		}											
 	}
 	
-	@SuppressWarnings("serial")
 	public void TeclaEsc(){
         JRootPane meurootpane = this.gerenciamento.getRootPane();  
         meurootpane.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), "ESCAPE");  

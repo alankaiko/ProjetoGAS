@@ -12,8 +12,6 @@ import br.com.gsv.graficoClassic.DetalheFabricanteClassic;
 import br.com.gsv.listeners.DetalhesFabricanteListener;
 
 public class DetalhesFabricanteDialog extends JDialog {
-	private static final long serialVersionUID = 1L;
-	
 	private DetalhesFabricanteListener listener;	
 	private JPanel panel = new JPanel();
 	private Container tela = getContentPane();

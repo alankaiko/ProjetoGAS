@@ -13,12 +13,11 @@ import br.com.gsv.util.FieldListener;
 
 public class IncluirConvenioGrafic {
 	private IncluirConvenioForm formulario;
-	private FieldListener field;
+	private FieldListener field = new FieldListener();
 	
 	
 	public IncluirConvenioGrafic(IncluirConvenioForm formulario) {
 		this.formulario = formulario;
-		field = new FieldListener();
 		CriarTelaGeralGrafic();
 		CriarTelaGeral();
 	}

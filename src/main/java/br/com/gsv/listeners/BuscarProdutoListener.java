@@ -12,7 +12,9 @@ import javax.swing.KeyStroke;
 import javax.swing.ListSelectionModel;
 
 import br.com.gsv.formularios.BuscarProdutoDialog;
+import br.com.gsv.tabelas.buscar.TabelaBuscarPacientesUtil;
 import br.com.gsv.tabelas.buscar.TabelaBuscarProdutoUtil;
+import br.com.projeto.gsv.controller.PacienteController;
 import br.com.projeto.gsv.controller.ProdutoController;
 
 public class BuscarProdutoListener implements ActionListener{
@@ -100,7 +102,6 @@ public class BuscarProdutoListener implements ActionListener{
 		}); 	
 	}
 	
-	@SuppressWarnings("serial")
 	public void TeclaEsc(){
         JRootPane meurootpane = this.formulario.getRootPane();  
         meurootpane.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), "ESCAPE");  

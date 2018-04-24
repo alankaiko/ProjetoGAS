@@ -10,13 +10,24 @@ import javax.swing.JRootPane;
 import javax.swing.KeyStroke;
 import javax.swing.ListSelectionModel;
 
+import br.com.gsv.formularios.BuscarFuncionarioDialog;
 import br.com.gsv.formularios.BuscarProdutoDialog;
+import br.com.gsv.formularios.CodigoFuncionarioDialog;
 import br.com.gsv.formularios.CodigoProdutoDialog;
+import br.com.gsv.formularios.DetalhesFuncionarioDialog;
+import br.com.gsv.formularios.DetalhesPacienteDialog;
 import br.com.gsv.formularios.DetalhesProdutoDialog;
+import br.com.gsv.formularios.ExcluirFuncionarioDialog;
 import br.com.gsv.formularios.ExcluirProdutoDialog;
+import br.com.gsv.formularios.GerenciaTelaFuncionario;
 import br.com.gsv.formularios.GerenciaTelaProdutos;
+import br.com.gsv.formularios.IncluirFuncionariosForm;
+import br.com.gsv.formularios.IncluirPacienteForm;
 import br.com.gsv.formularios.IncluirProdutosForm;
+import br.com.gsv.tabelas.TabelaDeFuncionariosUtil;
 import br.com.gsv.tabelas.TabelaDeProdutosUtil;
+import br.com.projeto.gsv.controller.FuncionarioController;
+import br.com.projeto.gsv.controller.PacienteController;
 import br.com.projeto.gsv.controller.ProdutoController;
 
 public class GerenciarProdutosListener implements ActionListener{
@@ -191,7 +202,6 @@ public class GerenciarProdutosListener implements ActionListener{
 	}
 	
 	
-	@SuppressWarnings("serial")
 	public void TeclaEsc(){
         JRootPane meurootpane = this.gerenciamento.getRootPane();  
         meurootpane.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), "ESCAPE");  

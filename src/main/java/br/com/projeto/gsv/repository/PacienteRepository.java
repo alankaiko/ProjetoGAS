@@ -107,7 +107,6 @@ public class PacienteRepository {
 	}
 	
 	
-	@SuppressWarnings("unchecked")
 	public Long VerificaQTDRegistro(){
 		sessao = HibernateUtil.getSessionFactory().openSession();
 		List<Long> lista = null;
