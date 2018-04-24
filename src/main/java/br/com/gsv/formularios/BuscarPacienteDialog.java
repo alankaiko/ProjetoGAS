@@ -1,9 +1,6 @@
 package br.com.gsv.formularios;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
 import java.awt.Container;
-import java.awt.Font;
 
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
@@ -14,13 +11,14 @@ import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
-import javax.swing.border.EmptyBorder;
 
+import br.com.gsv.graficoAzul.BuscarPacienteGrafic;
+import br.com.gsv.graficoClassic.BuscarPacienteClassic;
 import br.com.gsv.listeners.BuscarPacienteListener;
 import br.com.gsv.listeners.RadioListenerPaciente;
 
 public class BuscarPacienteDialog extends JDialog {
-	private final JPanel contentPanel = new JPanel();
+	private JPanel panel = new JPanel();
 	private Container tela = getContentPane();
 	private JTextField textoBuscar;
 	private JButton ok,cancelar, buscar;
@@ -31,78 +29,36 @@ public class BuscarPacienteDialog extends JDialog {
 	private JTable table;
 	private BuscarPacienteListener listener;
 	private RadioListenerPaciente radioListener;
+	private BuscarPacienteClassic listenerClassic;
+	private BuscarPacienteGrafic listenerGrafic;
+	private JPanel painelDrag;
+	private int xx,xy;
 	
 	
 	public BuscarPacienteDialog() {
-		CriarTelaGeral();
 		CriaComponentes();
 		AdicionaNaTela();
 		listener = new BuscarPacienteListener(this);
 		radioListener = new RadioListenerPaciente(this);
+		listenerGrafic = new BuscarPacienteGrafic(this);
+		//listenerClassic = new BuscarPacienteClassic(this);
 	}
 	
-	
-	//cria e tela geral onde todos os componentes serao inseridos, é a tela geral do sistema
-	private void CriarTelaGeral(){
-		this.setTitle("Buscar Clientes");
-		this.setModal(true);
-		this.setResizable(false);
-		this.setBounds(100, 100, 620, 400);
-		
-		this.tela.setLayout(null);		
-		this.tela.add(contentPanel, BorderLayout.CENTER);
-		
-		contentPanel.setLayout(null);
-		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
-		
-		scrollPane = new JScrollPane();
-		scrollPane.setBounds(15, 100, 560, 220);
-		this.tela.add(this.scrollPane);
-		table = new JTable();
-		
-	}
 	
 	
 	private void CriaComponentes(){
-		buscarUsuario= new JLabel("Escolha uma Opção: ");
-		buscarUsuario.setBounds(15,10,150,20);
-	
-		buscaCpf = new JRadioButton("CPF");
-		buscaCpf.setFont(new Font("Arial", Font.PLAIN, 13));
-		buscaCpf.setBounds(201, 40, 53, 23);
-		
-		
-		buscaRg = new JRadioButton("RG");
-		buscaRg.setFont(new Font("Arial", Font.PLAIN, 13));
-		buscaRg.setBounds(154, 40, 53, 23);
-		
-		buscaNome = new JRadioButton("Nome");
-		buscaNome.setFont(new Font("Arial", Font.PLAIN, 13));
-		buscaNome.setBounds(82, 40, 60, 23);
-		
-		buscaCodigo = new JRadioButton("Código");
-		buscaCodigo.setFont(new Font("Arial", Font.PLAIN, 13));
-		buscaCodigo.setBounds(15, 40, 65, 23);
-		
-		botaoGrupo.add(buscaCpf);
-		botaoGrupo.add(buscaRg);
-		botaoGrupo.add(buscaNome);
-		botaoGrupo.add(buscaCodigo);
-	
-		textoBuscar= new JTextField();
-		textoBuscar.setBounds(15,70,260,20);
-		textoBuscar.setFont(new Font("Arial",Font.BOLD,10));
-		textoBuscar.setForeground(Color.black);		
-
-		buscar= new JButton("Buscar");
-		buscar.setBounds(300,68,125,20);
-
-		ok= new JButton("OK");
-		ok.setBounds(150,340,125,20);
-	
-		cancelar= new JButton("Cancelar");
-		cancelar.setBounds(290,340,125,20);	
-	
+		buscarUsuario = new JLabel();
+		buscaCpf = new JRadioButton();
+		buscaRg = new JRadioButton();
+		buscaNome = new JRadioButton();
+		buscaCodigo = new JRadioButton();
+		textoBuscar = new JTextField();
+		buscar = new JButton();
+		ok = new JButton();
+		cancelar = new JButton();
+		table = new JTable();
+		scrollPane = new JScrollPane();
+		painelDrag = new JPanel();
 	}
 	
 	private void AdicionaNaTela(){
@@ -115,6 +71,11 @@ public class BuscarPacienteDialog extends JDialog {
 		tela.add(this.buscar);
 		tela.add(this.ok);
 		tela.add(this.cancelar);
+		
+		botaoGrupo.add(buscaCpf);
+		botaoGrupo.add(buscaRg);
+		botaoGrupo.add(buscaNome);
+		botaoGrupo.add(buscaCodigo);
 	}
 
 
@@ -223,5 +184,93 @@ public class BuscarPacienteDialog extends JDialog {
 	public void setListener(BuscarPacienteListener listener) {
 		this.listener = listener;
 	}
+
+
+	public JPanel getPanel() {
+		return panel;
+	}
+
+
+	public void setPanel(JPanel panel) {
+		this.panel = panel;
+	}
+
+
+	public Container getTela() {
+		return tela;
+	}
+
+
+	public void setTela(Container tela) {
+		this.tela = tela;
+	}
+
+
+	public JLabel getBuscarUsuario() {
+		return buscarUsuario;
+	}
+
+
+	public void setBuscarUsuario(JLabel buscarUsuario) {
+		this.buscarUsuario = buscarUsuario;
+	}
+
+
+	public ButtonGroup getBotaoGrupo() {
+		return botaoGrupo;
+	}
+
+
+	public void setBotaoGrupo(ButtonGroup botaoGrupo) {
+		this.botaoGrupo = botaoGrupo;
+	}
+
+
+	public RadioListenerPaciente getRadioListener() {
+		return radioListener;
+	}
+
+
+	public void setRadioListener(RadioListenerPaciente radioListener) {
+		this.radioListener = radioListener;
+	}
+
+
+
+	public JPanel getPainelDrag() {
+		return painelDrag;
+	}
+
+
+
+	public void setPainelDrag(JPanel painelDrag) {
+		this.painelDrag = painelDrag;
+	}
+
+
+
+	public int getXx() {
+		return xx;
+	}
+
+
+
+	public void setXx(int xx) {
+		this.xx = xx;
+	}
+
+
+
+	public int getXy() {
+		return xy;
+	}
+
+
+
+	public void setXy(int xy) {
+		this.xy = xy;
+	}
+	
+	
 	
 }
