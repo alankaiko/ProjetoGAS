@@ -48,7 +48,7 @@ private GerenciaTelaProdutos formulario;
 		
 		this.formulario.getTable().setGridColor(new java.awt.Color(255, 255, 255));
 		this.formulario.getTable().setRowHeight(20);
-		this.formulario.getTable().setSelectionBackground(new Color(92,155,255));
+		this.formulario.getTable().setSelectionBackground(new Color(84,101,127));
 		this.formulario.getTable().setSelectionForeground(Color.WHITE);
 		
 		this.formulario.getPainelDrag().setBackground(new Color(20, 34, 56));

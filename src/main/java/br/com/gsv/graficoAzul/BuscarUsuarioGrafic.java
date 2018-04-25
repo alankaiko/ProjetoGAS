@@ -14,15 +14,15 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.border.LineBorder;
 
 import aaaaatelas.Gerenciar;
-import br.com.gsv.formularios.BuscarFabricanteDialog;
+import br.com.gsv.formularios.BuscarUsuarioDialog;
 import br.com.gsv.util.FieldListener;
 
-public class BuscarFabricanteGrafic {
-	private BuscarFabricanteDialog formulario;
+public class BuscarUsuarioGrafic {
+	private BuscarUsuarioDialog formulario;
 	private FieldListener field = new FieldListener();
 	
 	
-	public BuscarFabricanteGrafic(BuscarFabricanteDialog formulario) {
+	public BuscarUsuarioGrafic(BuscarUsuarioDialog formulario) {
 		this.formulario = formulario;
 		CriarTelaGeralGrafic();
 		CriarTelaGeral();
@@ -90,13 +90,13 @@ public class BuscarFabricanteGrafic {
 		this.formulario.getBuscarUsuario().setText("Escolha Uma Opção");
 		this.formulario.getBuscarUsuario().setFont(new Font("Segoe UI Semibold", Font.PLAIN, 13));
 		
-		this.formulario.getBuscaId().setText("Código");
-		this.formulario.getBuscaId().setFont(new Font("Segoe UI", Font.PLAIN, 12));
-		this.formulario.getBuscaId().setBackground(Color.WHITE);
+		this.formulario.getBuscaLogin().setText("Login");
+		this.formulario.getBuscaLogin().setFont(new Font("Segoe UI", Font.PLAIN, 12));
+		this.formulario.getBuscaLogin().setBackground(Color.WHITE);
 		
-		this.formulario.getBuscaDescricao().setText("Fabricante");
-		this.formulario.getBuscaDescricao().setFont(new Font("Segoe UI", Font.PLAIN, 12));
-		this.formulario.getBuscaDescricao().setBackground(Color.WHITE);
+		this.formulario.getBuscaNome().setText("Nome");
+		this.formulario.getBuscaNome().setFont(new Font("Segoe UI", Font.PLAIN, 12));
+		this.formulario.getBuscaNome().setBackground(Color.WHITE);
 		
 		
 		GroupLayout gl_panel = new GroupLayout(this.formulario.getPanel());
@@ -108,9 +108,9 @@ public class BuscarFabricanteGrafic {
 				.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
 				.addComponent(this.formulario.getBuscarUsuario(), GroupLayout.PREFERRED_SIZE, 151, GroupLayout.PREFERRED_SIZE)
 				.addGroup(gl_panel.createSequentialGroup()
-				.addComponent(this.formulario.getBuscaId(), GroupLayout.PREFERRED_SIZE, 80, GroupLayout.PREFERRED_SIZE)
+				.addComponent(this.formulario.getBuscaLogin(), GroupLayout.PREFERRED_SIZE, 80, GroupLayout.PREFERRED_SIZE)
 				.addPreferredGap(ComponentPlacement.UNRELATED)
-				.addComponent(this.formulario.getBuscaDescricao(), GroupLayout.PREFERRED_SIZE, 99, GroupLayout.PREFERRED_SIZE))
+				.addComponent(this.formulario.getBuscaNome(), GroupLayout.PREFERRED_SIZE, 99, GroupLayout.PREFERRED_SIZE))
 				.addGroup(gl_panel.createSequentialGroup()
 				.addComponent(this.formulario.getTextoBuscar(), GroupLayout.PREFERRED_SIZE, 302, GroupLayout.PREFERRED_SIZE)
 				.addPreferredGap(ComponentPlacement.RELATED, 97, Short.MAX_VALUE)
@@ -135,8 +135,8 @@ public class BuscarFabricanteGrafic {
 				.addComponent(this.formulario.getBuscarUsuario())
 				.addGap(4)
 				.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
-				.addComponent(this.formulario.getBuscaId())
-				.addComponent(this.formulario.getBuscaDescricao()))
+				.addComponent(this.formulario.getBuscaLogin())
+				.addComponent(this.formulario.getBuscaNome()))
 				.addGap(5)
 				.addGroup(gl_panel.createParallelGroup(Alignment.TRAILING, false)
 				.addComponent(this.formulario.getBuscar(), 0, 0, Short.MAX_VALUE)

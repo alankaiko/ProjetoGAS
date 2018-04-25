@@ -2,21 +2,20 @@ package aaaaatelas;
 
 import java.awt.Color;
 import java.awt.Container;
+import java.awt.Font;
 
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
-import javax.swing.border.LineBorder;
-import javax.swing.GroupLayout;
-import javax.swing.GroupLayout.Alignment;
-import javax.swing.ImageIcon;
 import javax.swing.JScrollPane;
-import javax.swing.LayoutStyle.ComponentPlacement;
-import java.awt.Font;
 import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
+import javax.swing.JTextField;
+import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.border.LineBorder;
 
 public class gerenciamenor extends JDialog {
 	private JPanel panel = new JPanel();
@@ -157,10 +156,10 @@ public class gerenciamenor extends JDialog {
 		
 		table = new JTable();
 		table.setSelectionForeground(Color.WHITE);
-		table.setSelectionBackground(Color.BLUE);
+		table.setSelectionBackground(new Color(84,101,127));
 	
-		 table.setGridColor(new java.awt.Color(255, 255, 255));
-	       table.setRowHeight(22);
+		table.setGridColor(new java.awt.Color(255, 255, 255));
+	    table.setRowHeight(20);
 		scrollPane.setColumnHeaderView(table);
 		panel.setLayout(gl_panel);
 		

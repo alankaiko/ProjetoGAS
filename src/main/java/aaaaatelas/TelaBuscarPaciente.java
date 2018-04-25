@@ -3,8 +3,6 @@ package aaaaatelas;
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.Font;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
@@ -13,12 +11,12 @@ import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.border.LineBorder;
-import javax.swing.JRadioButton;
 
 public class TelaBuscarPaciente extends JDialog {
 	private JPanel panel = new JPanel();
@@ -176,10 +174,10 @@ public class TelaBuscarPaciente extends JDialog {
 		
 		table = new JTable();
 		table.setSelectionForeground(Color.WHITE);
-		table.setSelectionBackground(Color.BLUE);
+		table.setSelectionBackground(new Color(84,101,127));
 	
-		 table.setGridColor(new java.awt.Color(255, 255, 255));
-	       table.setRowHeight(22);
+		table.setGridColor(new java.awt.Color(255, 255, 255));
+	    table.setRowHeight(20);
 		scrollPane.setColumnHeaderView(table);
 		panel.setLayout(gl_panel);
 		
