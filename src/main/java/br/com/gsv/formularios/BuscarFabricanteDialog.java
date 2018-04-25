@@ -1,9 +1,6 @@
 package br.com.gsv.formularios;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
 import java.awt.Container;
-import java.awt.Font;
 
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
@@ -14,13 +11,14 @@ import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
-import javax.swing.border.EmptyBorder;
 
+import br.com.gsv.graficoAzul.BuscarFabricanteGrafic;
+import br.com.gsv.graficoClassic.BuscarFabricanteClassic;
 import br.com.gsv.listeners.BuscarFabricanteListener;
 import br.com.gsv.listeners.RadioListenerFabricante;
 
 public class BuscarFabricanteDialog extends JDialog {
-	private final JPanel contentPanel = new JPanel();
+	private JPanel panel = new JPanel();
 	private Container tela = getContentPane();
 	private JTextField textoBuscar;
 	private JButton ok,cancelar, buscar;
@@ -30,68 +28,35 @@ public class BuscarFabricanteDialog extends JDialog {
 	private JScrollPane scrollPane;
 	private JTable table;
 	private BuscarFabricanteListener listener;
+	private BuscarFabricanteClassic listenerClassic;
+	private BuscarFabricanteGrafic listenerGrafic;
 	private RadioListenerFabricante radioListener;
+	private JPanel painelDrag;
+	private int xx,xy;
 	
 	
 	public BuscarFabricanteDialog() {
-		CriarTelaGeral();
 		CriaComponentes();
 		AdicionaNaTela();
+		//listenerClassic = new BuscarFabricanteClassic(this);
+		listenerGrafic = new BuscarFabricanteGrafic(this);
 		listener = new BuscarFabricanteListener(this);
 		radioListener = new RadioListenerFabricante(this);
 	}
 	
 	
-	//cria e tela geral onde todos os componentes serao inseridos, é a tela geral do sistema
-	private void CriarTelaGeral(){
-		this.setTitle("Buscar Fabricantes");
-		this.setModal(true);
-		this.setResizable(false);
-		this.setBounds(100, 100, 620, 400);
-		
-		this.tela.setLayout(null);		
-		this.tela.add(contentPanel, BorderLayout.CENTER);
-		
-		contentPanel.setLayout(null);
-		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
-		
-		scrollPane = new JScrollPane();
-		scrollPane.setBounds(15, 100, 560, 220);
-		this.tela.add(this.scrollPane);
-		table = new JTable();
-		
-	}
-	
 	
 	private void CriaComponentes(){
-		buscarUsuario= new JLabel("Escolha uma Opção: ");
-		buscarUsuario.setBounds(15,10,150,20);
-	
-		buscaId = new JRadioButton("Código");
-		buscaId.setFont(new Font("Arial", Font.PLAIN, 13));
-		buscaId.setBounds(15, 40, 86, 23);
-		
-		
-		buscaDescricao = new JRadioButton("Descrição");
-		buscaDescricao.setFont(new Font("Arial", Font.PLAIN, 13));
-		buscaDescricao.setBounds(144, 40, 99, 23);
-		
-		botaoGrupo.add(buscaId);
-		botaoGrupo.add(buscaDescricao);
-		
-		textoBuscar= new JTextField();
-		textoBuscar.setBounds(15,70,260,20);
-		textoBuscar.setFont(new Font("Arial",Font.BOLD,10));
-		textoBuscar.setForeground(Color.black);		
-
-		buscar= new JButton("Buscar");
-		buscar.setBounds(300,68,125,20);
-
-		ok= new JButton("OK");
-		ok.setBounds(150,340,125,20);
-	
-		cancelar= new JButton("Cancelar");
-		cancelar.setBounds(290,340,125,20);	
+		buscarUsuario = new JLabel();
+		buscaId = new JRadioButton();
+		buscaDescricao = new JRadioButton();
+		textoBuscar = new JTextField();
+		buscar = new JButton();
+		ok = new JButton();
+		cancelar = new JButton();
+		scrollPane = new JScrollPane();
+		table = new JTable();
+		painelDrag = new JPanel();
 	
 	}
 	
@@ -103,6 +68,10 @@ public class BuscarFabricanteDialog extends JDialog {
 		tela.add(this.buscar);
 		tela.add(this.ok);
 		tela.add(this.cancelar);
+		
+		botaoGrupo.add(buscaId);
+		botaoGrupo.add(buscaDescricao);
+		
 	}
 
 
@@ -200,5 +169,77 @@ public class BuscarFabricanteDialog extends JDialog {
 	public void setRadioListener(RadioListenerFabricante radioListener) {
 		this.radioListener = radioListener;
 	}
+
+
+	public JPanel getPanel() {
+		return panel;
+	}
+
+
+	public void setPanel(JPanel panel) {
+		this.panel = panel;
+	}
+
+
+	public Container getTela() {
+		return tela;
+	}
+
+
+	public void setTela(Container tela) {
+		this.tela = tela;
+	}
+
+
+	public JLabel getBuscarUsuario() {
+		return buscarUsuario;
+	}
+
+
+	public void setBuscarUsuario(JLabel buscarUsuario) {
+		this.buscarUsuario = buscarUsuario;
+	}
+
+
+	public ButtonGroup getBotaoGrupo() {
+		return botaoGrupo;
+	}
+
+
+	public void setBotaoGrupo(ButtonGroup botaoGrupo) {
+		this.botaoGrupo = botaoGrupo;
+	}
+
+
+	public JPanel getPainelDrag() {
+		return painelDrag;
+	}
+
+
+	public void setPainelDrag(JPanel painelDrag) {
+		this.painelDrag = painelDrag;
+	}
+
+
+	public int getXx() {
+		return xx;
+	}
+
+
+	public void setXx(int xx) {
+		this.xx = xx;
+	}
+
+
+	public int getXy() {
+		return xy;
+	}
+
+
+	public void setXy(int xy) {
+		this.xy = xy;
+	}
+	
+	
 
 }
