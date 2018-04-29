@@ -14,6 +14,7 @@ import br.com.gsv.util.MensagemPainelUtil;
 import br.com.projeto.gsv.controller.UsuarioController;
 import br.tela.principal.form.TelaLogin;
 import br.tela.principal.form.TelaPrincipalClassic;
+import br.tela.principal.form.TelaPrincipalGrafic;
 
 public class TelaLoginListener implements ActionListener, MouseListener{
 	private TelaLogin formulario;
@@ -37,11 +38,14 @@ public class TelaLoginListener implements ActionListener, MouseListener{
 		
 		if(this.usuario != null){
 			this.formulario.dispose();
-			TelaPrincipalClassic classic = new TelaPrincipalClassic();
-			classic.setUsuario(this.usuario);
-			classic.IniciaComponentesSecundarios();
-			classic.setLocationRelativeTo(this.formulario.getContentPane());
-			classic.setVisible(true);
+			TelaPrincipalGrafic grafic = new TelaPrincipalGrafic();
+			//TelaPrincipalClassic classic = new TelaPrincipalClassic();
+			//classic.setUsuario(this.usuario);
+			//classic.IniciaComponentesSecundarios();
+			grafic.setUsuario(this.usuario);
+			grafic.IniciaComponentesSecundarios();
+			grafic.setLocationRelativeTo(this.formulario.getContentPane());
+			grafic.setVisible(true);
 		}else{
 			MensagemPainelUtil.AutenticaUsuario();
 		}

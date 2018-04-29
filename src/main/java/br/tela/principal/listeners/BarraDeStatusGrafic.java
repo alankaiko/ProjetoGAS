@@ -13,7 +13,7 @@ import br.tela.principal.form.TelaPrincipalGrafic;
 
 public class BarraDeStatusGrafic {
 	
-private TelaPrincipalGrafic tela;
+	private TelaPrincipalGrafic tela;
 	
 	
 	public BarraDeStatusGrafic(TelaPrincipalGrafic tela) {
@@ -24,7 +24,7 @@ private TelaPrincipalGrafic tela;
 	
 	
 	private void BarraDeStatus(){
-		this.tela.getLStatusUsuario().setText("Usuário: ");
+		this.tela.getLStatusUsuario().setText("Usuário: "+this.tela.getUsuario().getFuncionario().getNome());
 		this.tela.getLStatusUsuario().setForeground(Color.WHITE);
 		this.tela.getLStatusUsuario().setFont(new Font("Segoe UI Semibold", Font.PLAIN, 14));
 		this.tela.getLStatusUsuario().setPreferredSize(new Dimension(400, 20));

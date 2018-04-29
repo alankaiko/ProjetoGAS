@@ -1,12 +1,11 @@
-package br.tela.principal.form;
+package aaaaatelas;
 
 import java.awt.Color;
 import java.awt.Container;
+import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.Panel;
 import java.awt.SystemColor;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
@@ -19,39 +18,38 @@ import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JSeparator;
 import javax.swing.LayoutStyle.ComponentPlacement;
-import javax.swing.border.LineBorder;
 
-import br.com.gsv.domain.Usuario;
+import br.com.gsv.util.HibernateUtil;
 import br.tela.principal.listeners.BarraDeStatusGrafic;
 import br.tela.principal.listeners.TelaPrincipalGraficListener;
 
-public class TelaPrincipalGrafic extends JFrame {
+import javax.swing.border.LineBorder;
+
+public class TelaPrinGrafic extends JFrame {
 	private Container tela;
 	private JPanel panel, painelEsquerdo, botaoFuncionario, botaoPaciente;
 	private JPanel botaoProdutos, botaoRelPacientes, botaoRelItens;
 	private JLabel LFuncionario,iconeFuncionario,LStatusUsuario,LStatusData,LStatusHora,iconePaciente;
 	private JLabel LPaciente,iconeProduto, LProduto, iconeRelPaciente,LRelPaciente,iconeRelItens,LRelItens;
 	private TelaPrincipalGraficListener listener;
-	private Usuario usuario;
-	private BarraDeStatusGrafic status;
 	private JMenuBar menuBar;
 	private JMenu menuArquivo,menuAtendimento, menuCadastro, menuUsuario, menuFarmacia, menuRelatorio, menuSair;
 	private JMenuItem arquivoAgCli, arquivoConAte, arquivoAcomodacoes, cadastroConvenio;
 	private JMenuItem cadastroClinica, cadastroPaciente, relatorioFuncionario;
-	private JMenuItem usuarioFuncionario, usuarioConFun,usuarioUser,relatorioConvenio,relatorioProntuario;
+	private JMenuItem cadastroProntuario, usuarioFuncionario, usuarioConFun;
 	private JMenuItem farmaciaFabricante, farmaciaGruProduto, relatorioClinica;
 	private JMenuItem farmaciaProduto, farmaciaDevolucoes, relatorioItens, relatorioFornecedores;
-	private JMenuItem relatorioGruItens, relatorioPaciente, atendimentoProntuario,atendimentoAnotacoes;
+	private JMenuItem relatorioGruItens, relatorioPaciente, atendimentoAnotacoes,atendimentoProntuario;
 	private JPanel botaoProntuario;
 	private JLabel iconProntuario, LProntuarios;
-	private int xx,xy;
 	
 	
-/*	public static void main(String[] args) {
+	
+	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					TelaPrincipalGrafic frame = new TelaPrincipalGrafic();
+					TelaPrinGrafic frame = new TelaPrinGrafic();
 					frame.setResizable(false);
 					frame.setLocationRelativeTo(null);
 					frame.setVisible(true);
@@ -60,11 +58,11 @@ public class TelaPrincipalGrafic extends JFrame {
 				}
 			}
 		});
-	}*/
+	}
 
 	
 	
-	public TelaPrincipalGrafic() {
+	public TelaPrinGrafic() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 900, 590);
 		
@@ -86,12 +84,6 @@ public class TelaPrincipalGrafic extends JFrame {
 	}
 	
 	
-	public void IniciaComponentesSecundarios(){
-		status = new BarraDeStatusGrafic(this);
-		listener = new TelaPrincipalGraficListener(this);
-	}
-	
-	
 	private void GruposPainelEsquerdo(){
 		painelEsquerdo = new JPanel();
 		painelEsquerdo.setBounds(1, 106, 245, 462);
@@ -104,7 +96,7 @@ public class TelaPrincipalGrafic extends JFrame {
 		botaoPaciente.setBackground(new Color(71, 120, 197));
 		
 		iconePaciente = new JLabel("");
-		iconePaciente.setIcon(new ImageIcon(TelaPrincipalGrafic.class.getResource("/imagens/icons8-adicionar-usuário-masculino-25.png")));
+		iconePaciente.setIcon(new ImageIcon(TelaPrinGrafic.class.getResource("/imagens/icons8-adicionar-usuário-masculino-25.png")));
 		
 		LPaciente = new JLabel("Pacientes");
 		LPaciente.setForeground(Color.WHITE);
@@ -139,7 +131,7 @@ public class TelaPrincipalGrafic extends JFrame {
 		botaoProdutos.setBackground(new Color(71, 120, 197));
 		
 		iconeProduto = new JLabel("");
-		iconeProduto.setIcon(new ImageIcon(TelaPrincipalGrafic.class.getResource("/imagens/icons8-pílula-24.png")));
+		iconeProduto.setIcon(new ImageIcon(TelaPrinGrafic.class.getResource("/imagens/icons8-pílula-24.png")));
 		
 		LProduto = new JLabel("Produtos");
 		LProduto.setForeground(Color.WHITE);
@@ -172,7 +164,7 @@ public class TelaPrincipalGrafic extends JFrame {
 		botaoRelPacientes.setBackground(new Color(71, 120, 197));
 		
 		iconeRelPaciente = new JLabel("");
-		iconeRelPaciente.setIcon(new ImageIcon(TelaPrincipalGrafic.class.getResource("/imagens/icons8-empresa-cliente-24.png")));
+		iconeRelPaciente.setIcon(new ImageIcon(TelaPrinGrafic.class.getResource("/imagens/icons8-empresa-cliente-24.png")));
 		
 		LRelPaciente = new JLabel("Relatório de Pacientes");
 		LRelPaciente.setForeground(Color.WHITE);
@@ -203,7 +195,7 @@ public class TelaPrincipalGrafic extends JFrame {
 		botaoRelItens.setBackground(new Color(71, 120, 197));
 		
 		iconeRelItens = new JLabel("");
-		iconeRelItens.setIcon(new ImageIcon(TelaPrincipalGrafic.class.getResource("/imagens/icons8-boletim-24.png")));
+		iconeRelItens.setIcon(new ImageIcon(TelaPrinGrafic.class.getResource("/imagens/icons8-boletim-24.png")));
 		
 		LRelItens = new JLabel("Relatório de Itens");
 		LRelItens.setForeground(Color.WHITE);
@@ -238,7 +230,7 @@ public class TelaPrincipalGrafic extends JFrame {
 		botaoProntuario.setBackground(new Color(71, 120, 197));
 		
 		iconProntuario = new JLabel("");
-		iconProntuario.setIcon(new ImageIcon(TelaPrincipalGrafic.class.getResource("/imagens/icons8-modo-de-leitura-do-chrome-25.png")));
+		iconProntuario.setIcon(new ImageIcon(TelaPrinGrafic.class.getResource("/imagens/icons8-modo-de-leitura-do-chrome-25.png")));
 		
 		LProntuarios = new JLabel("Prontuários");
 		LProntuarios.setForeground(Color.WHITE);
@@ -321,7 +313,7 @@ public class TelaPrincipalGrafic extends JFrame {
 		LFuncionario.setFont(new Font("Segoe UI", Font.PLAIN, 18));
 		
 		iconeFuncionario = new JLabel("");
-		iconeFuncionario.setIcon(new ImageIcon(TelaPrincipalGrafic.class.getResource("/imagens/icons8-crachá-25.png")));
+		iconeFuncionario.setIcon(new ImageIcon(TelaPrinGrafic.class.getResource("/imagens/icons8-crachá-25.png")));
 		GroupLayout gl_botaoFuncionario = new GroupLayout(botaoFuncionario);
 		gl_botaoFuncionario.setHorizontalGroup(
 			gl_botaoFuncionario.createParallelGroup(Alignment.LEADING)
@@ -407,11 +399,11 @@ public class TelaPrincipalGrafic extends JFrame {
 		menuAtendimento.setFont(new Font("Segoe UI", Font.PLAIN, 15));
 		menuBar.add(menuAtendimento);
 		
-		atendimentoProntuario = new JMenuItem("Gerenciar Prontuários");
-		menuAtendimento.add(atendimentoProntuario);
-		
-		atendimentoAnotacoes = new JMenuItem("Agendar anotações");
+		atendimentoAnotacoes = new JMenuItem("Incluir Anotações");
 		menuAtendimento.add(atendimentoAnotacoes);
+		
+		atendimentoProntuario = new JMenuItem("Prontuários");
+		menuAtendimento.add(atendimentoProntuario);
 		
 		menuCadastro = new JMenu("Cadastro");
 		menuCadastro.setFont(new Font("Segoe UI", Font.PLAIN, 15));
@@ -419,14 +411,17 @@ public class TelaPrincipalGrafic extends JFrame {
 		menuCadastro.setBackground(new Color(26,35,51));
 		menuBar.add(menuCadastro);
 		
-		cadastroConvenio = new JMenuItem("Gerenciar Convênio");
+		cadastroConvenio = new JMenuItem("Cadastro de Convênios");
 		menuCadastro.add(cadastroConvenio);
 		
-		cadastroClinica = new JMenuItem("Gerenciar Clinicas");
+		cadastroClinica = new JMenuItem("Cadastro de Clínicas");
 		menuCadastro.add(cadastroClinica);
 		
-		cadastroPaciente = new JMenuItem("Gerenciar Pacientes");
+		cadastroPaciente = new JMenuItem("Cadastro de Pacientes");
 		menuCadastro.add(cadastroPaciente);
+		
+		cadastroProntuario = new JMenuItem("Cadastro de Prontuários");
+		menuCadastro.add(cadastroProntuario);
 		
 		menuUsuario = new JMenu("Usuário");
 		menuUsuario.setFont(new Font("Segoe UI", Font.PLAIN, 15));
@@ -437,11 +432,8 @@ public class TelaPrincipalGrafic extends JFrame {
 		usuarioFuncionario = new JMenuItem("Cadastro de Funcionários");
 		menuUsuario.add(usuarioFuncionario);
 		
-		usuarioConFun = new JMenuItem("Gerenciar Funcionários");
+		usuarioConFun = new JMenuItem("Consulta Funcionários");
 		menuUsuario.add(usuarioConFun);
-		
-		usuarioUser = new JMenuItem("Gerenciar Usuários");
-		menuUsuario.add(usuarioUser);
 		
 		menuFarmacia = new JMenu("Farmácia");
 		menuFarmacia.setFont(new Font("Segoe UI", Font.PLAIN, 15));
@@ -470,9 +462,6 @@ public class TelaPrincipalGrafic extends JFrame {
 		relatorioItens = new JMenuItem("Relatório de Itens");
 		menuRelatorio.add(relatorioItens);
 		
-		relatorioConvenio = new JMenuItem("Relatório de Convênios");
-		menuRelatorio.add(relatorioConvenio);
-		
 		relatorioFornecedores = new JMenuItem("Relatório de Fornecedores");
 		menuRelatorio.add(relatorioFornecedores);
 		
@@ -488,21 +477,11 @@ public class TelaPrincipalGrafic extends JFrame {
 		relatorioClinica = new JMenuItem("Relatório de Clínicas");
 		menuRelatorio.add(relatorioClinica);
 		
-		relatorioProntuario = new JMenuItem("Relatório de Prontuários");
-		menuRelatorio.add(relatorioProntuario);
-		
 		menuSair = new JMenu("Sair");
 		menuSair.setFont(new Font("Segoe UI", Font.PLAIN, 15));
 		menuSair.setForeground(SystemColor.textHighlightText);
 		menuSair.setBackground(new Color(26,35,51));
 		menuBar.add(menuSair);
-		menuSair.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				System.exit(0);
-			}
-		});
-		
 		panel.setLayout(null);
 		panel.add(painelEsquerdo);
 		panel.add(painelStatus);
@@ -714,6 +693,16 @@ public class TelaPrincipalGrafic extends JFrame {
 
 
 
+	public JMenuItem getCadastroProntuario() {
+		return cadastroProntuario;
+	}
+
+
+
+	public void setCadastroProntuario(JMenuItem cadastroProntuario) {
+		this.cadastroProntuario = cadastroProntuario;
+	}
+
 
 
 	public JMenuItem getUsuarioFuncionario() {
@@ -861,142 +850,25 @@ public class TelaPrincipalGrafic extends JFrame {
 
 
 	public JMenuItem getAtendimentoAnotacoes() {
-		return atendimentoProntuario;
-	}
-
-
-
-	public void setAtendimentoAnotacoes(JMenuItem atendimentoAnotacoes) {
-		this.atendimentoProntuario = atendimentoAnotacoes;
-	}
-
-
-
-	public JMenuItem getAtendimentoProntuario() {
 		return atendimentoAnotacoes;
 	}
 
 
 
-	public JMenuItem getUsuarioUser() {
-		return usuarioUser;
+	public void setAtendimentoAnotacoes(JMenuItem atendimentoAnotacoes) {
+		this.atendimentoAnotacoes = atendimentoAnotacoes;
 	}
 
-	public void setUsuarioUser(JMenuItem usuarioUser) {
-		this.usuarioUser = usuarioUser;
+
+
+	public JMenuItem getAtendimentoProntuario() {
+		return atendimentoProntuario;
 	}
 
-	public JMenuItem getRelatorioConvenio() {
-		return relatorioConvenio;
-	}
 
-	public void setRelatorioConvenio(JMenuItem relatorioConvenio) {
-		this.relatorioConvenio = relatorioConvenio;
-	}
-
-	public JMenuItem getRelatorioProntuario() {
-		return relatorioProntuario;
-	}
-
-	public void setRelatorioProntuario(JMenuItem relatorioProntuario) {
-		this.relatorioProntuario = relatorioProntuario;
-	}
-
-	public JPanel getPanel() {
-		return panel;
-	}
-
-	public void setPanel(JPanel panel) {
-		this.panel = panel;
-	}
 
 	public void setAtendimentoProntuario(JMenuItem atendimentoProntuario) {
-		this.atendimentoAnotacoes = atendimentoProntuario;
-	}
-
-	public int getXx() {
-		return xx;
-	}
-
-	public void setXx(int xx) {
-		this.xx = xx;
-	}
-
-	public int getXy() {
-		return xy;
-	}
-
-	public void setXy(int xy) {
-		this.xy = xy;
-	}
-
-	public Usuario getUsuario() {
-		return usuario;
-	}
-
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
-	}
-
-
-	public void setMenuBar(JMenuBar menuBar) {
-		this.menuBar = menuBar;
-	}
-
-	public JMenu getMenuArquivo() {
-		return menuArquivo;
-	}
-
-	public void setMenuArquivo(JMenu menuArquivo) {
-		this.menuArquivo = menuArquivo;
-	}
-
-	public JMenu getMenuAtendimento() {
-		return menuAtendimento;
-	}
-
-	public void setMenuAtendimento(JMenu menuAtendimento) {
-		this.menuAtendimento = menuAtendimento;
-	}
-
-	public JMenu getMenuCadastro() {
-		return menuCadastro;
-	}
-
-	public void setMenuCadastro(JMenu menuCadastro) {
-		this.menuCadastro = menuCadastro;
-	}
-
-	public JMenu getMenuFarmacia() {
-		return menuFarmacia;
-	}
-
-	public void setMenuFarmacia(JMenu menuFarmacia) {
-		this.menuFarmacia = menuFarmacia;
-	}
-
-	public JMenu getMenuRelatorio() {
-		return menuRelatorio;
-	}
-
-	public void setMenuRelatorio(JMenu menuRelatorio) {
-		this.menuRelatorio = menuRelatorio;
-	}
-
-	public JMenu getMenuSair() {
-		return menuSair;
-	}
-
-	public void setMenuSair(JMenu menuSair) {
-		this.menuSair = menuSair;
-	}
-
-	public JMenu getMenuUsuario() {
-		return menuUsuario;
-	}
-
-	public void setMenuUsuario(JMenu menuUsuario) {
-		this.menuUsuario = menuUsuario;
+		this.atendimentoProntuario = atendimentoProntuario;
 	}
 	
 	

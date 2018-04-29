@@ -16,7 +16,7 @@ import br.com.gsv.util.ListasUtil;
 import br.tela.principal.form.TelaPrincipalClassic;
 
 public class BarraStatusListener {
-private TelaPrincipalClassic tela;
+	private TelaPrincipalClassic tela;
 	
 	
 	public BarraStatusListener(TelaPrincipalClassic tela) {

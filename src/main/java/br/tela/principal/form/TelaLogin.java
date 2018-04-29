@@ -16,7 +16,6 @@ import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
 
 import br.com.gsv.util.HibernateUtil;
-import br.com.projeto.gsv.banco.CriaUsuarioAdmin;
 import br.tela.principal.listeners.TelaLoginListener;
 
 public class TelaLogin extends JFrame{
