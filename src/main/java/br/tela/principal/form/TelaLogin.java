@@ -57,6 +57,7 @@ public class TelaLogin extends JFrame{
 		//CriaUsuarioAdmin admin = new CriaUsuarioAdmin();
 	}
 
+	
 	private void CriaTela() {
 		setBackground(Color.WHITE);
 		setUndecorated(true);
@@ -221,4 +222,34 @@ public class TelaLogin extends JFrame{
 	public void setXy(int xy) {
 		this.xy = xy;
 	}
+
+
+
+
+	public JRadioButton getRadioAzul() {
+		return radioAzul;
+	}
+
+
+
+
+	public void setRadioAzul(JRadioButton radioAzul) {
+		this.radioAzul = radioAzul;
+	}
+
+
+
+
+	public JRadioButton getRadioClassic() {
+		return radioClassic;
+	}
+
+
+
+
+	public void setRadioClassic(JRadioButton radioClassic) {
+		this.radioClassic = radioClassic;
+	}
+	
+	
 }

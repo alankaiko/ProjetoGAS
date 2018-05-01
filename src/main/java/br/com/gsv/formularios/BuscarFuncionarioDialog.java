@@ -43,15 +43,19 @@ public class BuscarFuncionarioDialog extends JDialog {
 	public BuscarFuncionarioDialog() {
 		CriarTelaGeral();
 		AdicionaNaTela();
-	
-		//listenerClassic = new BuscarFuncionarioClassic(this);
-		listenerGrafic = new BuscarFuncionarioGrafic(this);
 		listener = new BuscarFuncionarioListener(this);
 		radioFuncionario = new RadioListenerFuncionario(this);
 	}
 	
+	public void IniciaGrafic(){
+		listenerGrafic = new BuscarFuncionarioGrafic(this);
+	}
 	
-	//cria e tela geral onde todos os componentes serao inseridos, é a tela geral do sistema
+	public void IniciaClassic(){
+		listenerClassic = new BuscarFuncionarioClassic(this);
+	}
+	
+	
 	private void CriarTelaGeral(){
 		buscarUsuario = new JLabel();
 		buscaCpf = new JRadioButton();

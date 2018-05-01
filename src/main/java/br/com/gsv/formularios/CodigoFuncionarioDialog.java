@@ -7,6 +7,7 @@ import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import br.com.gsv.graficoAzul.CodigoFuncionarioGrafic;
 import br.com.gsv.graficoClassic.CodigoFuncionarioClassic;
 import br.com.gsv.listeners.CodigoFuncionarioListener;
 
@@ -18,14 +19,20 @@ public class CodigoFuncionarioDialog extends JDialog {
 	private CodigoFuncionarioListener listener;
 	private Long codigo;
 	private CodigoFuncionarioClassic listenerClassic;
-	//private CodigoFuncionarioGrafic listenerGrafic;
+	private CodigoFuncionarioGrafic listenerGrafic;
 	
 	public CodigoFuncionarioDialog() {
 		CriaVariaveis();
 		AdicionaNaTela();
 		listener = new CodigoFuncionarioListener(this);
+	}
+
+	public void IniciaClassic(){
 		listenerClassic = new CodigoFuncionarioClassic(this);
-		//listenerGrafic = new CodigoFuncionarioGrafic(this);
+	}
+	
+	public void IniciaGrafic(){
+		listenerGrafic = new CodigoFuncionarioGrafic(this);
 	}
 	
 	private void CriaVariaveis(){

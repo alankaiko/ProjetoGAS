@@ -42,13 +42,18 @@ public class BuscarProdutoDialog extends JDialog {
 		CriarTelaGeral();
 		CriaComponentes();
 		AdicionaNaTela();
-		listenerGrafic = new BuscarProdutoGrafic(this);
-		//listenerClassic = new BuscarProdutoClassic(this);
 		listener = new BuscarProdutoListener(this);
 	}
 	
+	public void IniciaClassic(){
+		listenerClassic = new BuscarProdutoClassic(this);
+	}
 	
-	//cria e tela geral onde todos os componentes serao inseridos, é a tela geral do sistema
+	public void IniciaGrafic(){
+		listenerGrafic = new BuscarProdutoGrafic(this);
+	}
+	
+	
 	private void CriarTelaGeral(){
 		
 	}

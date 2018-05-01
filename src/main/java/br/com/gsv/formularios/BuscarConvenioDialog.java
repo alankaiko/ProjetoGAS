@@ -40,12 +40,15 @@ public class BuscarConvenioDialog extends JDialog {
 		AdicionaNaTela();
 		listener = new BuscarConvenioListener(this);
 		radioListener = new RadioListenerConvenio(this);
-		//listenerClassic = new BuscarConvenioClassic(this);
-		listenerGrafic = new BuscarConvenioGrafic(this);
 	}
 	
+	public void IniciaClassic(){
+		listenerClassic = new BuscarConvenioClassic(this);
+	}
 	
-	
+	public void IniciaGrafic(){
+		listenerGrafic = new BuscarConvenioGrafic(this);
+	}
 	
 	private void CriaComponentes(){
 		buscarUsuario = new JLabel();

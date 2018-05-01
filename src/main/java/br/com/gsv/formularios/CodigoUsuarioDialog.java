@@ -1,17 +1,14 @@
 package br.com.gsv.formularios;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
 import java.awt.Container;
-import java.awt.Font;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-import javax.swing.border.EmptyBorder;
-import javax.swing.border.LineBorder;
 
+import br.com.gsv.graficoAzul.CodigoUsuarioGrafic;
+import br.com.gsv.graficoClassic.CodigoUsuarioClassic;
 import br.com.gsv.listeners.CodigoUsuarioListener;
 
 public class CodigoUsuarioDialog extends JDialog {
@@ -20,48 +17,35 @@ public class CodigoUsuarioDialog extends JDialog {
 	private Container tela = getContentPane();
 	private JTextField TBuscar;
 	private CodigoUsuarioListener listener;
+	private CodigoUsuarioClassic listenerClassic;
+	private CodigoUsuarioGrafic listenerGrafic;
 	private String login;
 
 	public CodigoUsuarioDialog() {
-		CriaTelaGeral();
-		CriarTela();
-		AdicionaNaTela();
+		CriaVariaveis();
+		AdicionaComponentes();
 		listener = new CodigoUsuarioListener(this);
 	}
 
-	private void CriaTelaGeral() {
-		this.setTitle("Buscar Login");
-		this.setModal(true);
-		this.setBounds(100, 100, 281, 124);
-		this.setResizable(false);
-		this.tela.setLayout(null);
-		this.tela.add(panel, BorderLayout.CENTER);
-
-		panel.setBorder(new EmptyBorder(5, 5, 5, 5));
-		panel.setLayout(null);
-
+	public void IniciaClassic(){
+		listenerClassic = new CodigoUsuarioClassic(this);
+	}
+	
+	public void IniciaGrafic(){
+		listenerGrafic = new CodigoUsuarioGrafic(this);
 	}
 
-	public void CriarTela() {
+	public void CriaVariaveis() {
+		ok = new JButton();
+		cancelar = new JButton();
 		TBuscar = new JTextField();
-		TBuscar.setBorder(new LineBorder(Color.BLACK));
-		TBuscar.setBounds(50, 13, 171, 23);
-		TBuscar.setFont(new Font("Arial", Font.BOLD, 10));
-
-		ok = new JButton("Buscar");
-		ok.setFont(new Font("Segoe UI", Font.PLAIN, 13));
-		ok.setBounds(41, 67, 85, 18);
-
-		cancelar = new JButton("Cancelar");
-		cancelar.setFont(new Font("Segoe UI", Font.PLAIN, 13));
-		cancelar.setBounds(136, 67, 85, 18);
-
 	}
-
-	public void AdicionaNaTela() {
-		tela.add(this.TBuscar);
+	
+	private void AdicionaComponentes() {
 		tela.add(this.ok);
 		tela.add(this.cancelar);
+		tela.add(this.TBuscar);
+		
 	}
 	
 	
@@ -96,6 +80,22 @@ public class CodigoUsuarioDialog extends JDialog {
 
 	public void setLogin(String login) {
 		this.login = login;
+	}
+
+	public JPanel getPanel() {
+		return panel;
+	}
+
+	public void setPanel(JPanel panel) {
+		this.panel = panel;
+	}
+
+	public Container getTela() {
+		return tela;
+	}
+
+	public void setTela(Container tela) {
+		this.tela = tela;
 	}
 	
 	

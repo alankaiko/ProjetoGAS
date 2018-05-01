@@ -29,11 +29,16 @@ public class GerenciaTelaPaciente extends JDialog {
 	public GerenciaTelaPaciente() {
 		CriaTelaGeral();
 		InicializaComponentes();
-		//this.listenerClassic = new GerenciarPacienteClassic(this);
-		this.listenerGrafic = new GerenciaPacienteGrafic(this);
 		this.listener = new GerenciarPacienteListener(this);
 	}
 	
+	public void IniciaGrafic(){
+		this.listenerGrafic = new GerenciaPacienteGrafic(this);
+	}
+	
+	public void IniciaClassic(){
+		listenerClassic = new GerenciarPacienteClassic(this);
+	}
 	
 	private void CriaTelaGeral(){
 		detalhes = new JButton();

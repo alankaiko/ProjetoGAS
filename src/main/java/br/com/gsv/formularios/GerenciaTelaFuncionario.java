@@ -29,11 +29,16 @@ public class GerenciaTelaFuncionario extends JDialog {
 	public GerenciaTelaFuncionario() {
 		CriaTelaGeral();
 		InicializaComponentes();
-		//this.listenerClassic = new GerenciarFuncionarioClassic(this);
-		this.listenerGrafic = new GerenciarFuncionarioGrafic(this);
-		this.listener = new GerenciarFuncionarioListener(this);
+		listener = new GerenciarFuncionarioListener(this);
 	}
 	
+	public void IniciaClassic(){
+		listenerClassic = new GerenciarFuncionarioClassic(this);
+	}
+	
+	public void IniciaGrafic(){
+		listenerGrafic = new GerenciarFuncionarioGrafic(this);
+	}
 	
 	private void CriaTelaGeral(){
 		detalhes = new JButton();

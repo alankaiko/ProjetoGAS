@@ -8,6 +8,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSeparator;
 
+import br.com.gsv.graficoAzul.DetalheConvenioGrafic;
 import br.com.gsv.graficoClassic.DetalheConvenioClassic;
 import br.com.gsv.listeners.DetalhesConvenioListener;
 
@@ -20,16 +21,21 @@ public class DetalhesConvenioDialog extends JDialog {
 	private JSeparator separa;
 	private DetalhesConvenioListener listener;
 	private DetalheConvenioClassic listenerClassic;
-	//private DetalheConvenioGrafic listenerGrafic;
+	private DetalheConvenioGrafic listenerGrafic;
 	
 
 	public DetalhesConvenioDialog() {
 		CriaVariaveis();
 		AdicionaComponentes();
-		
-		listenerClassic = new DetalheConvenioClassic(this);
-		//listenerGrafic = new DetalheConvenioGrafic(this);
 		listener = new DetalhesConvenioListener(this);
+	}
+	
+	public void IniciaClassic(){
+		listenerClassic = new DetalheConvenioClassic(this);
+	}
+	
+	public void IniciaGrafic(){
+		listenerGrafic = new DetalheConvenioGrafic(this);
 	}
 
 	

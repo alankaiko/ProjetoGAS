@@ -28,12 +28,16 @@ public class GerenciaTelaConvenio extends JDialog {
 	public GerenciaTelaConvenio() {
 		CriaTelaGeral();
 		InicializaComponentes();
-		this.listenerGrafic = new GerenciaConvenioGrafic(this);
 		this.listener = new GerenciaConvenioListener(this);
-		//this.listenerClassic = new GerenciaConvenioClassic(this);
-		
 	}
 	
+	public void IniciaGrafic(){
+		this.listenerGrafic = new GerenciaConvenioGrafic(this);
+	}
+	
+	public void IniciaClassic(){
+		listenerClassic = new GerenciaConvenioClassic(this);
+	}
 	
 	private void CriaTelaGeral(){
 		detalhes = new JButton();

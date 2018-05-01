@@ -38,14 +38,16 @@ public class TelaLoginListener implements ActionListener, MouseListener{
 		
 		if(this.usuario != null){
 			this.formulario.dispose();
-			TelaPrincipalGrafic grafic = new TelaPrincipalGrafic();
-			//TelaPrincipalClassic classic = new TelaPrincipalClassic();
-			//classic.setUsuario(this.usuario);
-			//classic.IniciaComponentesSecundarios();
-			grafic.setUsuario(this.usuario);
-			grafic.IniciaComponentesSecundarios();
-			grafic.setLocationRelativeTo(this.formulario.getContentPane());
-			grafic.setVisible(true);
+			if((!this.formulario.getRadioAzul().isSelected() && !this.formulario.getRadioClassic().isSelected()))
+				SelecaoClassic();
+			
+			if(this.formulario.getRadioAzul().isSelected())
+				SelecaoGrafic();
+			
+			if(this.formulario.getRadioClassic().isSelected())
+				SelecaoClassic();
+			
+			
 		}else{
 			MensagemPainelUtil.AutenticaUsuario();
 		}
@@ -62,6 +64,21 @@ public class TelaLoginListener implements ActionListener, MouseListener{
 	}
 	
 	
+	private void SelecaoGrafic(){
+		TelaPrincipalGrafic grafic = new TelaPrincipalGrafic();
+		grafic.setUsuario(this.usuario);
+		grafic.IniciaComponentesSecundarios();
+		grafic.setLocationRelativeTo(this.formulario.getContentPane());
+		grafic.setVisible(true);
+	}
+	
+	private void SelecaoClassic(){
+		TelaPrincipalClassic classic = new TelaPrincipalClassic();
+		classic.setUsuario(this.usuario);
+		classic.IniciaComponentesSecundarios();
+		classic.setLocationRelativeTo(this.formulario.getContentPane());
+		classic.setVisible(true);
+	}
 	
 	
 	@Override

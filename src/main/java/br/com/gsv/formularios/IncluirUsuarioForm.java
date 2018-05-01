@@ -1,8 +1,6 @@
 package br.com.gsv.formularios;
 
-import java.awt.BorderLayout;
 import java.awt.Container;
-import java.awt.Font;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
@@ -11,15 +9,9 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
-import javax.swing.border.EmptyBorder;
-import javax.swing.ImageIcon;
-import javax.swing.border.LineBorder;
 
 import br.com.gsv.listeners.IncluirUsuarioListener;
 import br.com.gsv.util.ConverteDadosUtil;
-
-import java.awt.Color;
-import java.awt.SystemColor;
 
 public class IncluirUsuarioForm extends JDialog {
 	private JPanel panel = new JPanel();
@@ -41,81 +33,20 @@ public class IncluirUsuarioForm extends JDialog {
 	}
 
 	private void CriaTelaGeral() {
-		this.setTitle("Código");
-		this.setModal(true);
-		this.setBounds(100, 100, 516, 330);
-		this.setResizable(false);
-		this.tela.setLayout(null);
-		this.tela.add(panel, BorderLayout.CENTER);
-
-		panel.setBorder(new EmptyBorder(5, 5, 5, 5));
-		panel.setLayout(null);
-		
-		LFuncionario = new JLabel("Funcionário");
-		LFuncionario.setFont(new Font("Segoe UI Light", Font.PLAIN, 12));
-		LFuncionario.setBounds(39, 34, 112, 14);
-		
 		TFuncionario = new JTextField();
-		TFuncionario.setBorder(new LineBorder(Color.BLACK));
-		TFuncionario.setBounds(39, 48, 375, 20);
-		TFuncionario.setColumns(10);
-		TFuncionario.setEditable(false);
-		TFuncionario.setToolTipText("Clique no Botão Pesquisar");
-		
-		LCpf = new JLabel("CPF");
-		LCpf.setFont(new Font("Segoe UI Light", Font.PLAIN, 12));
-		LCpf.setBounds(39, 79, 46, 14);
-		
+		LFuncionario = new JLabel();
+		LCpf = new JLabel();
 		TCpf = new JTextField();
-		TCpf.setBorder(new LineBorder(Color.BLACK));
-		TCpf.setBounds(40, 93, 229, 20);
-		TCpf.setColumns(10);
-		TCpf.setEditable(false);
-		TCpf.setToolTipText("Clique no Botão Pesquisar");
-		
-		LRg = new JLabel("RG");
-		LRg.setFont(new Font("Segoe UI Light", Font.PLAIN, 12));
-		LRg.setBounds(293, 79, 46, 14);
-		
+		LRg = new JLabel();
 		TRg = new JTextField();
-		TRg.setBorder(new LineBorder(Color.BLACK));
-		TRg.setBounds(293, 93, 121, 20);
-		TRg.setColumns(10);
-		TRg.setEditable(false);
-		TRg.setToolTipText("Clique no Botão Pesquisar");
-		
-		LAdicionar = new JLabel("Adicionar Login de Usuário");
-		LAdicionar.setFont(new Font("Segoe UI Symbol", Font.PLAIN, 12));
-		LAdicionar.setBounds(39, 147, 205, 14);
-		
-		LLogin = new JLabel("Login");
-		LLogin.setBounds(39, 172, 46, 14);
-	
-		LSenha = new JLabel("Senha");
-		LSenha.setBounds(293, 172, 46, 14);
-		
+		LAdicionar = new JLabel();
+		LLogin = new JLabel();
+		LSenha = new JLabel();
 		TLogin = new JTextField();
-		TLogin.setBorder(new LineBorder(Color.BLACK));
-		TLogin.setBounds(39, 188, 230, 20);
-		TLogin.setColumns(10);
-		
 		TSenha = new JPasswordField();
-		TSenha.setBorder(new LineBorder(Color.BLACK));
-		TSenha.setBounds(293, 188, 121, 20);
-		
-		BGravar = new JButton("Gravar");
-		BGravar.setBounds(142, 256, 100	, 23);
-	
-		BCancelar = new JButton("Cancelar");
-		BCancelar.setBounds(252, 256, 100, 23);
-		
-		BPesquisar = new JButton("Pesquisar");
-		BPesquisar.setIcon(new ImageIcon(IncluirUsuarioForm.class.getResource("/imagens/icons8-pesquisar-15.png")));
-		BPesquisar.setBackground(SystemColor.menu);
-		BPesquisar.setBorder(null);
-		BPesquisar.setFont(new Font("Segoe UI Light", Font.PLAIN, 11));
-		BPesquisar.setBounds(421, 47, 79, 23);
-
+		BGravar = new JButton();
+		BCancelar = new JButton();
+		BPesquisar = new JButton();
 		JCpf = new JFormattedTextField(ConverteDadosUtil.FormataCPF());
 	}
 	
@@ -136,8 +67,6 @@ public class IncluirUsuarioForm extends JDialog {
 		tela.add(BGravar);
 		tela.add(BCancelar);
 		tela.add(BPesquisar);
-		
-		
 	}
 
 	public Long getCodigo() {
@@ -282,6 +211,14 @@ public class IncluirUsuarioForm extends JDialog {
 
 	public void setListener(IncluirUsuarioListener listener) {
 		this.listener = listener;
+	}
+
+	public JLabel getLAdicionar() {
+		return LAdicionar;
+	}
+
+	public void setLAdicionar(JLabel lAdicionar) {
+		LAdicionar = lAdicionar;
 	}
 	
 	

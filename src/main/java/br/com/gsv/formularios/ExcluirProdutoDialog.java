@@ -9,6 +9,7 @@ import javax.swing.JPanel;
 import javax.swing.JSeparator;
 
 import br.com.gsv.domain.Produto;
+import br.com.gsv.graficoAzul.ExcluirProdutoGrafic;
 import br.com.gsv.graficoClassic.ExcluirProdutoClassic;
 import br.com.gsv.listeners.ExcluirProdutoListener;
 
@@ -21,16 +22,21 @@ public class ExcluirProdutoDialog extends JDialog {
 	private JSeparator separa;
 	private Produto produto;
 	private ExcluirProdutoClassic listenerClassic;
-	//private ExcluirProdutoGrafic listenerGrafic;
+	private ExcluirProdutoGrafic listenerGrafic;
 
 	public ExcluirProdutoDialog(Produto produto) {
 		this.produto = produto;
 		CriaVariaveis();
 		Inicializa();
 		listener = new ExcluirProdutoListener(this);
+	}
+	
+	public void IniciaClassic(){
 		listenerClassic = new ExcluirProdutoClassic(this);
-		//listenerGrafic = new ExcluirProdutoGrafic(this);
-		
+	}
+	
+	public void IniciaGrafic(){
+		listenerGrafic = new ExcluirProdutoGrafic(this);
 	}
 
 	

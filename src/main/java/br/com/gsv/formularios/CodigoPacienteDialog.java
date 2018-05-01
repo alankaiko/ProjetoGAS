@@ -7,6 +7,7 @@ import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import br.com.gsv.graficoAzul.CodigoPacienteGrafic;
 import br.com.gsv.graficoClassic.CodigoPacienteClassic;
 import br.com.gsv.listeners.CodigoPacienteListener;
 
@@ -18,14 +19,20 @@ public class CodigoPacienteDialog extends JDialog {
 	private CodigoPacienteListener listener;
 	private Long codigo;
 	private CodigoPacienteClassic listenerClassic;
-	//private CodigoPacienteGrafic listenerGrafic;
+	private CodigoPacienteGrafic listenerGrafic;
 
 	public CodigoPacienteDialog() {
 		IniciaComponentes();
 		AdicionaNaTela();
 		listener = new CodigoPacienteListener(this);
+	}
+	
+	public void IniciaClassic(){
 		listenerClassic = new CodigoPacienteClassic(this);
-		//listenerGrafic = new CodigoPacienteGrafic(this);
+	}
+	
+	public void IniciaGrafic(){
+		listenerGrafic = new CodigoPacienteGrafic(this);
 	}
 
 	private void IniciaComponentes(){
