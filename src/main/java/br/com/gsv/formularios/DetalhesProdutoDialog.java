@@ -7,6 +7,7 @@ import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import br.com.gsv.graficoAzul.DetalheProdutoGrafic;
 import br.com.gsv.graficoClassic.DetalheProdutoClassic;
 import br.com.gsv.listeners.DetalhesProdutoListener;
 
@@ -18,12 +19,20 @@ public class DetalhesProdutoDialog extends JDialog {
 	private JLabel LDados, LCodigo, LDescricao, LQuantidade, LFabricante, TFabricante;
 	private DetalhesProdutoListener listener;
 	private DetalheProdutoClassic listenerClassic;
+	private DetalheProdutoGrafic listenerGrafic;
 
 	public DetalhesProdutoDialog() {
 		InicializaComponentes();
 		AdicionaNaTela();
 		listener = new DetalhesProdutoListener(this);
+	}
+	
+	public void IniciaClassic(){
 		listenerClassic = new DetalheProdutoClassic(this);
+	}
+	
+	public void IniciaGrafic(){
+		listenerGrafic = new DetalheProdutoGrafic(this);
 	}
 
 	private void InicializaComponentes(){

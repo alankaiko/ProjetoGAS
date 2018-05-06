@@ -41,7 +41,7 @@ public class IncluirPacienteForm extends JDialog {
 		listenerGrafic = new IncluirPacienteGrafic(this);
 	}
 	
-	public void iniciaClassic(){
+	public void IniciaClassic(){
 		listenerClassic = new IncluirPacienteClassic(this);
 	}
 	

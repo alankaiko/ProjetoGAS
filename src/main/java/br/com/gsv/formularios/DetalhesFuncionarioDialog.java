@@ -8,6 +8,7 @@ import javax.swing.JFormattedTextField;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import br.com.gsv.graficoAzul.DetalhesFuncionarioGrafic;
 import br.com.gsv.graficoClassic.DetalhesFuncionarioClassic;
 import br.com.gsv.listeners.DetalhesFuncionarioListener;
 import br.com.gsv.util.ConverteDadosUtil;
@@ -24,11 +25,19 @@ public class DetalhesFuncionarioDialog extends JDialog {
 	private JFormattedTextField JCpf,JDataNasc, JDataCadastro,JCep;
 	private JButton cancelar;
 	private DetalhesFuncionarioClassic listenerClassic;
+	private DetalhesFuncionarioGrafic listenerGrafic;
 	
 	public DetalhesFuncionarioDialog() {
 		CriaVariaveis();
 		InicializaCompomentes();
 		listener = new DetalhesFuncionarioListener(this);
+	}
+	
+	public void IniciaGrafic(){
+		listenerGrafic = new DetalhesFuncionarioGrafic(this);
+	}
+	
+	public void IniciaClassic(){
 		listenerClassic = new DetalhesFuncionarioClassic(this);
 	}
 

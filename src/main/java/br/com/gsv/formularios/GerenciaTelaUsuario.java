@@ -23,6 +23,7 @@ public class GerenciaTelaUsuario extends JDialog{
 	private GerenciaUsuarioGrafic listenerGrafic;
 	private JPanel painelDrag;
 	private int xx,xy;
+	private char versao;
 	
 	
 	public GerenciaTelaUsuario() {
@@ -33,10 +34,12 @@ public class GerenciaTelaUsuario extends JDialog{
 	
 	public void IniciaClassic(){
 		listenerClassic = new GerenciaUsuarioClassic(this);
+		this.versao = 'c';
 	}
 	
 	public void IniciaGrafic(){
 		this.listenerGrafic = new GerenciaUsuarioGrafic(this);
+		this.versao = 'g';
 	}
 	
 	private void CriaTelaGeral(){
@@ -207,6 +210,14 @@ public class GerenciaTelaUsuario extends JDialog{
 
 	public void setXy(int xy) {
 		this.xy = xy;
+	}
+
+	public char getVersao() {
+		return versao;
+	}
+
+	public void setVersao(char versao) {
+		this.versao = versao;
 	}
 	
 	

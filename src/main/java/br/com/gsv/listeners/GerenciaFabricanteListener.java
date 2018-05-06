@@ -110,6 +110,10 @@ public class GerenciaFabricanteListener implements ActionListener{
 	
 	private void ExecutaInclusao(){
 		IncluirFabricantesForm inclui = new IncluirFabricantesForm();
+			if(this.gerenciamento.getVersao() == 'c')
+				inclui.IniciaClassic();
+			if(this.gerenciamento.getVersao() == 'g')
+				inclui.IniciaGrafic();
 		inclui.setLocationRelativeTo(this.gerenciamento.getTela());
 		inclui.setVisible(true);		
 		TabelaDeFabricantes();
@@ -117,8 +121,11 @@ public class GerenciaFabricanteListener implements ActionListener{
 	
 	private void ExecutaExclusao(Long id){
 		FabricanteController controller = new FabricanteController();
-		
 		ExcluirFabricanteDialog telaExc = new ExcluirFabricanteDialog(controller.BuscarPelaID(id));
+			if(this.gerenciamento.getVersao() == 'c')
+				telaExc.IniciaClassic();
+			if(this.gerenciamento.getVersao() == 'g')
+				telaExc.IniciaGrafic();
 		telaExc.setLocationRelativeTo(this.gerenciamento.getTela());
 		telaExc.setVisible(true);
 		TabelaDeFabricantes();	
@@ -127,7 +134,10 @@ public class GerenciaFabricanteListener implements ActionListener{
 	private void ExecutaEdicao(Long id){
 		FabricanteController controller = new FabricanteController();
 		IncluirFabricantesForm edita = new IncluirFabricantesForm();
-		
+			if(this.gerenciamento.getVersao() == 'c')
+				edita.IniciaClassic();
+			if(this.gerenciamento.getVersao() == 'g')
+				edita.IniciaGrafic();
 		edita.getListener().setFabricante((controller.BuscarPelaID(id)));
 		edita.getListener().AlterandoObjetos();
 		
@@ -140,7 +150,10 @@ public class GerenciaFabricanteListener implements ActionListener{
 	private void ExecutaTelaDetalhes(Long id){
 		FabricanteController controller = new FabricanteController();
 		DetalhesFabricanteDialog detalhes = new DetalhesFabricanteDialog();
-		
+			if(this.gerenciamento.getVersao() == 'c')
+				detalhes.IniciaClassic();
+			if(this.gerenciamento.getVersao() == 'g')
+				detalhes.IniciaGrafic();
 		detalhes.getListener().setFabricante(controller.BuscarPelaID(id));
 		detalhes.getListener().Detalhar();
 		
@@ -150,6 +163,10 @@ public class GerenciaFabricanteListener implements ActionListener{
 	
 	private void ExecutaTelaCodigo(){
 		CodigoFabricanteDialog dialogo = new CodigoFabricanteDialog();
+			if(this.gerenciamento.getVersao() == 'c')
+				dialogo.IniciaClassic();
+			if(this.gerenciamento.getVersao() == 'g')
+				dialogo.IniciaGrafic();
 		dialogo.setLocationRelativeTo(this.gerenciamento.getTela());
 		dialogo.setVisible(true);
 		pegaLinha(dialogo.getCodigo());
@@ -158,6 +175,10 @@ public class GerenciaFabricanteListener implements ActionListener{
 	
 	private void ExecutaTelaBuscar(){
 		BuscarFabricanteDialog busca = new BuscarFabricanteDialog();
+			if(this.gerenciamento.getVersao() == 'c')
+				busca.IniciaClassic();
+			if(this.gerenciamento.getVersao() == 'g')
+				busca.IniciaGrafic();
 		busca.setLocationRelativeTo(this.gerenciamento.getTela());
 		busca.setVisible(true);
 		pegaLinha(busca.getListener().getCodigo());

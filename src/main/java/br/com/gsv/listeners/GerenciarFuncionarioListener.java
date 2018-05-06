@@ -112,6 +112,10 @@ public class GerenciarFuncionarioListener implements ActionListener{
 	
 	private void ExecutaInclusao(){
 		IncluirFuncionariosForm inclui = new IncluirFuncionariosForm();
+			if(this.gerenciamento.getVersao() == 'c')
+				inclui.IniciaClassic();
+			if(this.gerenciamento.getVersao() == 'g')
+				inclui.IniciaGrafic();
 		inclui.setLocationRelativeTo(this.gerenciamento.getTela());
 		inclui.setVisible(true);		
 		TabelaDeFuncionarios();
@@ -119,8 +123,11 @@ public class GerenciarFuncionarioListener implements ActionListener{
 	
 	private void ExecutaExclusao(Long id){
 		FuncionarioController controller = new FuncionarioController();
-		
 		ExcluirFuncionarioDialog telaExc = new ExcluirFuncionarioDialog(controller.BuscarPelaID(id));
+			if(this.gerenciamento.getVersao() == 'c')
+				telaExc.IniciaClassic();
+			if(this.gerenciamento.getVersao() == 'g')
+				telaExc.IniciaGrafic();
 		telaExc.setLocationRelativeTo(this.gerenciamento.getTela());
 		telaExc.setVisible(true);
 		TabelaDeFuncionarios();	
@@ -129,7 +136,10 @@ public class GerenciarFuncionarioListener implements ActionListener{
 	private void ExecutaEdicao(Long id){
 		FuncionarioController controller = new FuncionarioController();
 		IncluirFuncionariosForm edita = new IncluirFuncionariosForm();
-		
+			if(this.gerenciamento.getVersao() == 'c')
+				edita.IniciaClassic();
+			if(this.gerenciamento.getVersao() == 'g')
+				edita.IniciaGrafic();
 		edita.getListener().setFuncionario(controller.BuscarPelaID(id));
 		edita.getListener().AlterandoObjetos();
 		
@@ -142,7 +152,10 @@ public class GerenciarFuncionarioListener implements ActionListener{
 	private void ExecutaTelaDetalhes(Long id){
 		FuncionarioController controller = new FuncionarioController();
 		DetalhesFuncionarioDialog detalhes = new DetalhesFuncionarioDialog();
-		
+			if(this.gerenciamento.getVersao() == 'c')
+				detalhes.IniciaClassic();
+			if(this.gerenciamento.getVersao() == 'g')
+				detalhes.IniciaGrafic();
 		detalhes.getListener().setFuncionario(controller.BuscarPelaID(id));
 		detalhes.getListener().Detalhar();
 		
@@ -152,6 +165,10 @@ public class GerenciarFuncionarioListener implements ActionListener{
 	
 	private void ExecutaTelaCodigo(){
 		CodigoFuncionarioDialog dialogo = new CodigoFuncionarioDialog();
+			if(this.gerenciamento.getVersao() == 'c')
+				dialogo.IniciaClassic();
+			if(this.gerenciamento.getVersao() == 'g')
+				dialogo.IniciaGrafic();
 		dialogo.setLocationRelativeTo(this.gerenciamento.getTela());
 		dialogo.setVisible(true);
 		pegaLinha(dialogo.getCodigo());
@@ -160,6 +177,10 @@ public class GerenciarFuncionarioListener implements ActionListener{
 	
 	private void ExecutaTelaBuscar(){
 		BuscarFuncionarioDialog busca = new BuscarFuncionarioDialog();
+			if(this.gerenciamento.getVersao() == 'c')
+				busca.IniciaClassic();
+			if(this.gerenciamento.getVersao() == 'g')
+				busca.IniciaGrafic();
 		busca.setLocationRelativeTo(this.gerenciamento.getTela());
 		busca.setVisible(true);
 		pegaLinha(busca.getListener().getCodigo());

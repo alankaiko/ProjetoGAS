@@ -110,6 +110,10 @@ public class GerenciaUsuarioListener implements ActionListener{
 	
 	private void ExecutaInclusao(){
 		IncluirUsuarioForm inclui = new IncluirUsuarioForm();
+			if(this.formulario.getVersao() == 'c')
+				inclui.IniciaClassic();
+			if(this.formulario.getVersao() == 'g')
+				inclui.IniciaGrafic();
 		inclui.getListener().IniciaObjetos();
 		inclui.setLocationRelativeTo(this.formulario.getTela());
 		inclui.setVisible(true);		
@@ -118,8 +122,11 @@ public class GerenciaUsuarioListener implements ActionListener{
 	
 	private void ExecutaExclusao(String login){
 		UsuarioController controller = new UsuarioController();
-		
 		ExcluirUsuarioDialog telaExc = new ExcluirUsuarioDialog(controller.BuscarPeloLogin(login));
+		if(this.formulario.getVersao() == 'c')
+			telaExc.IniciaClassic();
+		if(this.formulario.getVersao() == 'g')
+			telaExc.IniciaGrafic();
 		telaExc.setLocationRelativeTo(this.formulario.getTela());
 		telaExc.setVisible(true);
 		TabelaDeUsuarios();	
@@ -128,7 +135,10 @@ public class GerenciaUsuarioListener implements ActionListener{
 	private void ExecutaEdicao(String login){
 		UsuarioController controller = new UsuarioController();
 		IncluirUsuarioForm edita = new IncluirUsuarioForm();
-		
+			if(this.formulario.getVersao() == 'c')
+				edita.IniciaClassic();
+			if(this.formulario.getVersao() == 'g')
+				edita.IniciaGrafic();
 		edita.getListener().setUsuario((controller.BuscarPeloLogin(login)));
 		edita.getListener().AlterandoObjetos();
 		
@@ -141,7 +151,10 @@ public class GerenciaUsuarioListener implements ActionListener{
 	private void ExecutaTelaDetalhes(String login){
 		UsuarioController controller = new UsuarioController();
 		DetalhesUsuarioDialog detalhes = new DetalhesUsuarioDialog();
-		
+			if(this.formulario.getVersao() == 'c')
+				detalhes.IniciaClassic();
+			if(this.formulario.getVersao() == 'g')
+				detalhes.IniciaGrafic();
 		detalhes.getListener().setUsuario(controller.BuscarPeloLogin(login));
 		detalhes.getListener().Detalhar();
 		
@@ -151,6 +164,10 @@ public class GerenciaUsuarioListener implements ActionListener{
 	
 	private void ExecutaTelaCodigo(){
 		CodigoUsuarioDialog dialogo = new CodigoUsuarioDialog();
+			if(this.formulario.getVersao() == 'c')
+				dialogo.IniciaClassic();
+			if(this.formulario.getVersao() == 'g')
+				dialogo.IniciaGrafic();
 		dialogo.setLocationRelativeTo(this.formulario.getTela());
 		dialogo.setVisible(true);
 		pegaLinha(dialogo.getLogin());
@@ -159,6 +176,10 @@ public class GerenciaUsuarioListener implements ActionListener{
 	
 	private void ExecutaTelaBuscar(){
 		BuscarUsuarioDialog busca = new BuscarUsuarioDialog();
+			if(this.formulario.getVersao() == 'c')
+				busca.IniciaClassic();
+			if(this.formulario.getVersao() == 'g')
+				busca.IniciaGrafic();
 		busca.getListener().ResetarLista();
 		busca.setLocationRelativeTo(this.formulario.getTela());
 		busca.setVisible(true);

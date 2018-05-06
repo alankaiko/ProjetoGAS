@@ -1,5 +1,11 @@
 package br.com.gsv.graficoAzul;
 
-public class DetalheProdutoGrafic {
+import br.com.gsv.formularios.DetalhesProdutoDialog;
 
+public class DetalheProdutoGrafic {
+	DetalhesProdutoDialog formulario;
+	
+	public DetalheProdutoGrafic(DetalhesProdutoDialog formulario) {
+		this.formulario = formulario;
+	}
 }

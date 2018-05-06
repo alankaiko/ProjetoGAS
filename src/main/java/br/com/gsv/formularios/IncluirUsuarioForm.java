@@ -10,6 +10,8 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
+import br.com.gsv.graficoAzul.IncluirUsuarioGrafic;
+import br.com.gsv.graficoClassic.IncluirUsuarioClassic;
 import br.com.gsv.listeners.IncluirUsuarioListener;
 import br.com.gsv.util.ConverteDadosUtil;
 
@@ -23,6 +25,8 @@ public class IncluirUsuarioForm extends JDialog {
 	private JButton BGravar, BCancelar, BPesquisar;
 	private JFormattedTextField JCpf;
 	private IncluirUsuarioListener listener;
+	private IncluirUsuarioClassic listenerClassic;
+	private IncluirUsuarioGrafic listenerGrafic;
 
 	
 
@@ -30,6 +34,14 @@ public class IncluirUsuarioForm extends JDialog {
 		CriaTelaGeral();
 		AdicionaNaTela();
 		listener = new IncluirUsuarioListener(this);
+	}
+	
+	public void IniciaGrafic(){
+		listenerGrafic = new IncluirUsuarioGrafic(this);
+	}
+	
+	public void IniciaClassic(){
+		listenerClassic = new IncluirUsuarioClassic(this);
 	}
 
 	private void CriaTelaGeral() {

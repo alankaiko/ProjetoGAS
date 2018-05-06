@@ -33,6 +33,8 @@ public class ExcluirUsuarioDialog extends JDialog{
 	
 	
 	
+	
+	
 	public void CriaTela(){
 		this.setBounds(100, 100,320, 100);
 		tela.setLayout(new BorderLayout());

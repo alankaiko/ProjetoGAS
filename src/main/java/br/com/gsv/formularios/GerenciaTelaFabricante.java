@@ -23,6 +23,7 @@ public class GerenciaTelaFabricante extends JDialog {
 	private GerenciaFabricanteGrafic listenerGrafic;
 	private JPanel painelDrag;
 	private int xx,xy;
+	private char versao;
 	
 	
 	public GerenciaTelaFabricante() {
@@ -33,10 +34,12 @@ public class GerenciaTelaFabricante extends JDialog {
 	
 	public void IniciaGrafic(){
 		this.listenerGrafic = new GerenciaFabricanteGrafic(this);
+		this.versao = 'g';
 	}
 	
 	public void IniciaClassic(){
 		listenerClassic = new GerenciaFabricanteClassic(this);
+		this.versao = 'c';
 	}
 	
 	
@@ -207,6 +210,14 @@ public class GerenciaTelaFabricante extends JDialog {
 
 	public void setXy(int xy) {
 		this.xy = xy;
+	}
+
+	public char getVersao() {
+		return versao;
+	}
+
+	public void setVersao(char versao) {
+		this.versao = versao;
 	}
 
 	
