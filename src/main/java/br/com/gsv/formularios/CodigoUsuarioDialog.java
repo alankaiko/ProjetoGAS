@@ -27,14 +27,7 @@ public class CodigoUsuarioDialog extends JDialog {
 		listener = new CodigoUsuarioListener(this);
 	}
 
-	public void IniciaClassic(){
-		listenerClassic = new CodigoUsuarioClassic(this);
-	}
 	
-	public void IniciaGrafic(){
-		listenerGrafic = new CodigoUsuarioGrafic(this);
-	}
-
 	public void CriaVariaveis() {
 		ok = new JButton();
 		cancelar = new JButton();

@@ -27,13 +27,6 @@ public class CodigoFuncionarioDialog extends JDialog {
 		listener = new CodigoFuncionarioListener(this);
 	}
 
-	public void IniciaClassic(){
-		listenerClassic = new CodigoFuncionarioClassic(this);
-	}
-	
-	public void IniciaGrafic(){
-		listenerGrafic = new CodigoFuncionarioGrafic(this);
-	}
 	
 	private void CriaVariaveis(){
 		ok = new JButton();

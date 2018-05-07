@@ -28,14 +28,7 @@ public class IncluirFabricantesForm extends JDialog {
 		listener = new IncluirFabricantesListener(this);
 	}
 	
-	public void IniciaClassic(){
-		listenerClassic = new IncluirFabricanteClassic(this);
-	}
 	
-	public void IniciaGrafic(){
-		listenerGrafic = new IncluirFabricanteGrafic(this);
-	}
-
 	public void InicializaObjetos(){
 		LId = new JLabel();
 		LFabricante = new JLabel(); 

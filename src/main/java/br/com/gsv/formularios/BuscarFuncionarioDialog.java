@@ -47,13 +47,6 @@ public class BuscarFuncionarioDialog extends JDialog {
 		radioFuncionario = new RadioListenerFuncionario(this);
 	}
 	
-	public void IniciaGrafic(){
-		listenerGrafic = new BuscarFuncionarioGrafic(this);
-	}
-	
-	public void IniciaClassic(){
-		listenerClassic = new BuscarFuncionarioClassic(this);
-	}
 	
 	
 	private void CriarTelaGeral(){

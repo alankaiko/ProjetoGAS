@@ -16,7 +16,6 @@ public class ExcluirUsuarioGrafic {
 	
 	public ExcluirUsuarioGrafic(ExcluirUsuarioDialog formulario) {
 		this.formulario = formulario;
-		this.formulario.AdicionaComponentes();
 		CriaTela();
 		DefineComponentes();
 		

@@ -42,13 +42,6 @@ public class BuscarConvenioDialog extends JDialog {
 		radioListener = new RadioListenerConvenio(this);
 	}
 	
-	public void IniciaClassic(){
-		listenerClassic = new BuscarConvenioClassic(this);
-	}
-	
-	public void IniciaGrafic(){
-		listenerGrafic = new BuscarConvenioGrafic(this);
-	}
 	
 	private void CriaComponentes(){
 		buscarUsuario = new JLabel();

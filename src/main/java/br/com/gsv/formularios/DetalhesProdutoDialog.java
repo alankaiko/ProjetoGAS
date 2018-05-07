@@ -20,6 +20,8 @@ public class DetalhesProdutoDialog extends JDialog {
 	private DetalhesProdutoListener listener;
 	private DetalheProdutoClassic listenerClassic;
 	private DetalheProdutoGrafic listenerGrafic;
+	private JPanel painelDrag;
+	private int xx,xy;
 
 	public DetalhesProdutoDialog() {
 		InicializaComponentes();
@@ -27,13 +29,7 @@ public class DetalhesProdutoDialog extends JDialog {
 		listener = new DetalhesProdutoListener(this);
 	}
 	
-	public void IniciaClassic(){
-		listenerClassic = new DetalheProdutoClassic(this);
-	}
 	
-	public void IniciaGrafic(){
-		listenerGrafic = new DetalheProdutoGrafic(this);
-	}
 
 	private void InicializaComponentes(){
 		LDados = new JLabel();
@@ -46,6 +42,7 @@ public class DetalhesProdutoDialog extends JDialog {
 		BTCancelar = new JButton();
 		TQuantidade = new JLabel();
 		TFabricante = new JLabel();
+		painelDrag = new JPanel();
 	}
 
 	private void AdicionaNaTela() {
@@ -164,6 +161,30 @@ public class DetalhesProdutoDialog extends JDialog {
 
 	public void setListener(DetalhesProdutoListener listener) {
 		this.listener = listener;
+	}
+
+	public JPanel getPainelDrag() {
+		return painelDrag;
+	}
+
+	public void setPainelDrag(JPanel painelDrag) {
+		this.painelDrag = painelDrag;
+	}
+
+	public int getXx() {
+		return xx;
+	}
+
+	public void setXx(int xx) {
+		this.xx = xx;
+	}
+
+	public int getXy() {
+		return xy;
+	}
+
+	public void setXy(int xy) {
+		this.xy = xy;
 	}
 
 	

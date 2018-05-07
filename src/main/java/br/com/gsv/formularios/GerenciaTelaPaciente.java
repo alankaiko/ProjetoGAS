@@ -23,8 +23,7 @@ public class GerenciaTelaPaciente extends JDialog {
 	private GerenciarPacienteListener listener;
 	private JPanel painelDrag;
 	private int xx,xy;
-	private char versao;
-	
+
 	
 	
 	public GerenciaTelaPaciente() {
@@ -32,17 +31,7 @@ public class GerenciaTelaPaciente extends JDialog {
 		InicializaComponentes();
 		this.listener = new GerenciarPacienteListener(this);
 	}
-	
-	public void IniciaGrafic(){
-		this.listenerGrafic = new GerenciaPacienteGrafic(this);
-		this.versao = 'g';
-	}
-	
-	public void IniciaClassic(){
-		listenerClassic = new GerenciarPacienteClassic(this);
-		this.versao = 'c';
-	}
-	
+
 	private void CriaTelaGeral(){
 		detalhes = new JButton();
 		codigo = new JButton();
@@ -206,14 +195,5 @@ public class GerenciaTelaPaciente extends JDialog {
 		this.xy = xy;
 	}
 
-	public char getVersao() {
-		return versao;
-	}
-
-	public void setVersao(char versao) {
-		this.versao = versao;
-	}
-	
-	
-	
+		
 }

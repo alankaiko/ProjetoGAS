@@ -29,7 +29,7 @@ public class IncluirFuncionariosForm extends JDialog {
 	private JComboBox ComboEstado, comboCoren,comboCorenEst;
 	private IncluirFuncionarioClassic listenerClassic;
 	private IncluirFuncionarioGrafic listenerGrafic;
-	
+	private char versao;
 	
 	
 	public IncluirFuncionariosForm() {
@@ -38,15 +38,6 @@ public class IncluirFuncionariosForm extends JDialog {
 		listener = new IncluirFuncionarioListener(this);
 		
 	}
-	
-	public void IniciaClassic(){
-		listenerClassic = new IncluirFuncionarioClassic(this);
-	}
-	
-	public void IniciaGrafic(){
-		listenerGrafic = new IncluirFuncionarioGrafic(this);
-	}
-	
 	
 	private void InicializaVariaveis(){
 		LId = new JLabel();
@@ -499,6 +490,14 @@ public class IncluirFuncionariosForm extends JDialog {
 
 	public void setComboCorenEst(JComboBox comboCorenEst) {
 		this.comboCorenEst = comboCorenEst;
+	}
+
+	public char getVersao() {
+		return versao;
+	}
+
+	public void setVersao(char versao) {
+		this.versao = versao;
 	}
 
 

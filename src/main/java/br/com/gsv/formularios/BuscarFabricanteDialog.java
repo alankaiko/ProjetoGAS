@@ -42,13 +42,6 @@ public class BuscarFabricanteDialog extends JDialog {
 		radioListener = new RadioListenerFabricante(this);
 	}
 	
-	public void IniciaClassic(){
-		listenerClassic = new BuscarFabricanteClassic(this);
-	}
-	
-	public void IniciaGrafic(){
-		listenerGrafic = new BuscarFabricanteGrafic(this);
-	}
 	
 	
 	private void CriaComponentes(){

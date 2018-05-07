@@ -25,18 +25,9 @@ public class CodigoProdutoDialog extends JDialog {
 	public CodigoProdutoDialog() {
 		CriaVariaveis();
 		AdicionaNaTela();
-		
-		
 		listener = new CodigoProdutoListener(this);
 	}
 	
-	public void IniciaClassic(){
-		listenerClassic = new CodigoProdutoClassic(this);
-	}
-	
-	public void IniciaGrafic(){
-		listenerGrafic = new CodigoProdutoGrafic(this);
-	}
 	
 	public void CriaVariaveis() {
 		TBuscar = new JTextField();

@@ -27,14 +27,7 @@ public class CodigoPacienteDialog extends JDialog {
 		listener = new CodigoPacienteListener(this);
 	}
 	
-	public void IniciaClassic(){
-		listenerClassic = new CodigoPacienteClassic(this);
-	}
 	
-	public void IniciaGrafic(){
-		listenerGrafic = new CodigoPacienteGrafic(this);
-	}
-
 	private void IniciaComponentes(){
 		ok = new JButton();
 		cancelar = new JButton();

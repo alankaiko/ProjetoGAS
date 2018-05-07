@@ -32,14 +32,7 @@ public class ExcluirPacienteDialog extends JDialog {
 		this.listener = new ExcluirPacienteListener(this);		
 	}
 	
-	public void IniciaClassic(){
-		listenerClassic = new ExcluirPacienteClassic(this);
-	}
-	
-	public void IniciaGrafic(){
-		listenerGrafic = new ExcluirPacienteGrafic(this);
-	}
-	
+		
 	private void IniciaVariaveis(){
 		ok = new JButton();
 		cancelar = new JButton();

@@ -31,15 +31,7 @@ public class ExcluirProdutoDialog extends JDialog {
 		listener = new ExcluirProdutoListener(this);
 	}
 	
-	public void IniciaClassic(){
-		listenerClassic = new ExcluirProdutoClassic(this);
-	}
-	
-	public void IniciaGrafic(){
-		listenerGrafic = new ExcluirProdutoGrafic(this);
-	}
 
-	
 	
 	private void CriaVariaveis(){
 		ok = new JButton();

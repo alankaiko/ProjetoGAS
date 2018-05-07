@@ -33,13 +33,6 @@ public class DetalhesPacienteDialog extends JDialog {
 		listener = new DetalhesPacienteListener(this);
 	}
 	
-	public void IniciaClassic(){
-		listenerClassic = new DetalhesPacienteClassic(this);
-	}
-	
-	public void IniciaGrafic(){
-		listenerGrafic = new DetalhesPacienteGrafic(this);
-	}
 	
 	public void IniciaVariaveis() {
 		TId = new JLabel();

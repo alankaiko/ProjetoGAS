@@ -33,13 +33,6 @@ public class ExcluirFabricanteDialog extends JDialog {
 		this.listener = new ExcluirFabricanteListener(this);
 	}
 	
-	public void IniciaClassic(){
-		listenerClassic = new ExcluirFabricanteClassic(this);
-	}
-	
-	public void IniciaGrafic(){
-		listenerGrafic = new ExcluirFabricanteGrafic(this);
-	}
 	
 	private void CriaVariaveis(){
 		excluir = new JLabel();

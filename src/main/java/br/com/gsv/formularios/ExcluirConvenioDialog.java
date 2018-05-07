@@ -32,14 +32,7 @@ public class ExcluirConvenioDialog extends JDialog {
 		listener = new ExcluirConvenioListener(this);
 	}
 	
-	public void IniciaClassic(){
-		listenerClassic = new ExcluirConvenioClassic(this);
-	}
-	
-	public void IniciaGrafic(){
-		listenerGrafic = new ExcluirConvenioGrafic(this);
-	}
-	
+		
 	private void CriaVariaveis(){
 		excluir = new JLabel();
 		ok = new JButton();

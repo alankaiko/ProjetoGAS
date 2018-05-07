@@ -42,13 +42,6 @@ public class BuscarPacienteDialog extends JDialog {
 		radioListener = new RadioListenerPaciente(this);		
 	}
 	
-	public void IniciaGrafic(){
-		listenerGrafic = new BuscarPacienteGrafic(this);
-	}
-	
-	public void IniciaClassic(){
-		listenerClassic = new BuscarPacienteClassic(this);
-	}
 	
 	
 	private void CriaComponentes(){

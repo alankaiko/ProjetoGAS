@@ -38,14 +38,7 @@ public class BuscarUsuarioDialog extends JDialog {
 		listener = new BuscarUsuarioListener(this);
 	}
 	
-	public void IniciaClassic(){
-		listenerClassic = new BuscarUsuarioClassic(this);
-	}
-	
-	public void IniciaGrafic(){
-		listenerGrafic = new BuscarUsuarioGrafic(this);
-	}
-	
+		
 	private void CriaComponentes() {
 		buscarUsuario = new JLabel();
 		buscaLogin = new JRadioButton();

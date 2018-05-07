@@ -32,15 +32,7 @@ public class DetalhesUsuarioDialog extends JDialog {
 		listener = new DetalhesUsuarioListener(this);
 	}
 	
-	public void IniciaClassic(){
-		listenerClassic = new DetalhesUsuarioClassic(this);
-	}
-	
-	public void IniciaGrafic(){
-		listenerGrafic =  new DetalhesUsuarioGrafic(this);
-	}
-
-	
+		
 	public void Dados() {
 		TFuncionario = new JLabel();
 		TCpf = new JLabel();

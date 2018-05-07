@@ -36,13 +36,6 @@ public class IncluirUsuarioForm extends JDialog {
 		listener = new IncluirUsuarioListener(this);
 	}
 	
-	public void IniciaGrafic(){
-		listenerGrafic = new IncluirUsuarioGrafic(this);
-	}
-	
-	public void IniciaClassic(){
-		listenerClassic = new IncluirUsuarioClassic(this);
-	}
 
 	private void CriaTelaGeral() {
 		TFuncionario = new JTextField();

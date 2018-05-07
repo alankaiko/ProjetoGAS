@@ -30,14 +30,7 @@ public class DetalhesFabricanteDialog extends JDialog {
 		listener = new DetalhesFabricanteListener(this);
 	}
 	
-	public void IniciaGrafic(){
-		listenerGrafic = new DetalheFabricanteGrafic(this);
-	}
 	
-	public void IniciaClassic(){
-		listenerClassic = new DetalheFabricanteClassic(this);
-	}
-
 	public void CriaVariaveis() {
 		LId = new JLabel();
 		LFabricante = new JLabel();

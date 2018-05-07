@@ -1,9 +1,6 @@
 package br.com.gsv.formularios;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
 import java.awt.Container;
-import java.awt.Font;
 
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
@@ -14,7 +11,6 @@ import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
-import javax.swing.border.EmptyBorder;
 
 import br.com.gsv.graficoAzul.BuscarProdutoGrafic;
 import br.com.gsv.graficoClassic.BuscarProdutoClassic;
@@ -39,24 +35,11 @@ public class BuscarProdutoDialog extends JDialog {
 
 	
 	public BuscarProdutoDialog() {
-		CriarTelaGeral();
 		CriaComponentes();
 		AdicionaNaTela();
 		listener = new BuscarProdutoListener(this);
 	}
 	
-	public void IniciaClassic(){
-		listenerClassic = new BuscarProdutoClassic(this);
-	}
-	
-	public void IniciaGrafic(){
-		listenerGrafic = new BuscarProdutoGrafic(this);
-	}
-	
-	
-	private void CriarTelaGeral(){
-		
-	}
 	
 	private void CriaComponentes(){
 		buscaCodigo = new JRadioButton();

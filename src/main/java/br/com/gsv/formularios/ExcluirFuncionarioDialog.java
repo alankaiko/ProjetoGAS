@@ -31,16 +31,6 @@ public class ExcluirFuncionarioDialog extends JDialog {
 		CriaVariaveis();
 		AdicionaComponentes();
 		listener = new ExcluirFuncionarioListener(this);
-		
-		
-	}
-	
-	public void IniciaClassic(){
-		listenerClassic = new ExcluirFuncionarioClassic(this);
-	}
-	
-	public void IniciaGrafic(){
-		listenerGrafic = new ExcluirFuncionarioGrafic(this);
 	}
 	
 	

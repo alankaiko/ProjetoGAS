@@ -31,14 +31,6 @@ public class IncluirConvenioForm extends JDialog{
 		listener = new IncluirConvenioListener(this);
 	}
 
-	public void IniciaClassic(){
-		listenerClassic = new IncluirConvenioClassic(this);
-	}
-	
-	public void IniciaGrafic(){
-		listenerGrafico = new IncluirConvenioGrafic(this);
-	}
-	
 	
 	public void CriaVariaveis() {
 		LId = new JLabel();

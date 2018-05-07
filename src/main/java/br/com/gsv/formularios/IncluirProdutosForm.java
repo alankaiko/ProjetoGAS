@@ -32,14 +32,6 @@ public class IncluirProdutosForm extends JDialog {
 		listener = new IncluirProdutoListener(this);
 	}
 	
-	public void IniciaClassic(){
-		listenerClassic = new IncluirProdutosClassic(this);
-	}
-	
-	public void IniciaGrafic(){
-		listenerGrafic = new IncluirProdutoGrafic(this);
-	}
-	
 	private void CriaVariaveis(){
 		LDados = new JLabel();
 		LCodigo = new JLabel();

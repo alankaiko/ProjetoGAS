@@ -37,14 +37,7 @@ public class IncluirPacienteForm extends JDialog {
 		listener = new IncluirPacienteListener(this);
 	}
 	
-	public void IniciaGrafic(){
-		listenerGrafic = new IncluirPacienteGrafic(this);
-	}
-	
-	public void IniciaClassic(){
-		listenerClassic = new IncluirPacienteClassic(this);
-	}
-	
+		
 	private void CriaVariaveis(){
 		TId = new JTextField();
 		TNome = new JTextField();
