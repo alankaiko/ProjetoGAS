@@ -13,7 +13,6 @@ import javax.swing.JLabel;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.border.LineBorder;
 
-import aaaaatelas.Gerenciar;
 import br.com.gsv.formularios.DetalhesUsuarioDialog;
 
 public class DetalhesUsuarioGrafic {
@@ -40,7 +39,7 @@ public class DetalhesUsuarioGrafic {
 		this.formulario.getPainelDrag().setBackground(new Color(20, 34, 56));
 		
 		JLabel LFechar = new JLabel();
-		LFechar.setIcon(new ImageIcon(Gerenciar.class.getResource("/imagens/icons8-não-22.png")));
+		LFechar.setIcon(new ImageIcon(DetalhesUsuarioGrafic.class.getResource("/imagens/icons8-não-22.png")));
 		
 		GroupLayout gl_painelTitulo = new GroupLayout(this.formulario.getPainelDrag());
 		gl_painelTitulo.setHorizontalGroup(

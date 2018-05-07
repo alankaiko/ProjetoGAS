@@ -6,6 +6,7 @@ import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JSeparator;
 
 import br.com.gsv.graficoAzul.DetalheProdutoGrafic;
 import br.com.gsv.graficoClassic.DetalheProdutoClassic;
@@ -20,14 +21,16 @@ public class DetalhesProdutoDialog extends JDialog {
 	private DetalhesProdutoListener listener;
 	private DetalheProdutoClassic listenerClassic;
 	private DetalheProdutoGrafic listenerGrafic;
+	private JSeparator separa;
 	private JPanel painelDrag;
 	private int xx,xy;
 
 	public DetalhesProdutoDialog() {
 		InicializaComponentes();
 		AdicionaNaTela();
-		listener = new DetalhesProdutoListener(this);
+		
 		listenerGrafic = new DetalheProdutoGrafic(this);
+		listener = new DetalhesProdutoListener(this);
 	}
 	
 	
@@ -44,6 +47,7 @@ public class DetalhesProdutoDialog extends JDialog {
 		TQuantidade = new JLabel();
 		TFabricante = new JLabel();
 		painelDrag = new JPanel();
+		separa = new JSeparator();
 	}
 
 	private void AdicionaNaTela() {
@@ -186,6 +190,18 @@ public class DetalhesProdutoDialog extends JDialog {
 
 	public void setXy(int xy) {
 		this.xy = xy;
+	}
+
+
+
+	public JSeparator getSepara() {
+		return separa;
+	}
+
+
+
+	public void setSepara(JSeparator separa) {
+		this.separa = separa;
 	}
 
 	

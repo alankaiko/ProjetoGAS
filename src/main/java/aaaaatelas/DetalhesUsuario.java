@@ -11,9 +11,9 @@ import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.border.LineBorder;
-import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.JTextField;
+import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.border.LineBorder;
 
 public class DetalhesUsuario extends JDialog {
 	private JPanel panel = new JPanel();
@@ -49,7 +49,7 @@ public class DetalhesUsuario extends JDialog {
 		painelTitulo.setBackground(new Color(20, 34, 56));
 		
 		JLabel LFechar = new JLabel("");
-		LFechar.setIcon(new ImageIcon(Gerenciar.class.getResource("/imagens/icons8-não-22.png")));
+		LFechar.setIcon(new ImageIcon(DetalhesUsuario.class.getResource("/imagens/icons8-não-22.png")));
 		GroupLayout gl_painelTitulo = new GroupLayout(painelTitulo);
 		gl_painelTitulo.setHorizontalGroup(
 			gl_painelTitulo.createParallelGroup(Alignment.TRAILING)

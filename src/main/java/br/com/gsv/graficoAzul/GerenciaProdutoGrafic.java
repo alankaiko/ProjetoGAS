@@ -13,7 +13,6 @@ import javax.swing.JLabel;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.border.LineBorder;
 
-import aaaaatelas.Gerenciar;
 import br.com.gsv.formularios.GerenciaTelaProdutos;
 
 public class GerenciaProdutoGrafic {
@@ -54,10 +53,10 @@ private GerenciaTelaProdutos formulario;
 		this.formulario.getPainelDrag().setBackground(new Color(20, 34, 56));
 		
 		JLabel LFechar = new JLabel("");
-		LFechar.setIcon(new ImageIcon(Gerenciar.class.getResource("/imagens/icons8-não-22.png")));
+		LFechar.setIcon(new ImageIcon(GerenciaProdutoGrafic.class.getResource("/imagens/icons8-não-22.png")));
 		LFechar.addMouseListener(new MouseAdapter() {
 			@Override
-			public void mouseClicked(MouseEvent e) {
+			public void mousePressed(MouseEvent e) {
 				formulario.dispose();
 			}
 		});

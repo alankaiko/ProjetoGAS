@@ -1,21 +1,18 @@
 package aaaaatelas;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Container;
-import java.awt.FlowLayout;
 import java.awt.Font;
 
 import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
-import javax.swing.GroupLayout.Alignment;
+import javax.swing.JSeparator;
 import javax.swing.LayoutStyle.ComponentPlacement;
-import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 
 public class DetalhesProdutoGrafico extends JDialog {
@@ -47,7 +44,7 @@ public class DetalhesProdutoGrafico extends JDialog {
 		painelTitulo.setBackground(new Color(20, 34, 56));
 		
 		JLabel LFechar = new JLabel("");
-		LFechar.setIcon(new ImageIcon(Gerenciar.class.getResource("/imagens/icons8-não-22.png")));
+		LFechar.setIcon(new ImageIcon(DetalhesProdutoGrafico.class.getResource("/imagens/icons8-não-22.png")));
 		GroupLayout gl_painelTitulo = new GroupLayout(painelTitulo);
 		gl_painelTitulo.setHorizontalGroup(
 			gl_painelTitulo.createParallelGroup(Alignment.TRAILING)
@@ -65,10 +62,10 @@ public class DetalhesProdutoGrafico extends JDialog {
 		LAdicionar.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 13));
 		
 		JLabel LCodigo = new JLabel("Código");
-		LCodigo.setFont(new Font("Segoe UI", Font.PLAIN, 12));;
+		LCodigo.setFont(new Font("Segoe UI Light", Font.PLAIN, 14));;
 		
 		JLabel LDescricao = new JLabel("Descrição");
-		LDescricao.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+		LDescricao.setFont(new Font("Segoe UI Light", Font.PLAIN, 14));
 		
 		JButton BCancelar = new JButton("Cancelar");
 		BCancelar.setForeground(Color.WHITE);
@@ -76,44 +73,58 @@ public class DetalhesProdutoGrafico extends JDialog {
 		BCancelar.setBackground(new Color(71, 120, 197));
 		
 		JLabel TCodigo = new JLabel("New label");
+		TCodigo.setFont(new Font("Segoe UI", Font.PLAIN, 13));
 		
 		JLabel TDescricao = new JLabel("New label");
+		TDescricao.setFont(new Font("Segoe UI", Font.PLAIN, 13));
 		
 		JLabel lblQuantidade = new JLabel("Quantidade");
+		lblQuantidade.setFont(new Font("Segoe UI Light", Font.PLAIN, 14));
 		
 		JLabel TQuantidae = new JLabel("New label");
+		TQuantidae.setFont(new Font("Segoe UI", Font.PLAIN, 13));
 		
 		JLabel LFabricante = new JLabel("Fabricante");
+		LFabricante.setFont(new Font("Segoe UI Light", Font.PLAIN, 14));
 		
 		JLabel TFabricante = new JLabel("New label");
+		TFabricante.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+		
+		JSeparator separa = new JSeparator();
+		separa.setBackground(new Color(71, 120, 197));
 		
 		
 		GroupLayout gl_panel = new GroupLayout(panel);
 		gl_panel.setHorizontalGroup(
 			gl_panel.createParallelGroup(Alignment.LEADING)
-				.addComponent(painelTitulo, GroupLayout.DEFAULT_SIZE, 398, Short.MAX_VALUE)
 				.addGroup(gl_panel.createSequentialGroup()
 					.addContainerGap()
 					.addComponent(LAdicionar, GroupLayout.PREFERRED_SIZE, 140, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(248, Short.MAX_VALUE))
+					.addContainerGap(266, Short.MAX_VALUE))
 				.addGroup(gl_panel.createSequentialGroup()
 					.addContainerGap()
 					.addGroup(gl_panel.createParallelGroup(Alignment.TRAILING)
-						.addComponent(LFabricante, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 75, Short.MAX_VALUE)
-						.addComponent(lblQuantidade, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 75, Short.MAX_VALUE)
-						.addComponent(LDescricao, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 75, Short.MAX_VALUE)
-						.addComponent(LCodigo, Alignment.LEADING, GroupLayout.PREFERRED_SIZE, 75, GroupLayout.PREFERRED_SIZE))
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
-						.addComponent(TFabricante, GroupLayout.DEFAULT_SIZE, 267, Short.MAX_VALUE)
-						.addComponent(TQuantidae, GroupLayout.DEFAULT_SIZE, 267, Short.MAX_VALUE)
-						.addComponent(TDescricao, GroupLayout.DEFAULT_SIZE, 267, Short.MAX_VALUE)
-						.addComponent(TCodigo, GroupLayout.DEFAULT_SIZE, 267, Short.MAX_VALUE))
+						.addComponent(separa, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 366, Short.MAX_VALUE)
+						.addGroup(gl_panel.createSequentialGroup()
+							.addGroup(gl_panel.createParallelGroup(Alignment.TRAILING)
+								.addComponent(LFabricante, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 75, Short.MAX_VALUE)
+								.addComponent(lblQuantidade, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 75, Short.MAX_VALUE)
+								.addComponent(LDescricao, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 75, Short.MAX_VALUE)
+								.addComponent(LCodigo, Alignment.LEADING, GroupLayout.PREFERRED_SIZE, 75, GroupLayout.PREFERRED_SIZE))
+							.addPreferredGap(ComponentPlacement.RELATED)
+							.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
+								.addComponent(TQuantidae, GroupLayout.DEFAULT_SIZE, 285, Short.MAX_VALUE)
+								.addComponent(TDescricao, GroupLayout.DEFAULT_SIZE, 285, Short.MAX_VALUE)
+								.addComponent(TCodigo, GroupLayout.DEFAULT_SIZE, 285, Short.MAX_VALUE)
+								.addComponent(TFabricante, GroupLayout.PREFERRED_SIZE, 285, GroupLayout.PREFERRED_SIZE))))
 					.addGap(40))
-				.addGroup(Alignment.TRAILING, gl_panel.createSequentialGroup()
-					.addContainerGap(153, Short.MAX_VALUE)
+				.addGroup(gl_panel.createSequentialGroup()
+					.addGap(151)
 					.addComponent(BCancelar, GroupLayout.PREFERRED_SIZE, 97, GroupLayout.PREFERRED_SIZE)
-					.addGap(148))
+					.addContainerGap(168, Short.MAX_VALUE))
+				.addGroup(gl_panel.createSequentialGroup()
+					.addComponent(painelTitulo, GroupLayout.PREFERRED_SIZE, 400, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap(126, Short.MAX_VALUE))
 		);
 		gl_panel.setVerticalGroup(
 			gl_panel.createParallelGroup(Alignment.LEADING)
@@ -137,12 +148,13 @@ public class DetalhesProdutoGrafico extends JDialog {
 					.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
 						.addComponent(LFabricante)
 						.addComponent(TFabricante))
-					.addPreferredGap(ComponentPlacement.RELATED, 88, Short.MAX_VALUE)
-					.addComponent(BCancelar, GroupLayout.PREFERRED_SIZE, 47, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addComponent(separa, GroupLayout.PREFERRED_SIZE, 2, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
+					.addComponent(BCancelar)
 					.addContainerGap())
 		);
 		panel.setLayout(gl_panel);
 		
 	}
-
 }

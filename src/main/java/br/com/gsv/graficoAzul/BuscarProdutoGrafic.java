@@ -13,7 +13,6 @@ import javax.swing.JLabel;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.border.LineBorder;
 
-import aaaaatelas.Gerenciar;
 import br.com.gsv.formularios.BuscarProdutoDialog;
 import br.com.gsv.util.FieldListener;
 
@@ -50,10 +49,10 @@ public class BuscarProdutoGrafic {
 		this.formulario.getPainelDrag().setBackground(new Color(20, 34, 56));
 		
 		JLabel LFechar = new JLabel();
-		LFechar.setIcon(new ImageIcon(Gerenciar.class.getResource("/imagens/icons8-não-22.png")));
+		LFechar.setIcon(new ImageIcon(BuscarProdutoGrafic.class.getResource("/imagens/icons8-não-22.png")));
 		LFechar.addMouseListener(new MouseAdapter() {
 			@Override
-			public void mouseClicked(MouseEvent e) {
+			public void mousePressed(MouseEvent e) {
 				formulario.dispose();
 			}
 		});
