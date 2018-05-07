@@ -45,6 +45,7 @@ public class BuscarFuncionarioDialog extends JDialog {
 		AdicionaNaTela();
 		listener = new BuscarFuncionarioListener(this);
 		radioFuncionario = new RadioListenerFuncionario(this);
+		listenerGrafic = new BuscarFuncionarioGrafic(this);
 	}
 	
 	

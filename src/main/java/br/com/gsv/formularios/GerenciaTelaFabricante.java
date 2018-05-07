@@ -31,7 +31,13 @@ public class GerenciaTelaFabricante extends JDialog {
 		listener = new GerenciaFabricanteListener(this);
 	}
 	
+	public void IniciaClassic(){
+		listenerClassic = new GerenciaFabricanteClassic(this);
+	}
 	
+	public void IniciaGrafic(){
+		listenerGrafic = new GerenciaFabricanteGrafic(this);
+	}
 	
 	private void CriaTelaGeral(){
 		detalhes = new JButton();

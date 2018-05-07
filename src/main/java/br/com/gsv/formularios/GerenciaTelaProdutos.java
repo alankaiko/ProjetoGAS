@@ -33,6 +33,14 @@ public class GerenciaTelaProdutos extends JDialog {
 		this.listener = new GerenciarProdutosListener(this);
 	}
 	
+	public void IniciaClassic(){
+		listenerClassic = new GerenciaProdutoClassic(this);
+	}
+	
+	public void IniciaGrafic(){
+		listenerGrafic = new GerenciaProdutoGrafic(this);
+	}
+	
 	
 	private void CriaTelaGeral(){
 		detalhes = new JButton();

@@ -39,7 +39,8 @@ public class BuscarPacienteDialog extends JDialog {
 		CriaComponentes();
 		AdicionaNaTela();
 		listener = new BuscarPacienteListener(this);
-		radioListener = new RadioListenerPaciente(this);		
+		radioListener = new RadioListenerPaciente(this);	
+		listenerGrafic = new BuscarPacienteGrafic(this);
 	}
 	
 	

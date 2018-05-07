@@ -31,6 +31,7 @@ public class DetalhesFuncionarioDialog extends JDialog {
 		CriaVariaveis();
 		InicializaCompomentes();
 		listener = new DetalhesFuncionarioListener(this);
+		listenerGrafic = new DetalhesFuncionarioGrafic(this);
 	}
 	
 	public void CriaVariaveis() {

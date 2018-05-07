@@ -26,6 +26,7 @@ public class CodigoProdutoDialog extends JDialog {
 		CriaVariaveis();
 		AdicionaNaTela();
 		listener = new CodigoProdutoListener(this);
+		listenerGrafic = new CodigoProdutoGrafic(this);
 	}
 	
 	

@@ -40,6 +40,7 @@ public class BuscarFabricanteDialog extends JDialog {
 		AdicionaNaTela();		
 		listener = new BuscarFabricanteListener(this);
 		radioListener = new RadioListenerFabricante(this);
+		listenerGrafic = new BuscarFabricanteGrafic(this);
 	}
 	
 	

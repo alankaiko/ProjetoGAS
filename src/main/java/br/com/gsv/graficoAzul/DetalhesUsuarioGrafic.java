@@ -21,6 +21,8 @@ public class DetalhesUsuarioGrafic {
 	
 	public DetalhesUsuarioGrafic(DetalhesUsuarioDialog formulario) {
 		this.formulario = formulario;
+		CriaTela();
+		OrganizaComponentes();
 		ArrastandoPainel();
 	}
 	
@@ -31,7 +33,7 @@ public class DetalhesUsuarioGrafic {
 		this.formulario.getPanel().setBorder(new LineBorder(new Color(71,120,197)));
 		this.formulario.getPanel().setBackground(Color.WHITE);
 		this.formulario.getPanel().setBounds(0, 0, 480, 350);
-		this.formulario.getTela().add(this.formulario.getPanel());
+		//this.formulario.getTela().add(this.formulario.getPanel());
 	}
 	
 	private void OrganizaComponentes(){

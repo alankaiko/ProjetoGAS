@@ -30,6 +30,7 @@ public class DetalhesUsuarioDialog extends JDialog {
 		Dados();
 		InicializaCompomentes();
 		listener = new DetalhesUsuarioListener(this);
+		listenerGrafic = new DetalhesUsuarioGrafic(this);
 	}
 	
 		

@@ -17,7 +17,7 @@ public class GerenciaProdutoClassic {
 	
 	
 	public void CriarTelaGeralClassic() {
-		this.formulario.setTitle("Cadastro de Funcionarios");
+		this.formulario.setTitle("Cadastro de Produtos");
 		this.formulario.setModal(true);
 		this.formulario.setBounds(100, 100, 700, 480);
 		this.formulario.setResizable(false);

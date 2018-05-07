@@ -329,6 +329,7 @@ public class TelaPrincipalGraficListener implements MouseListener, ActionListene
 	
 	private void AbreCadConvenio(){
 		GerenciaTelaConvenio convenio = new GerenciaTelaConvenio();
+		convenio.IniciaGrafic();
 		convenio.setLocationRelativeTo(this.tela.getTela());
 		convenio.setVisible(true);
 	}
@@ -337,12 +338,14 @@ public class TelaPrincipalGraficListener implements MouseListener, ActionListene
 	
 	private void AbreCadPaciente(){
 		GerenciaTelaPaciente paciente = new GerenciaTelaPaciente();
+		paciente.IniciaGrafic();
 		paciente.setLocationRelativeTo(this.tela.getTela());
 		paciente.setVisible(true);
 	}
 	
 	private void AbreUsuConsulta(){
 		GerenciaTelaFuncionario funcionario = new GerenciaTelaFuncionario();
+		funcionario.IniciaGrafic();
 		funcionario.setLocationRelativeTo(this.tela.getTela());
 		funcionario.setVisible(true);
 	}
@@ -355,18 +358,21 @@ public class TelaPrincipalGraficListener implements MouseListener, ActionListene
 	
 	private void AbreCadFabricante(){
 		GerenciaTelaFabricante fabricante = new GerenciaTelaFabricante();
+		fabricante.IniciaGrafic();
 		fabricante.setLocationRelativeTo(this.tela.getTela());
 		fabricante.setVisible(true);
 	}
 	
 	private void AbreCadProdutos(){
 		GerenciaTelaProdutos produtos = new GerenciaTelaProdutos();
+		produtos.IniciaGrafic();
 		produtos.setLocationRelativeTo(this.tela.getTela());
 		produtos.setVisible(true);
 	}
 	
 	private void AbreCadUsuarios(){
 		GerenciaTelaUsuario user = new GerenciaTelaUsuario();
+		user.IniciaGrafic();
 		user.setLocationRelativeTo(this.tela.getTela());
 		user.setVisible(true);
 	}

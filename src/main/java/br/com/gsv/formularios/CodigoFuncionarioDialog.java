@@ -25,6 +25,7 @@ public class CodigoFuncionarioDialog extends JDialog {
 		CriaVariaveis();
 		AdicionaNaTela();
 		listener = new CodigoFuncionarioListener(this);
+		listenerGrafic = new CodigoFuncionarioGrafic(this);
 	}
 
 	

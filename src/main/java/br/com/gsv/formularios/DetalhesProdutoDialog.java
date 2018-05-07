@@ -27,6 +27,7 @@ public class DetalhesProdutoDialog extends JDialog {
 		InicializaComponentes();
 		AdicionaNaTela();
 		listener = new DetalhesProdutoListener(this);
+		listenerGrafic = new DetalheProdutoGrafic(this);
 	}
 	
 	

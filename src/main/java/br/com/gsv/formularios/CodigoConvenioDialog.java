@@ -27,6 +27,7 @@ public class CodigoConvenioDialog extends JDialog {
 		CriaVariaveis();
 		AdicionaComponentes();
 		listener = new CodigoConvenioListener(this);	
+		listenerGrafic = new CodigoConveniGrafic(this);
 	}	
 	
 	

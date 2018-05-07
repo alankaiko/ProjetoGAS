@@ -25,6 +25,7 @@ public class CodigoUsuarioDialog extends JDialog {
 		CriaVariaveis();
 		AdicionaComponentes();
 		listener = new CodigoUsuarioListener(this);
+		listenerGrafic = new CodigoUsuarioGrafic(this);
 	}
 
 	

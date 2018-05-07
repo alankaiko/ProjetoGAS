@@ -31,6 +31,14 @@ public class GerenciaTelaUsuario extends JDialog{
 		InicializaComponentes();
 		this.listener = new GerenciaUsuarioListener(this);		
 	}
+	
+	public void IniciaClassic(){
+		listenerClassic = new GerenciaUsuarioClassic(this);
+	}
+	
+	public void IniciaGrafic(){
+		listenerGrafic = new GerenciaUsuarioGrafic(this);
+	}
 
 	
 	private void CriaTelaGeral(){
