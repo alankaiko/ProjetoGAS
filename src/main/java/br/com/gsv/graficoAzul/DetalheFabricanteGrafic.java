@@ -45,6 +45,12 @@ private DetalhesFabricanteDialog formulario;
 		
 		JLabel LFechar = new JLabel();
 		LFechar.setIcon(new ImageIcon(DetalheFabricanteGrafic.class.getResource("/imagens/icons8-não-22.png")));
+		LFechar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent e) {
+				formulario.dispose();
+			}
+		});
 		
 		JLabel Titulo = new JLabel("Detalhes de Fabricante");
 		Titulo.setFont(new Font("Segoe UI Semilight", Font.PLAIN, 13));
@@ -78,10 +84,11 @@ private DetalhesFabricanteDialog formulario;
 		this.formulario.getTFabricante().setFont(new Font("Segoe UI Symbol", Font.PLAIN, 14));
 		
 		
-		JButton bCancelar = new JButton("Cancelar");
-		bCancelar.setForeground(Color.WHITE);
-		bCancelar.setFont(new Font("Segoe UI", Font.PLAIN, 14));
-		bCancelar.setBackground(new Color(71, 120, 197));
+		this.formulario.getCancelar().setText("Cancelar");
+		this.formulario.getCancelar().setForeground(Color.WHITE);
+		this.formulario.getCancelar().setFont(new Font("Segoe UI", Font.PLAIN, 14));
+		this.formulario.getCancelar().setBackground(new Color(71, 120, 197));
+		
 		GroupLayout gl_panel = new GroupLayout(this.formulario.getPanel());
 		gl_panel.setHorizontalGroup(
 			gl_panel.createParallelGroup(Alignment.LEADING)
@@ -90,7 +97,7 @@ private DetalhesFabricanteDialog formulario;
 				.addComponent(this.formulario.getPainelDrag(), GroupLayout.PREFERRED_SIZE, 401, GroupLayout.PREFERRED_SIZE)
 				.addGroup(gl_panel.createSequentialGroup()
 				.addGap(146)
-				.addComponent(bCancelar, GroupLayout.PREFERRED_SIZE, 105, GroupLayout.PREFERRED_SIZE))
+				.addComponent(this.formulario.getCancelar(), GroupLayout.PREFERRED_SIZE, 105, GroupLayout.PREFERRED_SIZE))
 				.addGroup(gl_panel.createSequentialGroup()
 				.addGap(18)
 				.addGroup(gl_panel.createParallelGroup(Alignment.TRAILING, false)
@@ -120,7 +127,7 @@ private DetalhesFabricanteDialog formulario;
 				.addGap(18)
 				.addComponent(this.formulario.getSepara(), GroupLayout.PREFERRED_SIZE, 2, GroupLayout.PREFERRED_SIZE)
 				.addPreferredGap(ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
-				.addComponent(bCancelar, GroupLayout.PREFERRED_SIZE, 20, GroupLayout.PREFERRED_SIZE)
+				.addComponent(this.formulario.getCancelar(), GroupLayout.PREFERRED_SIZE, 20, GroupLayout.PREFERRED_SIZE)
 				.addContainerGap())
 		);
 		this.formulario.getPanel().setLayout(gl_panel);

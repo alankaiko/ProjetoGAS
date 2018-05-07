@@ -46,16 +46,9 @@ public class DetalhesFuncionarioClassic {
 				this.formulario.getTId().setBounds(111,31,84,20);
 				this.formulario.getTId().setFont(new Font("Arial",Font.BOLD,10));
 				this.formulario.getTId().setForeground(Color.black);
-				
-			this.formulario.getComboCoren().setBounds(430, 35, 74, 20);
-			this.formulario.getComboCoren().setFont(new Font("Arial",Font.BOLD,10));
-			
-			this.formulario.getTCoren().setBounds(465, 35, 130, 20);
-			this.formulario.getComboCoren().setFont(new Font("Arial",Font.BOLD,10));
-			
-			this.formulario.getComboCorenEst().setBounds(550, 35, 40, 20);
-			this.formulario.getComboCoren().setFont(new Font("Arial",Font.BOLD,10));
-					
+							
+			this.formulario.getTCoren().setBounds(430, 35, 150, 20);
+			this.formulario.getTCoren().setFont(new Font("Arial",Font.BOLD,10));
 						 
 				this.formulario.getLCpf().setText("CPF:");
 				this.formulario.getLCpf().setBounds(75,60,35,20);

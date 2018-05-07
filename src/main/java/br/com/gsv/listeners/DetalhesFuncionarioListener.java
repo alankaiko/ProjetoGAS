@@ -34,9 +34,9 @@ public class DetalhesFuncionarioListener implements ActionListener{
 	
 	public void Detalhar(){
 		this.formulario.getTId().setText(String.valueOf(this.funcionario.getId()));
-		this.formulario.getComboCoren().setText(this.funcionario.getRegistroCoren().getCoren());
-		this.formulario.getTCoren().setText(this.funcionario.getRegistroCoren().getInscricao());
-		this.formulario.getComboCorenEst().setText(this.funcionario.getRegistroCoren().getUf());
+		this.formulario.getTCoren().setText(this.funcionario.getRegistroCoren().getCoren()
+				+" "+this.funcionario.getRegistroCoren().getInscricao()
+				+" "+this.funcionario.getRegistroCoren().getUf());
 		this.formulario.getTNome().setText(this.funcionario.getNome());
 		this.formulario.getTRg().setText(this.funcionario.getRg());
 		this.formulario.getJCpf().setText(this.funcionario.getCpf());

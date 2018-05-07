@@ -20,26 +20,28 @@ public class DetalhesFuncionarioDialog extends JDialog {
 	private JLabel LId, LNome, LCpf, LRg;
 	private JLabel LIndentif, LEndereco, LLogradouro, LComplemento;
 	private JLabel LNumero, LBairro, LCidade, LCep, LContato, LEmail, LCelular, LTelefone, LEstado;
-	private JLabel TId, TNome, TCpf, TRg, TLogradouro, TComplemento, TNumero, comboCoren, TCoren, comboCorenEst;
-	private JLabel TBairro, TCidade, TComboEstado, TCep, TEmail, TTelefone, TCelular;
+	private JLabel TId, TNome, TCpf, TRg, TLogradouro, TComplemento, TNumero, TCoren;
+	private JLabel TBairro, TCidade, TComboEstado, TCep, TEmail, TTelefone, TCelular, LRegristo;
 	private JFormattedTextField JCpf,JDataNasc, JDataCadastro,JCep;
 	private JButton cancelar;
 	private DetalhesFuncionarioClassic listenerClassic;
 	private DetalhesFuncionarioGrafic listenerGrafic;
+	private JPanel painelDrag;
+	private int xx,xy;
+	
 	
 	public DetalhesFuncionarioDialog() {
 		CriaVariaveis();
 		InicializaCompomentes();
 		listener = new DetalhesFuncionarioListener(this);
-		listenerGrafic = new DetalhesFuncionarioGrafic(this);
+		//listenerGrafic = new DetalhesFuncionarioGrafic(this);
+		listenerClassic = new DetalhesFuncionarioClassic(this);
 	}
 	
 	public void CriaVariaveis() {
 			LId = new JLabel();
 			LNome = new JLabel();
 			TCoren = new JLabel();
-			comboCorenEst = new JLabel();
-			comboCoren = new JLabel();
 			LCpf = new JLabel();
 			LRg = new JLabel();
 			LIndentif = new JLabel();
@@ -71,8 +73,9 @@ public class DetalhesFuncionarioDialog extends JDialog {
 			TCelular = new JLabel();
 			JCpf = new JFormattedTextField(ConverteDadosUtil.FormataCPF());
 			JCep = new JFormattedTextField(ConverteDadosUtil.FormataCep());
-			cancelar = new JButton();		
-		
+			cancelar = new JButton();	
+			painelDrag = new JPanel();
+			LRegristo = new JLabel();
 	}
 		
 		
@@ -110,8 +113,6 @@ public class DetalhesFuncionarioDialog extends JDialog {
 			tela.add(this.cancelar);
 			tela.add(this.TComboEstado);
 			tela.add(this.LEstado);
-			tela.add(this.comboCoren);
-			tela.add(this.comboCorenEst);
 			tela.add(this.TCoren);
 			
 		}
@@ -579,14 +580,7 @@ public class DetalhesFuncionarioDialog extends JDialog {
 			LNome = lNome;
 		}
 
-		public JLabel getComboCoren() {
-			return comboCoren;
-		}
-
-		public void setComboCoren(JLabel comboCoren) {
-			this.comboCoren = comboCoren;
-		}
-
+		
 		public JLabel getTCoren() {
 			return TCoren;
 		}
@@ -595,12 +589,37 @@ public class DetalhesFuncionarioDialog extends JDialog {
 			TCoren = tCoren;
 		}
 
-		public JLabel getComboCorenEst() {
-			return comboCorenEst;
+		
+		public JPanel getPainelDrag() {
+			return painelDrag;
 		}
 
-		public void setComboCorenEst(JLabel comboCorenEst) {
-			this.comboCorenEst = comboCorenEst;
+		public void setPainelDrag(JPanel painelDrag) {
+			this.painelDrag = painelDrag;
+		}
+
+		public int getXx() {
+			return xx;
+		}
+
+		public void setXx(int xx) {
+			this.xx = xx;
+		}
+
+		public int getXy() {
+			return xy;
+		}
+
+		public void setXy(int xy) {
+			this.xy = xy;
+		}
+
+		public JLabel getLRegristo() {
+			return LRegristo;
+		}
+
+		public void setLRegristo(JLabel lRegristo) {
+			LRegristo = lRegristo;
 		}
 
 		
