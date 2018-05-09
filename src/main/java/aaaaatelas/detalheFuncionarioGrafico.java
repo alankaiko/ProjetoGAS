@@ -41,27 +41,28 @@ public class detalheFuncionarioGrafico extends JDialog {
 		tela.add(panel);
 		
 		JPanel painelTitulo = new JPanel();
+		painelTitulo.setBounds(1, 1, 650, 24);
 		painelTitulo.setBackground(new Color(20, 34, 56));
 		
-		JLabel LFechar = new JLabel("");
+		JLabel LFechar = new JLabel();
 		LFechar.setIcon(new ImageIcon(detalheFuncionarioGrafico.class.getResource("/imagens/icons8-não-22.png")));
 		
-		JLabel lblNewLabel = new JLabel("Dados Funcionários");
-		lblNewLabel.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 13));
-		lblNewLabel.setForeground(Color.WHITE);
+		JLabel Titulo = new JLabel("Dados do Paciente");
+		Titulo.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 13));
+		Titulo.setForeground(Color.WHITE);
 		GroupLayout gl_painelTitulo = new GroupLayout(painelTitulo);
 		gl_painelTitulo.setHorizontalGroup(
 			gl_painelTitulo.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_painelTitulo.createSequentialGroup()
 					.addContainerGap()
-					.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 125, GroupLayout.PREFERRED_SIZE)
+					.addComponent(Titulo, GroupLayout.PREFERRED_SIZE, 125, GroupLayout.PREFERRED_SIZE)
 					.addPreferredGap(ComponentPlacement.RELATED, 485, Short.MAX_VALUE)
 					.addComponent(LFechar, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE))
 		);
 		gl_painelTitulo.setVerticalGroup(
 			gl_painelTitulo.createParallelGroup(Alignment.TRAILING)
 				.addGroup(gl_painelTitulo.createSequentialGroup()
-					.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 24, GroupLayout.PREFERRED_SIZE)
+					.addComponent(Titulo, GroupLayout.PREFERRED_SIZE, 24, GroupLayout.PREFERRED_SIZE)
 					.addGap(11))
 				.addGroup(Alignment.LEADING, gl_painelTitulo.createSequentialGroup()
 					.addComponent(LFechar, GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE)
@@ -69,285 +70,240 @@ public class detalheFuncionarioGrafico extends JDialog {
 		);
 		painelTitulo.setLayout(gl_painelTitulo);
 		
-		JLabel LDados = new JLabel("Dados Pessoais");
+		JLabel LDados = new JLabel("DADOS PESSOAIS");
+		LDados.setBounds(11, 31, 140, 18);
+		LDados.setForeground(new Color(71, 120, 197));
 		LDados.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 13));
 		
 		JLabel LCodigo = new JLabel("Código");
+		LCodigo.setBounds(11, 55, 44, 20);
 		LCodigo.setFont(new Font("Segoe UI Light", Font.PLAIN, 14));;
 		
 		JLabel LNome = new JLabel("Nome");
+		LNome.setBounds(118, 55, 89, 20);
 		LNome.setFont(new Font("Segoe UI Light", Font.PLAIN, 14));
 		
 		JButton BCancelar = new JButton("Cancelar");
+		BCancelar.setBounds(272, 430, 97, 22);
 		BCancelar.setForeground(Color.WHITE);
 		BCancelar.setFont(new Font("Segoe UI", Font.PLAIN, 14));
 		BCancelar.setBackground(new Color(71, 120, 197));
 		
-		JLabel TCodigo = new JLabel("New label");
+		JLabel TCodigo = new JLabel("tcodigo");
+		TCodigo.setBounds(11, 81, 72, 20);
+		TCodigo.setBorder(null);
 		TCodigo.setFont(new Font("Segoe UI", Font.PLAIN, 13));
 		
 		JLabel TNome = new JLabel("New label");
+		TNome.setBounds(118, 81, 380, 20);
+		TNome.setBorder(null);
 		TNome.setFont(new Font("Segoe UI", Font.PLAIN, 13));
 		
 		JLabel LCpf = new JLabel("CPF");
+		LCpf.setBounds(118, 107, 45, 20);
 		LCpf.setFont(new Font("Segoe UI Light", Font.PLAIN, 14));
 		
 		JLabel TCPf = new JLabel("New label");
+		TCPf.setBounds(118, 133, 193, 20);
+		TCPf.setBorder(null);
 		TCPf.setFont(new Font("Segoe UI", Font.PLAIN, 13));
 		
 		JLabel LRg = new JLabel("RG");
+		LRg.setBounds(11, 107, 35, 20);
 		LRg.setFont(new Font("Segoe UI Light", Font.PLAIN, 14));
 		
 		JLabel TRg = new JLabel("New label");
+		TRg.setBounds(11, 133, 79, 20);
+		TRg.setBorder(new LineBorder(Color.BLUE));
 		TRg.setFont(new Font("Segoe UI", Font.PLAIN, 13));
 		
 		JSeparator separa = new JSeparator();
+		separa.setBounds(11, 190, 630, 2);
 		separa.setBackground(new Color(71, 120, 197));
 		
-		JLabel TRegistro = new JLabel("New label");
-		TRegistro.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+		JLabel LDatacad = new JLabel("Data Cadastro");
+		LDatacad.setBounds(428, 29, 89, 20);
+		LDatacad.setFont(new Font("Segoe UI Light", Font.PLAIN, 14));
 		
-		JLabel LRegistro = new JLabel("Registro");
-		LRegistro.setFont(new Font("Segoe UI Light", Font.PLAIN, 14));
-		
-		JLabel LEndereco = new JLabel("Endereço");
+		JLabel LEndereco = new JLabel("ENDEREÇO");
+		LEndereco.setBounds(11, 195, 140, 18);
+		LEndereco.setForeground(new Color(71, 120, 197));
 		LEndereco.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 13));
 		
 		JLabel LLogradouro = new JLabel("Logradouro");
+		LLogradouro.setBounds(11, 212, 93, 20);
 		LLogradouro.setFont(new Font("Segoe UI Light", Font.PLAIN, 14));
 		
 		JLabel LComplemento = new JLabel("Complemento");
+		LComplemento.setBounds(11, 259, 103, 20);
 		LComplemento.setFont(new Font("Segoe UI Light", Font.PLAIN, 14));
 		
 		JLabel TLogradouro = new JLabel("eitah");
+		TLogradouro.setBounds(11, 230, 358, 18);
+		TLogradouro.setBorder(null);
 		TLogradouro.setFont(new Font("Segoe UI", Font.PLAIN, 13));
 		
 		JLabel TComplemento = new JLabel("Nvixi");
+		TComplemento.setBounds(11, 277, 358, 18);
 		TComplemento.setFont(new Font("Segoe UI", Font.PLAIN, 13));
 		
 		JLabel Lnumero = new JLabel("Número");
+		Lnumero.setBounds(580, 212, 61, 20);
 		Lnumero.setFont(new Font("Segoe UI Light", Font.PLAIN, 14));
 		
 		JLabel LCidade = new JLabel("Cidade");
+		LCidade.setBounds(407, 259, 64, 20);
 		LCidade.setFont(new Font("Segoe UI Light", Font.PLAIN, 14));
 		
-		JLabel TNumero = new JLabel("New label");
+		JLabel TNumero = new JLabel("New la");
+		TNumero.setBounds(580, 230, 61, 18);
+		TNumero.setBorder(null);
 		TNumero.setFont(new Font("Segoe UI", Font.PLAIN, 13));
 		
 		JLabel TCidade = new JLabel("New label");
+		TCidade.setBounds(407, 277, 234, 18);
+		TCidade.setBorder(null);
 		TCidade.setFont(new Font("Segoe UI", Font.PLAIN, 13));
 		
 		JLabel Lbairro = new JLabel("Bairro");
+		Lbairro.setBounds(407, 212, 50, 20);
 		Lbairro.setFont(new Font("Segoe UI Light", Font.PLAIN, 14));
 		
 		JLabel TBairro = new JLabel("TBairro");
+		TBairro.setBounds(407, 230, 155, 18);
+		TBairro.setBorder(null);
 		TBairro.setFont(new Font("Segoe UI", Font.PLAIN, 13));
 		
-		JLabel TUf = new JLabel("TUF");
-		TUf.setFont(new Font("Segoe UI", Font.PLAIN, 13));
-		
 		JSeparator separator = new JSeparator();
+		separator.setBounds(11, 342, 630, 2);
 		separator.setBackground(new Color(71, 120, 197));
 		
-		JLabel LContato = new JLabel("Contato");
+		JLabel LContato = new JLabel("CONTATO");
+		LContato.setBounds(11, 350, 96, 18);
+		LContato.setForeground(new Color(71, 120, 197));
 		LContato.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 13));
 		
 		JLabel LEmail = new JLabel("E-mail");
+		LEmail.setBounds(11, 368, 69, 20);
 		LEmail.setFont(new Font("Segoe UI Light", Font.PLAIN, 14));
 		
-		JLabel TEmail = new JLabel("New label");
+		JLabel Tdatacad = new JLabel("New label");
+		Tdatacad.setBounds(527, 30, 114, 20);
+		Tdatacad.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+		Tdatacad.setBorder(null);
+		
+		JLabel LDatanasc = new JLabel("Data nasc");
+		LDatanasc.setBounds(552, 55, 89, 20);
+		LDatanasc.setFont(new Font("Segoe UI Light", Font.PLAIN, 14));
+		
+		JLabel TDAtanasc = new JLabel("New label");
+		TDAtanasc.setBounds(552, 81, 89, 20);
+		TDAtanasc.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+		TDAtanasc.setBorder(null);
+		
+		JLabel LConvenio = new JLabel("Convênio");
+		LConvenio.setBounds(344, 164, 72, 20);
+		LConvenio.setFont(new Font("Segoe UI Light", Font.PLAIN, 14));
+		
+		JLabel Tconvenio = new JLabel("New label");
+		Tconvenio.setBounds(407, 165, 234, 20);
+		Tconvenio.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+		Tconvenio.setBorder(null);
+		
+		JLabel LObservacao = new JLabel("Observação");
+		LObservacao.setBounds(344, 112, 87, 20);
+		LObservacao.setFont(new Font("Segoe UI Light", Font.PLAIN, 14));
+		
+		JLabel TObservao = new JLabel("New label");
+		TObservao.setBounds(344, 133, 297, 20);
+		TObservao.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+		TObservao.setBorder(null);
+		
+		JLabel TEmail = new JLabel("eitah");
+		TEmail.setBounds(11, 387, 265, 18);
 		TEmail.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+		TEmail.setBorder(null);
 		
 		JLabel LTelefone = new JLabel("Telefone");
+		LTelefone.setBounds(286, 368, 69, 20);
 		LTelefone.setFont(new Font("Segoe UI Light", Font.PLAIN, 14));
 		
 		JLabel TTelefone = new JLabel("New label");
+		TTelefone.setBounds(286, 386, 97, 20);
 		TTelefone.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+		TTelefone.setBorder(null);
 		
 		JLabel LCelular = new JLabel("Celular");
+		LCelular.setBounds(402, 368, 69, 20);
 		LCelular.setFont(new Font("Segoe UI Light", Font.PLAIN, 14));
 		
 		JLabel TCelular = new JLabel("New label");
+		TCelular.setBounds(402, 386, 97, 20);
 		TCelular.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+		TCelular.setBorder(null);
+		
+		panel.setLayout(null);
+		panel.add(LDados);
+		panel.add(painelTitulo);
+		panel.add(TCodigo);
+		panel.add(TRg);
+		panel.add(LCodigo);
+		panel.add(LNome);
+		panel.add(TNome);
+		panel.add(LCpf);
+		panel.add(TCPf);
+		panel.add(LRg);
+		panel.add(LDatacad);
+		panel.add(Tdatacad);
+		panel.add(LDatanasc);
+		panel.add(Tconvenio);
+		panel.add(LConvenio);
+		panel.add(LObservacao);
+		panel.add(TDAtanasc);
+		panel.add(TObservao);
+		panel.add(LEndereco);
+		panel.add(separa);
+		panel.add(TLogradouro);
+		panel.add(LComplemento);
+		panel.add(TComplemento);
+		panel.add(LLogradouro);
+		panel.add(Lbairro);
+		panel.add(Lnumero);
+		panel.add(TBairro);
+		panel.add(TNumero);
+		panel.add(LCidade);
+		panel.add(TCidade);
+		panel.add(TEmail);
+		panel.add(LEmail);
+		panel.add(TTelefone);
+		panel.add(LTelefone);
+		panel.add(TCelular);
+		panel.add(LCelular);
+		panel.add(LContato);
+		panel.add(BCancelar);
+		panel.add(separator);
+		
+		JLabel LCep = new JLabel("CEP");
+		LCep.setFont(new Font("Segoe UI Light", Font.PLAIN, 14));
+		LCep.setBounds(11, 299, 50, 20);
+		panel.add(LCep);
+		
+		JLabel TCep = new JLabel("New label");
+		TCep.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+		TCep.setBorder(null);
+		TCep.setBounds(11, 319, 89, 18);
+		panel.add(TCep);
 		
 		JLabel LUF = new JLabel("UF");
 		LUF.setFont(new Font("Segoe UI Light", Font.PLAIN, 14));
+		LUF.setBounds(218, 304, 50, 20);
+		panel.add(LUF);
 		
-		
-		GroupLayout gl_panel = new GroupLayout(panel);
-		gl_panel.setHorizontalGroup(
-			gl_panel.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_panel.createSequentialGroup()
-					.addContainerGap()
-					.addComponent(LDados, GroupLayout.PREFERRED_SIZE, 140, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(498, Short.MAX_VALUE))
-				.addGroup(gl_panel.createSequentialGroup()
-					.addContainerGap()
-					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING, false)
-						.addComponent(LCodigo, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-						.addComponent(LNome, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-						.addComponent(LCpf, GroupLayout.DEFAULT_SIZE, 118, Short.MAX_VALUE))
-					.addGap(18)
-					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
-						.addComponent(TNome, GroupLayout.DEFAULT_SIZE, 474, Short.MAX_VALUE)
-						.addGroup(gl_panel.createSequentialGroup()
-							.addComponent(TCodigo, GroupLayout.PREFERRED_SIZE, 82, GroupLayout.PREFERRED_SIZE)
-							.addPreferredGap(ComponentPlacement.RELATED, 132, Short.MAX_VALUE)
-							.addComponent(LRegistro, GroupLayout.PREFERRED_SIZE, 72, GroupLayout.PREFERRED_SIZE)
-							.addPreferredGap(ComponentPlacement.UNRELATED)
-							.addComponent(TRegistro, GroupLayout.PREFERRED_SIZE, 178, GroupLayout.PREFERRED_SIZE))
-						.addGroup(gl_panel.createSequentialGroup()
-							.addComponent(TCPf, GroupLayout.PREFERRED_SIZE, 135, GroupLayout.PREFERRED_SIZE)
-							.addPreferredGap(ComponentPlacement.RELATED, 152, Short.MAX_VALUE)
-							.addComponent(LRg, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE)
-							.addPreferredGap(ComponentPlacement.RELATED)
-							.addComponent(TRg, GroupLayout.PREFERRED_SIZE, 146, GroupLayout.PREFERRED_SIZE)))
-					.addGap(40))
-				.addGroup(gl_panel.createSequentialGroup()
-					.addComponent(painelTitulo, GroupLayout.PREFERRED_SIZE, 650, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-				.addGroup(gl_panel.createSequentialGroup()
-					.addContainerGap()
-					.addComponent(separa, GroupLayout.DEFAULT_SIZE, 630, Short.MAX_VALUE)
-					.addGap(20))
-				.addGroup(gl_panel.createSequentialGroup()
-					.addContainerGap()
-					.addComponent(LEndereco, GroupLayout.PREFERRED_SIZE, 140, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(510, Short.MAX_VALUE))
-				.addGroup(gl_panel.createSequentialGroup()
-					.addContainerGap()
-					.addComponent(LLogradouro, GroupLayout.PREFERRED_SIZE, 118, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(TLogradouro, GroupLayout.PREFERRED_SIZE, 486, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(40, Short.MAX_VALUE))
-				.addGroup(gl_panel.createSequentialGroup()
-					.addContainerGap()
-					.addComponent(LCidade, GroupLayout.PREFERRED_SIZE, 118, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(TCidade, GroupLayout.PREFERRED_SIZE, 181, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(345, Short.MAX_VALUE))
-				.addGroup(gl_panel.createSequentialGroup()
-					.addContainerGap()
-					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_panel.createSequentialGroup()
-							.addComponent(LComplemento, GroupLayout.PREFERRED_SIZE, 118, GroupLayout.PREFERRED_SIZE)
-							.addPreferredGap(ComponentPlacement.RELATED)
-							.addComponent(TComplemento, GroupLayout.PREFERRED_SIZE, 486, GroupLayout.PREFERRED_SIZE))
-						.addGroup(gl_panel.createSequentialGroup()
-							.addComponent(Lnumero, GroupLayout.PREFERRED_SIZE, 118, GroupLayout.PREFERRED_SIZE)
-							.addPreferredGap(ComponentPlacement.RELATED)
-							.addComponent(TNumero, GroupLayout.PREFERRED_SIZE, 73, GroupLayout.PREFERRED_SIZE)
-							.addGap(82)
-							.addComponent(Lbairro, GroupLayout.PREFERRED_SIZE, 73, GroupLayout.PREFERRED_SIZE)
-							.addPreferredGap(ComponentPlacement.RELATED)
-							.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
-								.addGroup(gl_panel.createSequentialGroup()
-									.addComponent(LUF, GroupLayout.PREFERRED_SIZE, 32, GroupLayout.PREFERRED_SIZE)
-									.addPreferredGap(ComponentPlacement.UNRELATED)
-									.addComponent(TUf, GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE))
-								.addComponent(TBairro, GroupLayout.DEFAULT_SIZE, 252, Short.MAX_VALUE))))
-					.addGap(40))
-				.addGroup(gl_panel.createSequentialGroup()
-					.addContainerGap()
-					.addComponent(separator, GroupLayout.PREFERRED_SIZE, 630, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(20, Short.MAX_VALUE))
-				.addGroup(gl_panel.createSequentialGroup()
-					.addContainerGap()
-					.addComponent(LContato, GroupLayout.PREFERRED_SIZE, 96, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(554, Short.MAX_VALUE))
-				.addGroup(gl_panel.createSequentialGroup()
-					.addContainerGap()
-					.addComponent(LEmail, GroupLayout.PREFERRED_SIZE, 69, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(TEmail, GroupLayout.PREFERRED_SIZE, 341, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(234, Short.MAX_VALUE))
-				.addGroup(gl_panel.createSequentialGroup()
-					.addContainerGap()
-					.addComponent(LTelefone, GroupLayout.PREFERRED_SIZE, 70, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-					.addComponent(TTelefone, GroupLayout.PREFERRED_SIZE, 181, GroupLayout.PREFERRED_SIZE)
-					.addGap(77)
-					.addComponent(LCelular, GroupLayout.PREFERRED_SIZE, 70, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(TCelular, GroupLayout.PREFERRED_SIZE, 181, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(59, Short.MAX_VALUE))
-				.addGroup(gl_panel.createSequentialGroup()
-					.addGap(267)
-					.addComponent(BCancelar, GroupLayout.PREFERRED_SIZE, 97, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(286, Short.MAX_VALUE))
-		);
-		gl_panel.setVerticalGroup(
-			gl_panel.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_panel.createSequentialGroup()
-					.addComponent(painelTitulo, GroupLayout.PREFERRED_SIZE, 24, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(LDados)
-					.addPreferredGap(ComponentPlacement.UNRELATED)
-					.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
-						.addComponent(LCodigo)
-						.addComponent(TCodigo)
-						.addComponent(TRegistro, GroupLayout.PREFERRED_SIZE, 18, GroupLayout.PREFERRED_SIZE)
-						.addComponent(LRegistro, GroupLayout.PREFERRED_SIZE, 20, GroupLayout.PREFERRED_SIZE))
-					.addPreferredGap(ComponentPlacement.UNRELATED)
-					.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
-						.addComponent(LNome)
-						.addComponent(TNome))
-					.addPreferredGap(ComponentPlacement.UNRELATED)
-					.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
-						.addComponent(LCpf)
-						.addComponent(TCPf)
-						.addComponent(TRg)
-						.addComponent(LRg))
-					.addGap(18)
-					.addComponent(separa, GroupLayout.PREFERRED_SIZE, 2, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.UNRELATED)
-					.addComponent(LEndereco, GroupLayout.PREFERRED_SIZE, 18, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
-						.addComponent(LLogradouro, GroupLayout.PREFERRED_SIZE, 20, GroupLayout.PREFERRED_SIZE)
-						.addComponent(TLogradouro, GroupLayout.PREFERRED_SIZE, 18, GroupLayout.PREFERRED_SIZE))
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
-						.addComponent(LComplemento, GroupLayout.PREFERRED_SIZE, 20, GroupLayout.PREFERRED_SIZE)
-						.addComponent(TComplemento, GroupLayout.PREFERRED_SIZE, 18, GroupLayout.PREFERRED_SIZE))
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_panel.createSequentialGroup()
-							.addComponent(Lnumero, GroupLayout.PREFERRED_SIZE, 20, GroupLayout.PREFERRED_SIZE)
-							.addPreferredGap(ComponentPlacement.RELATED)
-							.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
-								.addComponent(LCidade, GroupLayout.PREFERRED_SIZE, 20, GroupLayout.PREFERRED_SIZE)
-								.addComponent(TCidade, GroupLayout.PREFERRED_SIZE, 18, GroupLayout.PREFERRED_SIZE)))
-						.addGroup(gl_panel.createSequentialGroup()
-							.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
-								.addComponent(TNumero, GroupLayout.PREFERRED_SIZE, 18, GroupLayout.PREFERRED_SIZE)
-								.addComponent(TBairro, GroupLayout.PREFERRED_SIZE, 18, GroupLayout.PREFERRED_SIZE)
-								.addComponent(Lbairro, GroupLayout.PREFERRED_SIZE, 20, GroupLayout.PREFERRED_SIZE))
-							.addPreferredGap(ComponentPlacement.RELATED)
-							.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
-								.addComponent(TUf, GroupLayout.PREFERRED_SIZE, 18, GroupLayout.PREFERRED_SIZE)
-								.addComponent(LUF, GroupLayout.PREFERRED_SIZE, 20, GroupLayout.PREFERRED_SIZE))))
-					.addPreferredGap(ComponentPlacement.UNRELATED)
-					.addComponent(separator, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.UNRELATED)
-					.addComponent(LContato, GroupLayout.PREFERRED_SIZE, 18, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
-						.addComponent(LEmail, GroupLayout.PREFERRED_SIZE, 20, GroupLayout.PREFERRED_SIZE)
-						.addComponent(TEmail, GroupLayout.PREFERRED_SIZE, 18, GroupLayout.PREFERRED_SIZE))
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
-							.addComponent(LTelefone, GroupLayout.PREFERRED_SIZE, 20, GroupLayout.PREFERRED_SIZE)
-							.addComponent(TTelefone, GroupLayout.PREFERRED_SIZE, 18, GroupLayout.PREFERRED_SIZE))
-						.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
-							.addComponent(LCelular, GroupLayout.PREFERRED_SIZE, 20, GroupLayout.PREFERRED_SIZE)
-							.addComponent(TCelular, GroupLayout.PREFERRED_SIZE, 18, GroupLayout.PREFERRED_SIZE)))
-					.addPreferredGap(ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
-					.addComponent(BCancelar)
-					.addContainerGap())
-		);
-		panel.setLayout(gl_panel);
+		JLabel TUf = new JLabel("New label");
+		TUf.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+		TUf.setBorder(null);
+		TUf.setBounds(218, 322, 151, 18);
+		panel.add(TUf);
 		
 	}
 }

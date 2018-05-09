@@ -26,6 +26,8 @@ public class DetalhesPacienteDialog extends JDialog {
 	private JButton cancelar;
 	private DetalhesPacienteClassic listenerClassic;
 	private DetalhesPacienteGrafic listenerGrafic;
+	private JPanel painelDrag;
+	private int xx,xy;
 
 	public DetalhesPacienteDialog() {
 		IniciaVariaveis();
@@ -80,6 +82,7 @@ public class DetalhesPacienteDialog extends JDialog {
 		TComboEstado = new JLabel();
 		LEstado = new JLabel();
 		TDataNasc = new JLabel();
+		painelDrag = new JPanel();
 	}
 
 
@@ -126,7 +129,7 @@ public class DetalhesPacienteDialog extends JDialog {
 		tela.add(this.TComboEstado);
 		tela.add(this.LEstado);
 		tela.add(this.TDataNasc);
-
+		tela.add(this.painelDrag);
 	}
 
 	public JButton getCancelar() {
@@ -505,4 +508,35 @@ public class DetalhesPacienteDialog extends JDialog {
 		LConvenio = lConvenio;
 	}
 
+
+	public JPanel getPainelDrag() {
+		return painelDrag;
+	}
+
+
+	public void setPainelDrag(JPanel painelDrag) {
+		this.painelDrag = painelDrag;
+	}
+
+
+	public int getXx() {
+		return xx;
+	}
+
+
+	public void setXx(int xx) {
+		this.xx = xx;
+	}
+
+
+	public int getXy() {
+		return xy;
+	}
+
+
+	public void setXy(int xy) {
+		this.xy = xy;
+	}
+	
+	
 }

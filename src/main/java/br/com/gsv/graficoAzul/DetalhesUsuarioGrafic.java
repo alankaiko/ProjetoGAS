@@ -26,13 +26,14 @@ public class DetalhesUsuarioGrafic {
 	}
 	
 	private void CriaTela(){
+		this.formulario.setModal(true);
 		this.formulario.setBounds(100, 100, 480, 350);
 		this.formulario.getTela().setLayout(null);
 		this.formulario.setUndecorated(true);
 		this.formulario.getPanel().setBorder(new LineBorder(new Color(71,120,197)));
 		this.formulario.getPanel().setBackground(Color.WHITE);
 		this.formulario.getPanel().setBounds(0, 0, 480, 350);
-		//this.formulario.getTela().add(this.formulario.getPanel());
+		this.formulario.getTela().add(this.formulario.getPanel());
 	}
 	
 	private void OrganizaComponentes(){
@@ -40,6 +41,12 @@ public class DetalhesUsuarioGrafic {
 		
 		JLabel LFechar = new JLabel();
 		LFechar.setIcon(new ImageIcon(DetalhesUsuarioGrafic.class.getResource("/imagens/icons8-não-22.png")));
+		LFechar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent e) {
+				formulario.dispose();
+			}
+		});
 		
 		GroupLayout gl_painelTitulo = new GroupLayout(this.formulario.getPainelDrag());
 		gl_painelTitulo.setHorizontalGroup(
@@ -60,22 +67,14 @@ public class DetalhesUsuarioGrafic {
 		this.formulario.getLFuncionario().setText("Funcionário");
 		this.formulario.getLFuncionario().setFont(new Font("Segoe UI", Font.PLAIN, 12));
 		
-		this.formulario.getTFuncionario().setBorder(new LineBorder(new Color(71, 120, 197)));;
-		
 		this.formulario.getLCpf().setText("CPF");
 		this.formulario.getLCpf().setFont(new Font("Segoe UI", Font.PLAIN, 12));
 		
 		this.formulario.getLRg().setText("RG");
 		this.formulario.getLRg().setFont(new Font("Segoe UI", Font.PLAIN, 12));
 		
-		this.formulario.getTCpf().setBorder(new LineBorder(new Color(71, 120, 197)));
-		
-		this.formulario.getTRg().setBorder(new LineBorder(new Color(71, 120, 197)));
-		
 		this.formulario.getLLogin().setText("Login");
 		this.formulario.getLLogin().setFont(new Font("Segoe UI", Font.PLAIN, 12));
-		
-		this.formulario.getTLogin().setBorder(new LineBorder(new Color(71, 120, 197)));
 		
 		this.formulario.getBCancelar().setText("Cancelar");
 		this.formulario.getBCancelar().setForeground(Color.WHITE);
