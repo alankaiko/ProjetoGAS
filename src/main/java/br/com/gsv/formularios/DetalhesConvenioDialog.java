@@ -22,6 +22,8 @@ public class DetalhesConvenioDialog extends JDialog {
 	private DetalhesConvenioListener listener;
 	private DetalheConvenioClassic listenerClassic;
 	private DetalheConvenioGrafic listenerGrafic;
+	private JPanel painelDrag;
+	private int xx,xy;
 	
 
 	public DetalhesConvenioDialog() {
@@ -39,6 +41,7 @@ public class DetalhesConvenioDialog extends JDialog {
 		TConvenio = new JLabel();
 		cancelar = new JButton();
 		separa = new JSeparator();
+		painelDrag = new JPanel();
 	}
 
 	
@@ -48,7 +51,8 @@ public class DetalhesConvenioDialog extends JDialog {
 		tela.add(this.TConvenio);
 		tela.add(this.LId);
 		tela.add(this.separa);
-		tela.add(this.cancelar);			
+		tela.add(this.cancelar);	
+		tela.add(this.painelDrag);
 	}
 		
 
@@ -140,6 +144,41 @@ public class DetalhesConvenioDialog extends JDialog {
 
 	public void setSepara(JSeparator separa) {
 		this.separa = separa;
+	}
+
+
+	public JPanel getPainelDrag() {
+		return painelDrag;
+	}
+
+
+	public void setPainelDrag(JPanel painelDrag) {
+		this.painelDrag = painelDrag;
+	}
+
+
+	public int getXx() {
+		return xx;
+	}
+
+
+	public void setXx(int xx) {
+		this.xx = xx;
+	}
+
+
+	public int getXy() {
+		return xy;
+	}
+
+
+	public void setXy(int xy) {
+		this.xy = xy;
+	}
+
+
+	public void setPanel(JPanel panel) {
+		this.panel = panel;
 	}
 
 

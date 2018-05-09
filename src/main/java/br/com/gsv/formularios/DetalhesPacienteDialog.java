@@ -7,6 +7,7 @@ import javax.swing.JDialog;
 import javax.swing.JFormattedTextField;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JSeparator;
 
 import br.com.gsv.graficoAzul.DetalhesPacienteGrafic;
 import br.com.gsv.graficoClassic.DetalhesPacienteClassic;
@@ -24,6 +25,7 @@ public class DetalhesPacienteDialog extends JDialog {
 	private JLabel TBairro, TCidade, TComboEstado, TCep, TEmail, TTelefone,TCelular;
 	private JFormattedTextField JCpf, JDataNasc, JDataCadastro, JCep;
 	private JButton cancelar;
+	JSeparator separa, separator;
 	private DetalhesPacienteClassic listenerClassic;
 	private DetalhesPacienteGrafic listenerGrafic;
 	private JPanel painelDrag;
@@ -83,6 +85,8 @@ public class DetalhesPacienteDialog extends JDialog {
 		LEstado = new JLabel();
 		TDataNasc = new JLabel();
 		painelDrag = new JPanel();
+		separa = new JSeparator();
+		separator = new JSeparator();
 	}
 
 
@@ -130,6 +134,9 @@ public class DetalhesPacienteDialog extends JDialog {
 		tela.add(this.LEstado);
 		tela.add(this.TDataNasc);
 		tela.add(this.painelDrag);
+		tela.add(this.separa);
+		tela.add(this.separator);
+		
 	}
 
 	public JButton getCancelar() {
@@ -536,6 +543,26 @@ public class DetalhesPacienteDialog extends JDialog {
 
 	public void setXy(int xy) {
 		this.xy = xy;
+	}
+
+
+	public JSeparator getSepara() {
+		return separa;
+	}
+
+
+	public void setSepara(JSeparator separa) {
+		this.separa = separa;
+	}
+
+
+	public JSeparator getSeparator() {
+		return separator;
+	}
+
+
+	public void setSeparator(JSeparator separator) {
+		this.separator = separator;
 	}
 	
 	

@@ -123,9 +123,8 @@ public class DetalhesPacienteGrafic {
 		this.formulario.getTRg().setBounds(11, 133, 79, 20);
 		this.formulario.getTRg().setFont(new Font("Segoe UI", Font.PLAIN, 13));
 		
-		JSeparator separa = new JSeparator();
-		separa.setBounds(11, 190, 630, 2);
-		separa.setBackground(new Color(71, 120, 197));
+		
+		this.formulario.getSepara().setBounds(11, 190, 630, 2);
 		
 		this.formulario.getLDataCad().setText("Data Cadastro");
 		this.formulario.getLDataCad().setBounds(428, 29, 89, 20);
@@ -171,9 +170,7 @@ public class DetalhesPacienteGrafic {
 		this.formulario.getTBairro().setBounds(407, 230, 155, 18);
 		this.formulario.getTBairro().setFont(new Font("Segoe UI", Font.PLAIN, 13));
 		
-		JSeparator separator = new JSeparator();
-		separator.setBounds(11, 342, 630, 2);
-		separator.setBackground(new Color(71, 120, 197));
+		this.formulario.getSeparator().setBounds(11, 342, 630, 2);
 		
 		this.formulario.getLContato().setText("CONTATO");
 		this.formulario.getLContato().setBounds(11, 350, 96, 18);
