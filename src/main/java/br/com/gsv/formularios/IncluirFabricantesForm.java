@@ -21,11 +21,13 @@ public class IncluirFabricantesForm extends JDialog {
 	private JLabel LId, LFabricante;
 	private JTextField TId, TFabricante;
 	private JButton BTGravar, BTCancelar;
+	private int xx,xy;
 	
 	public IncluirFabricantesForm() {
 		InicializaObjetos();
 		AdicionaCompomentes();
 		listener = new IncluirFabricantesListener(this);
+		listenerGrafic = new IncluirFabricanteGrafic(this);
 	}
 	
 	
@@ -124,6 +126,26 @@ public class IncluirFabricantesForm extends JDialog {
 
 	public void setLFabricante(JLabel lFabricante) {
 		LFabricante = lFabricante;
+	}
+
+
+	public int getXx() {
+		return xx;
+	}
+
+
+	public void setXx(int xx) {
+		this.xx = xx;
+	}
+
+
+	public int getXy() {
+		return xy;
+	}
+
+
+	public void setXy(int xy) {
+		this.xy = xy;
 	}
 	
 	

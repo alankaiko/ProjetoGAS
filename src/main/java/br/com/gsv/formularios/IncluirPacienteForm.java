@@ -29,12 +29,14 @@ public class IncluirPacienteForm extends JDialog {
 	private JComboBox ComboEstado, ComboConvenio;
 	private IncluirPacienteClassic listenerClassic;
 	private IncluirPacienteGrafic listenerGrafic;
+	private int xx,xy;
 
 	
 	public IncluirPacienteForm() {
 		CriaVariaveis();
 		InicializaCompomentes();
 		listener = new IncluirPacienteListener(this);
+		listenerGrafic = new IncluirPacienteGrafic(this);
 	}
 	
 		
@@ -487,6 +489,26 @@ public class IncluirPacienteForm extends JDialog {
 
 	public void setComboConvenio(JComboBox comboConvenio) {
 		ComboConvenio = comboConvenio;
+	}
+
+
+	public int getXx() {
+		return xx;
+	}
+
+
+	public void setXx(int xx) {
+		this.xx = xx;
+	}
+
+
+	public int getXy() {
+		return xy;
+	}
+
+
+	public void setXy(int xy) {
+		this.xy = xy;
 	}
 
 }

@@ -21,6 +21,7 @@ public class IncluirConvenioForm extends JDialog{
 	private IncluirConvenioListener listener;
 	private IncluirConvenioClassic listenerClassic;
 	private IncluirConvenioGrafic listenerGrafico;
+	private int xx,xy;
 	
 	
 
@@ -29,6 +30,7 @@ public class IncluirConvenioForm extends JDialog{
 		CriaVariaveis();
 		AdicionaComponentes();
 		listener = new IncluirConvenioListener(this);
+		listenerGrafico = new IncluirConvenioGrafic(this);
 	}
 
 	
@@ -127,6 +129,26 @@ public class IncluirConvenioForm extends JDialog{
 
 	public void setPanel(JPanel panel) {
 		this.panel = panel;
+	}
+
+
+	public int getXx() {
+		return xx;
+	}
+
+
+	public void setXx(int xx) {
+		this.xx = xx;
+	}
+
+
+	public int getXy() {
+		return xy;
+	}
+
+
+	public void setXy(int xy) {
+		this.xy = xy;
 	}
 
 	

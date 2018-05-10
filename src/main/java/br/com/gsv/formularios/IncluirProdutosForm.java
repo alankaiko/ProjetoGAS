@@ -24,12 +24,14 @@ public class IncluirProdutosForm extends JDialog {
 	private JComboBox comboFabricante;
 	private IncluirProdutosClassic listenerClassic;
 	private IncluirProdutoGrafic listenerGrafic;
+	private int xx,xy;
 	
 	
 	public IncluirProdutosForm() {
 		CriaVariaveis();
 		InicializaComponentes();
 		listener = new IncluirProdutoListener(this);
+		listenerGrafic = new IncluirProdutoGrafic(this);
 	}
 	
 	private void CriaVariaveis(){
@@ -207,6 +209,22 @@ public class IncluirProdutosForm extends JDialog {
 
 	public void setPanel(JPanel panel) {
 		this.panel = panel;
+	}
+
+	public int getXx() {
+		return xx;
+	}
+
+	public void setXx(int xx) {
+		this.xx = xx;
+	}
+
+	public int getXy() {
+		return xy;
+	}
+
+	public void setXy(int xy) {
+		this.xy = xy;
 	}
 	
 	

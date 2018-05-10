@@ -30,13 +30,13 @@ public class IncluirFuncionariosForm extends JDialog {
 	private IncluirFuncionarioClassic listenerClassic;
 	private IncluirFuncionarioGrafic listenerGrafic;
 	private char versao;
-	
+	private int xx,xy;
 	
 	public IncluirFuncionariosForm() {
 		InicializaVariaveis();
 		InicializaCompomentes();
 		listener = new IncluirFuncionarioListener(this);
-		
+		listenerGrafic = new IncluirFuncionarioGrafic(this);
 	}
 	
 	private void InicializaVariaveis(){
@@ -498,6 +498,22 @@ public class IncluirFuncionariosForm extends JDialog {
 
 	public void setVersao(char versao) {
 		this.versao = versao;
+	}
+
+	public int getXx() {
+		return xx;
+	}
+
+	public void setXx(int xx) {
+		this.xx = xx;
+	}
+
+	public int getXy() {
+		return xy;
+	}
+
+	public void setXy(int xy) {
+		this.xy = xy;
 	}
 
 

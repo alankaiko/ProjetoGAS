@@ -2,6 +2,9 @@ package br.com.gsv.graficoAzul;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseMotionAdapter;
 
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
@@ -23,6 +26,7 @@ public class IncluirProdutoGrafic {
 		
 		CriarTelaGeral();
 		CriaComponentes();
+		ArrastandoPainel();
 	}
 	
 	
@@ -184,4 +188,33 @@ public class IncluirProdutoGrafic {
 		this.formulario.getPanel().setLayout(gl_panel);
 		this.formulario.getContentPane().setLayout(groupLayout);
 	}
+	
+	
+	private void ArrastandoPainel(){
+		
+		this.formulario.getPanel().addMouseMotionListener(new MouseMotionAdapter() {
+            public void mouseDragged(MouseEvent evt) {
+                arrastaPainel(evt);
+            }
+        });
+		
+		this.formulario.getPanel().addMouseListener(new MouseAdapter() {
+            public void mousePressed(MouseEvent evt) {
+                arrastaPressionado(evt);
+            }
+        });
+	}
+	
+	private void arrastaPressionado(MouseEvent evt) {
+		this.formulario.setXx(evt.getX());
+		this.formulario.setXy(evt.getY());
+        //this.formulario.xx = evt.getX();
+        //this.formulario.xy = evt.getY();
+    }
+
+    private void arrastaPainel(MouseEvent evt) {
+        int x = evt.getXOnScreen();
+        int y = evt.getYOnScreen();
+        this.formulario.setLocation(x-this.formulario.getXx(),y-this.formulario.getXy());
+    }
 }
