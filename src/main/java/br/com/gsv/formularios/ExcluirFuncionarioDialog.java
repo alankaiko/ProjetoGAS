@@ -23,6 +23,8 @@ public class ExcluirFuncionarioDialog extends JDialog {
 	private ExcluirFuncionarioListener listener;
 	private ExcluirFuncionarioClassic listenerClassic;
 	private ExcluirFuncionarioGrafic listenerGrafic;
+	private JPanel painelDrag;
+	private int xx,xy;
 	
 	
 	public ExcluirFuncionarioDialog(Funcionario funcionario) {
@@ -31,6 +33,7 @@ public class ExcluirFuncionarioDialog extends JDialog {
 		CriaVariaveis();
 		AdicionaComponentes();
 		listener = new ExcluirFuncionarioListener(this);
+		listenerGrafic = new ExcluirFuncionarioGrafic(this);
 	}
 	
 	
@@ -39,6 +42,7 @@ public class ExcluirFuncionarioDialog extends JDialog {
 		ok = new JButton();
 		separa = new JSeparator();
 		cancelar = new JButton();
+		painelDrag = new JPanel();
 	}
 	
 	public void AdicionaComponentes(){
@@ -46,6 +50,7 @@ public class ExcluirFuncionarioDialog extends JDialog {
 		tela.add(this.separa);
 		tela.add(this.cancelar);
 		tela.add(this.excluir);
+		tela.add(this.painelDrag);
 	}
 
 
@@ -113,6 +118,36 @@ public class ExcluirFuncionarioDialog extends JDialog {
 	
 	public JSeparator getSepara() {
 		return separa;
+	}
+
+
+	public JPanel getPainelDrag() {
+		return painelDrag;
+	}
+
+
+	public void setPainelDrag(JPanel painelDrag) {
+		this.painelDrag = painelDrag;
+	}
+
+
+	public int getXx() {
+		return xx;
+	}
+
+
+	public void setXx(int xx) {
+		this.xx = xx;
+	}
+
+
+	public int getXy() {
+		return xy;
+	}
+
+
+	public void setXy(int xy) {
+		this.xy = xy;
 	}
 	
 }

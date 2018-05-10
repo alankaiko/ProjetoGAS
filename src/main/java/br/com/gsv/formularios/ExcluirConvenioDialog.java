@@ -23,6 +23,8 @@ public class ExcluirConvenioDialog extends JDialog {
 	private ExcluirConvenioListener listener;
 	private ExcluirConvenioClassic listenerClassic;
 	private ExcluirConvenioGrafic listenerGrafic;
+	private JPanel painelDrag;
+	private int xx,xy;
 	
 	
 	public ExcluirConvenioDialog(Convenio convenio) {
@@ -30,6 +32,7 @@ public class ExcluirConvenioDialog extends JDialog {
 		this.convenio = convenio;
 		AdicionaComponentes();
 		listener = new ExcluirConvenioListener(this);
+		listenerGrafic = new ExcluirConvenioGrafic(this);
 	}
 	
 		
@@ -38,6 +41,7 @@ public class ExcluirConvenioDialog extends JDialog {
 		ok = new JButton();
 		separa = new JSeparator();
 		cancelar = new JButton();
+		painelDrag = new JPanel();
 	}
 	
 	public void AdicionaComponentes(){
@@ -45,6 +49,7 @@ public class ExcluirConvenioDialog extends JDialog {
 		tela.add(this.separa);
 		tela.add(this.cancelar);
 		tela.add(this.excluir);
+		tela.add(this.painelDrag);
 	}
 	
 
@@ -112,6 +117,36 @@ public class ExcluirConvenioDialog extends JDialog {
 
 	public void setSepara(JSeparator separa) {
 		this.separa = separa;
+	}
+
+
+	public JPanel getPainelDrag() {
+		return painelDrag;
+	}
+
+
+	public void setPainelDrag(JPanel painelDrag) {
+		this.painelDrag = painelDrag;
+	}
+
+
+	public int getXx() {
+		return xx;
+	}
+
+
+	public void setXx(int xx) {
+		this.xx = xx;
+	}
+
+
+	public int getXy() {
+		return xy;
+	}
+
+
+	public void setXy(int xy) {
+		this.xy = xy;
 	}
 
 	

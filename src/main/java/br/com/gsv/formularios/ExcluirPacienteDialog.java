@@ -23,13 +23,16 @@ public class ExcluirPacienteDialog extends JDialog {
 	private ExcluirPacienteListener listener;
 	private ExcluirPacienteClassic listenerClassic;
 	private ExcluirPacienteGrafic listenerGrafic;
+	private JPanel painelDrag;
+	private int xx,xy;
 	
 	public ExcluirPacienteDialog(Paciente cliente) {
 		this.cliente = cliente;
 		
 		IniciaVariaveis();
 		AdicionaComponentes();
-		this.listener = new ExcluirPacienteListener(this);		
+		this.listener = new ExcluirPacienteListener(this);	
+		listenerGrafic = new ExcluirPacienteGrafic(this);
 	}
 	
 		
@@ -38,6 +41,7 @@ public class ExcluirPacienteDialog extends JDialog {
 		cancelar = new JButton();
 		excluir = new JLabel();
 		separa = new JSeparator();
+		painelDrag = new JPanel();
 	}
 	
 	private void AdicionaComponentes(){
@@ -45,6 +49,7 @@ public class ExcluirPacienteDialog extends JDialog {
 		tela.add(this.cancelar);
 		tela.add(this.excluir);
 		tela.add(this.separa);
+		tela.add(this.painelDrag);
 	}
 
 
@@ -112,5 +117,36 @@ public class ExcluirPacienteDialog extends JDialog {
 	public JSeparator getSepara() {
 		return separa;
 	}
+
+
+	public JPanel getPainelDrag() {
+		return painelDrag;
+	}
+
+
+	public void setPainelDrag(JPanel painelDrag) {
+		this.painelDrag = painelDrag;
+	}
+
+
+	public int getXx() {
+		return xx;
+	}
+
+
+	public void setXx(int xx) {
+		this.xx = xx;
+	}
+
+
+	public int getXy() {
+		return xy;
+	}
+
+
+	public void setXy(int xy) {
+		this.xy = xy;
+	}
+	
 	
 }
