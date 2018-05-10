@@ -7,7 +7,7 @@ import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import br.com.gsv.graficoAzul.CodigoConveniGrafic;
+import br.com.gsv.graficoAzul.CodigoConvenioGrafic;
 import br.com.gsv.graficoClassic.CodigoConvenioClassic;
 import br.com.gsv.listeners.CodigoConvenioListener;
 
@@ -19,7 +19,9 @@ public class CodigoConvenioDialog extends JDialog {
 	private CodigoConvenioListener listener;
 	private Long codigo;
 	private CodigoConvenioClassic listenerClassic;
-	private CodigoConveniGrafic listenerGrafic;
+	private CodigoConvenioGrafic listenerGrafic;
+	private JPanel painelDrag;
+	private int xx,xy;
 	
 	
 	
@@ -27,7 +29,7 @@ public class CodigoConvenioDialog extends JDialog {
 		CriaVariaveis();
 		AdicionaComponentes();
 		listener = new CodigoConvenioListener(this);	
-		listenerGrafic = new CodigoConveniGrafic(this);
+		listenerGrafic = new CodigoConvenioGrafic(this);
 	}	
 	
 	
@@ -35,13 +37,14 @@ public class CodigoConvenioDialog extends JDialog {
 		ok = new JButton();
 		cancelar = new JButton();
 		TBuscar = new JTextField();
+		painelDrag = new JPanel();
 	}
 	
 	private void AdicionaComponentes() {
 		tela.add(this.ok);
 		tela.add(this.cancelar);
 		tela.add(this.TBuscar);
-		
+		tela.add(this.painelDrag);
 	}
 
 
@@ -114,6 +117,36 @@ public class CodigoConvenioDialog extends JDialog {
 
 	public void setCodigo(Long codigo) {
 		this.codigo = codigo;
+	}
+
+
+	public JPanel getPainelDrag() {
+		return painelDrag;
+	}
+
+
+	public void setPainelDrag(JPanel painelDrag) {
+		this.painelDrag = painelDrag;
+	}
+
+
+	public int getXx() {
+		return xx;
+	}
+
+
+	public void setXx(int xx) {
+		this.xx = xx;
+	}
+
+
+	public int getXy() {
+		return xy;
+	}
+
+
+	public void setXy(int xy) {
+		this.xy = xy;
 	}
 
 

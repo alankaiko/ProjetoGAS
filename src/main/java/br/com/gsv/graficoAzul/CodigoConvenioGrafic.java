@@ -14,15 +14,15 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.border.LineBorder;
 
 import aaaaatelas.codigosgrafico;
-import br.com.gsv.formularios.CodigoPacienteDialog;
+import br.com.gsv.formularios.CodigoConvenioDialog;
 import br.com.gsv.util.FieldListener;
 
-public class CodigoPacienteGrafic {
-	private CodigoPacienteDialog formulario;
+public class CodigoConvenioGrafic {
+	private CodigoConvenioDialog formulario;
 	private FieldListener field = new FieldListener();
 	
 	
-	public CodigoPacienteGrafic(CodigoPacienteDialog formulario) {
+	public CodigoConvenioGrafic(CodigoConvenioDialog formulario) {
 		this.formulario = formulario;
 		CriarTelaGeralGrafic();
 		CriarTelaGeral();
@@ -44,7 +44,7 @@ public class CodigoPacienteGrafic {
 	
 	
 	private void CriarTelaGeral() {
-this.formulario.getPainelDrag().setBackground(new Color(20, 34, 56));
+		this.formulario.getPainelDrag().setBackground(new Color(20, 34, 56));
 		
 		JLabel LFechar = new JLabel();
 		LFechar.setIcon(new ImageIcon(codigosgrafico.class.getResource("/imagens/icons8-não-22.png")));

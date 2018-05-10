@@ -21,6 +21,8 @@ public class CodigoProdutoDialog extends JDialog {
 	private String codigo;
 	private CodigoProdutoClassic listenerClassic;
 	private CodigoProdutoGrafic listenerGrafic;
+	private JPanel painelDrag;
+	private int xx,xy;
 
 	public CodigoProdutoDialog() {
 		CriaVariaveis();
@@ -34,12 +36,14 @@ public class CodigoProdutoDialog extends JDialog {
 		TBuscar = new JTextField();
 		ok = new JButton();
 		cancelar = new JButton();
+		painelDrag = new JPanel();
 	}
 
 	public void AdicionaNaTela() {
 		tela.add(this.TBuscar);
 		tela.add(this.ok);
 		tela.add(this.cancelar);
+		tela.add(this.painelDrag);
 	}
 
 	public JButton getOk() {
@@ -90,4 +94,35 @@ public class CodigoProdutoDialog extends JDialog {
 		this.tela = tela;
 	}
 
+
+	public JPanel getPainelDrag() {
+		return painelDrag;
+	}
+
+
+	public void setPainelDrag(JPanel painelDrag) {
+		this.painelDrag = painelDrag;
+	}
+
+
+	public int getXx() {
+		return xx;
+	}
+
+
+	public void setXx(int xx) {
+		this.xx = xx;
+	}
+
+
+	public int getXy() {
+		return xy;
+	}
+
+
+	public void setXy(int xy) {
+		this.xy = xy;
+	}
+
+	
 }

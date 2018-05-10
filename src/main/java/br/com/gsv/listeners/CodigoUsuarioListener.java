@@ -20,6 +20,7 @@ public class CodigoUsuarioListener implements ActionListener{
 		AdicionaComponentes();
 		UsandoTAB();
 		TeclaEsc();
+		UpCase();
 	}
 	
 	
@@ -68,6 +69,7 @@ public class CodigoUsuarioListener implements ActionListener{
 	}
 	
 	
+	@SuppressWarnings("serial")
 	public void TeclaEsc(){
         JRootPane meurootpane = this.formulario.getRootPane();  
         meurootpane.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), "ESCAPE");  
@@ -78,6 +80,17 @@ public class CodigoUsuarioListener implements ActionListener{
             }  
         });  
     } 
+	
+	private void UpCase(){
+		this.formulario.getTBuscar().addKeyListener(new KeyAdapter() {  
+			public void keyReleased(KeyEvent ke) {  
+				if (ke.getKeyCode() != KeyEvent.VK_HOME) {  
+					String s = formulario.getTBuscar().getText();  
+					formulario.getTBuscar().setText(s.toUpperCase());  
+				}  
+			}  
+		}); 	
+	}
 	
 	
 }

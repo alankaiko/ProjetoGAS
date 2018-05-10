@@ -20,6 +20,8 @@ public class CodigoUsuarioDialog extends JDialog {
 	private CodigoUsuarioClassic listenerClassic;
 	private CodigoUsuarioGrafic listenerGrafic;
 	private String login;
+	private JPanel painelDrag;
+	private int xx,xy;
 
 	public CodigoUsuarioDialog() {
 		CriaVariaveis();
@@ -33,13 +35,14 @@ public class CodigoUsuarioDialog extends JDialog {
 		ok = new JButton();
 		cancelar = new JButton();
 		TBuscar = new JTextField();
+		painelDrag = new JPanel();
 	}
 	
 	private void AdicionaComponentes() {
 		tela.add(this.ok);
 		tela.add(this.cancelar);
 		tela.add(this.TBuscar);
-		
+		tela.add(this.painelDrag);
 	}
 	
 	
@@ -90,6 +93,36 @@ public class CodigoUsuarioDialog extends JDialog {
 
 	public void setTela(Container tela) {
 		this.tela = tela;
+	}
+
+
+	public JPanel getPainelDrag() {
+		return painelDrag;
+	}
+
+
+	public void setPainelDrag(JPanel painelDrag) {
+		this.painelDrag = painelDrag;
+	}
+
+
+	public int getXx() {
+		return xx;
+	}
+
+
+	public void setXx(int xx) {
+		this.xx = xx;
+	}
+
+
+	public int getXy() {
+		return xy;
+	}
+
+
+	public void setXy(int xy) {
+		this.xy = xy;
 	}
 	
 	
