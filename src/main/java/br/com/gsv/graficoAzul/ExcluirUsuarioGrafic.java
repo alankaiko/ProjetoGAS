@@ -7,14 +7,13 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
 
 import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JSeparator;
-import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.border.LineBorder;
 
-import aaaaatelas.excluindografico;
 import br.com.gsv.formularios.ExcluirUsuarioDialog;
 
 public class ExcluirUsuarioGrafic {
@@ -46,7 +45,7 @@ public class ExcluirUsuarioGrafic {
 this.formulario.getPainelDrag().setBackground(new Color(20, 34, 56));
 		
 		JLabel LFechar = new JLabel();
-		LFechar.setIcon(new ImageIcon(excluindografico.class.getResource("/imagens/icons8-não-22.png")));
+		LFechar.setIcon(new ImageIcon(ExcluirUsuarioGrafic.class.getResource("/imagens/icons8-não-22.png")));
 		LFechar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent e) {

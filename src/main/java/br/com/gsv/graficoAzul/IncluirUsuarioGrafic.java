@@ -14,7 +14,6 @@ import javax.swing.JSeparator;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.border.LineBorder;
 
-import aaaaatelas.incluirusergrafico;
 import br.com.gsv.formularios.IncluirUsuarioForm;
 import br.com.gsv.util.FieldListener;
 
@@ -91,7 +90,7 @@ public class IncluirUsuarioGrafic {
 		this.formulario.getBPesquisar().setFont(new Font("Segoe UI Light", Font.PLAIN, 12));
 		this.formulario.getBPesquisar().setBackground(Color.WHITE);
 		this.formulario.getBPesquisar().setBorder(null);
-		this.formulario.getBPesquisar().setIcon(new ImageIcon(incluirusergrafico.class.getResource("/imagens/icons8-pesquisar-15.png")));
+		this.formulario.getBPesquisar().setIcon(new ImageIcon(IncluirUsuarioGrafic.class.getResource("/imagens/icons8-pesquisar-15.png")));
 		
 		this.formulario.getLCpf().setText("CPF");
 		this.formulario.getLCpf().setFont(new Font("Segoe UI Semibold", Font.PLAIN, 14));

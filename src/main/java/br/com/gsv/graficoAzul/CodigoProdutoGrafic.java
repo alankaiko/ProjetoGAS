@@ -13,7 +13,6 @@ import javax.swing.JLabel;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.border.LineBorder;
 
-import aaaaatelas.codigosgrafico;
 import br.com.gsv.formularios.CodigoProdutoDialog;
 import br.com.gsv.util.FieldListener;
 
@@ -47,7 +46,7 @@ public class CodigoProdutoGrafic {
 this.formulario.getPainelDrag().setBackground(new Color(20, 34, 56));
 		
 		JLabel LFechar = new JLabel();
-		LFechar.setIcon(new ImageIcon(codigosgrafico.class.getResource("/imagens/icons8-não-22.png")));
+		LFechar.setIcon(new ImageIcon(CodigoProdutoGrafic.class.getResource("/imagens/icons8-não-22.png")));
 		LFechar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent e) {

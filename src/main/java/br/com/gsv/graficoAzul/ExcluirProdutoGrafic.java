@@ -14,7 +14,6 @@ import javax.swing.JSeparator;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.border.LineBorder;
 
-import aaaaatelas.excluindografico;
 import br.com.gsv.formularios.ExcluirProdutoDialog;
 
 public class ExcluirProdutoGrafic {
@@ -46,7 +45,7 @@ public class ExcluirProdutoGrafic {
 this.formulario.getPainelDrag().setBackground(new Color(20, 34, 56));
 		
 		JLabel LFechar = new JLabel();
-		LFechar.setIcon(new ImageIcon(excluindografico.class.getResource("/imagens/icons8-não-22.png")));
+		LFechar.setIcon(new ImageIcon(ExcluirProdutoGrafic.class.getResource("/imagens/icons8-não-22.png")));
 		LFechar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent e) {

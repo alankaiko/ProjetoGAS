@@ -1,6 +1,5 @@
 package br.com.gsv.graficoAzul;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.MouseAdapter;
@@ -8,17 +7,13 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
 
 import javax.swing.GroupLayout;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JSeparator;
 import javax.swing.GroupLayout.Alignment;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.JSeparator;
 import javax.swing.LayoutStyle.ComponentPlacement;
-import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 
-import aaaaatelas.conveciograficbora;
 import br.com.gsv.formularios.DetalhesConvenioDialog;
 
 public class DetalheConvenioGrafic {
@@ -49,7 +44,7 @@ public class DetalheConvenioGrafic {
 		this.formulario.getPainelDrag().setBackground(new Color(20, 34, 56));
 		
 		JLabel LFechar = new JLabel();
-		LFechar.setIcon(new ImageIcon(conveciograficbora.class.getResource("/imagens/icons8-não-22.png")));
+		LFechar.setIcon(new ImageIcon(DetalheConvenioGrafic.class.getResource("/imagens/icons8-não-22.png")));
 		LFechar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent e) {
