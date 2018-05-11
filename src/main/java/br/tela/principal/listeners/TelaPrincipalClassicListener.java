@@ -191,7 +191,7 @@ public class TelaPrincipalClassicListener implements ActionListener{
 	
 	private void AbreIncluFuncionario(){
 		IncluirFuncionariosForm incluirFunc =  new IncluirFuncionariosForm();
-	
+		incluirFunc.IniciaClassic();
 		incluirFunc.setLocationRelativeTo(this.tela.getTela());
 		incluirFunc.setVisible(true);
 	}

@@ -32,6 +32,13 @@ public class ExcluirConvenioDialog extends JDialog {
 		this.convenio = convenio;
 		AdicionaComponentes();
 		listener = new ExcluirConvenioListener(this);
+	}
+	
+	public void IniciaClassic(){
+		listenerClassic = new ExcluirConvenioClassic(this);
+	}
+	
+	public void IniciaGrafic(){
 		listenerGrafic = new ExcluirConvenioGrafic(this);
 	}
 	

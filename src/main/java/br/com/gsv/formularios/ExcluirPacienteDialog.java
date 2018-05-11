@@ -31,10 +31,16 @@ public class ExcluirPacienteDialog extends JDialog {
 		
 		IniciaVariaveis();
 		AdicionaComponentes();
-		this.listener = new ExcluirPacienteListener(this);	
-		listenerGrafic = new ExcluirPacienteGrafic(this);
+		listener = new ExcluirPacienteListener(this);	
 	}
 	
+	public void IniciaClassic(){
+		listenerClassic = new ExcluirPacienteClassic(this);
+	}
+	
+	public void IniciaGrafic(){
+		listenerGrafic = new ExcluirPacienteGrafic(this);
+	}
 		
 	private void IniciaVariaveis(){
 		ok = new JButton();

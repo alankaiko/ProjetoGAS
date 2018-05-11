@@ -36,6 +36,13 @@ public class BuscarUsuarioDialog extends JDialog {
 		CriaComponentes();
 		AdicionaNaTela();
 		listener = new BuscarUsuarioListener(this);
+	}
+	
+	public void IniciaClassic(){
+		listenerClassic = new BuscarUsuarioClassic(this);
+	}
+	
+	public void IniciaGrafic(){
 		listenerGrafic = new BuscarUsuarioGrafic(this);
 	}
 	

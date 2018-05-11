@@ -38,6 +38,13 @@ public class BuscarProdutoDialog extends JDialog {
 		CriaComponentes();
 		AdicionaNaTela();
 		listener = new BuscarProdutoListener(this);
+	}
+	
+	public void IniciaClassic(){
+		listenerClassic = new BuscarProdutoClassic(this);
+	}
+	
+	public void IniciaGrafic(){
 		listenerGrafic = new BuscarProdutoGrafic(this);
 	}
 	

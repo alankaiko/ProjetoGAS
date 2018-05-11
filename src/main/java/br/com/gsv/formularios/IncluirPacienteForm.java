@@ -36,6 +36,13 @@ public class IncluirPacienteForm extends JDialog {
 		CriaVariaveis();
 		InicializaCompomentes();
 		listener = new IncluirPacienteListener(this);
+	}
+	
+	public void IniciaClassic(){
+		listenerClassic = new IncluirPacienteClassic(this);
+	}
+	
+	public void IniciaGrafic(){
 		listenerGrafic = new IncluirPacienteGrafic(this);
 	}
 	

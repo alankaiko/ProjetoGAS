@@ -30,6 +30,13 @@ public class DetalhesFabricanteDialog extends JDialog {
 		CriaVariaveis();
 		AdicionaComponentes();
 		listener = new DetalhesFabricanteListener(this);
+	}
+	
+	public void IniciaClassic(){
+		listenerClassic = new DetalheFabricanteClassic(this);
+	}
+	
+	public void IniciaGrafic(){
 		listenerGrafic = new DetalheFabricanteGrafic(this);
 	}
 	

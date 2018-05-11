@@ -32,6 +32,13 @@ public class ExcluirUsuarioDialog extends JDialog{
 		this.usuario = usuario;
 		AdicionaComponentes();
 		listener = new ExcluirUsuarioListener(this);
+	}
+	
+	public void IniciaClassic(){
+		listenerClassic = new ExcluirUsuarioClassic(this);
+	}
+	
+	public void IniciaGrafic(){
 		listenerGrafic = new ExcluirUsuarioGrafic(this);
 	}
 	

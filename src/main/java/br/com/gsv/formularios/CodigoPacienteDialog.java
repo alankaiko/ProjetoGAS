@@ -27,9 +27,15 @@ public class CodigoPacienteDialog extends JDialog {
 		IniciaComponentes();
 		AdicionaNaTela();
 		listener = new CodigoPacienteListener(this);
-		listenerGrafic = new CodigoPacienteGrafic(this);
 	}
 	
+	public void IniciaClassic(){
+		listenerClassic = new CodigoPacienteClassic(this);
+	}
+	
+	public void IniciaGrafic(){
+		listenerGrafic = new CodigoPacienteGrafic(this);
+	}
 	
 	private void IniciaComponentes(){
 		ok = new JButton();

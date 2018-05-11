@@ -29,9 +29,15 @@ public class CodigoConvenioDialog extends JDialog {
 		CriaVariaveis();
 		AdicionaComponentes();
 		listener = new CodigoConvenioListener(this);	
-		listenerGrafic = new CodigoConvenioGrafic(this);
 	}	
 	
+	public void IniciaClassic(){
+		listenerClassic = new CodigoConvenioClassic(this);
+	}
+	
+	public void IniciaGrafic(){
+		listenerGrafic = new CodigoConvenioGrafic(this);
+	}
 	
 	public void CriaVariaveis() {
 		ok = new JButton();

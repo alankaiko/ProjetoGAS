@@ -29,6 +29,13 @@ public class CodigoFabricanteDialog extends JDialog {
 		CriaVariaveis();
 		AdicionaComponentes();
 		listener = new CodigoFabricanteListener(this);	
+	}
+	
+	public void IniciaClassic(){
+		listenerClassic = new CodigoFabricanteClassic(this);
+	}
+	
+	public void IniciaGrafic(){
 		listenerGrafic = new CodigoFabricanteGrafic(this);
 	}
 	

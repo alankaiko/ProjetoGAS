@@ -31,6 +31,13 @@ public class ExcluirProdutoDialog extends JDialog {
 		CriaVariaveis();
 		Inicializa();
 		listener = new ExcluirProdutoListener(this);
+	}
+	
+	public void IniciaClassic(){
+		listenerClassic = new ExcluirProdutoClassic(this);
+	}
+	
+	public void IniciaGrafic(){
 		listenerGrafic = new ExcluirProdutoGrafic(this);
 	}
 	

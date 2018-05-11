@@ -36,6 +36,13 @@ public class IncluirUsuarioForm extends JDialog {
 		CriaTelaGeral();
 		AdicionaNaTela();
 		listener = new IncluirUsuarioListener(this);
+	}
+	
+	public void IniciaClassic(){
+		listenerClassic = new IncluirUsuarioClassic(this);
+	}
+	
+	public void IniciaGrafic(){
 		listenerGrafic = new IncluirUsuarioGrafic(this);
 	}
 	

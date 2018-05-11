@@ -352,6 +352,7 @@ public class TelaPrincipalGraficListener implements MouseListener, ActionListene
 	
 	private void AbreIncluFuncionario(){
 		IncluirFuncionariosForm incluirFunc =  new IncluirFuncionariosForm();
+		incluirFunc.IniciaGrafic();
 		incluirFunc.setLocationRelativeTo(this.tela.getTela());
 		incluirFunc.setVisible(true);
 	}
