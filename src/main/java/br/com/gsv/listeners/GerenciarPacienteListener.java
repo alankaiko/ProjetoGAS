@@ -113,6 +113,10 @@ public class GerenciarPacienteListener implements ActionListener{
 	
 	private void ExecutaInclusao(){
 		IncluirPacienteForm inclui = new IncluirPacienteForm();
+			if(gerenciamento.getVersao() == 'c')
+				inclui.IniciaClassic();
+			if(gerenciamento.getVersao() == 'g')
+				inclui.IniciaGrafic();
 		inclui.setLocationRelativeTo(this.gerenciamento.getTela());
 		inclui.setVisible(true);		
 		TabelaDeCliente();
@@ -121,6 +125,10 @@ public class GerenciarPacienteListener implements ActionListener{
 	private void ExecutaExclusao(Long id){
 		PacienteController controller = new PacienteController();
 		ExcluirPacienteDialog telaExc = new ExcluirPacienteDialog(controller.BuscarPelaID(id));
+			if(gerenciamento.getVersao() == 'c')
+				telaExc.IniciaClassic();
+			if(gerenciamento.getVersao() == 'g')
+				telaExc.IniciaGrafic();
 		telaExc.setLocationRelativeTo(this.gerenciamento.getTela());
 		telaExc.setVisible(true);
 		TabelaDeCliente();	
@@ -129,6 +137,10 @@ public class GerenciarPacienteListener implements ActionListener{
 	private void ExecutaEdicao(Long id){
 		PacienteController controller = new PacienteController();
 		IncluirPacienteForm edita = new IncluirPacienteForm();
+			if(gerenciamento.getVersao() == 'c')
+				edita.IniciaClassic();
+			if(gerenciamento.getVersao() == 'g')
+				edita.IniciaGrafic();
 		edita.getListener().setPaciente(controller.BuscarPelaID(id));
 		edita.getListener().AlterandoObjetos();
 		
@@ -141,6 +153,10 @@ public class GerenciarPacienteListener implements ActionListener{
 	private void ExecutaTelaDetalhes(Long id){
 		PacienteController controller = new PacienteController();
 		DetalhesPacienteDialog detalhes = new DetalhesPacienteDialog();
+			if(gerenciamento.getVersao() == 'c')
+				detalhes.IniciaClassic();
+			if(gerenciamento.getVersao() == 'g')
+				detalhes.IniciaGrafic();
 		detalhes.getListener().setPaciente(controller.BuscarPelaID(id));
 		detalhes.getListener().Detalhar();
 		
@@ -150,6 +166,10 @@ public class GerenciarPacienteListener implements ActionListener{
 	
 	private void ExecutaTelaCodigo(){
 		CodigoPacienteDialog dialogo = new CodigoPacienteDialog();
+			if(gerenciamento.getVersao() == 'c')
+				dialogo.IniciaClassic();
+			if(gerenciamento.getVersao() == 'g')
+				dialogo.IniciaGrafic();
 		dialogo.setLocationRelativeTo(this.gerenciamento.getTela());
 		dialogo.setVisible(true);
 		pegaLinha(dialogo.getCodigo());
@@ -158,6 +178,10 @@ public class GerenciarPacienteListener implements ActionListener{
 	
 	private void ExecutaTelaBuscar(){
 		BuscarPacienteDialog busca = new BuscarPacienteDialog();
+			if(gerenciamento.getVersao() == 'c')
+				busca.IniciaClassic();
+			if(gerenciamento.getVersao() == 'g')
+				busca.IniciaGrafic();
 		busca.setLocationRelativeTo(this.gerenciamento.getTela());
 		busca.setVisible(true);
 		pegaLinha(busca.getListener().getCodigo());

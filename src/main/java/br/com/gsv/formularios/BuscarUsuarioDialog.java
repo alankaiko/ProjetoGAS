@@ -32,6 +32,7 @@ public class BuscarUsuarioDialog extends JDialog {
 	private JPanel painelDrag;
 	private int xx,xy;
 	
+	
 	public BuscarUsuarioDialog() {
 		CriaComponentes();
 		AdicionaNaTela();

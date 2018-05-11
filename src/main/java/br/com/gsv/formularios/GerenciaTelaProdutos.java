@@ -23,6 +23,7 @@ public class GerenciaTelaProdutos extends JDialog {
 	private GerenciarProdutosListener listener;
 	private JPanel painelDrag;
 	private int xx,xy;
+	private char versao;
 	
 	
 	
@@ -35,10 +36,12 @@ public class GerenciaTelaProdutos extends JDialog {
 	
 	public void IniciaClassic(){
 		listenerClassic = new GerenciaProdutoClassic(this);
+		versao = 'c';
 	}
 	
 	public void IniciaGrafic(){
 		listenerGrafic = new GerenciaProdutoGrafic(this);
+		versao = 'g';
 	}
 	
 	
@@ -203,6 +206,14 @@ public class GerenciaTelaProdutos extends JDialog {
 
 	public void setXy(int xy) {
 		this.xy = xy;
+	}
+
+	public char getVersao() {
+		return versao;
+	}
+
+	public void setVersao(char versao) {
+		this.versao = versao;
 	}
 
 	

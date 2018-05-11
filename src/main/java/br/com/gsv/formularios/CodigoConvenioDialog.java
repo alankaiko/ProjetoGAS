@@ -24,7 +24,6 @@ public class CodigoConvenioDialog extends JDialog {
 	private int xx,xy;
 	
 	
-	
 	public CodigoConvenioDialog() {
 		CriaVariaveis();
 		AdicionaComponentes();
@@ -155,8 +154,6 @@ public class CodigoConvenioDialog extends JDialog {
 		this.xy = xy;
 	}
 
-
-
-
+	
 
 }

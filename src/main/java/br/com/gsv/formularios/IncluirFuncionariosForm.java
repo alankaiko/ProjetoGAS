@@ -31,6 +31,8 @@ public class IncluirFuncionariosForm extends JDialog {
 	private IncluirFuncionarioGrafic listenerGrafic;
 	private char versao;
 	private int xx,xy;
+
+
 	
 	public IncluirFuncionariosForm() {
 		InicializaVariaveis();
@@ -40,10 +42,12 @@ public class IncluirFuncionariosForm extends JDialog {
 	
 	public void IniciaClassic(){
 		listenerClassic = new IncluirFuncionarioClassic(this);
+		versao = 'c';
 	}
 	
 	public void IniciaGrafic(){
 		listenerGrafic = new IncluirFuncionarioGrafic(this);
+		versao = 'g';
 	}
 	
 	private void InicializaVariaveis(){
@@ -523,6 +527,6 @@ public class IncluirFuncionariosForm extends JDialog {
 		this.xy = xy;
 	}
 
-
+	
 	
 }

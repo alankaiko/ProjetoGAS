@@ -222,6 +222,6 @@ public class DetalhesUsuarioDialog extends JDialog {
 	public void setXy(int xy) {
 		this.xy = xy;
 	}
-	
+
 	
 }

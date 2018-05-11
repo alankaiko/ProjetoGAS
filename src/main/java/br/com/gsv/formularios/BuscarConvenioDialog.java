@@ -35,6 +35,7 @@ public class BuscarConvenioDialog extends JDialog {
 	private int xx,xy;
 	
 	
+	
 	public BuscarConvenioDialog() {
 		CriaComponentes();
 		AdicionaNaTela();
@@ -254,6 +255,7 @@ public class BuscarConvenioDialog extends JDialog {
 	public void setXy(int xy) {
 		this.xy = xy;
 	}
-	
-	
+
+
+
 }

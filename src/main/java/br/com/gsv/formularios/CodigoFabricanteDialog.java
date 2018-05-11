@@ -155,6 +155,5 @@ public class CodigoFabricanteDialog extends JDialog {
 		this.xy = xy;
 	}
 
-
-
+	
 }

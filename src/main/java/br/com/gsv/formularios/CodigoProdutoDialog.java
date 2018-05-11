@@ -24,6 +24,7 @@ public class CodigoProdutoDialog extends JDialog {
 	private JPanel painelDrag;
 	private int xx,xy;
 
+
 	public CodigoProdutoDialog() {
 		CriaVariaveis();
 		AdicionaNaTela();
@@ -130,5 +131,6 @@ public class CodigoProdutoDialog extends JDialog {
 		this.xy = xy;
 	}
 
+	
 	
 }

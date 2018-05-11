@@ -22,7 +22,8 @@ public class GerenciaTelaConvenio extends JDialog {
 	private GerenciaConvenioClassic listenerClassic;
 	private GerenciaConvenioGrafic listenerGrafic;
 	private JPanel painelDrag;
-	private int xx,xy;	
+	private int xx,xy;
+	private char versao;
 	
 	
 	public GerenciaTelaConvenio() {
@@ -33,10 +34,12 @@ public class GerenciaTelaConvenio extends JDialog {
 	
 	public void IniciaClassic(){
 		listenerClassic = new GerenciaConvenioClassic(this);
+		versao = 'c';
 	}
 	
 	public void IniciaGrafic(){
 		listenerGrafic = new GerenciaConvenioGrafic(this);
+		versao = 'g';
 	}
 	
 	private void CriaTelaGeral(){
@@ -202,6 +205,16 @@ public class GerenciaTelaConvenio extends JDialog {
 	public void setXy(int xy) {
 		this.xy = xy;
 	}
+
+	public char getVersao() {
+		return versao;
+	}
+
+	public void setVersao(char versao) {
+		this.versao = versao;
+	}
+	
+	
 
 
 }

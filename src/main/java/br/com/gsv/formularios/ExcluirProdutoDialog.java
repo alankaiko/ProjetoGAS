@@ -25,6 +25,7 @@ public class ExcluirProdutoDialog extends JDialog {
 	private ExcluirProdutoGrafic listenerGrafic;
 	private JPanel painelDrag;
 	private int xx,xy;
+	
 
 	public ExcluirProdutoDialog(Produto produto) {
 		this.produto = produto;
@@ -149,6 +150,6 @@ public class ExcluirProdutoDialog extends JDialog {
 	public void setXy(int xy) {
 		this.xy = xy;
 	}
-	
+
 	
 }

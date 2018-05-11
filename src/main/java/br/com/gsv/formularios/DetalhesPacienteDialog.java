@@ -31,6 +31,7 @@ public class DetalhesPacienteDialog extends JDialog {
 	private JPanel painelDrag;
 	private int xx,xy;
 
+
 	public DetalhesPacienteDialog() {
 		IniciaVariaveis();
 		InicializaCompomentes();
@@ -570,6 +571,6 @@ public class DetalhesPacienteDialog extends JDialog {
 	public void setSeparator(JSeparator separator) {
 		this.separator = separator;
 	}
-	
+
 	
 }

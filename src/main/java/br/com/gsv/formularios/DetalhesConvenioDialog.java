@@ -188,7 +188,5 @@ public class DetalhesConvenioDialog extends JDialog {
 		this.panel = panel;
 	}
 
-
 	
-		
 }

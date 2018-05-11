@@ -110,6 +110,10 @@ public class GerenciaConvenioListener implements ActionListener{
 	
 	private void ExecutaInclusao(){
 		IncluirConvenioForm inclui = new IncluirConvenioForm();
+			if(gerenciamento.getVersao() == 'c')
+				inclui.IniciaClassic();
+			if(gerenciamento.getVersao() == 'g')
+				inclui.IniciaGrafic();
 		inclui.setLocationRelativeTo(this.gerenciamento.getTela());
 		inclui.setVisible(true);		
 		TabelaDeConvenio();
@@ -118,6 +122,10 @@ public class GerenciaConvenioListener implements ActionListener{
 	private void ExecutaExclusao(Long id){
 		ConvenioController controller = new ConvenioController();
 		ExcluirConvenioDialog telaExc = new ExcluirConvenioDialog(controller.BuscarPelaID(id));
+			if(gerenciamento.getVersao() == 'c')
+				telaExc.IniciaClassic();
+			if(gerenciamento.getVersao() == 'g')
+				telaExc.IniciaGrafic();
 		telaExc.setLocationRelativeTo(this.gerenciamento.getTela());
 		telaExc.setVisible(true);
 		TabelaDeConvenio();	
@@ -126,6 +134,10 @@ public class GerenciaConvenioListener implements ActionListener{
 	private void ExecutaEdicao(Long id){
 		ConvenioController controller = new ConvenioController();
 		IncluirConvenioForm edita = new IncluirConvenioForm();
+			if(gerenciamento.getVersao() == 'c')
+				edita.IniciaClassic();
+			if(gerenciamento.getVersao() == 'g')
+				edita.IniciaGrafic();
 		edita.getListener().setConvenio((controller.BuscarPelaID(id)));
 		edita.getListener().AlterandoObjetos();
 		
@@ -138,6 +150,10 @@ public class GerenciaConvenioListener implements ActionListener{
 	private void ExecutaTelaDetalhes(Long id){
 		ConvenioController controller = new ConvenioController();
 		DetalhesConvenioDialog detalhes = new DetalhesConvenioDialog();
+			if(gerenciamento.getVersao() == 'c')
+				detalhes.IniciaClassic();
+			if(gerenciamento.getVersao() == 'g')
+				detalhes.IniciaGrafic();
 		detalhes.getListener().setConvenio(controller.BuscarPelaID(id));
 		detalhes.getListener().Detalhar();
 		
@@ -147,6 +163,10 @@ public class GerenciaConvenioListener implements ActionListener{
 	
 	private void ExecutaTelaCodigo(){
 		CodigoConvenioDialog dialogo = new CodigoConvenioDialog();
+			if(gerenciamento.getVersao() == 'c')
+				dialogo.IniciaClassic();
+			if(gerenciamento.getVersao() == 'g')
+				dialogo.IniciaGrafic();
 		dialogo.setLocationRelativeTo(this.gerenciamento.getTela());
 		dialogo.setVisible(true);
 		pegaLinha(dialogo.getCodigo());
@@ -155,6 +175,10 @@ public class GerenciaConvenioListener implements ActionListener{
 	
 	private void ExecutaTelaBuscar(){
 		BuscarConvenioDialog busca = new BuscarConvenioDialog();
+			if(gerenciamento.getVersao() == 'c')
+				busca.IniciaClassic();
+			if(gerenciamento.getVersao() == 'g')
+				busca.IniciaGrafic();
 		busca.setLocationRelativeTo(this.gerenciamento.getTela());
 		busca.setVisible(true);
 		pegaLinha(busca.getListener().getCodigo());

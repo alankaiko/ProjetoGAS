@@ -155,5 +155,7 @@ public class ExcluirFuncionarioDialog extends JDialog {
 	public void setXy(int xy) {
 		this.xy = xy;
 	}
+
+	
 	
 }

@@ -33,7 +33,7 @@ public class BuscarProdutoDialog extends JDialog {
 	private JPanel painelDrag;
 	private int xx,xy;
 
-	
+
 	public BuscarProdutoDialog() {
 		CriaComponentes();
 		AdicionaNaTela();
@@ -241,6 +241,8 @@ public class BuscarProdutoDialog extends JDialog {
 	public void setBuscaFabricante(JRadioButton buscaFabricante) {
 		this.buscaFabricante = buscaFabricante;
 	}
-	
+
+
+
 	
 }

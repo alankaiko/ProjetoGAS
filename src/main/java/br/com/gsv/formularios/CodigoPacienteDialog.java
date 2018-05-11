@@ -22,6 +22,7 @@ public class CodigoPacienteDialog extends JDialog {
 	private CodigoPacienteGrafic listenerGrafic;
 	private JPanel painelDrag;
 	private int xx,xy;
+	
 
 	public CodigoPacienteDialog() {
 		IniciaComponentes();
@@ -129,5 +130,4 @@ public class CodigoPacienteDialog extends JDialog {
 		this.xy = xy;
 	}
 
-	
 }

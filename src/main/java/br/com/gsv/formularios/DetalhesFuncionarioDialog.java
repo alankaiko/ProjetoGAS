@@ -629,5 +629,4 @@ public class DetalhesFuncionarioDialog extends JDialog {
 		}
 
 		
-		
 }

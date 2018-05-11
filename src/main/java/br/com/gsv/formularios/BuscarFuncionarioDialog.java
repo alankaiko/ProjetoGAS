@@ -38,7 +38,7 @@ public class BuscarFuncionarioDialog extends JDialog {
 	private RadioListenerFuncionario radioFuncionario;
 	private JPanel painelDrag;
 	private int xx,xy;
-	
+
 	
 	public BuscarFuncionarioDialog() {
 		CriarTelaGeral();
@@ -275,6 +275,6 @@ public class BuscarFuncionarioDialog extends JDialog {
 	public void setXy(int xy) {
 		this.xy = xy;
 	}
-	
+
 	
 }

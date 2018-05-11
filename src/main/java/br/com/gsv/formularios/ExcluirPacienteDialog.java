@@ -26,6 +26,7 @@ public class ExcluirPacienteDialog extends JDialog {
 	private JPanel painelDrag;
 	private int xx,xy;
 	
+	
 	public ExcluirPacienteDialog(Paciente cliente) {
 		this.cliente = cliente;
 		
@@ -153,6 +154,6 @@ public class ExcluirPacienteDialog extends JDialog {
 	public void setXy(int xy) {
 		this.xy = xy;
 	}
-	
+
 	
 }

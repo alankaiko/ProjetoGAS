@@ -14,6 +14,7 @@ import javax.swing.border.LineBorder;
 import br.com.gsv.domain.Usuario;
 import br.tela.principal.listeners.BarraStatusListener;
 import br.tela.principal.listeners.TelaPrincipalClassicListener;
+import javax.swing.ImageIcon;
 
 public class TelaPrincipalClassic extends JFrame {
 
@@ -48,6 +49,11 @@ public class TelaPrincipalClassic extends JFrame {
 		panelPrincipal.setBounds(0, 0, 884, 552);
 		tela.add(panelPrincipal);
 		panelPrincipal.setLayout(null);
+		
+		JLabel label = new JLabel("");
+		label.setIcon(new ImageIcon(TelaPrincipalClassic.class.getResource("/imagens/G Doctor.png")));
+		label.setBounds(100, 100, 890, 580);
+		panelPrincipal.add(label);
 		
 		
 	}
@@ -584,9 +590,6 @@ public class TelaPrincipalClassic extends JFrame {
 	public void setRelatorioConvenio(JMenuItem relatorioConvenio) {
 		this.relatorioConvenio = relatorioConvenio;
 	}
-	
-	
-	
 }
 
 

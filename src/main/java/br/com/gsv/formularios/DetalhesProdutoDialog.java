@@ -24,6 +24,7 @@ public class DetalhesProdutoDialog extends JDialog {
 	private JSeparator separa;
 	private JPanel painelDrag;
 	private int xx,xy;
+	
 
 	public DetalhesProdutoDialog() {
 		InicializaComponentes();

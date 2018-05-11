@@ -22,6 +22,7 @@ public class CodigoUsuarioDialog extends JDialog {
 	private String login;
 	private JPanel painelDrag;
 	private int xx,xy;
+	
 
 	public CodigoUsuarioDialog() {
 		CriaVariaveis();
@@ -130,6 +131,6 @@ public class CodigoUsuarioDialog extends JDialog {
 	public void setXy(int xy) {
 		this.xy = xy;
 	}
-	
+
 	
 }

@@ -29,7 +29,6 @@ public class IncluirUsuarioForm extends JDialog {
 	private IncluirUsuarioGrafic listenerGrafic;
 	private JPanel painelDrag;
 	private int xx,xy;
-
 	
 
 	public IncluirUsuarioForm() {
@@ -267,8 +266,6 @@ public class IncluirUsuarioForm extends JDialog {
 	public void setXy(int xy) {
 		this.xy = xy;
 	}
-	
-	
-	
+
 	
 }

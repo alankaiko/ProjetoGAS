@@ -25,6 +25,7 @@ public class DetalhesFabricanteDialog extends JDialog {
 	private JPanel painelDrag;
 	private int xx,xy;
 
+
 	
 	public DetalhesFabricanteDialog() {
 		CriaVariaveis();
@@ -178,6 +179,6 @@ public class DetalhesFabricanteDialog extends JDialog {
 		public void setXy(int xy) {
 			this.xy = xy;
 		}
-		
+
 		
 }

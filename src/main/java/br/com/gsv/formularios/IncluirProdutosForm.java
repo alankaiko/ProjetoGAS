@@ -233,6 +233,6 @@ public class IncluirProdutosForm extends JDialog {
 	public void setXy(int xy) {
 		this.xy = xy;
 	}
-	
+
 	
 }

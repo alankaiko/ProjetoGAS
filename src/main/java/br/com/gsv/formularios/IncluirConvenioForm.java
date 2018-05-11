@@ -22,8 +22,6 @@ public class IncluirConvenioForm extends JDialog{
 	private IncluirConvenioClassic listenerClassic;
 	private IncluirConvenioGrafic listenerGrafico;
 	private int xx,xy;
-	
-	
 
 	
 	public IncluirConvenioForm() {
@@ -158,10 +156,5 @@ public class IncluirConvenioForm extends JDialog{
 	public void setXy(int xy) {
 		this.xy = xy;
 	}
-
-	
-	
-
-	
 	
 }

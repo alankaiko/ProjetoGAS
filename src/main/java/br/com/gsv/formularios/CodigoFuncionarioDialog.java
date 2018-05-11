@@ -22,6 +22,7 @@ public class CodigoFuncionarioDialog extends JDialog {
 	private CodigoFuncionarioGrafic listenerGrafic;
 	private JPanel painelDrag;
 	private int xx,xy;
+
 	
 	public CodigoFuncionarioDialog() {
 		CriaVariaveis();
@@ -128,6 +129,6 @@ public class CodigoFuncionarioDialog extends JDialog {
 	public void setXy(int xy) {
 		this.xy = xy;
 	}
-	
 
+	
 }

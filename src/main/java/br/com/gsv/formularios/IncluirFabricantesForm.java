@@ -23,6 +23,7 @@ public class IncluirFabricantesForm extends JDialog {
 	private JButton BTGravar, BTCancelar;
 	private int xx,xy;
 	
+	
 	public IncluirFabricantesForm() {
 		InicializaObjetos();
 		AdicionaCompomentes();
@@ -154,6 +155,5 @@ public class IncluirFabricantesForm extends JDialog {
 	public void setXy(int xy) {
 		this.xy = xy;
 	}
-	
-	
+
 }

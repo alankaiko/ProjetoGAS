@@ -153,5 +153,6 @@ public class ExcluirFabricanteDialog extends JDialog {
 	public void setXy(int xy) {
 		this.xy = xy;
 	}
+
 	
 }
