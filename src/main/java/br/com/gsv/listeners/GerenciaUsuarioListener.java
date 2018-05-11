@@ -110,7 +110,7 @@ public class GerenciaUsuarioListener implements ActionListener{
 	
 	private void ExecutaInclusao(){
 		IncluirUsuarioForm inclui = new IncluirUsuarioForm();
-			
+		inclui.getListener().IniciaObjetos();
 		/*inclui.getListener().IniciaObjetos();
 			if(formulario.getVersao() == 'c')
 				inclui.IniciaClassic();

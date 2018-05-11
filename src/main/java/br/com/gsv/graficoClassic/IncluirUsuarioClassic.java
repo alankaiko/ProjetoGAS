@@ -91,7 +91,6 @@ public class IncluirUsuarioClassic {
 		this.formulario.getBPesquisar().setText("Pesquisar");
 		this.formulario.getBPesquisar().setIcon(new ImageIcon(IncluirUsuarioForm.class.getResource("/imagens/icons8-pesquisar-15.png")));
 		this.formulario.getBPesquisar().setBackground(SystemColor.menu);
-		this.formulario.getBPesquisar().setBorder(null);
 		this.formulario.getBPesquisar().setFont(new Font("Segoe UI Light", Font.PLAIN, 11));
 		this.formulario.getBPesquisar().setBounds(421, 47, 79, 23);
 	}

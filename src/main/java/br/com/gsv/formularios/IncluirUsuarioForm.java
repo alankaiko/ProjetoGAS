@@ -27,6 +27,8 @@ public class IncluirUsuarioForm extends JDialog {
 	private IncluirUsuarioListener listener;
 	private IncluirUsuarioClassic listenerClassic;
 	private IncluirUsuarioGrafic listenerGrafic;
+	private JPanel painelDrag;
+	private int xx,xy;
 
 	
 
@@ -34,6 +36,7 @@ public class IncluirUsuarioForm extends JDialog {
 		CriaTelaGeral();
 		AdicionaNaTela();
 		listener = new IncluirUsuarioListener(this);
+		listenerGrafic = new IncluirUsuarioGrafic(this);
 	}
 	
 
@@ -53,6 +56,7 @@ public class IncluirUsuarioForm extends JDialog {
 		BCancelar = new JButton();
 		BPesquisar = new JButton();
 		JCpf = new JFormattedTextField(ConverteDadosUtil.FormataCPF());
+		painelDrag = new JPanel();
 	}
 	
 	
@@ -72,6 +76,7 @@ public class IncluirUsuarioForm extends JDialog {
 		tela.add(BGravar);
 		tela.add(BCancelar);
 		tela.add(BPesquisar);
+		tela.add(this.painelDrag);
 	}
 
 	public Long getCodigo() {
@@ -224,6 +229,36 @@ public class IncluirUsuarioForm extends JDialog {
 
 	public void setLAdicionar(JLabel lAdicionar) {
 		LAdicionar = lAdicionar;
+	}
+
+
+	public JPanel getPainelDrag() {
+		return painelDrag;
+	}
+
+
+	public void setPainelDrag(JPanel painelDrag) {
+		this.painelDrag = painelDrag;
+	}
+
+
+	public int getXx() {
+		return xx;
+	}
+
+
+	public void setXx(int xx) {
+		this.xx = xx;
+	}
+
+
+	public int getXy() {
+		return xy;
+	}
+
+
+	public void setXy(int xy) {
+		this.xy = xy;
 	}
 	
 	
