@@ -3,6 +3,7 @@ package br.com.gsv.graficoClassic;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.Insets;
 import java.awt.SystemColor;
 
 import javax.swing.ImageIcon;
@@ -92,7 +93,9 @@ public class IncluirUsuarioClassic {
 		this.formulario.getBPesquisar().setIcon(new ImageIcon(IncluirUsuarioForm.class.getResource("/imagens/icons8-pesquisar-15.png")));
 		this.formulario.getBPesquisar().setBackground(SystemColor.menu);
 		this.formulario.getBPesquisar().setFont(new Font("Segoe UI Light", Font.PLAIN, 11));
-		this.formulario.getBPesquisar().setBounds(421, 47, 79, 23);
+		this.formulario.getBPesquisar().setMargin(new Insets(2, 0, 2, 0));
+		this.formulario.getBPesquisar().setBorder(null);
+		this.formulario.getBPesquisar().setBounds(421, 47, 73, 23);
 	}
 
 }

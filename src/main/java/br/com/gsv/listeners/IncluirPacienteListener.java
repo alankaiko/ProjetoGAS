@@ -43,7 +43,7 @@ public class IncluirPacienteListener implements ActionListener{
 		ListaConvenios();
 		TeclaEsc();
 		UsandoTAB();
-		HiperlinkAdicionarFab();
+		HiperlinkAdicionarConv();
 		UpCase();
 		LimitaCaracteres();
 	}
@@ -263,11 +263,15 @@ public class IncluirPacienteListener implements ActionListener{
 		}); 
 	}
 	
-	private void HiperlinkAdicionarFab(){
+	private void HiperlinkAdicionarConv(){
 		this.formulario.getLAdicionaConvenio().addMouseListener(new MouseAdapter() {
 		    @Override
 		    public void mouseClicked(MouseEvent e) {
 		         IncluirConvenioForm formu = new IncluirConvenioForm();
+				     if(formulario.getVersao() == 'c')
+				    	 formu.IniciaClassic();
+					 if(formulario.getVersao() == 'g')
+						 formu.IniciaGrafic();
 		         formu.setLocationRelativeTo(formulario.getTela());
 		         formu.setVisible(true);
 		         ListaConvenios();

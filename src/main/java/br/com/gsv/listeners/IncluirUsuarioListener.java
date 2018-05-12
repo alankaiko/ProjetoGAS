@@ -70,7 +70,11 @@ public class IncluirUsuarioListener implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent event) {
 		if(event.getSource().equals(this.formulario.getBPesquisar())){
-			BuscarFuncionarioDialog dialog = new BuscarFuncionarioDialog();
+				BuscarFuncionarioDialog dialog = new BuscarFuncionarioDialog();
+				 if(formulario.getVersao() == 'c')
+					 dialog.IniciaClassic();
+				 if(formulario.getVersao() == 'g')
+					 dialog.IniciaGrafic();
 			dialog.setLocationRelativeTo(this.formulario.getTela());
 			dialog.setVisible(true);
 			

@@ -30,6 +30,7 @@ public class IncluirPacienteForm extends JDialog {
 	private IncluirPacienteClassic listenerClassic;
 	private IncluirPacienteGrafic listenerGrafic;
 	private int xx,xy;
+	private char versao;
 
 	
 	public IncluirPacienteForm() {
@@ -40,10 +41,12 @@ public class IncluirPacienteForm extends JDialog {
 	
 	public void IniciaClassic(){
 		listenerClassic = new IncluirPacienteClassic(this);
+		versao = 'c';
 	}
 	
 	public void IniciaGrafic(){
 		listenerGrafic = new IncluirPacienteGrafic(this);
+		versao = 'g';
 	}
 	
 		
@@ -518,5 +521,13 @@ public class IncluirPacienteForm extends JDialog {
 		this.xy = xy;
 	}
 
+	public char getVersao() {
+		return versao;
+	}
+
+	public void setVersao(char versao) {
+		this.versao = versao;
+	}
+	
 	
 }

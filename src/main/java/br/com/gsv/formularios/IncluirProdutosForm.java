@@ -25,6 +25,7 @@ public class IncluirProdutosForm extends JDialog {
 	private IncluirProdutosClassic listenerClassic;
 	private IncluirProdutoGrafic listenerGrafic;
 	private int xx,xy;
+	private char versao;
 	
 	
 	public IncluirProdutosForm() {
@@ -35,10 +36,12 @@ public class IncluirProdutosForm extends JDialog {
 	
 	public void IniciaClassic(){
 		listenerClassic = new IncluirProdutosClassic(this);
+		versao = 'c';
 	}
 	
 	public void IniciaGrafic(){
 		listenerGrafic = new IncluirProdutoGrafic(this);
+		versao = 'g';
 	}
 	
 	private void CriaVariaveis(){
@@ -232,6 +235,14 @@ public class IncluirProdutosForm extends JDialog {
 
 	public void setXy(int xy) {
 		this.xy = xy;
+	}
+
+	public char getVersao() {
+		return versao;
+	}
+
+	public void setVersao(char versao) {
+		this.versao = versao;
 	}
 
 	

@@ -107,6 +107,7 @@ public class GerenciarProntuarioListener implements ActionListener{
 	
 	private void ExecutaPesquisar(){
 		BuscarPacienteDialog dialog = new BuscarPacienteDialog();
+		dialog.IniciaClassic();
 		dialog.setLocationRelativeTo(this.gerenciamento.getContentPane());
 		dialog.setVisible(true);
 		

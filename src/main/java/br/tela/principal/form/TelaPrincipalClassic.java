@@ -50,11 +50,6 @@ public class TelaPrincipalClassic extends JFrame {
 		tela.add(panelPrincipal);
 		panelPrincipal.setLayout(null);
 		
-		JLabel label = new JLabel("");
-		label.setIcon(new ImageIcon(TelaPrincipalClassic.class.getResource("/imagens/G Doctor.png")));
-		label.setBounds(100, 100, 890, 580);
-		panelPrincipal.add(label);
-		
 		
 	}
 	
