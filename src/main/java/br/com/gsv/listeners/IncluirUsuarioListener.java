@@ -16,6 +16,7 @@ import br.com.gsv.formularios.BuscarFuncionarioDialog;
 import br.com.gsv.formularios.IncluirUsuarioForm;
 import br.com.gsv.util.ConverteDadosUtil;
 import br.com.gsv.util.SomenteNumerosUtil;
+import br.com.gsv.util.ValidaCampos;
 import br.com.projeto.gsv.controller.FuncionarioController;
 import br.com.projeto.gsv.controller.PacienteController;
 import br.com.projeto.gsv.controller.UsuarioController;
@@ -82,7 +83,7 @@ public class IncluirUsuarioListener implements ActionListener{
 				BuscarFuncionario(dialog.getListener().getCodigo());
 		}
 		
-		if(event.getSource().equals(this.formulario.getBGravar())){
+		if(event.getSource().equals(this.formulario.getBGravar()) && Validando()){
 			FormToUsuario();
 			
 			control.setUsuario(this.usuario);
@@ -95,6 +96,12 @@ public class IncluirUsuarioListener implements ActionListener{
 			this.formulario.dispose();
 		}
 		
+	}
+	
+	
+	private boolean Validando(){
+		return ValidaCampos.Validar(this.formulario.getTFuncionario().getText())
+				&& ValidaCampos.Validar(this.formulario.getTLogin().getText());
 	}
 	
 	

@@ -14,7 +14,7 @@ public class UsuarioRepository {
 	Session sessao;
 	Transaction transacao = null;
 	
-	//Metodo que salva um novo cliente Pessoa Fisica ou Pessoa Juridica
+	
 	public void Guardar(Usuario usuario){
 		sessao = HibernateUtil.getSessionFactory().openSession();
 		
@@ -27,7 +27,6 @@ public class UsuarioRepository {
 				transacao.rollback();
 			
 			MensagemPainelUtil.ErroDuplicacao("Login/Funcionário não pode ser duplicado");
-			throw e;
 		} finally {
 			sessao.close();
 		}

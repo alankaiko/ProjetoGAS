@@ -100,8 +100,8 @@ public class IncluirProdutoListener implements ActionListener {
 		if(event.getSource().equals(this.formulario.getBTGravar()) && Validando()){
 			Salvar();
 			this.formulario.dispose();
-		}else
-			MensagemPainelUtil.ErroDuplicacao("Campo Código/ Descrição deverá ser preenchido");
+		}//else
+			//MensagemPainelUtil.ErroDuplicacao("Campo Código/ Descrição deverá ser preenchido");
 		
 
 		

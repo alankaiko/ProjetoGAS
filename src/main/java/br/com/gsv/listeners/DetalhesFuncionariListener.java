@@ -11,30 +11,30 @@ import javax.swing.JRootPane;
 import javax.swing.KeyStroke;
 
 import br.com.gsv.domain.Funcionario;
-import br.com.gsv.formularios.DetalhesFuncionarioDialog;
+import br.com.gsv.formularios.DetalhesFuncionariDialog;
 
-public class DetalhesFuncionarioListener implements ActionListener{
+public class DetalhesFuncionariListener implements ActionListener{
 	private Funcionario funcionario;
-	private DetalhesFuncionarioDialog formulario;
+	private DetalhesFuncionariDialog formulario;
 
 	
-	public DetalhesFuncionarioListener(DetalhesFuncionarioDialog formulario) {
+	public DetalhesFuncionariListener(DetalhesFuncionariDialog formulario) {
 		this.formulario = formulario;
 		AdicionarListener();
-		//UsandoTAB();
+		UsandoTAB();
 		TeclaEsc();
 	}
 
 	
 	public void AdicionarListener(){
-		this.formulario.getCancelar().addActionListener(this);
+		this.formulario.getBTCancelar().addActionListener(this);
 	}
 	
 	
 	
 	public void Detalhar(){
-		this.formulario.getTId().setText(String.valueOf(this.funcionario.getId()));
-		this.formulario.getTCoren().setText(this.funcionario.getRegistroCoren().getCoren()
+		this.formulario.getTCodigo().setText(String.valueOf(this.funcionario.getId()));
+		this.formulario.getTRegistro().setText(this.funcionario.getRegistroCoren().getCoren()
 				+" "+this.funcionario.getRegistroCoren().getInscricao()
 				+" "+this.funcionario.getRegistroCoren().getUf());
 		this.formulario.getTNome().setText(this.funcionario.getNome());
@@ -46,12 +46,13 @@ public class DetalhesFuncionarioListener implements ActionListener{
 		this.formulario.getTNumero().setText(String.valueOf(this.funcionario.getEndereco().get(0).getNumero()));
 		this.formulario.getTBairro().setText(this.funcionario.getEndereco().get(0).getBairro());
 		this.formulario.getTCidade().setText(this.funcionario.getEndereco().get(0).getCidade());
-		this.formulario.getTComboEstado().setText(this.funcionario.getEndereco().get(0).getEstado());
+		this.formulario.getTEstado().setText(this.funcionario.getEndereco().get(0).getEstado());
 		this.formulario.getJCep().setText(this.funcionario.getEndereco().get(0).getCep());
 		this.formulario.getTCep().setText(this.formulario.getJCep().getText());
 		this.formulario.getTEmail().setText(this.funcionario.getContato().get(0).getEmail());
 		this.formulario.getTCelular().setText(this.funcionario.getContato().get(0).getCelular());
 		this.formulario.getTTelefone().setText(this.funcionario.getContato().get(0).getTelefone());
+		
 	}
 	
 	
@@ -59,18 +60,18 @@ public class DetalhesFuncionarioListener implements ActionListener{
 	
 	@Override
 	public void actionPerformed(ActionEvent event) {
-		if(event.getSource().equals(this.formulario.getCancelar())){
+		if(event.getSource().equals(this.formulario.getBTCancelar())){
 			this.formulario.dispose();
 		}
 	}
 	
 	
 	private void UsandoTAB(){
-		this.formulario.getRootPane().setDefaultButton(this.formulario.getCancelar());
-		this.formulario.getCancelar().addKeyListener(new KeyAdapter() {  
+		this.formulario.getRootPane().setDefaultButton(this.formulario.getBTCancelar());
+		this.formulario.getBTCancelar().addKeyListener(new KeyAdapter() {  
             public void keyPressed(KeyEvent e) {  
                 if (e.getKeyCode() == KeyEvent.VK_ENTER) {  
-                	formulario.getCancelar().doClick();  
+                	formulario.getBTCancelar().doClick();  
                 }  
             }  
         });
@@ -78,7 +79,7 @@ public class DetalhesFuncionarioListener implements ActionListener{
 	
 	
 	
-	
+	@SuppressWarnings("serial")
 	public void TeclaEsc(){
         JRootPane meurootpane = this.formulario.getRootPane();  
         meurootpane.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), "ESCAPE");  
@@ -88,15 +89,19 @@ public class DetalhesFuncionarioListener implements ActionListener{
             	formulario.dispose();  
             }  
         });  
-    } 
+    }
+
 
 	public Funcionario getFuncionario() {
 		return funcionario;
 	}
-	
+
+
 	public void setFuncionario(Funcionario funcionario) {
 		this.funcionario = funcionario;
 	}
+
+
 	
-	
+
 }

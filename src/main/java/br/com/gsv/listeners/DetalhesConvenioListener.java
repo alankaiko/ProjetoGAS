@@ -21,7 +21,6 @@ public class DetalhesConvenioListener implements ActionListener{
 	public DetalhesConvenioListener(DetalhesConvenioDialog formulario) {
 		this.formulario = formulario;
 		AdicionarListener();
-		UsandoTAB();
 		TeclaEsc();
 	}
 
@@ -45,18 +44,6 @@ public class DetalhesConvenioListener implements ActionListener{
 		if(event.getSource().equals(this.formulario.getCancelar())){
 			this.formulario.dispose();
 		}
-	}
-	
-	
-	private void UsandoTAB(){
-		this.formulario.getRootPane().setDefaultButton(this.formulario.getCancelar());
-		this.formulario.getCancelar().addKeyListener(new KeyAdapter() {  
-            public void keyPressed(KeyEvent e) {  
-                if (e.getKeyCode() == KeyEvent.VK_ENTER) {  
-                	formulario.getCancelar().doClick();  
-                }  
-            }  
-        });
 	}
 	
 	

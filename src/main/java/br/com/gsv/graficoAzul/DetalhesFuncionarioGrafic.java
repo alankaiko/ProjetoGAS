@@ -14,12 +14,12 @@ import javax.swing.JSeparator;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.border.LineBorder;
 
-import br.com.gsv.formularios.DetalhesFuncionarioDialog;
+import br.com.gsv.formularios.DetalhesFuncionariDialog;
 
 public class DetalhesFuncionarioGrafic {
-	private DetalhesFuncionarioDialog formulario;
+	private DetalhesFuncionariDialog formulario;
 	
-	public DetalhesFuncionarioGrafic(DetalhesFuncionarioDialog formulario) {
+	public DetalhesFuncionarioGrafic(DetalhesFuncionariDialog formulario) {
 		this.formulario = formulario;
 		CriaTela();
 		OrganizaTela();
@@ -76,21 +76,21 @@ public class DetalhesFuncionarioGrafic {
 		);
 		this.formulario.getPainelDrag().setLayout(gl_painelTitulo);
 		
-		this.formulario.getLIndentif().setText("Dados Pessoais");
-		this.formulario.getLIndentif().setFont(new Font("Segoe UI Semibold", Font.PLAIN, 13));
+		this.formulario.getLDados().setText("Dados Pessoais");
+		this.formulario.getLDados().setFont(new Font("Segoe UI Semibold", Font.PLAIN, 13));
 		
-		this.formulario.getLId().setText("Código");
-		this.formulario.getLId().setFont(new Font("Segoe UI Light", Font.PLAIN, 14));;
+		this.formulario.getLCodigo().setText("Código");
+		this.formulario.getLCodigo().setFont(new Font("Segoe UI Light", Font.PLAIN, 14));;
 		
 		this.formulario.getLNome().setText("Nome");
 		this.formulario.getLNome().setFont(new Font("Segoe UI Light", Font.PLAIN, 14));
 		
-		this.formulario.getCancelar().setText("Cancelar");
-		this.formulario.getCancelar().setForeground(Color.WHITE);
-		this.formulario.getCancelar().setFont(new Font("Segoe UI", Font.PLAIN, 14));
-		this.formulario.getCancelar().setBackground(new Color(71, 120, 197));
+		this.formulario.getBTCancelar().setText("Cancelar");
+		this.formulario.getBTCancelar().setForeground(Color.WHITE);
+		this.formulario.getBTCancelar().setFont(new Font("Segoe UI", Font.PLAIN, 14));
+		this.formulario.getBTCancelar().setBackground(new Color(71, 120, 197));
 		
-		this.formulario.getTId().setFont(new Font("Segoe UI", Font.PLAIN, 13));
+		this.formulario.getTCodigo().setFont(new Font("Segoe UI", Font.PLAIN, 13));
 		
 		this.formulario.getTNome().setFont(new Font("Segoe UI", Font.PLAIN, 13));
 		
@@ -107,10 +107,10 @@ public class DetalhesFuncionarioGrafic {
 		JSeparator separa = new JSeparator();
 		separa.setBackground(new Color(71, 120, 197));
 		
-		this.formulario.getTCoren().setFont(new Font("Segoe UI", Font.PLAIN, 13));
+		this.formulario.getTRegistro().setFont(new Font("Segoe UI", Font.PLAIN, 13));
 		
-		this.formulario.getLRegristo().setText("Registro");
-		this.formulario.getLRegristo().setFont(new Font("Segoe UI Light", Font.PLAIN, 14));
+		this.formulario.getLRegistro().setText("Registro");
+		this.formulario.getLRegistro().setFont(new Font("Segoe UI Light", Font.PLAIN, 14));
 		
 		this.formulario.getLEndereco().setText("Endereço");
 		this.formulario.getLEndereco().setFont(new Font("Segoe UI Semibold", Font.PLAIN, 13));
@@ -140,7 +140,7 @@ public class DetalhesFuncionarioGrafic {
 		
 		this.formulario.getTBairro().setFont(new Font("Segoe UI", Font.PLAIN, 13));
 		
-		this.formulario.getTComboEstado().setFont(new Font("Segoe UI", Font.PLAIN, 13));
+		this.formulario.getTEstado().setFont(new Font("Segoe UI", Font.PLAIN, 13));
 		
 		JSeparator separator = new JSeparator();
 		separator.setBackground(new Color(71, 120, 197));
@@ -163,8 +163,8 @@ public class DetalhesFuncionarioGrafic {
 		
 		this.formulario.getTCelular().setFont(new Font("Segoe UI", Font.PLAIN, 13));
 		
-		this.formulario.getLEstado().setText("UF");
-		this.formulario.getLEstado().setFont(new Font("Segoe UI Light", Font.PLAIN, 14));
+		this.formulario.getLUf().setText("UF");
+		this.formulario.getLUf().setFont(new Font("Segoe UI Light", Font.PLAIN, 14));
 		
 		
 		GroupLayout gl_panel = new GroupLayout(this.formulario.getPanel());
@@ -172,23 +172,23 @@ public class DetalhesFuncionarioGrafic {
 			gl_panel.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_panel.createSequentialGroup()
 				.addContainerGap()
-				.addComponent(this.formulario.getLIndentif(), GroupLayout.PREFERRED_SIZE, 140, GroupLayout.PREFERRED_SIZE)
+				.addComponent(this.formulario.getLDados(), GroupLayout.PREFERRED_SIZE, 140, GroupLayout.PREFERRED_SIZE)
 				.addContainerGap(498, Short.MAX_VALUE))
 				.addGroup(gl_panel.createSequentialGroup()
 				.addContainerGap()
 				.addGroup(gl_panel.createParallelGroup(Alignment.LEADING, false)
-				.addComponent(this.formulario.getLId(), GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+				.addComponent(this.formulario.getLCodigo(), GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
 				.addComponent(this.formulario.getLNome(), GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
 				.addComponent(this.formulario.getLCpf(), GroupLayout.DEFAULT_SIZE, 118, Short.MAX_VALUE))
 				.addGap(18)
 				.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
 				.addComponent(this.formulario.getTNome(), GroupLayout.DEFAULT_SIZE, 474, Short.MAX_VALUE)
 				.addGroup(gl_panel.createSequentialGroup()
-				.addComponent(this.formulario.getTId(), GroupLayout.PREFERRED_SIZE, 82, GroupLayout.PREFERRED_SIZE)
+				.addComponent(this.formulario.getTCodigo(), GroupLayout.PREFERRED_SIZE, 82, GroupLayout.PREFERRED_SIZE)
 				.addPreferredGap(ComponentPlacement.RELATED, 132, Short.MAX_VALUE)
-				.addComponent(this.formulario.getLRegristo(), GroupLayout.PREFERRED_SIZE, 72, GroupLayout.PREFERRED_SIZE)
+				.addComponent(this.formulario.getLRegistro(), GroupLayout.PREFERRED_SIZE, 72, GroupLayout.PREFERRED_SIZE)
 				.addPreferredGap(ComponentPlacement.UNRELATED)
-				.addComponent(this.formulario.getTCoren(), GroupLayout.PREFERRED_SIZE, 178, GroupLayout.PREFERRED_SIZE))
+				.addComponent(this.formulario.getTRegistro(), GroupLayout.PREFERRED_SIZE, 178, GroupLayout.PREFERRED_SIZE))
 				.addGroup(gl_panel.createSequentialGroup()
 				.addComponent(this.formulario.getTCpf(), GroupLayout.PREFERRED_SIZE, 135, GroupLayout.PREFERRED_SIZE)
 				.addPreferredGap(ComponentPlacement.RELATED, 152, Short.MAX_VALUE)
@@ -235,9 +235,9 @@ public class DetalhesFuncionarioGrafic {
 				.addPreferredGap(ComponentPlacement.RELATED)
 				.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_panel.createSequentialGroup()
-				.addComponent(this.formulario.getLEstado(), GroupLayout.PREFERRED_SIZE, 32, GroupLayout.PREFERRED_SIZE)
+				.addComponent(this.formulario.getLUf(), GroupLayout.PREFERRED_SIZE, 32, GroupLayout.PREFERRED_SIZE)
 				.addPreferredGap(ComponentPlacement.UNRELATED)
-				.addComponent(this.formulario.getTComboEstado(), GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE))
+				.addComponent(this.formulario.getTEstado(), GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE))
 				.addComponent(this.formulario.getTBairro(), GroupLayout.DEFAULT_SIZE, 252, Short.MAX_VALUE))))
 				.addGap(40))
 				.addGroup(gl_panel.createSequentialGroup()
@@ -266,7 +266,7 @@ public class DetalhesFuncionarioGrafic {
 				.addContainerGap(59, Short.MAX_VALUE))
 				.addGroup(gl_panel.createSequentialGroup()
 				.addGap(267)
-				.addComponent(this.formulario.getCancelar(), GroupLayout.PREFERRED_SIZE, 97, GroupLayout.PREFERRED_SIZE)
+				.addComponent(this.formulario.getBTCancelar(), GroupLayout.PREFERRED_SIZE, 97, GroupLayout.PREFERRED_SIZE)
 				.addContainerGap(286, Short.MAX_VALUE))
 		);
 		gl_panel.setVerticalGroup(
@@ -274,13 +274,13 @@ public class DetalhesFuncionarioGrafic {
 				.addGroup(gl_panel.createSequentialGroup()
 				.addComponent(this.formulario.getPainelDrag(), GroupLayout.PREFERRED_SIZE, 24, GroupLayout.PREFERRED_SIZE)
 				.addPreferredGap(ComponentPlacement.RELATED)
-				.addComponent(this.formulario.getLIndentif())
+				.addComponent(this.formulario.getLDados())
 				.addPreferredGap(ComponentPlacement.UNRELATED)
 				.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
-				.addComponent(this.formulario.getLId())
-				.addComponent(this.formulario.getTId())
-				.addComponent(this.formulario.getTCoren(), GroupLayout.PREFERRED_SIZE, 18, GroupLayout.PREFERRED_SIZE)
-				.addComponent(this.formulario.getLRegristo(), GroupLayout.PREFERRED_SIZE, 20, GroupLayout.PREFERRED_SIZE))
+				.addComponent(this.formulario.getLCodigo())
+				.addComponent(this.formulario.getTCodigo())
+				.addComponent(this.formulario.getTRegistro(), GroupLayout.PREFERRED_SIZE, 18, GroupLayout.PREFERRED_SIZE)
+				.addComponent(this.formulario.getLRegistro(), GroupLayout.PREFERRED_SIZE, 20, GroupLayout.PREFERRED_SIZE))
 				.addPreferredGap(ComponentPlacement.UNRELATED)
 				.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
 				.addComponent(this.formulario.getLNome())
@@ -318,8 +318,8 @@ public class DetalhesFuncionarioGrafic {
 				.addComponent(this.formulario.getLBairro(), GroupLayout.PREFERRED_SIZE, 20, GroupLayout.PREFERRED_SIZE))
 				.addPreferredGap(ComponentPlacement.RELATED)
 				.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
-				.addComponent(this.formulario.getTComboEstado(), GroupLayout.PREFERRED_SIZE, 18, GroupLayout.PREFERRED_SIZE)
-				.addComponent(this.formulario.getLEstado(), GroupLayout.PREFERRED_SIZE, 20, GroupLayout.PREFERRED_SIZE))))
+				.addComponent(this.formulario.getTEstado(), GroupLayout.PREFERRED_SIZE, 18, GroupLayout.PREFERRED_SIZE)
+				.addComponent(this.formulario.getLUf(), GroupLayout.PREFERRED_SIZE, 20, GroupLayout.PREFERRED_SIZE))))
 				.addPreferredGap(ComponentPlacement.UNRELATED)
 				.addComponent(separator, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 				.addPreferredGap(ComponentPlacement.UNRELATED)
@@ -337,7 +337,7 @@ public class DetalhesFuncionarioGrafic {
 				.addComponent(this.formulario.getLCelular(), GroupLayout.PREFERRED_SIZE, 20, GroupLayout.PREFERRED_SIZE)
 				.addComponent(this.formulario.getTCelular(), GroupLayout.PREFERRED_SIZE, 18, GroupLayout.PREFERRED_SIZE)))
 				.addPreferredGap(ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
-				.addComponent(this.formulario.getCancelar())
+				.addComponent(this.formulario.getBTCancelar())
 				.addContainerGap())
 		);
 		this.formulario.getPanel().setLayout(gl_panel);

@@ -12,7 +12,7 @@ import javax.swing.ListSelectionModel;
 
 import br.com.gsv.formularios.BuscarFuncionarioDialog;
 import br.com.gsv.formularios.CodigoFuncionarioDialog;
-import br.com.gsv.formularios.DetalhesFuncionarioDialog;
+import br.com.gsv.formularios.DetalhesFuncionariDialog;
 import br.com.gsv.formularios.ExcluirFuncionarioDialog;
 import br.com.gsv.formularios.GerenciaTelaFuncionario;
 import br.com.gsv.formularios.IncluirFuncionariosForm;
@@ -151,7 +151,7 @@ public class GerenciarFuncionarioListener implements ActionListener{
 	
 	private void ExecutaTelaDetalhes(Long id){
 		FuncionarioController controller = new FuncionarioController();
-		DetalhesFuncionarioDialog detalhes = new DetalhesFuncionarioDialog();
+		DetalhesFuncionariDialog detalhes = new DetalhesFuncionariDialog();
 			if(gerenciamento.getVersao() == 'c')
 				detalhes.IniciaClassic();
 			if(gerenciamento.getVersao() == 'g')
