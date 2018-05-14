@@ -13,6 +13,7 @@ import javax.swing.ListSelectionModel;
 import br.com.gsv.formularios.BuscarPacienteDialog;
 import br.com.gsv.formularios.CodigoPacienteDialog;
 import br.com.gsv.formularios.DetalhesPacienteDialog;
+import br.com.gsv.formularios.DetalhesPacienteDialog;
 import br.com.gsv.formularios.ExcluirPacienteDialog;
 import br.com.gsv.formularios.GerenciaTelaPaciente;
 import br.com.gsv.formularios.IncluirPacienteForm;

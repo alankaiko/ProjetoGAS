@@ -14,7 +14,6 @@ import br.com.gsv.domain.Paciente;
 import br.com.gsv.formularios.DetalhesPacienteDialog;
 import br.com.gsv.util.ConverteDadosUtil;
 
-
 public class DetalhesPacienteListener implements ActionListener{
 	private Paciente paciente;
 	private DetalhesPacienteDialog formulario;
@@ -57,6 +56,7 @@ public class DetalhesPacienteListener implements ActionListener{
 		this.formulario.getTEmail().setText(this.paciente.getContato().get(0).getEmail());
 		this.formulario.getTCelular().setText(this.paciente.getContato().get(0).getCelular());
 		this.formulario.getTTelefone().setText(this.paciente.getContato().get(0).getTelefone());
+		
 	}
 	
 	
@@ -68,6 +68,7 @@ public class DetalhesPacienteListener implements ActionListener{
 			this.formulario.dispose();
 		}
 	}
+	
 	
 	private void UsandoTAB(){
 		this.formulario.getRootPane().setDefaultButton(this.formulario.getCancelar());
@@ -82,6 +83,7 @@ public class DetalhesPacienteListener implements ActionListener{
 	
 	
 	
+	@SuppressWarnings("serial")
 	public void TeclaEsc(){
         JRootPane meurootpane = this.formulario.getRootPane();  
         meurootpane.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), "ESCAPE");  
@@ -91,9 +93,8 @@ public class DetalhesPacienteListener implements ActionListener{
             	formulario.dispose();  
             }  
         });  
-    } 
+    }
 
-	
 
 	public void setPaciente(Paciente paciente) {
 		this.paciente = paciente;
@@ -102,5 +103,6 @@ public class DetalhesPacienteListener implements ActionListener{
 	public Paciente getPaciente() {
 		return paciente;
 	}
-	
+
+
 }
