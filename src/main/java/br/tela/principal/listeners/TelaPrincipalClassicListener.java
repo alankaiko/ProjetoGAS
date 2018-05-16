@@ -10,8 +10,6 @@ import javax.swing.JComponent;
 import javax.swing.JRootPane;
 import javax.swing.KeyStroke;
 
-import com.itextpdf.text.DocumentException;
-
 import br.com.gsv.formularios.GerenciaTelaConvenio;
 import br.com.gsv.formularios.GerenciaTelaFabricante;
 import br.com.gsv.formularios.GerenciaTelaFuncionario;
@@ -19,15 +17,17 @@ import br.com.gsv.formularios.GerenciaTelaPaciente;
 import br.com.gsv.formularios.GerenciaTelaProdutos;
 import br.com.gsv.formularios.GerenciaTelaUsuario;
 import br.com.gsv.formularios.IncluirFuncionariosForm;
+import br.com.gsv.formularios.IncluirPacienteForm;
 import br.com.gsv.graficoClassic.RelatorioFuncionarioClassic;
 import br.com.gsv.graficoClassic.RelatorioProntuarioClassic;
 import br.com.gsv.prontuario.formularios.GerenciaProntuarios;
-import br.com.gsv.prontuario.formularios.ProntuarioForm;
 import br.com.gsv.relatorios.RelatorioConvenio;
 import br.com.gsv.relatorios.RelatorioFornecedores;
 import br.com.gsv.relatorios.RelatorioPaciente;
 import br.com.gsv.relatorios.RelatorioProdutos;
 import br.tela.principal.form.TelaPrincipalClassic;
+
+import com.itextpdf.text.DocumentException;
 
 public class TelaPrincipalClassicListener implements ActionListener{
 	private TelaPrincipalClassic tela;
@@ -49,7 +49,7 @@ public class TelaPrincipalClassicListener implements ActionListener{
 		this.tela.getMenuFarmacia().addActionListener(this);
 		this.tela.getMenuRelatorio().addActionListener(this);
 		
-		this.tela.getAtendimentoAnotacoes().addActionListener(this);
+		this.tela.getAtendimentoCadCliente().addActionListener(this);
 		this.tela.getAtendimentoProntuario().addActionListener(this);
 		
 		this.tela.getArquivoAgCli().addActionListener(this);
@@ -90,8 +90,8 @@ public class TelaPrincipalClassicListener implements ActionListener{
 	
 	@Override
 	public void actionPerformed(ActionEvent event) {
-		if(event.getSource().equals(this.tela.getAtendimentoAnotacoes())){
-			AbreProntuarios();
+		if(event.getSource().equals(this.tela.getAtendimentoCadCliente())){
+			AbreIncluirPaciente();
 		}
 		
 		if(event.getSource().equals(this.tela.getAtendimentoProntuario())){
@@ -152,11 +152,11 @@ public class TelaPrincipalClassicListener implements ActionListener{
 			
 	}
 	
-	private void AbreProntuarios(){
-		ProntuarioForm formulario = new ProntuarioForm();
-		formulario.getListener().InicializaObjetos();
-		formulario.setLocationRelativeTo(this.tela.getTela());
-		formulario.setVisible(true);
+	private void AbreIncluirPaciente(){
+		IncluirPacienteForm inclui = new IncluirPacienteForm();
+		inclui.IniciaClassic();
+		inclui.setLocationRelativeTo(this.tela.getTela());
+		inclui.setVisible(true);		
 	}
 	
 	private void AbreAgendaProntuario(){

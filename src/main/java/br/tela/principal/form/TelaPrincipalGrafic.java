@@ -41,7 +41,7 @@ public class TelaPrincipalGrafic extends JFrame {
 	private JMenuItem usuarioFuncionario, usuarioConFun,usuarioUser,relatorioConvenio,relatorioProntuario;
 	private JMenuItem farmaciaFabricante, farmaciaGruProduto, relatorioClinica;
 	private JMenuItem farmaciaProduto, farmaciaDevolucoes, relatorioItens, relatorioFornecedores;
-	private JMenuItem relatorioGruItens, relatorioPaciente, atendimentoProntuario,atendimentoAnotacoes;
+	private JMenuItem relatorioGruItens, relatorioPaciente, atendimentoProntuario,atendimentCadCliente;
 	private JPanel botaoProntuario;
 	private JLabel iconProntuario, LProntuarios;
 	private int xx,xy;
@@ -410,8 +410,8 @@ public class TelaPrincipalGrafic extends JFrame {
 		atendimentoProntuario = new JMenuItem("Gerenciar Prontuários");
 		menuAtendimento.add(atendimentoProntuario);
 		
-		atendimentoAnotacoes = new JMenuItem("Agendar anotações");
-		menuAtendimento.add(atendimentoAnotacoes);
+		atendimentCadCliente = new JMenuItem("Incluir Pacientes");
+		menuAtendimento.add(atendimentCadCliente);
 		
 		menuCadastro = new JMenu("Cadastro");
 		menuCadastro.setFont(new Font("Segoe UI", Font.PLAIN, 15));
@@ -870,13 +870,14 @@ public class TelaPrincipalGrafic extends JFrame {
 		this.atendimentoProntuario = atendimentoAnotacoes;
 	}
 
-
-
-	public JMenuItem getAtendimentoProntuario() {
-		return atendimentoAnotacoes;
+	
+	public JMenuItem getAtendimentCadCliente() {
+		return atendimentCadCliente;
 	}
 
-
+	public void setAtendimentCadCliente(JMenuItem atendimentCadCliente) {
+		this.atendimentCadCliente = atendimentCadCliente;
+	}
 
 	public JMenuItem getUsuarioUser() {
 		return usuarioUser;
@@ -910,9 +911,7 @@ public class TelaPrincipalGrafic extends JFrame {
 		this.panel = panel;
 	}
 
-	public void setAtendimentoProntuario(JMenuItem atendimentoProntuario) {
-		this.atendimentoAnotacoes = atendimentoProntuario;
-	}
+	
 
 	public int getXx() {
 		return xx;

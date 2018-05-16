@@ -93,7 +93,7 @@ public class IncluirPacienteClassic {
 				this.formulario.getJDataCadastro().setBounds(525,30,84,19);
 				
 			this.formulario.getLConvenio().setText("Convênio / Plano");
-			this.formulario.getLConvenio().setBounds(254, 124, 220, 14);
+			this.formulario.getLConvenio().setBounds(290, 124, 220, 14);
 				this.formulario.getComboConvenio().setBounds(409, 121, 133, 20);
 				
 				this.formulario.getLAdicionaConvenio().setText("Adicionar?");

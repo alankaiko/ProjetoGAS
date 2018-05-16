@@ -25,6 +25,7 @@ import br.com.gsv.formularios.GerenciaTelaPaciente;
 import br.com.gsv.formularios.GerenciaTelaProdutos;
 import br.com.gsv.formularios.GerenciaTelaUsuario;
 import br.com.gsv.formularios.IncluirFuncionariosForm;
+import br.com.gsv.formularios.IncluirPacienteForm;
 import br.com.gsv.graficoClassic.RelatorioFuncionarioClassic;
 import br.com.gsv.graficoClassic.RelatorioProntuarioClassic;
 import br.com.gsv.prontuario.formularios.GerenciaProntuarios;
@@ -66,7 +67,7 @@ public class TelaPrincipalGraficListener implements MouseListener, ActionListene
 		this.tela.getMenuRelatorio().addActionListener(this);
 		
 		this.tela.getAtendimentoAnotacoes().addActionListener(this);
-		this.tela.getAtendimentoProntuario().addActionListener(this);
+		this.tela.getAtendimentCadCliente().addActionListener(this);
 		
 		this.tela.getArquivoAgCli().addActionListener(this);
 		this.tela.getArquivoConAte().addActionListener(this);
@@ -252,11 +253,11 @@ public class TelaPrincipalGraficListener implements MouseListener, ActionListene
 	@Override
 	public void actionPerformed(ActionEvent event) {
 		if(event.getSource().equals(this.tela.getAtendimentoAnotacoes())){
-			AbreProntuarios();
+			AbreAgendaProntuario();
 		}
 		
-		if(event.getSource().equals(this.tela.getAtendimentoProntuario())){
-			AbreAgendaProntuario();
+		if(event.getSource().equals(this.tela.getAtendimentCadCliente())){
+			AbreIncluirPaciente();
 		}
 		
 		if(event.getSource().equals(this.tela.getCadastroConvenio())){
@@ -325,6 +326,13 @@ public class TelaPrincipalGraficListener implements MouseListener, ActionListene
 		formulario.getListener().ResetarLista();
 		formulario.setLocationRelativeTo(this.tela.getTela());
 		formulario.setVisible(true);
+	}
+	
+	private void AbreIncluirPaciente(){
+		IncluirPacienteForm inclui = new IncluirPacienteForm();
+		inclui.IniciaGrafic();
+		inclui.setLocationRelativeTo(this.tela.getTela());
+		inclui.setVisible(true);		
 	}
 	
 	private void AbreCadConvenio(){
