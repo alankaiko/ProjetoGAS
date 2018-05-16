@@ -44,8 +44,6 @@ public class Funcionario implements Serializable{
 	private String rg;
 	private List<Contato_fun> contato = new ArrayList<Contato_fun>();
 	private List<Endereco_fun> endereco = new ArrayList<Endereco_fun>();
-	
-	
 	private RegistroCoren registroCoren;
 
 	

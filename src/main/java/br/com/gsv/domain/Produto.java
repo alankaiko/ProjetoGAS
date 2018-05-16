@@ -36,7 +36,9 @@ public class Produto implements Serializable{
 	@JoinColumn(name = "tbl_fabricantes_fab_codigo", referencedColumnName = "fab_codigo", nullable = false)
 	private Fabricante fabricante;
 	
-	
+	public Produto() {
+		fabricante = new Fabricante();
+	}
 	
 	@Id
 	@GeneratedValue(strategy= GenerationType.IDENTITY)

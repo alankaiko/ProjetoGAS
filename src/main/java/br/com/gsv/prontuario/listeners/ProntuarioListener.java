@@ -21,6 +21,8 @@ import br.com.gsv.formularios.BuscarFuncionarioDialog;
 import br.com.gsv.formularios.BuscarPacienteDialog;
 import br.com.gsv.prontuario.formularios.ProntuarioForm;
 import br.com.gsv.util.ConverteDadosUtil;
+import br.com.gsv.util.MensagemPainelUtil;
+import br.com.gsv.util.ValidaCampos;
 import br.com.projeto.gsv.controller.FuncionarioController;
 import br.com.projeto.gsv.controller.PacienteController;
 import br.com.projeto.gsv.controller.ProntuarioController;
@@ -477,7 +479,7 @@ public class ProntuarioListener implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent event) {
-		if(event.getSource().equals(this.formulario.getBTGravar())){
+		if(event.getSource().equals(this.formulario.getBTGravar())&& Validando()){
 			FormToProntuario();
 			
 			PegarRadioButtons();
@@ -490,13 +492,11 @@ public class ProntuarioListener implements ActionListener{
 			this.controller.setProntuario(prontuario);
 			this.controller.SalvarProntuario();
 			this.formulario.dispose();
-		}
-		
-		if(event.getSource().equals(this.formulario.getBTCancelar())){
+			
+		}else if(event.getSource().equals(this.formulario.getBTCancelar())){
 			this.formulario.dispose();
-		}
-		
-		if(event.getSource().equals(this.formulario.getBTPesquisar())){
+			
+		}else if(event.getSource().equals(this.formulario.getBTPesquisar())){
 			BuscarPacienteDialog dialog = new BuscarPacienteDialog();
 			dialog.IniciaClassic();
 			dialog.setLocationRelativeTo(this.formulario.getContentPane());
@@ -504,9 +504,8 @@ public class ProntuarioListener implements ActionListener{
 			
 			if(dialog.getListener().getCodigo() != null)
 				BuscarCliente(dialog.getListener().getCodigo());
-		}
-		
-		if(event.getSource().equals(this.formulario.getBTPesquiFuncionario())){
+			
+		}else if(event.getSource().equals(this.formulario.getBTPesquiFuncionario())){
 			BuscarFuncionarioDialog dialog = new BuscarFuncionarioDialog();
 			dialog.IniciaClassic();
 			dialog.setLocationRelativeTo(this.formulario.getContentPane());
@@ -515,11 +514,16 @@ public class ProntuarioListener implements ActionListener{
 			if(dialog.getListener().getCodigo() != null){
 				BuscarFuncionario(dialog.getListener().getCodigo());
 			}
+		}else{
+			MensagemPainelUtil.CampoVazio("Funcionário e o Paciente não podem ser nulos");
 		}
 		
 	}
 	
-	
+	private boolean Validando(){
+		return ValidaCampos.Validar(this.formulario.getTPaciente().getText())
+				&& ValidaCampos.Validar(this.formulario.getTAtendFuncionario().getText());
+	}
 	
 	
 	
