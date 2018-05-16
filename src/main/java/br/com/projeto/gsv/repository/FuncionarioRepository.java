@@ -44,7 +44,7 @@ public class FuncionarioRepository {
 			} catch (RuntimeException e) {
 				if (transacao != null)
 					transacao.rollback();
-				throw e;
+				MensagemPainelUtil.ErroDuplicacao("Erro!! Este Funcionário possui registros em Prontuários/Usuários");
 			} finally {
 				sessao.close();
 			}

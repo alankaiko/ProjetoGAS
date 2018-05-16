@@ -16,7 +16,7 @@ public class UsuarioController {
 	}
 
 	public void SalvarUsuario() {
-		if(this.cadastroService.VerificaQtdReg() < 6L)
+		if(this.cadastroService.VerificaQtdReg() < 10L)
 			this.cadastroService.Salvar(this.usuario);
 		else
 			MensagemPainelUtil.ErroDuplicacao("Máximo de Usuários cadastrados nao pode ultrapassar a 6");

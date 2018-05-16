@@ -46,7 +46,7 @@ public class PacienteRepository {
 		} catch (RuntimeException e) {
 			if (transacao != null)
 				transacao.rollback();
-			throw e;
+			MensagemPainelUtil.ErroDuplicacao("Erro!! Este Paciente possui registros em Prontuários");
 		} finally {
 			sessao.close();
 		}
