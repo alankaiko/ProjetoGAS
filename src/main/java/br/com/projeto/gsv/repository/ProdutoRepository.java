@@ -30,7 +30,7 @@ public class ProdutoRepository {
 				if (transacao != null)
 					transacao.rollback();
 				
-				//MensagemPainelUtil.ErroDuplicacao("Código/Descrição não pode ser duplicado");
+				MensagemPainelUtil.ErroDuplicacao("Código/Descrição não pode ser duplicado");
 				throw e;
 			} finally {
 				sessao.close();

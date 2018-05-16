@@ -74,7 +74,7 @@ public class IncluirProdutosClassic {
 		
 		this.formulario.getBTCancelar().setText("Cancelar");
 		this.formulario.getBTCancelar().setFont(new Font("Calibri", Font.PLAIN, 12));
-		this.formulario.getBTCancelar().setBounds(347, 276, 89, 23);
+		this.formulario.getBTCancelar().setBounds(250, 276, 89, 23);
 	}
 		
 }

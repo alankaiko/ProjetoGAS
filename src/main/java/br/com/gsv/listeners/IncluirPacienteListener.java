@@ -203,12 +203,10 @@ public class IncluirPacienteListener implements ActionListener{
 				Editar();
 			
 			this.formulario.dispose();
-		}else{
-			MensagemPainelUtil.ErroDuplicacao("Nome, Cpf e Rg devem ser preenchidos");
-		}
-		
-		if(event.getActionCommand().equals("Cancelar")){
+		}else if(event.getActionCommand().equals("Cancelar")){
 			this.formulario.dispose();
+		}else{
+			MensagemPainelUtil.CampoVazio("Nome, Cpf e Rg devem ser preenchidos");
 		}
 		
 	}

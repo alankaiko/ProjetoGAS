@@ -91,11 +91,12 @@ public class IncluirConvenioListener implements ActionListener{
 				Editar();
 			}
 			this.formulario.dispose();
-		}else
-			MensagemPainelUtil.ErroDuplicacao("Campo Convênio deve ser preenchido");
-
-		if (event.getSource().equals(this.formulario.getBTCancelar())) {
+		}
+		else if (event.getSource().equals(this.formulario.getBTCancelar())) {
 			this.formulario.dispose();
+		}
+		else{
+			MensagemPainelUtil.ErroDuplicacao("Campo Convênio deve ser preenchido");
 		}
 	}
 

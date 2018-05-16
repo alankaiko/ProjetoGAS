@@ -184,14 +184,13 @@ public class IncluirFuncionarioListener implements ActionListener{
 				Salvar();
 			else
 				Editar();
-			
 			this.formulario.dispose();
-		}else
-			MensagemPainelUtil.ErroDuplicacao("Campos Nome, Cpf e Rg devem ser preenchido");
-		
-		if(event.getActionCommand().equals("Cancelar")){
+			
+		}else if(event.getActionCommand().equals("Cancelar")){
 			this.formulario.dispose();
 		}
+		else
+			MensagemPainelUtil.ErroDuplicacao("Campos Nome, Cpf e Rg devem ser preenchido");
 	}
 	
 	

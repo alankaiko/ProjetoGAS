@@ -26,6 +26,7 @@ public class FabricanteRepository {
 		} catch (RuntimeException e) {
 			if (transacao != null)
 				transacao.rollback();
+			
 			MensagemPainelUtil.ErroDuplicacao("Descrição do Fabricante não pode ser duplicado");
 			throw e;
 		} finally {

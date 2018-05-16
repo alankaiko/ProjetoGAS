@@ -15,6 +15,7 @@ import br.com.gsv.domain.Usuario;
 import br.com.gsv.formularios.BuscarFuncionarioDialog;
 import br.com.gsv.formularios.IncluirUsuarioForm;
 import br.com.gsv.util.ConverteDadosUtil;
+import br.com.gsv.util.MensagemPainelUtil;
 import br.com.gsv.util.SomenteNumerosUtil;
 import br.com.gsv.util.ValidaCampos;
 import br.com.projeto.gsv.controller.FuncionarioController;
@@ -81,19 +82,20 @@ public class IncluirUsuarioListener implements ActionListener{
 			
 			if(dialog.getListener().getCodigo() != null)
 				BuscarFuncionario(dialog.getListener().getCodigo());
-		}
-		
-		if(event.getSource().equals(this.formulario.getBGravar()) && Validando()){
+			
+		}else if(event.getSource().equals(this.formulario.getBGravar()) && Validando()){
 			FormToUsuario();
 			
 			control.setUsuario(this.usuario);
 			control.SalvarUsuario();
 			
 			this.formulario.dispose();
-		}
-		
-		if(event.getSource().equals(this.formulario.getBCancelar())){
+			
+		}else if(event.getSource().equals(this.formulario.getBCancelar())){
 			this.formulario.dispose();
+			
+		}else{
+			MensagemPainelUtil.Advertencia();
 		}
 		
 	}

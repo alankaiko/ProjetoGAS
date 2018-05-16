@@ -52,7 +52,7 @@ public class IncluirConvenioClassic {
 
 		this.formulario.getBTGravar().setText("Gravar");
 		this.formulario.getBTGravar().setFont(new Font("Calibri", Font.PLAIN, 12));
-		this.formulario.getBTGravar().setBounds(59, 93, 89, 23);
+		this.formulario.getBTGravar().setBounds(70, 93, 89, 23);
 
 		this.formulario.getBTCancelar().setText("Cancelar");
 		this.formulario.getBTCancelar().setFont(new Font("Calibri", Font.PLAIN, 12));
