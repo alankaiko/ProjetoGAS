@@ -33,7 +33,7 @@ public class TelaLogin extends JFrame{
 	
 	
 	
-	public static void main(String[] args) {
+	/*public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -44,7 +44,7 @@ public class TelaLogin extends JFrame{
 				}
 			}
 		});
-	}
+	}*/
 	
 	
 	
@@ -53,8 +53,6 @@ public class TelaLogin extends JFrame{
 		CriaTela();
 		CriaComponentes();
 		listener = new TelaLoginListener(this);
-		HibernateUtil.getSessionFactory();
-		//CriaUsuarioAdmin admin = new CriaUsuarioAdmin();
 	}
 
 	
@@ -78,10 +76,10 @@ public class TelaLogin extends JFrame{
 		PainelPrincipal.add(PainelLogo);
 		PainelLogo.setLayout(null);
 
-		labelGas = new JLabel("Projeto GAS");
+		labelGas = new JLabel("G-Doctor's");
 		labelGas.setForeground(Color.WHITE);
-		labelGas.setFont(new Font("Vrinda", Font.PLAIN, 22));
-		labelGas.setBounds(44, 27, 142, 35);
+		labelGas.setFont(new Font("Utsaah", Font.PLAIN, 35));
+		labelGas.setBounds(52, 26, 129, 35);
 		PainelLogo.add(labelGas);
 		
 		

@@ -5,6 +5,7 @@ import java.awt.Container;
 import java.awt.Font;
 import java.awt.Panel;
 import java.awt.SystemColor;
+import java.awt.Toolkit;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -67,7 +68,8 @@ public class TelaPrincipalGrafic extends JFrame {
 	public TelaPrincipalGrafic() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 900, 590);
-		
+		setIconImage(Toolkit.getDefaultToolkit().getImage(TelaPrincipalClassic.class.getResource("/imagens/icons8-treatment-filled-15.png")));
+		setTitle("G-Doctor's");
 		PainelPrincipal();
 		GruposPainelEsquerdo();
 		GruposPainelStatus();

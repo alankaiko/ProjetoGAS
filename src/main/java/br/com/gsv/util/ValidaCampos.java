@@ -7,4 +7,8 @@ public class ValidaCampos {
 		return !texto.isEmpty();
 	}
 	
+	public static boolean ValidaSistemaOperacional(String texto){
+		return texto.contains("Windows");
+	}
+	
 }

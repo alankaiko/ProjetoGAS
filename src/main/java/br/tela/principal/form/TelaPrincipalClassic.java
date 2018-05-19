@@ -14,7 +14,9 @@ import javax.swing.border.LineBorder;
 import br.com.gsv.domain.Usuario;
 import br.tela.principal.listeners.BarraStatusListener;
 import br.tela.principal.listeners.TelaPrincipalClassicListener;
+
 import javax.swing.ImageIcon;
+import java.awt.Toolkit;
 
 public class TelaPrincipalClassic extends JFrame {
 
@@ -35,12 +37,14 @@ public class TelaPrincipalClassic extends JFrame {
 
 
 	public TelaPrincipalClassic() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(TelaPrincipalClassic.class.getResource("/imagens/icons8-treatment-filled-15.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 890, 580);
 		
 		tela = new JPanel();
 		tela.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(tela);
+		setTitle("G-Doctor's");
 		setResizable(false);
 		tela.setLayout(null);
 		

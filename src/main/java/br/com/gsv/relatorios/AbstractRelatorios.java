@@ -7,6 +7,8 @@ import java.io.IOException;
 import java.util.Calendar;
 import java.util.List;
 
+import br.com.gsv.util.ValidaCampos;
+
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Element;
@@ -35,7 +37,10 @@ public abstract class AbstractRelatorios {
 	
 	
 	protected void NomeArquivo(String nome){
-		this.nome= destino+nome+Calendar.getInstance().getTimeInMillis()+".pdf";
+		if(ValidaCampos.ValidaSistemaOperacional(System.getProperty("os.name")))
+			this.nome= destino+nome+Calendar.getInstance().getTimeInMillis()+".pdf";
+		else
+			this.nome= nome+Calendar.getInstance().getTimeInMillis()+".pdf";
 	}
 	
 	
