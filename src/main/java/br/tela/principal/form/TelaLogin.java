@@ -1,7 +1,6 @@
 package br.tela.principal.form;
 
 import java.awt.Color;
-import java.awt.EventQueue;
 import java.awt.Font;
 
 import javax.swing.ButtonGroup;
@@ -15,7 +14,6 @@ import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
 
-import br.com.gsv.util.HibernateUtil;
 import br.tela.principal.listeners.TelaLoginListener;
 
 public class TelaLogin extends JFrame{

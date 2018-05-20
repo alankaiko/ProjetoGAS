@@ -186,7 +186,7 @@ public class IncluirFuncionarioListener implements ActionListener{
 				Editar();
 			this.formulario.dispose();
 			
-		}else if(event.getActionCommand().equals("Cancelar")){
+		}else if(event.getSource().equals(this.formulario.getBTCancelar())){
 			this.formulario.dispose();
 		}
 		else

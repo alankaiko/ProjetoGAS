@@ -53,7 +53,7 @@ public class GerenciarFuncionarioGrafic {
 		
 		this.formulario.getPainelDrag().setBackground(new Color(20, 34, 56));
 		
-		JLabel LFechar = new JLabel("");
+		JLabel LFechar = new JLabel();
 		LFechar.setIcon(new ImageIcon(GerenciarFuncionarioGrafic.class.getResource("/imagens/icons8-não-22.png")));
 		LFechar.addMouseListener(new MouseAdapter() {
 			@Override
