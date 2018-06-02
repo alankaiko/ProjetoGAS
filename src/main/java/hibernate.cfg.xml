@@ -28,7 +28,7 @@
         <property name="show_sql">false</property>
 
         <!-- Drop and re-create the database schema on startup -->
-        <property name="hbm2ddl.auto">validate</property>
+        <property name="hbm2ddl.auto">update</property>
         	
         <property name="hibernate.temp.use_jdbc_metadata_defaults">false</property>
 		
@@ -42,6 +42,7 @@
       	<mapping class="br.com.gsv.domain.Produto"/>
       	<mapping class="br.com.gsv.domain.Fabricante"/>
       	<mapping class="br.com.gsv.domain.Convenio"/>
+      	<mapping class="br.com.gsv.domain.Agenda"/>
       	<mapping class="br.com.gsv.domain.Prontuario"/>
       	<mapping class="br.com.gsv.domain.sub.EquipamentoCheckBox"/>
       	<mapping class="br.com.gsv.domain.sub.IntegridadeHemorragia"/>
