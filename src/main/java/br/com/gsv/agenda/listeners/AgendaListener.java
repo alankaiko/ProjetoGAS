@@ -25,7 +25,6 @@ public class AgendaListener implements ActionListener{
 	public AgendaListener(AgendaFormulario formulario) {
 		this.formulario = formulario;
 		AdicionaListener();
-		InicializaObjetos();
 	}
 	
 	private void AdicionaListener(){
@@ -52,7 +51,19 @@ public class AgendaListener implements ActionListener{
 	}
 	
 	
-	
+	public void AlterandoAgendamento(){
+		this.formulario.getTPaciente().setText(this.agenda.getPaciente().getNome());
+		this.formulario.getTCelular().setText(this.agenda.getPaciente().getContato().get(0).getCelular());
+		this.formulario.getTFixo().setText(this.agenda.getPaciente().getContato().get(0).getTelefone());
+		this.formulario.getTConvenio().setText(this.agenda.getPaciente().getConvenio().getNome());
+		
+		this.formulario.getTFuncionario().setText(this.agenda.getFuncionario().getNome());
+		this.formulario.getTRegistro().setText(ConcatenarRegistro());
+		
+		this.formulario.getComboAgendamento().setSelectedItem(this.agenda.getTipoAgendamento().values());
+		this.formulario.getTData().setDate(this.agenda.getData());
+		
+	}
 	
 	
 	
