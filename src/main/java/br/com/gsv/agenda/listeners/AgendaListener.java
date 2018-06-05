@@ -25,6 +25,7 @@ public class AgendaListener implements ActionListener{
 	public AgendaListener(AgendaFormulario formulario) {
 		this.formulario = formulario;
 		AdicionaListener();
+		InicializaObjetos();
 	}
 	
 	private void AdicionaListener(){
