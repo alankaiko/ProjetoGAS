@@ -11,17 +11,13 @@ import javax.swing.table.AbstractTableModel;
 import br.com.gsv.domain.Agenda;
 
 public class TabelaDeAgenda extends AbstractTableModel{
-	DateFormat df = new SimpleDateFormat ("EEE dd-MM-yyyy");
+	DateFormat df = new SimpleDateFormat ("EEEE dd-MM-yyyy");
 	DateFormat dias = new SimpleDateFormat("");
-	private String[] colunas = new String[7];
+	private String[] colunas = new String[3];
 	private List<Agenda> linhas;
-	private static final int PRIMEIRA = 0;
-    private static final int SEGUNDA = 1;
-    private static final int TERCEIRA = 2;
-    private static final int QUARTA = 3;
-    private static final int QUINTA = 4;
-    private static final int SEXTA = 5;
-    private static final int SETIMA = 6;
+	private static final int HORA = 0;
+    private static final int DIA = 1;
+    private static final int TIPO = 2;
     
 	
 
@@ -36,40 +32,15 @@ public class TabelaDeAgenda extends AbstractTableModel{
     }
 	
 	
-	
-	
 	 public void CriaColunas(){
-    	Calendar calAntes = Calendar.getInstance();
-		colunas[3]= df.format (calAntes.getTime());
-		
-		PopulaDiasAnteriores(calAntes);
-		
-		Calendar calDepois = Calendar.getInstance();
-		PopulaDiasPosteriores(calDepois);
-    }
- 
-	private void PopulaDiasAnteriores(Calendar cal){
-		cal.add (Calendar.DATE, -1);
-		colunas[2]= df.format (cal.getTime());
-		
-		cal.add (Calendar.DATE, -1);
+		colunas[0] = "HORA";
+		 
+    	Calendar cal = Calendar.getInstance();
 		colunas[1]= df.format (cal.getTime());
 		
-		cal.add (Calendar.DATE, -1);
-		colunas[0]= df.format (cal.getTime());
-	}
-	
-	private void PopulaDiasPosteriores(Calendar cal){
-		cal.add (Calendar.DATE, +1);
-		colunas[4]= df.format (cal.getTime());
-		
-		cal.add (Calendar.DATE, +1);
-		colunas[5]= df.format (cal.getTime());
-		
-		cal.add (Calendar.DATE, +1);
-		colunas[6]= df.format (cal.getTime());
-	}
-	    
+		colunas[2]= "TIPO DE CONSULTA";
+    }
+ 
 	
     
     @Override
@@ -85,19 +56,11 @@ public class TabelaDeAgenda extends AbstractTableModel{
     @Override
     public Class<?> getColumnClass(int columnIndex) {
         switch (columnIndex) {
-	        case PRIMEIRA:
+	        case HORA:
 	            return String.class;
-	        case SEGUNDA:
+	        case DIA:
 	            return String.class;
-	        case TERCEIRA:
-	            return String.class;
-	        case QUARTA:
-	            return String.class;
-	        case QUINTA:
-	            return String.class;
-	        case SEXTA:
-	            return String.class;
-	        case SETIMA:
+	        case TIPO:
 	            return String.class;
 	        default:
 	       
@@ -116,19 +79,11 @@ public class TabelaDeAgenda extends AbstractTableModel{
 		Agenda dados = linhas.get(rowIndex);
  
         switch (columnIndex) {
-	        case PRIMEIRA:
+	        case HORA:
 	            return dados.getId();
-	        case SEGUNDA:
+	        case DIA:
 	            return dados.getId();
-	        case TERCEIRA:
-	            return dados.getId();
-	        case QUARTA:
-	            return dados.getId();
-	        case QUINTA:
-	            return dados.getId();
-	        case SEXTA:
-	            return dados.getId();
-	        case SETIMA:
+	        case TIPO:
 	            return dados.getId();
 	        default:
            
@@ -169,25 +124,13 @@ public class TabelaDeAgenda extends AbstractTableModel{
         Agenda dados = linhas.get(rowIndex);
  
         switch (columnIndex) {
-	        case PRIMEIRA:
+	        case HORA:
 	        	dados.setId((Long) aValue);
 	            break;
-	        case SEGUNDA:
+	        case DIA:
 	        	dados.setId((Long) aValue);
 	            break;
-	        case TERCEIRA:
-	        	dados.setId((Long) aValue);
-	            break;
-	        case QUARTA:
-	        	dados.setId((Long) aValue);
-	            break;
-	        case QUINTA:
-	        	dados.setId((Long) aValue);
-	            break;
-	        case SEXTA:
-	        	dados.setId((Long) aValue);
-	            break;
-	        case SETIMA:
+	        case TIPO:
 	        	dados.setId((Long) aValue);
 	            break;
 	        default:

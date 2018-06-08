@@ -36,13 +36,9 @@ public class GerenciarAgendaListener implements ActionListener{
 		tabela = new TabelaDeAgenda();
 		this.gerenciamento.getTable().setModel(tabela);
 		
-		this.gerenciamento.getTable().getColumnModel().getColumn(0).setPreferredWidth(100);
+		this.gerenciamento.getTable().getColumnModel().getColumn(0).setPreferredWidth(10);
 		this.gerenciamento.getTable().getColumnModel().getColumn(1).setPreferredWidth(100);
-		this.gerenciamento.getTable().getColumnModel().getColumn(2).setPreferredWidth(100);
-		this.gerenciamento.getTable().getColumnModel().getColumn(3).setPreferredWidth(100);
-		this.gerenciamento.getTable().getColumnModel().getColumn(4).setPreferredWidth(100);
-		this.gerenciamento.getTable().getColumnModel().getColumn(5).setPreferredWidth(100);
-		this.gerenciamento.getTable().getColumnModel().getColumn(6).setPreferredWidth(100);
+		this.gerenciamento.getTable().getColumnModel().getColumn(2).setPreferredWidth(60);
 		this.gerenciamento.getTable().setSelectionMode(ListSelectionModel.SINGLE_SELECTION);		
 		this.gerenciamento.getTable().changeSelection(0, 0, false, false);
 		//this.gerenciamento.getTable().setRowSelectionInterval(0, 0);
