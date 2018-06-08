@@ -11,7 +11,8 @@ import javax.swing.table.AbstractTableModel;
 import br.com.gsv.domain.Agenda;
 
 public class TabelaDeAgenda extends AbstractTableModel{
-	DateFormat df = new SimpleDateFormat ("EEEE dd-MM-yyyy");
+	DateFormat df = new SimpleDateFormat ("EEE dd-MM-yyyy");
+	DateFormat dias = new SimpleDateFormat("");
 	private String[] colunas = new String[7];
 	private List<Agenda> linhas;
 	private static final int PRIMEIRA = 0;

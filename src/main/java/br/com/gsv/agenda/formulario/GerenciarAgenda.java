@@ -30,7 +30,6 @@ public class GerenciarAgenda extends JDialog {
 	}
 
 	public GerenciarAgenda() {
-		listener = new GerenciarAgendaListener(this);
 		setBounds(100, 100, 594, 423);
 		tela.setLayout(new BorderLayout());
 		panel.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -41,6 +40,8 @@ public class GerenciarAgenda extends JDialog {
 		scrollPane.setBounds(10, 11, 558, 363);
 		panel.add(scrollPane);
 		table = new JTable();
+		
+		listener = new GerenciarAgendaListener(this);
 	}
 
 	public JPanel getPanel() {

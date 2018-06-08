@@ -10,6 +10,7 @@ public class Abre {
 	public static void main(String[] args) {
 		VamosVer v = new VamosVer();
 		v.denovo();
+		System.out.println("teste");
 	}
 	
 	
