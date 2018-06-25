@@ -2,7 +2,14 @@ package br.com.gsv.agenda.listeners;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Date;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
+
+import javax.swing.SpinnerListModel;
+
+import org.joda.time.DateTime;
 
 import br.com.gsv.agenda.formulario.AgendaFormulario;
 import br.com.gsv.domain.Agenda;
@@ -11,6 +18,7 @@ import br.com.gsv.domain.Paciente;
 import br.com.gsv.domain.sub.EnumTipoAgendamento;
 import br.com.gsv.formularios.BuscarFuncionarioDialog;
 import br.com.gsv.formularios.BuscarPacienteDialog;
+import br.com.gsv.util.AgendaDadosUtil;
 import br.com.projeto.gsv.controller.AgendaController;
 import br.com.projeto.gsv.controller.FuncionarioController;
 import br.com.projeto.gsv.controller.PacienteController;
@@ -21,9 +29,11 @@ public class AgendaListener implements ActionListener{
 	private Funcionario funcionario;
 	private Agenda agenda;
 	private AgendaController controller;
+	private List<DateTime> listaHorarios;
 	
 	public AgendaListener(AgendaFormulario formulario) {
 		this.formulario = formulario;
+		this.formulario.getTHoraSpinner().setModel(ListaDeHorarios());
 		AdicionaListener();
 		InicializaObjetos();
 	}
@@ -47,7 +57,7 @@ public class AgendaListener implements ActionListener{
 		this.agenda.setFuncionario(this.funcionario);
 		this.agenda.setTipoAgendamento((EnumTipoAgendamento) this.formulario.getComboAgendamento().getSelectedItem());
 		this.agenda.setData(this.formulario.getTData().getDate());
-		this.agenda.setHoraDesejada((Date)this.formulario.getTHoraSpinner().getValue());
+		this.agenda.setHoraDesejada( this.formulario.getTHoraSpinner().getValue().toString());
 		this.agenda.setObservacao(this.formulario.getTObservacao().getText());
 	}
 	
@@ -135,7 +145,58 @@ public class AgendaListener implements ActionListener{
 		
 		return concatena;
 	}
+	
+	
+	
+	
+	private SpinnerListModel ListaDeHorarios(){
+		AgendaController controller = new AgendaController();
+		List<String> listaDoBanco = controller.ListarHorarios();
+		
+		
+		List<String> listaAgenda = AgendaDadosUtil.ListaHoras();
+		
+		listaAgenda.removeAll(listaDoBanco);
+		
+		SpinnerListModel model = new SpinnerListModel(listaAgenda);
+		
+		for(String aff : listaAgenda){
+			System.out.println(aff);
+		}
+		
+		return model;
+	}
+	
+	
+	
+	
+	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

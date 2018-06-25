@@ -3,8 +3,6 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.Font;
-import java.util.Calendar;
-import java.util.Date;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -16,12 +14,15 @@ import javax.swing.JSeparator;
 import javax.swing.JSpinner;
 import javax.swing.JTextField;
 import javax.swing.JTextPane;
-import javax.swing.SpinnerDateModel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 
+import org.joda.time.format.DateTimeFormat;
+import org.joda.time.format.DateTimeFormatter;
+
 import br.com.gsv.agenda.listeners.AgendaListener;
 import br.com.gsv.domain.sub.EnumTipoAgendamento;
+import br.com.gsv.util.AgendaDadosUtil;
 
 import com.toedter.calendar.JDateChooser;
 
@@ -146,12 +147,8 @@ public class AgendaFormulario extends JDialog {
 		LHora.setFont(new Font("Segoe UI", Font.PLAIN, 13));
 		LHora.setBounds(405, 145, 43, 18);
 		
-		Date date = new Date();
-		SpinnerDateModel sm = new SpinnerDateModel(date, null, null, Calendar.HOUR);
-		THoraSpinner = new JSpinner(sm);
+		THoraSpinner = new JSpinner();
 		THoraSpinner.setBorder(new LineBorder(new Color(0, 0, 0)));
-		JSpinner.DateEditor de_THoraSpinner = new JSpinner.DateEditor(THoraSpinner, "HH:mm");
-		THoraSpinner.setEditor(de_THoraSpinner);
 		THoraSpinner.setBounds(405, 165, 109, 20);
 		
 		TObservacao = new JTextPane();
@@ -507,5 +504,6 @@ public class AgendaFormulario extends JDialog {
 	public void setListener(AgendaListener listener) {
 		this.listener = listener;
 	}
+	
 	
 }

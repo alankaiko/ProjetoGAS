@@ -1,10 +1,13 @@
 package br.com.projeto.gsv.repository;
 
+import java.util.List;
+
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import br.com.gsv.domain.Agenda;
+import br.com.gsv.domain.Fabricante;
 import br.com.gsv.util.HibernateUtil;
 
 public class AgendaRepository {
@@ -64,6 +67,52 @@ public class AgendaRepository {
 		}		
 		return agenda;
 	}
+	
+	
+	@SuppressWarnings("unchecked")
+	public List<String> ListandoHorarios(){
+		sessao = HibernateUtil.getSessionFactory().openSession();
+		List<String> lista = null;
 		
+		
+		try {
+			Query consulta = sessao.getNamedQuery("Agenda.listarHorarios");
+			lista = consulta.list();
+		} catch (RuntimeException e) {
+			System.out.println("ERRO NO METODO LISTAR DO OBJETO AGENDA");
+			throw e;
+		}finally{
+			sessao.close();
+		}
+		
+		
+		return lista;
+	}
+		
+	
+	
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

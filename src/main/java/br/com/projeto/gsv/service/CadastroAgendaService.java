@@ -1,5 +1,7 @@
 package br.com.projeto.gsv.service;
 
+import java.util.List;
+
 import br.com.gsv.domain.Agenda;
 import br.com.projeto.gsv.repository.AgendaRepository;
 
@@ -19,4 +21,7 @@ public class CadastroAgendaService {
 		return this.repositorio.BuscarPorId(id);
 	}
 	
+	public List<String> ListarHorarios(){
+		return this.repositorio.ListandoHorarios();
+	}
 }
