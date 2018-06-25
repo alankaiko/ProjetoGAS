@@ -23,7 +23,9 @@ import br.com.gsv.domain.sub.EnumTipoAgendamento;
 
 @Entity
 @Table
-@NamedQueries({ @NamedQuery(name = "Agenda.listarHorarios", query = "SELECT agenda.horaDesejada FROM Agenda agenda order by data") })
+@NamedQueries({ @NamedQuery(name = "Agenda.listarHorarios", query = "SELECT agenda.horaDesejada FROM Agenda agenda order by data"),
+				@NamedQuery(name = "Agenda.buscarPorData", query = "SELECT agenda.horaDesejada FROM Agenda agenda WHERE agenda.data = :data")
+})
 public class Agenda {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,7 +35,7 @@ public class Agenda {
 	@Enumerated(EnumType.STRING)
 	private EnumTipoAgendamento tipoAgendamento;
 
-	@Temporal(TemporalType.TIMESTAMP)
+	@Temporal(TemporalType.DATE)
 	private Date data;
 
 	private String horaDesejada;

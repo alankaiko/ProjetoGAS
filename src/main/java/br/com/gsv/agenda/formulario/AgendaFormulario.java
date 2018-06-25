@@ -14,8 +14,10 @@ import javax.swing.JSeparator;
 import javax.swing.JSpinner;
 import javax.swing.JTextField;
 import javax.swing.JTextPane;
+import javax.swing.UIManager;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
+import javax.swing.text.JTextComponent;
 
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
@@ -25,6 +27,7 @@ import br.com.gsv.domain.sub.EnumTipoAgendamento;
 import br.com.gsv.util.AgendaDadosUtil;
 
 import com.toedter.calendar.JDateChooser;
+import java.awt.Cursor;
 
 
 public class AgendaFormulario extends JDialog {
@@ -39,6 +42,7 @@ public class AgendaFormulario extends JDialog {
 	private JSpinner THoraSpinner;
 	private JTextPane TObservacao;
 	private AgendaListener listener;
+	private JButton BAtualizarHora;
 	
 	
 	
@@ -78,12 +82,12 @@ public class AgendaFormulario extends JDialog {
 		separator.setBounds(10, 32, 504, 2);
 		panel.add(separator);
 		
-		LAgendamento = new JLabel("TIPO DE AGENDAMENTO");
+		LAgendamento = new JLabel("TIPO");
 		LAgendamento.setFont(new Font("Segoe UI", Font.PLAIN, 13));
-		LAgendamento.setBounds(10, 145, 155, 18);
+		LAgendamento.setBounds(10, 145, 36, 18);
 		
 		ComboAgendamento = new JComboBox(EnumTipoAgendamento.values());
-		ComboAgendamento.setBounds(10, 165, 213, 20);
+		ComboAgendamento.setBounds(10, 165, 125, 20);
 		
 		LPaciente = new JLabel("PACIENTE");
 		LPaciente.setFont(new Font("Segoe UI", Font.PLAIN, 13));
@@ -113,12 +117,12 @@ public class AgendaFormulario extends JDialog {
 		TFixo = new JTextField();
 		TFixo.setBorder(new LineBorder(Color.BLACK));
 		TFixo.setColumns(10);
-		TFixo.setBounds(154, 108, 120, 20);
+		TFixo.setBounds(154, 108, 129, 20);
 		
 		TCelular = new JTextField();
 		TCelular.setBorder(new LineBorder(Color.BLACK));
 		TCelular.setColumns(10);
-		TCelular.setBounds(10, 108, 120, 20);
+		TCelular.setBounds(10, 108, 125, 20);
 		
 		JSeparator separator_2 = new JSeparator();
 		separator_2.setBounds(10, 137, 504, 2);
@@ -135,21 +139,23 @@ public class AgendaFormulario extends JDialog {
 		TConvenio.setBounds(310, 108, 204, 20);
 		
 		TData = new JDateChooser();
+		TData.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 		TData.setBorder(new LineBorder(new Color(0, 0, 0)));
-		TData.setBounds(245, 165, 138, 20);
+		TData.setBounds(155, 165, 128, 20);
+		TData.setBackground(Color.RED);
 		
 		LData = new JLabel("DATA");
 		LData.setFont(new Font("Segoe UI", Font.PLAIN, 13));
-		LData.setBounds(245, 145, 43, 18);
+		LData.setBounds(154, 145, 43, 18);
 		
 		
 		LHora = new JLabel("HORA");
 		LHora.setFont(new Font("Segoe UI", Font.PLAIN, 13));
-		LHora.setBounds(405, 145, 43, 18);
+		LHora.setBounds(310, 145, 43, 18);
 		
 		THoraSpinner = new JSpinner();
 		THoraSpinner.setBorder(new LineBorder(new Color(0, 0, 0)));
-		THoraSpinner.setBounds(405, 165, 109, 20);
+		THoraSpinner.setBounds(310, 165, 99, 20);
 		
 		TObservacao = new JTextPane();
 		TObservacao.setBorder(new LineBorder(new Color(0, 0, 0)));
@@ -227,6 +233,14 @@ public class AgendaFormulario extends JDialog {
 		panel.add(TRegistro);
 		panel.add(BSalvar);
 		panel.add(BVoltar);
+		
+		BAtualizarHora = new JButton("Atualizar");
+		BAtualizarHora.setIcon(new ImageIcon(AgendaFormulario.class.getResource("/imagens/icons8-actualizar-15.png")));
+		BAtualizarHora.setFont(new Font("Segoe UI Light", Font.PLAIN, 10));
+		BAtualizarHora.setBorder(null);
+		BAtualizarHora.setBackground(Color.WHITE);
+		BAtualizarHora.setBounds(419, 163, 95, 23);
+		panel.add(BAtualizarHora);
 	}
 
 
@@ -503,6 +517,16 @@ public class AgendaFormulario extends JDialog {
 	
 	public void setListener(AgendaListener listener) {
 		this.listener = listener;
+	}
+
+
+	public JButton getBAtualizarHora() {
+		return BAtualizarHora;
+	}
+
+
+	public void setBAtualizarHora(JButton bAtualizarHora) {
+		BAtualizarHora = bAtualizarHora;
 	}
 	
 	

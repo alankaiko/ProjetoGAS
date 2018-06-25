@@ -1,5 +1,6 @@
 package br.com.projeto.gsv.controller;
 
+import java.util.Date;
 import java.util.List;
 
 import br.com.gsv.domain.Agenda;
@@ -22,8 +23,8 @@ public class AgendaController {
 		this.cadastroService.Remover(this.agenda);
 	}
 	
-	public List<String> ListarHorarios(){
-		return this.cadastroService.ListarHorarios();
+	public List<String> ListarHorarios(Date data){
+		return this.cadastroService.ListarHorarios(data);
 	}
 
 	public Agenda BuscarPelaID(Long id) {

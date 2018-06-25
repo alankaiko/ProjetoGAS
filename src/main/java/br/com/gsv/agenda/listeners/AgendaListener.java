@@ -2,9 +2,13 @@ package br.com.gsv.agenda.listeners;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
+import java.awt.event.ComponentEvent;
+import java.awt.event.ComponentListener;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.util.Date;
 import java.util.List;
 
 import javax.swing.SpinnerListModel;
@@ -23,7 +27,7 @@ import br.com.projeto.gsv.controller.AgendaController;
 import br.com.projeto.gsv.controller.FuncionarioController;
 import br.com.projeto.gsv.controller.PacienteController;
 
-public class AgendaListener implements ActionListener{
+public class AgendaListener implements ActionListener, FocusListener{
 	private AgendaFormulario formulario;
 	private Paciente paciente;
 	private Funcionario funcionario;
@@ -33,16 +37,20 @@ public class AgendaListener implements ActionListener{
 	
 	public AgendaListener(AgendaFormulario formulario) {
 		this.formulario = formulario;
-		this.formulario.getTHoraSpinner().setModel(ListaDeHorarios());
 		AdicionaListener();
 		InicializaObjetos();
+		Date data = new Date();
+		this.formulario.getTData().setDate(data);
 	}
 	
 	private void AdicionaListener(){
 		this.formulario.getBPesqFunc().addActionListener(this);
 		this.formulario.getBPesqPacient().addActionListener(this);
 		this.formulario.getBVoltar().addActionListener(this);
-		this.formulario.getBSalvar().addActionListener(this);
+		this.formulario.getBSalvar().addActionListener(this);		
+		this.formulario.getBAtualizarHora().addActionListener(this);
+		this.formulario.getTData().addFocusListener(this);
+	//	this.formulario.getTData().getDate().
 	}
 	
 	private void InicializaObjetos(){
@@ -109,8 +117,13 @@ public class AgendaListener implements ActionListener{
 			controller.setAgenda(agenda);
 			controller.SalvarAgenda();
 			
-			this.formulario.dispose();
+			//this.formulario.dispose();
+		}else if(event.getSource().equals(this.formulario.getBAtualizarHora())){
+			this.formulario.getTHoraSpinner().setModel(ListaDeHorarios());
+			
 		}
+		
+		
 		
 	}
 	
@@ -148,27 +161,54 @@ public class AgendaListener implements ActionListener{
 	
 	
 	
-	
 	private SpinnerListModel ListaDeHorarios(){
 		AgendaController controller = new AgendaController();
-		List<String> listaDoBanco = controller.ListarHorarios();
-		
-		
+		List<String> listaDoBanco = controller.ListarHorarios(this.formulario.getTData().getDate());
 		List<String> listaAgenda = AgendaDadosUtil.ListaHoras();
-		
 		listaAgenda.removeAll(listaDoBanco);
 		
 		SpinnerListModel model = new SpinnerListModel(listaAgenda);
 		
-		for(String aff : listaAgenda){
+		for(String aff : listaDoBanco){
 			System.out.println(aff);
 		}
 		
 		return model;
 	}
+
 	
-	
-	
+
+
+	@Override
+	public void focusGained(FocusEvent event) {
+		this.formulario.getTHoraSpinner().setModel(ListaDeHorarios());
+		System.out.println("rodou gained");
+		
+		if(event.getSource().equals(this.formulario.getTData().getCalendar())){
+			this.formulario.getTHoraSpinner().setModel(ListaDeHorarios());
+			System.out.println("rodou gained");
+		}
+		if(event.getSource().equals(this.formulario.getTData().getCalendarButton())){
+			this.formulario.getTHoraSpinner().setModel(ListaDeHorarios());
+			System.out.println("hidden");
+		}
+	}
+
+	@Override
+	public void focusLost(FocusEvent event) {
+		this.formulario.getTHoraSpinner().setModel(ListaDeHorarios());
+		System.out.println("rodou lost");
+		
+		
+		if(event.getSource().equals(this.formulario.getTData().getCalendar())){
+			this.formulario.getTHoraSpinner().setModel(ListaDeHorarios());
+			System.out.println("rodou lost");
+		}
+		if(event.getSource().equals(this.formulario.getTData().getCalendarButton())){
+			this.formulario.getTHoraSpinner().setModel(ListaDeHorarios());
+			System.out.println("hidden");
+		}
+	}
 	
 	
 }

@@ -1,5 +1,6 @@
 package br.com.projeto.gsv.repository;
 
+import java.util.Date;
 import java.util.List;
 
 import org.hibernate.Query;
@@ -89,7 +90,23 @@ public class AgendaRepository {
 		return lista;
 	}
 		
-	
+	public List<String> ListaDeHorariosPorDia(Date data){
+		sessao = HibernateUtil.getSessionFactory().openSession();
+		List<String> lista = null;
+		
+		try {
+			Query consulta = sessao.getNamedQuery("Agenda.buscarPorData");
+			consulta.setDate("data", data);
+			lista = consulta.list();
+		} catch (RuntimeException e) {
+			System.out.println("ERRO NO METODO BUSCAR HORAS POR DETERMINADO DIA");
+			throw e;
+		}finally{
+			sessao.close();
+		}
+		
+		return lista;
+	}
 	
 
 }
