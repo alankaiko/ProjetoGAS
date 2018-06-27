@@ -3,6 +3,8 @@ package br.com.gsv.agenda.listeners;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 
 import javax.swing.AbstractAction;
 import javax.swing.JComponent;
@@ -12,8 +14,9 @@ import javax.swing.ListSelectionModel;
 
 import br.com.gsv.agenda.formulario.GerenciarAgenda;
 import br.com.gsv.tabelas.TabelaDeAgenda;
+import br.com.projeto.gsv.controller.AgendaController;
 
-public class GerenciarAgendaListener implements ActionListener{
+public class GerenciarAgendaListener implements ActionListener, PropertyChangeListener{
 	private GerenciarAgenda gerenciamento;
 	private TabelaDeAgenda tabela;
 	
@@ -27,17 +30,22 @@ public class GerenciarAgendaListener implements ActionListener{
 	}
 
 	private void AdicionaListener(){
-		//nada por enquanto
+		this.gerenciamento.getBBuscar().addActionListener(this);
+		this.gerenciamento.getBVoltar().addActionListener(this);
+		this.gerenciamento.getCalendar().addPropertyChangeListener(this);
 	}
 
 	
 	
 	private void TabelaDeDias(){
-		tabela = new TabelaDeAgenda();
-		this.gerenciamento.getTable().setModel(tabela);
+		AgendaController controller = new AgendaController();
+		tabela = new TabelaDeAgenda(controller.ListaDeAgendados());
 		
-		this.gerenciamento.getTable().getColumnModel().getColumn(0).setPreferredWidth(10);
-		this.gerenciamento.getTable().getColumnModel().getColumn(1).setPreferredWidth(100);
+		//tabela = new TabelaDeAgenda();
+		//this.gerenciamento.getTable().setModel(tabela);
+		
+		this.gerenciamento.getTable().getColumnModel().getColumn(0).setPreferredWidth(5);
+		this.gerenciamento.getTable().getColumnModel().getColumn(1).setPreferredWidth(200);
 		this.gerenciamento.getTable().getColumnModel().getColumn(2).setPreferredWidth(60);
 		this.gerenciamento.getTable().setSelectionMode(ListSelectionModel.SINGLE_SELECTION);		
 		this.gerenciamento.getTable().changeSelection(0, 0, false, false);
@@ -70,6 +78,12 @@ public class GerenciarAgendaListener implements ActionListener{
             	gerenciamento.dispose();  
             }  
         });  
-    } 
+    }
+
+	@Override
+	public void propertyChange(PropertyChangeEvent evt) {
+		System.out.println(this.gerenciamento.getCalendar().getDate());
+		
+	} 
 	
 }

@@ -4,11 +4,13 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import javax.swing.table.AbstractTableModel;
 
 import br.com.gsv.domain.Agenda;
+import br.com.gsv.domain.Fabricante;
 
 public class TabelaDeAgenda extends AbstractTableModel{
 	DateFormat df = new SimpleDateFormat ("EEEE dd-MM-yyyy");
@@ -30,6 +32,8 @@ public class TabelaDeAgenda extends AbstractTableModel{
 	public TabelaDeAgenda(List<Agenda> dados) {
         linhas = new ArrayList<Agenda>(dados);	
     }
+	
+	
 	
 	
 	 public void CriaColunas(){
@@ -80,11 +84,11 @@ public class TabelaDeAgenda extends AbstractTableModel{
  
         switch (columnIndex) {
 	        case HORA:
-	            return dados.getId();
+	            return dados.getHoraDesejada();
 	        case DIA:
-	            return dados.getId();
+	            return dados.getPaciente().getNome();
 	        case TIPO:
-	            return dados.getId();
+	            return dados.getTipoAgendamento();
 	        default:
            
             throw new IndexOutOfBoundsException("columnIndex out of bounds");
@@ -125,14 +129,14 @@ public class TabelaDeAgenda extends AbstractTableModel{
  
         switch (columnIndex) {
 	        case HORA:
-	        	dados.setId((Long) aValue);
+	        	dados.setHoraDesejada((String) aValue);
 	            break;
 	        case DIA:
-	        	dados.setId((Long) aValue);
+	        	dados.getPaciente().setNome((String) aValue);
 	            break;
-	        case TIPO:
-	        	dados.setId((Long) aValue);
-	            break;
+	       // case TIPO:
+	        //	dados.getTipoAgendamento()
+	         //   break;
 	        default:
             throw new IndexOutOfBoundsException("columnIndex out of bounds");
         }         

@@ -14,6 +14,8 @@ import com.toedter.calendar.JCalendar;
 import javax.swing.JButton;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
+import javax.swing.border.LineBorder;
+import java.awt.Color;
 
 public class GerenciarAgenda extends JDialog {
 
@@ -22,9 +24,11 @@ public class GerenciarAgenda extends JDialog {
 	private JScrollPane scrollPane;
 	private JTable table;
 	private GerenciarAgendaListener listener;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
+	private JTextField TNome, TCpf, TRg;
+	private JCalendar calendar;
+	private JButton BBuscar, BVoltar;
+	private JLabel LNome,LCpf;
+	
 	
 	public static void main(String[] args) {
 		try {
@@ -37,54 +41,55 @@ public class GerenciarAgenda extends JDialog {
 	}
 
 	public GerenciarAgenda() {
-		setBounds(100, 100, 621, 423);
+		setBounds(100, 100, 710, 450);
 		tela.setLayout(new BorderLayout());
 		panel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		tela.add(panel, BorderLayout.CENTER);
 		panel.setLayout(null);
 		
 		scrollPane = new JScrollPane();
-		scrollPane.setBounds(10, 11, 373, 363);
+		scrollPane.setBounds(10, 11, 459, 390);
 		panel.add(scrollPane);
 		
-		JCalendar calendar = new JCalendar();
-		calendar.setBounds(393, 11, 205, 153);
+		calendar = new JCalendar();
+		calendar.setBorder(new LineBorder(new Color(0, 0, 0)));
+		calendar.setBounds(479, 11, 205, 153);
 		panel.add(calendar);
 		
-		JButton btnBuscar = new JButton("Buscar");
-		btnBuscar.setBounds(393, 351, 100, 23);
-		panel.add(btnBuscar);
+		BBuscar = new JButton("Buscar");
+		BBuscar.setBounds(479, 351, 100, 23);
+		panel.add(BBuscar);
 		
-		JButton btnVoltar = new JButton("Voltar");
-		btnVoltar.setBounds(498, 351, 100, 23);
-		panel.add(btnVoltar);
+		BVoltar = new JButton("Voltar");
+		BVoltar.setBounds(584, 351, 100, 23);
+		panel.add(BVoltar);
 		
-		textField = new JTextField();
-		textField.setBounds(393, 198, 205, 20);
-		panel.add(textField);
-		textField.setColumns(10);
+		TNome = new JTextField();
+		TNome.setBounds(479, 198, 205, 20);
+		panel.add(TNome);
+		TNome.setColumns(10);
 		
-		JLabel lblNome = new JLabel("Nome");
-		lblNome.setBounds(393, 185, 46, 14);
-		panel.add(lblNome);
+		LNome = new JLabel("Nome");
+		LNome.setBounds(479, 185, 46, 14);
+		panel.add(LNome);
 		
-		JLabel lblCpf = new JLabel("CPF");
-		lblCpf.setBounds(393, 229, 46, 14);
-		panel.add(lblCpf);
+		LCpf = new JLabel("CPF");
+		LCpf.setBounds(479, 229, 46, 14);
+		panel.add(LCpf);
 		
-		textField_1 = new JTextField();
-		textField_1.setColumns(10);
-		textField_1.setBounds(393, 242, 205, 20);
-		panel.add(textField_1);
+		TCpf = new JTextField();
+		TCpf.setColumns(10);
+		TCpf.setBounds(479, 242, 205, 20);
+		panel.add(TCpf);
 		
-		JLabel lblRg = new JLabel("RG");
-		lblRg.setBounds(393, 273, 46, 14);
-		panel.add(lblRg);
+		JLabel LRg = new JLabel("RG");
+		LRg.setBounds(479, 273, 46, 14);
+		panel.add(LRg);
 		
-		textField_2 = new JTextField();
-		textField_2.setBounds(393, 286, 205, 20);
-		panel.add(textField_2);
-		textField_2.setColumns(10);
+		TRg = new JTextField();
+		TRg.setBounds(479, 286, 205, 20);
+		panel.add(TRg);
+		TRg.setColumns(10);
 		table = new JTable();
 		
 		listener = new GerenciarAgendaListener(this);
@@ -129,4 +134,54 @@ public class GerenciarAgenda extends JDialog {
 	public void setListener(GerenciarAgendaListener listener) {
 		this.listener = listener;
 	}
+
+	public JTextField getTNome() {
+		return TNome;
+	}
+
+	public void setTNome(JTextField tNome) {
+		TNome = tNome;
+	}
+
+	public JTextField getTCpf() {
+		return TCpf;
+	}
+
+	public void setTCpf(JTextField tCpf) {
+		TCpf = tCpf;
+	}
+
+	public JTextField getTRg() {
+		return TRg;
+	}
+
+	public void setTRg(JTextField tRg) {
+		TRg = tRg;
+	}
+
+	public JCalendar getCalendar() {
+		return calendar;
+	}
+
+	public void setCalendar(JCalendar calendar) {
+		this.calendar = calendar;
+	}
+
+	public JButton getBBuscar() {
+		return BBuscar;
+	}
+
+	public void setBBuscar(JButton bBuscar) {
+		BBuscar = bBuscar;
+	}
+
+	public JButton getBVoltar() {
+		return BVoltar;
+	}
+
+	public void setBVoltar(JButton bVoltar) {
+		BVoltar = bVoltar;
+	}
+	
+	
 }
