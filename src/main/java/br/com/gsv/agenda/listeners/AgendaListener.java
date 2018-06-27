@@ -2,12 +2,8 @@ package br.com.gsv.agenda.listeners;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.ComponentEvent;
-import java.awt.event.ComponentListener;
-import java.awt.event.FocusEvent;
-import java.awt.event.FocusListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 import java.util.Date;
 import java.util.List;
 
@@ -27,7 +23,7 @@ import br.com.projeto.gsv.controller.AgendaController;
 import br.com.projeto.gsv.controller.FuncionarioController;
 import br.com.projeto.gsv.controller.PacienteController;
 
-public class AgendaListener implements ActionListener, FocusListener{
+public class AgendaListener implements ActionListener, PropertyChangeListener{
 	private AgendaFormulario formulario;
 	private Paciente paciente;
 	private Funcionario funcionario;
@@ -48,9 +44,7 @@ public class AgendaListener implements ActionListener, FocusListener{
 		this.formulario.getBPesqPacient().addActionListener(this);
 		this.formulario.getBVoltar().addActionListener(this);
 		this.formulario.getBSalvar().addActionListener(this);		
-		this.formulario.getBAtualizarHora().addActionListener(this);
-		this.formulario.getTData().addFocusListener(this);
-	//	this.formulario.getTData().getDate().
+		this.formulario.getTData().addPropertyChangeListener(this);
 	}
 	
 	private void InicializaObjetos(){
@@ -118,12 +112,7 @@ public class AgendaListener implements ActionListener, FocusListener{
 			controller.SalvarAgenda();
 			
 			//this.formulario.dispose();
-		}else if(event.getSource().equals(this.formulario.getBAtualizarHora())){
-			this.formulario.getTHoraSpinner().setModel(ListaDeHorarios());
-			
 		}
-		
-		
 		
 	}
 	
@@ -179,35 +168,10 @@ public class AgendaListener implements ActionListener, FocusListener{
 	
 
 
-	@Override
-	public void focusGained(FocusEvent event) {
-		this.formulario.getTHoraSpinner().setModel(ListaDeHorarios());
-		System.out.println("rodou gained");
-		
-		if(event.getSource().equals(this.formulario.getTData().getCalendar())){
-			this.formulario.getTHoraSpinner().setModel(ListaDeHorarios());
-			System.out.println("rodou gained");
-		}
-		if(event.getSource().equals(this.formulario.getTData().getCalendarButton())){
-			this.formulario.getTHoraSpinner().setModel(ListaDeHorarios());
-			System.out.println("hidden");
-		}
-	}
 
 	@Override
-	public void focusLost(FocusEvent event) {
+	public void propertyChange(PropertyChangeEvent event) {
 		this.formulario.getTHoraSpinner().setModel(ListaDeHorarios());
-		System.out.println("rodou lost");
-		
-		
-		if(event.getSource().equals(this.formulario.getTData().getCalendar())){
-			this.formulario.getTHoraSpinner().setModel(ListaDeHorarios());
-			System.out.println("rodou lost");
-		}
-		if(event.getSource().equals(this.formulario.getTData().getCalendarButton())){
-			this.formulario.getTHoraSpinner().setModel(ListaDeHorarios());
-			System.out.println("hidden");
-		}
 	}
 	
 	

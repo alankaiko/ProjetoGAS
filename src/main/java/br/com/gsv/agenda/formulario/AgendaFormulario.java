@@ -28,6 +28,7 @@ import br.com.gsv.util.AgendaDadosUtil;
 
 import com.toedter.calendar.JDateChooser;
 import java.awt.Cursor;
+import javax.swing.border.BevelBorder;
 
 
 public class AgendaFormulario extends JDialog {
@@ -42,7 +43,6 @@ public class AgendaFormulario extends JDialog {
 	private JSpinner THoraSpinner;
 	private JTextPane TObservacao;
 	private AgendaListener listener;
-	private JButton BAtualizarHora;
 	
 	
 	
@@ -82,12 +82,12 @@ public class AgendaFormulario extends JDialog {
 		separator.setBounds(10, 32, 504, 2);
 		panel.add(separator);
 		
-		LAgendamento = new JLabel("TIPO");
+		LAgendamento = new JLabel("TIPO DE AGENDAMENTO");
 		LAgendamento.setFont(new Font("Segoe UI", Font.PLAIN, 13));
-		LAgendamento.setBounds(10, 145, 36, 18);
+		LAgendamento.setBounds(310, 150, 155, 18);
 		
 		ComboAgendamento = new JComboBox(EnumTipoAgendamento.values());
-		ComboAgendamento.setBounds(10, 165, 125, 20);
+		ComboAgendamento.setBounds(310, 170, 204, 20);
 		
 		LPaciente = new JLabel("PACIENTE");
 		LPaciente.setFont(new Font("Segoe UI", Font.PLAIN, 13));
@@ -108,21 +108,21 @@ public class AgendaFormulario extends JDialog {
 		
 		LCelular = new JLabel("TEL. CELULAR");
 		LCelular.setFont(new Font("Segoe UI", Font.PLAIN, 13));
-		LCelular.setBounds(10, 88, 125, 18);
+		LCelular.setBounds(10, 88, 131, 18);
 		
 		LFixo = new JLabel("TEL. FIXO");
 		LFixo.setFont(new Font("Segoe UI", Font.PLAIN, 13));
-		LFixo.setBounds(154, 88, 69, 18);
+		LFixo.setBounds(164, 88, 69, 18);
 		
 		TFixo = new JTextField();
 		TFixo.setBorder(new LineBorder(Color.BLACK));
 		TFixo.setColumns(10);
-		TFixo.setBounds(154, 108, 129, 20);
+		TFixo.setBounds(164, 108, 125, 20);
 		
 		TCelular = new JTextField();
 		TCelular.setBorder(new LineBorder(Color.BLACK));
 		TCelular.setColumns(10);
-		TCelular.setBounds(10, 108, 125, 20);
+		TCelular.setBounds(10, 108, 131, 20);
 		
 		JSeparator separator_2 = new JSeparator();
 		separator_2.setBounds(10, 137, 504, 2);
@@ -139,23 +139,21 @@ public class AgendaFormulario extends JDialog {
 		TConvenio.setBounds(310, 108, 204, 20);
 		
 		TData = new JDateChooser();
-		TData.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 		TData.setBorder(new LineBorder(new Color(0, 0, 0)));
-		TData.setBounds(155, 165, 128, 20);
-		TData.setBackground(Color.RED);
+		TData.setBounds(10, 170, 131, 20);
 		
 		LData = new JLabel("DATA");
 		LData.setFont(new Font("Segoe UI", Font.PLAIN, 13));
-		LData.setBounds(154, 145, 43, 18);
+		LData.setBounds(10, 150, 43, 18);
 		
 		
 		LHora = new JLabel("HORA");
 		LHora.setFont(new Font("Segoe UI", Font.PLAIN, 13));
-		LHora.setBounds(310, 145, 43, 18);
+		LHora.setBounds(164, 150, 43, 18);
 		
 		THoraSpinner = new JSpinner();
 		THoraSpinner.setBorder(new LineBorder(new Color(0, 0, 0)));
-		THoraSpinner.setBounds(310, 165, 99, 20);
+		THoraSpinner.setBounds(164, 170, 125, 20);
 		
 		TObservacao = new JTextPane();
 		TObservacao.setBorder(new LineBorder(new Color(0, 0, 0)));
@@ -187,7 +185,6 @@ public class AgendaFormulario extends JDialog {
 		LRegistro.setBounds(10, 250, 75, 18);
 		
 		TRegistro = new JTextField();
-		TRegistro.setBorder(new LineBorder(Color.BLACK));
 		TRegistro.setColumns(10);
 		TRegistro.setBounds(10, 268, 155, 20);
 		
@@ -233,14 +230,6 @@ public class AgendaFormulario extends JDialog {
 		panel.add(TRegistro);
 		panel.add(BSalvar);
 		panel.add(BVoltar);
-		
-		BAtualizarHora = new JButton("Atualizar");
-		BAtualizarHora.setIcon(new ImageIcon(AgendaFormulario.class.getResource("/imagens/icons8-actualizar-15.png")));
-		BAtualizarHora.setFont(new Font("Segoe UI Light", Font.PLAIN, 10));
-		BAtualizarHora.setBorder(null);
-		BAtualizarHora.setBackground(Color.WHITE);
-		BAtualizarHora.setBounds(419, 163, 95, 23);
-		panel.add(BAtualizarHora);
 	}
 
 
@@ -518,16 +507,5 @@ public class AgendaFormulario extends JDialog {
 	public void setListener(AgendaListener listener) {
 		this.listener = listener;
 	}
-
-
-	public JButton getBAtualizarHora() {
-		return BAtualizarHora;
-	}
-
-
-	public void setBAtualizarHora(JButton bAtualizarHora) {
-		BAtualizarHora = bAtualizarHora;
-	}
-	
 	
 }
