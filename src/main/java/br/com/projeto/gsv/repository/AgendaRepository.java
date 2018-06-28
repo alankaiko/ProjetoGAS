@@ -108,12 +108,13 @@ public class AgendaRepository {
 		return lista;
 	}
 	
-	public List<Agenda> ListaDeAgendados(){
+	public List<Agenda> ListaDeAgendados(Date data){
 		sessao = HibernateUtil.getSessionFactory().openSession();
 		List<Agenda> lista = null;
 		
 		try {
 			Query consulta = sessao.getNamedQuery("Agenda.listaAgenda");
+			consulta.setDate("data", data);
 			lista = consulta.list();
 		} catch (RuntimeException e) {
 			System.out.println("ERRO NO METODO LISTA DE AGENDADOS");

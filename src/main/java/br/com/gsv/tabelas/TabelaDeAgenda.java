@@ -10,7 +10,6 @@ import java.util.List;
 import javax.swing.table.AbstractTableModel;
 
 import br.com.gsv.domain.Agenda;
-import br.com.gsv.domain.Fabricante;
 import br.com.gsv.util.AgendaDadosUtil;
 
 public class TabelaDeAgenda extends AbstractTableModel{
@@ -29,17 +28,17 @@ public class TabelaDeAgenda extends AbstractTableModel{
     }
 
 	public TabelaDeAgenda(List<Agenda> dados) {
-		CriaColunas();
-        linhas = new ArrayList<Agenda>(dados);	
+        linhas = new ArrayList<Agenda>(dados);
     }
 	
 	
 	
 	
-	 public void CriaColunas(){
+	 public void CriaColunas(Date data){
 		colunas[0] = "HORA";
 		 
     	Calendar cal = Calendar.getInstance();
+    	cal.setTime(data);
 		colunas[1]= df.format (cal.getTime());
 		
 		colunas[2]= "TIPO DE CONSULTA";

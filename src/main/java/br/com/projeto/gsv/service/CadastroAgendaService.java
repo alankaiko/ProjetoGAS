@@ -26,7 +26,7 @@ public class CadastroAgendaService {
 		return this.repositorio.ListaDeHorariosPorDia(data);
 	}
 	
-	public List<Agenda> ListaDosAgendados(){
-		return this.repositorio.ListaDeAgendados();
+	public List<Agenda> ListaDosAgendados(Date data){
+		return this.repositorio.ListaDeAgendados(data);
 	}
 }

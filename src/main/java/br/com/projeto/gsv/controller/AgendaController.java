@@ -27,8 +27,8 @@ public class AgendaController {
 		return this.cadastroService.ListarHorarios(data);
 	}
 
-	public List<Agenda> ListaDeAgendados(){
-		return this.cadastroService.ListaDosAgendados();
+	public List<Agenda> ListaDeAgendados(Date data){
+		return this.cadastroService.ListaDosAgendados(data);
 	}
 	
 	public Agenda BuscarPelaID(Long id) {
