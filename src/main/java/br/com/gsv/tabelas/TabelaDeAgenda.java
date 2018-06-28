@@ -78,28 +78,48 @@ public class TabelaDeAgenda extends AbstractTableModel{
     	return listaHorarios.size();
 	}
    
-
+  
 	@Override
 	public Object getValueAt(int rowIndex, int columnIndex) {
 		//Agenda dados = linhas.get(rowIndex);
+		
 		
 		
 		switch (columnIndex) {
 	        case HORA:
 	        	return AgendaDadosUtil.ListaHoras().get(rowIndex);
 	        case DIA:
-	        	if(linhas.contains(listaHorarios.get(rowIndex))){
-	        		System.out.println("veja");
-	        	}
+	        	return RetornaNome(rowIndex);
 	        case TIPO:
-	        	return "aff";
+	        	return RetornaTipo(rowIndex);
 	        default:
-           
             throw new IndexOutOfBoundsException("columnIndex out of bounds");
         }
+		
 	
     }
 	
+	public String RetornaNome(int posicao){
+		String valor="";
+		
+		for(int j=0; j < linhas.size(); j++){
+			if(linhas.get(j).getHoraDesejada().equals(listaHorarios.get(posicao))){
+				valor= linhas.get(j).getPaciente().getNome();
+			}
+		}
+		return valor;
+	}
+	
+	public String RetornaTipo(int posicao){
+		String valor="";
+		
+		for(int i=0; i < linhas.size(); i++){
+			if(linhas.get(i).getHoraDesejada().equals(listaHorarios.get(posicao))){
+				valor = linhas.get(i).getTipoAgendamento().name();
+			}
+		}
+		return valor;
+	}
 	
 	
     
