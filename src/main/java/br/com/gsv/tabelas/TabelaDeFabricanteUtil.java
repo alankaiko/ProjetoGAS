@@ -58,13 +58,14 @@ public class TabelaDeFabricanteUtil extends AbstractTableModel {
 
 	@Override
 	public Object getValueAt(int rowIndex, int columnIndex) {
-        
         Fabricante dados = linhas.get(rowIndex);
  
         switch (columnIndex) {
         case CODIGO:
+        	 System.out.println("rodou codigo");
             return dados.getId();
         case DESCRICAO:
+        	 System.out.println("rodou descricao");
             return dados.getDescricao();
         default:
            

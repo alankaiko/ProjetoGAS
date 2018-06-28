@@ -11,6 +11,7 @@ import javax.swing.table.AbstractTableModel;
 
 import br.com.gsv.domain.Agenda;
 import br.com.gsv.domain.Fabricante;
+import br.com.gsv.util.AgendaDadosUtil;
 
 public class TabelaDeAgenda extends AbstractTableModel{
 	DateFormat df = new SimpleDateFormat ("EEEE dd-MM-yyyy");
@@ -20,16 +21,15 @@ public class TabelaDeAgenda extends AbstractTableModel{
 	private static final int HORA = 0;
     private static final int DIA = 1;
     private static final int TIPO = 2;
-    
+    List<String> listaHorarios = AgendaDadosUtil.ListaHoras();
 	
-
     public TabelaDeAgenda() {
-		CriaColunas();
-	    linhas = new ArrayList<Agenda>();   
+    	linhas = new ArrayList<Agenda>();   
+	    
     }
- 
 
 	public TabelaDeAgenda(List<Agenda> dados) {
+		CriaColunas();
         linhas = new ArrayList<Agenda>(dados);	
     }
 	
@@ -72,31 +72,37 @@ public class TabelaDeAgenda extends AbstractTableModel{
         }
     }
     
+    
     @Override
 	public int getRowCount() {
-	    return linhas.size();
+    	return listaHorarios.size();
 	}
+   
 
 	@Override
 	public Object getValueAt(int rowIndex, int columnIndex) {
-        
-		Agenda dados = linhas.get(rowIndex);
- 
-        switch (columnIndex) {
+		//Agenda dados = linhas.get(rowIndex);
+		
+		
+		switch (columnIndex) {
 	        case HORA:
-	            return dados.getHoraDesejada();
+	        	return AgendaDadosUtil.ListaHoras().get(rowIndex);
 	        case DIA:
-	            return dados.getPaciente().getNome();
+	        	if(linhas.contains(listaHorarios.get(rowIndex))){
+	        		System.out.println("veja");
+	        	}
 	        case TIPO:
-	            return dados.getTipoAgendamento();
+	        	return "aff";
 	        default:
            
             throw new IndexOutOfBoundsException("columnIndex out of bounds");
         }
+	
     }
 	
-	 
 	
+	
+    
 	public void addAgenda(Agenda dados) {
 	    linhas.add(dados);
 	    int ultimoIndice = getRowCount() - 1;
@@ -125,20 +131,20 @@ public class TabelaDeAgenda extends AbstractTableModel{
 	@Override
     public void setValueAt(Object aValue, int rowIndex, int columnIndex) {
        
+		
         Agenda dados = linhas.get(rowIndex);
  
         switch (columnIndex) {
-	        case HORA:
+	       case HORA:
 	        	dados.setHoraDesejada((String) aValue);
 	            break;
 	        case DIA:
-	        	dados.getPaciente().setNome((String) aValue);
+	       	dados.getPaciente().setNome((String) aValue);
 	            break;
-	       // case TIPO:
-	        //	dados.getTipoAgendamento()
-	         //   break;
+	       case TIPO:;
+	           break;
 	        default:
-            throw new IndexOutOfBoundsException("columnIndex out of bounds");
+           throw new IndexOutOfBoundsException("columnIndex out of bounds");
         }         
         fireTableCellUpdated(rowIndex, columnIndex); 
     }

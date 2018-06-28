@@ -16,7 +16,7 @@ import br.com.gsv.agenda.formulario.GerenciarAgenda;
 import br.com.gsv.tabelas.TabelaDeAgenda;
 import br.com.projeto.gsv.controller.AgendaController;
 
-public class GerenciarAgendaListener implements ActionListener, PropertyChangeListener{
+public class GerenciarAgendaListener implements ActionListener{
 	private GerenciarAgenda gerenciamento;
 	private TabelaDeAgenda tabela;
 	
@@ -32,7 +32,7 @@ public class GerenciarAgendaListener implements ActionListener, PropertyChangeLi
 	private void AdicionaListener(){
 		this.gerenciamento.getBBuscar().addActionListener(this);
 		this.gerenciamento.getBVoltar().addActionListener(this);
-		this.gerenciamento.getCalendar().addPropertyChangeListener(this);
+		//this.gerenciamento.getCalendar().addPropertyChangeListener(this);
 	}
 
 	
@@ -40,7 +40,7 @@ public class GerenciarAgendaListener implements ActionListener, PropertyChangeLi
 	private void TabelaDeDias(){
 		AgendaController controller = new AgendaController();
 		tabela = new TabelaDeAgenda(controller.ListaDeAgendados());
-		
+		this.gerenciamento.getTable().setModel(tabela);
 		//tabela = new TabelaDeAgenda();
 		//this.gerenciamento.getTable().setModel(tabela);
 		
@@ -50,7 +50,7 @@ public class GerenciarAgendaListener implements ActionListener, PropertyChangeLi
 		this.gerenciamento.getTable().setSelectionMode(ListSelectionModel.SINGLE_SELECTION);		
 		this.gerenciamento.getTable().changeSelection(0, 0, false, false);
 		//this.gerenciamento.getTable().setRowSelectionInterval(0, 0);
-		this.gerenciamento.getTable().setFocusable(false);
+		//this.gerenciamento.getTable().setFocusable(false);
 		this.gerenciamento.getScrollPane().setViewportView(this.gerenciamento.getTable());
 		
 	}
@@ -80,10 +80,6 @@ public class GerenciarAgendaListener implements ActionListener, PropertyChangeLi
         });  
     }
 
-	@Override
-	public void propertyChange(PropertyChangeEvent evt) {
-		System.out.println(this.gerenciamento.getCalendar().getDate());
-		
-	} 
+	
 	
 }
