@@ -19,13 +19,16 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.hibernate.annotations.Cascade;
+
 import br.com.gsv.domain.sub.EnumTipoAgendamento;
 
 @Entity
 @Table
 @NamedQueries({ @NamedQuery(name = "Agenda.listarHorarios", query = "SELECT agenda.horaDesejada FROM Agenda agenda order by data"),
 	@NamedQuery(name = "Agenda.buscarPorData", query = "SELECT agenda.horaDesejada FROM Agenda agenda WHERE agenda.data = :data"),
-	@NamedQuery(name = "Agenda.listaAgenda", query = "SELECT agenda FROM Agenda agenda WHERE agenda.data = :data")
+	@NamedQuery(name = "Agenda.listaAgenda", query = "SELECT agenda FROM Agenda agenda WHERE agenda.data = :data"),
+	@NamedQuery(name = "Agenda.buscarPorId", query = "SELECT agenda FROM Agenda agenda WHERE agenda.id = :id")
 })
 public class Agenda {
 	@Id
@@ -41,11 +44,11 @@ public class Agenda {
 
 	private String horaDesejada;
 
-	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.DETACH)
 	@JoinColumn(name = "tbl_paciente_id", referencedColumnName = "id")
 	private Paciente paciente;
 
-	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.DETACH)
 	@JoinColumn(name = "tbl_funcionario_id", referencedColumnName = "fun_id")
 	private Funcionario funcionario;
 

@@ -77,6 +77,7 @@ public class AgendaListener implements ActionListener, PropertyChangeListener{
 		
 		this.formulario.getComboAgendamento().setSelectedItem(this.agenda.getTipoAgendamento().values());
 		this.formulario.getTData().setDate(this.agenda.getData());
+		this.formulario.getTObservacao().setText(this.agenda.getObservacao());
 		
 	}
 	

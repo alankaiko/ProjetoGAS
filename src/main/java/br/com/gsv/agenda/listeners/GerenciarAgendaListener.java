@@ -130,11 +130,6 @@ public class GerenciarAgendaListener implements ActionListener, PropertyChangeLi
 		for(Agenda agenda : listaDeAgendados){
 			if(agenda.getHoraDesejada().equals(hora)){
 				ag = agenda;
-				
-				this.gerenciamento.getTNome().setText(ag.getPaciente().getNome());
-				this.gerenciamento.getTTipo().setText(ag.getTipoAgendamento().getValor());
-				this.gerenciamento.getTData().setText(ag.getData().toString());
-				this.gerenciamento.getTHora().setText(ag.getHoraDesejada());
 			}
 			
 		}

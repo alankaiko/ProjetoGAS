@@ -45,6 +45,7 @@ public class AgendaRepository {
 			if (transacao != null)
 				transacao.rollback();
 			
+			System.out.println("deu merda aqui");
 			throw e;
 		} finally {
 			sessao.close();
