@@ -13,6 +13,7 @@ import java.util.List;
 
 import javax.swing.AbstractAction;
 import javax.swing.JComponent;
+import javax.swing.JOptionPane;
 import javax.swing.JRootPane;
 import javax.swing.KeyStroke;
 import javax.swing.ListSelectionModel;
@@ -40,7 +41,7 @@ public class GerenciarAgendaListener implements ActionListener, PropertyChangeLi
 	private void AdicionaListener(){
 		this.gerenciamento.getBAgendar().addActionListener(this);
 		this.gerenciamento.getBVoltar().addActionListener(this);
-		this.gerenciamento.getBAlterar().addActionListener(this);
+		this.gerenciamento.getBRemover().addActionListener(this);
 		this.gerenciamento.getCalendar().addPropertyChangeListener(this);
 		this.gerenciamento.getTable().addMouseListener(this);
 		
@@ -70,21 +71,31 @@ public class GerenciarAgendaListener implements ActionListener, PropertyChangeLi
 	
 	@Override
 	public void actionPerformed(ActionEvent event) {
-		if(event.getSource().equals(this.gerenciamento.getBAlterar())){
-			BotaoAlterando();
+		if(event.getSource().equals(this.gerenciamento.getBRemover())){
+			BotaoRemovendo();
 		}else if(event.getSource().equals(this.gerenciamento.getBAgendar())){
-			BotaoAgendando();
+			VerificaEdicaoInclusao();
 		}else if(event.getSource().equals(this.gerenciamento.getBVoltar())){
 			this.gerenciamento.dispose();
 		}
 	}
 	
-	private void BotaoAlterando(){
+	private void VerificaEdicaoInclusao(){
+		Agenda agenda = SelecionarDaLista(SelecionaLinha());
+		
+		if(agenda == null){
+			BotaoAgendando();
+		}else{
+			BotaoAlterando(agenda);
+		}
+	}
+	
+	private void BotaoAlterando(Agenda agenda){
 		AgendaFormulario formularioAgenda = new AgendaFormulario();
-		formularioAgenda.getListener().setAgenda(SelecionarDaLista(SelecionaLinha()));
+		formularioAgenda.getListener().setAgenda(agenda);
 		formularioAgenda.getListener().AlterandoAgendamento();
 		formularioAgenda.setVisible(true);
-		formularioAgenda.getListener().getEditahorario();
+		formularioAgenda.getListener().getEditahorario(agenda.getHoraDesejada());
 	}
 	
 	private void BotaoAgendando(){
@@ -92,8 +103,18 @@ public class GerenciarAgendaListener implements ActionListener, PropertyChangeLi
 		formularioAgenda.getListener().InicializaObjetos();
 		formularioAgenda.getTData().setDate(this.gerenciamento.getCalendar().getDate());
 		formularioAgenda.setVisible(true);
+		formularioAgenda.getListener().getEditahorario(SelecionaLinha());
 	}
 	
+	private void BotaoRemovendo(){
+		AgendaController controller = new AgendaController();
+		Agenda agenda = SelecionarDaLista(SelecionaLinha());
+
+		if(!(agenda == null)){
+			controller.setAgenda(agenda);
+			controller.RemoverAgenda();
+		}
+	}
 	
 	private String SelecionaLinha(){
 		int linha = this.gerenciamento.getTable().getSelectedRow();

@@ -26,7 +26,7 @@ public class GerenciarAgenda extends JDialog {
 	private GerenciarAgendaListener listener;
 	private JTextField TNome;
 	private JCalendar calendar;
-	private JButton BAgendar, BVoltar, BAlterar;
+	private JButton BAgendar, BVoltar, BRemover;
 	private JLabel LNome, LTipo, LData, LHora;
 	private JTextField TTipo,TData,THora;
 	
@@ -42,7 +42,7 @@ public class GerenciarAgenda extends JDialog {
 	}
 
 	public GerenciarAgenda() {
-		setBounds(100, 100, 710, 450);
+		setBounds(100, 100, 730, 450);
 		tela.setLayout(new BorderLayout());
 		panel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		tela.add(panel, BorderLayout.CENTER);
@@ -54,19 +54,19 @@ public class GerenciarAgenda extends JDialog {
 		
 		calendar = new JCalendar();
 		calendar.setBorder(new LineBorder(new Color(0, 0, 0)));
-		calendar.setBounds(479, 11, 205, 153);
+		calendar.setBounds(479, 11, 225, 153);
 		panel.add(calendar);
 		
 		BAgendar = new JButton("Agendar");
-		BAgendar.setBounds(479, 310, 205, 23);
+		BAgendar.setBounds(479, 310, 225, 23);
 		panel.add(BAgendar);
 		
 		BVoltar = new JButton("Voltar");
-		BVoltar.setBounds(479, 378, 205, 23);
+		BVoltar.setBounds(479, 378, 225, 23);
 		panel.add(BVoltar);
 		
 		TNome = new JTextField();
-		TNome.setBounds(479, 188, 205, 20);
+		TNome.setBounds(479, 188, 225, 20);
 		panel.add(TNome);
 		TNome.setColumns(10);
 		
@@ -76,7 +76,7 @@ public class GerenciarAgenda extends JDialog {
 		
 		TTipo = new JTextField();
 		TTipo.setColumns(10);
-		TTipo.setBounds(479, 226, 205, 20);
+		TTipo.setBounds(479, 226, 225, 20);
 		panel.add(TTipo);
 		
 		LTipo = new JLabel("Tipo");
@@ -94,16 +94,16 @@ public class GerenciarAgenda extends JDialog {
 		
 		THora = new JTextField();
 		THora.setColumns(10);
-		THora.setBounds(584, 270, 100, 20);
+		THora.setBounds(604, 270, 100, 20);
 		panel.add(THora);
 		
 		LHora = new JLabel("Hora");
-		LHora.setBounds(584, 257, 35, 14);
+		LHora.setBounds(604, 257, 35, 14);
 		panel.add(LHora);
 		
-		BAlterar = new JButton("Alterar");
-		BAlterar.setBounds(479, 344, 205, 23);
-		panel.add(BAlterar);
+		BRemover = new JButton("Excluir");
+		BRemover.setBounds(479, 344, 225, 23);
+		panel.add(BRemover);
 		table = new JTable();
 		
 		listener = new GerenciarAgendaListener(this);
@@ -191,12 +191,12 @@ public class GerenciarAgenda extends JDialog {
 
 	
 
-	public JButton getBAlterar() {
-		return BAlterar;
+	public JButton getBRemover() {
+		return BRemover;
 	}
 
-	public void setBAlterar(JButton bAlterar) {
-		BAlterar = bAlterar;
+	public void setBRemover(JButton bRemover) {
+		BRemover = bRemover;
 	}
 
 	public JTextField getTData() {

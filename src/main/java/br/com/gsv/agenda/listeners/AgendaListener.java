@@ -19,6 +19,7 @@ import br.com.gsv.domain.sub.EnumTipoAgendamento;
 import br.com.gsv.formularios.BuscarFuncionarioDialog;
 import br.com.gsv.formularios.BuscarPacienteDialog;
 import br.com.gsv.util.AgendaDadosUtil;
+import br.com.gsv.util.ValidaCampos;
 import br.com.projeto.gsv.controller.AgendaController;
 import br.com.projeto.gsv.controller.FuncionarioController;
 import br.com.projeto.gsv.controller.PacienteController;
@@ -79,9 +80,12 @@ public class AgendaListener implements ActionListener, PropertyChangeListener{
 		
 	}
 	
-	public void getEditahorario(){
-		this.formulario.getTHoraSpinner().getModel().setValue(this.agenda.getHoraDesejada());
+	public void getEditahorario(String hora){
+		this.formulario.getTHoraSpinner().getModel().setValue(hora);
 	}
+	
+	
+	
 	
 	
 	@Override
@@ -92,11 +96,12 @@ public class AgendaListener implements ActionListener, PropertyChangeListener{
 			BotaoPesquisarFuncionario();
 		}else if(event.getSource().equals(this.formulario.getBVoltar())){
 			this.formulario.dispose();
-		}else if(event.getSource().equals(this.formulario.getBSalvar())){
+		}else if(event.getSource().equals(this.formulario.getBSalvar())&& Validando()){
 			BotaoSalvando();
 		}
 		
 	}
+	
 	
 	private void BotaoPesquisarPaciente(){
 		BuscarPacienteDialog dialog = new BuscarPacienteDialog();
@@ -170,7 +175,10 @@ public class AgendaListener implements ActionListener, PropertyChangeListener{
 		return concatena;
 	}
 	
-	
+	private boolean Validando(){
+		return ValidaCampos.Validar(this.formulario.getTPaciente().getText())
+				&& ValidaCampos.Validar(this.formulario.getTFuncionario().getText());
+	}
 	
 	
 	private SpinnerListModel ListaDeHorarios(){
@@ -178,9 +186,12 @@ public class AgendaListener implements ActionListener, PropertyChangeListener{
 		List<String> listaDoBanco = controller.ListarHorarios(this.formulario.getTData().getDate());
 		List<String> listaAgenda = AgendaDadosUtil.ListaHoras();
 		
-		if(this.verifica)
-			listaAgenda.removeAll(listaDoBanco);
+		if(!this.verifica)
+			listaDoBanco.remove(this.agenda.getHoraDesejada());
 		
+		
+		listaAgenda.removeAll(listaDoBanco);
+	
 		SpinnerListModel model = new SpinnerListModel(listaAgenda);
 
 		return model;
