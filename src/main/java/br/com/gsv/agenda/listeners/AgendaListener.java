@@ -35,8 +35,6 @@ public class AgendaListener implements ActionListener, PropertyChangeListener{
 	public AgendaListener(AgendaFormulario formulario) {
 		this.formulario = formulario;
 		AdicionaListener();
-		Date data = new Date();
-		this.formulario.getTData().setDate(data);
 	}
 	
 	private void AdicionaListener(){
@@ -66,57 +64,70 @@ public class AgendaListener implements ActionListener, PropertyChangeListener{
 	
 	
 	public void AlterandoAgendamento(){
+		this.paciente = this.agenda.getPaciente();
+		this.funcionario = this.agenda.getFuncionario();
+		
 		this.formulario.getTPaciente().setText(this.agenda.getPaciente().getNome());
 		this.formulario.getTCelular().setText(this.agenda.getPaciente().getContato().get(0).getCelular());
 		this.formulario.getTFixo().setText(this.agenda.getPaciente().getContato().get(0).getTelefone());
 		this.formulario.getTConvenio().setText(this.agenda.getPaciente().getConvenio().getNome());
-		
 		this.formulario.getTFuncionario().setText(this.agenda.getFuncionario().getNome());
 		this.formulario.getTRegistro().setText(AlteraConcatenarRegistro());
-		//this.formulario.getTHoraSpinner().setValue(this.agenda.getHoraDesejada());
+		
 		this.formulario.getComboAgendamento().setSelectedItem(this.agenda.getTipoAgendamento().values());
 		this.formulario.getTData().setDate(this.agenda.getData());
 		
 	}
 	
-	
-	
-	
+	public void getEditahorario(){
+		this.formulario.getTHoraSpinner().getModel().setValue(this.agenda.getHoraDesejada());
+	}
 	
 	
 	@Override
 	public void actionPerformed(ActionEvent event) {
 		if(event.getSource().equals(this.formulario.getBPesqPacient())){
-			BuscarPacienteDialog dialog = new BuscarPacienteDialog();
-			dialog.IniciaClassic();
-			dialog.setLocationRelativeTo(this.formulario.getContentPane());
-			dialog.setVisible(true);
-			
-			if(dialog.getListener().getCodigo() != null)
-				BuscarCliente(dialog.getListener().getCodigo());
+			BotaoPesquisarPaciente();
 		}else if(event.getSource().equals(this.formulario.getBPesqFunc())){
-			BuscarFuncionarioDialog dialog = new BuscarFuncionarioDialog();
-			dialog.IniciaClassic();
-			dialog.setLocationRelativeTo(this.formulario.getContentPane());
-			dialog.setVisible(true);
-			
-			if(dialog.getListener().getCodigo() != null){
-				BuscarFuncionario(dialog.getListener().getCodigo());
-			}
+			BotaoPesquisarFuncionario();
 		}else if(event.getSource().equals(this.formulario.getBVoltar())){
 			this.formulario.dispose();
 		}else if(event.getSource().equals(this.formulario.getBSalvar())){
-			FormToFormulario();
-			
-			controller = new AgendaController();
-			controller.setAgenda(agenda);
-			controller.SalvarAgenda();
-			
-			//this.formulario.dispose();
+			BotaoSalvando();
 		}
 		
 	}
 	
+	private void BotaoPesquisarPaciente(){
+		BuscarPacienteDialog dialog = new BuscarPacienteDialog();
+		dialog.IniciaClassic();
+		dialog.setLocationRelativeTo(this.formulario.getContentPane());
+		dialog.setVisible(true);
+		
+		if(dialog.getListener().getCodigo() != null)
+			BuscarCliente(dialog.getListener().getCodigo());
+	}
+	
+	private void BotaoPesquisarFuncionario(){
+		BuscarFuncionarioDialog dialog = new BuscarFuncionarioDialog();
+		dialog.IniciaClassic();
+		dialog.setLocationRelativeTo(this.formulario.getContentPane());
+		dialog.setVisible(true);
+		
+		if(dialog.getListener().getCodigo() != null){
+			BuscarFuncionario(dialog.getListener().getCodigo());
+		}
+	}
+	
+	private void BotaoSalvando(){
+		FormToFormulario();
+		
+		controller = new AgendaController();
+		controller.setAgenda(agenda);
+		controller.SalvarAgenda();
+		
+		this.formulario.dispose();
+	}
 	
 	
 	private void BuscarCliente(Long id){
@@ -167,7 +178,7 @@ public class AgendaListener implements ActionListener, PropertyChangeListener{
 		List<String> listaDoBanco = controller.ListarHorarios(this.formulario.getTData().getDate());
 		List<String> listaAgenda = AgendaDadosUtil.ListaHoras();
 		
-		if(this.agenda == null)
+		if(this.verifica)
 			listaAgenda.removeAll(listaDoBanco);
 		
 		SpinnerListModel model = new SpinnerListModel(listaAgenda);
@@ -181,7 +192,7 @@ public class AgendaListener implements ActionListener, PropertyChangeListener{
 
 	@Override
 	public void propertyChange(PropertyChangeEvent event) {
-			this.formulario.getTHoraSpinner().setModel(ListaDeHorarios());
+		this.formulario.getTHoraSpinner().setModel(ListaDeHorarios());
 	}
 
 	public Agenda getAgenda() {

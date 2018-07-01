@@ -7,6 +7,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -26,13 +27,14 @@ public class GerenciarAgendaListener implements ActionListener, PropertyChangeLi
 	private GerenciarAgenda gerenciamento;
 	private TabelaDeAgenda tabela;
 	private List<Agenda> listaDeAgendados;
-	
+	private Date data;
 	
 	
 	public GerenciarAgendaListener(GerenciarAgenda gerenciamento) {
 		this.gerenciamento = gerenciamento;
 		AdicionaListener();
 		TeclaEsc();
+		listaDeAgendados = new ArrayList<Agenda>();
 	}
 
 	private void AdicionaListener(){
@@ -69,17 +71,27 @@ public class GerenciarAgendaListener implements ActionListener, PropertyChangeLi
 	@Override
 	public void actionPerformed(ActionEvent event) {
 		if(event.getSource().equals(this.gerenciamento.getBAlterar())){
-			AgendaFormulario formularioAgenda = new AgendaFormulario();
-			formularioAgenda.getListener().setAgenda(SelecionarDaLista(SelecionaLinha()));
-			formularioAgenda.getListener().AlterandoAgendamento();
-			formularioAgenda.setVisible(true);
+			BotaoAlterando();
 		}else if(event.getSource().equals(this.gerenciamento.getBAgendar())){
-			AgendaFormulario formularioAgenda = new AgendaFormulario();
-			formularioAgenda.getListener().InicializaObjetos();
-			formularioAgenda.setVisible(true);
+			BotaoAgendando();
 		}else if(event.getSource().equals(this.gerenciamento.getBVoltar())){
 			this.gerenciamento.dispose();
 		}
+	}
+	
+	private void BotaoAlterando(){
+		AgendaFormulario formularioAgenda = new AgendaFormulario();
+		formularioAgenda.getListener().setAgenda(SelecionarDaLista(SelecionaLinha()));
+		formularioAgenda.getListener().AlterandoAgendamento();
+		formularioAgenda.setVisible(true);
+		formularioAgenda.getListener().getEditahorario();
+	}
+	
+	private void BotaoAgendando(){
+		AgendaFormulario formularioAgenda = new AgendaFormulario();
+		formularioAgenda.getListener().InicializaObjetos();
+		formularioAgenda.getTData().setDate(this.gerenciamento.getCalendar().getDate());
+		formularioAgenda.setVisible(true);
 	}
 	
 	
@@ -123,7 +135,8 @@ public class GerenciarAgendaListener implements ActionListener, PropertyChangeLi
 
 	@Override
 	public void propertyChange(PropertyChangeEvent event) {
-		TabelaDeDias(this.gerenciamento.getCalendar().getDate());			
+		TabelaDeDias(this.gerenciamento.getCalendar().getDate());
+			
 	}
 
 	@Override
