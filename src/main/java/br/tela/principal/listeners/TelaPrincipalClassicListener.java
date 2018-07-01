@@ -10,6 +10,7 @@ import javax.swing.JComponent;
 import javax.swing.JRootPane;
 import javax.swing.KeyStroke;
 
+import br.com.gsv.agenda.formulario.GerenciarAgenda;
 import br.com.gsv.formularios.GerenciaTelaConvenio;
 import br.com.gsv.formularios.GerenciaTelaFabricante;
 import br.com.gsv.formularios.GerenciaTelaFuncionario;
@@ -42,6 +43,7 @@ public class TelaPrincipalClassicListener implements ActionListener{
 	
 	
 	private void AdicionaListener(){	
+		this.tela.getArquivoAgCli().addActionListener(this);
 		this.tela.getMenuArquivo().addActionListener(this);
 		this.tela.getMenuAtendimento().addActionListener(this);
 		this.tela.getMenuCadastro().addActionListener(this);
@@ -90,6 +92,10 @@ public class TelaPrincipalClassicListener implements ActionListener{
 	
 	@Override
 	public void actionPerformed(ActionEvent event) {
+		if(event.getSource().equals(this.tela.getArquivoAgCli())){
+			AbreAgendaClinica();
+		}
+		
 		if(event.getSource().equals(this.tela.getAtendimentoCadCliente())){
 			AbreIncluirPaciente();
 		}
@@ -150,6 +156,12 @@ public class TelaPrincipalClassicListener implements ActionListener{
 			AbreRelatorioPaciente();
 		}				
 			
+	}
+	
+	private void AbreAgendaClinica(){
+		GerenciarAgenda gerencia = new GerenciarAgenda();
+		gerencia.setLocationRelativeTo(this.tela.getTela());
+		gerencia.setVisible(true);
 	}
 	
 	private void AbreIncluirPaciente(){

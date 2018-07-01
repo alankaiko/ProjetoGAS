@@ -67,6 +67,9 @@ public class GerenciarAgendaListener implements ActionListener, PropertyChangeLi
 		this.gerenciamento.getScrollPane().setViewportView(this.gerenciamento.getTable());		
 	}
 	
+	public void getAtualizaTabela(){
+		TabelaDeDias(this.gerenciamento.getCalendar().getDate());
+	}
 	
 	
 	@Override
@@ -78,6 +81,8 @@ public class GerenciarAgendaListener implements ActionListener, PropertyChangeLi
 		}else if(event.getSource().equals(this.gerenciamento.getBVoltar())){
 			this.gerenciamento.dispose();
 		}
+		
+		getAtualizaTabela();
 	}
 	
 	private void VerificaEdicaoInclusao(){
@@ -95,7 +100,8 @@ public class GerenciarAgendaListener implements ActionListener, PropertyChangeLi
 		formularioAgenda.getListener().setAgenda(agenda);
 		formularioAgenda.getListener().AlterandoAgendamento();
 		formularioAgenda.setVisible(true);
-		formularioAgenda.getListener().getEditahorario(agenda.getHoraDesejada());
+		formularioAgenda.getListener().getEditahorario(agenda.getHoraDesejada());	
+		
 	}
 	
 	private void BotaoAgendando(){
@@ -104,6 +110,7 @@ public class GerenciarAgendaListener implements ActionListener, PropertyChangeLi
 		formularioAgenda.getTData().setDate(this.gerenciamento.getCalendar().getDate());
 		formularioAgenda.setVisible(true);
 		formularioAgenda.getListener().getEditahorario(SelecionaLinha());
+		
 	}
 	
 	private void BotaoRemovendo(){
@@ -151,9 +158,9 @@ public class GerenciarAgendaListener implements ActionListener, PropertyChangeLi
 
 	@Override
 	public void propertyChange(PropertyChangeEvent event) {
-		TabelaDeDias(this.gerenciamento.getCalendar().getDate());
-			
+		getAtualizaTabela();
 	}
+	
 
 	@Override
 	public void mouseClicked(MouseEvent event) {

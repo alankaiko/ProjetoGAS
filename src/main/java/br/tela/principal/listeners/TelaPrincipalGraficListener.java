@@ -18,6 +18,7 @@ import javax.swing.KeyStroke;
 
 import com.itextpdf.text.DocumentException;
 
+import br.com.gsv.agenda.formulario.GerenciarAgenda;
 import br.com.gsv.formularios.GerenciaTelaConvenio;
 import br.com.gsv.formularios.GerenciaTelaFabricante;
 import br.com.gsv.formularios.GerenciaTelaFuncionario;
@@ -50,6 +51,8 @@ public class TelaPrincipalGraficListener implements MouseListener, ActionListene
 	
 	
 	private void AdicionaListener(){	
+		this.tela.getArquivoAgCli().addActionListener(this);
+		
 		this.tela.getBotaoProntuario().addMouseListener(this);
 		this.tela.getBotaoFuncionario().addMouseListener(this);
 		this.tela.getBotaoPaciente().addMouseListener(this);
@@ -141,6 +144,7 @@ public class TelaPrincipalGraficListener implements MouseListener, ActionListene
 
 	@Override
 	public void mouseEntered(MouseEvent event) {
+		
 		if(event.getSource().equals(this.tela.getBotaoPaciente())){
 			AtivaEfeitoBotoes(this.tela.getBotaoPaciente());
 		}
@@ -252,6 +256,10 @@ public class TelaPrincipalGraficListener implements MouseListener, ActionListene
 
 	@Override
 	public void actionPerformed(ActionEvent event) {
+		if(event.getSource().equals(this.tela.getArquivoAgCli())){
+			AbreAgendaClinica();
+		}
+
 		if(event.getSource().equals(this.tela.getAtendimentoAnotacoes())){
 			AbreAgendaProntuario();
 		}
@@ -313,6 +321,13 @@ public class TelaPrincipalGraficListener implements MouseListener, ActionListene
 		}	
 			
 	}
+	
+	private void AbreAgendaClinica(){
+		GerenciarAgenda gerencia = new GerenciarAgenda();
+		gerencia.setLocationRelativeTo(this.tela.getTela());
+		gerencia.setVisible(true);
+	}
+	
 	
 	private void AbreProntuarios(){
 		ProntuarioForm formulario = new ProntuarioForm();

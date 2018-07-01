@@ -46,7 +46,9 @@ public class GerenciarAgenda extends JDialog {
 		tela.setLayout(new BorderLayout());
 		panel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		tela.add(panel, BorderLayout.CENTER);
-		panel.setLayout(null);
+		panel.setLayout(null);		
+		this.setModal(true);
+		this.setResizable(false);
 		
 		scrollPane = new JScrollPane();
 		scrollPane.setBounds(10, 11, 459, 390);
