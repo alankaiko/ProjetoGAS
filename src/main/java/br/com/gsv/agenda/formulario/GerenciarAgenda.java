@@ -26,9 +26,9 @@ public class GerenciarAgenda extends JDialog {
 	private GerenciarAgendaListener listener;
 	private JTextField TNome;
 	private JCalendar calendar;
-	private JButton BAgendar, BVoltar;
-	private JLabel LNome, LTipo, LConvenio, LData, LHora;
-	private JTextField TTipo,TConvenio,TData,THora;
+	private JButton BAgendar, BVoltar, BAlterar;
+	private JLabel LNome, LTipo, LData, LHora;
+	private JTextField TTipo,TData,THora;
 	
 	
 	public static void main(String[] args) {
@@ -58,11 +58,11 @@ public class GerenciarAgenda extends JDialog {
 		panel.add(calendar);
 		
 		BAgendar = new JButton("Agendar");
-		BAgendar.setBounds(479, 378, 100, 23);
+		BAgendar.setBounds(479, 310, 205, 23);
 		panel.add(BAgendar);
 		
 		BVoltar = new JButton("Voltar");
-		BVoltar.setBounds(584, 378, 100, 23);
+		BVoltar.setBounds(479, 378, 205, 23);
 		panel.add(BVoltar);
 		
 		TNome = new JTextField();
@@ -70,8 +70,8 @@ public class GerenciarAgenda extends JDialog {
 		panel.add(TNome);
 		TNome.setColumns(10);
 		
-		LNome = new JLabel("Nome");
-		LNome.setBounds(479, 175, 46, 14);
+		LNome = new JLabel("Paciente");
+		LNome.setBounds(479, 175, 61, 14);
 		panel.add(LNome);
 		
 		TTipo = new JTextField();
@@ -83,32 +83,27 @@ public class GerenciarAgenda extends JDialog {
 		LTipo.setBounds(479, 213, 46, 14);
 		panel.add(LTipo);
 		
-		LConvenio = new JLabel("Convênio");
-		LConvenio.setBounds(479, 250, 63, 14);
-		panel.add(LConvenio);
-		
-		TConvenio = new JTextField();
-		TConvenio.setColumns(10);
-		TConvenio.setBounds(479, 263, 205, 20);
-		panel.add(TConvenio);
-		
 		LData = new JLabel("Data");
-		LData.setBounds(479, 290, 46, 14);
+		LData.setBounds(479, 257, 46, 14);
 		panel.add(LData);
 		
 		TData = new JTextField();
 		TData.setColumns(10);
-		TData.setBounds(479, 303, 100, 20);
+		TData.setBounds(479, 270, 100, 20);
 		panel.add(TData);
 		
 		THora = new JTextField();
 		THora.setColumns(10);
-		THora.setBounds(584, 303, 100, 20);
+		THora.setBounds(584, 270, 100, 20);
 		panel.add(THora);
 		
 		LHora = new JLabel("Hora");
-		LHora.setBounds(584, 290, 35, 14);
+		LHora.setBounds(584, 257, 35, 14);
 		panel.add(LHora);
+		
+		BAlterar = new JButton("Alterar");
+		BAlterar.setBounds(479, 344, 205, 23);
+		panel.add(BAlterar);
 		table = new JTable();
 		
 		listener = new GerenciarAgendaListener(this);
@@ -162,7 +157,6 @@ public class GerenciarAgenda extends JDialog {
 		TNome = tNome;
 	}
 
-
 	public JCalendar getCalendar() {
 		return calendar;
 	}
@@ -171,12 +165,12 @@ public class GerenciarAgenda extends JDialog {
 		this.calendar = calendar;
 	}
 
-	public JButton getBBuscar() {
+	public JButton getBAgendar() {
 		return BAgendar;
 	}
 
-	public void setBBuscar(JButton bBuscar) {
-		BAgendar = bBuscar;
+	public void setBAgendar(JButton bAgendar) {
+		BAgendar = bAgendar;
 	}
 
 	public JButton getBVoltar() {
@@ -187,14 +181,6 @@ public class GerenciarAgenda extends JDialog {
 		BVoltar = bVoltar;
 	}
 
-	public JButton getBEditar() {
-		return BAgendar;
-	}
-
-	public void setBEditar(JButton bEditar) {
-		BAgendar = bEditar;
-	}
-
 	public JTextField getTTipo() {
 		return TTipo;
 	}
@@ -203,12 +189,14 @@ public class GerenciarAgenda extends JDialog {
 		TTipo = tTipo;
 	}
 
-	public JTextField getTConvenio() {
-		return TConvenio;
+	
+
+	public JButton getBAlterar() {
+		return BAlterar;
 	}
 
-	public void setTConvenio(JTextField tConvenio) {
-		TConvenio = tConvenio;
+	public void setBAlterar(JButton bAlterar) {
+		BAlterar = bAlterar;
 	}
 
 	public JTextField getTData() {
@@ -226,6 +214,4 @@ public class GerenciarAgenda extends JDialog {
 	public void setTHora(JTextField tHora) {
 		THora = tHora;
 	}
-	
-	
 }

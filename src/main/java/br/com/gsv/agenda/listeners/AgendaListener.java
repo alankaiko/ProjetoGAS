@@ -30,11 +30,11 @@ public class AgendaListener implements ActionListener, PropertyChangeListener{
 	private Agenda agenda;
 	private AgendaController controller;
 	private List<DateTime> listaHorarios;
+	private boolean verifica = false;
 	
 	public AgendaListener(AgendaFormulario formulario) {
 		this.formulario = formulario;
 		AdicionaListener();
-		InicializaObjetos();
 		Date data = new Date();
 		this.formulario.getTData().setDate(data);
 	}
@@ -47,10 +47,11 @@ public class AgendaListener implements ActionListener, PropertyChangeListener{
 		this.formulario.getTData().addPropertyChangeListener(this);
 	}
 	
-	private void InicializaObjetos(){
+	public void InicializaObjetos(){
 		this.funcionario = new Funcionario();
 		this.paciente = new Paciente();
 		this.agenda = new Agenda();
+		this.verifica = true;
 	}
 	
 	
@@ -71,8 +72,8 @@ public class AgendaListener implements ActionListener, PropertyChangeListener{
 		this.formulario.getTConvenio().setText(this.agenda.getPaciente().getConvenio().getNome());
 		
 		this.formulario.getTFuncionario().setText(this.agenda.getFuncionario().getNome());
-		this.formulario.getTRegistro().setText(ConcatenarRegistro());
-		
+		this.formulario.getTRegistro().setText(AlteraConcatenarRegistro());
+		//this.formulario.getTHoraSpinner().setValue(this.agenda.getHoraDesejada());
 		this.formulario.getComboAgendamento().setSelectedItem(this.agenda.getTipoAgendamento().values());
 		this.formulario.getTData().setDate(this.agenda.getData());
 		
@@ -148,20 +149,29 @@ public class AgendaListener implements ActionListener, PropertyChangeListener{
 		return concatena;
 	}
 	
+	private String AlteraConcatenarRegistro(){
+		String concatena = this.agenda.getFuncionario().getRegistroCoren().getCoren()
+				+" "
+				+this.agenda.getFuncionario().getRegistroCoren().getInscricao()
+				+" "
+				+this.agenda.getFuncionario().getRegistroCoren().getUf();
+		
+		return concatena;
+	}
+	
+	
 	
 	
 	private SpinnerListModel ListaDeHorarios(){
 		AgendaController controller = new AgendaController();
 		List<String> listaDoBanco = controller.ListarHorarios(this.formulario.getTData().getDate());
 		List<String> listaAgenda = AgendaDadosUtil.ListaHoras();
-		listaAgenda.removeAll(listaDoBanco);
+		
+		if(this.agenda == null)
+			listaAgenda.removeAll(listaDoBanco);
 		
 		SpinnerListModel model = new SpinnerListModel(listaAgenda);
-		
-		for(String aff : listaDoBanco){
-			System.out.println(aff);
-		}
-		
+
 		return model;
 	}
 
@@ -171,8 +181,18 @@ public class AgendaListener implements ActionListener, PropertyChangeListener{
 
 	@Override
 	public void propertyChange(PropertyChangeEvent event) {
-		this.formulario.getTHoraSpinner().setModel(ListaDeHorarios());
+			this.formulario.getTHoraSpinner().setModel(ListaDeHorarios());
 	}
+
+	public Agenda getAgenda() {
+		return agenda;
+	}
+
+	public void setAgenda(Agenda agenda) {
+		this.agenda = agenda;
+	}
+	
+	
 	
 	
 }
