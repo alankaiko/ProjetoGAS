@@ -2,11 +2,16 @@ package br.com.gsv.agenda.listeners;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.util.Date;
 import java.util.List;
 
+import javax.swing.AbstractAction;
+import javax.swing.JComponent;
+import javax.swing.JRootPane;
+import javax.swing.KeyStroke;
 import javax.swing.SpinnerListModel;
 
 import org.joda.time.DateTime;
@@ -30,12 +35,12 @@ public class AgendaListener implements ActionListener, PropertyChangeListener{
 	private Funcionario funcionario;
 	private Agenda agenda;
 	private AgendaController controller;
-	private List<DateTime> listaHorarios;
 	private boolean verifica = false;
 	
 	public AgendaListener(AgendaFormulario formulario) {
 		this.formulario = formulario;
 		AdicionaListener();
+		TeclaEsc();
 	}
 	
 	private void AdicionaListener(){
@@ -199,6 +204,16 @@ public class AgendaListener implements ActionListener, PropertyChangeListener{
 	}
 
 	
+	
+	public void TeclaEsc(){
+        JRootPane meurootpane = this.formulario.getRootPane();  
+        meurootpane.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), "ESCAPE");  
+        meurootpane.getRootPane().getActionMap().put("ESCAPE", new AbstractAction("ESCAPE") {  
+            public void actionPerformed(ActionEvent e) { 
+            	formulario.dispose();  
+            }  
+        });  
+    }
 
 
 

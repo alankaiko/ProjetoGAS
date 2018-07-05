@@ -93,14 +93,19 @@ public class GerenciarAgendaListener implements ActionListener, PropertyChangeLi
 		}else{
 			BotaoAlterando(agenda);
 		}
+		
+		getAtualizaTabela();
 	}
 	
 	private void BotaoAlterando(Agenda agenda){
 		AgendaFormulario formularioAgenda = new AgendaFormulario();
 		formularioAgenda.getListener().setAgenda(agenda);
 		formularioAgenda.getListener().AlterandoAgendamento();
-		formularioAgenda.setVisible(true);
+		formularioAgenda.setLocationRelativeTo(this.gerenciamento.getTela());
 		formularioAgenda.getListener().getEditahorario(agenda.getHoraDesejada());	
+		formularioAgenda.setVisible(true);
+		
+		
 		
 	}
 	
@@ -108,8 +113,9 @@ public class GerenciarAgendaListener implements ActionListener, PropertyChangeLi
 		AgendaFormulario formularioAgenda = new AgendaFormulario();
 		formularioAgenda.getListener().InicializaObjetos();
 		formularioAgenda.getTData().setDate(this.gerenciamento.getCalendar().getDate());
-		formularioAgenda.setVisible(true);
+		formularioAgenda.setLocationRelativeTo(this.gerenciamento.getTela());
 		formularioAgenda.getListener().getEditahorario(SelecionaLinha());
+		formularioAgenda.setVisible(true);
 		
 	}
 	
@@ -121,6 +127,8 @@ public class GerenciarAgendaListener implements ActionListener, PropertyChangeLi
 			controller.setAgenda(agenda);
 			controller.RemoverAgenda();
 		}
+		
+		getAtualizaTabela();
 	}
 	
 	private String SelecionaLinha(){

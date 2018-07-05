@@ -43,7 +43,6 @@ public class TelaPrincipalClassicListener implements ActionListener{
 	
 	
 	private void AdicionaListener(){	
-		this.tela.getArquivoAgCli().addActionListener(this);
 		this.tela.getMenuArquivo().addActionListener(this);
 		this.tela.getMenuAtendimento().addActionListener(this);
 		this.tela.getMenuCadastro().addActionListener(this);

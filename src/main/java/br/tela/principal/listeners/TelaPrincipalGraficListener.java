@@ -50,9 +50,7 @@ public class TelaPrincipalGraficListener implements MouseListener, ActionListene
 	}
 	
 	
-	private void AdicionaListener(){	
-		this.tela.getArquivoAgCli().addActionListener(this);
-		
+	private void AdicionaListener(){			
 		this.tela.getBotaoProntuario().addMouseListener(this);
 		this.tela.getBotaoFuncionario().addMouseListener(this);
 		this.tela.getBotaoPaciente().addMouseListener(this);

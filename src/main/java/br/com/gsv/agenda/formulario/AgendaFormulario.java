@@ -71,6 +71,9 @@ public class AgendaFormulario extends JDialog {
 		panel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		tela.add(panel, BorderLayout.CENTER);
 		panel.setLayout(null);
+		this.setModal(true);
+		this.setResizable(false);
+		
 	}
 	
 	private void CriaComponentes(){
