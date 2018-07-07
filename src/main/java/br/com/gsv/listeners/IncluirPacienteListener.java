@@ -266,10 +266,6 @@ public class IncluirPacienteListener implements ActionListener{
 		    @Override
 		    public void mouseClicked(MouseEvent e) {
 		         IncluirConvenioForm formu = new IncluirConvenioForm();
-				     if(formulario.getVersao() == 'c')
-				    	 formu.IniciaClassic();
-					 if(formulario.getVersao() == 'g')
-						 formu.IniciaGrafic();
 		         formu.setLocationRelativeTo(formulario.getTela());
 		         formu.setVisible(true);
 		         ListaConvenios();

@@ -111,7 +111,6 @@ public class AgendaListener implements ActionListener, PropertyChangeListener{
 	
 	private void BotaoPesquisarPaciente(){
 		BuscarPacienteDialog dialog = new BuscarPacienteDialog();
-		dialog.IniciaClassic();
 		dialog.setLocationRelativeTo(this.formulario.getContentPane());
 		dialog.setVisible(true);
 		
@@ -121,7 +120,6 @@ public class AgendaListener implements ActionListener, PropertyChangeListener{
 	
 	private void BotaoPesquisarFuncionario(){
 		BuscarFuncionarioDialog dialog = new BuscarFuncionarioDialog();
-		dialog.IniciaClassic();
 		dialog.setLocationRelativeTo(this.formulario.getContentPane());
 		dialog.setVisible(true);
 		

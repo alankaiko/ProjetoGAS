@@ -9,7 +9,6 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSeparator;
 
-import br.com.gsv.graficoAzul.DetalhesPacienteGrafic;
 import br.com.gsv.graficoClassic.DetalhesPacienteClassic;
 import br.com.gsv.listeners.DetalhesPacienteListener;
 import br.com.gsv.util.ConverteDadosUtil;
@@ -27,7 +26,6 @@ public class DetalhesPacienteDialog extends JDialog {
 	private JSeparator separa, separator;
 	private DetalhesPacienteListener listener;
 	private DetalhesPacienteClassic listenerClassic;
-	private DetalhesPacienteGrafic listenerGrafic;
 	private JPanel painelDrag;
 	private int xx,xy;
 	
@@ -35,15 +33,9 @@ public class DetalhesPacienteDialog extends JDialog {
 		InicializaComponentes();
 		AdicionaNaTela();
 		listener = new DetalhesPacienteListener(this);
-	}
-	
-	public void IniciaClassic(){
 		listenerClassic = new DetalhesPacienteClassic(this);
 	}
 	
-	public void IniciaGrafic(){
-		listenerGrafic = new DetalhesPacienteGrafic(this);
-	}
 	
 	private void InicializaComponentes(){
 		LId = new JLabel();

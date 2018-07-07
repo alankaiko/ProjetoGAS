@@ -17,8 +17,6 @@ import br.com.gsv.prontuario.formularios.ExcluirProntuarioDialog;
 import br.com.gsv.prontuario.formularios.GerenciaProntuarios;
 import br.com.gsv.prontuario.formularios.ProntuarioForm;
 import br.com.gsv.tabelas.TabelaDeProntuariosUtil;
-import br.com.gsv.util.ConverteDadosUtil;
-import br.com.projeto.gsv.controller.PacienteController;
 import br.com.projeto.gsv.controller.ProntuarioController;
 
 public class GerenciarProntuarioListener implements ActionListener{
@@ -107,7 +105,6 @@ public class GerenciarProntuarioListener implements ActionListener{
 	
 	private void ExecutaPesquisar(){
 		BuscarPacienteDialog dialog = new BuscarPacienteDialog();
-		dialog.IniciaClassic();
 		dialog.setLocationRelativeTo(this.gerenciamento.getContentPane());
 		dialog.setVisible(true);
 		

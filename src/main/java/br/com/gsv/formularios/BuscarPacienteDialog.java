@@ -12,7 +12,6 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 
-import br.com.gsv.graficoAzul.BuscarPacienteGrafic;
 import br.com.gsv.graficoClassic.BuscarPacienteClassic;
 import br.com.gsv.listeners.BuscarPacienteListener;
 import br.com.gsv.listeners.RadioListenerPaciente;
@@ -30,7 +29,6 @@ public class BuscarPacienteDialog extends JDialog {
 	private BuscarPacienteListener listener;
 	private RadioListenerPaciente radioListener;
 	private BuscarPacienteClassic listenerClassic;
-	private BuscarPacienteGrafic listenerGrafic;
 	private JPanel painelDrag;
 	private int xx,xy;
 	
@@ -39,16 +37,10 @@ public class BuscarPacienteDialog extends JDialog {
 		CriaComponentes();
 		AdicionaNaTela();
 		listener = new BuscarPacienteListener(this);
-		radioListener = new RadioListenerPaciente(this);	
-	}
-	
-	public void IniciaClassic(){
+		radioListener = new RadioListenerPaciente(this);
 		listenerClassic = new BuscarPacienteClassic(this);
 	}
 	
-	public void IniciaGrafic(){
-		listenerGrafic = new BuscarPacienteGrafic(this);
-	}
 	
 	private void CriaComponentes(){
 		buscarUsuario = new JLabel();

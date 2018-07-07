@@ -14,7 +14,6 @@ import br.com.gsv.util.MensagemPainelUtil;
 import br.com.projeto.gsv.controller.UsuarioController;
 import br.tela.principal.form.TelaLogin;
 import br.tela.principal.form.TelaPrincipalClassic;
-import br.tela.principal.form.TelaPrincipalGrafic;
 
 public class TelaLoginListener implements ActionListener, MouseListener{
 	private TelaLogin formulario;
@@ -41,9 +40,6 @@ public class TelaLoginListener implements ActionListener, MouseListener{
 			if((!this.formulario.getRadioAzul().isSelected() && !this.formulario.getRadioClassic().isSelected()))
 				SelecaoClassic();
 			
-			if(this.formulario.getRadioAzul().isSelected())
-				SelecaoGrafic();
-			
 			if(this.formulario.getRadioClassic().isSelected())
 				SelecaoClassic();
 			
@@ -63,14 +59,6 @@ public class TelaLoginListener implements ActionListener, MouseListener{
 		this.usuario = control.AutenticaLogin(login, senha);
 	}
 	
-	
-	private void SelecaoGrafic(){
-		TelaPrincipalGrafic grafic = new TelaPrincipalGrafic();
-		grafic.setUsuario(this.usuario);
-		grafic.IniciaComponentesSecundarios();
-		grafic.setLocationRelativeTo(this.formulario.getContentPane());
-		grafic.setVisible(true);
-	}
 	
 	private void SelecaoClassic(){
 		TelaPrincipalClassic classic = new TelaPrincipalClassic();

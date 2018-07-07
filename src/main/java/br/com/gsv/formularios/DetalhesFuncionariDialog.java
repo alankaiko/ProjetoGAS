@@ -1,16 +1,13 @@
 package br.com.gsv.formularios;
 
 import java.awt.Container;
-import java.awt.Font;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JFormattedTextField;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.SwingConstants;
 
-import br.com.gsv.graficoAzul.DetalhesFuncionarioGrafic;
 import br.com.gsv.graficoClassic.DetalhesFuncionarioClassic;
 import br.com.gsv.listeners.DetalhesFuncionariListener;
 import br.com.gsv.util.ConverteDadosUtil;
@@ -26,7 +23,6 @@ public class DetalhesFuncionariDialog extends JDialog {
 	private JFormattedTextField JCpf,JDataNasc, JDataCadastro,JCep;
 	private DetalhesFuncionariListener listener;
 	private DetalhesFuncionarioClassic listenerClassic;
-	private DetalhesFuncionarioGrafic listenerGrafic;
 	private JPanel painelDrag;
 	private int xx,xy;
 	
@@ -34,16 +30,9 @@ public class DetalhesFuncionariDialog extends JDialog {
 		InicializaComponentes();
 		AdicionaNaTela();
 		listener = new DetalhesFuncionariListener(this);
-		
+		listenerClassic = new DetalhesFuncionarioClassic(this);		
 	}
 	
-	public void IniciaClassic(){
-		listenerClassic = new DetalhesFuncionarioClassic(this);
-	}
-	
-	public void IniciaGrafic(){
-		listenerGrafic = new DetalhesFuncionarioGrafic(this);
-	}
 	
 	
 	private void InicializaComponentes(){

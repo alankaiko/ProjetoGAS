@@ -173,10 +173,6 @@ public class IncluirProdutoListener implements ActionListener {
 		    @Override
 		    public void mouseClicked(MouseEvent e) {
 		         IncluirFabricantesForm formu = new IncluirFabricantesForm();
-			         if(formulario.getVersao() == 'c')
-				    	 formu.IniciaClassic();
-					 if(formulario.getVersao() == 'g')
-						 formu.IniciaGrafic();
 		         formu.setLocationRelativeTo(formulario.getTela());
 		         formu.setVisible(true);
 		         ListaFabricantes();

@@ -8,7 +8,6 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
-import br.com.gsv.graficoAzul.GerenciaConvenioGrafic;
 import br.com.gsv.graficoClassic.GerenciaConvenioClassic;
 import br.com.gsv.listeners.GerenciaConvenioListener;
 
@@ -20,27 +19,17 @@ public class GerenciaTelaConvenio extends JDialog {
 	private JScrollPane scrollPane;
 	private GerenciaConvenioListener listener;
 	private GerenciaConvenioClassic listenerClassic;
-	private GerenciaConvenioGrafic listenerGrafic;
 	private JPanel painelDrag;
 	private int xx,xy;
-	private char versao;
 	
 	
 	public GerenciaTelaConvenio() {
 		CriaTelaGeral();
 		InicializaComponentes();
 		this.listener = new GerenciaConvenioListener(this);
-	}
-	
-	public void IniciaClassic(){
 		listenerClassic = new GerenciaConvenioClassic(this);
-		versao = 'c';
 	}
 	
-	public void IniciaGrafic(){
-		listenerGrafic = new GerenciaConvenioGrafic(this);
-		versao = 'g';
-	}
 	
 	private void CriaTelaGeral(){
 		detalhes = new JButton();
@@ -206,15 +195,5 @@ public class GerenciaTelaConvenio extends JDialog {
 		this.xy = xy;
 	}
 
-	public char getVersao() {
-		return versao;
-	}
-
-	public void setVersao(char versao) {
-		this.versao = versao;
-	}
 	
-	
-
-
 }

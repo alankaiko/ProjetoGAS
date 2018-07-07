@@ -7,7 +7,6 @@ import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import br.com.gsv.graficoAzul.CodigoConvenioGrafic;
 import br.com.gsv.graficoClassic.CodigoConvenioClassic;
 import br.com.gsv.listeners.CodigoConvenioListener;
 
@@ -19,7 +18,6 @@ public class CodigoConvenioDialog extends JDialog {
 	private CodigoConvenioListener listener;
 	private Long codigo;
 	private CodigoConvenioClassic listenerClassic;
-	private CodigoConvenioGrafic listenerGrafic;
 	private JPanel painelDrag;
 	private int xx,xy;
 	
@@ -28,15 +26,8 @@ public class CodigoConvenioDialog extends JDialog {
 		CriaVariaveis();
 		AdicionaComponentes();
 		listener = new CodigoConvenioListener(this);	
-	}	
-	
-	public void IniciaClassic(){
 		listenerClassic = new CodigoConvenioClassic(this);
-	}
-	
-	public void IniciaGrafic(){
-		listenerGrafic = new CodigoConvenioGrafic(this);
-	}
+	}	
 	
 	public void CriaVariaveis() {
 		ok = new JButton();

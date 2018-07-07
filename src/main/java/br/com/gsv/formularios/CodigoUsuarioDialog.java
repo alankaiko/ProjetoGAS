@@ -7,7 +7,6 @@ import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import br.com.gsv.graficoAzul.CodigoUsuarioGrafic;
 import br.com.gsv.graficoClassic.CodigoUsuarioClassic;
 import br.com.gsv.listeners.CodigoUsuarioListener;
 
@@ -18,7 +17,6 @@ public class CodigoUsuarioDialog extends JDialog {
 	private JTextField TBuscar;
 	private CodigoUsuarioListener listener;
 	private CodigoUsuarioClassic listenerClassic;
-	private CodigoUsuarioGrafic listenerGrafic;
 	private String login;
 	private JPanel painelDrag;
 	private int xx,xy;
@@ -28,16 +26,9 @@ public class CodigoUsuarioDialog extends JDialog {
 		CriaVariaveis();
 		AdicionaComponentes();
 		listener = new CodigoUsuarioListener(this);
-	}
-
-	public void IniciaClassic(){
 		listenerClassic = new CodigoUsuarioClassic(this);
 	}
-	
-	public void IniciaGrafic(){
-		listenerGrafic = new CodigoUsuarioGrafic(this);
-	}
-	
+
 	public void CriaVariaveis() {
 		ok = new JButton();
 		cancelar = new JButton();

@@ -115,10 +115,6 @@ public class GerenciarProdutosListener implements ActionListener{
 	private void ExecutaTelaDetalhes(String codigo){
 		ProdutoController controller = new ProdutoController();
 		DetalhesProdutoDialog detalhes = new DetalhesProdutoDialog();
-			if(gerenciamento.getVersao() == 'c')
-				detalhes.IniciaClassic();
-			if(gerenciamento.getVersao() == 'g')
-				detalhes.IniciaGrafic();
 		detalhes.getListener().setProduto(controller.BuscarPorCodigo(codigo));
 		detalhes.getListener().Detalhar();
 		
@@ -131,10 +127,6 @@ public class GerenciarProdutosListener implements ActionListener{
 	
 	private void ExecutaTelaCodigo(){
 		CodigoProdutoDialog dialogo = new CodigoProdutoDialog();
-			if(gerenciamento.getVersao() == 'c')
-				dialogo.IniciaClassic();
-			if(gerenciamento.getVersao() == 'g')
-				dialogo.IniciaGrafic();
 		dialogo.setLocationRelativeTo(this.gerenciamento.getTela());
 		dialogo.setVisible(true);
 		pegaLinha(dialogo.getCodigo());
@@ -143,10 +135,6 @@ public class GerenciarProdutosListener implements ActionListener{
 	
 	private void ExecutaTelaBuscar(){
 		BuscarProdutoDialog busca = new BuscarProdutoDialog();
-			if(gerenciamento.getVersao() == 'c')
-				busca.IniciaClassic();
-			if(gerenciamento.getVersao() == 'g')
-				busca.IniciaGrafic();
 		busca.setLocationRelativeTo(this.gerenciamento.getTela());
 		busca.setVisible(true);
 		pegaLinha(busca.getListener().getCodigo());
@@ -156,10 +144,6 @@ public class GerenciarProdutosListener implements ActionListener{
 	private void ExecutaEdicao(String codigo){
 		ProdutoController controller = new ProdutoController();
 		IncluirProdutosForm edita = new IncluirProdutosForm();
-			if(gerenciamento.getVersao() == 'c')
-				edita.IniciaClassic();
-			if(gerenciamento.getVersao() == 'g')
-				edita.IniciaGrafic();
 			edita.getListener().setProduto(controller.BuscarPorCodigo(codigo));
 		edita.getListener().AlterandoProdutos();
 		
@@ -173,10 +157,6 @@ public class GerenciarProdutosListener implements ActionListener{
 	private void ExecutaInclusao(){
 		IncluirProdutosForm inclui = new IncluirProdutosForm();
 		inclui.getListener().InicializaObjetos();
-			if(gerenciamento.getVersao() == 'c')
-				inclui.IniciaClassic();
-			if(gerenciamento.getVersao() == 'g')
-				inclui.IniciaGrafic();
 		inclui.setLocationRelativeTo(this.gerenciamento.getTela());
 		inclui.setVisible(true);		
 		TabelaDeProdutos();
@@ -185,10 +165,6 @@ public class GerenciarProdutosListener implements ActionListener{
 	private void ExecutaExclusao(String codigo){
 		ProdutoController controller = new ProdutoController();
 		ExcluirProdutoDialog telaExc = new ExcluirProdutoDialog(controller.BuscarPorCodigo(codigo));
-			if(gerenciamento.getVersao() == 'c')
-				telaExc.IniciaClassic();
-			if(gerenciamento.getVersao() == 'g')
-				telaExc.IniciaGrafic();
 		telaExc.setLocationRelativeTo(this.gerenciamento.getTela());
 		telaExc.setVisible(true);
 		TabelaDeProdutos();	

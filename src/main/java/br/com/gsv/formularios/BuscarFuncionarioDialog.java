@@ -1,10 +1,7 @@
 package br.com.gsv.formularios;
 
 
-import java.awt.BorderLayout;
-import java.awt.Color;
 import java.awt.Container;
-import java.awt.Font;
 
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
@@ -15,9 +12,7 @@ import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
-import javax.swing.border.EmptyBorder;
 
-import br.com.gsv.graficoAzul.BuscarFuncionarioGrafic;
 import br.com.gsv.graficoClassic.BuscarFuncionarioClassic;
 import br.com.gsv.listeners.BuscarFuncionarioListener;
 import br.com.gsv.listeners.RadioListenerFuncionario;
@@ -33,7 +28,6 @@ public class BuscarFuncionarioDialog extends JDialog {
 	private JScrollPane scrollPane;
 	private JTable table;
 	private BuscarFuncionarioListener listener;
-	private BuscarFuncionarioGrafic listenerGrafic;
 	private BuscarFuncionarioClassic listenerClassic;
 	private RadioListenerFuncionario radioFuncionario;
 	private JPanel painelDrag;
@@ -45,16 +39,8 @@ public class BuscarFuncionarioDialog extends JDialog {
 		AdicionaNaTela();
 		listener = new BuscarFuncionarioListener(this);
 		radioFuncionario = new RadioListenerFuncionario(this);
-	}
-	
-	public void IniciaClassic(){
 		listenerClassic = new BuscarFuncionarioClassic(this);
 	}
-	
-	public void IniciaGrafic(){
-		listenerGrafic = new BuscarFuncionarioGrafic(this);
-	}
-	
 	
 	private void CriarTelaGeral(){
 		buscarUsuario = new JLabel();

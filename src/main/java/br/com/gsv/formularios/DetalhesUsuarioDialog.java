@@ -8,7 +8,6 @@ import javax.swing.JFormattedTextField;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import br.com.gsv.graficoAzul.DetalhesUsuarioGrafic;
 import br.com.gsv.graficoClassic.DetalhesUsuarioClassic;
 import br.com.gsv.listeners.DetalhesUsuarioListener;
 
@@ -24,20 +23,12 @@ public class DetalhesUsuarioDialog extends JDialog {
 	private JPanel painelDrag;
 	private int xx,xy;
 	private DetalhesUsuarioClassic listenerClassic;
-	private DetalhesUsuarioGrafic listenerGrafic;
 
 	public DetalhesUsuarioDialog() {
 		Dados();
 		InicializaCompomentes();
 		listener = new DetalhesUsuarioListener(this);
-	}
-	
-	public void IniciaClassic(){
 		listenerClassic = new DetalhesUsuarioClassic(this);
-	}
-	
-	public void IniciaGrafic(){
-		listenerGrafic = new DetalhesUsuarioGrafic(this);
 	}
 	
 		

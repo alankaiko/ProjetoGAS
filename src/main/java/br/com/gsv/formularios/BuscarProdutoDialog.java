@@ -12,7 +12,6 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 
-import br.com.gsv.graficoAzul.BuscarProdutoGrafic;
 import br.com.gsv.graficoClassic.BuscarProdutoClassic;
 import br.com.gsv.listeners.BuscarProdutoListener;
 
@@ -29,7 +28,6 @@ public class BuscarProdutoDialog extends JDialog {
 	private JTable table;
 	private BuscarProdutoListener listener;
 	private BuscarProdutoClassic listenerClassic;
-	private BuscarProdutoGrafic listenerGrafic;
 	private JPanel painelDrag;
 	private int xx,xy;
 
@@ -38,15 +36,9 @@ public class BuscarProdutoDialog extends JDialog {
 		CriaComponentes();
 		AdicionaNaTela();
 		listener = new BuscarProdutoListener(this);
-	}
-	
-	public void IniciaClassic(){
 		listenerClassic = new BuscarProdutoClassic(this);
 	}
 	
-	public void IniciaGrafic(){
-		listenerGrafic = new BuscarProdutoGrafic(this);
-	}
 	
 	
 	private void CriaComponentes(){

@@ -8,7 +8,6 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
-import br.com.gsv.graficoAzul.GerenciarFuncionarioGrafic;
 import br.com.gsv.graficoClassic.GerenciarFuncionarioClassic;
 import br.com.gsv.listeners.GerenciarFuncionarioListener;
 
@@ -20,7 +19,6 @@ public class GerenciaTelaFuncionario extends JDialog {
 	private JScrollPane scrollPane;
 	private GerenciarFuncionarioListener listener;
 	private GerenciarFuncionarioClassic listenerClassic;
-	private GerenciarFuncionarioGrafic listenerGrafic;
 	private JPanel painelDrag;
 	private int xx,xy;
 	private char versao;
@@ -31,18 +29,10 @@ public class GerenciaTelaFuncionario extends JDialog {
 		CriaTelaGeral();
 		InicializaComponentes();
 		listener = new GerenciarFuncionarioListener(this);
-	}
-	
-	public void IniciaClassic(){
 		listenerClassic = new GerenciarFuncionarioClassic(this);
-		versao = 'c';
 	}
-	
-	public void IniciaGrafic(){
-		listenerGrafic = new GerenciarFuncionarioGrafic(this);
-		versao = 'g';
-	}
-	
+
+
 	private void CriaTelaGeral(){
 		detalhes = new JButton();
 		codigo = new JButton();

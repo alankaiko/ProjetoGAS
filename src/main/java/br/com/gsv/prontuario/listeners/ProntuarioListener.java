@@ -498,7 +498,6 @@ public class ProntuarioListener implements ActionListener{
 			
 		}else if(event.getSource().equals(this.formulario.getBTPesquisar())){
 			BuscarPacienteDialog dialog = new BuscarPacienteDialog();
-			dialog.IniciaClassic();
 			dialog.setLocationRelativeTo(this.formulario.getContentPane());
 			dialog.setVisible(true);
 			
@@ -507,7 +506,6 @@ public class ProntuarioListener implements ActionListener{
 			
 		}else if(event.getSource().equals(this.formulario.getBTPesquiFuncionario())){
 			BuscarFuncionarioDialog dialog = new BuscarFuncionarioDialog();
-			dialog.IniciaClassic();
 			dialog.setLocationRelativeTo(this.formulario.getContentPane());
 			dialog.setVisible(true);
 			

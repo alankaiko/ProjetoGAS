@@ -8,7 +8,6 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
-import br.com.gsv.graficoAzul.GerenciaFabricanteGrafic;
 import br.com.gsv.graficoClassic.GerenciaFabricanteClassic;
 import br.com.gsv.listeners.GerenciaFabricanteListener;
 
@@ -20,27 +19,17 @@ public class GerenciaTelaFabricante extends JDialog {
 	private JScrollPane scrollPane;
 	private GerenciaFabricanteListener listener;
 	private GerenciaFabricanteClassic listenerClassic;
-	private GerenciaFabricanteGrafic listenerGrafic;
 	private JPanel painelDrag;
 	private int xx,xy;
-	private char versao;
 	
 	
 	public GerenciaTelaFabricante() {
 		CriaTelaGeral();
 		InicializaComponentes();
 		listener = new GerenciaFabricanteListener(this);
-	}
-	
-	public void IniciaClassic(){
 		listenerClassic = new GerenciaFabricanteClassic(this);
-		versao = 'c';
 	}
 	
-	public void IniciaGrafic(){
-		listenerGrafic = new GerenciaFabricanteGrafic(this);
-		versao = 'g';
-	}
 	
 	private void CriaTelaGeral(){
 		detalhes = new JButton();
@@ -211,13 +200,4 @@ public class GerenciaTelaFabricante extends JDialog {
 		this.xy = xy;
 	}
 
-	public char getVersao() {
-		return versao;
-	}
-
-	public void setVersao(char versao) {
-		this.versao = versao;
-	}
-
-	
 }

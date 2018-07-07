@@ -10,7 +10,6 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import br.com.gsv.graficoAzul.IncluirFuncionarioGrafic;
 import br.com.gsv.graficoClassic.IncluirFuncionarioClassic;
 import br.com.gsv.listeners.IncluirFuncionarioListener;
 import br.com.gsv.util.ConverteDadosUtil;
@@ -28,8 +27,6 @@ public class IncluirFuncionariosForm extends JDialog {
 	private JButton BTGravar, BTCancelar;
 	private JComboBox ComboEstado, comboCoren,comboCorenEst;
 	private IncluirFuncionarioClassic listenerClassic;
-	private IncluirFuncionarioGrafic listenerGrafic;
-	private char versao;
 	private int xx,xy;
 
 
@@ -38,17 +35,9 @@ public class IncluirFuncionariosForm extends JDialog {
 		InicializaVariaveis();
 		InicializaCompomentes();
 		listener = new IncluirFuncionarioListener(this);
-	}
-	
-	public void IniciaClassic(){
 		listenerClassic = new IncluirFuncionarioClassic(this);
-		versao = 'c';
 	}
 	
-	public void IniciaGrafic(){
-		listenerGrafic = new IncluirFuncionarioGrafic(this);
-		versao = 'g';
-	}
 	
 	private void InicializaVariaveis(){
 		LId = new JLabel();
@@ -501,14 +490,6 @@ public class IncluirFuncionariosForm extends JDialog {
 
 	public void setComboCorenEst(JComboBox comboCorenEst) {
 		this.comboCorenEst = comboCorenEst;
-	}
-
-	public char getVersao() {
-		return versao;
-	}
-
-	public void setVersao(char versao) {
-		this.versao = versao;
 	}
 
 	public int getXx() {

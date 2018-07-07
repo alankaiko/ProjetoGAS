@@ -8,7 +8,6 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
-import br.com.gsv.graficoAzul.GerenciaProdutoGrafic;
 import br.com.gsv.graficoClassic.GerenciaProdutoClassic;
 import br.com.gsv.listeners.GerenciarProdutosListener;
 
@@ -18,30 +17,16 @@ public class GerenciaTelaProdutos extends JDialog {
 	private JButton detalhes, codigo, buscar, modificar, incluir, excluir, fim;
 	private Container tela= getContentPane();
 	private JScrollPane scrollPane;
-	private GerenciaProdutoGrafic listenerGrafic;
 	private GerenciaProdutoClassic listenerClassic;
 	private GerenciarProdutosListener listener;
 	private JPanel painelDrag;
 	private int xx,xy;
-	private char versao;
-	
-	
-	
 	
 	public GerenciaTelaProdutos() {
 		CriaTelaGeral();
 		InicializaComponentes();
 		this.listener = new GerenciarProdutosListener(this);
-	}
-	
-	public void IniciaClassic(){
 		listenerClassic = new GerenciaProdutoClassic(this);
-		versao = 'c';
-	}
-	
-	public void IniciaGrafic(){
-		listenerGrafic = new GerenciaProdutoGrafic(this);
-		versao = 'g';
 	}
 	
 	
@@ -208,13 +193,4 @@ public class GerenciaTelaProdutos extends JDialog {
 		this.xy = xy;
 	}
 
-	public char getVersao() {
-		return versao;
-	}
-
-	public void setVersao(char versao) {
-		this.versao = versao;
-	}
-
-	
 }

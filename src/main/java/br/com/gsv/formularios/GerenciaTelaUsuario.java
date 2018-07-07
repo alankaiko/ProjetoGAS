@@ -8,7 +8,6 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
-import br.com.gsv.graficoAzul.GerenciaUsuarioGrafic;
 import br.com.gsv.graficoClassic.GerenciaUsuarioClassic;
 import br.com.gsv.listeners.GerenciaUsuarioListener;
 
@@ -20,29 +19,17 @@ public class GerenciaTelaUsuario extends JDialog{
 	private Container tela= getContentPane();
 	private JScrollPane scrollPane;
 	private GerenciaUsuarioClassic listenerClassic;
-	private GerenciaUsuarioGrafic listenerGrafic;
 	private JPanel painelDrag;
 	private int xx,xy;
-	private char versao;
-	
 	
 	
 	public GerenciaTelaUsuario() {
 		CriaTelaGeral();
 		InicializaComponentes();
-		this.listener = new GerenciaUsuarioListener(this);		
-	}
-	
-	public void IniciaClassic(){
+		this.listener = new GerenciaUsuarioListener(this);	
 		listenerClassic = new GerenciaUsuarioClassic(this);
-		versao = 'c';
 	}
 	
-	public void IniciaGrafic(){
-		listenerGrafic = new GerenciaUsuarioGrafic(this);
-		versao = 'g';
-	}
-
 	
 	private void CriaTelaGeral(){
 		detalhes = new JButton();
@@ -213,15 +200,5 @@ public class GerenciaTelaUsuario extends JDialog{
 	public void setXy(int xy) {
 		this.xy = xy;
 	}
-
-	public char getVersao() {
-		return versao;
-	}
-
-	public void setVersao(char versao) {
-		this.versao = versao;
-	}
-
-	
 	
 }

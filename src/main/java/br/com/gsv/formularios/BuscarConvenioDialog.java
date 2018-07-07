@@ -12,7 +12,6 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 
-import br.com.gsv.graficoAzul.BuscarConvenioGrafic;
 import br.com.gsv.graficoClassic.BuscarConvenioClassic;
 import br.com.gsv.listeners.BuscarConvenioListener;
 import br.com.gsv.listeners.RadioListenerConvenio;
@@ -30,7 +29,6 @@ public class BuscarConvenioDialog extends JDialog {
 	private BuscarConvenioListener listener;
 	private RadioListenerConvenio radioListener;
 	private BuscarConvenioClassic listenerClassic;
-	private BuscarConvenioGrafic listenerGrafic;
 	private JPanel painelDrag;
 	private int xx,xy;
 	
@@ -41,14 +39,7 @@ public class BuscarConvenioDialog extends JDialog {
 		AdicionaNaTela();
 		listener = new BuscarConvenioListener(this);
 		radioListener = new RadioListenerConvenio(this);
-	}
-	
-	public void IniciaClassic(){
 		listenerClassic = new BuscarConvenioClassic(this);
-	}
-	
-	public void IniciaGrafic(){
-		listenerGrafic = new BuscarConvenioGrafic(this);
 	}
 	
 	

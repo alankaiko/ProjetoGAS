@@ -9,7 +9,6 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import br.com.gsv.graficoAzul.IncluirProdutoGrafic;
 import br.com.gsv.graficoClassic.IncluirProdutosClassic;
 import br.com.gsv.listeners.IncluirProdutoListener;
 
@@ -23,25 +22,14 @@ public class IncluirProdutosForm extends JDialog {
 	private JLabel LDados, LCodigo, LDescricao, LQuantidade, LFabricante, LAdicionaFabricante;
 	private JComboBox comboFabricante;
 	private IncluirProdutosClassic listenerClassic;
-	private IncluirProdutoGrafic listenerGrafic;
 	private int xx,xy;
-	private char versao;
 	
 	
 	public IncluirProdutosForm() {
 		CriaVariaveis();
 		InicializaComponentes();
 		listener = new IncluirProdutoListener(this);
-	}
-	
-	public void IniciaClassic(){
 		listenerClassic = new IncluirProdutosClassic(this);
-		versao = 'c';
-	}
-	
-	public void IniciaGrafic(){
-		listenerGrafic = new IncluirProdutoGrafic(this);
-		versao = 'g';
 	}
 	
 	private void CriaVariaveis(){
@@ -235,14 +223,6 @@ public class IncluirProdutosForm extends JDialog {
 
 	public void setXy(int xy) {
 		this.xy = xy;
-	}
-
-	public char getVersao() {
-		return versao;
-	}
-
-	public void setVersao(char versao) {
-		this.versao = versao;
 	}
 
 	

@@ -10,7 +10,6 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import br.com.gsv.graficoAzul.IncluirPacienteGrafic;
 import br.com.gsv.graficoClassic.IncluirPacienteClassic;
 import br.com.gsv.listeners.IncluirPacienteListener;
 import br.com.gsv.util.ConverteDadosUtil;
@@ -28,27 +27,17 @@ public class IncluirPacienteForm extends JDialog {
 	private JButton BTGravar, BTCancelar;
 	private JComboBox ComboEstado, ComboConvenio;
 	private IncluirPacienteClassic listenerClassic;
-	private IncluirPacienteGrafic listenerGrafic;
 	private int xx,xy;
-	private char versao;
-
+	
 	
 	public IncluirPacienteForm() {
 		CriaVariaveis();
 		InicializaCompomentes();
 		listener = new IncluirPacienteListener(this);
-	}
-	
-	public void IniciaClassic(){
 		listenerClassic = new IncluirPacienteClassic(this);
-		versao = 'c';
 	}
 	
-	public void IniciaGrafic(){
-		listenerGrafic = new IncluirPacienteGrafic(this);
-		versao = 'g';
-	}
-	
+
 		
 	private void CriaVariaveis(){
 		TId = new JTextField();
@@ -520,14 +509,5 @@ public class IncluirPacienteForm extends JDialog {
 	public void setXy(int xy) {
 		this.xy = xy;
 	}
-
-	public char getVersao() {
-		return versao;
-	}
-
-	public void setVersao(char versao) {
-		this.versao = versao;
-	}
-	
 	
 }

@@ -9,7 +9,6 @@ import javax.swing.JPanel;
 import javax.swing.JSeparator;
 
 import br.com.gsv.domain.Convenio;
-import br.com.gsv.graficoAzul.ExcluirConvenioGrafic;
 import br.com.gsv.graficoClassic.ExcluirConvenioClassic;
 import br.com.gsv.listeners.ExcluirConvenioListener;
 
@@ -22,7 +21,6 @@ public class ExcluirConvenioDialog extends JDialog {
 	private Convenio convenio;
 	private ExcluirConvenioListener listener;
 	private ExcluirConvenioClassic listenerClassic;
-	private ExcluirConvenioGrafic listenerGrafic;
 	private JPanel painelDrag;
 	private int xx,xy;
 	
@@ -32,14 +30,7 @@ public class ExcluirConvenioDialog extends JDialog {
 		this.convenio = convenio;
 		AdicionaComponentes();
 		listener = new ExcluirConvenioListener(this);
-	}
-	
-	public void IniciaClassic(){
 		listenerClassic = new ExcluirConvenioClassic(this);
-	}
-	
-	public void IniciaGrafic(){
-		listenerGrafic = new ExcluirConvenioGrafic(this);
 	}
 	
 		

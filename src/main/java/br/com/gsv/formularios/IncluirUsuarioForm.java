@@ -10,7 +10,6 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
-import br.com.gsv.graficoAzul.IncluirUsuarioGrafic;
 import br.com.gsv.graficoClassic.IncluirUsuarioClassic;
 import br.com.gsv.listeners.IncluirUsuarioListener;
 import br.com.gsv.util.ConverteDadosUtil;
@@ -26,26 +25,15 @@ public class IncluirUsuarioForm extends JDialog {
 	private JFormattedTextField JCpf;
 	private IncluirUsuarioListener listener;
 	private IncluirUsuarioClassic listenerClassic;
-	private IncluirUsuarioGrafic listenerGrafic;
 	private JPanel painelDrag;
 	private int xx,xy;
-	private char versao;
 	
 
 	public IncluirUsuarioForm() {
 		CriaTelaGeral();
 		AdicionaNaTela();
 		listener = new IncluirUsuarioListener(this);
-	}
-	
-	public void IniciaClassic(){
 		listenerClassic = new IncluirUsuarioClassic(this);
-		versao = 'c';
-	}
-	
-	public void IniciaGrafic(){
-		listenerGrafic = new IncluirUsuarioGrafic(this);
-		versao = 'g';
 	}
 	
 
@@ -268,14 +256,6 @@ public class IncluirUsuarioForm extends JDialog {
 
 	public void setXy(int xy) {
 		this.xy = xy;
-	}
-
-	public char getVersao() {
-		return versao;
-	}
-
-	public void setVersao(char versao) {
-		this.versao = versao;
 	}
 
 	

@@ -8,7 +8,6 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
-import br.com.gsv.graficoAzul.GerenciaPacienteGrafic;
 import br.com.gsv.graficoClassic.GerenciarPacienteClassic;
 import br.com.gsv.listeners.GerenciarPacienteListener;
 
@@ -18,31 +17,19 @@ public class GerenciaTelaPaciente extends JDialog {
 	private JButton detalhes, codigo, buscar, modificar, incluir, excluir, fim;
 	private Container tela= getContentPane();
 	private JScrollPane scrollPane;
-	private GerenciaPacienteGrafic listenerGrafic;
 	private GerenciarPacienteClassic listenerClassic;
 	private GerenciarPacienteListener listener;
 	private JPanel painelDrag;
 	private int xx,xy;
-	private char versao;
-
-	
 	
 	public GerenciaTelaPaciente() {
 		CriaTelaGeral();
 		InicializaComponentes();
 		this.listener = new GerenciarPacienteListener(this);
-	}
-	
-	public void IniciaClassic(){
 		listenerClassic = new GerenciarPacienteClassic(this);
-		versao = 'c';
 	}
 	
-	public void IniciaGrafic(){
-		listenerGrafic = new GerenciaPacienteGrafic(this);
-		versao = 'g';
-	}
-
+	
 	private void CriaTelaGeral(){
 		detalhes = new JButton();
 		codigo = new JButton();
@@ -206,14 +193,6 @@ public class GerenciaTelaPaciente extends JDialog {
 		this.xy = xy;
 	}
 
-	public char getVersao() {
-		return versao;
-	}
-
-	public void setVersao(char versao) {
-		this.versao = versao;
-	}
-
-		
+	
 	
 }

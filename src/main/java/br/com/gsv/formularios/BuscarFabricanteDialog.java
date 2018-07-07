@@ -12,7 +12,6 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 
-import br.com.gsv.graficoAzul.BuscarFabricanteGrafic;
 import br.com.gsv.graficoClassic.BuscarFabricanteClassic;
 import br.com.gsv.listeners.BuscarFabricanteListener;
 import br.com.gsv.listeners.RadioListenerFabricante;
@@ -29,7 +28,6 @@ public class BuscarFabricanteDialog extends JDialog {
 	private JTable table;
 	private BuscarFabricanteListener listener;
 	private BuscarFabricanteClassic listenerClassic;
-	private BuscarFabricanteGrafic listenerGrafic;
 	private RadioListenerFabricante radioListener;
 	private JPanel painelDrag;
 	private int xx,xy;
@@ -40,15 +38,9 @@ public class BuscarFabricanteDialog extends JDialog {
 		AdicionaNaTela();		
 		listener = new BuscarFabricanteListener(this);
 		radioListener = new RadioListenerFabricante(this);
-	}
-	
-	public void IniciaClassic(){
 		listenerClassic = new BuscarFabricanteClassic(this);
 	}
 	
-	public void IniciaGrafic(){
-		listenerGrafic = new BuscarFabricanteGrafic(this);
-	}
 	
 	
 	private void CriaComponentes(){

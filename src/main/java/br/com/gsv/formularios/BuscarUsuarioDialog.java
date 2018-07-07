@@ -12,7 +12,6 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 
-import br.com.gsv.graficoAzul.BuscarUsuarioGrafic;
 import br.com.gsv.graficoClassic.BuscarUsuarioClassic;
 import br.com.gsv.listeners.BuscarUsuarioListener;
 
@@ -28,7 +27,6 @@ public class BuscarUsuarioDialog extends JDialog {
 	private JTable table;
 	private BuscarUsuarioListener listener;
 	private BuscarUsuarioClassic listenerClassic;
-	private BuscarUsuarioGrafic listenerGrafic;
 	private JPanel painelDrag;
 	private int xx,xy;
 	
@@ -37,14 +35,7 @@ public class BuscarUsuarioDialog extends JDialog {
 		CriaComponentes();
 		AdicionaNaTela();
 		listener = new BuscarUsuarioListener(this);
-	}
-	
-	public void IniciaClassic(){
 		listenerClassic = new BuscarUsuarioClassic(this);
-	}
-	
-	public void IniciaGrafic(){
-		listenerGrafic = new BuscarUsuarioGrafic(this);
 	}
 	
 		

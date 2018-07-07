@@ -9,7 +9,6 @@ import javax.swing.JPanel;
 import javax.swing.JSeparator;
 
 import br.com.gsv.domain.Usuario;
-import br.com.gsv.graficoAzul.ExcluirUsuarioGrafic;
 import br.com.gsv.graficoClassic.ExcluirUsuarioClassic;
 import br.com.gsv.listeners.ExcluirUsuarioListener;
 
@@ -22,7 +21,6 @@ public class ExcluirUsuarioDialog extends JDialog{
 	private Usuario usuario;
 	private ExcluirUsuarioListener listener;
 	private ExcluirUsuarioClassic listenerClassic;
-	private ExcluirUsuarioGrafic listenerGrafic;
 	private JPanel painelDrag;
 	private int xx,xy;
 	
@@ -32,14 +30,7 @@ public class ExcluirUsuarioDialog extends JDialog{
 		this.usuario = usuario;
 		AdicionaComponentes();
 		listener = new ExcluirUsuarioListener(this);
-	}
-	
-	public void IniciaClassic(){
 		listenerClassic = new ExcluirUsuarioClassic(this);
-	}
-	
-	public void IniciaGrafic(){
-		listenerGrafic = new ExcluirUsuarioGrafic(this);
 	}
 	
 	

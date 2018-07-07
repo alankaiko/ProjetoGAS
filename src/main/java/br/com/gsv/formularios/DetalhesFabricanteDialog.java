@@ -8,7 +8,6 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSeparator;
 
-import br.com.gsv.graficoAzul.DetalheFabricanteGrafic;
 import br.com.gsv.graficoClassic.DetalheFabricanteClassic;
 import br.com.gsv.listeners.DetalhesFabricanteListener;
 
@@ -21,7 +20,6 @@ public class DetalhesFabricanteDialog extends JDialog {
 	private JButton cancelar;
 	private JSeparator separa;
 	private DetalheFabricanteClassic listenerClassic;
-	private DetalheFabricanteGrafic listenerGrafic;
 	private JPanel painelDrag;
 	private int xx,xy;
 
@@ -31,14 +29,7 @@ public class DetalhesFabricanteDialog extends JDialog {
 		CriaVariaveis();
 		AdicionaComponentes();
 		listener = new DetalhesFabricanteListener(this);
-	}
-	
-	public void IniciaClassic(){
 		listenerClassic = new DetalheFabricanteClassic(this);
-	}
-	
-	public void IniciaGrafic(){
-		listenerGrafic = new DetalheFabricanteGrafic(this);
 	}
 	
 	

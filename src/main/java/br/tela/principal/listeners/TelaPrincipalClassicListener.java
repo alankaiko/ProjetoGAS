@@ -165,7 +165,6 @@ public class TelaPrincipalClassicListener implements ActionListener{
 	
 	private void AbreIncluirPaciente(){
 		IncluirPacienteForm inclui = new IncluirPacienteForm();
-		inclui.IniciaClassic();
 		inclui.setLocationRelativeTo(this.tela.getTela());
 		inclui.setVisible(true);		
 	}
@@ -179,7 +178,6 @@ public class TelaPrincipalClassicListener implements ActionListener{
 	
 	private void AbreCadConvenio(){
 		GerenciaTelaConvenio convenio = new GerenciaTelaConvenio();
-		convenio.IniciaClassic();
 		convenio.setLocationRelativeTo(this.tela.getTela());
 		convenio.setVisible(true);
 	}
@@ -188,42 +186,36 @@ public class TelaPrincipalClassicListener implements ActionListener{
 	
 	private void AbreCadPaciente(){
 		GerenciaTelaPaciente paciente = new GerenciaTelaPaciente();
-		paciente.IniciaClassic();
 		paciente.setLocationRelativeTo(this.tela.getTela());
 		paciente.setVisible(true);
 	}
 	
 	private void AbreUsuConsulta(){
 		GerenciaTelaFuncionario funcionario = new GerenciaTelaFuncionario();
-		funcionario.IniciaClassic();
 		funcionario.setLocationRelativeTo(this.tela.getTela());
 		funcionario.setVisible(true);
 	}
 	
 	private void AbreIncluFuncionario(){
 		IncluirFuncionariosForm incluirFunc =  new IncluirFuncionariosForm();
-		incluirFunc.IniciaClassic();
 		incluirFunc.setLocationRelativeTo(this.tela.getTela());
 		incluirFunc.setVisible(true);
 	}
 	
 	private void AbreCadFabricante(){
 		GerenciaTelaFabricante fabricante = new GerenciaTelaFabricante();
-		fabricante.IniciaClassic();
 		fabricante.setLocationRelativeTo(this.tela.getTela());
 		fabricante.setVisible(true);
 	}
 	
 	private void AbreCadProdutos(){
 		GerenciaTelaProdutos produtos = new GerenciaTelaProdutos();
-		produtos.IniciaClassic();
 		produtos.setLocationRelativeTo(this.tela.getTela());
 		produtos.setVisible(true);
 	}
 	
 	private void AbreCadUsuarios(){
 		GerenciaTelaUsuario user = new GerenciaTelaUsuario();
-		user.IniciaClassic();
 		user.setLocationRelativeTo(this.tela.getTela());
 		user.setVisible(true);
 	}

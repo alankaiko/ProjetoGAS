@@ -8,7 +8,6 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import br.com.gsv.graficoAzul.IncluirConvenioGrafic;
 import br.com.gsv.graficoClassic.IncluirConvenioClassic;
 import br.com.gsv.listeners.IncluirConvenioListener;
 
@@ -20,7 +19,6 @@ public class IncluirConvenioForm extends JDialog{
 	private JButton BTGravar, BTCancelar;
 	private IncluirConvenioListener listener;
 	private IncluirConvenioClassic listenerClassic;
-	private IncluirConvenioGrafic listenerGrafico;
 	private int xx,xy;
 
 	
@@ -28,17 +26,10 @@ public class IncluirConvenioForm extends JDialog{
 		CriaVariaveis();
 		AdicionaComponentes();
 		listener = new IncluirConvenioListener(this);
-	}
-	
-	
-	public void IniciaClassic(){
 		listenerClassic = new IncluirConvenioClassic(this);
 	}
 	
-	public void IniciaGrafic(){
-		listenerGrafico = new IncluirConvenioGrafic(this);
-	}
-
+	
 	
 	public void CriaVariaveis() {
 		LId = new JLabel();
