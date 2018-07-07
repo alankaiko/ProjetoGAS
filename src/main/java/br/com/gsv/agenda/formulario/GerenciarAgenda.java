@@ -1,21 +1,22 @@
 package br.com.gsv.agenda.formulario;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Container;
 
+import javax.swing.JButton;
 import javax.swing.JDialog;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
+import javax.swing.border.LineBorder;
 
 import br.com.gsv.agenda.listeners.GerenciarAgendaListener;
+
 import com.toedter.calendar.JCalendar;
-import javax.swing.JButton;
-import javax.swing.JTextField;
-import javax.swing.JLabel;
-import javax.swing.border.LineBorder;
-import java.awt.Color;
 
 public class GerenciarAgenda extends JDialog {
 
@@ -30,16 +31,7 @@ public class GerenciarAgenda extends JDialog {
 	private JLabel LNome, LTipo, LData, LHora;
 	private JTextField TTipo,TData,THora;
 	
-	
-	public static void main(String[] args) {
-		try {
-			GerenciarAgenda dialog = new GerenciarAgenda();
-			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-			dialog.setVisible(true);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
+
 
 	public GerenciarAgenda() {
 		setBounds(100, 100, 730, 450);

@@ -13,7 +13,6 @@ import java.util.List;
 
 import javax.swing.AbstractAction;
 import javax.swing.JComponent;
-import javax.swing.JOptionPane;
 import javax.swing.JRootPane;
 import javax.swing.KeyStroke;
 import javax.swing.ListSelectionModel;
@@ -28,7 +27,6 @@ public class GerenciarAgendaListener implements ActionListener, PropertyChangeLi
 	private GerenciarAgenda gerenciamento;
 	private TabelaDeAgenda tabela;
 	private List<Agenda> listaDeAgendados;
-	private Date data;
 	
 	
 	public GerenciarAgendaListener(GerenciarAgenda gerenciamento) {
@@ -102,11 +100,9 @@ public class GerenciarAgendaListener implements ActionListener, PropertyChangeLi
 		formularioAgenda.getListener().setAgenda(agenda);
 		formularioAgenda.getListener().AlterandoAgendamento();
 		formularioAgenda.setLocationRelativeTo(this.gerenciamento.getTela());
-		formularioAgenda.getListener().getEditahorario(agenda.getHoraDesejada());	
 		formularioAgenda.setVisible(true);
 		
-		
-		
+		formularioAgenda.getListener().getEditahorario(agenda.getHoraDesejada());	
 	}
 	
 	private void BotaoAgendando(){
@@ -114,9 +110,9 @@ public class GerenciarAgendaListener implements ActionListener, PropertyChangeLi
 		formularioAgenda.getListener().InicializaObjetos();
 		formularioAgenda.getTData().setDate(this.gerenciamento.getCalendar().getDate());
 		formularioAgenda.setLocationRelativeTo(this.gerenciamento.getTela());
-		formularioAgenda.getListener().getEditahorario(SelecionaLinha());
 		formularioAgenda.setVisible(true);
 		
+		formularioAgenda.getListener().getEditahorario(SelecionaLinha());
 	}
 	
 	private void BotaoRemovendo(){
@@ -179,7 +175,7 @@ public class GerenciarAgendaListener implements ActionListener, PropertyChangeLi
 
 	@Override
 	public void mouseEntered(MouseEvent event) {
-
+		
 	}
 
 	@Override
@@ -189,7 +185,19 @@ public class GerenciarAgendaListener implements ActionListener, PropertyChangeLi
 
 	@Override
 	public void mousePressed(MouseEvent event) {
+		Agenda ag = SelecionarDaLista(SelecionaLinha());
 		
+		if(ag != null){
+			this.gerenciamento.getTNome().setText(ag.getPaciente().getNome());
+			this.gerenciamento.getTTipo().setText(ag.getTipoAgendamento().getValor());
+			this.gerenciamento.getTData().setText(ag.getData().toString());
+			this.gerenciamento.getTHora().setText(ag.getHoraDesejada());
+		}else{
+			this.gerenciamento.getTNome().setText("");
+			this.gerenciamento.getTTipo().setText("");
+			this.gerenciamento.getTData().setText("");
+			this.gerenciamento.getTHora().setText("");
+		}
 	}
 
 	@Override

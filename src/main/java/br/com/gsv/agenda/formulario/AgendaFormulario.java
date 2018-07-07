@@ -14,21 +14,13 @@ import javax.swing.JSeparator;
 import javax.swing.JSpinner;
 import javax.swing.JTextField;
 import javax.swing.JTextPane;
-import javax.swing.UIManager;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
-import javax.swing.text.JTextComponent;
-
-import org.joda.time.format.DateTimeFormat;
-import org.joda.time.format.DateTimeFormatter;
 
 import br.com.gsv.agenda.listeners.AgendaListener;
 import br.com.gsv.domain.sub.EnumTipoAgendamento;
-import br.com.gsv.util.AgendaDadosUtil;
 
 import com.toedter.calendar.JDateChooser;
-import java.awt.Cursor;
-import javax.swing.border.BevelBorder;
 
 
 public class AgendaFormulario extends JDialog {
@@ -46,15 +38,6 @@ public class AgendaFormulario extends JDialog {
 	
 	
 	
-	public static void main(String[] args) {
-		try {
-			AgendaFormulario dialog = new AgendaFormulario();
-			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-			dialog.setVisible(true);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
 
 	
 	public AgendaFormulario() {
