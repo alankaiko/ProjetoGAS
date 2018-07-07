@@ -1,15 +1,18 @@
 package br.com.gsv.prontuario.formularios;
 
+import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Container;
+import java.awt.FlowLayout;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSeparator;
+import javax.swing.border.EmptyBorder;
 
 import br.com.gsv.domain.Prontuario;
-import br.com.gsv.prontuario.grafic.ExcluirProntuarioClassic;
 import br.com.gsv.prontuario.listeners.ExcluirProntuarioListener;
 
 public class ExcluirProntuarioDialog extends JDialog {
@@ -20,25 +23,45 @@ public class ExcluirProntuarioDialog extends JDialog {
 	private JSeparator separa;
 	private Prontuario prontuario;
 	private ExcluirProntuarioListener listener;
-	private ExcluirProntuarioClassic listenerClassic;
-	//private ExcluirConvenioGrafic listenerGrafic;
 	
 	
 	public ExcluirProntuarioDialog(Prontuario prontuario) {
-		CriaVariaveis();
+		setBounds(100, 100,320, 100);
+		setLayout(new BorderLayout());
+		panel.setBorder(new EmptyBorder(5, 5, 5, 5));
+		tela.add(panel, BorderLayout.CENTER);
+		
+		setTitle("Deseja excluir Anotações deste Paciente?");
+		setModal(true);
+		setResizable(false);
+		tela.setLayout(null);		
+		
+		panel.setLayout(null);
+		panel.setBorder(new EmptyBorder(5, 5, 5, 5));
+		panel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+		
 		this.prontuario = prontuario;
+		CriaVariaveis();
 		AdicionaComponentes();
 		
-		listenerClassic = new ExcluirProntuarioClassic(this);
-		//listenerGrafic = new ExcluirConvenioGrafic(this);
 		this.listener = new ExcluirProntuarioListener(this);
 	}
 	
 	private void CriaVariaveis(){
 		excluir = new JLabel();
+		excluir.setText("Excluir: "+ prontuario.getPaciente().getNome() + "?");
+		excluir.setForeground(Color.black);
+		excluir.setBounds(10, 10, 300, 18);
+		
 		ok = new JButton();
+		ok.setText("OK");
+		ok.setBounds(45, 50, 90, 18);
+		
 		separa = new JSeparator();
+		
 		cancelar = new JButton();
+		cancelar.setText("Cancelar");
+		cancelar.setBounds(140, 50, 90, 18);
 	}
 	
 	public void AdicionaComponentes(){

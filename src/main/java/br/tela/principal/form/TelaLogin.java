@@ -3,14 +3,12 @@ package br.tela.principal.form;
 import java.awt.Color;
 import java.awt.Font;
 
-import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
-import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
 
@@ -26,25 +24,6 @@ public class TelaLogin extends JFrame{
 	private TelaLoginListener listener;
 	private JPanel painelDrag;
 	private int xx,xy;
-	private JRadioButton radioAzul, radioClassic;
-	private ButtonGroup grupoBotao= new ButtonGroup();
-	
-	
-	
-	/*public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					TelaLogin frame = new TelaLogin();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}*/
-	
-	
 	
 
 	public TelaLogin() {
@@ -122,25 +101,6 @@ public class TelaLogin extends JFrame{
 		painelDrag.setBackground(Color.WHITE);
 		painelDrag.setBounds(1, 1, 477, 25);
 		PainelPrincipal.add(painelDrag);
-		
-		
-		
-		radioClassic = new JRadioButton("Versão Clássica");
-		radioClassic.setFont(new Font("Segoe UI", Font.PLAIN, 12));
-		radioClassic.setForeground(Color.WHITE);
-		radioClassic.setBackground(new Color(71,120,197));
-		radioClassic.setBounds(104, 186, 129, 23);
-		grupoBotao.add(radioClassic);
-		PainelLogo.add(radioClassic);
-		
-		radioAzul = new JRadioButton("Versão Azul");
-		radioAzul.setFont(new Font("Segoe UI", Font.PLAIN, 12));
-		radioAzul.setForeground(Color.WHITE);
-		radioAzul.setBackground(new Color(71,120,197));
-		radioAzul.setBounds(104, 217, 129, 23);
-		grupoBotao.add(radioAzul);
-		PainelLogo.add(radioAzul);
-		
 		
 	}
 
@@ -220,32 +180,5 @@ public class TelaLogin extends JFrame{
 	}
 
 
-
-
-	public JRadioButton getRadioAzul() {
-		return radioAzul;
-	}
-
-
-
-
-	public void setRadioAzul(JRadioButton radioAzul) {
-		this.radioAzul = radioAzul;
-	}
-
-
-
-
-	public JRadioButton getRadioClassic() {
-		return radioClassic;
-	}
-
-
-
-
-	public void setRadioClassic(JRadioButton radioClassic) {
-		this.radioClassic = radioClassic;
-	}
-	
 	
 }

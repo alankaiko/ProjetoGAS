@@ -37,13 +37,7 @@ public class TelaLoginListener implements ActionListener, MouseListener{
 		
 		if(this.usuario != null){
 			this.formulario.dispose();
-			if((!this.formulario.getRadioAzul().isSelected() && !this.formulario.getRadioClassic().isSelected()))
-				SelecaoClassic();
-			
-			if(this.formulario.getRadioClassic().isSelected())
-				SelecaoClassic();
-			
-			
+			SelecaoClassic();
 		}else{
 			MensagemPainelUtil.AutenticaUsuario();
 		}
