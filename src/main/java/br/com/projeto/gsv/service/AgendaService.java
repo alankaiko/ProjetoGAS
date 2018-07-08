@@ -6,7 +6,7 @@ import java.util.List;
 import br.com.gsv.domain.Agenda;
 import br.com.projeto.gsv.repository.AgendaRepository;
 
-public class CadastroAgendaService {
+public class AgendaService {
 	private AgendaRepository repositorio = new AgendaRepository();
 
 	

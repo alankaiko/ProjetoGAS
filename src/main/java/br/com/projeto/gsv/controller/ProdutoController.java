@@ -5,16 +5,16 @@ import java.util.List;
 import br.com.gsv.domain.Fabricante;
 import br.com.gsv.domain.Funcionario;
 import br.com.gsv.domain.Produto;
-import br.com.projeto.gsv.service.CadastroProdutoService;
+import br.com.projeto.gsv.service.ProdutoService;
 
 public class ProdutoController {
 	private Produto produto;
-	private CadastroProdutoService cadastroService;
+	private ProdutoService cadastroService;
 	
 	
 	public ProdutoController() {
 		this.produto = new Produto();
-		this.cadastroService = new CadastroProdutoService();
+		this.cadastroService = new ProdutoService();
 	}
 
 	public void SalvarProduto() {

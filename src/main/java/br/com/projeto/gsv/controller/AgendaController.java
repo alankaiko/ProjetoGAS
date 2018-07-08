@@ -4,15 +4,15 @@ import java.util.Date;
 import java.util.List;
 
 import br.com.gsv.domain.Agenda;
-import br.com.projeto.gsv.service.CadastroAgendaService;
+import br.com.projeto.gsv.service.AgendaService;
 
 public class AgendaController {
 	private Agenda agenda;
-	private CadastroAgendaService cadastroService;
+	private AgendaService cadastroService;
 
 	public AgendaController() {
 		this.agenda = new Agenda();
-		this.cadastroService = new CadastroAgendaService();
+		this.cadastroService = new AgendaService();
 	}
 
 	public void SalvarAgenda() {

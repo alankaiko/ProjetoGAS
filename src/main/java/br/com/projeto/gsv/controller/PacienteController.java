@@ -5,16 +5,16 @@ import java.util.List;
 import br.com.gsv.domain.Convenio;
 import br.com.gsv.domain.Paciente;
 import br.com.gsv.util.MensagemPainelUtil;
-import br.com.projeto.gsv.service.CadastroPacienteService;
+import br.com.projeto.gsv.service.PacienteService;
 
 public class PacienteController {
 	private Paciente paciente;
-	private CadastroPacienteService cadastroService;
+	private PacienteService cadastroService;
 	
 	
 	public PacienteController(){
 		this.paciente = new Paciente();
-		this.cadastroService = new CadastroPacienteService();
+		this.cadastroService = new PacienteService();
 	}
 	
 	

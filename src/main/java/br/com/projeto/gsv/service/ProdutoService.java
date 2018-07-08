@@ -7,7 +7,7 @@ import br.com.gsv.domain.Funcionario;
 import br.com.gsv.domain.Produto;
 import br.com.projeto.gsv.repository.ProdutoRepository;
 
-public class CadastroProdutoService {
+public class ProdutoService {
 	private  ProdutoRepository repositorio = new ProdutoRepository();
 
 	
@@ -38,7 +38,7 @@ public class CadastroProdutoService {
 	
 	//Acessa o método Service do Objeto Fabricante para retornar uma lista completa de todos os Fabricantes
 	public List<Fabricante> FabricanteListaCompleta(){
-		CadastroFabricanteService serviceFab = new CadastroFabricanteService();
+		FabricanteService serviceFab = new FabricanteService();
 		return serviceFab.ListandoFabricantes();
 	}
 }

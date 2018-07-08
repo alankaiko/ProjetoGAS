@@ -6,7 +6,7 @@ import java.util.List;
 import br.com.gsv.domain.Prontuario;
 import br.com.projeto.gsv.repository.ProntuarioRepository;
 
-public class CadastroProntuarioService {
+public class ProntuarioService {
 	ProntuarioRepository repositorio = new ProntuarioRepository();
 	
 	public void Salvar(Prontuario prontuario){

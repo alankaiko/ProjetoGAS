@@ -5,7 +5,7 @@ import java.util.List;
 import br.com.gsv.domain.Usuario;
 import br.com.projeto.gsv.repository.UsuarioRepository;
 
-public class CadastroUsuarioService {
+public class UsuarioService {
 	private UsuarioRepository repositorio = new UsuarioRepository();
 
 	

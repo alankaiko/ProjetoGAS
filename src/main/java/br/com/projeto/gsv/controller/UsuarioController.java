@@ -4,15 +4,15 @@ import java.util.List;
 
 import br.com.gsv.domain.Usuario;
 import br.com.gsv.util.MensagemPainelUtil;
-import br.com.projeto.gsv.service.CadastroUsuarioService;
+import br.com.projeto.gsv.service.UsuarioService;
 
 public class UsuarioController {
 	private Usuario usuario;
-	private CadastroUsuarioService cadastroService;
+	private UsuarioService cadastroService;
 
 	public UsuarioController() {
 		this.usuario = new Usuario();
-		this.cadastroService = new CadastroUsuarioService();
+		this.cadastroService = new UsuarioService();
 	}
 
 	public void SalvarUsuario() {

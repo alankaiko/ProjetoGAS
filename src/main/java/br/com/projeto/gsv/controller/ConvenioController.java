@@ -3,15 +3,15 @@ package br.com.projeto.gsv.controller;
 import java.util.List;
 
 import br.com.gsv.domain.Convenio;
-import br.com.projeto.gsv.service.CadastroConvenioService;
+import br.com.projeto.gsv.service.ConvenioService;
 
 public class ConvenioController {
 	private Convenio convenio;
-	private CadastroConvenioService cadastroService;
+	private ConvenioService cadastroService;
 
 	public ConvenioController() {
 		this.convenio = new Convenio();
-		this.cadastroService = new CadastroConvenioService();
+		this.cadastroService = new ConvenioService();
 	}
 
 	public void SalvarConvenio() {

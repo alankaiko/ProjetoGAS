@@ -6,7 +6,7 @@ import br.com.gsv.domain.Convenio;
 import br.com.gsv.domain.Paciente;
 import br.com.projeto.gsv.repository.PacienteRepository;
 
-public class CadastroPacienteService {
+public class PacienteService {
 	private PacienteRepository repositorio = new PacienteRepository();
 
 	
@@ -36,7 +36,7 @@ public class CadastroPacienteService {
 	
 	//Acessa o método Service do Objeto Fabricante para retornar uma lista completa de todos os Fabricantes
 	public List<Convenio> ConvenioListaCompleta(){
-		CadastroConvenioService serviceFab = new CadastroConvenioService();
+		ConvenioService serviceFab = new ConvenioService();
 		return serviceFab.ListandoConvenios();
 	}
 }

@@ -51,6 +51,7 @@
       	<mapping class="br.com.gsv.domain.sub.SintomasMembrosCheckbox"/>
       	<mapping class="br.com.gsv.domain.Usuario"/>
       	<mapping class="br.com.gsv.domain.sub.RegistroCoren"/>
+      	<mapping class="br.com.gsv.domain.Evolucao"/>
     </session-factory>
 
 </hibernate-configuration>

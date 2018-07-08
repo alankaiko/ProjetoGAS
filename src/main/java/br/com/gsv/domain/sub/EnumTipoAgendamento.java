@@ -1,7 +1,8 @@
 package br.com.gsv.domain.sub;
 
 public enum EnumTipoAgendamento {
-	ATENDIMENTO("ATENDIMENTO"), CONSULTA("CONSULTA"), RETORNO("RETORNO");
+	ATENDIMENTO("Atendimento"), CONSULTA("Consulta"), RETORNO("Retorno"), 
+	CIRURGIA("Cirurgia"), ENCAMINHAR("Encaminhamento");
 	
 	private String valor;
 	

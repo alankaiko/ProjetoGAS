@@ -3,15 +3,15 @@ package br.com.projeto.gsv.controller;
 import java.util.List;
 
 import br.com.gsv.domain.Fabricante;
-import br.com.projeto.gsv.service.CadastroFabricanteService;
+import br.com.projeto.gsv.service.FabricanteService;
 
 public class FabricanteController {
 	private Fabricante fabricante;
-	private CadastroFabricanteService cadastroService;
+	private FabricanteService cadastroService;
 
 	public FabricanteController() {
 		this.fabricante = new Fabricante();
-		this.cadastroService = new CadastroFabricanteService();
+		this.cadastroService = new FabricanteService();
 	}
 
 	public void SalvarFabricante() {

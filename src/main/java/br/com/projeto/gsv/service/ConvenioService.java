@@ -5,7 +5,7 @@ import java.util.List;
 import br.com.gsv.domain.Convenio;
 import br.com.projeto.gsv.repository.ConvenioRepository;
 
-public class CadastroConvenioService {
+public class ConvenioService {
 	private ConvenioRepository repositorio = new ConvenioRepository();
 
 	

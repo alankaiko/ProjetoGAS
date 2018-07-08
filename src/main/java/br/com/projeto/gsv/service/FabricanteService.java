@@ -7,7 +7,7 @@ import br.com.projeto.gsv.repository.FabricanteRepository;
 
 
 
-public class CadastroFabricanteService {
+public class FabricanteService {
 	private FabricanteRepository repositorio = new FabricanteRepository();
 
 	

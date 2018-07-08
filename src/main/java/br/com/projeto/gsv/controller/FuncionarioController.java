@@ -3,18 +3,18 @@ package br.com.projeto.gsv.controller;
 import java.util.List;
 
 import br.com.gsv.domain.Funcionario;
-import br.com.projeto.gsv.service.CadastroFuncionarioService;
+import br.com.projeto.gsv.service.FuncionarioService;
 
 public class FuncionarioController {
 
 	private Funcionario funcionario;
-	private CadastroFuncionarioService cadastroService;
+	private FuncionarioService cadastroService;
 
 	
 	
 	public FuncionarioController() {
 		this.funcionario = new Funcionario();
-		this.cadastroService = new CadastroFuncionarioService();
+		this.cadastroService = new FuncionarioService();
 	}
 
 	public void SalvarFuncionario() {

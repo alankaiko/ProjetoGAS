@@ -4,15 +4,15 @@ import java.util.Date;
 import java.util.List;
 
 import br.com.gsv.domain.Prontuario;
-import br.com.projeto.gsv.service.CadastroProntuarioService;
+import br.com.projeto.gsv.service.ProntuarioService;
 
 public class ProntuarioController {
 	private Prontuario prontuario;
-	private CadastroProntuarioService cadastroService;
+	private ProntuarioService cadastroService;
 
 	public ProntuarioController() {
 		this.prontuario = new Prontuario();
-		this.cadastroService = new CadastroProntuarioService();
+		this.cadastroService = new ProntuarioService();
 	}
 	
 	public void SalvarProntuario() {

@@ -7,7 +7,7 @@ import br.com.projeto.gsv.repository.FuncionarioRepository;
 
 
 
-public class CadastroFuncionarioService {
+public class FuncionarioService {
 	private FuncionarioRepository repositorio = new FuncionarioRepository();
 
 	

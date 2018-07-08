@@ -33,7 +33,7 @@ import br.com.gsv.domain.sub.EnumTipoAgendamento;
 public class Agenda {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "conv_id")
+	//@Column(name = "conv_id")
 	private Long id;
 
 	@Enumerated(EnumType.STRING)
