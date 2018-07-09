@@ -10,6 +10,7 @@ import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JSeparator;
 import javax.swing.JSpinner;
 import javax.swing.JTextField;
@@ -18,6 +19,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 
 import br.com.gsv.agenda.listeners.AgendaListener;
+import br.com.gsv.domain.sub.EnumStatusAgendamento;
 import br.com.gsv.domain.sub.EnumTipoAgendamento;
 
 import com.toedter.calendar.JDateChooser;
@@ -27,14 +29,17 @@ public class AgendaFormulario extends JDialog {
 
 	private JPanel panel = new JPanel();
 	private Container tela = getContentPane();
-	private JTextField TPaciente, TFixo, TCelular, TConvenio, TFuncionario, TRegistro;
-	private JLabel LAgendar, LAgendamento, LPaciente, LCelular, LFixo, LConvenio, LData, LHora, LObservacao, LRegistro, LFuncionario;
-	private JComboBox ComboAgendamento;
+	private JTextField TPaciente, TFixo, TCelular, TConvenio, TFuncionario, TRegistro, TEmail;
+	private JLabel LAgendar, LAgendamento, LPaciente, LCelular, LFixo, LConvenio, LData, LHora;
+	private JLabel LEmail, LObservacao, LRegistro, LFuncionario;
+	private JComboBox ComboAgendamento, ComboStatus;
 	private JButton BPesqPacient, BPesqFunc, BSalvar, BVoltar;
 	private JDateChooser TData;
 	private JSpinner THoraSpinner;
 	private JTextPane TObservacao;
 	private AgendaListener listener;
+	private JLabel Lstatus;
+	private JScrollPane scrollPane;
 	
 	
 	
@@ -48,7 +53,7 @@ public class AgendaFormulario extends JDialog {
 	}
 	
 	private void CriaTela(){
-		setBounds(100, 100, 540, 480);
+		setBounds(100, 100, 730, 465);
 		tela.setLayout(new BorderLayout());
 		panel.setBackground(Color.WHITE);
 		panel.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -70,18 +75,18 @@ public class AgendaFormulario extends JDialog {
 		
 		LAgendamento = new JLabel("TIPO DE AGENDAMENTO");
 		LAgendamento.setFont(new Font("Segoe UI", Font.PLAIN, 13));
-		LAgendamento.setBounds(310, 150, 155, 18);
+		LAgendamento.setBounds(310, 162, 155, 18);
 		
 		ComboAgendamento = new JComboBox(EnumTipoAgendamento.values());
-		ComboAgendamento.setBounds(310, 170, 204, 20);
+		ComboAgendamento.setBounds(310, 180, 204, 20);
 		
 		LPaciente = new JLabel("PACIENTE");
 		LPaciente.setFont(new Font("Segoe UI", Font.PLAIN, 13));
-		LPaciente.setBounds(10, 40, 155, 18);
+		LPaciente.setBounds(10, 35, 155, 18);
 		
 		TPaciente = new JTextField();
 		TPaciente.setBorder(new LineBorder(Color.BLACK));
-		TPaciente.setBounds(10, 60, 399, 20);
+		TPaciente.setBounds(10, 55, 399, 20);
 		TPaciente.setEditable(false);
 		TPaciente.setColumns(10);
 		
@@ -90,56 +95,61 @@ public class AgendaFormulario extends JDialog {
 		BPesqPacient.setFont(new Font("Segoe UI Light", Font.PLAIN, 10));
 		BPesqPacient.setBorder(null);
 		BPesqPacient.setBackground(Color.WHITE);
-		BPesqPacient.setBounds(419, 58, 95, 23);
+		BPesqPacient.setBounds(419, 53, 95, 23);
 		
 		LCelular = new JLabel("TEL. CELULAR");
 		LCelular.setFont(new Font("Segoe UI", Font.PLAIN, 13));
-		LCelular.setBounds(10, 88, 131, 18);
+		LCelular.setBounds(10, 82, 131, 18);
 		
 		LFixo = new JLabel("TEL. FIXO");
 		LFixo.setFont(new Font("Segoe UI", Font.PLAIN, 13));
-		LFixo.setBounds(164, 88, 69, 18);
+		LFixo.setBounds(164, 82, 69, 18);
 		
 		TFixo = new JTextField();
 		TFixo.setBorder(new LineBorder(Color.BLACK));
 		TFixo.setColumns(10);
-		TFixo.setBounds(164, 108, 125, 20);
+		TFixo.setBounds(164, 100, 125, 20);
 		
 		TCelular = new JTextField();
 		TCelular.setBorder(new LineBorder(Color.BLACK));
 		TCelular.setColumns(10);
-		TCelular.setBounds(10, 108, 131, 20);
+		TCelular.setBounds(10, 100, 131, 20);
 		
 		JSeparator separator_2 = new JSeparator();
-		separator_2.setBounds(10, 137, 504, 2);
+		separator_2.setBounds(10, 160, 504, 2);
 		panel.add(separator_2);
 		
 		LConvenio = new JLabel("CONVÊNIO");
 		LConvenio.setFont(new Font("Segoe UI", Font.PLAIN, 13));
-		LConvenio.setBounds(310, 88, 81, 18);
+		LConvenio.setBounds(310, 82, 81, 18);
 		
 		TConvenio = new JTextField();
 		TConvenio.setBorder(new LineBorder(Color.BLACK));
 		TConvenio.setEditable(false);
 		TConvenio.setColumns(10);
-		TConvenio.setBounds(310, 108, 204, 20);
+		TConvenio.setBounds(310, 100, 204, 20);
 		
 		TData = new JDateChooser();
 		TData.setBorder(new LineBorder(new Color(0, 0, 0)));
-		TData.setBounds(10, 170, 131, 20);
+		TData.setBounds(10, 180, 131, 20);
 		
-		LData = new JLabel("DATA");
+		LData = new JLabel("Agendar Data");
 		LData.setFont(new Font("Segoe UI", Font.PLAIN, 13));
-		LData.setBounds(10, 150, 43, 18);
+		LData.setBounds(10, 162, 125, 18);
+		
+		TEmail = new JTextField();
+		TEmail.setBorder(new LineBorder(Color.BLACK));
+		TEmail.setColumns(10);
+		TEmail.setBounds(10, 137, 399, 20);
 		
 		
-		LHora = new JLabel("HORA");
+		LHora = new JLabel("Agendar Hora");
 		LHora.setFont(new Font("Segoe UI", Font.PLAIN, 13));
-		LHora.setBounds(164, 150, 43, 18);
+		LHora.setBounds(164, 162, 125, 18);
 		
 		THoraSpinner = new JSpinner();
 		THoraSpinner.setBorder(new LineBorder(new Color(0, 0, 0)));
-		THoraSpinner.setBounds(164, 170, 125, 20);
+		THoraSpinner.setBounds(164, 180, 125, 20);
 		
 		TObservacao = new JTextPane();
 		TObservacao.setBorder(new LineBorder(new Color(0, 0, 0)));
@@ -147,46 +157,60 @@ public class AgendaFormulario extends JDialog {
 		
 		LObservacao = new JLabel("OBSERVAÇÃO");
 		LObservacao.setFont(new Font("Segoe UI", Font.PLAIN, 13));
-		LObservacao.setBounds(10, 307, 95, 18);
+		LObservacao.setBounds(10, 305, 95, 18);
 		
-		LFuncionario = new JLabel("FUNCIONÁRIO");
+		LFuncionario = new JLabel("Atendido Por");
 		LFuncionario.setFont(new Font("Segoe UI", Font.PLAIN, 13));
-		LFuncionario.setBounds(10, 209, 109, 18);
+		LFuncionario.setBounds(10, 210, 109, 18);
 		
 		TFuncionario = new JTextField();
 		TFuncionario.setBorder(new LineBorder(Color.BLACK));
 		TFuncionario.setEditable(false);
 		TFuncionario.setColumns(10);
-		TFuncionario.setBounds(10, 227, 399, 20);
+		TFuncionario.setBounds(10, 230, 399, 20);
 		
 		BPesqFunc = new JButton("Pesquisar");
 		BPesqFunc.setIcon(new ImageIcon(AgendaFormulario.class.getResource("/imagens/icons8-pesquisar-15.png")));
 		BPesqFunc.setFont(new Font("Segoe UI Light", Font.PLAIN, 10));
 		BPesqFunc.setBorder(null);
 		BPesqFunc.setBackground(Color.WHITE);
-		BPesqFunc.setBounds(416, 226, 98, 23);
+		BPesqFunc.setBounds(416, 228, 98, 23);
 		
 		LRegistro = new JLabel("REGISTRO");
 		LRegistro.setFont(new Font("Segoe UI", Font.PLAIN, 13));
-		LRegistro.setBounds(10, 250, 75, 18);
+		LRegistro.setBounds(10, 255, 75, 18);
 		
 		TRegistro = new JTextField();
 		TRegistro.setColumns(10);
-		TRegistro.setBounds(10, 268, 155, 20);
+		TRegistro.setBounds(10, 275, 155, 20);
 		
 		JSeparator separator_1 = new JSeparator();
-		separator_1.setBounds(10, 196, 504, 2);
+		separator_1.setBounds(10, 205, 504, 2);
 		panel.add(separator_1);
 		
 		JSeparator separator_3 = new JSeparator();
-		separator_3.setBounds(10, 299, 504, 2);
+		separator_3.setBounds(10, 300, 504, 2);
 		panel.add(separator_3);
 		
+		Lstatus = new JLabel("Status");
+		Lstatus.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+		Lstatus.setBounds(298, 12, 44, 18);
+		
+		ComboStatus = new JComboBox(EnumStatusAgendamento.values());
+		ComboStatus.setBounds(338, 9, 176, 20);
+		
+		LEmail = new JLabel("Email");
+		LEmail.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+		LEmail.setBounds(10, 120, 69, 18);
+		
+		scrollPane = new JScrollPane();
+		scrollPane.setBounds(519, 0, 203, 435);
+		
 		BSalvar = new JButton("Salvar");
-		BSalvar.setBounds(159, 408, 89, 23);
+		BSalvar.setBounds(164, 403, 89, 23);
 		
 		BVoltar = new JButton("Voltar");
-		BVoltar.setBounds(258, 408, 89, 23);
+		BVoltar.setBounds(263, 403, 89, 23);
 		
 	}
 	
@@ -216,6 +240,11 @@ public class AgendaFormulario extends JDialog {
 		panel.add(TRegistro);
 		panel.add(BSalvar);
 		panel.add(BVoltar);
+		panel.add(TEmail);
+		panel.add(LEmail);
+		panel.add(Lstatus);
+		panel.add(ComboStatus);
+		panel.add(scrollPane);
 	}
 
 
@@ -493,5 +522,22 @@ public class AgendaFormulario extends JDialog {
 	public void setListener(AgendaListener listener) {
 		this.listener = listener;
 	}
+
+	public JTextField getTEmail() {
+		return TEmail;
+	}
+
+	public void setTEmail(JTextField tEmail) {
+		TEmail = tEmail;
+	}
+
+	public JComboBox getComboStatus() {
+		return ComboStatus;
+	}
+
+	public void setComboStatus(JComboBox comboStatus) {
+		ComboStatus = comboStatus;
+	}
+	
 	
 }

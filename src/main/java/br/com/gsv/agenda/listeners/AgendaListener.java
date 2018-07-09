@@ -20,6 +20,7 @@ import br.com.gsv.agenda.formulario.AgendaFormulario;
 import br.com.gsv.domain.Agenda;
 import br.com.gsv.domain.Funcionario;
 import br.com.gsv.domain.Paciente;
+import br.com.gsv.domain.sub.EnumStatusAgendamento;
 import br.com.gsv.domain.sub.EnumTipoAgendamento;
 import br.com.gsv.formularios.BuscarFuncionarioDialog;
 import br.com.gsv.formularios.BuscarPacienteDialog;
@@ -66,6 +67,7 @@ public class AgendaListener implements ActionListener, PropertyChangeListener{
 		this.agenda.setData(this.formulario.getTData().getDate());
 		this.agenda.setHoraDesejada( this.formulario.getTHoraSpinner().getValue().toString());
 		this.agenda.setObservacao(this.formulario.getTObservacao().getText());
+		this.agenda.setStatusAgendamento((EnumStatusAgendamento) this.formulario.getComboStatus().getSelectedItem());
 	}
 	
 	
@@ -77,9 +79,10 @@ public class AgendaListener implements ActionListener, PropertyChangeListener{
 		this.formulario.getTCelular().setText(this.agenda.getPaciente().getContato().get(0).getCelular());
 		this.formulario.getTFixo().setText(this.agenda.getPaciente().getContato().get(0).getTelefone());
 		this.formulario.getTConvenio().setText(this.agenda.getPaciente().getConvenio().getNome());
+		this.formulario.getTEmail().setText(this.agenda.getPaciente().getContato().get(0).getEmail());
 		this.formulario.getTFuncionario().setText(this.agenda.getFuncionario().getNome());
 		this.formulario.getTRegistro().setText(AlteraConcatenarRegistro());
-		
+		this.formulario.getComboStatus().setSelectedItem(this.agenda.getStatusAgendamento().values());
 		this.formulario.getComboAgendamento().setSelectedItem(this.agenda.getTipoAgendamento().values());
 		this.formulario.getTData().setDate(this.agenda.getData());
 		this.formulario.getTObservacao().setText(this.agenda.getObservacao());

@@ -18,6 +18,7 @@ import javax.swing.KeyStroke;
 import javax.swing.ListSelectionModel;
 
 import br.com.gsv.agenda.formulario.AgendaFormulario;
+import br.com.gsv.agenda.formulario.ExcluirAgendaDialog;
 import br.com.gsv.agenda.formulario.GerenciarAgenda;
 import br.com.gsv.domain.Agenda;
 import br.com.gsv.tabelas.TabelaDeAgenda;
@@ -116,12 +117,12 @@ public class GerenciarAgendaListener implements ActionListener, PropertyChangeLi
 	}
 	
 	private void BotaoRemovendo(){
-		AgendaController controller = new AgendaController();
 		Agenda agenda = SelecionarDaLista(SelecionaLinha());
-
+		
 		if(!(agenda == null)){
-			controller.setAgenda(agenda);
-			controller.RemoverAgenda();
+			ExcluirAgendaDialog dialog = new ExcluirAgendaDialog(agenda);
+			dialog.setLocationRelativeTo(this.gerenciamento.getTela());
+			dialog.setVisible(true);
 		}
 		
 		getAtualizaTabela();

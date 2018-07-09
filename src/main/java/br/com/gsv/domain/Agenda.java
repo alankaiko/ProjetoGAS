@@ -21,6 +21,7 @@ import javax.persistence.TemporalType;
 
 import org.hibernate.annotations.Cascade;
 
+import br.com.gsv.domain.sub.EnumStatusAgendamento;
 import br.com.gsv.domain.sub.EnumTipoAgendamento;
 
 @Entity
@@ -33,8 +34,11 @@ import br.com.gsv.domain.sub.EnumTipoAgendamento;
 public class Agenda {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	//@Column(name = "conv_id")
+	@Column(name = "conv_id")
 	private Long id;
+	
+	@Enumerated(EnumType.STRING)
+	private EnumStatusAgendamento statusAgendamento;
 
 	@Enumerated(EnumType.STRING)
 	private EnumTipoAgendamento tipoAgendamento;
@@ -116,6 +120,14 @@ public class Agenda {
 
 	public void setHoraDesejada(String horaDesejada) {
 		this.horaDesejada = horaDesejada;
+	}
+	
+	public EnumStatusAgendamento getStatusAgendamento() {
+		return statusAgendamento;
+	}
+	
+	public void setStatusAgendamento(EnumStatusAgendamento statusAgendamento) {
+		this.statusAgendamento = statusAgendamento;
 	}
 
 	@Override

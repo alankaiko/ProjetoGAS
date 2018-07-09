@@ -1,11 +1,11 @@
 package br.com.gsv.domain.sub;
 
-public enum EnumEvolucaoPulso {
-	BRAQUICARDICO("Braquicárdico"), NORMOCARDICO("Normocárdico"), TAQUICARDICO("Taquicárdico");
+public enum EnumStatusAgendamento {
+	STATUS(" "),ATENDIDO("Atendido"), ATENDIMENTO("Em Atendimento"), AGENDADO("Agendado"), CANCELADO("Cancelado");
 	
 	private String valor;
 	
-	private EnumEvolucaoPulso(String valor) {
+	private EnumStatusAgendamento(String valor) {
 		this.valor = valor;
 	}
 
@@ -21,5 +21,4 @@ public enum EnumEvolucaoPulso {
 	public String toString() {
 		return valor;
 	}
-	
 }
