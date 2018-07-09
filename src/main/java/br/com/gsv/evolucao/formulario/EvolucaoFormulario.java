@@ -52,18 +52,6 @@ public class EvolucaoFormulario extends JDialog {
 	private EvolucaoListener listener;
 
 	
-	
-	public static void main(String[] args) {
-		try {
-			EvolucaoFormulario dialog = new EvolucaoFormulario();
-			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-			dialog.setVisible(true);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-
-
 
 	public EvolucaoFormulario() {
 		setBounds(100, 100, 680, 460);
@@ -109,7 +97,6 @@ public class EvolucaoFormulario extends JDialog {
 		JData.setBackground(Color.WHITE);
 		JData.setBounds(454, 11, 100, 20);
 		JData.setEditable(false);
-		JData.setText(ConverteDadosUtil.RetornaDataAtual());
 		abaDadosGerais.add(JData);
 		
 		LDiagnostico = new JLabel("Diagnóstico Geral");

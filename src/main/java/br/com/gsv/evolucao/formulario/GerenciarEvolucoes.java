@@ -29,17 +29,6 @@ public class GerenciarEvolucoes extends JDialog {
 	
 
 	
-	public static void main(String[] args) {
-		try {
-			GerenciarEvolucoes dialog = new GerenciarEvolucoes();
-			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-			dialog.setVisible(true);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-
-	
 	public GerenciarEvolucoes() {
 		setBounds(100, 100, 680, 460);
 		tela.setLayout(new BorderLayout());
@@ -57,9 +46,9 @@ public class GerenciarEvolucoes extends JDialog {
 	}
 	
 	private void CriaComponentes(){
-		LHistorico = new JLabel("Evolução Listas");
+		LHistorico = new JLabel("Evolução Listas Por Cliente");
 		LHistorico.setFont(new Font("Segoe UI Semibold", Font.BOLD, 18));
-		LHistorico.setBounds(10, 11, 212, 25);
+		LHistorico.setBounds(10, 11, 274, 25);
 		panel.add(LHistorico);
 		
 		LPaciente = new JLabel("Paciente");

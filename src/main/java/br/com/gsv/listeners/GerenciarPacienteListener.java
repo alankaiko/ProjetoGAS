@@ -11,6 +11,8 @@ import javax.swing.KeyStroke;
 import javax.swing.ListSelectionModel;
 
 import br.com.gsv.domain.Funcionario;
+import br.com.gsv.domain.Paciente;
+import br.com.gsv.evolucao.formulario.GerenciarEvolucoes;
 import br.com.gsv.formularios.BuscarPacienteDialog;
 import br.com.gsv.formularios.CodigoPacienteDialog;
 import br.com.gsv.formularios.DetalhesPacienteDialog;
@@ -42,6 +44,7 @@ public class GerenciarPacienteListener implements ActionListener{
 		gerenciamento.getIncluir().addActionListener(this);
 		gerenciamento.getExcluir().addActionListener(this);
 		gerenciamento.getFim().addActionListener(this);	
+		gerenciamento.getEvolucao().addActionListener(this);
 	}
 
 	
@@ -95,6 +98,10 @@ public class GerenciarPacienteListener implements ActionListener{
 		if(event.getSource().equals(gerenciamento.getFim())){
 			this.gerenciamento.dispose();
 		}
+		
+		if(event.getSource().equals(gerenciamento.getEvolucao())){
+			ExecutaEvolucao();
+		}
 	}
 	
 	
@@ -111,6 +118,22 @@ public class GerenciarPacienteListener implements ActionListener{
 		Long id = (Long) this.gerenciamento.getTable().getValueAt(linha,0);
 		
 		return id;
+	}
+	
+	
+	private void ExecutaEvolucao(){
+		Paciente paciente = new Paciente();
+		PacienteController controller = new PacienteController();
+		
+		paciente = controller.BuscarPelaID(SelecionaLinha());
+		GerenciarEvolucoes evolucao = new GerenciarEvolucoes();
+		
+		evolucao.getListener().setPaciente(paciente);
+		evolucao.getListener().setFuncionario(this.funcionario);
+		evolucao.getListener().CriaTabela();
+		evolucao.getListener().InsereDados();
+		evolucao.setLocationRelativeTo(this.gerenciamento.getTela());
+		evolucao.setVisible(true);
 	}
 	
 	private void ExecutaInclusao(){

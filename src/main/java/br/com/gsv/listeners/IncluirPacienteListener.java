@@ -19,7 +19,6 @@ import br.com.gsv.domain.Convenio;
 import br.com.gsv.domain.Paciente;
 import br.com.gsv.domain.sub.Contato_cli;
 import br.com.gsv.domain.sub.Endereco_cli;
-import br.com.gsv.evolucao.formulario.EvolucaoFormulario;
 import br.com.gsv.evolucao.formulario.GerenciarEvolucoes;
 import br.com.gsv.formularios.IncluirConvenioForm;
 import br.com.gsv.formularios.IncluirPacienteForm;
@@ -70,7 +69,6 @@ public class IncluirPacienteListener implements ActionListener{
 	private void AdicionarListener(){
 		formulario.getBTGravar().addActionListener(this);
 		formulario.getBTCancelar().addActionListener(this);
-		formulario.getBEvolucao().addActionListener(this);
 	}
 	
 	
@@ -169,8 +167,6 @@ public class IncluirPacienteListener implements ActionListener{
 			this.formulario.dispose();
 		}else if(event.getSource().equals(this.formulario.getBTCancelar())){
 			this.formulario.dispose();
-		}else if(event.getSource().equals(this.formulario.getBEvolucao())){
-			AbrirEvolucao();
 		}else{
 			MensagemPainelUtil.CampoVazio("Nome, Cpf e Rg devem ser preenchidos");
 		}

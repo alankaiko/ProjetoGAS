@@ -40,6 +40,7 @@ public class EvolucaoListener implements ActionListener{
 	
 	public void IniciaObjetos(){
 		this.evolucao = new Evolucao();
+		this.formulario.getJData().setText(ConverteDadosUtil.RetornaDataAtual());
 	}
 	
 	private void AdicionaListener(){

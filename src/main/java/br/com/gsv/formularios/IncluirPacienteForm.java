@@ -31,7 +31,7 @@ public class IncluirPacienteForm extends JDialog {
 	private JTextField TId, TNome, TRg, TObservacao, TLogradouro, TComplemento,TNumero;
 	private JTextField TBairro, TCidade, TEmail, TTelefone, TCelular;
 	private JFormattedTextField JCpf, JDataNasc, JDataCadastro, JCep;
-	private JButton BTGravar, BTCancelar, BEvolucao;
+	private JButton BTGravar, BTCancelar;
 	private JComboBox ComboEstado, ComboConvenio;
 	private SomenteNumerosUtil soNumeros;
 	
@@ -238,10 +238,6 @@ public class IncluirPacienteForm extends JDialog {
 		BTCancelar.setFont(new Font("Calibri", Font.PLAIN, 12));
 		BTCancelar.setBounds(524, 398, 89, 23);
 		
-		BEvolucao = new JButton();
-		BEvolucao.setText("Evolução");
-		BEvolucao.setFont(new Font("Calibri", Font.PLAIN, 12));
-		BEvolucao.setBounds(15, 398, 89, 23);
 	}
 
 	
@@ -289,7 +285,6 @@ public class IncluirPacienteForm extends JDialog {
 		tela.add(this.ComboConvenio);
 		tela.add(this.LConvenio);
 		tela.add(this.LEstado);
-		tela.add(BEvolucao);
 	}
 
 	public IncluirPacienteListener getListener() {
@@ -654,14 +649,4 @@ public class IncluirPacienteForm extends JDialog {
 	}
 
 
-	public JButton getBEvolucao() {
-		return BEvolucao;
-	}
-
-
-	public void setBEvolucao(JButton bEvolucao) {
-		BEvolucao = bEvolucao;
-	}
-	
-	
 }
