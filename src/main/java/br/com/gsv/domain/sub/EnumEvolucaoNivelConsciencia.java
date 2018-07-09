@@ -17,4 +17,9 @@ public enum EnumEvolucaoNivelConsciencia {
 		this.valor = valor;
 	}
 	
+	@Override
+	public String toString() {
+		return valor;
+	}
+	
 }

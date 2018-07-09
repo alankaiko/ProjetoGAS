@@ -15,17 +15,24 @@ import javax.swing.JSeparator;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
+import br.com.gsv.domain.sub.EnumEvolucaoEstGeral;
+import br.com.gsv.domain.sub.EnumEvolucaoNivOrientacao;
+import br.com.gsv.domain.sub.EnumEvolucaoNivelConsciencia;
+import br.com.gsv.domain.sub.EnumEvolucaoPressao;
+import br.com.gsv.domain.sub.EnumEvolucaoPulso;
+import br.com.gsv.domain.sub.EnumEvolucaoTemperatura;
 import br.com.gsv.evolucao.listeners.EvolucaoListener;
 import br.com.gsv.util.ConverteDadosUtil;
 
 import javax.swing.JButton;
+import java.awt.Color;
 
 public class EvolucaoFormulario extends JDialog {
 	private JPanel panel = new JPanel();
 	private Container tela = getContentPane();
 	private JButton BGravar,BVoltar;
 	private JComboBox ComboEstGeral,ComboNivConsciencia,ComboNivOrientacao,ComboTemperatura,ComboPressao,ComboPulso;
-	private JTextField TQueixaPaciente, TTemperatura, TPressao, TPulso, TData;
+	private JTextField TQueixaPaciente, TTemperatura, TPressao, TPulso;
 	private JFormattedTextField JData;
 	private JLabel LNivelConsciencia,LEstGeral,LNivelOrientacao,LQueixaPaciente, LPressao, LData;
 	private JLabel LSinaisVitais,LRespiracao,LPulsacao,LTemperatura,LGraus,LBpm,LMmhg, LEvolucao;
@@ -67,7 +74,8 @@ public class EvolucaoFormulario extends JDialog {
 		LEstGeral.setBounds(10, 44, 120, 14);
 		panel.add(LEstGeral);
 		
-		ComboEstGeral = new JComboBox();
+		ComboEstGeral = new JComboBox(EnumEvolucaoEstGeral.values());
+		ComboEstGeral.setBackground(Color.WHITE);
 		ComboEstGeral.setBounds(140, 42, 180, 20);
 		panel.add(ComboEstGeral);
 		
@@ -76,7 +84,8 @@ public class EvolucaoFormulario extends JDialog {
 		LNivelConsciencia.setBounds(10, 71, 120, 14);
 		panel.add(LNivelConsciencia);
 		
-		ComboNivConsciencia = new JComboBox();
+		ComboNivConsciencia = new JComboBox(EnumEvolucaoNivelConsciencia.values());
+		ComboNivConsciencia.setBackground(Color.WHITE);
 		ComboNivConsciencia.setBounds(140, 69, 180, 20);
 		panel.add(ComboNivConsciencia);
 		
@@ -85,7 +94,8 @@ public class EvolucaoFormulario extends JDialog {
 		LNivelOrientacao.setBounds(10, 98, 120, 14);
 		panel.add(LNivelOrientacao);
 		
-		ComboNivOrientacao = new JComboBox();
+		ComboNivOrientacao = new JComboBox(EnumEvolucaoNivOrientacao.values());
+		ComboNivOrientacao.setBackground(Color.WHITE);
 		ComboNivOrientacao.setBounds(140, 96, 180, 20);
 		panel.add(ComboNivOrientacao);
 		
@@ -124,7 +134,8 @@ public class EvolucaoFormulario extends JDialog {
 		LTemperatura.setBounds(10, 336, 120, 14);
 		panel.add(LTemperatura);
 		
-		ComboTemperatura = new JComboBox();
+		ComboTemperatura = new JComboBox(EnumEvolucaoTemperatura.values());
+		ComboTemperatura.setBackground(Color.WHITE);
 		ComboTemperatura.setBounds(140, 334, 180, 20);
 		panel.add(ComboTemperatura);
 		
@@ -137,7 +148,8 @@ public class EvolucaoFormulario extends JDialog {
 		LGraus.setBounds(430, 337, 46, 14);
 		panel.add(LGraus);
 		
-		ComboPressao = new JComboBox();
+		ComboPressao = new JComboBox(EnumEvolucaoPressao.values());
+		ComboPressao.setBackground(Color.WHITE);
 		ComboPressao.setBounds(140, 298, 180, 20);
 		panel.add(ComboPressao);
 		
@@ -150,7 +162,8 @@ public class EvolucaoFormulario extends JDialog {
 		separator.setBounds(10, 157, 546, 2);
 		panel.add(separator);
 		
-		ComboPulso = new JComboBox();
+		ComboPulso = new JComboBox(EnumEvolucaoPulso.values());
+		ComboPulso.setBackground(Color.WHITE);
 		ComboPulso.setBounds(140, 269, 180, 20);
 		panel.add(ComboPulso);
 		
@@ -188,15 +201,14 @@ public class EvolucaoFormulario extends JDialog {
 		panel.add(LMmhg);
 		
 		LData = new JLabel("Data Inclusão");
-		LData.setBounds(345, 13, 77, 14);
+		LData.setBounds(330, 13, 77, 14);
 		panel.add(LData);
 		
-		TData = new JTextField();
-		TData.setBounds(417, 10, 100, 20);
-		panel.add(TData);
-		TData.setColumns(10);
-		
 		JData= new JFormattedTextField(ConverteDadosUtil.FormataData());
+		JData.setBackground(Color.WHITE);
+		JData.setBounds(417, 10, 100, 20);
+		JData.setEditable(false);
+		JData.setText(ConverteDadosUtil.RetornaDataAtual());
 		panel.add(this.JData);
 		
 		BGravar = new JButton("Gravar");
@@ -326,16 +338,6 @@ public class EvolucaoFormulario extends JDialog {
 
 	public void setTPulso(JTextField tPulso) {
 		TPulso = tPulso;
-	}
-
-
-	public JTextField getTData() {
-		return TData;
-	}
-
-
-	public void setTData(JTextField tData) {
-		TData = tData;
 	}
 
 

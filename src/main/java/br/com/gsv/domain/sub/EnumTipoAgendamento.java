@@ -19,6 +19,9 @@ public enum EnumTipoAgendamento {
 	}
 	
 	
-	
+	@Override
+	public String toString() {
+		return valor;
+	}
 	
 }

@@ -14,14 +14,17 @@ import br.com.gsv.evolucao.formulario.EvolucaoFormulario;
 import br.com.gsv.util.ConverteDadosUtil;
 import br.com.gsv.util.ValidaCampos;
 import br.com.projeto.gsv.controller.AgendaController;
+import br.com.projeto.gsv.controller.EvolucaoController;
 
 public class EvolucaoListener implements ActionListener{
 	private EvolucaoFormulario formulario;
 	private Evolucao evolucao;
+	private EvolucaoController controller;
 	
 	public EvolucaoListener(EvolucaoFormulario formulario) {
 		this.formulario = formulario;
 		AdicionaListener();
+		IniciaObjetos();
 	}
 	
 	public void IniciaObjetos(){
@@ -94,10 +97,9 @@ public class EvolucaoListener implements ActionListener{
 	private void BotaoSalvando(){
 		FormToEvolucao();
 		
-		/*controller = new AgendaController();
-		controller.setAgenda(agenda);
-		controller.SalvarAgenda();
-		*/
+		controller = new EvolucaoController();
+		controller.setEvolucao(this.evolucao);
+		controller.Salvar();
 		this.formulario.dispose();
 	}
 	

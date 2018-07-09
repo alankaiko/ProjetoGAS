@@ -1,7 +1,7 @@
 package br.com.gsv.domain.sub;
 
 public enum EnumEvolucaoPulso {
-	BRAQUICARDICO("Braquicárdico"), NORMOCARDICO("Normocárdico"), TAQUICARDICO("Taquicárdico");
+BRAQUICARDICO("Braquicárdico"), NORMOCARDICO("Normocárdico"), TAQUICARDICO("Taquicárdico");
 	
 	private String valor;
 	
@@ -15,6 +15,11 @@ public enum EnumEvolucaoPulso {
 
 	public void setValor(String valor) {
 		this.valor = valor;
+	}
+	
+	@Override
+	public String toString() {
+		return valor;
 	}
 	
 }

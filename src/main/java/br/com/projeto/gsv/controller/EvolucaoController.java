@@ -12,12 +12,12 @@ public class EvolucaoController {
 		this.service = new EvolucaoService();
 	}
 	
-	public void Salvar(Evolucao evolucao){
-		this.service.Salvando(evolucao);
+	public void Salvar(){
+		this.service.Salvando(this.evolucao);
 	}
 	
-	public void Remover(Evolucao evolucao){
-		this.service.Remover(evolucao);
+	public void Remover(){
+		this.service.Remover(this.evolucao);
 	}
 	
 	
