@@ -2,12 +2,16 @@ package br.com.gsv.domain;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -50,6 +54,15 @@ public class Evolucao {
 	private String pressao;
 	private String pulso;
 	private String radioRespiracao;
+	private String tempoInternacao;
+	private String textoDiagnostico;
+	private String textoItensRelacionados;
+	private String textoSonda;
+	private String textoCurativo;
+	
+	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.DETACH)
+	@JoinColumn(name = "tbl_funcionario_id", referencedColumnName = "fun_id")
+	private Funcionario funcionario;
 	
 	@Temporal(TemporalType.DATE)
 	private Date data;
@@ -61,6 +74,12 @@ public class Evolucao {
 		pulso = new String();
 		radioRespiracao = new String();
 		data = new Date();
+		tempoInternacao = new String();
+		textoDiagnostico = new String();
+		textoItensRelacionados = new String();
+		textoSonda = new String();
+		textoCurativo = new String();
+		funcionario = new Funcionario();
 	}
 
 	public EnumEvolucaoEstGeral getEnumEstadoGeral() {
@@ -168,5 +187,55 @@ public class Evolucao {
 	public void setData(Date data) {
 		this.data = data;
 	}
+
+	public String getTempoInternacao() {
+		return tempoInternacao;
+	}
+
+	public void setTempoInternacao(String tempoInternacao) {
+		this.tempoInternacao = tempoInternacao;
+	}
+
+	public String getTextoDiagnostico() {
+		return textoDiagnostico;
+	}
+
+	public void setTextoDiagnostico(String textoDiagnostico) {
+		this.textoDiagnostico = textoDiagnostico;
+	}
+
+	public String getTextoItensRelacionados() {
+		return textoItensRelacionados;
+	}
+
+	public void setTextoItensRelacionados(String textoItensRelacionados) {
+		this.textoItensRelacionados = textoItensRelacionados;
+	}
+
+	public String getTextoSonda() {
+		return textoSonda;
+	}
+
+	public void setTextoSonda(String textoSonda) {
+		this.textoSonda = textoSonda;
+	}
+
+	public String getTextoCurativo() {
+		return textoCurativo;
+	}
+
+	public void setTextoCurativo(String textoCurativo) {
+		this.textoCurativo = textoCurativo;
+	}
+
+	public Funcionario getFuncionario() {
+		return funcionario;
+	}
+
+	public void setFuncionario(Funcionario funcionario) {
+		this.funcionario = funcionario;
+	}
+	
+	
 
 }

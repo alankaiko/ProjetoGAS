@@ -1,7 +1,7 @@
 package br.com.gsv.domain.sub;
 
 public enum EnumEvolucaoNivOrientacao {
-	ORIENTADO("Orientado"), CONFUSO("Confuso"), DESORIENTADO("Desorientado");
+	STATUS(" "),ORIENTADO("Orientado"), CONFUSO("Confuso"), DESORIENTADO("Desorientado");
 	
 	private String valor;
 	

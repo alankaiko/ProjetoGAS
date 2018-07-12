@@ -1,7 +1,7 @@
 package br.com.gsv.domain.sub;
 
 public enum EnumEvolucaoNivelConsciencia {
-	CONSCIENTE("Consciente"), INCONSCIENTE("Inconsciente");
+	STATUS(" "),CONSCIENTE("Consciente"), INCONSCIENTE("Inconsciente");
 	
 	private String valor;
 	

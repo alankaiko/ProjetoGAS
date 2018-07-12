@@ -1,7 +1,7 @@
 package br.com.gsv.domain.sub;
 
 public enum EnumEvolucaoEstGeral {
-	BOM("Bom"), REGULAR("Regular"), DECAIDO("Decaído"), GRAVE("Grave"), GRAVISSIMO("Gravíssimo");
+	STATUS(" "),BOM("Bom"), REGULAR("Regular"), DECAIDO("Decaído"), GRAVE("Grave"), GRAVISSIMO("Gravíssimo");
 	
 	private String valor;
 	

@@ -1,7 +1,7 @@
 package br.com.gsv.domain.sub;
 
 public enum EnumEvolucaoPressao {
-	HIPOTENSO("Hipotenso"), NORMOTENSO("Normotenso"), NORMOTENSO_LIMITROFE("Normotenso Limitrofe"),
+	STATUS(" "),HIPOTENSO("Hipotenso"), NORMOTENSO("Normotenso"), NORMOTENSO_LIMITROFE("Normotenso Limitrofe"),
 	HIPERTENSO_LEVE("Hipertenso Leve"), HIPERTENSO_MODERADO("Hipertenso Moderado"), HIPERTENSO_GRAVE("Hipertenso Grave");
 	
 	private String valor;

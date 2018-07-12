@@ -1,7 +1,7 @@
 package br.com.gsv.domain.sub;
 
 public enum EnumEvolucaoPulso {
-	BRAQUICARDICO("Braquicárdico"), NORMOCARDICO("Normocárdico"), TAQUICARDICO("Taquicárdico");
+	STATUS(" "),BRAQUICARDICO("Braquicárdico"), NORMOCARDICO("Normocárdico"), TAQUICARDICO("Taquicárdico");
 	
 	private String valor;
 	

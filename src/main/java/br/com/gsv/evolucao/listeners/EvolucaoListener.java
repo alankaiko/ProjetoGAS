@@ -12,8 +12,6 @@ import br.com.gsv.domain.sub.EnumEvolucaoPulso;
 import br.com.gsv.domain.sub.EnumEvolucaoTemperatura;
 import br.com.gsv.evolucao.formulario.EvolucaoFormulario;
 import br.com.gsv.util.ConverteDadosUtil;
-import br.com.gsv.util.ValidaCampos;
-import br.com.projeto.gsv.controller.AgendaController;
 import br.com.projeto.gsv.controller.EvolucaoController;
 
 public class EvolucaoListener implements ActionListener{
@@ -44,11 +42,17 @@ public class EvolucaoListener implements ActionListener{
 		this.evolucao.setEnumTemperatura((EnumEvolucaoTemperatura) this.formulario.getComboTemperatura().getSelectedItem());
 		this.evolucao.setEnumPressao((EnumEvolucaoPressao) this.formulario.getComboPressao().getSelectedItem());
 		this.evolucao.setEnumPulso((EnumEvolucaoPulso) this.formulario.getComboPulso().getSelectedItem());
-		this.evolucao.setQueixaPaciente(this.formulario.getTQueixaPaciente().getText());
 		this.evolucao.setTemperatura(this.formulario.getTTemperatura().getText());
 		this.evolucao.setPressao(this.formulario.getTPressao().getText());
 		this.evolucao.setPulso(this.formulario.getTPulso().getText());
 		this.evolucao.setData(ConverteDadosUtil.TransformandoEmDate(this.formulario.getJData().getText()));
+		this.evolucao.setTempoInternacao(this.formulario.getTTempo().getText());
+		this.evolucao.setTextoDiagnostico(this.formulario.getTdiagnostico().getText());
+		this.evolucao.setTextoItensRelacionados(this.formulario.getTextoItensRelacionados().getText());
+		this.evolucao.setTextoSonda(this.formulario.getTextoSondas().getText());
+		this.evolucao.setTextoCurativo(this.formulario.getTextoCurativo().getText());
+		
+		PegarRadioButtons();
 	}
 	
 	private void PegarRadioButtons(){
@@ -67,6 +71,7 @@ public class EvolucaoListener implements ActionListener{
 	
 	
 	/*-------------------------------------------------ALTERAR OBJETO------------------------------------------------*/
+	@SuppressWarnings("static-access")
 	public void EditToEvolucao(){
 		this.formulario.getComboEstGeral().setSelectedItem(this.evolucao.getEnumEstadoGeral().values());
 		this.formulario.getComboNivConsciencia().setSelectedItem(this.evolucao.getEnumNivelConsciencia().values());
@@ -74,11 +79,15 @@ public class EvolucaoListener implements ActionListener{
 		this.formulario.getComboTemperatura().setSelectedItem(this.evolucao.getEnumTemperatura().values());
 		this.formulario.getComboPressao().setSelectedItem(this.evolucao.getEnumPressao().values());
 		this.formulario.getComboPulso().setSelectedItem(this.evolucao.getEnumPulso().values());
-		this.formulario.getTQueixaPaciente().setText(this.evolucao.getQueixaPaciente());
 		this.formulario.getTTemperatura().setText(this.evolucao.getTemperatura());
 		this.formulario.getTPressao().setText(this.evolucao.getPressao());
 		this.formulario.getTPulso().setText(this.evolucao.getPulso());
 		this.formulario.getJData().setText(ConverteDadosUtil.TransformandoEmString(this.evolucao.getData()));
+		this.formulario.getTTempo().setText(this.evolucao.getTempoInternacao());
+		this.formulario.getTdiagnostico().setText(this.evolucao.getTextoDiagnostico());
+		this.formulario.getTextoItensRelacionados().setText(this.evolucao.getTextoItensRelacionados());
+		this.formulario.getTextoSondas().setText(this.evolucao.getTextoSonda());
+		this.formulario.getTextoCurativo().setText(this.evolucao.getTextoCurativo());
 	}
 	
 	

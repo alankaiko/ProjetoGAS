@@ -1,7 +1,7 @@
 package br.com.gsv.domain.sub;
 
 public enum EnumEvolucaoTemperatura {
-	HIPOTERMIA("Hipotermia"), NORMOTERMIA("Normotermia"), SUBFEBRIL("Subfebril"), 
+	STATUS(" "),HIPOTERMIA("Hipotermia"), NORMOTERMIA("Normotermia"), SUBFEBRIL("Subfebril"), 
 	FEBRE("Febre"), PIREXIA("Pirexia"), HIPERPIREXIA("Hiperpirexia");
 	
 	private String valor;
