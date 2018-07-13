@@ -12,6 +12,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -25,6 +27,9 @@ import br.com.gsv.domain.sub.EnumEvolucaoTemperatura;
 
 @Table
 @Entity
+@NamedQueries({ 
+	@NamedQuery(name = "Evolucao.listar", query = "SELECT evolucao FROM Evolucao evolucao order by data")
+})
 public class Evolucao {
 	
 	@Id
@@ -61,6 +66,10 @@ public class Evolucao {
 	private String textoCurativo;
 	
 	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.DETACH)
+	@JoinColumn(name = "tbl_funcionario_id", referencedColumnName = "id")
+	private Paciente paciente;
+	
+	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.DETACH)
 	@JoinColumn(name = "tbl_funcionario_id", referencedColumnName = "fun_id")
 	private Funcionario funcionario;
 	
@@ -80,6 +89,7 @@ public class Evolucao {
 		textoSonda = new String();
 		textoCurativo = new String();
 		funcionario = new Funcionario();
+		paciente = new Paciente();
 	}
 
 	public EnumEvolucaoEstGeral getEnumEstadoGeral() {
@@ -234,6 +244,14 @@ public class Evolucao {
 
 	public void setFuncionario(Funcionario funcionario) {
 		this.funcionario = funcionario;
+	}
+
+	public Paciente getPaciente() {
+		return paciente;
+	}
+
+	public void setPaciente(Paciente paciente) {
+		this.paciente = paciente;
 	}
 	
 	

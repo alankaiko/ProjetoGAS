@@ -1,5 +1,7 @@
 package br.com.projeto.gsv.service;
 
+import java.util.List;
+
 import br.com.gsv.domain.Evolucao;
 import br.com.projeto.gsv.repository.EvolucaoRepository;
 
@@ -12,5 +14,9 @@ public class EvolucaoService {
 	
 	public void Remover(Evolucao evolucao){
 		this.repositorio.Remover(evolucao);
+	}
+	
+	public List<Evolucao> ListandoTudo(){
+		return this.repositorio.ListarEvolucao();
 	}
 }

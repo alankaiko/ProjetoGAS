@@ -2,9 +2,13 @@ package br.com.projeto.gsv.repository;
 
 
 
+import java.util.List;
+
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import br.com.gsv.domain.Convenio;
 import br.com.gsv.domain.Evolucao;
 import br.com.gsv.util.HibernateUtil;
 
@@ -45,6 +49,24 @@ public class EvolucaoRepository {
 		}finally{
 			sessao.close();
 		}
+	}
+	
+	
+	
+	@SuppressWarnings("unchecked")
+	public List<Evolucao> ListarEvolucao(){
+		sessao = HibernateUtil.getSessionFactory().openSession();
+		List<Evolucao> lista = null;
+		
+		try {
+			Query consulta = sessao.getNamedQuery("Evolucao.listar");
+			lista = consulta.list();
+		} catch (RuntimeException e) {
+			throw e;
+		}finally{
+			sessao.close();
+		}
+		return lista;
 	}
 	
 	

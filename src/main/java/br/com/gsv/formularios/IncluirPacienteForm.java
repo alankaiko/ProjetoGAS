@@ -16,7 +16,6 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
-import br.com.gsv.graficoClassic.IncluirPacienteClassic;
 import br.com.gsv.listeners.IncluirPacienteListener;
 import br.com.gsv.util.ConverteDadosUtil;
 import br.com.gsv.util.ListasUtil;
@@ -32,9 +31,8 @@ public class IncluirPacienteForm extends JDialog {
 	private JTextField TId, TNome, TRg, TObservacao, TLogradouro, TComplemento,TNumero;
 	private JTextField TBairro, TCidade, TEmail, TTelefone, TCelular;
 	private JFormattedTextField JCpf, JDataNasc, JDataCadastro, JCep;
-	private JButton BTGravar, BTCancelar;
+	private JButton BTGravar, BTCancelar, BEvolucao;
 	private JComboBox ComboEstado, ComboConvenio;
-	private int xx,xy;
 	private SomenteNumerosUtil soNumeros;
 	
 	
@@ -50,6 +48,7 @@ public class IncluirPacienteForm extends JDialog {
 		panel.setLayout(null);
 		panel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		OrganizaDados();
+		InicializaCompomentes();
 		listener = new IncluirPacienteListener(this);
 	}
 	
@@ -113,15 +112,18 @@ public class IncluirPacienteForm extends JDialog {
 				JDataCadastro.setEditable(false);
 				JDataCadastro.setText(ConverteDadosUtil.RetornaDataAtual());
 				JDataCadastro.setBounds(525,30,84,19);
-				
+			
+			LConvenio = new JLabel();
 			LConvenio.setText("Convênio / Plano");
 			LConvenio.setBounds(290, 124, 220, 14);
+				ComboConvenio = new JComboBox();
 				ComboConvenio.setBounds(409, 121, 133, 20);
 				
-				LAdicionaConvenio.setText("Adicionar?");
-				LAdicionaConvenio.setForeground(Color.BLUE);
-				LAdicionaConvenio.setFont(new Font("Palatino Linotype", Font.PLAIN, 10));
-				LAdicionaConvenio.setBounds(552, 130, 123, 14);
+		LAdicionaConvenio = new JLabel();
+		LAdicionaConvenio.setText("Adicionar?");
+		LAdicionaConvenio.setForeground(Color.BLUE);
+		LAdicionaConvenio.setFont(new Font("Palatino Linotype", Font.PLAIN, 10));
+		LAdicionaConvenio.setBounds(552, 130, 123, 14);
 
 			LObservacao = new JLabel();
 			LObservacao.setText("Observação:");
@@ -135,8 +137,7 @@ public class IncluirPacienteForm extends JDialog {
 		LEndereco.setText("ENDEREÇO");
 		LEndereco.setFont(new Font("Calibri", Font.BOLD, 13));
 		LEndereco.setBounds(10, 142, 64, 14);
-		
-			
+	
 			
 			LLogradouro = new JLabel();
 			LLogradouro.setText("Logradouro: ");
@@ -179,8 +180,10 @@ public class IncluirPacienteForm extends JDialog {
 				TCidade.setBounds(111, 250, 208, 20);
 				TCidade.setColumns(10);
 		
+			LEstado = new JLabel();	
 			LEstado.setText("UF: ");
 			LEstado.setBounds(429, 253, 46, 14);
+				ComboEstado = new JComboBox();
 				ComboEstado.setModel(new DefaultComboBoxModel(new Vector(ListasUtil.Estados())));
 				ComboEstado.setBounds(456, 250, 86, 20);
 				
@@ -192,62 +195,56 @@ public class IncluirPacienteForm extends JDialog {
 			LCep.setBounds(75, 284, 35, 14);
 				JCep = new JFormattedTextField(ConverteDadosUtil.FormataCep());
 				JCep.setBounds(111, 281, 86, 20);
-					
 				
+				
+	
+		LContato = new JLabel();
 		LContato.setText("CONTATO");
 		LContato.setFont(new Font("Calibri", Font.BOLD, 13));
 		LContato.setBounds(15, 308, 72, 14);
 		
+			LEmail = new JLabel();
 			LEmail.setText("Email:");
 			LEmail.setFont(new Font("Arial", Font.BOLD, 11));
 			LEmail.setBounds(50, 325, 46, 14);
+				TEmail = new JTextField();
 				TEmail.setBounds(109, 322, 263, 20);
 				TEmail.setColumns(10);
 			
+			LCelular = new JLabel();
 			LCelular.setText("Celular:");
 			LCelular.setFont(new Font("Arial", Font.BOLD, 11));
 			LCelular.setBounds(404, 284, 46, 14);
+				TCelular = new JTextField();
 				TCelular.setBounds(456, 284, 155, 20);
 				TCelular.setColumns(10);
 			
+				
+			LTelefone = new JLabel();
 			LTelefone.setText("Telefone:");
 			LTelefone.setFont(new Font("Arial", Font.BOLD, 11));
 			LTelefone.setBounds(394, 325, 72, 14);
+				TTelefone = new JTextField();
 				TTelefone.setBounds(456, 322, 155, 20);
 				TTelefone.setColumns(10);	
 					
-		
+		BTGravar = new JButton();
 		BTGravar.setText("Gravar");
 		BTGravar.setFont(new Font("Calibri", Font.PLAIN, 12));
-		BTGravar.setBounds(210, 398, 89, 23);
+		BTGravar.setBounds(419, 398, 89, 23);
 		
+		BTCancelar = new JButton();
 		BTCancelar.setText("Cancelar");
 		BTCancelar.setFont(new Font("Calibri", Font.PLAIN, 12));
-		BTCancelar.setBounds(315, 398, 89, 23);
+		BTCancelar.setBounds(524, 398, 89, 23);
+		
+		BEvolucao = new JButton();
+		BEvolucao.setText("Evolução");
+		BEvolucao.setFont(new Font("Calibri", Font.PLAIN, 12));
+		BEvolucao.setBounds(15, 398, 89, 23);
 	}
 
-		
-	private void CriaVariaveis(){
-		
-		
-		
-		
 	
-		LContato = new JLabel();
-		LEmail = new JLabel();
-		LCelular = new JLabel();
-		LTelefone = new JLabel();
-		TEmail = new JTextField();
-		TTelefone = new JTextField();
-		LAdicionaConvenio = new JLabel();
-		TCelular = new JTextField();
-		BTGravar = new JButton();
-		BTCancelar = new JButton();
-		ComboEstado = new JComboBox();
-		ComboConvenio = new JComboBox();
-		LConvenio = new JLabel();
-		LEstado = new JLabel();
-	}
 
 	public void InicializaCompomentes() {
 		tela.add(this.TId);
@@ -292,6 +289,7 @@ public class IncluirPacienteForm extends JDialog {
 		tela.add(this.ComboConvenio);
 		tela.add(this.LConvenio);
 		tela.add(this.LEstado);
+		tela.add(BEvolucao);
 	}
 
 	public IncluirPacienteListener getListener() {
@@ -656,23 +654,14 @@ public class IncluirPacienteForm extends JDialog {
 	}
 
 
-	public int getXx() {
-		return xx;
+	public JButton getBEvolucao() {
+		return BEvolucao;
 	}
 
 
-	public void setXx(int xx) {
-		this.xx = xx;
+	public void setBEvolucao(JButton bEvolucao) {
+		BEvolucao = bEvolucao;
 	}
-
-
-	public int getXy() {
-		return xy;
-	}
-
-
-	public void setXy(int xy) {
-		this.xy = xy;
-	}
+	
 	
 }

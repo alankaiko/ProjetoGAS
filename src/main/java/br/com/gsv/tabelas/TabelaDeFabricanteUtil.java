@@ -8,7 +8,7 @@ import javax.swing.table.AbstractTableModel;
 import br.com.gsv.domain.Fabricante;
 import br.com.gsv.domain.Funcionario;
 
-public class TabelaDeFabricanteUtil extends AbstractTableModel {
+public class TabelaDeFabricanteUtil extends AbstractTableModel{
 	private String[] colunas = new String[] { "CODIGO", "DESCRICAO"};
 	private List<Fabricante> linhas;
 	private static final int CODIGO = 0;

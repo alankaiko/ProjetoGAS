@@ -26,7 +26,8 @@ import br.com.gsv.domain.sub.EnumTipoAgendamento;
 
 @Entity
 @Table
-@NamedQueries({ @NamedQuery(name = "Agenda.listarHorarios", query = "SELECT agenda.horaDesejada FROM Agenda agenda order by data"),
+@NamedQueries({ 
+	@NamedQuery(name = "Agenda.listarHorarios", query = "SELECT agenda.horaDesejada FROM Agenda agenda order by data"),
 	@NamedQuery(name = "Agenda.buscarPorData", query = "SELECT agenda.horaDesejada FROM Agenda agenda WHERE agenda.data = :data"),
 	@NamedQuery(name = "Agenda.listaAgenda", query = "SELECT agenda FROM Agenda agenda WHERE agenda.data = :data"),
 	@NamedQuery(name = "Agenda.buscarPorId", query = "SELECT agenda FROM Agenda agenda WHERE agenda.id = :id")

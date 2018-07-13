@@ -1,5 +1,7 @@
 package br.com.projeto.gsv.controller;
 
+import java.util.List;
+
 import br.com.gsv.domain.Evolucao;
 import br.com.projeto.gsv.service.EvolucaoService;
 
@@ -27,6 +29,10 @@ public class EvolucaoController {
 	
 	public void setEvolucao(Evolucao evolucao) {
 		this.evolucao = evolucao;
+	}
+	
+	public List<Evolucao> ListaCompleta(){
+		return this.service.ListandoTudo();
 	}
 	
 }
