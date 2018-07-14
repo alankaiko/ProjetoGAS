@@ -50,22 +50,20 @@ public class IncluirPacienteListener implements ActionListener{
 		LimitaCaracteres();
 	}
 	
+	public void IniciarObjetos(){
+		this.paciente = new Paciente();
+		this.endereco = new Endereco_cli();
+		this.contato = new Contato_cli();
+		this.convenio = new Convenio();
+	}
+	
 	
 	private void Salvar(){
-		FormToCliente();
-		FormToContato();
-		FormToEndereco();
+		PegarDados();
 		AtrelarObjetos();
 		con.setPaciente(this.paciente);
 		con.SalvarPaciente();
 	}
-	
-	private void Editar(){
-		EditToCliente();
-		con.setPaciente(this.paciente);
-		con.SalvarPaciente();
-	}
-	
 	
 	
 	//Classe pega os botoes do formulario e atrela à esta classe controller aqui (propria classe ClienteActionListener)
@@ -77,21 +75,30 @@ public class IncluirPacienteListener implements ActionListener{
 	
 	
 	
-	
-	
 	/*-----------------------------------------------------------------------------------------------------------------*/
 	/*-------------------CLASSES INTERNAS QUE CAPTURAM AS INFORMACOES E INSEREM NOS RESPECTIVOS OBJETOS ---------------*/
-		
-	//Método que pega informacoes do cliente e joga dentro do objeto Cliente
-	private void FormToCliente(){
-		paciente = new Paciente();
+	private void PegarDados(){
 		paciente.setNome(this.formulario.getTNome().getText());
 		paciente.setCpf(this.formulario.getJCpf().getText().replaceAll("[_.-]", ""));
 		paciente.setRg(this.formulario.getTRg().getText());
 		paciente.setDataCad(new Date());
 		paciente.setDataNasc(ConverteDadosUtil.TransformandoEmDate(this.formulario.getJDataNasc().getText()));
 		paciente.setObservacao(this.formulario.getTObservacao().getText());
+		
 		FormaFab();
+		
+		contato.setEmail(this.formulario.getTEmail().getText());
+		contato.setCelular(this.formulario.getTCelular().getText());
+		contato.setTelefone(this.formulario.getTTelefone().getText());
+		
+		endereco.setLogradouro(this.formulario.getTLogradouro().getText());
+		endereco.setComplemento(this.formulario.getTComplemento().getText());
+		endereco.setNumero(ConverteDadosUtil.RetornaInt(this.formulario.getTNumero().getText()));
+		endereco.setBairro(this.formulario.getTBairro().getText());
+		endereco.setCidade(this.formulario.getTCidade().getText());
+		endereco.setEstado((String)this.formulario.getComboEstado().getSelectedItem());
+		endereco.setCep(this.formulario.getJCep().getText().replaceAll("[_.-]", ""));
+		
 	}
 	
 	
@@ -105,35 +112,13 @@ public class IncluirPacienteListener implements ActionListener{
 	}
 	
 	
-	
-	
-	//Método que pega informacoes dos contatos e Joga dentro do objeto Contatos
-	private void FormToContato(){
-		contato = new Contato_cli();
-		contato.setEmail(this.formulario.getTEmail().getText());
-		contato.setCelular(this.formulario.getTCelular().getText());
-		contato.setTelefone(this.formulario.getTTelefone().getText());
-	}
-	
-	//Método que pega infromacoes do Endereco e joga dentro do objeto Endereco
-	private void FormToEndereco(){
-		endereco = new Endereco_cli();
-		endereco.setLogradouro(this.formulario.getTLogradouro().getText());
-		endereco.setComplemento(this.formulario.getTComplemento().getText());
-		endereco.setNumero(ConverteDadosUtil.RetornaInt(this.formulario.getTNumero().getText()));
-		endereco.setBairro(this.formulario.getTBairro().getText());
-		endereco.setCidade(this.formulario.getTCidade().getText());
-		endereco.setEstado((String)this.formulario.getComboEstado().getSelectedItem());
-		endereco.setCep(this.formulario.getJCep().getText().replaceAll("[_.-]", ""));
-	}
-	
 	//Método que mapeia os objetos contato e endereco dentro do objeto cliente
 	private void AtrelarObjetos(){
-		this.paciente.getContato().add(this.contato);
-		this.paciente.getEndereco().add(this.endereco);
+		this.paciente.setContato(this.contato);
+		this.paciente.setEndereco(this.endereco);
 		
-		this.endereco.setPaciente(this.paciente);
-		this.contato.setPaciente(this.paciente);
+		this.contato.setPaciente(paciente);
+		this.endereco.setPaciente(paciente);
 	}	
 
 	
@@ -147,6 +132,10 @@ public class IncluirPacienteListener implements ActionListener{
 	/*-----------------------------------------------------------------------------------------------------------------*/
 	/*---------------------------------------CLASSES PARA EDICAO DOS OBJETOS-------------------------------------------*/
 	public void AlterandoObjetos(){
+		this.convenio = this.paciente.getConvenio();
+		this.endereco = this.paciente.getEndereco();
+		this.contato = this.paciente.getContato();
+		
 		this.formulario.getTId().setText(String.valueOf(this.paciente.getId()));
 		this.formulario.getTNome().setText(this.paciente.getNome());
 		this.formulario.getTRg().setText(this.paciente.getRg());
@@ -155,38 +144,38 @@ public class IncluirPacienteListener implements ActionListener{
 		this.formulario.getComboConvenio().setSelectedItem(this.paciente.getConvenio());
 		this.formulario.getJDataNasc().setText(ConverteDadosUtil.TransformandoEmString(this.paciente.getDataNasc()));
 		this.formulario.getJDataCadastro().setText(ConverteDadosUtil.TransformandoEmString(this.paciente.getDataCad()));
-		this.formulario.getTLogradouro().setText(this.paciente.getEndereco().get(0).getLogradouro());
-		this.formulario.getTComplemento().setText(this.paciente.getEndereco().get(0).getComplemento());
-		this.formulario.getTNumero().setText(String.valueOf(this.paciente.getEndereco().get(0).getNumero()));
-		this.formulario.getTBairro().setText(this.paciente.getEndereco().get(0).getBairro());
-		this.formulario.getTCidade().setText(this.paciente.getEndereco().get(0).getCidade());
-		this.formulario.getComboEstado().setSelectedItem(this.paciente.getEndereco().get(0).getEstado());
-		this.formulario.getJCep().setText(this.paciente.getEndereco().get(0).getCep());
-		this.formulario.getTEmail().setText(this.paciente.getContato().get(0).getEmail());
-		this.formulario.getTCelular().setText(this.paciente.getContato().get(0).getCelular());
-		this.formulario.getTTelefone().setText(this.paciente.getContato().get(0).getTelefone());
+		this.formulario.getTLogradouro().setText(this.paciente.getEndereco().getLogradouro());
+		this.formulario.getTComplemento().setText(this.paciente.getEndereco().getComplemento());
+		this.formulario.getTNumero().setText(String.valueOf(this.paciente.getEndereco().getNumero()));
+		this.formulario.getTBairro().setText(this.paciente.getEndereco().getBairro());
+		this.formulario.getTCidade().setText(this.paciente.getEndereco().getCidade());
+		this.formulario.getComboEstado().setSelectedItem(this.paciente.getEndereco().getEstado());
+		this.formulario.getJCep().setText(this.paciente.getEndereco().getCep());
+		this.formulario.getTEmail().setText(this.paciente.getContato().getEmail());
+		this.formulario.getTCelular().setText(this.paciente.getContato().getCelular());
+		this.formulario.getTTelefone().setText(this.paciente.getContato().getTelefone());
 	}
 
 	
 	//Método para Edicao de clientes
-		private void EditToCliente(){
-			paciente.setId(Long.parseLong(this.formulario.getTId().getText()));
-			paciente.setNome(this.formulario.getTNome().getText());
-			paciente.setCpf(this.formulario.getJCpf().getText().replaceAll("[_.-]", ""));
-			paciente.setRg(this.formulario.getTRg().getText());
-			paciente.setConvenio((Convenio)this.formulario.getComboConvenio().getSelectedItem());
-			paciente.setDataNasc(ConverteDadosUtil.TransformandoEmDate(this.formulario.getJDataNasc().getText()));
-			paciente.getEndereco().get(0).setLogradouro(this.formulario.getTLogradouro().getText());
-			paciente.getEndereco().get(0).setComplemento(this.formulario.getTComplemento().getText());
-			paciente.getEndereco().get(0).setNumero(ConverteDadosUtil.RetornaInt(this.formulario.getTNumero().getText()));
-			paciente.getEndereco().get(0).setBairro(this.formulario.getTBairro().getText());
-			paciente.getEndereco().get(0).setCidade(this.formulario.getTCidade().getText());
-			paciente.getEndereco().get(0).setEstado((String)this.formulario.getComboEstado().getSelectedItem());
-			paciente.getEndereco().get(0).setCep(this.formulario.getJCep().getText());
-			paciente.getContato().get(0).setEmail(this.formulario.getTEmail().getText());
-			paciente.getContato().get(0).setCelular(this.formulario.getTCelular().getText());
-			paciente.getContato().get(0).setTelefone(this.formulario.getTTelefone().getText());
-		}
+	private void EditToCliente(){
+		paciente.setId(Long.parseLong(this.formulario.getTId().getText()));
+		paciente.setNome(this.formulario.getTNome().getText());
+		paciente.setCpf(this.formulario.getJCpf().getText().replaceAll("[_.-]", ""));
+		paciente.setRg(this.formulario.getTRg().getText());
+		paciente.setConvenio((Convenio)this.formulario.getComboConvenio().getSelectedItem());
+		paciente.setDataNasc(ConverteDadosUtil.TransformandoEmDate(this.formulario.getJDataNasc().getText()));
+		paciente.getEndereco().setLogradouro(this.formulario.getTLogradouro().getText());
+		paciente.getEndereco().setComplemento(this.formulario.getTComplemento().getText());
+		paciente.getEndereco().setNumero(ConverteDadosUtil.RetornaInt(this.formulario.getTNumero().getText()));
+		paciente.getEndereco().setBairro(this.formulario.getTBairro().getText());
+		paciente.getEndereco().setCidade(this.formulario.getTCidade().getText());
+		paciente.getEndereco().setEstado((String)this.formulario.getComboEstado().getSelectedItem());
+		paciente.getEndereco().setCep(this.formulario.getJCep().getText());
+		paciente.getContato().setEmail(this.formulario.getTEmail().getText());
+		paciente.getContato().setCelular(this.formulario.getTCelular().getText());
+		paciente.getContato().setTelefone(this.formulario.getTTelefone().getText());
+	}
 		
 		
 		
@@ -199,11 +188,8 @@ public class IncluirPacienteListener implements ActionListener{
 	//Classe que possui eventos dos botoes da TELA
 	public void actionPerformed(ActionEvent event) {
 		if(event.getSource().equals(this.formulario.getBTGravar()) && ValidandoField()){
-			if(this.formulario.getTId().getText().isEmpty())
-				Salvar();
-			else
-				Editar();
-			
+			Salvar();
+
 			this.formulario.dispose();
 		}else if(event.getSource().equals(this.formulario.getBTCancelar())){
 			this.formulario.dispose();

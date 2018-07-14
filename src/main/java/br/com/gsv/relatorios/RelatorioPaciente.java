@@ -71,9 +71,9 @@ public class RelatorioPaciente extends AbstractRelatorios{
 		for(Paciente paciente : lista){
 			celulaCodigo = new PdfPCell(new Paragraph(paciente.getId()+"", fonte));				
 			celulaNome = new PdfPCell(new Paragraph(paciente.getNome(), fonte));
-			celulaTelefone = new PdfPCell(new Paragraph(paciente.getContato().get(0).getCelular(), fonte));
+			celulaTelefone = new PdfPCell(new Paragraph(paciente.getContato().getCelular(), fonte));
 			celulaConvenio = new PdfPCell(new Paragraph(paciente.getConvenio().getNome(), fonte));
-			celulaCidade = new PdfPCell(new Paragraph(paciente.getEndereco().get(0).getCidade(), fonte));
+			celulaCidade = new PdfPCell(new Paragraph(paciente.getEndereco().getCidade(), fonte));
 		
 			celulaCodigo.setHorizontalAlignment(Element.ALIGN_LEFT);
 			celulaCodigo.setBorder(PdfPCell.NO_BORDER);

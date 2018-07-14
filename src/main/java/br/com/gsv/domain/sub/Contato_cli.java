@@ -11,6 +11,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.MapsId;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.hibernate.validator.constraints.Email;
@@ -27,9 +30,16 @@ public class Contato_cli implements Serializable {
 	private String telefone;
 	private String celular;
 	private Paciente paciente;
+	
+	public Contato_cli() {
+		email = new String();
+		telefone = new String();
+		celular = new String();
+	}
 
 	@Id
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
+	@Column(name="cont_id")
 	public Long getId() {
 		return id;
 	}
@@ -66,19 +76,19 @@ public class Contato_cli implements Serializable {
 		this.celular = celular;
 	}
 	
+		
+
 	
-	
-	public void setPaciente(Paciente paciente) {
-		this.paciente = paciente;
-	}
-	
-	@ManyToOne
-	@JoinColumn(name="paciente_codigo")
+	@MapsId
+	@OneToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "id")
 	public Paciente getPaciente() {
 		return paciente;
 	}
-	
 
+	public void setPaciente(Paciente paciente) {
+		this.paciente = paciente;
+	}
 
 	@Override
 	public int hashCode() {

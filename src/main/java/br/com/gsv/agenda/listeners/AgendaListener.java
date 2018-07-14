@@ -76,10 +76,10 @@ public class AgendaListener implements ActionListener, PropertyChangeListener{
 		this.funcionario = this.agenda.getFuncionario();
 		
 		this.formulario.getTPaciente().setText(this.agenda.getPaciente().getNome());
-		this.formulario.getTCelular().setText(this.agenda.getPaciente().getContato().get(0).getCelular());
-		this.formulario.getTFixo().setText(this.agenda.getPaciente().getContato().get(0).getTelefone());
+		this.formulario.getTCelular().setText(this.agenda.getPaciente().getContato().getCelular());
+		this.formulario.getTFixo().setText(this.agenda.getPaciente().getContato().getTelefone());
 		this.formulario.getTConvenio().setText(this.agenda.getPaciente().getConvenio().getNome());
-		this.formulario.getTEmail().setText(this.agenda.getPaciente().getContato().get(0).getEmail());
+		this.formulario.getTEmail().setText(this.agenda.getPaciente().getContato().getEmail());
 		this.formulario.getTFuncionario().setText(this.agenda.getFuncionario().getNome());
 		this.formulario.getTRegistro().setText(AlteraConcatenarRegistro());
 		this.formulario.getComboStatus().setSelectedItem(this.agenda.getStatusAgendamento().values());
@@ -147,8 +147,8 @@ public class AgendaListener implements ActionListener, PropertyChangeListener{
 		this.paciente = controller.BuscarPelaID(id);
 		
 		this.formulario.getTPaciente().setText(this.paciente.getNome());
-		this.formulario.getTCelular().setText(this.paciente.getContato().get(0).getCelular());
-		this.formulario.getTFixo().setText(this.paciente.getContato().get(0).getTelefone());
+		this.formulario.getTCelular().setText(this.paciente.getContato().getCelular());
+		this.formulario.getTFixo().setText(this.paciente.getContato().getTelefone());
 		this.formulario.getTConvenio().setText(this.paciente.getConvenio().getNome());
 		
 	}

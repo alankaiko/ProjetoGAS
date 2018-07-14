@@ -1,15 +1,11 @@
 package br.com.gsv.domain;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -19,16 +15,16 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.persistence.Transient;
 
 import br.com.gsv.domain.sub.Contato_cli;
 import br.com.gsv.domain.sub.Endereco_cli;
 
-@Entity
 @Table
+@Entity
 @NamedQueries({
 	@NamedQuery(name="Paciente.listar", query="SELECT paciente FROM Paciente paciente order by id"),
 	@NamedQuery(name="Paciente.verificaQtd", query="SELECT COUNT(*) FROM Paciente paciente"),
@@ -46,14 +42,22 @@ public class Paciente implements Serializable {
 	private String rg;
 	private Date dataNasc;
 	private Date dataCad;
-	private List<Contato_cli> contato = new ArrayList<Contato_cli>();
-	private List<Endereco_cli> endereco = new ArrayList<Endereco_cli>();
+	private Contato_cli contato;
+	private Endereco_cli endereco;
 	private String observacao;
 	
-	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	@JoinColumn(name = "tbl_convenios_conv_id", referencedColumnName = "conv_id")
+	@ManyToOne(fetch= FetchType.LAZY, cascade= CascadeType.ALL)
+	@JoinColumn(name = "tbl_convenio_id", referencedColumnName = "conv_id")
 	private Convenio convenio;
-
+	
+	public Paciente() {
+		nome = new String();
+		cpf = new String();
+		rg = new String();
+		contato = new Contato_cli();
+		endereco = new Endereco_cli();
+		observacao = new String();
+	}
 	
 	
 	@Id
@@ -110,7 +114,7 @@ public class Paciente implements Serializable {
 		this.dataCad = dataCad;
 	}
 
-
+	
 	public Convenio getConvenio() {
 		return convenio;
 	}
@@ -118,30 +122,23 @@ public class Paciente implements Serializable {
 	public void setConvenio(Convenio convenio) {
 		this.convenio = convenio;
 	}
+	
 
-	/*  OneToMany= um para muitos mappedby
-	 * campo da outra classe que está sendo mapeado CascadeType.ALL= quando um
-	 * cliente for excluído ocontato é excluído junto com ele.*/
-	@OneToMany(mappedBy = "paciente", cascade = CascadeType.ALL, fetch=FetchType.EAGER)
-	public List<Contato_cli> getContato() {
+	@OneToOne(mappedBy = "paciente", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	public Contato_cli getContato() {
 		return contato;
 	}
 
-	public void setContato(List<Contato_cli> contato) {
+	public void setContato(Contato_cli contato) {
 		this.contato = contato;
 	}
-	
-	
 
-	/* NotNull= o contato não pode ser nulo, OneToMany= um para muitos mappedby campo 
-	 * da outra classe que está sendo mapeado CascadeType.ALL= quando um cliente for 
-	 * excluído o contato é excluído junto com ele.	 */
-	@OneToMany(mappedBy="paciente", cascade= CascadeType.ALL, fetch=FetchType.EAGER)	
-	public List<Endereco_cli> getEndereco() {
+	@OneToOne(mappedBy = "paciente", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	public Endereco_cli getEndereco() {
 		return endereco;
 	}
 
-	public void setEndereco(List<Endereco_cli> endereco) {
+	public void setEndereco(Endereco_cli endereco) {
 		this.endereco = endereco;
 	}
 
@@ -153,6 +150,8 @@ public class Paciente implements Serializable {
 	public void setObservacao(String observacao) {
 		this.observacao = observacao;
 	}
+	
+	
 
 	@Override
 	public int hashCode() {

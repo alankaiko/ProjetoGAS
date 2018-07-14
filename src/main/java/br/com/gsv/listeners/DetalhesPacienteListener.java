@@ -45,17 +45,17 @@ public class DetalhesPacienteListener implements ActionListener{
 		this.formulario.getTDataNasc().setText(this.formulario.getJDataNasc().getText());
 		this.formulario.getJDataCadastro().setText(ConverteDadosUtil.TransformandoEmString(this.paciente.getDataCad()));
 		this.formulario.getTDataCadastro().setText(this.formulario.getJDataCadastro().getText());
-		this.formulario.getTLogradouro().setText(this.paciente.getEndereco().get(0).getLogradouro());
-		this.formulario.getTComplemento().setText(this.paciente.getEndereco().get(0).getComplemento());
-		this.formulario.getTNumero().setText(String.valueOf(this.paciente.getEndereco().get(0).getNumero()));
-		this.formulario.getTBairro().setText(this.paciente.getEndereco().get(0).getBairro());
-		this.formulario.getTCidade().setText(this.paciente.getEndereco().get(0).getCidade());
-		this.formulario.getTComboEstado().setText(this.paciente.getEndereco().get(0).getEstado());
-		this.formulario.getJCep().setText(this.paciente.getEndereco().get(0).getCep());
+		this.formulario.getTLogradouro().setText(this.paciente.getEndereco().getLogradouro());
+		this.formulario.getTComplemento().setText(this.paciente.getEndereco().getComplemento());
+		this.formulario.getTNumero().setText(String.valueOf(this.paciente.getEndereco().getNumero()));
+		this.formulario.getTBairro().setText(this.paciente.getEndereco().getBairro());
+		this.formulario.getTCidade().setText(this.paciente.getEndereco().getCidade());
+		this.formulario.getTComboEstado().setText(this.paciente.getEndereco().getEstado());
+		this.formulario.getJCep().setText(this.paciente.getEndereco().getCep());
 		this.formulario.getTCep().setText(this.formulario.getJCep().getText());
-		this.formulario.getTEmail().setText(this.paciente.getContato().get(0).getEmail());
-		this.formulario.getTCelular().setText(this.paciente.getContato().get(0).getCelular());
-		this.formulario.getTTelefone().setText(this.paciente.getContato().get(0).getTelefone());
+		this.formulario.getTEmail().setText(this.paciente.getContato().getEmail());
+		this.formulario.getTCelular().setText(this.paciente.getContato().getCelular());
+		this.formulario.getTTelefone().setText(this.paciente.getContato().getTelefone());
 		
 	}
 	

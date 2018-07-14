@@ -35,6 +35,7 @@ public class CarregaBanco extends SwingWorker<Void, Integer> {
 	
 	private void IniciaBanco(){
 		HibernateUtil.getSessionFactory();
+		//CriarBancoDoZero();
 	}
 	
 	@SuppressWarnings("unused")

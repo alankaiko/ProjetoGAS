@@ -11,6 +11,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.MapsId;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import br.com.gsv.domain.Paciente;
@@ -30,11 +33,41 @@ public class Endereco_cli implements Serializable {
 	private String cep;
 	private Paciente paciente;
 
+	public Endereco_cli() {
+		logradouro = new String();
+		complemento = new String();
+		bairro = new String();
+		cidade = new String();
+		estado = new String();
+		cep = new String();
+	}
+	
+	
 	@Id
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
+	@Column(name="end_id")
 	public Long getId() {
 		return id;
 	}
+	
+	
+	
+	@MapsId
+	@OneToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "id")
+	public Paciente getPaciente() {
+		return paciente;
+	}
+
+
+
+
+	public void setPaciente(Paciente paciente) {
+		this.paciente = paciente;
+	}
+
+
+
 
 	public void setId(Long id) {
 		this.id = id;
@@ -103,17 +136,6 @@ public class Endereco_cli implements Serializable {
 		this.cep = cep;
 	}
 
-	@ManyToOne
-	@JoinColumn(name="paciente_codigo")
-	public Paciente getPaciente() {
-		return paciente;
-	}
-	
-	public void setPaciente(Paciente paciente) {
-		this.paciente = paciente;
-	}
-	
-	
 
 	@Override
 	public int hashCode() {
