@@ -20,6 +20,7 @@ import br.com.gsv.domain.Paciente;
 import br.com.gsv.domain.sub.Contato_cli;
 import br.com.gsv.domain.sub.Endereco_cli;
 import br.com.gsv.evolucao.formulario.EvolucaoFormulario;
+import br.com.gsv.evolucao.formulario.GerenciarEvolucoes;
 import br.com.gsv.formularios.IncluirConvenioForm;
 import br.com.gsv.formularios.IncluirPacienteForm;
 import br.com.gsv.util.ConverteDadosUtil;
@@ -197,7 +198,6 @@ public class IncluirPacienteListener implements ActionListener{
 	
 	//Classe que possui eventos dos botoes da TELA
 	public void actionPerformed(ActionEvent event) {
-				
 		if(event.getSource().equals(this.formulario.getBTGravar()) && ValidandoField()){
 			if(this.formulario.getTId().getText().isEmpty())
 				Salvar();
@@ -222,7 +222,7 @@ public class IncluirPacienteListener implements ActionListener{
 	}
 	
 	private void AbrirEvolucao(){
-		EvolucaoFormulario form = new EvolucaoFormulario();
+		GerenciarEvolucoes form = new GerenciarEvolucoes();
 		form.setLocationRelativeTo(this.formulario.getTela());
 		form.setVisible(true);
 	}

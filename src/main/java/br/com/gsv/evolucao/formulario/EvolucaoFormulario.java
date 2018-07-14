@@ -73,6 +73,8 @@ public class EvolucaoFormulario extends JDialog {
 		panel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		tela.add(panel, BorderLayout.CENTER);
 		panel.setLayout(null);
+		this.setModal(true);
+		this.setResizable(false);
 		
 		tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		tabbedPane.setBackground(Color.WHITE);

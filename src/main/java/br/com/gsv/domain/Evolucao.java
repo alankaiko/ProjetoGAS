@@ -66,7 +66,7 @@ public class Evolucao {
 	private String textoCurativo;
 	
 	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.DETACH)
-	@JoinColumn(name = "tbl_funcionario_id", referencedColumnName = "id")
+	@JoinColumn(name = "tbl_paciente_id", referencedColumnName = "id")
 	private Paciente paciente;
 	
 	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.DETACH)
