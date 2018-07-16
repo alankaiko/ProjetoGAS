@@ -1,6 +1,9 @@
 package br.com.gsv.formularios;
 
+import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Container;
+import java.awt.Font;
 
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
@@ -11,8 +14,8 @@ import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.border.EmptyBorder;
 
-import br.com.gsv.graficoClassic.BuscarConvenioClassic;
 import br.com.gsv.listeners.BuscarConvenioListener;
 import br.com.gsv.listeners.RadioListenerConvenio;
 
@@ -28,45 +31,75 @@ public class BuscarConvenioDialog extends JDialog {
 	private JTable table;
 	private BuscarConvenioListener listener;
 	private RadioListenerConvenio radioListener;
-	private BuscarConvenioClassic listenerClassic;
-	private JPanel painelDrag;
-	private int xx,xy;
 	
 	
 	
 	public BuscarConvenioDialog() {
-		CriaComponentes();
-		AdicionaNaTela();
+		setModal(true);
+		setResizable(false);
+		setBounds(100, 100, 514, 344);
+		
+		tela.setLayout(null);		
+		tela.add(panel, BorderLayout.CENTER);
+		
+		panel.setLayout(null);
+		panel.setBorder(new EmptyBorder(5, 5, 5, 5));
+		OrganizaDados();
+
 		listener = new BuscarConvenioListener(this);
 		radioListener = new RadioListenerConvenio(this);
-		listenerClassic = new BuscarConvenioClassic(this);
 	}
 	
 	
-	private void CriaComponentes(){
-		buscarUsuario = new JLabel();
-		buscaId = new JRadioButton();
-		buscaNome = new JRadioButton();
-		textoBuscar = new JTextField();
-		buscar = new JButton();
-		ok = new JButton();
-		cancelar = new JButton();
-		table = new JTable();
+	private void OrganizaDados(){
 		scrollPane = new JScrollPane();
-		painelDrag = new JPanel();
-		botaoGrupo.add(buscaId);
-		botaoGrupo.add(buscaNome);
-	}
-	
-	private void AdicionaNaTela(){
+		scrollPane.setBounds(15, 100, 478, 177);
+		tela.add(scrollPane);
+		
+		table = new JTable();
+		
+		
+		buscarUsuario = new JLabel();
+		buscarUsuario.setText("Escolha uma Opção: ");
+		buscarUsuario.setBounds(15,10,150,20);
 		tela.add(this.buscarUsuario);
+	
+		buscaId = new JRadioButton();
+		buscaId.setText("Código");
+		buscaId.setFont(new Font("Arial", Font.PLAIN, 13));
+		buscaId.setBounds(15, 40, 84, 23);
 		tela.add(this.buscaId);
+		botaoGrupo.add(buscaId);
+		
+		buscaNome = new JRadioButton();
+		buscaNome.setText("Convenio");
+		buscaNome.setFont(new Font("Arial", Font.PLAIN, 13));
+		buscaNome.setBounds(106, 40, 90, 23);
 		tela.add(this.buscaNome);
+		botaoGrupo.add(buscaNome);
+		
+		textoBuscar = new JTextField();
+		textoBuscar.setBounds(15,70,260,20);
+		textoBuscar.setFont(new Font("Arial",Font.BOLD,10));
+		textoBuscar.setForeground(Color.black);		
 		tela.add(this.textoBuscar);
+
+		buscar = new JButton();
+		buscar.setText("Buscar");
+		buscar.setBounds(300,68,125,20);
 		tela.add(this.buscar);
+
+		ok = new JButton();
+		ok.setText("OK");
+		ok.setBounds(118,288,125,20);
 		tela.add(this.ok);
+	
+		cancelar = new JButton();
+		cancelar.setText("Cancelar");
+		cancelar.setBounds(253,288,125,20);	
 		tela.add(this.cancelar);
 	}
+	
 
 
 	public JButton getOk() {
@@ -204,49 +237,5 @@ public class BuscarConvenioDialog extends JDialog {
 	public void setRadioListener(RadioListenerConvenio radioListener) {
 		this.radioListener = radioListener;
 	}
-
-
-
-
-	public JPanel getPainelDrag() {
-		return painelDrag;
-	}
-
-
-
-
-	public void setPainelDrag(JPanel painelDrag) {
-		this.painelDrag = painelDrag;
-	}
-
-
-
-
-	public int getXx() {
-		return xx;
-	}
-
-
-
-
-	public void setXx(int xx) {
-		this.xx = xx;
-	}
-
-
-
-
-	public int getXy() {
-		return xy;
-	}
-
-
-
-
-	public void setXy(int xy) {
-		this.xy = xy;
-	}
-
-
 
 }

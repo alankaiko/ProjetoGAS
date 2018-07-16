@@ -1,14 +1,17 @@
 package br.com.gsv.formularios;
 
+import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Container;
+import java.awt.Font;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.border.EmptyBorder;
 
-import br.com.gsv.graficoClassic.IncluirConvenioClassic;
 import br.com.gsv.listeners.IncluirConvenioListener;
 
 public class IncluirConvenioForm extends JDialog{
@@ -18,38 +21,66 @@ public class IncluirConvenioForm extends JDialog{
 	private JTextField TId, TConvenio;
 	private JButton BTGravar, BTCancelar;
 	private IncluirConvenioListener listener;
-	private IncluirConvenioClassic listenerClassic;
 	private int xx,xy;
 
 	
 	public IncluirConvenioForm() {
-		CriaVariaveis();
-		AdicionaComponentes();
+		setTitle("Inserir Convenio / Plano / Credencial");
+		setModal(true);
+		setResizable(false);
+		setBounds(100, 100, 350, 164);
+
+		tela.setLayout(null);
+		tela.add(panel, BorderLayout.CENTER);
+
+		panel.setLayout(null);
+		panel.setBorder(new EmptyBorder(5, 5, 5, 5));
+		
+		OrganizaDados();
 		listener = new IncluirConvenioListener(this);
-		listenerClassic = new IncluirConvenioClassic(this);
 	}
 	
 	
-	
-	public void CriaVariaveis() {
+	private void OrganizaDados() {
 		LId = new JLabel();
-		TId = new JTextField();
-		LConvenio = new JLabel();
-		TConvenio = new JTextField();
-		BTGravar = new JButton();
-		BTCancelar = new JButton();
-	}
-
-	
-	private void AdicionaComponentes() {
-		tela.add(this.TId);
-		tela.add(this.LConvenio);
-		tela.add(this.TConvenio);
+		LId.setText("Código");
+		LId.setFont(new Font("Arial", Font.BOLD, 11));
+		LId.setBounds(37, 30, 50, 20);
 		tela.add(this.LId);
-		tela.add(this.BTGravar);
-		tela.add(this.BTCancelar);
-	}
+			
+		TId = new JTextField();
+		TId.setBounds(83, 31, 84, 20);
+		TId.setBackground(new Color(255, 255, 204));
+		TId.setFont(new Font("Arial", Font.BOLD, 10));
+		TId.setForeground(Color.black);
+		TId.setEditable(false);
+		tela.add(this.TId);
+		
+		LConvenio = new JLabel();
+		LConvenio.setText("Convenio");
+		LConvenio.setBounds(22, 62, 104, 20);
+		LConvenio.setFont(new Font("Arial", Font.BOLD, 11));
+		tela.add(this.LConvenio);
+			
+		TConvenio = new JTextField();
+		TConvenio.setBounds(83, 63, 239, 19);
+		TConvenio.setFont(new Font("Arial", Font.BOLD, 10));
+		TConvenio.setToolTipText("Ex: IPASGO / UNIMED");
+		tela.add(this.TConvenio);
 
+		BTGravar = new JButton();
+		BTGravar.setText("Gravar");
+		BTGravar.setFont(new Font("Calibri", Font.PLAIN, 12));
+		BTGravar.setBounds(70, 93, 89, 23);
+		tela.add(this.BTGravar);
+
+		BTCancelar = new JButton();
+		BTCancelar.setText("Cancelar");
+		BTCancelar.setFont(new Font("Calibri", Font.PLAIN, 12));
+		BTCancelar.setBounds(170, 93, 89, 23);
+		tela.add(this.BTCancelar);	
+	}
+	
 	
 
 	public JButton getBTGravar() {
