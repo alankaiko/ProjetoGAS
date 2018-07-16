@@ -1,6 +1,8 @@
 package br.com.gsv.formularios;
 
+import java.awt.BorderLayout;
 import java.awt.Container;
+import java.awt.Font;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
@@ -8,8 +10,9 @@ import javax.swing.JFormattedTextField;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSeparator;
+import javax.swing.SwingConstants;
+import javax.swing.border.EmptyBorder;
 
-import br.com.gsv.graficoClassic.DetalhesPacienteClassic;
 import br.com.gsv.listeners.DetalhesPacienteListener;
 import br.com.gsv.util.ConverteDadosUtil;
 
@@ -22,70 +25,236 @@ public class DetalhesPacienteDialog extends JDialog {
 	private JLabel TId, TNome, TCpf, TDataCadastro, TRg, TDataNasc,TObservacao, TLogradouro, TComplemento, TNumero;
 	private JLabel TBairro, TCidade, TComboEstado, TCep, TEmail, TTelefone,TCelular;
 	private JFormattedTextField JCpf, JDataNasc, JDataCadastro, JCep;
-	private JButton cancelar;
+	private JButton cancelar, evolucao;
 	private JSeparator separa, separator;
 	private DetalhesPacienteListener listener;
-	private DetalhesPacienteClassic listenerClassic;
-	private JPanel painelDrag;
-	private int xx,xy;
 	
 	public DetalhesPacienteDialog() {
-		InicializaComponentes();
+		setModal(true);
+		setBounds(100, 100, 580, 460);
+		tela.setLayout(new BorderLayout());
+		panel.setBorder(new EmptyBorder(5, 5, 5, 5));
+		tela.add(panel, BorderLayout.CENTER);
+		panel.setLayout(null);
+		
+		OrganizarComponentes();		
 		AdicionaNaTela();
 		listener = new DetalhesPacienteListener(this);
-		listenerClassic = new DetalhesPacienteClassic(this);
 	}
 	
 	
-	private void InicializaComponentes(){
-		LId = new JLabel();
-		LNome = new JLabel();
-		LCpf = new JLabel();
-		LRg = new JLabel();
-		LDataNasc = new JLabel();
-		LDataCad = new JLabel();
-		LObservacao = new JLabel();
+	private void OrganizarComponentes(){
 		LIndentif = new JLabel();
-		LEndereco = new JLabel();
-		LLogradouro = new JLabel();
-		LComplemento = new JLabel();
-		LNumero = new JLabel();
-		LBairro = new JLabel();
-		LCidade = new JLabel();
-		LCep = new JLabel();
-		LContato = new JLabel();
-		LEmail = new JLabel();
-		LCelular = new JLabel();
-		LTelefone = new JLabel();
-		LEstado = new JLabel();
-		LConvenio = new JLabel();
-		TConvenio = new JLabel();
+		LIndentif.setText("DADOS PESSOAIS");
+		LIndentif.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 12));
+		LIndentif.setBounds(10, 11, 130, 14);
+		
+		LId = new JLabel();
+		LId.setText("Código");
+		LId.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+		LId.setHorizontalAlignment(SwingConstants.RIGHT);
+		LId.setBounds(42, 33, 59, 14);
+		
 		TId = new JLabel();
-		TNome = new JLabel();
+		TId.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 13));
+		TId.setBounds(111, 30, 39, 20);
+		
+		LCpf = new JLabel();
+		LCpf.setText("CPF:");
+		LCpf.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+		LCpf.setHorizontalAlignment(SwingConstants.RIGHT);
+		LCpf.setBounds(64, 58, 37, 14);
+		
 		TCpf = new JLabel();
-		TDataCadastro = new JLabel();
+		TCpf.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 13));
+		TCpf.setBounds(111, 55, 113, 20);		
+		
+		LNome = new JLabel();
+		LNome.setText("Nome:");
+		LNome.setHorizontalAlignment(SwingConstants.RIGHT);
+		LNome.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+		LNome.setBounds(52, 85, 49, 14);
+		
+		TNome = new JLabel();
+		TNome.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 13));
+		TNome.setBounds(111, 82, 337, 20);
+		
+		LRg = new JLabel();
+		LRg.setText("RG:");
+		LRg.setHorizontalAlignment(SwingConstants.RIGHT);
+		LRg.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+		LRg.setBounds(411, 58, 37, 14);
+		
 		TRg = new JLabel();
-		TDataNasc = new JLabel();
-		TObservacao = new JLabel();
+		TRg.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 13));
+		TRg.setBounds(458, 55, 113, 20);
+		
+		LEndereco = new JLabel();
+		LEndereco.setText("ENDEREÇO");
+		LEndereco.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 12));
+		LEndereco.setBounds(10, 134, 130, 14);
+		
+		LLogradouro = new JLabel();
+		LLogradouro.setText("Logradouro:");
+		LLogradouro.setHorizontalAlignment(SwingConstants.RIGHT);
+		LLogradouro.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+		LLogradouro.setBounds(10, 160, 91, 14);
+		
 		TLogradouro = new JLabel();
+		TLogradouro.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+		TLogradouro.setBounds(111, 157, 340, 20);
+		
+		LComplemento = new JLabel();
+		LComplemento.setText("Complemento:");
+		LComplemento.setHorizontalAlignment(SwingConstants.RIGHT);
+		LComplemento.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+		LComplemento.setBounds(10, 186, 91, 14);
+		
 		TComplemento = new JLabel();
+		TComplemento.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+		TComplemento.setBounds(111, 183, 340, 20);
+		
+		LNumero = new JLabel();
+		LNumero.setText("Número");
+		LNumero.setHorizontalAlignment(SwingConstants.RIGHT);
+		LNumero.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+		LNumero.setBounds(20, 211, 81, 14);
+		
 		TNumero = new JLabel();
-		TBairro = new JLabel();
+		TNumero.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+		TNumero.setBounds(111, 208, 59, 20);
+		
+		LCidade = new JLabel();
+		LCidade.setText("Cidade:");
+		LCidade.setHorizontalAlignment(SwingConstants.RIGHT);
+		LCidade.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+		LCidade.setBounds(20, 237, 81, 14);
+		
 		TCidade = new JLabel();
+		TCidade.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+		TCidade.setBounds(111, 234, 198, 20);
+		
+		LBairro = new JLabel();
+		LBairro.setText("Bairro:");
+		LBairro.setHorizontalAlignment(SwingConstants.RIGHT);
+		LBairro.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+		LBairro.setBounds(332, 211, 71, 14);
+		
+		TBairro = new JLabel();
+		TBairro.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+		TBairro.setBounds(413, 208, 141, 20);
+		
+		LEstado = new JLabel();
+		LEstado.setText("UF:");
+		LEstado.setHorizontalAlignment(SwingConstants.RIGHT);
+		LEstado.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+		LEstado.setBounds(364, 237, 39, 14);
+		
 		TComboEstado = new JLabel();
+		TComboEstado.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+		TComboEstado.setBounds(413, 234, 141, 20);
+		
+		LCep = new JLabel();
+		LCep.setText("CEP:");
+		LCep.setHorizontalAlignment(SwingConstants.RIGHT);
+		LCep.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+		LCep.setBounds(21, 260, 81, 14);
+		
 		TCep = new JLabel();
+		TCep.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+		TCep.setBounds(112, 257, 81, 20);
+		
+		LContato = new JLabel();
+		LContato.setText("CONTATO");
+		LContato.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 12));
+		LContato.setBounds(10, 292, 130, 14);
+		
+		LEmail = new JLabel();
+		LEmail.setText("E-mail:");
+		LEmail.setHorizontalAlignment(SwingConstants.RIGHT);
+		LEmail.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+		LEmail.setBounds(20, 312, 81, 14);
+		
 		TEmail = new JLabel();
-		TTelefone = new JLabel();
+		TEmail.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+		TEmail.setBounds(111, 309, 292, 20);
+		
+		LCelular = new JLabel();
+		LCelular.setText("Celular:");
+		LCelular.setHorizontalAlignment(SwingConstants.RIGHT);
+		LCelular.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+		LCelular.setBounds(20, 340, 81, 14);
+		
 		TCelular = new JLabel(); 
+		TCelular.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+		TCelular.setBounds(111, 337, 113, 20);
+		
+		TTelefone = new JLabel();
+		TTelefone.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+		TTelefone.setBounds(411, 337, 113, 20);
+		
+		LTelefone = new JLabel();
+		LTelefone.setText("Telefone:");
+		LTelefone.setHorizontalAlignment(SwingConstants.RIGHT);
+		LTelefone.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+		LTelefone.setBounds(322, 340, 81, 14);
+		
+		TDataCadastro = new JLabel();
+		TDataCadastro.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 13));
+		TDataCadastro.setBounds(458, 30, 165, 20);
+		
+		LDataCad = new JLabel();
+		LDataCad.setText("Data Cadastro");
+		LDataCad.setHorizontalAlignment(SwingConstants.RIGHT);
+		LDataCad.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+		LDataCad.setBounds(364, 33, 84, 14);
+		
+		LDataNasc = new JLabel();
+		LDataNasc.setText("Data Nasc.:");
+		LDataNasc.setHorizontalAlignment(SwingConstants.RIGHT);
+		LDataNasc.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+		LDataNasc.setBounds(20, 107, 81, 14);
+		
+		TDataNasc = new JLabel();
+		TDataNasc.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 13));
+		TDataNasc.setBounds(111, 104, 113, 20);
+		
+		TConvenio = new JLabel();
+		TConvenio.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 13));
+		TConvenio.setBounds(423, 104, 177, 20);
+		
+		LConvenio = new JLabel();
+		LConvenio.setText("Plano");
+		LConvenio.setHorizontalAlignment(SwingConstants.RIGHT);
+		LConvenio.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+		LConvenio.setBounds(332, 107, 81, 14);
+		
+		LObservacao = new JLabel();
+		LObservacao.setText("Observação:");
+		LObservacao.setHorizontalAlignment(SwingConstants.RIGHT);
+		LObservacao.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+		LObservacao.setBounds(20, 365, 81, 14);
+
+		TObservacao = new JLabel();
+		TObservacao.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+		TObservacao.setBounds(105, 362, 420, 20);
+		
 		JCpf= new JFormattedTextField(ConverteDadosUtil.FormataCPF());
 		JDataNasc= new JFormattedTextField(ConverteDadosUtil.FormataData());
 		JDataCadastro= new JFormattedTextField(ConverteDadosUtil.FormataData());
 		JCep = new JFormattedTextField(ConverteDadosUtil.FormataCep());
-		cancelar = new JButton();
-		painelDrag = new JPanel();
 		separa = new JSeparator();
-		separator = new JSeparator();		
+		separator = new JSeparator();	
+		
+		cancelar = new JButton();
+		cancelar.setText("Voltar");
+		cancelar.setBounds(447, 388, 89, 23);
+		
+		evolucao = new JButton();
+		evolucao.setText("Evolução");
+		evolucao.setBounds(20, 388, 89, 23);
 	}
+	
 
 	private void AdicionaNaTela() {
 		panel.add(LIndentif);
@@ -126,9 +295,11 @@ public class DetalhesPacienteDialog extends JDialog {
 		panel.add(TDataNasc);
 		panel.add(TConvenio);
 		panel.add(LConvenio);
-		panel.add(painelDrag);		
 		panel.add(separa);
 		panel.add(separator);
+		panel.add(LObservacao);
+		panel.add(TObservacao);
+		panel.add(evolucao);
 	}
 
 
@@ -720,41 +891,14 @@ public class DetalhesPacienteDialog extends JDialog {
 	}
 
 
-
-	public JPanel getPainelDrag() {
-		return painelDrag;
+	public JButton getEvolucao() {
+		return evolucao;
 	}
 
 
-
-	public void setPainelDrag(JPanel painelDrag) {
-		this.painelDrag = painelDrag;
+	public void setEvolucao(JButton evolucao) {
+		this.evolucao = evolucao;
 	}
-
-
-
-	public int getXx() {
-		return xx;
-	}
-
-
-
-	public void setXx(int xx) {
-		this.xx = xx;
-	}
-
-
-
-	public int getXy() {
-		return xy;
-	}
-
-
-
-	public void setXy(int xy) {
-		this.xy = xy;
-	}
-
 	
 	
 }

@@ -8,7 +8,6 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-import br.com.gsv.domain.Convenio;
 import br.com.gsv.domain.Evolucao;
 import br.com.gsv.util.HibernateUtil;
 
@@ -69,6 +68,42 @@ public class EvolucaoRepository {
 		return lista;
 	}
 	
+	
+	public Evolucao BuscarPorId(Long id){
+		sessao = HibernateUtil.getSessionFactory().openSession();
+		Evolucao evolucao = null;
+		
+		try {
+			Query consulta = sessao.getNamedQuery("Evolucao.buscarPorId");
+			consulta.setLong("id", id);
+			evolucao = (Evolucao) consulta.uniqueResult();
+		} catch (RuntimeException e) {
+			throw e;
+		}finally{
+			sessao.close();
+		}		
+		return evolucao;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Evolucao> BuscarPorDeterminadoPaciente(Long id){
+		sessao = HibernateUtil.getSessionFactory().openSession();
+		List<Evolucao> lista = null;
+		
+		try {
+			
+			Query consulta = sessao.getNamedQuery("Evolucao.buscarPorNome");
+			consulta.setLong("id",id);
+			lista = consulta.list();
+		} catch (RuntimeException e) {
+			
+			throw e;
+		}finally{
+			sessao.close();
+		}
+		
+		return lista;
+	}
 	
 }
 

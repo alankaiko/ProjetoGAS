@@ -19,4 +19,12 @@ public class EvolucaoService {
 	public List<Evolucao> ListandoTudo(){
 		return this.repositorio.ListarEvolucao();
 	}
+	
+	public Evolucao BuscandoPelaId(Long id){
+		return this.repositorio.BuscarPorId(id);
+	}
+	
+	public List<Evolucao> BuscarPorPaciente(Long id){
+		return this.repositorio.BuscarPorDeterminadoPaciente(id);
+	}
 }

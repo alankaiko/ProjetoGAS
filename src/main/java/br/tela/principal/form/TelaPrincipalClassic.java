@@ -1,6 +1,7 @@
 package br.tela.principal.form;
 
 import java.awt.Color;
+import java.awt.Toolkit;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -14,9 +15,6 @@ import javax.swing.border.LineBorder;
 import br.com.gsv.domain.Usuario;
 import br.tela.principal.listeners.BarraStatusListener;
 import br.tela.principal.listeners.TelaPrincipalClassicListener;
-
-import javax.swing.ImageIcon;
-import java.awt.Toolkit;
 
 public class TelaPrincipalClassic extends JFrame {
 
@@ -33,7 +31,7 @@ public class TelaPrincipalClassic extends JFrame {
 	private JPanel panelStatus;
 	private TelaPrincipalClassicListener listener;
 	private Usuario usuario;
-	private BarraStatusListener teste;
+	private BarraStatusListener barra;
 
 
 	public TelaPrincipalClassic() {
@@ -60,7 +58,7 @@ public class TelaPrincipalClassic extends JFrame {
 	public void IniciaComponentesSecundarios(){
 		CriaComponentes();	
 		listener = new TelaPrincipalClassicListener(this);
-		teste = new BarraStatusListener(this);
+		barra = new BarraStatusListener(this);
 	}
 	
 	

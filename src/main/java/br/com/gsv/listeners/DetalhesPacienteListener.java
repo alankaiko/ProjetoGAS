@@ -10,13 +10,16 @@ import javax.swing.JComponent;
 import javax.swing.JRootPane;
 import javax.swing.KeyStroke;
 
+import br.com.gsv.domain.Funcionario;
 import br.com.gsv.domain.Paciente;
+import br.com.gsv.evolucao.formulario.GerenciarEvolucoes;
 import br.com.gsv.formularios.DetalhesPacienteDialog;
 import br.com.gsv.util.ConverteDadosUtil;
 
 public class DetalhesPacienteListener implements ActionListener{
 	private Paciente paciente;
 	private DetalhesPacienteDialog formulario;
+	private Funcionario funcionario;
 
 	
 	public DetalhesPacienteListener(DetalhesPacienteDialog formulario) {
@@ -29,6 +32,7 @@ public class DetalhesPacienteListener implements ActionListener{
 	
 	public void AdicionarListener(){
 		this.formulario.getCancelar().addActionListener(this);
+		this.formulario.getEvolucao().addActionListener(this);
 	}
 	
 	
@@ -67,7 +71,25 @@ public class DetalhesPacienteListener implements ActionListener{
 		if(event.getSource().equals(this.formulario.getCancelar())){
 			this.formulario.dispose();
 		}
+		
+		if(event.getSource().equals(this.formulario.getEvolucao())){
+			AbrirTelaEvolucao();
+		}
 	}
+	
+	
+	private void AbrirTelaEvolucao(){
+		GerenciarEvolucoes evolucao = new GerenciarEvolucoes();
+		evolucao.getListener().setPaciente(this.paciente);
+		evolucao.getListener().setFuncionario(this.funcionario);
+		evolucao.getListener().CriaTabela();
+		evolucao.getListener().InsereDados();
+		evolucao.setLocationRelativeTo(this.formulario.getTela());
+		evolucao.setVisible(true);
+	}
+	
+	
+	
 	
 	
 	private void UsandoTAB(){
@@ -104,5 +126,12 @@ public class DetalhesPacienteListener implements ActionListener{
 		return paciente;
 	}
 
+	public void setFuncionario(Funcionario funcionario) {
+		this.funcionario = funcionario;
+	}
+	
+	public Funcionario getFuncionario() {
+		return funcionario;
+	}
 
 }

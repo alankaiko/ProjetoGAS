@@ -53,10 +53,10 @@ public class TelaLogin extends JFrame{
 		PainelPrincipal.add(PainelLogo);
 		PainelLogo.setLayout(null);
 
-		labelGas = new JLabel("G-Doctor's");
+		labelGas = new JLabel("Gestão Hospitalar");
 		labelGas.setForeground(Color.WHITE);
 		labelGas.setFont(new Font("Utsaah", Font.PLAIN, 35));
-		labelGas.setBounds(52, 26, 129, 35);
+		labelGas.setBounds(10, 26, 213, 35);
 		PainelLogo.add(labelGas);
 		
 		

@@ -42,8 +42,8 @@ public class Funcionario implements Serializable{
 	private String nome;
 	private String cpf;
 	private String rg;
-	private List<Contato_fun> contato = new ArrayList<Contato_fun>();
-	private List<Endereco_fun> endereco = new ArrayList<Endereco_fun>();
+	private Contato_fun contato;
+	private Endereco_fun endereco;
 	private RegistroCoren registroCoren;
 
 	
@@ -86,25 +86,25 @@ public class Funcionario implements Serializable{
 	}
 
 	
-	@OneToMany(mappedBy = "funcionario", cascade = CascadeType.ALL, fetch=FetchType.EAGER)
-	public List<Contato_fun> getContato() {
+	
+	@OneToOne(mappedBy = "funcionario", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	public Contato_fun getContato() {
 		return contato;
 	}
 
-	public void setContato(List<Contato_fun> contato) {
+	public void setContato(Contato_fun contato) {
 		this.contato = contato;
 	}
-	
-	
-	@OneToMany(mappedBy="funcionario", cascade= CascadeType.ALL, fetch=FetchType.EAGER)	
-	public List<Endereco_fun> getEndereco() {
+
+	@OneToOne(mappedBy = "funcionario", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	public Endereco_fun getEndereco() {
 		return endereco;
 	}
 
-	public void setEndereco(List<Endereco_fun> endereco) {
+	public void setEndereco(Endereco_fun endereco) {
 		this.endereco = endereco;
 	}
-	
+
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "tbl_registrocoren_id", referencedColumnName = "reg_id")
 	public RegistroCoren getRegistroCoren() {

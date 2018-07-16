@@ -22,6 +22,13 @@ public class EvolucaoController {
 		this.service.Remover(this.evolucao);
 	}
 	
+	public Evolucao BuscaId(Long id){
+		return this.service.BuscandoPelaId(id);
+	}
+	
+	public List<Evolucao> BuscarPoPaciente(Long id){
+		return this.service.BuscarPorPaciente(id);
+	}
 	
 	public Evolucao getEvolucao() {
 		return evolucao;

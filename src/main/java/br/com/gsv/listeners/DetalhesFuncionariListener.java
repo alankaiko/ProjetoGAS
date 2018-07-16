@@ -41,17 +41,17 @@ public class DetalhesFuncionariListener implements ActionListener{
 		this.formulario.getTRg().setText(this.funcionario.getRg());
 		this.formulario.getJCpf().setText(this.funcionario.getCpf());
 		this.formulario.getTCpf().setText(this.formulario.getJCpf().getText());
-		this.formulario.getTLogradouro().setText(this.funcionario.getEndereco().get(0).getLogradouro());
-		this.formulario.getTComplemento().setText(this.funcionario.getEndereco().get(0).getComplemento());
-		this.formulario.getTNumero().setText(String.valueOf(this.funcionario.getEndereco().get(0).getNumero()));
-		this.formulario.getTBairro().setText(this.funcionario.getEndereco().get(0).getBairro());
-		this.formulario.getTCidade().setText(this.funcionario.getEndereco().get(0).getCidade());
-		this.formulario.getTEstado().setText(this.funcionario.getEndereco().get(0).getEstado());
-		this.formulario.getJCep().setText(this.funcionario.getEndereco().get(0).getCep());
+		this.formulario.getTLogradouro().setText(this.funcionario.getEndereco().getLogradouro());
+		this.formulario.getTComplemento().setText(this.funcionario.getEndereco().getComplemento());
+		this.formulario.getTNumero().setText(String.valueOf(this.funcionario.getEndereco().getNumero()));
+		this.formulario.getTBairro().setText(this.funcionario.getEndereco().getBairro());
+		this.formulario.getTCidade().setText(this.funcionario.getEndereco().getCidade());
+		this.formulario.getTEstado().setText(this.funcionario.getEndereco().getEstado());
+		this.formulario.getJCep().setText(this.funcionario.getEndereco().getCep());
 		this.formulario.getTCep().setText(this.formulario.getJCep().getText());
-		this.formulario.getTEmail().setText(this.funcionario.getContato().get(0).getEmail());
-		this.formulario.getTCelular().setText(this.funcionario.getContato().get(0).getCelular());
-		this.formulario.getTTelefone().setText(this.funcionario.getContato().get(0).getTelefone());
+		this.formulario.getTEmail().setText(this.funcionario.getContato().getEmail());
+		this.formulario.getTCelular().setText(this.funcionario.getContato().getCelular());
+		this.formulario.getTTelefone().setText(this.funcionario.getContato().getTelefone());
 		
 	}
 	

@@ -48,6 +48,7 @@ public class GerenciaFabricanteListener implements ActionListener{
 		FabricanteController control = new FabricanteController();
 		tabela = new TabelaDeFabricanteUtil(control.ListaCompletaDeFabricante());
 		this.gerenciamento.getTable().setModel(tabela);
+		
 		this.gerenciamento.getTable().getColumnModel().getColumn(0).setPreferredWidth(40);
 		this.gerenciamento.getTable().getColumnModel().getColumn(1).setPreferredWidth(210);
 		this.gerenciamento.getTable().setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
@@ -90,6 +91,8 @@ public class GerenciaFabricanteListener implements ActionListener{
 		if(event.getSource().equals(gerenciamento.getFim())){
 			this.gerenciamento.dispose();
 		}
+		
+		TabelaDeFabricantes();
 	}
 	
 	
@@ -112,7 +115,6 @@ public class GerenciaFabricanteListener implements ActionListener{
 		IncluirFabricantesForm inclui = new IncluirFabricantesForm();
 		inclui.setLocationRelativeTo(this.gerenciamento.getTela());
 		inclui.setVisible(true);		
-		TabelaDeFabricantes();
 	}
 	
 	private void ExecutaExclusao(Long id){
@@ -120,7 +122,6 @@ public class GerenciaFabricanteListener implements ActionListener{
 		ExcluirFabricanteDialog telaExc = new ExcluirFabricanteDialog(controller.BuscarPelaID(id));
 		telaExc.setLocationRelativeTo(this.gerenciamento.getTela());
 		telaExc.setVisible(true);
-		TabelaDeFabricantes();	
 	}
 	
 	private void ExecutaEdicao(Long id){
@@ -131,8 +132,6 @@ public class GerenciaFabricanteListener implements ActionListener{
 		
 		edita.setLocationRelativeTo(this.gerenciamento.getTela());
 		edita.setVisible(true);
-		
-		TabelaDeFabricantes();
 	}
 	
 	private void ExecutaTelaDetalhes(Long id){

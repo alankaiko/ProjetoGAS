@@ -28,7 +28,9 @@ import br.com.gsv.domain.sub.EnumEvolucaoTemperatura;
 @Table
 @Entity
 @NamedQueries({ 
-	@NamedQuery(name = "Evolucao.listar", query = "SELECT evolucao FROM Evolucao evolucao order by data")
+	@NamedQuery(name ="Evolucao.listar", query = "SELECT evolucao FROM Evolucao evolucao order by data"),
+	@NamedQuery(name="Evolucao.buscarPorId", query="SELECT evolucao FROM Evolucao evolucao WHERE evolucao.id = :id"),
+	@NamedQuery(name="Evolucao.buscarPorNome", query="SELECT evolucao FROM Evolucao evolucao WHERE evolucao.tbl_paciente_id LIKE :id")
 })
 public class Evolucao {
 	

@@ -157,30 +157,6 @@ public class IncluirPacienteListener implements ActionListener{
 	}
 
 	
-	//Método para Edicao de clientes
-	private void EditToCliente(){
-		paciente.setId(Long.parseLong(this.formulario.getTId().getText()));
-		paciente.setNome(this.formulario.getTNome().getText());
-		paciente.setCpf(this.formulario.getJCpf().getText().replaceAll("[_.-]", ""));
-		paciente.setRg(this.formulario.getTRg().getText());
-		paciente.setConvenio((Convenio)this.formulario.getComboConvenio().getSelectedItem());
-		paciente.setDataNasc(ConverteDadosUtil.TransformandoEmDate(this.formulario.getJDataNasc().getText()));
-		paciente.getEndereco().setLogradouro(this.formulario.getTLogradouro().getText());
-		paciente.getEndereco().setComplemento(this.formulario.getTComplemento().getText());
-		paciente.getEndereco().setNumero(ConverteDadosUtil.RetornaInt(this.formulario.getTNumero().getText()));
-		paciente.getEndereco().setBairro(this.formulario.getTBairro().getText());
-		paciente.getEndereco().setCidade(this.formulario.getTCidade().getText());
-		paciente.getEndereco().setEstado((String)this.formulario.getComboEstado().getSelectedItem());
-		paciente.getEndereco().setCep(this.formulario.getJCep().getText());
-		paciente.getContato().setEmail(this.formulario.getTEmail().getText());
-		paciente.getContato().setCelular(this.formulario.getTCelular().getText());
-		paciente.getContato().setTelefone(this.formulario.getTTelefone().getText());
-	}
-		
-		
-		
-
-	
 	
 	/*-----------------------------------------------------------------------------------------------------------------*/
 	/*-------------------CLASSES QUE POSSUI AS ACOES DOS BOTOES ---------------*/
@@ -212,10 +188,6 @@ public class IncluirPacienteListener implements ActionListener{
 		form.setLocationRelativeTo(this.formulario.getTela());
 		form.setVisible(true);
 	}
-	
-	
-	
-	
 	
 	
 	

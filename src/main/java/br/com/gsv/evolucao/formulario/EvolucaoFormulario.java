@@ -37,12 +37,12 @@ public class EvolucaoFormulario extends JDialog {
 	private JPanel painelBranco,painelDadosGeral,painelEstadoGeral,painelOutras;
 	private JButton BGravar,BVoltar;
 	private JComboBox ComboEstGeral,ComboNivConsciencia,ComboNivOrientacao,ComboTemperatura,ComboPressao,ComboPulso;
-	private JTextField TTemperatura, TPressao, TPulso, TQueixaPac, TCodigo, TNome, TTempo, TRegistro;
+	private JTextField TTemperatura, TPressao, TPulso, TQueixaPac, TCodigo, TNome, TTempo, TRegistro, TIdPaciente, TNomePaciente;
 	private JFormattedTextField JData;
 	private JLabel LNivelConsciencia,LEstGeral,LNivelOrientacao, LPressao, LData;
 	private JLabel LSinaisVitais,LRespiracao,LPulsacao,LTemperatura,LGraus,LBpm,LMmhg, LEvolucao;
 	private JLabel LTempo, lblRegistradoPor, LNome, LCodigo,LDiagnostico,LRegistro, LItensRelacionados;
-	private JLabel LSondas, LQueixaPac, LCurativo;
+	private JLabel LSondas, LQueixaPac, LCurativo, TId,LNomePaciente;
 	private JRadioButton RadioEspontaneo, RadioOxigenio, RadioTraquostomia, RadioEntubado;
 	private ButtonGroup grupo = new ButtonGroup();
 	private JTabbedPane tabbedPane;
@@ -50,8 +50,7 @@ public class EvolucaoFormulario extends JDialog {
 	private JScrollPane ScrollTextItensRelac, ScrollTextoDiagnostico,ScrollTextSondas,ScrollTextCurativo;
 	private JTextArea TextoItensRelacionados, Tdiagnostico,TextoSondas,TextoCurativo;
 	private EvolucaoListener listener;
-	
-	
+
 	
 	
 	public static void main(String[] args) {
@@ -102,7 +101,7 @@ public class EvolucaoFormulario extends JDialog {
 	private void CriaAbaDadosGerais(){
 		LData = new JLabel("Data Inclusão");
 		LData.setFont(new Font("Segoe UI", Font.PLAIN, 12));
-		LData.setBounds(367, 14, 77, 14);
+		LData.setBounds(367, 14, 77, 16);
 		abaDadosGerais.add(LData);
 		
 		JData= new JFormattedTextField(ConverteDadosUtil.FormataData());
@@ -113,21 +112,9 @@ public class EvolucaoFormulario extends JDialog {
 		JData.setText(ConverteDadosUtil.RetornaDataAtual());
 		abaDadosGerais.add(JData);
 		
-		
-		LTempo = new JLabel("Tempo de Internação");
-		LTempo.setFont(new Font("Segoe UI", Font.PLAIN, 12));
-		LTempo.setBounds(184, 49, 120, 14);
-		abaDadosGerais.add(LTempo);
-		
-		TTempo = new JTextField();
-		TTempo.setBorder(new LineBorder(Color.BLACK));
-		TTempo.setBounds(314, 46, 240, 20);
-		abaDadosGerais.add(TTempo);
-		TTempo.setColumns(10);
-		
 		LDiagnostico = new JLabel("Diagnóstico Geral");
 		LDiagnostico.setFont(new Font("Segoe UI", Font.PLAIN, 12));
-		LDiagnostico.setBounds(10, 100, 141, 14);
+		LDiagnostico.setBounds(10, 100, 141, 16);
 		abaDadosGerais.add(LDiagnostico);
 		
 		ScrollTextoDiagnostico = new JScrollPane();
@@ -140,15 +127,16 @@ public class EvolucaoFormulario extends JDialog {
 		
 		lblRegistradoPor = new JLabel("Registrado Por:");
 		lblRegistradoPor.setFont(new Font("Segoe UI", Font.PLAIN, 12));
-		lblRegistradoPor.setBounds(10, 276, 141, 14);
+		lblRegistradoPor.setBounds(10, 276, 141, 16);
 		abaDadosGerais.add(lblRegistradoPor);
 		
 		LNome = new JLabel("Nome");
 		LNome.setFont(new Font("Segoe UI", Font.PLAIN, 12));
-		LNome.setBounds(10, 297, 60, 14);
+		LNome.setBounds(10, 297, 60, 16);
 		abaDadosGerais.add(LNome);
 		
 		TNome = new JTextField();
+		TNome.setBackground(Color.WHITE);
 		TNome.setBorder(new LineBorder(Color.BLACK));
 		TNome.setColumns(10);
 		TNome.setEditable(false);
@@ -157,10 +145,11 @@ public class EvolucaoFormulario extends JDialog {
 		
 		LCodigo = new JLabel("Código");
 		LCodigo.setFont(new Font("Segoe UI", Font.PLAIN, 12));
-		LCodigo.setBounds(10, 329, 60, 14);
+		LCodigo.setBounds(10, 329, 60, 16);
 		abaDadosGerais.add(LCodigo);
 		
 		TCodigo = new JTextField();
+		TCodigo.setBackground(Color.WHITE);
 		TCodigo.setBorder(new LineBorder(Color.BLACK));
 		TCodigo.setEditable(false);
 		TCodigo.setColumns(10);
@@ -169,10 +158,11 @@ public class EvolucaoFormulario extends JDialog {
 		
 		LRegistro = new JLabel("Registro:");
 		LRegistro.setFont(new Font("Segoe UI", Font.PLAIN, 12));
-		LRegistro.setBounds(240, 329, 60, 14);
+		LRegistro.setBounds(240, 329, 60, 16);
 		abaDadosGerais.add(LRegistro);
 		
 		TRegistro = new JTextField();
+		TRegistro.setBackground(Color.WHITE);
 		TRegistro.setBorder(new LineBorder(Color.BLACK));
 		TRegistro.setColumns(10);
 		TRegistro.setEditable(false);
@@ -183,6 +173,45 @@ public class EvolucaoFormulario extends JDialog {
 		painelDadosGeral.setBackground(Color.WHITE);
 		painelDadosGeral.setBounds(0, 0, 564, 372);
 		abaDadosGerais.add(painelDadosGeral);
+		painelDadosGeral.setLayout(null);
+		
+		
+		LTempo = new JLabel("Tempo de Internação");
+		LTempo.setBounds(10, 11, 120, 16);
+		painelDadosGeral.add(LTempo);
+		LTempo.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+		
+		TTempo = new JTextField();
+		TTempo.setBounds(140, 9, 200, 20);
+		painelDadosGeral.add(TTempo);
+		TTempo.setBorder(new LineBorder(Color.BLACK));
+		TTempo.setColumns(10);
+		
+		TIdPaciente = new JTextField();
+		TIdPaciente.setBackground(Color.WHITE);
+		TIdPaciente.setEditable(false);
+		TIdPaciente.setColumns(10);
+		TIdPaciente.setBorder(new LineBorder(Color.BLACK));
+		TIdPaciente.setBounds(81, 39, 150, 20);
+		painelDadosGeral.add(TIdPaciente);
+		
+		TId = new JLabel("Código");
+		TId.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+		TId.setBounds(10, 40, 60, 16);
+		painelDadosGeral.add(TId);
+		
+		TNomePaciente = new JTextField();
+		TNomePaciente.setBackground(Color.WHITE);
+		TNomePaciente.setEditable(false);
+		TNomePaciente.setColumns(10);
+		TNomePaciente.setBorder(new LineBorder(Color.BLACK));
+		TNomePaciente.setBounds(81, 70, 365, 20);
+		painelDadosGeral.add(TNomePaciente);
+		
+		LNomePaciente = new JLabel("Nome");
+		LNomePaciente.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+		LNomePaciente.setBounds(10, 73, 60, 16);
+		painelDadosGeral.add(LNomePaciente);
 	
 	}
 	
@@ -272,6 +301,8 @@ public class EvolucaoFormulario extends JDialog {
 		abaEstadoGeral.add(ComboPulso);
 		
 		TPulso = new JTextField();
+		TPulso.setBorder(new LineBorder(Color.BLACK));
+		TPulso.setBackground(Color.WHITE);
 		TPulso.setColumns(10);
 		TPulso.setBounds(330, 263, 92, 20);
 		abaEstadoGeral.add(TPulso);
@@ -291,6 +322,8 @@ public class EvolucaoFormulario extends JDialog {
 		abaEstadoGeral.add(ComboPressao);
 		
 		TPressao = new JTextField();
+		TPressao.setBorder(new LineBorder(Color.BLACK));
+		TPressao.setBackground(Color.WHITE);
 		TPressao.setColumns(10);
 		TPressao.setBounds(330, 292, 92, 20);
 		abaEstadoGeral.add(TPressao);
@@ -310,6 +343,8 @@ public class EvolucaoFormulario extends JDialog {
 		abaEstadoGeral.add(ComboTemperatura);
 		
 		TTemperatura = new JTextField();
+		TTemperatura.setBorder(new LineBorder(Color.BLACK));
+		TTemperatura.setBackground(Color.WHITE);
 		TTemperatura.setColumns(10);
 		TTemperatura.setBounds(330, 328, 92, 20);
 		abaEstadoGeral.add(TTemperatura);
@@ -324,12 +359,13 @@ public class EvolucaoFormulario extends JDialog {
 		abaEstadoGeral.add(painelBranco);
 		painelBranco.setLayout(null);
 		
-		LQueixaPac = new JLabel("Nível de Orientação");
+		LQueixaPac = new JLabel("Queixa do paciente");
 		LQueixaPac.setFont(new Font("Segoe UI", Font.PLAIN, 12));
 		LQueixaPac.setBounds(10, 128, 120, 14);
 		painelBranco.add(LQueixaPac);
 		
 		TQueixaPac = new JTextField();
+		TQueixaPac.setBorder(new LineBorder(Color.BLACK));
 		TQueixaPac.setColumns(10);
 		TQueixaPac.setBounds(140, 126, 349, 20);
 		painelBranco.add(TQueixaPac);
@@ -592,11 +628,9 @@ public class EvolucaoFormulario extends JDialog {
 	}
 
 
-
 	public JTextField getTQueixaPac() {
 		return TQueixaPac;
 	}
-
 
 
 	public void setTQueixaPac(JTextField tQueixaPac) {
@@ -604,11 +638,9 @@ public class EvolucaoFormulario extends JDialog {
 	}
 
 
-
 	public JTextField getTCodigo() {
 		return TCodigo;
 	}
-
 
 
 	public void setTCodigo(JTextField tCodigo) {
@@ -616,11 +648,9 @@ public class EvolucaoFormulario extends JDialog {
 	}
 
 
-
 	public JTextField getTNome() {
 		return TNome;
 	}
-
 
 
 	public void setTNome(JTextField tNome) {
@@ -628,11 +658,9 @@ public class EvolucaoFormulario extends JDialog {
 	}
 
 
-
 	public JTextField getTTempo() {
 		return TTempo;
 	}
-
 
 
 	public void setTTempo(JTextField tTempo) {
@@ -640,11 +668,9 @@ public class EvolucaoFormulario extends JDialog {
 	}
 
 
-
 	public JTextField getTRegistro() {
 		return TRegistro;
 	}
-
 
 
 	public void setTRegistro(JTextField tRegistro) {
@@ -652,11 +678,9 @@ public class EvolucaoFormulario extends JDialog {
 	}
 
 
-
 	public JTextArea getTextoItensRelacionados() {
 		return TextoItensRelacionados;
 	}
-
 
 
 	public void setTextoItensRelacionados(JTextArea textoItensRelacionados) {
@@ -664,11 +688,9 @@ public class EvolucaoFormulario extends JDialog {
 	}
 
 
-
 	public JTextArea getTdiagnostico() {
 		return Tdiagnostico;
 	}
-
 
 
 	public void setTdiagnostico(JTextArea tdiagnostico) {
@@ -676,11 +698,9 @@ public class EvolucaoFormulario extends JDialog {
 	}
 
 
-
 	public JTextArea getTextoSondas() {
 		return TextoSondas;
 	}
-
 
 
 	public void setTextoSondas(JTextArea textoSondas) {
@@ -688,16 +708,60 @@ public class EvolucaoFormulario extends JDialog {
 	}
 
 
-
 	public JTextArea getTextoCurativo() {
 		return TextoCurativo;
 	}
 
 
-
 	public void setTextoCurativo(JTextArea textoCurativo) {
 		TextoCurativo = textoCurativo;
 	}
+	
+
+
+	public JTextField getTNomePaciente() {
+		return TNomePaciente;
+	}
+
+
+	public void setTNomePaciente(JTextField tNomePaciente) {
+		TNomePaciente = tNomePaciente;
+	}
+
+
+
+	public JLabel getTId() {
+		return TId;
+	}
+
+
+
+	public void setTId(JLabel tId) {
+		TId = tId;
+	}
+
+
+
+	public EvolucaoListener getListener() {
+		return listener;
+	}
+
+
+	public void setListener(EvolucaoListener listener) {
+		this.listener = listener;
+	}
+
+
+
+	public JTextField getTIdPaciente() {
+		return TIdPaciente;
+	}
+
+
+
+	public void setTIdPaciente(JTextField tIdPaciente) {
+		TIdPaciente = tIdPaciente;
+	}	
 	
 	
 }

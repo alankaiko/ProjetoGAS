@@ -61,16 +61,16 @@ public class IniciarSistema extends JFrame {
 		lblCarregandoBanco.setBounds(40, 217, 115, 14);
 		panel.add(lblCarregandoBanco);
 		
-		JLabel gdoctor = new JLabel("G-Doctor's");
+		JLabel gdoctor = new JLabel("Gestão Hospitalar");
 		gdoctor.setForeground(Color.WHITE);
 		gdoctor.setFont(new Font("Segoe UI Semibold", Font.ITALIC, 28));
-		gdoctor.setBounds(142, 129, 142, 34);
+		gdoctor.setBounds(100, 129, 241, 34);
 		panel.add(gdoctor);
 		
 		JLabel lblBeta = new JLabel("Beta");
 		lblBeta.setFont(new Font("Segoe UI", Font.PLAIN, 11));
 		lblBeta.setForeground(Color.WHITE);
-		lblBeta.setBounds(255, 167, 31, 14);
+		lblBeta.setBounds(305, 167, 31, 14);
 		panel.add(lblBeta);
 		
 		Carregar();

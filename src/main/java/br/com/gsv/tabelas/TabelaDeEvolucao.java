@@ -11,10 +11,10 @@ import br.com.gsv.domain.sub.EnumEvolucaoEstGeral;
 import br.com.gsv.domain.sub.EnumEvolucaoNivelConsciencia;
 
 public class TabelaDeEvolucao extends AbstractTableModel {
-	private String[] colunas = new String[] { "DATA DA INCLUSÃO", "PACIENTE", "TEMPO DE INTERNAÇÃO", "NÍVEL CONSCIÊNCIA", "ESTADO GERAL"};
+	private String[] colunas = new String[] {"ID", "DATA", "TEMPO DE INTERNAÇÃO", "NÍVEL CONSCIÊNCIA", "ESTADO GERAL"};
 	private List<Evolucao> linhas;
-	private static final int DATA = 0;
-    private static final int PACIENTE = 1;
+	private static final int ID =0;
+	private static final int DATA = 1;
     private static final int INTERNACAO = 2;
     private static final int CONSCIENCIA = 3;
     private static final int ESTADOGERAL = 4; 
@@ -43,9 +43,9 @@ public class TabelaDeEvolucao extends AbstractTableModel {
     @Override
     public Class<?> getColumnClass(int columnIndex) {
         switch (columnIndex) {
-        case DATA:
+        case ID:
             return String.class;
-        case PACIENTE:
+        case DATA:
             return String.class;
         case INTERNACAO:
             return String.class;
@@ -68,10 +68,10 @@ public class TabelaDeEvolucao extends AbstractTableModel {
         Evolucao dados = linhas.get(rowIndex);
  
         switch (columnIndex) {
+        case ID:
+            return dados.getId();
         case DATA:
             return dados.getData();
-        case PACIENTE:
-            return dados.getPaciente().getNome();
         case INTERNACAO:
             return dados.getTempoInternacao();
         case CONSCIENCIA:
@@ -116,11 +116,11 @@ public class TabelaDeEvolucao extends AbstractTableModel {
         Evolucao dados = linhas.get(rowIndex);
  
         switch (columnIndex) {
+        case ID:
+        	dados.setId((Long) aValue);
+            break;
         case DATA:
         	dados.setData((Date) aValue);
-            break;
-        case PACIENTE:
-        	dados.getPaciente().setNome((String) aValue);
             break;
         case INTERNACAO:
         	dados.setTempoInternacao((String) aValue);

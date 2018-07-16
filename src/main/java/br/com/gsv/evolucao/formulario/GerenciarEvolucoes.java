@@ -2,28 +2,31 @@ package br.com.gsv.evolucao.formulario;
 
 import java.awt.BorderLayout;
 import java.awt.Container;
-import java.awt.FlowLayout;
+import java.awt.Font;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
-import javax.swing.JPanel;
-import javax.swing.JTable;
-import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
-
-import java.awt.Font;
-
-import javax.swing.JTextField;
+import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+import javax.swing.border.EmptyBorder;
+
+import br.com.gsv.evolucao.listeners.GerenciarEvolucaoListener;
+import javax.swing.border.LineBorder;
+import java.awt.Color;
 
 public class GerenciarEvolucoes extends JDialog {
 		private JPanel panel = new JPanel();
 		private Container tela = getContentPane();
 		private JTextField TPaciente,TConvenio,TTelefone,TCelular,TEmail;
 		private JLabel LHistorico,LPaciente,LConvenio,LTelefone,LCelular,LEmail;
-		private JButton BTPesquisar, BTCancelar;
+		private JButton BTCancelar, BTAdicionar, BTAlterar;
 		private JScrollPane scrollPane;
 		private JTable table;
+		private GerenciarEvolucaoListener listener;
+	
 
 	
 	public static void main(String[] args) {
@@ -46,7 +49,11 @@ public class GerenciarEvolucoes extends JDialog {
 		this.setModal(true);
 		this.setResizable(false);
 		
-		CriaComponentes();				
+		this.table = new JTable();
+		this.scrollPane = new JScrollPane();
+		
+		CriaComponentes();		
+		listener = new GerenciarEvolucaoListener(this);
 	}
 	
 	private void CriaComponentes(){
@@ -61,6 +68,8 @@ public class GerenciarEvolucoes extends JDialog {
 		panel.add(LPaciente);
 		
 		TPaciente = new JTextField();
+		TPaciente.setBackground(Color.WHITE);
+		TPaciente.setBorder(new LineBorder(Color.BLACK));
 		TPaciente.setBounds(10, 75, 400, 20);
 		TPaciente.setEditable(false);
 		panel.add(TPaciente);
@@ -72,6 +81,8 @@ public class GerenciarEvolucoes extends JDialog {
 		panel.add(LConvenio);
 		
 		TConvenio = new JTextField();
+		TConvenio.setBackground(Color.WHITE);
+		TConvenio.setBorder(new LineBorder(Color.BLACK));
 		TConvenio.setBounds(435, 75, 219, 20);
 		TConvenio.setEditable(false);
 		panel.add(TConvenio);
@@ -83,6 +94,8 @@ public class GerenciarEvolucoes extends JDialog {
 		panel.add(LTelefone);
 		
 		TTelefone = new JTextField();
+		TTelefone.setBackground(Color.WHITE);
+		TTelefone.setBorder(new LineBorder(Color.BLACK));
 		TTelefone.setColumns(10);
 		TTelefone.setEditable(false);
 		TTelefone.setBounds(10, 116, 150, 20);
@@ -94,12 +107,16 @@ public class GerenciarEvolucoes extends JDialog {
 		panel.add(LCelular);
 		
 		TCelular = new JTextField();
+		TCelular.setBackground(Color.WHITE);
+		TCelular.setBorder(new LineBorder(Color.BLACK));
 		TCelular.setColumns(10);
 		TCelular.setEditable(false);
 		TCelular.setBounds(170, 116, 150, 20);
 		panel.add(TCelular);
 		
 		TEmail = new JTextField();
+		TEmail.setBackground(Color.WHITE);
+		TEmail.setBorder(new LineBorder(Color.BLACK));
 		TEmail.setColumns(10);
 		TEmail.setEditable(false);
 		TEmail.setBounds(330, 116, 324, 20);
@@ -114,13 +131,17 @@ public class GerenciarEvolucoes extends JDialog {
 		scrollPane.setBounds(10, 147, 644, 220);
 		panel.add(scrollPane);
 		
-		BTPesquisar = new JButton("Pesquisar");
-		BTPesquisar.setBounds(230, 388, 89, 23);
-		panel.add(BTPesquisar);
-		
 		BTCancelar = new JButton("Voltar");
-		BTCancelar.setBounds(330, 388, 89, 23);
+		BTCancelar.setBounds(559, 388, 95, 23);
 		panel.add(BTCancelar);
+		
+		BTAdicionar = new JButton("Adicionar");
+		BTAdicionar.setBounds(349, 388, 95, 23);
+		panel.add(BTAdicionar);
+		
+		BTAlterar = new JButton("Alterar");
+		BTAlterar.setBounds(454, 388, 95, 23);
+		panel.add(BTAlterar);
 	}
 
 
@@ -184,16 +205,6 @@ public class GerenciarEvolucoes extends JDialog {
 	}
 
 
-	public JButton getBTPesquisar() {
-		return BTPesquisar;
-	}
-
-
-	public void setBTPesquisar(JButton bTPesquisar) {
-		BTPesquisar = bTPesquisar;
-	}
-
-
 	public JButton getBTCancelar() {
 		return BTCancelar;
 	}
@@ -201,6 +212,26 @@ public class GerenciarEvolucoes extends JDialog {
 
 	public void setBTCancelar(JButton bTCancelar) {
 		BTCancelar = bTCancelar;
+	}
+
+
+	public JButton getBTAdicionar() {
+		return BTAdicionar;
+	}
+
+
+	public void setBTAdicionar(JButton bTAdicionar) {
+		BTAdicionar = bTAdicionar;
+	}
+
+
+	public JButton getBTAlterar() {
+		return BTAlterar;
+	}
+
+
+	public void setBTAlterar(JButton bTAlterar) {
+		BTAlterar = bTAlterar;
 	}
 
 
@@ -221,6 +252,16 @@ public class GerenciarEvolucoes extends JDialog {
 
 	public void setTable(JTable table) {
 		this.table = table;
+	}
+
+
+	public GerenciarEvolucaoListener getListener() {
+		return listener;
+	}
+
+
+	public void setListener(GerenciarEvolucaoListener listener) {
+		this.listener = listener;
 	}
 	
 	

@@ -68,7 +68,7 @@ public class RelatorioFuncionarioRegistro extends AbstractRelatorios{
 			celulaCoren = new PdfPCell(new Paragraph(funcionario.getRegistroCoren().getCoren()
 					+" "+funcionario.getRegistroCoren().getInscricao()
 					+" "+funcionario.getRegistroCoren().getUf(), fonte));
-			celulaCidade = new PdfPCell(new Paragraph(funcionario.getEndereco().get(0).getCidade(), fonte));
+			celulaCidade = new PdfPCell(new Paragraph(funcionario.getEndereco().getCidade(), fonte));
 		
 			celulaCodigo.setHorizontalAlignment(Element.ALIGN_LEFT);
 			celulaCodigo.setBorder(PdfPCell.NO_BORDER);

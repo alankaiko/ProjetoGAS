@@ -165,6 +165,7 @@ public class TelaPrincipalClassicListener implements ActionListener{
 	
 	private void AbreIncluirPaciente(){
 		IncluirPacienteForm inclui = new IncluirPacienteForm();
+		inclui.getListener().IniciarObjetos();
 		inclui.setLocationRelativeTo(this.tela.getTela());
 		inclui.setVisible(true);		
 	}
@@ -186,6 +187,7 @@ public class TelaPrincipalClassicListener implements ActionListener{
 	
 	private void AbreCadPaciente(){
 		GerenciaTelaPaciente paciente = new GerenciaTelaPaciente();
+		paciente.getListener().setFuncionario(this.tela.getUsuario().getFuncionario());
 		paciente.setLocationRelativeTo(this.tela.getTela());
 		paciente.setVisible(true);
 	}
@@ -198,6 +200,7 @@ public class TelaPrincipalClassicListener implements ActionListener{
 	
 	private void AbreIncluFuncionario(){
 		IncluirFuncionariosForm incluirFunc =  new IncluirFuncionariosForm();
+		incluirFunc.getListener().IniciaObjeto();
 		incluirFunc.setLocationRelativeTo(this.tela.getTela());
 		incluirFunc.setVisible(true);
 	}

@@ -2,8 +2,17 @@ package br.com.gsv.evolucao.listeners;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+
+import javax.swing.AbstractAction;
+import javax.swing.JComponent;
+import javax.swing.JRootPane;
+import javax.swing.KeyStroke;
 
 import br.com.gsv.domain.Evolucao;
+import br.com.gsv.domain.Funcionario;
+import br.com.gsv.domain.Paciente;
 import br.com.gsv.domain.sub.EnumEvolucaoEstGeral;
 import br.com.gsv.domain.sub.EnumEvolucaoNivOrientacao;
 import br.com.gsv.domain.sub.EnumEvolucaoNivelConsciencia;
@@ -17,12 +26,16 @@ import br.com.projeto.gsv.controller.EvolucaoController;
 public class EvolucaoListener implements ActionListener{
 	private EvolucaoFormulario formulario;
 	private Evolucao evolucao;
+	private Paciente paciente;
+	private Funcionario funcionario;
 	private EvolucaoController controller;
 	
 	public EvolucaoListener(EvolucaoFormulario formulario) {
 		this.formulario = formulario;
 		AdicionaListener();
 		IniciaObjetos();
+		UsandoTAB();
+		TeclaEsc();
 	}
 	
 	public void IniciaObjetos(){
@@ -51,7 +64,10 @@ public class EvolucaoListener implements ActionListener{
 		this.evolucao.setTextoItensRelacionados(this.formulario.getTextoItensRelacionados().getText());
 		this.evolucao.setTextoSonda(this.formulario.getTextoSondas().getText());
 		this.evolucao.setTextoCurativo(this.formulario.getTextoCurativo().getText());
+		this.evolucao.setQueixaPaciente(this.formulario.getTQueixaPac().getText());
 		
+		this.evolucao.setPaciente(this.paciente);
+		this.evolucao.setFuncionario(this.funcionario);
 		PegarRadioButtons();
 	}
 	
@@ -72,7 +88,10 @@ public class EvolucaoListener implements ActionListener{
 	
 	/*-------------------------------------------------ALTERAR OBJETO------------------------------------------------*/
 	@SuppressWarnings("static-access")
-	public void EditToEvolucao(){
+	public void EditToEvolucao(){		
+		this.funcionario = this.evolucao.getFuncionario();
+		this.paciente = this.evolucao.getPaciente();
+		
 		this.formulario.getComboEstGeral().setSelectedItem(this.evolucao.getEnumEstadoGeral().values());
 		this.formulario.getComboNivConsciencia().setSelectedItem(this.evolucao.getEnumNivelConsciencia().values());
 		this.formulario.getComboNivOrientacao().setSelectedItem(this.evolucao.getEnumNivelOrientacao().values());
@@ -88,9 +107,43 @@ public class EvolucaoListener implements ActionListener{
 		this.formulario.getTextoItensRelacionados().setText(this.evolucao.getTextoItensRelacionados());
 		this.formulario.getTextoSondas().setText(this.evolucao.getTextoSonda());
 		this.formulario.getTextoCurativo().setText(this.evolucao.getTextoCurativo());
+		this.formulario.getTQueixaPac().setText(this.evolucao.getQueixaPaciente());
+		this.formulario.getComboEstGeral().setSelectedItem(this.evolucao.getEnumEstadoGeral());
+		this.formulario.getComboNivConsciencia().setSelectedItem(this.evolucao.getEnumNivelConsciencia());
+		this.formulario.getComboNivOrientacao().setSelectedItem(this.evolucao.getEnumNivelOrientacao());
+		this.formulario.getComboPulso().setSelectedItem(this.evolucao.getEnumPulso());
+		this.formulario.getComboPressao().setSelectedItem(this.evolucao.getEnumPressao());
+		this.formulario.getComboTemperatura().setSelectedItem(this.evolucao.getEnumTemperatura());
+		
+		this.formulario.getTIdPaciente().setText(""+this.evolucao.getPaciente().getId());
+		this.formulario.getTNomePaciente().setText(this.evolucao.getPaciente().getNome());
+		
+		this.formulario.getTCodigo().setText(""+this.evolucao.getFuncionario().getId());
+		this.formulario.getTNome().setText(this.evolucao.getFuncionario().getNome());
+		this.formulario.getTRegistro().setText(ConcatenaRegistro());
+		
+		SetarRadioButtons();
 	}
 	
 	
+	private void SetarRadioButtons(){
+		if(this.evolucao.getRadioRespiracao().equals(this.formulario.getRadioEntubado().getText())){
+			this.formulario.getRadioEntubado().setSelected(true);
+		}
+			
+		if(this.evolucao.getRadioRespiracao().equals(this.formulario.getRadioEspontaneo().getText())){
+			this.formulario.getRadioEspontaneo().setSelected(true);
+		}
+			
+		if(this.evolucao.getRadioRespiracao().equals(this.formulario.getRadioOxigenio().getText())){
+			this.formulario.getRadioOxigenio().setSelected(true);
+		}
+			
+		if(this.evolucao.getRadioRespiracao().equals(this.formulario.getRadioTraquostomia().getText())){
+			this.formulario.getRadioTraquostomia().setSelected(true);
+		}
+
+	}
 	
 
 	@Override
@@ -118,6 +171,53 @@ public class EvolucaoListener implements ActionListener{
 		return true;
 	}
 	
+	public void InserirDadosPaciente(){
+		this.formulario.getTNomePaciente().setText(this.paciente.getNome());
+		this.formulario.getTIdPaciente().setText(""+this.paciente.getId());
+		
+		this.formulario.getTCodigo().setText(""+this.funcionario.getId());
+		this.formulario.getTNome().setText(this.funcionario.getNome());
+		this.formulario.getTRegistro().setText(ConcatenaRegistro());
+	}
+	
+	private String ConcatenaRegistro(){
+		return this.funcionario.getRegistroCoren().getCoren()
+				+" "+this.funcionario.getRegistroCoren().getInscricao()
+				+" "+this.funcionario.getRegistroCoren().getUf();
+	}
+
+	private void UsandoTAB(){
+		this.formulario.getRootPane().setDefaultButton(this.formulario.getBGravar());
+		this.formulario.getBGravar().addKeyListener(new KeyAdapter() {  
+            public void keyPressed(KeyEvent e) {  
+                if (e.getKeyCode() == KeyEvent.VK_ENTER) {  
+                	formulario.getBGravar().doClick();
+                }  
+            }  
+        });
+		
+		
+		
+		this.formulario.getBVoltar().addKeyListener(new KeyAdapter() {  
+            public void keyPressed(KeyEvent e) {  
+                if (e.getKeyCode() == KeyEvent.VK_ENTER) {  
+                	formulario.getBVoltar().doClick();  
+                }  
+            }  
+        });
+	}
+	
+	
+	
+	public void TeclaEsc(){
+        JRootPane meurootpane = this.formulario.getRootPane();  
+        meurootpane.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), "ESCAPE");  
+        meurootpane.getRootPane().getActionMap().put("ESCAPE", new AbstractAction("ESCAPE") {  
+            public void actionPerformed(ActionEvent e) { 
+            	formulario.dispose();  
+            }  
+        });  
+    }
 	
 	
 	public Evolucao getEvolucao() {
@@ -128,6 +228,20 @@ public class EvolucaoListener implements ActionListener{
 		this.evolucao = evolucao;
 	}
 	
+	public void setPaciente(Paciente paciente) {
+		this.paciente = paciente;
+	}
+	public Paciente getPaciente() {
+		return paciente;
+	}
+	
+	public Funcionario getFuncionario() {
+		return funcionario;
+	}
+	
+	public void setFuncionario(Funcionario funcionario) {
+		this.funcionario = funcionario;
+	}
 }
 
 

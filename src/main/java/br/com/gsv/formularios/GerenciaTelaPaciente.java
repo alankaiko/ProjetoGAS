@@ -193,6 +193,16 @@ public class GerenciaTelaPaciente extends JDialog {
 		this.xy = xy;
 	}
 
+
+	public GerenciarPacienteListener getListener() {
+		return listener;
+	}
+
+
+	public void setListener(GerenciarPacienteListener listener) {
+		this.listener = listener;
+	}
+
 	
 	
 }

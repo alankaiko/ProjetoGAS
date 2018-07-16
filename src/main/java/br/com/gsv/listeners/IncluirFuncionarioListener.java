@@ -41,23 +41,20 @@ public class IncluirFuncionarioListener implements ActionListener{
 		LimitaCaracteres();
 	}
 	
+	public void IniciaObjeto(){
+		this.funcionario = new Funcionario();
+		this.contato = new Contato_fun();
+		this.endereco = new Endereco_fun();
+		this.coren = new RegistroCoren();
+	}
+	
 	
 	private void Salvar(){
-		FormToFuncionario();
-		FormToRegistro();
-		FormToContato();
-		FormToEndereco();
+		PegarDados();
 		AtrelarObjetos();
 		con.setFuncionario(this.funcionario);
 		con.SalvarFuncionario();
 	}
-	
-	private void Editar(){
-		EditToFuncionario();
-		con.setFuncionario(this.funcionario);
-		con.SalvarFuncionario();
-	}
-	
 	
 	
 	//Classe pega os botoes do formulario e atrela à esta classe controller aqui (propria classe ClienteActionListener)
@@ -66,32 +63,17 @@ public class IncluirFuncionarioListener implements ActionListener{
 		formulario.getBTCancelar().addActionListener(this);
 	}
 	
-	
-	
-	
 	/*-----------------------------------------------------------------------------------------------------------------*/
 	/*-------------------CLASSES INTERNAS QUE CAPTURAM AS INFORMACOES E INSEREM NOS RESPECTIVOS OBJETOS ---------------*/
-		
-	//Método que pega informacoes do cliente e joga dentro do objeto Cliente
-	private void FormToFuncionario(){
-		funcionario = new Funcionario();
+	private void PegarDados(){
 		funcionario.setNome(this.formulario.getTNome().getText());
 		funcionario.setCpf(this.formulario.getJCpf().getText().replaceAll("[_.-]", ""));
 		funcionario.setRg(this.formulario.getTRg().getText());
-	}
-	
-	
-	//Método que pega informacoes dos contatos e Joga dentro do objeto Contatos
-	private void FormToContato(){
-		contato = new Contato_fun();
+		
 		contato.setEmail(this.formulario.getTEmail().getText());
 		contato.setCelular(this.formulario.getTCelular().getText());
 		contato.setTelefone(this.formulario.getTTelefone().getText());
-	}
-	
-	//Método que pega infromacoes do Endereco e joga dentro do objeto Endereco
-	private void FormToEndereco(){
-		endereco = new Endereco_fun();
+		
 		endereco.setLogradouro(this.formulario.getTLogradouro().getText());
 		endereco.setComplemento(this.formulario.getTComplemento().getText());
 		endereco.setNumero(ConverteDadosUtil.RetornaInt(this.formulario.getTNumero().getText()));
@@ -99,20 +81,18 @@ public class IncluirFuncionarioListener implements ActionListener{
 		endereco.setCidade(this.formulario.getTCidade().getText());
 		endereco.setEstado((String)this.formulario.getComboEstado().getSelectedItem());
 		endereco.setCep(this.formulario.getJCep().getText().replaceAll("[_.-]", ""));
-	}
-	
-	private void FormToRegistro(){
-		coren = new RegistroCoren();
+		
 		coren.setCoren((String) this.formulario.getComboCoren().getSelectedItem());
 		coren.setInscricao(this.formulario.getTCoren().getText());
 		coren.setUf((String) this.formulario.getComboCorenEst().getSelectedItem());
 	}
+		
 	
 	//Método que mapeia os objetos contato e endereco dentro do objeto cliente
 	private void AtrelarObjetos(){
+		this.funcionario.setContato(this.contato);
+		this.funcionario.setEndereco(this.endereco);
 		this.funcionario.setRegistroCoren(this.coren);
-		this.funcionario.getContato().add(this.contato);
-		this.funcionario.getEndereco().add(this.endereco);
 		
 		this.endereco.setFuncionario(this.funcionario);
 		this.contato.setFuncionario(this.funcionario);
@@ -120,58 +100,33 @@ public class IncluirFuncionarioListener implements ActionListener{
 
 	
 	
-	
-	
-	
-	
-	
-	
 	/*-----------------------------------------------------------------------------------------------------------------*/
 	/*---------------------------------------CLASSES PARA EDICAO DOS OBJETOS-------------------------------------------*/
 	public void AlterandoObjetos(){
+		this.contato = this.funcionario.getContato();
+		this.endereco = this.funcionario.getEndereco();
+		this.coren = this.funcionario.getRegistroCoren();
+		
 		this.formulario.getTId().setText(String.valueOf(this.funcionario.getId()));
 		this.formulario.getTNome().setText(this.funcionario.getNome());
 		this.formulario.getTRg().setText(this.funcionario.getRg());
 		this.formulario.getJCpf().setText(this.funcionario.getCpf());
-		this.formulario.getTLogradouro().setText(this.funcionario.getEndereco().get(0).getLogradouro());
-		this.formulario.getTComplemento().setText(this.funcionario.getEndereco().get(0).getComplemento());
-		this.formulario.getTNumero().setText(String.valueOf(this.funcionario.getEndereco().get(0).getNumero()));
-		this.formulario.getTBairro().setText(this.funcionario.getEndereco().get(0).getBairro());
-		this.formulario.getTCidade().setText(this.funcionario.getEndereco().get(0).getCidade());
-		this.formulario.getComboEstado().setSelectedItem(this.funcionario.getEndereco().get(0).getEstado());
-		this.formulario.getJCep().setText(this.funcionario.getEndereco().get(0).getCep());
-		this.formulario.getTEmail().setText(this.funcionario.getContato().get(0).getEmail());
-		this.formulario.getTCelular().setText(this.funcionario.getContato().get(0).getCelular());
-		this.formulario.getTTelefone().setText(this.funcionario.getContato().get(0).getTelefone());
+		this.formulario.getTLogradouro().setText(this.funcionario.getEndereco().getLogradouro());
+		this.formulario.getTComplemento().setText(this.funcionario.getEndereco().getComplemento());
+		this.formulario.getTNumero().setText(String.valueOf(this.funcionario.getEndereco().getNumero()));
+		this.formulario.getTBairro().setText(this.funcionario.getEndereco().getBairro());
+		this.formulario.getTCidade().setText(this.funcionario.getEndereco().getCidade());
+		this.formulario.getComboEstado().setSelectedItem(this.funcionario.getEndereco().getEstado());
+		this.formulario.getJCep().setText(this.funcionario.getEndereco().getCep());
+		this.formulario.getTEmail().setText(this.funcionario.getContato().getEmail());
+		this.formulario.getTCelular().setText(this.funcionario.getContato().getCelular());
+		this.formulario.getTTelefone().setText(this.funcionario.getContato().getTelefone());
 		this.formulario.getComboCoren().setSelectedItem(this.funcionario.getRegistroCoren().getCoren());
 		this.formulario.getTCoren().setText(this.funcionario.getRegistroCoren().getInscricao());
 		this.formulario.getComboCorenEst().setSelectedItem(this.funcionario.getRegistroCoren().getUf());
 	}
 
 	
-	//Método para Edicao de clientes
-		private void EditToFuncionario(){
-			funcionario.setId(Long.parseLong(this.formulario.getTId().getText()));
-			funcionario.setNome(this.formulario.getTNome().getText());
-			funcionario.setCpf(this.formulario.getJCpf().getText().replaceAll("[_.-]", ""));
-			funcionario.setRg(this.formulario.getTRg().getText());
-			funcionario.getEndereco().get(0).setLogradouro(this.formulario.getTLogradouro().getText());
-			funcionario.getEndereco().get(0).setComplemento(this.formulario.getTComplemento().getText());
-			funcionario.getEndereco().get(0).setNumero(ConverteDadosUtil.RetornaInt(this.formulario.getTNumero().getText()));
-			funcionario.getEndereco().get(0).setBairro(this.formulario.getTBairro().getText());
-			funcionario.getEndereco().get(0).setCidade(this.formulario.getTCidade().getText());
-			funcionario.getEndereco().get(0).setEstado((String)this.formulario.getComboEstado().getSelectedItem());
-			funcionario.getEndereco().get(0).setCep(this.formulario.getJCep().getText());
-			funcionario.getContato().get(0).setEmail(this.formulario.getTEmail().getText());
-			funcionario.getContato().get(0).setCelular(this.formulario.getTCelular().getText());
-			funcionario.getContato().get(0).setTelefone(this.formulario.getTTelefone().getText());
-			funcionario.getRegistroCoren().setCoren((String) this.formulario.getComboCoren().getSelectedItem());
-			funcionario.getRegistroCoren().setInscricao(this.formulario.getTCoren().getText());
-			funcionario.getRegistroCoren().setUf((String) this.formulario.getComboCorenEst().getSelectedItem());
-		}
-		
-		
-		
 	
 	/*-----------------------------------------------------------------------------------------------------------------*/
 	/*-------------------CLASSES QUE POSSUI AS ACOES DOS BOTOES ---------------*/
@@ -180,12 +135,9 @@ public class IncluirFuncionarioListener implements ActionListener{
 	public void actionPerformed(ActionEvent event) {		
 		
 		if(event.getSource().equals(this.formulario.getBTGravar()) && Validando()){
-			if(this.formulario.getTId().getText().isEmpty())
-				Salvar();
-			else
-				Editar();
-			this.formulario.dispose();
+			Salvar();
 			
+			this.formulario.dispose();
 		}else if(event.getSource().equals(this.formulario.getBTCancelar())){
 			this.formulario.dispose();
 		}

@@ -10,6 +10,7 @@ import javax.swing.JRootPane;
 import javax.swing.KeyStroke;
 import javax.swing.ListSelectionModel;
 
+import br.com.gsv.domain.Funcionario;
 import br.com.gsv.formularios.BuscarPacienteDialog;
 import br.com.gsv.formularios.CodigoPacienteDialog;
 import br.com.gsv.formularios.DetalhesPacienteDialog;
@@ -22,6 +23,7 @@ import br.com.projeto.gsv.controller.PacienteController;
 public class GerenciarPacienteListener implements ActionListener{
 	private GerenciaTelaPaciente gerenciamento;
 	private TabelaDePacientesUtil tabela;
+	private Funcionario funcionario;
 	
 	
 	
@@ -142,6 +144,7 @@ public class GerenciarPacienteListener implements ActionListener{
 	private void ExecutaTelaDetalhes(Long id){
 		PacienteController controller = new PacienteController();
 		DetalhesPacienteDialog detalhes = new DetalhesPacienteDialog();
+		detalhes.getListener().setFuncionario(this.funcionario);
 		detalhes.getListener().setPaciente(controller.BuscarPelaID(id));
 		detalhes.getListener().Detalhar();
 		
@@ -184,5 +187,13 @@ public class GerenciarPacienteListener implements ActionListener{
             }  
         });  
     } 
+	
+	public Funcionario getFuncionario() {
+		return funcionario;
+	}
+	
+	public void setFuncionario(Funcionario funcionario) {
+		this.funcionario = funcionario;
+	}
 	
 }
