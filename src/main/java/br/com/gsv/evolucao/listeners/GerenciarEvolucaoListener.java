@@ -17,6 +17,7 @@ import br.com.gsv.domain.Paciente;
 import br.com.gsv.evolucao.formulario.EvolucaoFormulario;
 import br.com.gsv.evolucao.formulario.GerenciarEvolucoes;
 import br.com.gsv.tabelas.TabelaDeEvolucao;
+import br.com.gsv.util.ValidaCampos;
 import br.com.projeto.gsv.controller.EvolucaoController;
 
 public class GerenciarEvolucaoListener implements ActionListener{
@@ -64,7 +65,7 @@ public class GerenciarEvolucaoListener implements ActionListener{
 	public void actionPerformed(ActionEvent event) {
 		if(event.getSource().equals(this.formulario.getBTAdicionar())){
 			AbrirTelaEvolucao();
-		}else if(event.getSource().equals(this.formulario.getBTAlterar())){
+		}else if(event.getSource().equals(this.formulario.getBTAlterar())  && this.formulario.getTable().getRowCount() != 0){
 			EditarEvolucao(SelecionaLinha());
 		}else if(event.getSource().equals(this.formulario.getBTCancelar())){
 			this.formulario.dispose();
@@ -143,6 +144,7 @@ public class GerenciarEvolucaoListener implements ActionListener{
         });  
     }
 	
+
 	public Paciente getPaciente() {
 		return paciente;
 	}

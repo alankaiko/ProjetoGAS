@@ -36,7 +36,7 @@ public class AgendaListener implements ActionListener, PropertyChangeListener{
 	private Funcionario funcionario;
 	private Agenda agenda;
 	private AgendaController controller;
-	private boolean verifica = false;
+	private String hora;
 	
 	public AgendaListener(AgendaFormulario formulario) {
 		this.formulario = formulario;
@@ -56,7 +56,6 @@ public class AgendaListener implements ActionListener, PropertyChangeListener{
 		this.funcionario = new Funcionario();
 		this.paciente = new Paciente();
 		this.agenda = new Agenda();
-		this.verifica = true;
 	}
 	
 	
@@ -86,15 +85,7 @@ public class AgendaListener implements ActionListener, PropertyChangeListener{
 		this.formulario.getComboAgendamento().setSelectedItem(this.agenda.getTipoAgendamento().values());
 		this.formulario.getTData().setDate(this.agenda.getData());
 		this.formulario.getTObservacao().setText(this.agenda.getObservacao());
-		
 	}
-	
-	public void getEditahorario(String hora){
-		this.formulario.getTHoraSpinner().getModel().setValue(hora);
-	}
-	
-	
-	
 	
 	
 	@Override
@@ -147,6 +138,7 @@ public class AgendaListener implements ActionListener, PropertyChangeListener{
 		this.paciente = controller.BuscarPelaID(id);
 		
 		this.formulario.getTPaciente().setText(this.paciente.getNome());
+		this.formulario.getTEmail().setText(this.paciente.getContato().getEmail());
 		this.formulario.getTCelular().setText(this.paciente.getContato().getCelular());
 		this.formulario.getTFixo().setText(this.paciente.getContato().getTelefone());
 		this.formulario.getTConvenio().setText(this.paciente.getConvenio().getNome());
@@ -164,10 +156,8 @@ public class AgendaListener implements ActionListener, PropertyChangeListener{
 	
 	private String ConcatenarRegistro(){
 		String concatena = this.funcionario.getRegistroCoren().getCoren()
-				+" "
-				+this.funcionario.getRegistroCoren().getInscricao()
-				+" "
-				+this.funcionario.getRegistroCoren().getUf();
+				+" "+this.funcionario.getRegistroCoren().getInscricao()
+				+" "+this.funcionario.getRegistroCoren().getUf();
 		
 		return concatena;
 	}
@@ -193,12 +183,8 @@ public class AgendaListener implements ActionListener, PropertyChangeListener{
 		List<String> listaDoBanco = controller.ListarHorarios(this.formulario.getTData().getDate());
 		List<String> listaAgenda = AgendaDadosUtil.ListaHoras();
 		
-		if(!this.verifica)
-			listaDoBanco.remove(this.agenda.getHoraDesejada());
-		
-		
+		listaDoBanco.remove(this.agenda.getHoraDesejada());
 		listaAgenda.removeAll(listaDoBanco);
-	
 		SpinnerListModel model = new SpinnerListModel(listaAgenda);
 
 		return model;
@@ -219,8 +205,9 @@ public class AgendaListener implements ActionListener, PropertyChangeListener{
 
 
 	@Override
-	public void propertyChange(PropertyChangeEvent event) {
-		this.formulario.getTHoraSpinner().setModel(ListaDeHorarios());
+	public void propertyChange(PropertyChangeEvent event) {	
+		this.formulario.getTHoraSpinner().setModel(ListaDeHorarios());		
+		this.formulario.getTHoraSpinner().getModel().setValue(this.hora);		
 	}
 
 	public Agenda getAgenda() {
@@ -231,6 +218,9 @@ public class AgendaListener implements ActionListener, PropertyChangeListener{
 		this.agenda = agenda;
 	}
 	
-
+	public void setHora(String hora) {
+		this.hora = hora;
+	}
+	
 }
 

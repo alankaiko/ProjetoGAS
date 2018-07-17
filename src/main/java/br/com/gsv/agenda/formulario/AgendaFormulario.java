@@ -78,6 +78,7 @@ public class AgendaFormulario extends JDialog {
 		LAgendamento.setBounds(310, 162, 155, 18);
 		
 		ComboAgendamento = new JComboBox(EnumTipoAgendamento.values());
+		ComboAgendamento.setBackground(Color.WHITE);
 		ComboAgendamento.setBounds(310, 180, 204, 20);
 		
 		LPaciente = new JLabel("PACIENTE");
@@ -107,11 +108,13 @@ public class AgendaFormulario extends JDialog {
 		
 		TFixo = new JTextField();
 		TFixo.setBorder(new LineBorder(Color.BLACK));
+		TFixo.setEditable(false);
 		TFixo.setColumns(10);
 		TFixo.setBounds(164, 100, 125, 20);
 		
 		TCelular = new JTextField();
 		TCelular.setBorder(new LineBorder(Color.BLACK));
+		TCelular.setEditable(false);
 		TCelular.setColumns(10);
 		TCelular.setBounds(10, 100, 131, 20);
 		
@@ -139,6 +142,7 @@ public class AgendaFormulario extends JDialog {
 		
 		TEmail = new JTextField();
 		TEmail.setBorder(new LineBorder(Color.BLACK));
+		TEmail.setEditable(false);
 		TEmail.setColumns(10);
 		TEmail.setBounds(10, 137, 399, 20);
 		
@@ -181,7 +185,9 @@ public class AgendaFormulario extends JDialog {
 		LRegistro.setBounds(10, 255, 75, 18);
 		
 		TRegistro = new JTextField();
+		TRegistro.setBorder(new LineBorder(Color.BLACK));
 		TRegistro.setColumns(10);
+		TRegistro.setEditable(false);
 		TRegistro.setBounds(10, 275, 155, 20);
 		
 		JSeparator separator_1 = new JSeparator();
@@ -197,6 +203,7 @@ public class AgendaFormulario extends JDialog {
 		Lstatus.setBounds(298, 12, 44, 18);
 		
 		ComboStatus = new JComboBox(EnumStatusAgendamento.values());
+		ComboStatus.setBackground(Color.WHITE);
 		ComboStatus.setBounds(338, 9, 176, 20);
 		
 		LEmail = new JLabel("Email");

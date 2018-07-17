@@ -99,21 +99,21 @@ public class GerenciarAgendaListener implements ActionListener, PropertyChangeLi
 	private void BotaoAlterando(Agenda agenda){
 		AgendaFormulario formularioAgenda = new AgendaFormulario();
 		formularioAgenda.getListener().setAgenda(agenda);
+		formularioAgenda.getListener().setHora(agenda.getHoraDesejada());
 		formularioAgenda.getListener().AlterandoAgendamento();
 		formularioAgenda.setLocationRelativeTo(this.gerenciamento.getTela());
-		formularioAgenda.setVisible(true);
-		
-		formularioAgenda.getListener().getEditahorario(agenda.getHoraDesejada());	
+		formularioAgenda.setVisible(true);		
 	}
 	
 	private void BotaoAgendando(){
 		AgendaFormulario formularioAgenda = new AgendaFormulario();
 		formularioAgenda.getListener().InicializaObjetos();
+		formularioAgenda.getListener().setHora(SelecionaLinha());
 		formularioAgenda.getTData().setDate(this.gerenciamento.getCalendar().getDate());
 		formularioAgenda.setLocationRelativeTo(this.gerenciamento.getTela());
 		formularioAgenda.setVisible(true);
 		
-		formularioAgenda.getListener().getEditahorario(SelecionaLinha());
+		
 	}
 	
 	private void BotaoRemovendo(){
