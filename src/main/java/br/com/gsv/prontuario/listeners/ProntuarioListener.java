@@ -253,8 +253,8 @@ public class ProntuarioListener implements ActionListener{
 		if(this.formulario.getCheckPerfusao().isSelected())
 			this.sintMenCheckbox.setCheckPerfusao(this.formulario.getCheckPerfusao().getText());
 		
-		if(this.formulario.getLPulso().isSelected())
-			this.sintMenCheckbox.setLPulso(this.formulario.getLPulso().getText());
+		if(this.formulario.getCheckPulso().isSelected())
+			this.sintMenCheckbox.setLPulso(this.formulario.getCheckPulso().getText());
 
 		this.prontuario.setSintomasMembros(this.sintMenCheckbox);
 		
@@ -469,8 +469,8 @@ public class ProntuarioListener implements ActionListener{
 		if(this.prontuario.getSintomasMembros().getCheckPerfusao().equals(this.formulario.getCheckPerfusao().getText()))
 			this.formulario.getCheckPerfusao().setSelected(true);
 	
-		if(this.prontuario.getSintomasMembros().getLPulso().equals(this.formulario.getLPulso().getText()))
-			this.formulario.getLPulso().setSelected(true);	
+		if(this.prontuario.getSintomasMembros().getLPulso().equals(this.formulario.getCheckPulso().getText()))
+			this.formulario.getCheckPulso().setSelected(true);	
 
 	}
 	/*-----------------------------------------------------------------------------------------------------------*/

@@ -99,7 +99,7 @@ public class GerenciarPacienteListener implements ActionListener{
 			this.gerenciamento.dispose();
 		}
 		
-		if(event.getSource().equals(gerenciamento.getEvolucao())){
+		if(event.getSource().equals(gerenciamento.getEvolucao()) && this.gerenciamento.getTable().getRowCount() != 0){
 			ExecutaEvolucao();
 		}
 	}
