@@ -307,6 +307,7 @@ public class ProntuarioListener implements ActionListener{
 		
 		this.formulario.getTCodigo().setText(String.valueOf(this.prontuario.getPaciente().getId()));
 		this.formulario.getTPaciente().setText(this.prontuario.getPaciente().getNome());
+		this.formulario.getTConvenio().setText(this.prontuario.getPaciente().getConvenio().getNome());
 		this.formulario.getTRg().setText(this.prontuario.getPaciente().getRg());
 		this.formulario.getTCpf().setText(this.prontuario.getPaciente().getCpf());
 		this.formulario.getTDataNasc().setText(ConverteDadosUtil.TransformandoEmString(this.prontuario.getPaciente().getDataNasc()));
@@ -535,6 +536,7 @@ public class ProntuarioListener implements ActionListener{
 		this.formulario.getTPaciente().setText(this.paciente.getNome());
 		this.formulario.getTRg().setText(this.paciente.getRg());
 		this.formulario.getJCpf().setText(this.paciente.getCpf());
+		this.formulario.getTConvenio().setText(this.paciente.getConvenio().getNome());
 		this.formulario.getTCpf().setText(this.formulario.getJCpf().getText());
 		this.formulario.getJDatanascimento().setText(ConverteDadosUtil.TransformandoEmString(this.paciente.getDataNasc()));
 		this.formulario.getTDataNasc().setText(this.formulario.getJDatanascimento().getText());

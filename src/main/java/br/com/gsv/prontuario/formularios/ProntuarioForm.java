@@ -32,10 +32,10 @@ public class ProntuarioForm extends JDialog {
 	private JPanel painelEquipamentos, painelAvaliacao;
 	private JTextField TPaciente, TCodigo, TRg, TCpf, TDataNasc, TDataCad, THemorragia, TDispneia, TEdema;
 	private JTextField TDEscamacao, THematoma, TCicatriz, TOutrosInt, THora;
-	private JTextField TAtendCodigo,TAtendFuncionario,TAtendRegistro;
+	private JTextField TAtendCodigo,TAtendFuncionario,TAtendRegistro, TConvenio;
 	private JLabel LProntuario, LPaciente, LCodigo, LRg, LCpf,LDataNasc, LDataCad, LAvaliacaoCefalo, LIntercorrencias;
 	private JLabel LInfoEquip, LSonoCond, LEquipamentocli, LHora, LDadosCliente, LDadosFun, LAtendFun, LAtendRegistro;
-	private JLabel LMembros, LTipoSintomas, LSintomas,LEspecifIntegridade, LDeambulacao, LAtendiCodigo;
+	private JLabel LMembros, LTipoSintomas, LSintomas,LEspecifIntegridade, LDeambulacao, LAtendiCodigo, LConvenio;
 	private JLabel LObservacaoCond, LRepouso, LObservacaoSono, LNivelConsc, LEstadoMental, LObservacaoAnot;
 	private JRadioButton radioAlerta, radioLetargico, radioObnubilado,radioComatoso, radioVerbaliza;
 	private JRadioButton radioAgitado, radioRelativo, radioAbsoluto, radioNivNormal, radioMenOutros;
@@ -198,15 +198,26 @@ public class ProntuarioForm extends JDialog {
 		painelDadosCliente.add(TDataNasc);
 		JDatanascimento = new JFormattedTextField(ConverteDadosUtil.FormataData());
 		
+		LConvenio = new JLabel("Convênio");
+		LConvenio.setBounds(222, 183, 55, 14);
+		painelDadosCliente.add(LConvenio);
+		
+		TConvenio = new JTextField();
+		TConvenio.setEditable(false);
+		TConvenio.setColumns(10);
+		TConvenio.setBorder(new LineBorder(Color.BLACK));
+		TConvenio.setBounds(278, 180, 155, 20);
+		painelDadosCliente.add(TConvenio);
+		
 		LHora = new JLabel("Hora Registro");
-		LHora.setBounds(238, 186, 89, 14);
+		LHora.setBounds(354, 12, 79, 14);
 		painelDadosCliente.add(LHora);
 		
 		THora = new JTextField();
 		THora.setEditable(false);
 		THora.setColumns(10);
 		THora.setBorder(new LineBorder(Color.BLACK));
-		THora.setBounds(337, 183, 101, 20);
+		THora.setBounds(443, 9, 116, 20);
 		painelDadosCliente.add(THora);
 		
 		JSeparator separator = new JSeparator();
@@ -246,7 +257,7 @@ public class ProntuarioForm extends JDialog {
 		
 		TAtendRegistro = new JTextField();
 		TAtendRegistro.setBorder(new LineBorder(Color.BLACK));
-		TAtendRegistro.setBounds(357, 317, 179, 20);
+		TAtendRegistro.setBounds(357, 317, 202, 20);
 		TAtendRegistro.setEditable(false);
 		TAtendRegistro.setColumns(10);
 		painelDadosCliente.add(TAtendRegistro);
@@ -1877,6 +1888,13 @@ public class ProntuarioForm extends JDialog {
 	public void setBTPesquiFuncionario(JButton bTPesquiFuncionario) {
 		BTPesquiFuncionario = bTPesquiFuncionario;
 	}
-	
+
+	public JTextField getTConvenio() {
+		return TConvenio;
+	}
+
+	public void setTConvenio(JTextField tConvenio) {
+		TConvenio = tConvenio;
+	}
 	
 }
