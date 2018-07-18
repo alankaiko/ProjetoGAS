@@ -1,7 +1,10 @@
 package br.com.gsv.formularios;
 
 
+import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Container;
+import java.awt.Font;
 
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
@@ -12,8 +15,8 @@ import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.border.EmptyBorder;
 
-import br.com.gsv.graficoClassic.BuscarFuncionarioClassic;
 import br.com.gsv.listeners.BuscarFuncionarioListener;
 import br.com.gsv.listeners.RadioListenerFuncionario;
 
@@ -28,53 +31,92 @@ public class BuscarFuncionarioDialog extends JDialog {
 	private JScrollPane scrollPane;
 	private JTable table;
 	private BuscarFuncionarioListener listener;
-	private BuscarFuncionarioClassic listenerClassic;
 	private RadioListenerFuncionario radioFuncionario;
-	private JPanel painelDrag;
-	private int xx,xy;
+
 
 	
 	public BuscarFuncionarioDialog() {
-		CriarTelaGeral();
-		AdicionaNaTela();
+		setTitle("Buscar Clientes");
+		setModal(true);
+		setResizable(false);
+		setBounds(100, 100, 620, 400);
+		
+		tela.setLayout(null);		
+		tela.add(panel, BorderLayout.CENTER);
+		
+		panel.setLayout(null);
+		panel.setBorder(new EmptyBorder(5, 5, 5, 5));
+		
+		scrollPane = new JScrollPane();
+		scrollPane.setBounds(15, 100, 560, 220);
+		tela.add(scrollPane);
+		table = new JTable();
+		
+		
+		OrganizaDados();
 		listener = new BuscarFuncionarioListener(this);
 		radioFuncionario = new RadioListenerFuncionario(this);
-		listenerClassic = new BuscarFuncionarioClassic(this);
 	}
 	
-	private void CriarTelaGeral(){
+	
+	
+	public void OrganizaDados(){
 		buscarUsuario = new JLabel();
-		buscaCpf = new JRadioButton();
-		buscaRg = new JRadioButton();
-		buscaNome = new JRadioButton();
-		buscaCodigo = new JRadioButton();
-		textoBuscar = new JTextField();
-		buscar = new JButton();
-		ok = new JButton();
-		cancelar = new JButton();
-		table = new JTable();
-		scrollPane = new JScrollPane();
-		painelDrag = new JPanel();
-	}
-	
-	
-	
-	private void AdicionaNaTela(){
+		buscarUsuario.setText("Escolha uma Opção: ");
+		buscarUsuario.setBounds(15,10,150,20);
 		tela.add(this.buscarUsuario);
-		tela.add(this.buscaCpf);
-		tela.add(this.buscaRg);
-		tela.add(this.buscaNome);
-		tela.add(this.buscaCodigo);
-		tela.add(this.textoBuscar);
-		tela.add(this.buscar);
-		tela.add(this.ok);
-		tela.add(this.cancelar);
-		
+	
+		buscaCpf = new JRadioButton();
+		buscaCpf.setText("CPF");
+		buscaCpf.setFont(new Font("Arial", Font.PLAIN, 13));
+		buscaCpf.setBounds(201, 40, 53, 23);
 		botaoGrupo.add(buscaCpf);
+		tela.add(this.buscaCpf);
+		
+		buscaRg = new JRadioButton();
+		buscaRg.setText("RG");
+		buscaRg.setFont(new Font("Arial", Font.PLAIN, 13));
+		buscaRg.setBounds(154, 40, 53, 23);
 		botaoGrupo.add(buscaRg);
+		tela.add(this.buscaRg);
+		
+		buscaNome = new JRadioButton();
+		buscaNome.setText("Nome");
+		buscaNome.setFont(new Font("Arial", Font.PLAIN, 13));
+		buscaNome.setBounds(82, 40, 60, 23);
 		botaoGrupo.add(buscaNome);
+		tela.add(this.buscaNome);		
+		
+		buscaCodigo = new JRadioButton();
+		buscaCodigo.setText("Código");
+		buscaCodigo.setFont(new Font("Arial", Font.PLAIN, 13));
+		buscaCodigo.setBounds(15, 40, 65, 23);
 		botaoGrupo.add(buscaCodigo);
+		tela.add(this.buscaCodigo);
+	
+		textoBuscar = new JTextField();
+		textoBuscar.setBounds(15,70,260,20);
+		textoBuscar.setFont(new Font("Arial",Font.BOLD,10));
+		textoBuscar.setForeground(Color.black);	
+		tela.add(this.textoBuscar);
+
+		buscar = new JButton();
+		buscar.setText("Buscar");
+		buscar.setBounds(300,68,125,20);
+		tela.add(this.buscar);
+
+		ok = new JButton();
+		ok.setText("OK");
+		ok.setBounds(150,340,125,20);
+		tela.add(this.ok);
+	
+		cancelar = new JButton();
+		cancelar.setText("Cancelar");
+		cancelar.setBounds(290,340,125,20);	
+		tela.add(this.cancelar);
 	}
+
+
 
 
 	public JButton getOk() {
@@ -231,36 +273,5 @@ public class BuscarFuncionarioDialog extends JDialog {
 	public void setRadioFuncionario(RadioListenerFuncionario radioFuncionario) {
 		this.radioFuncionario = radioFuncionario;
 	}
-
-
-	public JPanel getPainelDrag() {
-		return painelDrag;
-	}
-
-
-	public void setPainelDrag(JPanel painelDrag) {
-		this.painelDrag = painelDrag;
-	}
-
-
-	public int getXx() {
-		return xx;
-	}
-
-
-	public void setXx(int xx) {
-		this.xx = xx;
-	}
-
-
-	public int getXy() {
-		return xy;
-	}
-
-
-	public void setXy(int xy) {
-		this.xy = xy;
-	}
-
 	
 }
