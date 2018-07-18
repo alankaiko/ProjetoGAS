@@ -1,6 +1,9 @@
 package br.com.gsv.formularios;
 
+import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Container;
+import java.awt.Font;
 
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
@@ -11,8 +14,8 @@ import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.border.EmptyBorder;
 
-import br.com.gsv.graficoClassic.BuscarUsuarioClassic;
 import br.com.gsv.listeners.BuscarUsuarioListener;
 
 public class BuscarUsuarioDialog extends JDialog {
@@ -26,48 +29,70 @@ public class BuscarUsuarioDialog extends JDialog {
 	private JScrollPane scrollPane;
 	private JTable table;
 	private BuscarUsuarioListener listener;
-	private BuscarUsuarioClassic listenerClassic;
-	private JPanel painelDrag;
-	private int xx,xy;
 	
 	
 	public BuscarUsuarioDialog() {
-		CriaComponentes();
-		AdicionaNaTela();
-		listener = new BuscarUsuarioListener(this);
-		listenerClassic = new BuscarUsuarioClassic(this);
-	}
-	
-		
-	private void CriaComponentes() {
-		buscarUsuario = new JLabel();
-		buscaLogin = new JRadioButton();
-		buscaNome = new JRadioButton();
-		textoBuscar = new JTextField();
-		buscar = new JButton();
-		ok = new JButton();
-		cancelar = new JButton();
-		scrollPane = new JScrollPane();
-		table = new JTable();
-		painelDrag = new JPanel();
-		
-		botaoGrupo.add(buscaLogin);
-		botaoGrupo.add(buscaNome);
-	}
-	
-	
+		setTitle("Buscar Usuário");
+		setModal(true);
+		setResizable(false);
+		setBounds(100, 100, 514, 344);
 
-	private void AdicionaNaTela() {
+		tela.setLayout(null);
+		tela.add(panel, BorderLayout.CENTER);
+
+		panel.setLayout(null);
+		panel.setBorder(new EmptyBorder(5, 5, 5, 5));
+
+		scrollPane = new JScrollPane();
+		scrollPane.setBounds(15, 100, 478, 177);
+		tela.add(scrollPane);
+		table = new JTable();
+		
+		OrganizaDados();
+		listener = new BuscarUsuarioListener(this);
+	}
+	
+	public void OrganizaDados(){
+		buscarUsuario = new JLabel();
+		buscarUsuario.setText("Escolha uma Opção: ");
+		buscarUsuario.setBounds(15, 10, 150, 20);
 		tela.add(this.buscarUsuario);
+
+		buscaLogin = new JRadioButton();
+		buscaLogin.setText("Login");
+		buscaLogin.setFont(new Font("Arial", Font.PLAIN, 13));
+		buscaLogin.setBounds(15, 40, 84, 23);
+		botaoGrupo.add(buscaLogin);
 		tela.add(this.buscaLogin);
+
+		buscaNome = new JRadioButton();
+		buscaNome.setText("Usuário");
+		buscaNome.setFont(new Font("Arial", Font.PLAIN, 13));
+		buscaNome.setBounds(106, 40, 90, 23);
+		botaoGrupo.add(buscaNome);
 		tela.add(this.buscaNome);
+
+		textoBuscar = new JTextField();
+		textoBuscar.setBounds(15, 70, 260, 20);
+		textoBuscar.setFont(new Font("Arial", Font.BOLD, 10));
+		textoBuscar.setForeground(Color.black);
 		tela.add(this.textoBuscar);
+
+		buscar = new JButton();
+		buscar.setText("Buscar");
+		buscar.setBounds(300, 68, 125, 20);
 		tela.add(this.buscar);
+
+		ok = new JButton();
+		ok.setText("OK");
+		ok.setBounds(118, 288, 125, 20);
 		tela.add(this.ok);
+
+		cancelar = new JButton();
+		cancelar.setText("Cancelar");
+		cancelar.setBounds(253, 288, 125, 20);
 		tela.add(this.cancelar);
 	}
-	
-	
 	
 	
 
@@ -174,37 +199,5 @@ public class BuscarUsuarioDialog extends JDialog {
 	public void setListener(BuscarUsuarioListener listener) {
 		this.listener = listener;
 	}
-
-
-	public JPanel getPainelDrag() {
-		return painelDrag;
-	}
-
-
-	public void setPainelDrag(JPanel painelDrag) {
-		this.painelDrag = painelDrag;
-	}
-
-
-	public int getXx() {
-		return xx;
-	}
-
-
-	public void setXx(int xx) {
-		this.xx = xx;
-	}
-
-
-	public int getXy() {
-		return xy;
-	}
-
-
-	public void setXy(int xy) {
-		this.xy = xy;
-	}
-
-	
 	
 }

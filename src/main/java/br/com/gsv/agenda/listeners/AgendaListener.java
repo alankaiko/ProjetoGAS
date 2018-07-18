@@ -1,5 +1,7 @@
 package br.com.gsv.agenda.listeners;
 
+import java.awt.Color;
+import java.awt.color.ColorSpace;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -37,6 +39,7 @@ public class AgendaListener implements ActionListener, PropertyChangeListener{
 	private Agenda agenda;
 	private AgendaController controller;
 	private String hora;
+	private List<String> listaAgenda;
 	
 	public AgendaListener(AgendaFormulario formulario) {
 		this.formulario = formulario;
@@ -164,10 +167,8 @@ public class AgendaListener implements ActionListener, PropertyChangeListener{
 	
 	private String AlteraConcatenarRegistro(){
 		String concatena = this.agenda.getFuncionario().getRegistroCoren().getCoren()
-				+" "
-				+this.agenda.getFuncionario().getRegistroCoren().getInscricao()
-				+" "
-				+this.agenda.getFuncionario().getRegistroCoren().getUf();
+				+" "+this.agenda.getFuncionario().getRegistroCoren().getInscricao()
+				+" "+this.agenda.getFuncionario().getRegistroCoren().getUf();
 		
 		return concatena;
 	}
@@ -181,7 +182,7 @@ public class AgendaListener implements ActionListener, PropertyChangeListener{
 	private SpinnerListModel ListaDeHorarios(){
 		AgendaController controller = new AgendaController();
 		List<String> listaDoBanco = controller.ListarHorarios(this.formulario.getTData().getDate());
-		List<String> listaAgenda = AgendaDadosUtil.ListaHoras();
+		listaAgenda = AgendaDadosUtil.ListaHoras();
 		
 		listaDoBanco.remove(this.agenda.getHoraDesejada());
 		listaAgenda.removeAll(listaDoBanco);
@@ -206,8 +207,10 @@ public class AgendaListener implements ActionListener, PropertyChangeListener{
 
 	@Override
 	public void propertyChange(PropertyChangeEvent event) {	
-		this.formulario.getTHoraSpinner().setModel(ListaDeHorarios());		
-		this.formulario.getTHoraSpinner().getModel().setValue(this.hora);		
+		this.formulario.getTHoraSpinner().setModel(ListaDeHorarios());	
+		
+		if(this.listaAgenda.contains(this.hora))
+			this.formulario.getTHoraSpinner().getModel().setValue(this.hora);		
 	}
 
 	public Agenda getAgenda() {

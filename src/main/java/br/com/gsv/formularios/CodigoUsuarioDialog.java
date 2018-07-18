@@ -1,13 +1,17 @@
 package br.com.gsv.formularios;
 
+import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Container;
+import java.awt.Font;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.border.EmptyBorder;
+import javax.swing.border.LineBorder;
 
-import br.com.gsv.graficoClassic.CodigoUsuarioClassic;
 import br.com.gsv.listeners.CodigoUsuarioListener;
 
 public class CodigoUsuarioDialog extends JDialog {
@@ -16,34 +20,43 @@ public class CodigoUsuarioDialog extends JDialog {
 	private Container tela = getContentPane();
 	private JTextField TBuscar;
 	private CodigoUsuarioListener listener;
-	private CodigoUsuarioClassic listenerClassic;
 	private String login;
-	private JPanel painelDrag;
-	private int xx,xy;
 	
 
 	public CodigoUsuarioDialog() {
-		CriaVariaveis();
-		AdicionaComponentes();
-		listener = new CodigoUsuarioListener(this);
-		listenerClassic = new CodigoUsuarioClassic(this);
-	}
+		setTitle("Buscar Login");
+		setModal(true);
+		setBounds(100, 100, 281, 124);
+		setResizable(false);
+		tela.setLayout(null);
+		tela.add(panel, BorderLayout.CENTER);
 
-	public void CriaVariaveis() {
-		ok = new JButton();
-		cancelar = new JButton();
+		panel.setBorder(new EmptyBorder(5, 5, 5, 5));
+		panel.setLayout(null);
+		
+		CriaTela();
+		listener = new CodigoUsuarioListener(this);
+	}
+	
+	public void CriaTela() {
 		TBuscar = new JTextField();
-		painelDrag = new JPanel();
-	}
-	
-	private void AdicionaComponentes() {
-		tela.add(this.ok);
-		tela.add(this.cancelar);
+		TBuscar.setBorder(new LineBorder(Color.BLACK));
+		TBuscar.setBounds(50, 13, 171, 23);
+		TBuscar.setFont(new Font("Arial", Font.BOLD, 10));
 		tela.add(this.TBuscar);
-		tela.add(this.painelDrag);
+
+		ok = new JButton();
+		ok.setText("Buscar");
+		ok.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+		ok.setBounds(41, 67, 85, 18);
+		tela.add(this.ok);
+
+		cancelar = new JButton();
+		cancelar.setText("Cancelar");
+		cancelar.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+		cancelar.setBounds(136, 67, 85, 18);	
+		tela.add(this.cancelar);
 	}
-	
-	
 
 	public JButton getOk() {
 		return ok;
@@ -93,35 +106,6 @@ public class CodigoUsuarioDialog extends JDialog {
 		this.tela = tela;
 	}
 
-
-	public JPanel getPainelDrag() {
-		return painelDrag;
-	}
-
-
-	public void setPainelDrag(JPanel painelDrag) {
-		this.painelDrag = painelDrag;
-	}
-
-
-	public int getXx() {
-		return xx;
-	}
-
-
-	public void setXx(int xx) {
-		this.xx = xx;
-	}
-
-
-	public int getXy() {
-		return xy;
-	}
-
-
-	public void setXy(int xy) {
-		this.xy = xy;
-	}
 
 	
 }

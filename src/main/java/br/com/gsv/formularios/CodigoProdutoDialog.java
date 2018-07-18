@@ -1,13 +1,15 @@
 package br.com.gsv.formularios;
 
+import java.awt.BorderLayout;
 import java.awt.Container;
+import java.awt.Font;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.border.EmptyBorder;
 
-import br.com.gsv.graficoClassic.CodigoProdutoClassic;
 import br.com.gsv.listeners.CodigoProdutoListener;
 
 public class CodigoProdutoDialog extends JDialog {
@@ -18,31 +20,41 @@ public class CodigoProdutoDialog extends JDialog {
 	private Container tela = getContentPane();
 	private JTextField TBuscar;
 	private String codigo;
-	private CodigoProdutoClassic listenerClassic;
-	private JPanel painelDrag;
-	private int xx,xy;
 
 
 	public CodigoProdutoDialog() {
-		CriaVariaveis();
-		AdicionaNaTela();
+		setTitle("Código");
+		setModal(true);
+		setBounds(100, 100, 200, 120);
+		setResizable(false);
+		tela.setLayout(null);
+		tela.add(panel, BorderLayout.CENTER);
+		
+		panel.setBorder(new EmptyBorder(5, 5, 5, 5));
+		panel.setLayout(null);
+		
+		CriarTela();
 		listener = new CodigoProdutoListener(this);
-		listenerClassic = new CodigoProdutoClassic(this);
 	}
 	
-	public void CriaVariaveis() {
+	public void CriarTela(){
 		TBuscar = new JTextField();
-		ok = new JButton();
-		cancelar = new JButton();
-		painelDrag = new JPanel();
-	}
-
-	public void AdicionaNaTela() {
+		TBuscar.setBounds(50,13,100,23);
+		TBuscar.setFont(new Font("Arial",Font.BOLD,10));
 		tela.add(this.TBuscar);
+		
+		ok = new JButton();
+		ok.setText("Buscar");
+		ok.setBounds(7, 60, 85, 18);
 		tela.add(this.ok);
-		tela.add(this.cancelar);
-		tela.add(this.painelDrag);
+		
+		cancelar = new JButton();
+		cancelar.setText("Cancelar");
+		cancelar.setBounds(102, 60, 85, 18);
+		tela.add(this.cancelar);		
 	}
+	
+	
 
 	public JButton getOk() {
 		return ok;
@@ -91,37 +103,5 @@ public class CodigoProdutoDialog extends JDialog {
 	public void setTela(Container tela) {
 		this.tela = tela;
 	}
-
-
-	public JPanel getPainelDrag() {
-		return painelDrag;
-	}
-
-
-	public void setPainelDrag(JPanel painelDrag) {
-		this.painelDrag = painelDrag;
-	}
-
-
-	public int getXx() {
-		return xx;
-	}
-
-
-	public void setXx(int xx) {
-		this.xx = xx;
-	}
-
-
-	public int getXy() {
-		return xy;
-	}
-
-
-	public void setXy(int xy) {
-		this.xy = xy;
-	}
-
-	
 	
 }

@@ -844,6 +844,9 @@ public class ProntuarioForm extends JDialog {
 		textoEquipamento.setBorder(new LineBorder(Color.BLACK));
 		textoEquipamento.setBounds(163, 96, 392, 180);
 		painelEquipamentos.add(textoEquipamento);
+		
+		JLayeredPane layeredPane = new JLayeredPane();
+		tabGeral.addTab("Medicamentos", null, layeredPane, null);
 	}
 	
 	
@@ -1896,5 +1899,4 @@ public class ProntuarioForm extends JDialog {
 	public void setTConvenio(JTextField tConvenio) {
 		TConvenio = tConvenio;
 	}
-	
 }

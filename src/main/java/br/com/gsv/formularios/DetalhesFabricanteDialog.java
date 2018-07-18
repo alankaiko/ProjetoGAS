@@ -1,14 +1,16 @@
 package br.com.gsv.formularios;
 
+import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Container;
+import java.awt.Font;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JSeparator;
+import javax.swing.border.EmptyBorder;
 
-import br.com.gsv.graficoClassic.DetalheFabricanteClassic;
 import br.com.gsv.listeners.DetalhesFabricanteListener;
 
 public class DetalhesFabricanteDialog extends JDialog {
@@ -18,39 +20,63 @@ public class DetalhesFabricanteDialog extends JDialog {
 	private JLabel LId, LFabricante;
 	private JLabel TId, TFabricante;
 	private JButton cancelar;
-	private JSeparator separa;
-	private DetalheFabricanteClassic listenerClassic;
-	private JPanel painelDrag;
-	private int xx,xy;
-
 
 	
 	public DetalhesFabricanteDialog() {
-		CriaVariaveis();
-		AdicionaComponentes();
+		setTitle("Dados de Fabricante ");
+		setModal(true);
+		setResizable(false);
+		setBounds(100, 100, 350, 200);
+		
+		tela.setLayout(null);		
+		tela.add(panel, BorderLayout.CENTER);
+		
+		panel.setLayout(null);
+		panel.setBorder(new EmptyBorder(5, 5, 5, 5));
+		
+		Dados();
 		listener = new DetalhesFabricanteListener(this);
-		listenerClassic = new DetalheFabricanteClassic(this);
 	}
 	
-	
-	public void CriaVariaveis() {
+	public void Dados(){
 		LId = new JLabel();
-		LFabricante = new JLabel();
+		LId.setText("Código");
+		LId.setBounds(37, 30, 50, 20);
+		LId.setFont(new Font("Arial", Font.BOLD, 11));
+		tela.add(this.LId);
+		
 		TId = new JLabel();
+		TId.setBounds(83, 31, 84, 20);
+		TId.setBackground(new Color(255, 255, 204));
+		TId.setFont(new Font("Arial", Font.BOLD, 10));
+		TId.setForeground(Color.black);
+		tela.add(this.TId);	
+		
+		LFabricante = new JLabel();
+		LFabricante.setText("Fabricante ");
+		LFabricante.setBounds(22, 62, 97, 20);
+		LFabricante.setFont(new Font("Arial", Font.BOLD, 11));
+		tela.add(this.LFabricante);
+			
 		TFabricante = new JLabel();
+		TFabricante.setBounds(83, 63, 239, 19);
+		TFabricante.setFont(new Font("Arial", Font.BOLD, 10));
+		tela.add(this.TFabricante );
+			
 		cancelar = new JButton();
-		separa = new JSeparator();
-		painelDrag = new JPanel();
+		cancelar.setText("Cancelar");
+		cancelar.setFont(new Font("Calibri", Font.PLAIN, 12));
+		cancelar.setBounds(522, 398, 89, 23);
+		tela.add(this.cancelar);
+
 	}
+		
+		
+	
 
 	
 	public void AdicionaComponentes(){
-		tela.add(this.TId);
-		tela.add(this.TFabricante );
-		tela.add(this.LFabricante);
-		tela.add(this.LId);
-		tela.add(this.cancelar);		
-		tela.add(this.separa);
+		
 	}
 		
 	
@@ -134,42 +160,4 @@ public class DetalhesFabricanteDialog extends JDialog {
 			this.panel = panel;
 		}
 
-		public void setSepara(JSeparator separa) {
-			this.separa = separa;
-		}
-		public JSeparator getSepara() {
-			return separa;
-		}
-
-
-		public JPanel getPainelDrag() {
-			return painelDrag;
-		}
-
-
-		public void setPainelDrag(JPanel painelDrag) {
-			this.painelDrag = painelDrag;
-		}
-
-
-		public int getXx() {
-			return xx;
-		}
-
-
-		public void setXx(int xx) {
-			this.xx = xx;
-		}
-
-
-		public int getXy() {
-			return xy;
-		}
-
-
-		public void setXy(int xy) {
-			this.xy = xy;
-		}
-
-		
 }

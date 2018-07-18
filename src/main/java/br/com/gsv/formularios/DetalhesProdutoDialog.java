@@ -1,14 +1,16 @@
 package br.com.gsv.formularios;
 
+import java.awt.BorderLayout;
 import java.awt.Container;
+import java.awt.Font;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSeparator;
+import javax.swing.border.EmptyBorder;
 
-import br.com.gsv.graficoClassic.DetalheProdutoClassic;
 import br.com.gsv.listeners.DetalhesProdutoListener;
 
 public class DetalhesProdutoDialog extends JDialog {
@@ -18,47 +20,76 @@ public class DetalhesProdutoDialog extends JDialog {
 	private JLabel TCodigo, TDescricao, TQuantidade;
 	private JLabel LDados, LCodigo, LDescricao, LQuantidade, LFabricante, TFabricante;
 	private DetalhesProdutoListener listener;
-	private DetalheProdutoClassic listenerClassic;
 	private JSeparator separa;
-	private JPanel painelDrag;
-	private int xx,xy;
 	
 
 	public DetalhesProdutoDialog() {
-		InicializaComponentes();
-		AdicionaNaTela();
+		setTitle("Detalhes Dados de Produtos");
+		setModal(true);
+		setResizable(false);
+		setBounds(100, 100, 489, 356);
+
+		tela.setLayout(null);
+		tela.add(panel, BorderLayout.CENTER);
+
+		panel.setLayout(null);
+		panel.setBorder(new EmptyBorder(5, 5, 5, 5));
+		
+		CriaTela();
 		listener = new DetalhesProdutoListener(this);
-		listenerClassic = new DetalheProdutoClassic(this);
 	}
 	
-	
-	private void InicializaComponentes(){
+	public void CriaTela() {
 		LDados = new JLabel();
+		LDados.setText("Dados do Produto");
+		LDados.setBounds(38, 29, 130, 14);
+		tela.add(LDados);
+		
 		LCodigo = new JLabel();
+		LCodigo.setText("Código");
+		LCodigo.setBounds(38, 62, 70, 14);
+		tela.add(LCodigo);
+		
 		TCodigo = new JLabel();
+		TCodigo.setBounds(100, 59, 86, 20);
+		tela.add(TCodigo);
+
 		LDescricao = new JLabel();
+		LDescricao.setText("Descrição");
+		LDescricao.setBounds(38, 104, 70, 14);
+		tela.add(LDescricao);
+		
 		TDescricao = new JLabel();
+		TDescricao.setBounds(106, 101, 328, 20);
+		tela.add(TDescricao);
+		
 		LQuantidade = new JLabel();
-		LFabricante = new JLabel();
-		BTCancelar = new JButton();
+		LQuantidade.setText("Quantidade");
+		LQuantidade.setBounds(38, 145, 94, 14);
+		tela.add(LQuantidade);
+		
 		TQuantidade = new JLabel();
+		TQuantidade.setBounds(116, 142, 124, 20);
+		tela.add(TQuantidade);
+
+		LFabricante = new JLabel();
+		LFabricante.setText("Fabricante");
+		LFabricante.setBounds(38, 196, 80, 14);
+		tela.add(LFabricante);
+		
 		TFabricante = new JLabel();
-		painelDrag = new JPanel();
+		TFabricante.setBounds(128, 196, 262, 14);
+		tela.add(TFabricante);
+
+		BTCancelar = new JButton();
+		BTCancelar.setText("Cancelar");
+		BTCancelar.setFont(new Font("Calibri", Font.PLAIN, 12));
+		BTCancelar.setBounds(209, 275, 89, 23);
+		tela.add(BTCancelar);
+		
 		separa = new JSeparator();
 	}
-
-	private void AdicionaNaTela() {
-		tela.add(LDados);
-		tela.add(LCodigo);
-		tela.add(TCodigo);
-		tela.add(LDescricao);
-		tela.add(TDescricao);
-		tela.add(LQuantidade);
-		tela.add(LFabricante);
-		tela.add(BTCancelar);
-		tela.add(TQuantidade);
-		tela.add(TFabricante);
-	}
+	
 
 	public JPanel getPanel() {
 		return panel;
@@ -165,41 +196,12 @@ public class DetalhesProdutoDialog extends JDialog {
 		this.listener = listener;
 	}
 
-	public JPanel getPainelDrag() {
-		return painelDrag;
-	}
-
-	public void setPainelDrag(JPanel painelDrag) {
-		this.painelDrag = painelDrag;
-	}
-
-	public int getXx() {
-		return xx;
-	}
-
-	public void setXx(int xx) {
-		this.xx = xx;
-	}
-
-	public int getXy() {
-		return xy;
-	}
-
-	public void setXy(int xy) {
-		this.xy = xy;
-	}
-
-
-
 	public JSeparator getSepara() {
 		return separa;
 	}
-
-
-
+	
 	public void setSepara(JSeparator separa) {
 		this.separa = separa;
 	}
-
 	
 }
