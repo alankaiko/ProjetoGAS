@@ -17,7 +17,7 @@ public class GerenciaProntuarios extends JDialog {
 	private JLabel LGerenciar;
 	private JPanel panel = new JPanel();
 	private JDateChooser dataFiltrar;
-	private JButton BFiltrar, BCancelar, BAgendar, 	BModificar,BExcluir, BPesquisar;
+	private JButton BFiltrar, BCancelar, BAgendar, 	BModificar,BExcluir, BPesquisar, BGerar;
 	private JScrollPane scrollPane;
 	private JTable table;
 	private GerenciarProntuarioListener listener;
@@ -70,6 +70,10 @@ public class GerenciaProntuarios extends JDialog {
 
 		dataFiltrar = new JDateChooser();
 		dataFiltrar.setBounds(380, 41, 104, 20);
+		
+		BGerar = new JButton("Gerar PDF");
+		BGerar.setBounds(10, 386, 96, 23);
+		
 
 	}
 
@@ -81,9 +85,8 @@ public class GerenciaProntuarios extends JDialog {
 		panel.add(dataFiltrar);
 		panel.add(BModificar);
 		panel.add(BExcluir);
-		panel.add(BPesquisar);
-		
-		
+		panel.add(BPesquisar);	
+		panel.add(BGerar);
 	}
 
 	public JLabel getLGerenciar() {
@@ -183,6 +186,13 @@ public class GerenciaProntuarios extends JDialog {
 	public void setBPesquisar(JButton bPesquisar) {
 		BPesquisar = bPesquisar;
 	}
-	
+
+	public JButton getBGerar() {
+		return BGerar;
+	}
+
+	public void setBGerar(JButton bGerar) {
+		BGerar = bGerar;
+	}	
 	
 }

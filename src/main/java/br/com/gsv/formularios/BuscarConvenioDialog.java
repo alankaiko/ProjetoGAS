@@ -54,6 +54,7 @@ public class BuscarConvenioDialog extends JDialog {
 	private void OrganizaDados(){
 		scrollPane = new JScrollPane();
 		scrollPane.setBounds(15, 100, 478, 177);
+		scrollPane.getViewport().setBackground(Color.WHITE);
 		tela.add(scrollPane);
 		
 		table = new JTable();

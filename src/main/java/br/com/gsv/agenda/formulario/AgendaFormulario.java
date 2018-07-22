@@ -13,6 +13,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JSeparator;
 import javax.swing.JSpinner;
+import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.JTextPane;
 import javax.swing.border.EmptyBorder;
@@ -31,7 +32,7 @@ public class AgendaFormulario extends JDialog {
 	private Container tela = getContentPane();
 	private JTextField TPaciente, TFixo, TCelular, TConvenio, TFuncionario, TRegistro, TEmail;
 	private JLabel LAgendar, LAgendamento, LPaciente, LCelular, LFixo, LConvenio, LData, LHora;
-	private JLabel LEmail, LObservacao, LRegistro, LFuncionario;
+	private JLabel LEmail, LObservacao, LRegistro, LFuncionario, LTituloProntuario;
 	private JComboBox ComboAgendamento, ComboStatus;
 	private JButton BPesqPacient, BPesqFunc, BSalvar, BVoltar;
 	private JDateChooser TData;
@@ -39,8 +40,10 @@ public class AgendaFormulario extends JDialog {
 	private JTextPane TObservacao;
 	private AgendaListener listener;
 	private JLabel Lstatus;
+	private JPanel painelProntuario, painelTitProntuario;
 	private JScrollPane scrollPane;
-	
+	private JTable table;
+
 	
 	
 
@@ -210,15 +213,32 @@ public class AgendaFormulario extends JDialog {
 		LEmail.setFont(new Font("Segoe UI", Font.PLAIN, 13));
 		LEmail.setBounds(10, 120, 69, 18);
 		
-		scrollPane = new JScrollPane();
-		scrollPane.setBounds(519, 0, 203, 435);
-		
 		BSalvar = new JButton("Salvar");
 		BSalvar.setBounds(164, 403, 89, 23);
 		
 		BVoltar = new JButton("Voltar");
 		BVoltar.setBounds(263, 403, 89, 23);
 		
+		
+		painelProntuario = new JPanel();
+		painelProntuario.setBorder(new LineBorder(new Color(0, 0, 0)));
+		painelProntuario.setBackground(new Color(248, 248, 248));
+		painelProntuario.setBounds(519, 0, 203, 435);
+		painelProntuario.setLayout(null);
+		
+		painelTitProntuario = new JPanel();
+		painelTitProntuario.setBackground(Color.WHITE);
+		painelTitProntuario.setBounds(0, 0, 202, 28);
+		painelTitProntuario.setLayout(null);
+		
+		LTituloProntuario = new JLabel("HISTÓRICO DE PRONTUARIOS");
+		LTituloProntuario.setFont(new Font("Segoe UI", Font.BOLD, 12));
+		LTituloProntuario.setBounds(10, 5, 193, 25);
+		
+		scrollPane = new JScrollPane();
+		scrollPane.setBounds(0, 28, 202, 405);
+		scrollPane.getViewport().setBackground(Color.WHITE);
+		table = new JTable();
 	}
 	
 	private void AdicionaComponentes(){
@@ -251,7 +271,11 @@ public class AgendaFormulario extends JDialog {
 		panel.add(LEmail);
 		panel.add(Lstatus);
 		panel.add(ComboStatus);
-		panel.add(scrollPane);
+		panel.add(painelProntuario);
+		painelProntuario.add(painelTitProntuario);
+		painelTitProntuario.add(LTituloProntuario);
+		painelProntuario.add(scrollPane);
+		
 	}
 
 
@@ -545,6 +569,22 @@ public class AgendaFormulario extends JDialog {
 	public void setComboStatus(JComboBox comboStatus) {
 		ComboStatus = comboStatus;
 	}
-	
+
+	public JTable getTable() {
+		return table;
+	}
+
+	public void setTable(JTable table) {
+		this.table = table;
+	}
+
+	public JScrollPane getScrollPane() {
+		return scrollPane;
+	}
+
+	public void setScrollPane(JScrollPane scrollPane) {
+		this.scrollPane = scrollPane;
+	}
+
 	
 }

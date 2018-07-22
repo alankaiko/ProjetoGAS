@@ -1,36 +1,35 @@
 package br.com.gsv.agenda.listeners;
 
-import java.awt.Color;
-import java.awt.color.ColorSpace;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
-import java.util.Date;
 import java.util.List;
 
 import javax.swing.AbstractAction;
 import javax.swing.JComponent;
 import javax.swing.JRootPane;
 import javax.swing.KeyStroke;
+import javax.swing.ListSelectionModel;
 import javax.swing.SpinnerListModel;
-
-import org.joda.time.DateTime;
 
 import br.com.gsv.agenda.formulario.AgendaFormulario;
 import br.com.gsv.domain.Agenda;
 import br.com.gsv.domain.Funcionario;
 import br.com.gsv.domain.Paciente;
+import br.com.gsv.domain.Prontuario;
 import br.com.gsv.domain.sub.EnumStatusAgendamento;
 import br.com.gsv.domain.sub.EnumTipoAgendamento;
 import br.com.gsv.formularios.BuscarFuncionarioDialog;
 import br.com.gsv.formularios.BuscarPacienteDialog;
+import br.com.gsv.tabelas.TabelaProntuarioPorAgendamento;
 import br.com.gsv.util.AgendaDadosUtil;
 import br.com.gsv.util.ValidaCampos;
 import br.com.projeto.gsv.controller.AgendaController;
 import br.com.projeto.gsv.controller.FuncionarioController;
 import br.com.projeto.gsv.controller.PacienteController;
+import br.com.projeto.gsv.controller.ProntuarioController;
 
 public class AgendaListener implements ActionListener, PropertyChangeListener{
 	private AgendaFormulario formulario;
@@ -40,6 +39,8 @@ public class AgendaListener implements ActionListener, PropertyChangeListener{
 	private AgendaController controller;
 	private String hora;
 	private List<String> listaAgenda;
+	private TabelaProntuarioPorAgendamento tabelaProntario;
+	private List<Prontuario> listaProntuario;
 	
 	public AgendaListener(AgendaFormulario formulario) {
 		this.formulario = formulario;
@@ -61,6 +62,21 @@ public class AgendaListener implements ActionListener, PropertyChangeListener{
 		this.agenda = new Agenda();
 	}
 	
+	
+	private void TabelaDeProntuario(){
+		ProntuarioController control = new ProntuarioController();
+		listaProntuario = control.BuscandoPelaIdPaciente(this.paciente.getId());
+		tabelaProntario = new TabelaProntuarioPorAgendamento(listaProntuario);
+		this.formulario.getTable().setModel(tabelaProntario);
+		this.formulario.getTable().getColumnModel().getColumn(0).setPreferredWidth(70);
+		this.formulario.getTable().getColumnModel().getColumn(1).setPreferredWidth(110);
+		this.formulario.getTable().setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		
+		this.formulario.getTable().changeSelection(0, 0, false, false);
+		//this.gerenciamento.getTable().setRowSelectionInterval(0, 0);
+		this.formulario.getTable().setFocusable(false);
+		this.formulario.getScrollPane().setViewportView(this.formulario.getTable());
+	}
 	
 	private void FormToFormulario(){
 		this.agenda.setPaciente(this.paciente);
@@ -95,6 +111,7 @@ public class AgendaListener implements ActionListener, PropertyChangeListener{
 	public void actionPerformed(ActionEvent event) {
 		if(event.getSource().equals(this.formulario.getBPesqPacient())){
 			BotaoPesquisarPaciente();
+			TabelaDeProntuario();
 		}else if(event.getSource().equals(this.formulario.getBPesqFunc())){
 			BotaoPesquisarFuncionario();
 		}else if(event.getSource().equals(this.formulario.getBVoltar())){
@@ -102,6 +119,7 @@ public class AgendaListener implements ActionListener, PropertyChangeListener{
 		}else if(event.getSource().equals(this.formulario.getBSalvar())&& Validando()){
 			BotaoSalvando();
 		}
+		
 		
 	}
 	
@@ -124,6 +142,7 @@ public class AgendaListener implements ActionListener, PropertyChangeListener{
 			BuscarFuncionario(dialog.getListener().getCodigo());
 		}
 	}
+	
 	
 	private void BotaoSalvando(){
 		FormToFormulario();

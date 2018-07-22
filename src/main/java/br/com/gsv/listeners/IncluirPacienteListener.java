@@ -251,6 +251,22 @@ public class IncluirPacienteListener implements ActionListener{
 			    } 
 			}
 		});
+		
+		this.formulario.getTTelefone().addKeyListener(new KeyAdapter() {
+			public void keyTyped(KeyEvent e) {			    
+                if ((formulario.getTTelefone().getText().length() > 11)) {
+                	e.setKeyChar((char) KeyEvent.VK_CLEAR);      
+			    } 
+			}
+		});
+		
+		this.formulario.getTCelular().addKeyListener(new KeyAdapter() {
+			public void keyTyped(KeyEvent e) {			    
+                if ((formulario.getTCelular().getText().length() > 11)) {
+                	e.setKeyChar((char) KeyEvent.VK_CLEAR);      
+			    } 
+			}
+		});
 	}
 	
 	

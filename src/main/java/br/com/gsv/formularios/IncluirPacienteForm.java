@@ -218,6 +218,7 @@ public class IncluirPacienteForm extends JDialog {
 				TCelular = new JTextField();
 				TCelular.setBounds(456, 284, 155, 20);
 				TCelular.setColumns(10);
+				TCelular.addKeyListener(soNumeros);
 			
 				
 			LTelefone = new JLabel();
@@ -227,6 +228,7 @@ public class IncluirPacienteForm extends JDialog {
 				TTelefone = new JTextField();
 				TTelefone.setBounds(456, 322, 155, 20);
 				TTelefone.setColumns(10);	
+				TTelefone.addKeyListener(soNumeros);
 					
 		BTGravar = new JButton();
 		BTGravar.setText("Gravar");

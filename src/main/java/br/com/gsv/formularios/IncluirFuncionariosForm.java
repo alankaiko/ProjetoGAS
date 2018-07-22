@@ -13,6 +13,7 @@ import javax.swing.JTextField;
 import br.com.gsv.graficoClassic.IncluirFuncionarioClassic;
 import br.com.gsv.listeners.IncluirFuncionarioListener;
 import br.com.gsv.util.ConverteDadosUtil;
+import br.com.gsv.util.SomenteNumerosUtil;
 
 public class IncluirFuncionariosForm extends JDialog {
 	private IncluirFuncionarioListener listener;
@@ -28,6 +29,7 @@ public class IncluirFuncionariosForm extends JDialog {
 	private JComboBox ComboEstado, comboCoren,comboCorenEst;
 	private IncluirFuncionarioClassic listenerClassic;
 	private int xx,xy;
+	private SomenteNumerosUtil soNumeros;
 
 
 	

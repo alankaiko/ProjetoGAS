@@ -3,6 +3,7 @@ package br.com.gsv.prontuario.listeners;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
+import java.io.IOException;
 import java.util.List;
 
 import javax.swing.AbstractAction;
@@ -11,11 +12,14 @@ import javax.swing.JRootPane;
 import javax.swing.KeyStroke;
 import javax.swing.ListSelectionModel;
 
+import com.itextpdf.text.DocumentException;
+
 import br.com.gsv.domain.Prontuario;
 import br.com.gsv.formularios.BuscarPacienteDialog;
 import br.com.gsv.prontuario.formularios.ExcluirProntuarioDialog;
 import br.com.gsv.prontuario.formularios.GerenciaProntuarios;
 import br.com.gsv.prontuario.formularios.ProntuarioForm;
+import br.com.gsv.relatorios.RelatorioProntuarioPorPaciente;
 import br.com.gsv.tabelas.TabelaDeProntuariosUtil;
 import br.com.projeto.gsv.controller.ProntuarioController;
 
@@ -46,6 +50,7 @@ public class GerenciarProntuarioListener implements ActionListener{
 		this.gerenciamento.getBModificar().addActionListener(this);
 		this.gerenciamento.getBExcluir().addActionListener(this);
 		this.gerenciamento.getBPesquisar().addActionListener(this);
+		this.gerenciamento.getBGerar().addActionListener(this);
 	}
 	
 	
@@ -99,6 +104,25 @@ public class GerenciarProntuarioListener implements ActionListener{
 		
 		if(event.getSource().equals(this.gerenciamento.getBCancelar())){
 			this.gerenciamento.dispose();
+		}
+		
+		if(event.getSource().equals(this.gerenciamento.getBGerar())){
+			ExecutaGerarPdf(SelecionaLinha());
+		}
+		
+	}
+	
+	private void ExecutaGerarPdf(Long id){
+		ProntuarioController controller = new ProntuarioController();
+		RelatorioProntuarioPorPaciente rel = new RelatorioProntuarioPorPaciente();
+		
+		
+		try {
+			rel.setProntuario(controller.BuscarPelaID(id));
+			rel.Iniciar();
+		} catch (IOException | DocumentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 		
 	}

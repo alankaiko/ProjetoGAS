@@ -56,6 +56,7 @@ public class BuscarFabricanteDialog extends JDialog {
 	public void OrganizaDados() {
 		scrollPane = new JScrollPane();
 		scrollPane.setBounds(15, 100, 560, 220);
+		scrollPane.getViewport().setBackground(Color.WHITE);
 		tela.add(scrollPane);
 		table = new JTable();
 		

@@ -47,6 +47,7 @@ public class BuscarProdutoDialog extends JDialog {
 				
 		scrollPane = new JScrollPane();
 		scrollPane.setBounds(15, 100, 585, 220);
+		scrollPane.getViewport().setBackground(Color.WHITE);
 		tela.add(scrollPane);
 		table = new JTable();
 		

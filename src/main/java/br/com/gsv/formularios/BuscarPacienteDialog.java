@@ -47,6 +47,7 @@ public class BuscarPacienteDialog extends JDialog {
 		
 		scrollPane = new JScrollPane();
 		scrollPane.setBounds(15, 100, 560, 220);
+		scrollPane.getViewport().setBackground(Color.WHITE);
 		tela.add(scrollPane);
 		table = new JTable();
 		
@@ -65,7 +66,7 @@ public class BuscarPacienteDialog extends JDialog {
 		buscaCpf = new JRadioButton();
 		buscaCpf.setText("CPF");
 		buscaCpf.setFont(new Font("Arial", Font.PLAIN, 13));
-		buscaCpf.setBounds(201, 40, 53, 23);
+		buscaCpf.setBounds(205, 40, 53, 23);
 		tela.add(this.buscaCpf);
 		botaoGrupo.add(buscaCpf);
 				
