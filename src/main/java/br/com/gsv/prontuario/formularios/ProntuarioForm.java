@@ -23,11 +23,12 @@ import javax.swing.border.LineBorder;
 
 import br.com.gsv.prontuario.listeners.ProntuarioListener;
 import br.com.gsv.util.ConverteDadosUtil;
+import java.awt.SystemColor;
 
 public class ProntuarioForm extends JDialog {
 
 	private JPanel panel = new JPanel();
-	private JButton BTGravar, BTCancelar, BTPesquisar, BTPesquiFuncionario;
+	private JButton BTGravar, BTCancelar, BTPesquisar, BTPesquiFuncionario, BTGerar;
 	private JPanel painelIntegridade,painelCondicao, painelDadosCliente, painelAnotacao, painelSintomas;
 	private JPanel painelEquipamentos, painelAvaliacao;
 	private JTextField TPaciente, TCodigo, TRg, TCpf, TDataNasc, TDataCad, THemorragia, TDispneia, TEdema;
@@ -97,12 +98,17 @@ public class ProntuarioForm extends JDialog {
 		panel.add(LProntuario);
 		
 		BTGravar = new JButton("Gravar");
-		BTGravar.setBounds(276, 420, 89, 23);
+		BTGravar.setBounds(276, 420, 89, 25);
 		panel.add(BTGravar);
 
 		BTCancelar = new JButton("Cancelar");
-		BTCancelar.setBounds(375, 420, 89, 23);
+		BTCancelar.setBounds(375, 420, 89, 25);
 		panel.add(BTCancelar);
+		
+		BTGerar = new JButton("Gerar PDF");
+		BTGerar.setIcon(new ImageIcon(ProntuarioForm.class.getResource("/imagens/icons8-pdf-15.png")));
+		BTGerar.setBounds(628, 420, 115, 25);
+		panel.add(BTGerar);
 	}
 	
 	private void TabDadosCliente(){
@@ -844,9 +850,6 @@ public class ProntuarioForm extends JDialog {
 		textoEquipamento.setBorder(new LineBorder(Color.BLACK));
 		textoEquipamento.setBounds(163, 96, 392, 180);
 		painelEquipamentos.add(textoEquipamento);
-		
-		JLayeredPane layeredPane = new JLayeredPane();
-		tabGeral.addTab("Medicamentos", null, layeredPane, null);
 	}
 	
 	
@@ -1898,5 +1901,13 @@ public class ProntuarioForm extends JDialog {
 
 	public void setTConvenio(JTextField tConvenio) {
 		TConvenio = tConvenio;
+	}
+	
+	public JButton getBTGerar() {
+		return BTGerar;
+	}
+	
+	public void setBTGerar(JButton bTGerar) {
+		BTGerar = bTGerar;
 	}
 }

@@ -4,11 +4,14 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.io.IOException;
 
 import javax.swing.AbstractAction;
 import javax.swing.JComponent;
 import javax.swing.JRootPane;
 import javax.swing.KeyStroke;
+
+import com.itextpdf.text.DocumentException;
 
 import br.com.gsv.domain.Funcionario;
 import br.com.gsv.domain.Paciente;
@@ -20,6 +23,7 @@ import br.com.gsv.domain.sub.SintomasMembrosCheckbox;
 import br.com.gsv.formularios.BuscarFuncionarioDialog;
 import br.com.gsv.formularios.BuscarPacienteDialog;
 import br.com.gsv.prontuario.formularios.ProntuarioForm;
+import br.com.gsv.relatorios.RelatorioProntuarioPorPaciente;
 import br.com.gsv.util.ConverteDadosUtil;
 import br.com.gsv.util.MensagemPainelUtil;
 import br.com.gsv.util.ValidaCampos;
@@ -53,6 +57,7 @@ public class ProntuarioListener implements ActionListener{
 		this.formulario.getBTCancelar().addActionListener(this);
 		this.formulario.getBTPesquisar().addActionListener(this);
 		this.formulario.getBTPesquiFuncionario().addActionListener(this);
+		this.formulario.getBTGerar().addActionListener(this);
 	}
 	
 	
@@ -481,42 +486,66 @@ public class ProntuarioListener implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent event) {
 		if(event.getSource().equals(this.formulario.getBTGravar())&& Validando()){
-			FormToProntuario();
-			
-			PegarRadioButtons();
-			PegarCheckboxes();
-			
-			this.prontuario.setPaciente(this.paciente);
-			this.prontuario.setFuncionario(this.funcionario);
-			
-			this.controller = new ProntuarioController();
-			this.controller.setProntuario(prontuario);
-			this.controller.SalvarProntuario();
+			Salvar();
 			this.formulario.dispose();
-			
 		}else if(event.getSource().equals(this.formulario.getBTCancelar())){
-			this.formulario.dispose();
-			
+			this.formulario.dispose();			
 		}else if(event.getSource().equals(this.formulario.getBTPesquisar())){
-			BuscarPacienteDialog dialog = new BuscarPacienteDialog();
-			dialog.setLocationRelativeTo(this.formulario.getContentPane());
-			dialog.setVisible(true);
-			
-			if(dialog.getListener().getCodigo() != null)
-				BuscarCliente(dialog.getListener().getCodigo());
-			
+			Pesquisar();			
 		}else if(event.getSource().equals(this.formulario.getBTPesquiFuncionario())){
-			BuscarFuncionarioDialog dialog = new BuscarFuncionarioDialog();
-			dialog.setLocationRelativeTo(this.formulario.getContentPane());
-			dialog.setVisible(true);
-			
-			if(dialog.getListener().getCodigo() != null){
-				BuscarFuncionario(dialog.getListener().getCodigo());
-			}
+			PesquisarFuncio();
+		}else if(event.getSource().equals(this.formulario.getBTGerar()) && Validando()){
+			GerarPdf();
 		}else{
 			MensagemPainelUtil.CampoVazio("Funcionário e o Paciente não podem ser nulos");
-		}
+		}		
+	}
+	
+	private void Salvar(){
+		FormToProntuario();
 		
+		PegarRadioButtons();
+		PegarCheckboxes();
+		
+		this.prontuario.setPaciente(this.paciente);
+		this.prontuario.setFuncionario(this.funcionario);
+		
+		this.controller = new ProntuarioController();
+		this.controller.setProntuario(prontuario);
+		this.controller.SalvarProntuario();
+		
+	}
+	
+	private void Pesquisar(){
+		BuscarPacienteDialog dialog = new BuscarPacienteDialog();
+		dialog.setLocationRelativeTo(this.formulario.getContentPane());
+		dialog.setVisible(true);
+		
+		if(dialog.getListener().getCodigo() != null)
+			BuscarCliente(dialog.getListener().getCodigo());
+	}
+	
+	private void PesquisarFuncio(){
+		BuscarFuncionarioDialog dialog = new BuscarFuncionarioDialog();
+		dialog.setLocationRelativeTo(this.formulario.getContentPane());
+		dialog.setVisible(true);
+		
+		if(dialog.getListener().getCodigo() != null){
+			BuscarFuncionario(dialog.getListener().getCodigo());
+		}
+	}
+	
+	private void GerarPdf(){
+		Salvar();
+		
+		
+		try {
+			RelatorioProntuarioPorPaciente rel = new RelatorioProntuarioPorPaciente();
+			rel.setProntuario(this.prontuario);
+			rel.Iniciar();
+		} catch (IOException | DocumentException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	private boolean Validando(){
