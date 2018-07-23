@@ -1,15 +1,18 @@
 package br.com.gsv.formularios;
 
+import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Container;
+import java.awt.FlowLayout;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSeparator;
+import javax.swing.border.EmptyBorder;
 
 import br.com.gsv.domain.Produto;
-import br.com.gsv.graficoClassic.ExcluirProdutoClassic;
 import br.com.gsv.listeners.ExcluirProdutoListener;
 
 public class ExcluirProdutoDialog extends JDialog {
@@ -19,36 +22,49 @@ public class ExcluirProdutoDialog extends JDialog {
 	private JButton ok, cancelar;
 	private JLabel excluir;
 	private JSeparator separa;
-	private Produto produto;
-	private ExcluirProdutoClassic listenerClassic;
-	private JPanel painelDrag;
-	private int xx,xy;
-	
+	private Produto produto;	
 
 	public ExcluirProdutoDialog(Produto produto) {
+		
+		setBounds(100, 100,320, 100);
+		setLayout(new BorderLayout());
+		panel.setBorder(new EmptyBorder(5, 5, 5, 5));
+		tela.add(panel, BorderLayout.CENTER);
+		
+		setTitle("Excluir Produto");
+		setModal(true);
+		setResizable(false);	
+		tela.setLayout(null);	
+		
+		panel.setLayout(null);
+		panel.setBorder(new EmptyBorder(5, 5, 5, 5));
+		panel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+		
 		this.produto = produto;
-		CriaVariaveis();
-		Inicializa();
+		CriaCompomentes();
 		listener = new ExcluirProdutoListener(this);
-		listenerClassic = new ExcluirProdutoClassic(this);
+		
+		
 	}
 	
-	
-	private void CriaVariaveis(){
-		ok = new JButton();
-		cancelar = new JButton();
+	public void CriaCompomentes(){
 		excluir = new JLabel();
-		separa = new JSeparator();
-		painelDrag = new JPanel();
+		excluir.setText("Excluir: "+ produto.getDescricao() +" ?");
+		excluir.setForeground(Color.black);
+		excluir.setBounds(10, 10, 300, 18);
+		tela.add(this.excluir);
+				
+		ok = new JButton();
+		ok.setText("OK");
+		ok.setBounds(45, 50, 90, 18);
+		tela.add(this.ok);
+		
+		cancelar = new JButton();
+		cancelar.setText("Cancelar");
+		cancelar.setBounds(140, 50, 90, 18);
+		tela.add(this.cancelar);	
 	}
 	
-	private void Inicializa(){
-		tela.add(this.ok);
-		tela.add(this.cancelar);
-		tela.add(this.excluir);
-		tela.add(this.separa);
-		tela.add(this.painelDrag);
-	}
 
 	public JButton getOk() {
 		return ok;
@@ -103,42 +119,6 @@ public class ExcluirProdutoDialog extends JDialog {
 	}
 	public void setSepara(JSeparator separa) {
 		this.separa = separa;
-	}
-
-
-
-	public JPanel getPainelDrag() {
-		return painelDrag;
-	}
-
-
-
-	public void setPainelDrag(JPanel painelDrag) {
-		this.painelDrag = painelDrag;
-	}
-
-
-
-	public int getXx() {
-		return xx;
-	}
-
-
-
-	public void setXx(int xx) {
-		this.xx = xx;
-	}
-
-
-
-	public int getXy() {
-		return xy;
-	}
-
-
-
-	public void setXy(int xy) {
-		this.xy = xy;
 	}
 
 	

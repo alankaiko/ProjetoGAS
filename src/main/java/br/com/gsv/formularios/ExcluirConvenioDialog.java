@@ -1,15 +1,18 @@
 package br.com.gsv.formularios;
 
+import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Container;
+import java.awt.FlowLayout;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSeparator;
+import javax.swing.border.EmptyBorder;
 
 import br.com.gsv.domain.Convenio;
-import br.com.gsv.graficoClassic.ExcluirConvenioClassic;
 import br.com.gsv.listeners.ExcluirConvenioListener;
 
 public class ExcluirConvenioDialog extends JDialog {
@@ -20,35 +23,49 @@ public class ExcluirConvenioDialog extends JDialog {
 	private JSeparator separa;
 	private Convenio convenio;
 	private ExcluirConvenioListener listener;
-	private ExcluirConvenioClassic listenerClassic;
-	private JPanel painelDrag;
-	private int xx,xy;
+
 	
 	
 	public ExcluirConvenioDialog(Convenio convenio) {
-		CriaVariaveis();
-		this.convenio = convenio;
-		AdicionaComponentes();
-		listener = new ExcluirConvenioListener(this);
-		listenerClassic = new ExcluirConvenioClassic(this);
-	}
-	
+		setBounds(100, 100,320, 100);
+		setLayout(new BorderLayout());
+		panel.setBorder(new EmptyBorder(5, 5, 5, 5));
+		tela.add(panel, BorderLayout.CENTER);
 		
-	private void CriaVariaveis(){
-		excluir = new JLabel();
-		ok = new JButton();
-		separa = new JSeparator();
-		cancelar = new JButton();
-		painelDrag = new JPanel();
+		setTitle("Excluir Convenio / Plano / Credencial");
+		setModal(true);
+		setResizable(false);
+		tela.setLayout(null);		
+		
+		panel.setLayout(null);
+		panel.setBorder(new EmptyBorder(5, 5, 5, 5));
+		panel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+		
+		this.convenio = convenio;
+		DefineComponentes();
+		listener = new ExcluirConvenioListener(this);
 	}
 	
-	public void AdicionaComponentes(){
-		tela.add(this.ok);
-		tela.add(this.separa);
-		tela.add(this.cancelar);
+	
+	public void DefineComponentes(){
+		excluir = new JLabel();
+		excluir.setText("Excluir: "+ convenio.getNome() + "?");
+		excluir.setForeground(Color.black);
+		excluir.setBounds(10, 10, 300, 18);
 		tela.add(this.excluir);
-		tela.add(this.painelDrag);
+				
+		ok = new JButton();
+		ok.setText("OK");
+		ok.setBounds(45, 50, 90, 18);
+		tela.add(this.ok);
+		
+		cancelar = new JButton();
+		cancelar.setText("Cancelar");
+		cancelar.setBounds(140, 50, 90, 18);
+		tela.add(this.cancelar);
+			
 	}
+	
 	
 
 	public JButton getOk() {
@@ -116,36 +133,5 @@ public class ExcluirConvenioDialog extends JDialog {
 	public void setSepara(JSeparator separa) {
 		this.separa = separa;
 	}
-
-
-	public JPanel getPainelDrag() {
-		return painelDrag;
-	}
-
-
-	public void setPainelDrag(JPanel painelDrag) {
-		this.painelDrag = painelDrag;
-	}
-
-
-	public int getXx() {
-		return xx;
-	}
-
-
-	public void setXx(int xx) {
-		this.xx = xx;
-	}
-
-
-	public int getXy() {
-		return xy;
-	}
-
-
-	public void setXy(int xy) {
-		this.xy = xy;
-	}
-
 	
 }
