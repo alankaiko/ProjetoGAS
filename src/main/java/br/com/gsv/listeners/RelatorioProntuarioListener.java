@@ -11,7 +11,7 @@ import javax.swing.JComponent;
 import javax.swing.JRootPane;
 import javax.swing.KeyStroke;
 
-import br.com.gsv.graficoClassic.RelatorioProntuarioClassic;
+import br.com.gsv.formularios.RelatorioProntuarioClassic;
 import br.com.gsv.relatorios.RelatorioProntuario;
 import br.com.gsv.relatorios.RelatorioProntuarioData;
 

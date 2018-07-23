@@ -11,7 +11,7 @@ import javax.swing.JComponent;
 import javax.swing.JRootPane;
 import javax.swing.KeyStroke;
 
-import br.com.gsv.graficoClassic.RelatorioFuncionarioClassic;
+import br.com.gsv.formularios.RelatorioFuncionarioClassic;
 import br.com.gsv.relatorios.RelatorioFuncionario;
 import br.com.gsv.relatorios.RelatorioFuncionarioRegistro;
 
