@@ -2,11 +2,8 @@ package br.com.gsv.listeners;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 
 import javax.swing.AbstractAction;
 import javax.swing.JComponent;
@@ -16,7 +13,6 @@ import javax.swing.ListSelectionModel;
 
 import br.com.gsv.formularios.BuscarFabricanteDialog;
 import br.com.gsv.tabelas.buscar.TabelaBuscarFabricantesUtil;
-import br.com.gsv.util.ConverteDadosUtil;
 import br.com.projeto.gsv.controller.FabricanteController;
 
 public class BuscarFabricanteListener implements ActionListener{
@@ -31,7 +27,6 @@ public class BuscarFabricanteListener implements ActionListener{
 		TabelaFabricante();
 		AdicionaListener();
 		UsandoTAB();
-		UpCase();
 		TeclaEsc();
 	}
 	
@@ -93,24 +88,6 @@ public class BuscarFabricanteListener implements ActionListener{
 	}
 	
 	
-	private void UpCase(){
-		this.formulario.getTextoBuscar().addKeyListener(new KeyAdapter() {  
-			public void keyReleased(KeyEvent ke) {  
-				if (ke.getKeyCode() != KeyEvent.VK_HOME) {  
-					String s = formulario.getTextoBuscar().getText();  
-					formulario.getTextoBuscar().setText(s.toUpperCase());  
-				}  
-			}  
-		}); 	
-		this.formulario.getBuscaId();
-	}
-	
-	
-
-	
-	
-	
-
 	
 	public void TeclaEsc(){
         JRootPane meurootpane = this.formulario.getRootPane();  

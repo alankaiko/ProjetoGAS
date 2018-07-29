@@ -11,7 +11,6 @@ import javax.swing.JRootPane;
 import javax.swing.KeyStroke;
 
 import br.com.gsv.formularios.CodigoConvenioDialog;
-import br.com.gsv.formularios.CodigoFabricanteDialog;
 
 public class CodigoConvenioListener implements ActionListener{
 	private CodigoConvenioDialog formulario;

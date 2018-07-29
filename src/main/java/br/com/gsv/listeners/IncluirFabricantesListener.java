@@ -26,7 +26,6 @@ public class IncluirFabricantesListener implements ActionListener {
 		con = new FabricanteController();
 		AdicionarListener();
 		TeclaEsc();
-		UpCase();
 		UsandoTAB();
 	}
 
@@ -125,18 +124,6 @@ public class IncluirFabricantesListener implements ActionListener {
                 }  
             }  
         });
-	}
-	
-	
-	private void UpCase(){
-		this.formulario.getTFabricante().addKeyListener(new KeyAdapter() {  
-			public void keyReleased(KeyEvent ke) {  
-				if (ke.getKeyCode() != KeyEvent.VK_HOME) {  
-					String s = formulario.getTFabricante().getText();  
-					formulario.getTFabricante().setText(s.toUpperCase());  
-				}  
-			}  
-		});
 	}
 	
 	

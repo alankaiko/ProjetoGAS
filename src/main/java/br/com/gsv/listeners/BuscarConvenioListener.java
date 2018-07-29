@@ -13,9 +13,7 @@ import javax.swing.ListSelectionModel;
 
 import br.com.gsv.formularios.BuscarConvenioDialog;
 import br.com.gsv.tabelas.buscar.TabelaBuscarConvenioUtil;
-import br.com.gsv.tabelas.buscar.TabelaBuscarProdutoUtil;
 import br.com.projeto.gsv.controller.ConvenioController;
-import br.com.projeto.gsv.controller.ProdutoController;
 
 public class BuscarConvenioListener  implements ActionListener{
 	private BuscarConvenioDialog formulario;
@@ -28,7 +26,6 @@ public class BuscarConvenioListener  implements ActionListener{
 		TabelaConvenio();
 		AdicionaListener();
 		UsandoTAB();
-		UpCase();
 		TeclaEsc();
 	}
 	
@@ -90,16 +87,6 @@ public class BuscarConvenioListener  implements ActionListener{
 	}
 	
 	
-	private void UpCase(){
-		this.formulario.getTextoBuscar().addKeyListener(new KeyAdapter() {  
-			public void keyReleased(KeyEvent ke) {  
-				if (ke.getKeyCode() != KeyEvent.VK_HOME) {  
-					String s = formulario.getTextoBuscar().getText();  
-					formulario.getTextoBuscar().setText(s.toUpperCase());  
-				}  
-			}  
-		}); 	
-	}
 	
 	public void TeclaEsc(){
         JRootPane meurootpane = this.formulario.getRootPane();  

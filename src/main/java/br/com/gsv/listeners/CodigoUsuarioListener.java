@@ -20,7 +20,6 @@ public class CodigoUsuarioListener implements ActionListener{
 		AdicionaComponentes();
 		UsandoTAB();
 		TeclaEsc();
-		UpCase();
 	}
 	
 	
@@ -81,16 +80,6 @@ public class CodigoUsuarioListener implements ActionListener{
         });  
     } 
 	
-	private void UpCase(){
-		this.formulario.getTBuscar().addKeyListener(new KeyAdapter() {  
-			public void keyReleased(KeyEvent ke) {  
-				if (ke.getKeyCode() != KeyEvent.VK_HOME) {  
-					String s = formulario.getTBuscar().getText();  
-					formulario.getTBuscar().setText(s.toUpperCase());  
-				}  
-			}  
-		}); 	
-	}
 	
 	
 }

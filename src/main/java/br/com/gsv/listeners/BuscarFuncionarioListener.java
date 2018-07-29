@@ -13,7 +13,6 @@ import javax.swing.ListSelectionModel;
 
 import br.com.gsv.formularios.BuscarFuncionarioDialog;
 import br.com.gsv.tabelas.buscar.TabelaBuscarFuncionariosUtil;
-import br.com.gsv.tabelas.buscar.TabelaBuscarPacientesUtil;
 import br.com.projeto.gsv.controller.FuncionarioController;
 
 public class BuscarFuncionarioListener implements ActionListener{
@@ -27,7 +26,6 @@ public class BuscarFuncionarioListener implements ActionListener{
 		TabelaFuncionario();
 		AdicionaListener();
 		UsandoTAB();
-		UpCase();
 		TeclaEsc();
 	}
 	
@@ -91,16 +89,6 @@ public class BuscarFuncionarioListener implements ActionListener{
 	}
 	
 	
-	private void UpCase(){
-		this.formulario.getTextoBuscar().addKeyListener(new KeyAdapter() {  
-			public void keyReleased(KeyEvent ke) {  
-				if (ke.getKeyCode() != KeyEvent.VK_HOME) {  
-					String s = formulario.getTextoBuscar().getText();  
-					formulario.getTextoBuscar().setText(s.toUpperCase());  
-				}  
-			}  
-		}); 	
-	}
 	
 	public void TeclaEsc(){
         JRootPane meurootpane = this.formulario.getRootPane();  

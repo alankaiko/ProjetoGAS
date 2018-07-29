@@ -31,8 +31,6 @@ public class IncluirUsuarioListener implements ActionListener{
 		AdicionaListener();
 		UsandoTAB();
 		TeclaEsc();
-		UpCase();
-	
 	}
 
 	private void AdicionaListener(){
@@ -131,20 +129,6 @@ public class IncluirUsuarioListener implements ActionListener{
 		});
 	}
 
-	
-	
-	private void UpCase(){
-		this.formulario.getTLogin().addKeyListener(new KeyAdapter() {  
-			public void keyReleased(KeyEvent ke) {  
-				if (ke.getKeyCode() != KeyEvent.VK_HOME) {  
-					String s = formulario.getTLogin().getText();  
-					formulario.getTLogin().setText(s.toUpperCase());  
-				}  
-			}  
-		}); 	
-	}
-	
-	
 	
 	
 	public void TeclaEsc() {

@@ -4,32 +4,23 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.MapsId;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.hibernate.validator.constraints.Email;
 
-import br.com.gsv.domain.Funcionario;
-
 @Entity
-@Table(name = "contato_fun")
+@Table
 public class Contato_fun implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private Long id;
 	private String email;
 	private String telefone;
-	private String celular;
-	private Funcionario funcionario;
-	
-	
-	
+	private String celular;	
+		
 
 	@Id
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
@@ -68,18 +59,6 @@ public class Contato_fun implements Serializable {
 	public void setCelular(String celular) {
 		this.celular = celular;
 	}
-	
-	@MapsId
-	@OneToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "fun_id")
-	public Funcionario getFuncionario() {
-		return funcionario;
-	}
-	
-	public void setFuncionario(Funcionario funcionario) {
-		this.funcionario = funcionario;
-	}
-	
 	
 	
 
@@ -120,7 +99,6 @@ public class Contato_fun implements Serializable {
 		.append(", celular=")
 		.append(celular)
 		.append(", funcionario=")
-		.append(funcionario)
 		.append("]");
 		return builder.toString();
 	}

@@ -34,12 +34,12 @@
         <property name="hibernate.temp.use_jdbc_metadata_defaults">false</property>
 		
 		
-		<mapping class="br.com.gsv.domain.sub.Contato_fun"/>
-      	<mapping class="br.com.gsv.domain.sub.Endereco_fun"/>
+		<mapping class="br.com.gsv.domain.Paciente"/>
       	<mapping class="br.com.gsv.domain.Funcionario"/>
       	<mapping class="br.com.gsv.domain.sub.Contato_cli"/>
       	<mapping class="br.com.gsv.domain.sub.Endereco_cli"/>
-      	<mapping class="br.com.gsv.domain.Paciente"/>
+      	<mapping class="br.com.gsv.domain.sub.Contato_fun"/>
+      	<mapping class="br.com.gsv.domain.sub.Endereco_fun"/>
       	<mapping class="br.com.gsv.domain.Produto"/>
       	<mapping class="br.com.gsv.domain.Fabricante"/>
       	<mapping class="br.com.gsv.domain.Convenio"/>

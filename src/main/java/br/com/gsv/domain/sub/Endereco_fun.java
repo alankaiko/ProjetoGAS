@@ -4,19 +4,13 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.MapsId;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import br.com.gsv.domain.Funcionario;
-
 @Entity
-@Table(name = "endereco_fun")
+@Table
 public class Endereco_fun implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -28,7 +22,6 @@ public class Endereco_fun implements Serializable {
 	private String cidade;
 	private String estado;
 	private String cep;
-	private Funcionario funcionario;
 
 	@Id
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
@@ -103,18 +96,6 @@ public class Endereco_fun implements Serializable {
 		this.cep = cep;
 	}
 	
-	@MapsId
-	@OneToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "fun_id")
-	public Funcionario getFuncionario() {
-		return funcionario;
-	}
-	
-	public void setFuncionario(Funcionario funcionario) {
-		this.funcionario = funcionario;
-	}
-	
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -158,7 +139,6 @@ public class Endereco_fun implements Serializable {
 			.append(", cep=")
 			.append(cep)
 			.append(", funcionario=")
-			.append(funcionario)
 			.append("]");
 		return builder.toString();
 	}

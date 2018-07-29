@@ -50,11 +50,7 @@ public class CriaUsuarioAdmin {
 	private void AtrelarObjetos(){
 		this.funcionario.setRegistroCoren(this.coren);
 		this.funcionario.setContato(this.contato);
-		this.funcionario.setEndereco(this.endereco);
-		
-		this.endereco.setFuncionario(this.funcionario);
-		this.contato.setFuncionario(this.funcionario);	
-		
+		this.funcionario.setEndereco(this.endereco);		
 	}	
 
 	private void Gravar(){

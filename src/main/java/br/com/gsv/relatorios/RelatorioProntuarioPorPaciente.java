@@ -34,15 +34,15 @@ public class RelatorioProntuarioPorPaciente{
 	private PdfPCell celulaCodigo, campoCodigo, celulaHora, campoHora, celulaDataCad, campoDataCad;
 	private float [ ] linha01 = { 1.30f, 3.80f,1.80f, 2.50f,3.30f, 1.30f};
 	private PdfPCell celulaRg, campoRg, celulaCpf, campoCpf, celulaDataNas, campoDataNas;
-	private float [ ] linha02 = { 0.50f, 4.80f,0.50f, 5.50f,2.00f, 1.30f};
+	private float [ ] linha02 = { 0.50f, 3.80f,0.50f, 5.50f,2.00f, 1.30f};
 	private PdfPCell celulaNivel, campoNivel, celulaEstadoMen, campoEstadoMen, celulaObservaMen, campoOBservaMen;
-	private float [ ] linha03 = { 1.70f, 0.90f,1.10f, 0.70f,1.00f, 3.30f};
+	private float [ ] linha03 = { 1.50f, 1.50f,1.00f, 1.50f,2.00f, 1.30f};
 	private PdfPCell celulaAvalia, campoAvalia, celulaAvaliaObser, campoAvaliaObser;
-	private float [ ] linha04 = { 1.60f, 1.50f,1.40f, 3.0f};
+	private float [ ] linha04 = { 1.50f, 1.50f,1.00f, 1.50f};
 	private PdfPCell celulaRepouso, campoRepouso, celulaSono, campoSono;
-	private float [ ] linha05 = { 1.30f, 1.00f,1.00f, 5.00f};
+	private float [ ] linha05 = { 1.50f, 1.50f,1.00f, 1.50f};
 	private PdfPCell celulaCondicao, campoCondicao;
-	private float [ ] linha06 = { 1.30f, 6.50f};
+	private float [ ] linha06 = { 1.50f, 1.50f};
 	private PdfPTable tabela01;	
 	protected Font fonteTitulo = new Font(FontFamily.HELVETICA, 14, Font.BOLD, GrayColor.GRAYBLACK);
 	protected Font fonte = new Font(FontFamily.COURIER, 7, Font.BOLD, GrayColor.GRAYBLACK);
@@ -107,8 +107,8 @@ public class RelatorioProntuarioPorPaciente{
 	        this.CriarTabela(linha01);
 	        AdicionarLinha01();
 	        
-	      //  paragrafo = new Paragraph("     ");
-			//documento.add(paragrafo);		
+	        paragrafo = new Paragraph("     ");
+			documento.add(paragrafo);		
 	        
 	        this.CriarTabela(linha02);
 	        AdicionarLinha02();
@@ -119,20 +119,20 @@ public class RelatorioProntuarioPorPaciente{
 	        this.CriarTabela(linha03);
 	        AdicionarLinha03();
 	        
-	      //  paragrafo = new Paragraph("     ");
-		//	documento.add(paragrafo);	
+	        paragrafo = new Paragraph("     ");
+			documento.add(paragrafo);	
 			
 	        this.CriarTabela(linha04);
 	        AdicionarLinha04();
 	        
-	      //  paragrafo = new Paragraph("     ");
-			//documento.add(paragrafo);	
+	        paragrafo = new Paragraph("     ");
+			documento.add(paragrafo);	
 			
 	        this.CriarTabela(linha05);
 	        AdicionarLinha05();
 	        
-	     //   paragrafo = new Paragraph("     ");
-			//documento.add(paragrafo);	
+	        paragrafo = new Paragraph("     ");
+			documento.add(paragrafo);	
 			
 	        this.CriarTabela(linha06);
 	        AdicionarLinha06();

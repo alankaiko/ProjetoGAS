@@ -2,21 +2,12 @@ package br.com.gsv.domain.sub;
 
 import java.io.Serializable;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.MapsId;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
-
-import br.com.gsv.domain.Paciente;
 
 @Entity
 @Table(name = "endereco_cli")
@@ -31,7 +22,6 @@ public class Endereco_cli implements Serializable {
 	private String cidade;
 	private String estado;
 	private String cep;
-	private Paciente paciente;
 
 	public Endereco_cli() {
 		logradouro = new String();
@@ -45,30 +35,10 @@ public class Endereco_cli implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
-	@Column(name="end_id")
 	public Long getId() {
 		return id;
 	}
 	
-	
-	
-	@MapsId
-	@OneToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "id")
-	public Paciente getPaciente() {
-		return paciente;
-	}
-
-
-
-
-	public void setPaciente(Paciente paciente) {
-		this.paciente = paciente;
-	}
-
-
-
-
 	public void setId(Long id) {
 		this.id = id;
 	}

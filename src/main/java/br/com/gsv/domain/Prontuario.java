@@ -53,7 +53,7 @@ public class Prontuario implements Serializable{
 	private Paciente paciente;
 	
 	@OneToOne
-	@JoinColumn(name = "tbl_funcionario_id", referencedColumnName = "fun_id")
+	@JoinColumn(name = "tbl_funcionario_id", referencedColumnName = "id")
 	private Funcionario funcionario;
 	
 	

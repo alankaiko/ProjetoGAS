@@ -33,7 +33,7 @@ public class Usuario {
 
 	@MapsId
 	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	@JoinColumn(name = "tbl_funcionario_fun_id", referencedColumnName = "fun_id")
+	@JoinColumn(name = "tbl_funcionario_id", referencedColumnName = "id")
 	private Funcionario funcionario;
 	
 	@Column(nullable=false, unique=true)

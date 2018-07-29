@@ -14,7 +14,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -124,7 +123,8 @@ public class Paciente implements Serializable {
 	}
 	
 
-	@OneToOne(mappedBy = "paciente", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "tbl_contato_id", referencedColumnName = "id")
 	public Contato_cli getContato() {
 		return contato;
 	}
@@ -133,7 +133,8 @@ public class Paciente implements Serializable {
 		this.contato = contato;
 	}
 
-	@OneToOne(mappedBy = "paciente", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "tbl_endereco_id", referencedColumnName = "id")
 	public Endereco_cli getEndereco() {
 		return endereco;
 	}

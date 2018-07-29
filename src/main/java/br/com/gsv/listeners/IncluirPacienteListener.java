@@ -17,9 +17,6 @@ import javax.swing.KeyStroke;
 
 import br.com.gsv.domain.Convenio;
 import br.com.gsv.domain.Paciente;
-import br.com.gsv.domain.sub.Contato_cli;
-import br.com.gsv.domain.sub.Endereco_cli;
-import br.com.gsv.evolucao.formulario.GerenciarEvolucoes;
 import br.com.gsv.formularios.IncluirConvenioForm;
 import br.com.gsv.formularios.IncluirPacienteForm;
 import br.com.gsv.util.ConverteDadosUtil;
@@ -33,8 +30,6 @@ public class IncluirPacienteListener implements ActionListener{
 	private PacienteController con;
 	private Paciente paciente;
 	private Convenio convenio;
-	private Contato_cli contato;
-	private Endereco_cli endereco;
 	
 	
 	public IncluirPacienteListener(IncluirPacienteForm formulario) {
@@ -45,21 +40,17 @@ public class IncluirPacienteListener implements ActionListener{
 		TeclaEsc();
 		UsandoTAB();
 		HiperlinkAdicionarConv();
-		UpCase();
 		LimitaCaracteres();
 	}
 	
 	public void IniciarObjetos(){
 		this.paciente = new Paciente();
-		this.endereco = new Endereco_cli();
-		this.contato = new Contato_cli();
 		this.convenio = new Convenio();
 	}
 	
 	
 	private void Salvar(){
 		PegarDados();
-		AtrelarObjetos();
 		con.setPaciente(this.paciente);
 		con.SalvarPaciente();
 	}
@@ -85,17 +76,17 @@ public class IncluirPacienteListener implements ActionListener{
 		
 		FormaFab();
 		
-		contato.setEmail(this.formulario.getTEmail().getText());
-		contato.setCelular(this.formulario.getTCelular().getText());
-		contato.setTelefone(this.formulario.getTTelefone().getText());
+		paciente.getContato().setEmail(this.formulario.getTEmail().getText());
+		paciente.getContato().setCelular(this.formulario.getTCelular().getText());
+		paciente.getContato().setTelefone(this.formulario.getTTelefone().getText());
 		
-		endereco.setLogradouro(this.formulario.getTLogradouro().getText());
-		endereco.setComplemento(this.formulario.getTComplemento().getText());
-		endereco.setNumero(ConverteDadosUtil.RetornaInt(this.formulario.getTNumero().getText()));
-		endereco.setBairro(this.formulario.getTBairro().getText());
-		endereco.setCidade(this.formulario.getTCidade().getText());
-		endereco.setEstado((String)this.formulario.getComboEstado().getSelectedItem());
-		endereco.setCep(this.formulario.getJCep().getText().replaceAll("[_.-]", ""));
+		paciente.getEndereco().setLogradouro(this.formulario.getTLogradouro().getText());
+		paciente.getEndereco().setComplemento(this.formulario.getTComplemento().getText());
+		paciente.getEndereco().setNumero(ConverteDadosUtil.RetornaInt(this.formulario.getTNumero().getText()));
+		paciente.getEndereco().setBairro(this.formulario.getTBairro().getText());
+		paciente.getEndereco().setCidade(this.formulario.getTCidade().getText());
+		paciente.getEndereco().setEstado((String)this.formulario.getComboEstado().getSelectedItem());
+		paciente.getEndereco().setCep(this.formulario.getJCep().getText().replaceAll("[_.-]", ""));
 		
 	}
 	
@@ -110,29 +101,10 @@ public class IncluirPacienteListener implements ActionListener{
 	}
 	
 	
-	//Método que mapeia os objetos contato e endereco dentro do objeto cliente
-	private void AtrelarObjetos(){
-		this.paciente.setContato(this.contato);
-		this.paciente.setEndereco(this.endereco);
-		
-		this.contato.setPaciente(paciente);
-		this.endereco.setPaciente(paciente);
-	}	
-
-	
-	
-	
-	
-	
-	
-	
-	
 	/*-----------------------------------------------------------------------------------------------------------------*/
 	/*---------------------------------------CLASSES PARA EDICAO DOS OBJETOS-------------------------------------------*/
 	public void AlterandoObjetos(){
 		this.convenio = this.paciente.getConvenio();
-		this.endereco = this.paciente.getEndereco();
-		this.contato = this.paciente.getContato();
 		
 		this.formulario.getTId().setText(String.valueOf(this.paciente.getId()));
 		this.formulario.getTNome().setText(this.paciente.getNome());
@@ -179,12 +151,6 @@ public class IncluirPacienteListener implements ActionListener{
 				&& ValidaCampos.Validar(this.formulario.getJCpf().getText());
 	}
 	
-	private void AbrirEvolucao(){
-		GerenciarEvolucoes form = new GerenciarEvolucoes();
-		form.setLocationRelativeTo(this.formulario.getTela());
-		form.setVisible(true);
-	}
-	
 	
 	
 	private void UsandoTAB(){
@@ -207,29 +173,7 @@ public class IncluirPacienteListener implements ActionListener{
             }  
         });
 	}
-	
-	
-	private void UpCase(){
-		this.formulario.getTNome().addKeyListener(new KeyAdapter() {  
-			public void keyReleased(KeyEvent ke) {  
-				if (ke.getKeyCode() != KeyEvent.VK_HOME) {  
-					String s = formulario.getTNome().getText();  
-					formulario.getTNome().setText(s.toUpperCase());  
-				}  
-			}  
-		}); 	
-		
-		
-		this.formulario.getTObservacao().addKeyListener(new KeyAdapter() {  
-			public void keyReleased(KeyEvent ke) {  
-				if (ke.getKeyCode() != KeyEvent.VK_HOME) {  
-					String s = formulario.getTObservacao().getText();  
-					formulario.getTObservacao().setText(s.toUpperCase());  
-				}  
-			}  
-		}); 
-	}
-	
+
 	private void HiperlinkAdicionarConv(){
 		this.formulario.getLAdicionaConvenio().addMouseListener(new MouseAdapter() {
 		    @Override
@@ -270,6 +214,7 @@ public class IncluirPacienteListener implements ActionListener{
 	}
 	
 	
+	@SuppressWarnings("serial")
 	public void TeclaEsc(){
         JRootPane meurootpane = this.formulario.getRootPane();  
         meurootpane.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), "ESCAPE");  

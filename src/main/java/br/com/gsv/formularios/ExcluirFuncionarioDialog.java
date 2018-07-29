@@ -1,18 +1,15 @@
 package br.com.gsv.formularios;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
 import java.awt.Container;
-import java.awt.FlowLayout;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSeparator;
-import javax.swing.border.EmptyBorder;
 
 import br.com.gsv.domain.Funcionario;
+import br.com.gsv.graficoClassic.ExcluirFuncionarioClassic;
 import br.com.gsv.listeners.ExcluirFuncionarioListener;
 
 public class ExcluirFuncionarioDialog extends JDialog {
@@ -23,49 +20,36 @@ public class ExcluirFuncionarioDialog extends JDialog {
 	private JSeparator separa;
 	private Funcionario funcionario;
 	private ExcluirFuncionarioListener listener;
+	private ExcluirFuncionarioClassic listenerClassic;
+	private JPanel painelDrag;
+	private int xx,xy;
 	
 	
 	public ExcluirFuncionarioDialog(Funcionario funcionario) {
-		setBounds(100, 100,320, 100);
-		tela.setLayout(new BorderLayout());
-		panel.setBorder(new EmptyBorder(5, 5, 5, 5));
-		tela.add(panel, BorderLayout.CENTER);
-		
-		setTitle("Excluir Funcionário");
-		setModal(true);
-		setResizable(false);
-		tela.setLayout(null);		
-		tela.add(panel, BorderLayout.CENTER);
-		
-		panel.setLayout(null);
-		panel.setBorder(new EmptyBorder(5, 5, 5, 5));
-		panel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
-		
 		this.funcionario = funcionario;
 		
-		DefineComponentes();
+		CriaVariaveis();
+		AdicionaComponentes();
 		listener = new ExcluirFuncionarioListener(this);
+		listenerClassic = new ExcluirFuncionarioClassic(this);
 	}
 	
-	public void DefineComponentes(){
-		excluir = new JLabel();
-		excluir.setText("Excluir: "+ funcionario.getNome() +" ?");
-		excluir.setForeground(Color.black);
-		excluir.setBounds(10, 10, 300, 18);
-		tela.add(this.excluir);
 		
+	private void CriaVariaveis(){
+		excluir = new JLabel();
 		ok = new JButton();
-		getRootPane().setDefaultButton(ok); 
-		ok.setText("OK");
-		ok.setBounds(45, 50, 90, 18);
-		tela.add(this.ok);
-			
+		separa = new JSeparator();
 		cancelar = new JButton();
-		cancelar.setText("cancelar");
-		cancelar.setBounds(140, 50, 90, 18);
-		tela.add(this.cancelar);
+		painelDrag = new JPanel();
 	}
 	
+	public void AdicionaComponentes(){
+		tela.add(this.ok);
+		tela.add(this.separa);
+		tela.add(this.cancelar);
+		tela.add(this.excluir);
+		tela.add(this.painelDrag);
+	}
 
 
 	public JButton getOk() {
@@ -133,5 +117,37 @@ public class ExcluirFuncionarioDialog extends JDialog {
 	public JSeparator getSepara() {
 		return separa;
 	}
+
+
+	public JPanel getPainelDrag() {
+		return painelDrag;
+	}
+
+
+	public void setPainelDrag(JPanel painelDrag) {
+		this.painelDrag = painelDrag;
+	}
+
+
+	public int getXx() {
+		return xx;
+	}
+
+
+	public void setXx(int xx) {
+		this.xx = xx;
+	}
+
+
+	public int getXy() {
+		return xy;
+	}
+
+
+	public void setXy(int xy) {
+		this.xy = xy;
+	}
+
+	
 	
 }

@@ -26,7 +26,6 @@ public class BuscarPacienteListener implements ActionListener{
 		TabelaCliente();
 		AdicionaListener();
 		UsandoTAB();
-		UpCase();
 		TeclaEsc();
 	}
 	
@@ -90,16 +89,6 @@ public class BuscarPacienteListener implements ActionListener{
 	}
 	
 	
-	private void UpCase(){
-		this.formulario.getTextoBuscar().addKeyListener(new KeyAdapter() {  
-			public void keyReleased(KeyEvent ke) {  
-				if (ke.getKeyCode() != KeyEvent.VK_HOME) {  
-					String s = formulario.getTextoBuscar().getText();  
-					formulario.getTextoBuscar().setText(s.toUpperCase());  
-				}  
-			}  
-		}); 	
-	}
 	
 	public void TeclaEsc(){
         JRootPane meurootpane = this.formulario.getRootPane();  

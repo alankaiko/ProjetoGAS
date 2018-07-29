@@ -1,6 +1,5 @@
 package br.com.gsv.formularios;
 
-import java.awt.BorderLayout;
 import java.awt.Container;
 
 import javax.swing.JButton;
@@ -8,8 +7,8 @@ import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
-import javax.swing.border.EmptyBorder;
 
+import br.com.gsv.graficoClassic.GerenciaUsuarioClassic;
 import br.com.gsv.listeners.GerenciaUsuarioListener;
 
 public class GerenciaTelaUsuario extends JDialog{
@@ -19,66 +18,49 @@ public class GerenciaTelaUsuario extends JDialog{
 	private JButton detalhes, codigo, buscar, modificar, incluir, excluir, fim;
 	private Container tela= getContentPane();
 	private JScrollPane scrollPane;
+	private GerenciaUsuarioClassic listenerClassic;
+	private JPanel painelDrag;
+	private int xx,xy;
 	
 	
 	public GerenciaTelaUsuario() {
-		setTitle("Cadastro de Usuários");
-		setModal(true);
-		setBounds(100, 100, 700, 480);
-		setResizable(false);
-		tela.setLayout(null);
-		tela.add(panel, BorderLayout.CENTER);
-		
-		panel.setBorder(new EmptyBorder(5, 5, 5, 5));
-		panel.setLayout(null);
-		
-		scrollPane = new JScrollPane();
-		scrollPane.setBounds(26,12,472,412);
-		tela.add(scrollPane);	
-		table = new JTable();
-		
-		DadosConvenio();
+		CriaTelaGeral();
+		InicializaComponentes();
 		this.listener = new GerenciaUsuarioListener(this);	
+		listenerClassic = new GerenciaUsuarioClassic(this);
 	}
 	
-	public void DadosConvenio() {
+	
+	private void CriaTelaGeral(){
 		detalhes = new JButton();
-		detalhes.setText("Detalhes");
-		detalhes.setBounds(525,11,125,20);
-		tela.add(detalhes);
-		
 		codigo = new JButton();
-		codigo.setText("Código");
-		codigo.setBounds(525,35,125,20);
-		tela.add(codigo);
-		
 		buscar = new JButton();
-		buscar.setText("Buscar");
-		buscar.setBounds(525,58,125,20);	
-		tela.add(buscar);
-		
 		modificar = new JButton();
-		modificar.setText("Modificar");
-		modificar.setBounds(525,81,125,20);
-		tela.add(modificar);
-		
 		incluir = new JButton();
-		incluir.setText("Incluir");
-		incluir.setBounds(525,104,125,20);
-		tela.add(incluir);
-		
 		excluir = new JButton();
-		excluir.setText("Excluir");
-		excluir.setBounds(525,127,125,20);
-		tela.add(excluir);
-		
 		fim = new JButton();
-		fim.setText("Fim");
-		fim.setBounds(525,150,125,20);
+		scrollPane = new JScrollPane();
+		table = new JTable();
+		painelDrag = new JPanel();
+	}
+	
+	
+	
+	private void InicializaComponentes(){
+		tela.add(detalhes);
+		tela.add(codigo);
+		tela.add(buscar);
+		tela.add(modificar);
+		tela.add(incluir);
+		tela.add(excluir);
 		tela.add(fim);
 	}
 	
 	
+	
+	
+	
+
 
 	public JButton getCodigo() {
 		return codigo;
@@ -187,6 +169,36 @@ public class GerenciaTelaUsuario extends JDialog{
 
 	public void setPanel(JPanel panel) {
 		this.panel = panel;
+	}
+
+
+	public JPanel getPainelDrag() {
+		return painelDrag;
+	}
+
+
+	public void setPainelDrag(JPanel painelDrag) {
+		this.painelDrag = painelDrag;
+	}
+
+
+	public int getXx() {
+		return xx;
+	}
+
+
+	public void setXx(int xx) {
+		this.xx = xx;
+	}
+
+
+	public int getXy() {
+		return xy;
+	}
+
+
+	public void setXy(int xy) {
+		this.xy = xy;
 	}
 	
 }

@@ -18,8 +18,7 @@ import br.com.gsv.agenda.listeners.GerenciarAgendaListener;
 
 import com.toedter.calendar.JCalendar;
 
-public class GerenciarAgenda extends JDialog {
-
+public class GerenciarAgenda extends JDialog {	
 	private JPanel panel = new JPanel();
 	private Container tela = getContentPane();
 	private JScrollPane scrollPane;
@@ -28,8 +27,8 @@ public class GerenciarAgenda extends JDialog {
 	private JTextField TNome;
 	private JCalendar calendar;
 	private JButton BAgendar, BVoltar, BRemover;
-	private JLabel LNome, LTipo, LData, LHora;
-	private JTextField TTipo,TData,THora;
+	private JLabel LNome, LStatus, LData, LHora;
+	private JTextField TStatus,TData,THora;
 	
 
 
@@ -68,14 +67,14 @@ public class GerenciarAgenda extends JDialog {
 		LNome.setBounds(479, 175, 61, 14);
 		panel.add(LNome);
 		
-		TTipo = new JTextField();
-		TTipo.setColumns(10);
-		TTipo.setBounds(479, 226, 225, 20);
-		panel.add(TTipo);
+		TStatus = new JTextField();
+		TStatus.setColumns(10);
+		TStatus.setBounds(479, 226, 225, 20);
+		panel.add(TStatus);
 		
-		LTipo = new JLabel("Tipo");
-		LTipo.setBounds(479, 213, 46, 14);
-		panel.add(LTipo);
+		LStatus = new JLabel("Status");
+		LStatus.setBounds(479, 213, 46, 14);
+		panel.add(LStatus);
 		
 		LData = new JLabel("Data");
 		LData.setBounds(479, 257, 46, 14);
@@ -175,15 +174,13 @@ public class GerenciarAgenda extends JDialog {
 		BVoltar = bVoltar;
 	}
 
-	public JTextField getTTipo() {
-		return TTipo;
+	public JTextField getTStatus() {
+		return TStatus;
 	}
-
-	public void setTTipo(JTextField tTipo) {
-		TTipo = tTipo;
-	}
-
 	
+	public void setTStatus(JTextField tStatus) {
+		TStatus = tStatus;
+	}
 
 	public JButton getBRemover() {
 		return BRemover;

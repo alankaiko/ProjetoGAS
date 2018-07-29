@@ -1,4 +1,4 @@
-package br.com.gsv.formularios;
+package br.com.gsv.graficoClassic;
 
 import java.awt.Color;
 

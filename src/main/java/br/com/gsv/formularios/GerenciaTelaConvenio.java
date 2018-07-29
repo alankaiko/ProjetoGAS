@@ -1,6 +1,5 @@
 package br.com.gsv.formularios;
 
-import java.awt.BorderLayout;
 import java.awt.Container;
 
 import javax.swing.JButton;
@@ -8,8 +7,8 @@ import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
-import javax.swing.border.EmptyBorder;
 
+import br.com.gsv.graficoClassic.GerenciaConvenioClassic;
 import br.com.gsv.listeners.GerenciaConvenioListener;
 
 public class GerenciaTelaConvenio extends JDialog {
@@ -19,65 +18,43 @@ public class GerenciaTelaConvenio extends JDialog {
 	private Container tela= getContentPane();
 	private JScrollPane scrollPane;
 	private GerenciaConvenioListener listener;
+	private GerenciaConvenioClassic listenerClassic;
+	private JPanel painelDrag;
+	private int xx,xy;
 	
 	
 	public GerenciaTelaConvenio() {
-		setTitle("Convenio / Plano / Credencial");
-		setModal(true);
-		setBounds(100, 100, 542, 372);
-		setResizable(false);
-		tela.setLayout(null);
-		tela.add(panel, BorderLayout.CENTER);
-		
-		panel.setBorder(new EmptyBorder(5, 5, 5, 5));
-		panel.setLayout(null);
-		
-		scrollPane = new JScrollPane();
-		scrollPane.setBounds(26,12,346,305);
-		tela.add(scrollPane);	
-		table = new JTable();
-				
-		DadosConvenio();
+		CriaTelaGeral();
+		InicializaComponentes();
 		this.listener = new GerenciaConvenioListener(this);
+		listenerClassic = new GerenciaConvenioClassic(this);
 	}
 	
-	public void DadosConvenio() {
+	
+	private void CriaTelaGeral(){
 		detalhes = new JButton();
-		detalhes.setText("Detalhes");
-		detalhes.setBounds(395,11,125,20);
-		tela.add(detalhes);
-		
 		codigo = new JButton();
-		codigo.setText("Código");
-		codigo.setBounds(395,34,125,20);
-		tela.add(codigo);
-		
 		buscar = new JButton();
-		buscar.setText("Buscar");
-		buscar.setBounds(395,57,125,20);
-		tela.add(buscar);
-		
 		modificar = new JButton();
-		modificar.setText("Modificar");
-		modificar.setBounds(395,80,125,20);
-		tela.add(modificar);
-		
 		incluir = new JButton();
-		incluir.setText("Incluir");
-		incluir.setBounds(395,103,125,20);
-		tela.add(incluir);
-		
 		excluir = new JButton();
-		excluir.setText("Excluir");
-		excluir.setBounds(395,126,125,20);
-		tela.add(excluir);
-		
 		fim = new JButton();
-		fim.setText("Fim");
-		fim.setBounds(395,149,125,20);	
+		table = new JTable();
+		scrollPane = new JScrollPane();
+		painelDrag = new JPanel();
+	}
+	
+
+	private void InicializaComponentes(){
+		tela.add(detalhes);
+		tela.add(codigo);
+		tela.add(buscar);
+		tela.add(modificar);
+		tela.add(incluir);
+		tela.add(excluir);
 		tela.add(fim);
 	}
-	
+
 
 	public JPanel getPanel() {
 		return panel;
@@ -187,4 +164,36 @@ public class GerenciaTelaConvenio extends JDialog {
 	public void setScrollPane(JScrollPane scrollPane) {
 		this.scrollPane = scrollPane;
 	}
+
+
+	public JPanel getPainelDrag() {
+		return painelDrag;
+	}
+
+
+	public void setPainelDrag(JPanel painelDrag) {
+		this.painelDrag = painelDrag;
+	}
+
+
+	public int getXx() {
+		return xx;
+	}
+
+
+	public void setXx(int xx) {
+		this.xx = xx;
+	}
+
+
+	public int getXy() {
+		return xy;
+	}
+
+
+	public void setXy(int xy) {
+		this.xy = xy;
+	}
+
+	
 }

@@ -1,24 +1,22 @@
 package br.com.gsv.domain;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import br.com.gsv.domain.sub.Contato_cli;
 import br.com.gsv.domain.sub.Contato_fun;
+import br.com.gsv.domain.sub.Endereco_cli;
 import br.com.gsv.domain.sub.Endereco_fun;
 import br.com.gsv.domain.sub.RegistroCoren;
 
@@ -46,10 +44,17 @@ public class Funcionario implements Serializable{
 	private Endereco_fun endereco;
 	private RegistroCoren registroCoren;
 
+	public Funcionario() {
+		nome = new String();
+		cpf = new String();
+		rg = new String();
+		contato = new Contato_fun();
+		endereco = new Endereco_fun();
+		registroCoren = new RegistroCoren();
+	}
 	
 	@Id
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
-	@Column(name = "fun_id")
 	public Long getId() {
 		return id;
 	}
@@ -87,7 +92,8 @@ public class Funcionario implements Serializable{
 
 	
 	
-	@OneToOne(mappedBy = "funcionario", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "tbl_contato_id", referencedColumnName = "id")
 	public Contato_fun getContato() {
 		return contato;
 	}
@@ -96,7 +102,8 @@ public class Funcionario implements Serializable{
 		this.contato = contato;
 	}
 
-	@OneToOne(mappedBy = "funcionario", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "tbl_endereco_id", referencedColumnName = "id")
 	public Endereco_fun getEndereco() {
 		return endereco;
 	}

@@ -2,23 +2,14 @@ package br.com.gsv.domain.sub;
 
 import java.io.Serializable;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.MapsId;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.hibernate.validator.constraints.Email;
-
-import br.com.gsv.domain.Paciente;
 
 @Entity
 @Table(name = "contato_cli")
@@ -29,7 +20,6 @@ public class Contato_cli implements Serializable {
 	private String email;
 	private String telefone;
 	private String celular;
-	private Paciente paciente;
 	
 	public Contato_cli() {
 		email = new String();
@@ -39,7 +29,6 @@ public class Contato_cli implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
-	@Column(name="cont_id")
 	public Long getId() {
 		return id;
 	}
@@ -76,20 +65,7 @@ public class Contato_cli implements Serializable {
 		this.celular = celular;
 	}
 	
-		
-
 	
-	@MapsId
-	@OneToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "id")
-	public Paciente getPaciente() {
-		return paciente;
-	}
-
-	public void setPaciente(Paciente paciente) {
-		this.paciente = paciente;
-	}
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;

@@ -11,9 +11,6 @@ import javax.swing.JRootPane;
 import javax.swing.KeyStroke;
 
 import br.com.gsv.domain.Funcionario;
-import br.com.gsv.domain.sub.Contato_fun;
-import br.com.gsv.domain.sub.Endereco_fun;
-import br.com.gsv.domain.sub.RegistroCoren;
 import br.com.gsv.formularios.IncluirFuncionariosForm;
 import br.com.gsv.util.ConverteDadosUtil;
 import br.com.gsv.util.MensagemPainelUtil;
@@ -26,9 +23,7 @@ public class IncluirFuncionarioListener implements ActionListener{
 	private IncluirFuncionariosForm formulario;
 	private FuncionarioController con;
 	private Funcionario funcionario;
-	private Contato_fun contato;
-	private Endereco_fun endereco;
-	private RegistroCoren coren;
+	
 	
 	
 	public IncluirFuncionarioListener(IncluirFuncionariosForm formulario) {
@@ -37,21 +32,16 @@ public class IncluirFuncionarioListener implements ActionListener{
 		AdicionarListener();
 		TeclaEsc();
 		UsandoTAB();
-		UpCase();
 		LimitaCaracteres();
 	}
 	
 	public void IniciaObjeto(){
 		this.funcionario = new Funcionario();
-		this.contato = new Contato_fun();
-		this.endereco = new Endereco_fun();
-		this.coren = new RegistroCoren();
 	}
 	
 	
 	private void Salvar(){
 		PegarDados();
-		AtrelarObjetos();
 		con.setFuncionario(this.funcionario);
 		con.SalvarFuncionario();
 	}
@@ -70,43 +60,27 @@ public class IncluirFuncionarioListener implements ActionListener{
 		funcionario.setCpf(this.formulario.getJCpf().getText().replaceAll("[_.-]", ""));
 		funcionario.setRg(this.formulario.getTRg().getText());
 		
-		contato.setEmail(this.formulario.getTEmail().getText());
-		contato.setCelular(this.formulario.getTCelular().getText());
-		contato.setTelefone(this.formulario.getTTelefone().getText());
+		funcionario.getContato().setEmail(this.formulario.getTEmail().getText());
+		funcionario.getContato().setCelular(this.formulario.getTCelular().getText());
+		funcionario.getContato().setTelefone(this.formulario.getTTelefone().getText());
 		
-		endereco.setLogradouro(this.formulario.getTLogradouro().getText());
-		endereco.setComplemento(this.formulario.getTComplemento().getText());
-		endereco.setNumero(ConverteDadosUtil.RetornaInt(this.formulario.getTNumero().getText()));
-		endereco.setBairro(this.formulario.getTBairro().getText());
-		endereco.setCidade(this.formulario.getTCidade().getText());
-		endereco.setEstado((String)this.formulario.getComboEstado().getSelectedItem());
-		endereco.setCep(this.formulario.getJCep().getText().replaceAll("[_.-]", ""));
+		funcionario.getEndereco().setLogradouro(this.formulario.getTLogradouro().getText());
+		funcionario.getEndereco().setComplemento(this.formulario.getTComplemento().getText());
+		funcionario.getEndereco().setNumero(ConverteDadosUtil.RetornaInt(this.formulario.getTNumero().getText()));
+		funcionario.getEndereco().setBairro(this.formulario.getTBairro().getText());
+		funcionario.getEndereco().setCidade(this.formulario.getTCidade().getText());
+		funcionario.getEndereco().setEstado((String)this.formulario.getComboEstado().getSelectedItem());
+		funcionario.getEndereco().setCep(this.formulario.getJCep().getText().replaceAll("[_.-]", ""));
 		
-		coren.setCoren((String) this.formulario.getComboCoren().getSelectedItem());
-		coren.setInscricao(this.formulario.getTCoren().getText());
-		coren.setUf((String) this.formulario.getComboCorenEst().getSelectedItem());
+		funcionario.getRegistroCoren().setCoren((String) this.formulario.getComboCoren().getSelectedItem());
+		funcionario.getRegistroCoren().setInscricao(this.formulario.getTCoren().getText());
+		funcionario.getRegistroCoren().setUf((String) this.formulario.getComboCorenEst().getSelectedItem());
 	}
-		
-	
-	//Método que mapeia os objetos contato e endereco dentro do objeto cliente
-	private void AtrelarObjetos(){
-		this.funcionario.setContato(this.contato);
-		this.funcionario.setEndereco(this.endereco);
-		this.funcionario.setRegistroCoren(this.coren);
-		
-		this.endereco.setFuncionario(this.funcionario);
-		this.contato.setFuncionario(this.funcionario);
-	}	
-
 	
 	
 	/*-----------------------------------------------------------------------------------------------------------------*/
 	/*---------------------------------------CLASSES PARA EDICAO DOS OBJETOS-------------------------------------------*/
-	public void AlterandoObjetos(){
-		this.contato = this.funcionario.getContato();
-		this.endereco = this.funcionario.getEndereco();
-		this.coren = this.funcionario.getRegistroCoren();
-		
+	public void AlterandoObjetos(){		
 		this.formulario.getTId().setText(String.valueOf(this.funcionario.getId()));
 		this.formulario.getTNome().setText(this.funcionario.getNome());
 		this.formulario.getTRg().setText(this.funcionario.getRg());
@@ -203,20 +177,8 @@ public class IncluirFuncionarioListener implements ActionListener{
 	}
 	
 	
-	private void UpCase(){
-		this.formulario.getTNome().addKeyListener(new KeyAdapter() {  
-			public void keyReleased(KeyEvent ke) {  
-				if (ke.getKeyCode() != KeyEvent.VK_HOME) {  
-					String s = formulario.getTNome().getText();  
-					formulario.getTNome().setText(s.toUpperCase());  
-				}  
-			}  
-		}); 	
-		
-		
-	}
 	
-	
+	@SuppressWarnings("serial")
 	public void TeclaEsc(){
         JRootPane meurootpane = this.formulario.getRootPane();  
         meurootpane.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), "ESCAPE");  

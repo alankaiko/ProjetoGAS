@@ -54,7 +54,7 @@ public class Agenda {
 	private Paciente paciente;
 
 	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.DETACH)
-	@JoinColumn(name = "tbl_funcionario_id", referencedColumnName = "fun_id")
+	@JoinColumn(name = "tbl_funcionario_id", referencedColumnName = "id")
 	private Funcionario funcionario;
 
 	private String observacao;
