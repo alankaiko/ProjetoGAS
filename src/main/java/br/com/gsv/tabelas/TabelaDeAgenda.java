@@ -80,9 +80,6 @@ public class TabelaDeAgenda extends AbstractTableModel{
   
 	@Override
 	public Object getValueAt(int rowIndex, int columnIndex) {
-		//Agenda dados = linhas.get(rowIndex);
-		
-		
 		
 		switch (columnIndex) {
 	        case HORA:

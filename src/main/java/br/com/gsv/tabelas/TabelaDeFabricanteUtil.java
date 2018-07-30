@@ -62,10 +62,8 @@ public class TabelaDeFabricanteUtil extends AbstractTableModel{
  
         switch (columnIndex) {
         case CODIGO:
-        	 System.out.println("rodou codigo");
             return dados.getId();
         case DESCRICAO:
-        	 System.out.println("rodou descricao");
             return dados.getDescricao();
         default:
            
