@@ -101,6 +101,7 @@ public class IncluirPacienteListener implements ActionListener{
 	}
 	
 	
+	
 	/*-----------------------------------------------------------------------------------------------------------------*/
 	/*---------------------------------------CLASSES PARA EDICAO DOS OBJETOS-------------------------------------------*/
 	public void AlterandoObjetos(){
@@ -173,7 +174,8 @@ public class IncluirPacienteListener implements ActionListener{
             }  
         });
 	}
-
+	
+	
 	private void HiperlinkAdicionarConv(){
 		this.formulario.getLAdicionaConvenio().addMouseListener(new MouseAdapter() {
 		    @Override
@@ -214,7 +216,6 @@ public class IncluirPacienteListener implements ActionListener{
 	}
 	
 	
-	@SuppressWarnings("serial")
 	public void TeclaEsc(){
         JRootPane meurootpane = this.formulario.getRootPane();  
         meurootpane.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), "ESCAPE");  

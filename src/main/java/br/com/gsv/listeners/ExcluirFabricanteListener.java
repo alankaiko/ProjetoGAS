@@ -11,7 +11,9 @@ import javax.swing.JRootPane;
 import javax.swing.KeyStroke;
 
 import br.com.gsv.formularios.ExcluirFabricanteDialog;
+import br.com.gsv.formularios.ExcluirFuncionarioDialog;
 import br.com.projeto.gsv.controller.FabricanteController;
+import br.com.projeto.gsv.controller.FuncionarioController;
 
 
 public class ExcluirFabricanteListener implements ActionListener{

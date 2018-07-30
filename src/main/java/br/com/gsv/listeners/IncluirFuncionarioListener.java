@@ -25,7 +25,6 @@ public class IncluirFuncionarioListener implements ActionListener{
 	private Funcionario funcionario;
 	
 	
-	
 	public IncluirFuncionarioListener(IncluirFuncionariosForm formulario) {
 		this.formulario = formulario;
 		con = new FuncionarioController();
@@ -76,11 +75,12 @@ public class IncluirFuncionarioListener implements ActionListener{
 		funcionario.getRegistroCoren().setInscricao(this.formulario.getTCoren().getText());
 		funcionario.getRegistroCoren().setUf((String) this.formulario.getComboCorenEst().getSelectedItem());
 	}
+		
 	
 	
 	/*-----------------------------------------------------------------------------------------------------------------*/
 	/*---------------------------------------CLASSES PARA EDICAO DOS OBJETOS-------------------------------------------*/
-	public void AlterandoObjetos(){		
+	public void AlterandoObjetos(){
 		this.formulario.getTId().setText(String.valueOf(this.funcionario.getId()));
 		this.formulario.getTNome().setText(this.funcionario.getNome());
 		this.formulario.getTRg().setText(this.funcionario.getRg());
@@ -177,8 +177,6 @@ public class IncluirFuncionarioListener implements ActionListener{
 	}
 	
 	
-	
-	@SuppressWarnings("serial")
 	public void TeclaEsc(){
         JRootPane meurootpane = this.formulario.getRootPane();  
         meurootpane.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), "ESCAPE");  

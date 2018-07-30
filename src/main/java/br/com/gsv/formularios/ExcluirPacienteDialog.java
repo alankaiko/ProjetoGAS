@@ -1,15 +1,18 @@
 package br.com.gsv.formularios;
 
+import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Container;
+import java.awt.FlowLayout;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSeparator;
+import javax.swing.border.EmptyBorder;
 
 import br.com.gsv.domain.Paciente;
-import br.com.gsv.graficoClassic.ExcluirPacienteClassic;
 import br.com.gsv.listeners.ExcluirPacienteListener;
 
 public class ExcluirPacienteDialog extends JDialog {
@@ -20,36 +23,48 @@ public class ExcluirPacienteDialog extends JDialog {
 	private JSeparator separa;
 	private Paciente cliente;
 	private ExcluirPacienteListener listener;
-	private ExcluirPacienteClassic listenerClassic;
-	private JPanel painelDrag;
-	private int xx,xy;
+
 	
 	
-	public ExcluirPacienteDialog(Paciente cliente) {
+	public ExcluirPacienteDialog(Paciente cliente) {		
+		setBounds(100, 100,320, 100);
+		tela.setLayout(new BorderLayout());
+		panel.setBorder(new EmptyBorder(5, 5, 5, 5));
+		tela.add(panel, BorderLayout.CENTER);
+		
+		setTitle("Excluir Paciente");
+		setModal(true);
+		setResizable(false);
+		tela.setLayout(null);		
+		tela.add(panel, BorderLayout.CENTER);
+		
+		panel.setLayout(null);
+		panel.setBorder(new EmptyBorder(5, 5, 5, 5));
+		panel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+		
 		this.cliente = cliente;
 		
-		IniciaVariaveis();
-		AdicionaComponentes();
+		CriaCompomentes();
 		listener = new ExcluirPacienteListener(this);
-		listenerClassic = new ExcluirPacienteClassic(this);
 	}
 	
-
-
-	private void IniciaVariaveis(){
-		ok = new JButton();
-		cancelar = new JButton();
+	public void CriaCompomentes(){
 		excluir = new JLabel();
-		separa = new JSeparator();
-		painelDrag = new JPanel();
-	}
-	
-	private void AdicionaComponentes(){
-		tela.add(this.ok);
-		tela.add(this.cancelar);
+		excluir.setText("Excluir: "+ cliente.getNome() +" ?");
+		excluir.setForeground(Color.black);
+		excluir.setBounds(10, 10, 300, 18);
 		tela.add(this.excluir);
-		tela.add(this.separa);
-		tela.add(this.painelDrag);
+		
+		ok = new JButton();
+		getRootPane().setDefaultButton(ok); 
+		ok.setText("OK");
+		ok.setBounds(45, 50, 90, 18);
+		tela.add(this.ok);
+		
+		cancelar = new JButton();
+		cancelar.setText("cancelar");
+		cancelar.setBounds(140, 50, 90, 18);
+		tela.add(this.cancelar);
 	}
 
 
@@ -119,34 +134,4 @@ public class ExcluirPacienteDialog extends JDialog {
 	}
 
 
-	public JPanel getPainelDrag() {
-		return painelDrag;
-	}
-
-
-	public void setPainelDrag(JPanel painelDrag) {
-		this.painelDrag = painelDrag;
-	}
-
-
-	public int getXx() {
-		return xx;
-	}
-
-
-	public void setXx(int xx) {
-		this.xx = xx;
-	}
-
-
-	public int getXy() {
-		return xy;
-	}
-
-
-	public void setXy(int xy) {
-		this.xy = xy;
-	}
-
-	
 }

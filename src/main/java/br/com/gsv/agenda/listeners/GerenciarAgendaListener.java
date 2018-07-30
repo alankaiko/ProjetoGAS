@@ -190,12 +190,12 @@ public class GerenciarAgendaListener implements ActionListener, PropertyChangeLi
 		
 		if(ag != null){
 			this.gerenciamento.getTNome().setText(ag.getPaciente().getNome());
-			this.gerenciamento.getTStatus().setText(ag.getStatusAgendamento().getValor());
+			this.gerenciamento.getTTipo().setText(ag.getTipoAgendamento().getValor());
 			this.gerenciamento.getTData().setText(ag.getData().toString());
 			this.gerenciamento.getTHora().setText(ag.getHoraDesejada());
 		}else{
 			this.gerenciamento.getTNome().setText("");
-			this.gerenciamento.getTStatus().setText("");
+			this.gerenciamento.getTTipo().setText("");
 			this.gerenciamento.getTData().setText("");
 			this.gerenciamento.getTHora().setText("");
 		}

@@ -27,6 +27,7 @@ import com.toedter.calendar.JDateChooser;
 
 
 public class AgendaFormulario extends JDialog {
+
 	private JPanel panel = new JPanel();
 	private Container tela = getContentPane();
 	private JTextField TPaciente, TFixo, TCelular, TConvenio, TFuncionario, TRegistro, TEmail;

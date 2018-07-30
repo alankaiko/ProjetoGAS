@@ -140,7 +140,6 @@ public class IncluirConvenioListener implements ActionListener{
 		});
 	}
 	
-	
 
 	public void setConvenio(Convenio convenio) {
 		this.convenio = convenio;

@@ -13,7 +13,9 @@ import javax.swing.ListSelectionModel;
 
 import br.com.gsv.formularios.BuscarConvenioDialog;
 import br.com.gsv.tabelas.buscar.TabelaBuscarConvenioUtil;
+import br.com.gsv.tabelas.buscar.TabelaBuscarProdutoUtil;
 import br.com.projeto.gsv.controller.ConvenioController;
+import br.com.projeto.gsv.controller.ProdutoController;
 
 public class BuscarConvenioListener  implements ActionListener{
 	private BuscarConvenioDialog formulario;
