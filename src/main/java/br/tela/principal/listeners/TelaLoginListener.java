@@ -22,7 +22,6 @@ public class TelaLoginListener implements ActionListener, MouseListener{
 	public TelaLoginListener(TelaLogin formulario) {
 		this.formulario = formulario;
 		AdicionarListener();
-		UpCase();
 		UsandoTAB();
 		ArrastandoPainel();
 	}
@@ -92,19 +91,6 @@ public class TelaLoginListener implements ActionListener, MouseListener{
 			VerificarLogin();			
 		}
 		
-	}
-	
-	
-	
-	private void UpCase(){
-		this.formulario.getCampoTexto().addKeyListener(new KeyAdapter() {  
-			public void keyReleased(KeyEvent ke) {  
-				if (ke.getKeyCode() != KeyEvent.VK_HOME) {  
-					String s = formulario.getCampoTexto().getText();  
-					formulario.getCampoTexto().setText(s.toUpperCase());  
-				}  
-			}  
-		}); 	
 	}
 	
 	

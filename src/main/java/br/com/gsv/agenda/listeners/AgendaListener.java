@@ -111,7 +111,6 @@ public class AgendaListener implements ActionListener, PropertyChangeListener{
 	public void actionPerformed(ActionEvent event) {
 		if(event.getSource().equals(this.formulario.getBPesqPacient())){
 			BotaoPesquisarPaciente();
-			TabelaDeProntuario();
 		}else if(event.getSource().equals(this.formulario.getBPesqFunc())){
 			BotaoPesquisarFuncionario();
 		}else if(event.getSource().equals(this.formulario.getBVoltar())){
@@ -129,8 +128,10 @@ public class AgendaListener implements ActionListener, PropertyChangeListener{
 		dialog.setLocationRelativeTo(this.formulario.getContentPane());
 		dialog.setVisible(true);
 		
-		if(dialog.getListener().getCodigo() != null)
+		if(dialog.getListener().getCodigo() != null){
 			BuscarCliente(dialog.getListener().getCodigo());
+			TabelaDeProntuario();
+		}
 	}
 	
 	private void BotaoPesquisarFuncionario(){
