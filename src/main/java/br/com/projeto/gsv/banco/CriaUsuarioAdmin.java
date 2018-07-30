@@ -40,7 +40,7 @@ public class CriaUsuarioAdmin {
 	
 	
 	private void FormToUsuario(){
-		usuario.setLogin("ADMIN");
+		usuario.setLogin("admin");
 		usuario.setSenha("123");
 		usuario.setFuncionario(funcionario);
 	}
